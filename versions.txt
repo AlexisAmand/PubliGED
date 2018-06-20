@@ -1,0 +1,993 @@
+5 novembre 2015
+---------------
+
+Résolution des bugs liés à PDO sur la page des statistiques.
+Retouches sur la charte graphique pour donner un look un peu plus moderne.
+Ajout d’un graphique avec la répartition par genre.
+Affichage d’un message si la naissance ou/et le décès sont inconnus.
+Affichage d’un message si les parents sont inconnus.
+Affichage d’un message si la personne n’a pas d’enfants connus.
+Affichage d’un logo qui indique le sexe de la personne.
+
+
+9 novembre 2015
+---------------
+
+Modification des lignes 337, 338 et 339 du fichier lecture.php pour que les lieux soient mis dans leur table.
+Début remplissage de la table lieux.
+Création d’un option qui permet de vider toutes les tables de la base de données.
+Ajout d’un module qui permet d’accéder aux fonctions d’administration: envoi et lecture du gedcom.
+Ajout d’un module qui permet d’accéder aux fonctions d’administration: suppression du gedcom en vidant toutes les tables.
+Mise en place du template sur la page qui permet d’uploader un gedcom.
+
+12 novembre 2015
+----------------
+
+L’administrateur a désormais accès à une page qui affiche l’espace utilisé par ses tables mais de pense qu’il y a un soucis au niveau des valeurs.
+Le texte de la page d’accueil est personnalisable via un formulaire WYSIWYG.
+Modification de la feuille de style (titre des modules du menu).
+Début de la mise en place du back-office.
+
+13 novembre 2015
+----------------
+
+Le titre de la page d’accueil peut désormais être modifié.
+Ajout d’options de mise en page dans TinyMCE (images, tableaux, vidéos…etc.).
+Suite de la mise en place du back-office.
+
+14 novembre 2015
+----------------
+
+Intégration du script sur Genealexis.fr.
+Ajout un fil d’Ariane.
+Rapatriement de la class .alpha pour la mise en page des lettres du fichier liste_individu.php
+Ajout d’un espace entre le nom et la parenthèse ouvrante (fichier patro.php).
+
+27 janvier 2016
+---------------
+
+Les lieux s’enregistrent convenablement dans la base de données.
+
+28 janvier 2016
+---------------
+
+Sur les fiches individuelles, le nom de la ville est désormais affiché avec le département et le pays.
+Sur les fiches individuelles, la balise title change en fonction de l’individu.
+Sur les fiches individuelles, la balise meta change en fonction de l’individu.
+
+29 janvier 2016
+---------------
+
+Sur les fiches individuelles, amélioration de la présentation.
+Sur les fiches individuelles, les notes des ° et des + s’affichent correctement.
+
+1 février 2016
+--------------
+
+Sur certains individus (Adolphe 1877) les notes ne fonctionnent pas.
+Les mariages sont désormais pris en compte.
+Les lieux qui s’affichent à côté des naissances et des décès ne sont pas les bons. Ce bug devait être résolu quand les mariages seront intégrés à la base.
+Sur les fiches individuelles, les notes individuelles des individus sont désormais prises en compte.
+
+24 mars 2016
+------------
+
+Résolution du bug d’affichage sur la page d’accueil.
+Résolution du bug d’affichage sur la page qui affiche la piste des porteurs d’un patronyme.
+Petites retouches sur le CSS.
+
+18 juillet 2016
+---------------
+
+Sur les fiches individuelles, les professions s’affichent.
+Correction de quelques fautes d’orthographe :).
+Les lieux d’affichent « en toutes lettres » à la suite de la date du baptême.
+
+20 juillet 2016
+---------------
+
+Affichage de la mention « lieu inconnu » si le lieu n’est pas connu.
+L’affichage des lieux se fait désormais de façon un peu plus élégante et va une fonction PHP.
+Les fiches individuelles sont désormais accessibles depuis la rubrique « liste des patronymes ».
+Ajout d’un arbre généalogique sur 3 générations avec les noms et les prénoms.
+J’ai commencé à mettre les CSS dans un fichier externe pour alléger un max les fichiers.
+Sur les fiches individuelles, je teste des nouvelles images pour le sexe des individus.
+J’ai changé le titre des fiches individuelles.
+
+21 juillet 2016
+---------------
+
+Retouches CSS sur les fiches individuelles.
+Les adoptions sont désormais prises en compte lors de la lecture du gedcom.
+Les census sont désormais pris en compte lors de la lecture du gedcom.
+Les confirmations sont désormais prises en compte lors de la lecture du gedcom.
+
+22 juillet 2016
+---------------
+
+Les crimes sont désormais pris en compte lors de la lecture du gedcom.
+Les donations sont désormais prises en compte lors de la lecture du gedcom.
+Les « éducations » sont désormais prises en compte lors de la lecture du gedcom.
+L’émigration est désormais prise en compte lors de la lecture du gedcom.
+Les emplois sont désormais pris en compte lors de la lecture du gedcom.
+Les premières communions sont désormais prises en compte lors de la lecture du gedcom.
+Les funérailles sont désormais prises en compte lors de la lecture du gedcom.
+Les « historiques » sont désormais pris en compte lors de la lecture du gedcom.
+L’immigration est désormais prise en compte lors de la lecture du gedcom.
+Les « vivants » sont désormais pris en compte lors de la lecture du gedcom.
+Les naturalisations sont désormais prises en compte lors de la lecture du gedcom.
+Les anoblissements sont désormais pris en compte lors de la lecture du gedcom.
+Les ondoiement sont désormais pris en compte lors de la lecture du gedcom.
+Les ordinations sont désormais pris en compte lors de la lecture du gedcom.
+Les listes de passagers sont désormais prises en compte lors de la lecture du gedcom.
+Les ouvertures de testaments sont désormais prises en compte lors de la lecture du gedcom.
+Les religions pratiquées sont désormais prises en compte lors de la lecture du gedcom.
+Les résidences sont désormais prises en compte lors de la lecture du gedcom.
+Les retraites désormais prises en compte lors de la lecture du gedcom.
+Les remarques sont désormais prises en compte lors de la lecture du gedcom.
+Les pierres tombales sont désormais prises en compte lors de la lecture du gedcom.
+Les testaments sont désormais pris en compte lors de la lecture du gedcom.
+Les annulations de mariage sont désormais pris en compte lors de la lecture du gedcom.
+Les divorces sont désormais pris en compte lors de la lecture du gedcom.
+Les fiançailles sont désormais pris en compte lors de la lecture du gedcom.
+Les publications de bans sont désormais pris en compte lors de la lecture du gedcom.
+Les licences de mariages sont désormais prises en compte lors de la lecture du gedcom.
+Les séparations sont désormais prises en compte lors de la lecture du gedcom.
+Les fichiers ont été réorganisés dans des dossiers spécifiques.
+Les fichiers du backoffice ont la même allure que ceux que du front office.
+
+25 juillet 2016
+---------------
+
+Suite de l’intégration des pages dans la charte graphique.
+Début de la réalisation d’un back-office.
+Création d’un fil d’Ariane en « lorem ipsum ».
+Il y a un bug avec l’affichage des caractères spéciaux.
+Les titres des pages ne sont pas tous de la même taille.(Résolu)
+Début de la génération d’une liste éclair.
+Création des rubriques dans le pillmenu.
+La page liste des lieux affiche une liste des villes triées par départements.
+Pour la rubrique « individus », je teste une aside constituée d’icônes avec effet au survol.
+Pour la rubrique « événements », je teste une aside constituée d’icônes.
+Ajout d’une page « Fiches individuelles » vide.
+Mise à jour du fil d’Ariane sur la page patro.php.
+Mise à jour du fil d’Ariane sur la page liste_individu.php.
+Mise à jour du fil d’Ariane sur la page fiches-individuelles.php.
+
+26 juillet 2016
+---------------
+
+La page d’acceuil affiche désormais un mini-blog ! Mais pour l’instant, les articles doivent-être mis via phpmyadmin.
+
+29 juillet 2016
+---------------
+
+L’aside constituée d’icônes avec effet au survol est mise en place pour les rubriques « lieux » et « statistiques ».
+La page qui affiche la liste des événements n’affiche plus de messages d’erreurs.
+Création de la structure des certaines pages : liste des sources, liste des images, page de contact.
+Sur la page qui affiche la liste des lieux, « 2 PLA » n’est plus devant le nom de la ville.
+Modification du CSS du pied de page.
+Le nombre de lieux s’affiche sur la page des statistiques.
+Correction de quelques petits bugs.
+La liste des événements est en bonne voie.
+Il y a un bug sur la page des stats, le nombre d’individu et le nombre de nom ne sont pas bon.(Résolu)
+
+RETOUR A LA TEMPLATE DE GENEALEXIS POUR BACK ET FRONT
+------------------------------------------------------
+
+01 aout 2016
+------------
+
+La liste des lieux est maintenant triée par pays puis par départements.
+Mise à jour du fil d’Ariane sur la page consacrée à la liste des lieux.
+Correction de quelques petits bugs et de quelques liens morts.
+Sur la page « liste des patronymes ». Les lettres pour lesquelles il n’y a pas de nom ne s’affichent pas.
+
+21 septembre 2016
+-----------------
+
+- petite retouche du design de la page fiche.php
+- dans la liste des événements (eve.php) ajout du nom de l'individu concerné par l'événement. Un clic permet d'accéder à la fiche du dit individu.
+
+28 septembre 2016
+-----------------
+
+j'ai mis les fonctions dans un fichier externe et je teste avec un require () dans le fichier fiche.php
+-> il y a un bug avec la fonction lieu()
+Bug résolu, c'est pas le bon fichier qui était inclus ^^
+
+Les notes individuelles s'affichent désormais via sur les fiches individuelles (fiche.php)
+
+29 septembre 2016
+-----------------
+
+J'ai téléchargé une template pour le backoffice, elle est dans le adminbeta
+
+06 octobre 2016
+---------------
+
+Je continue de bosser sur le backoffice.
+-> ajout d'un article
+-> modification d'un article
+-> les 3 chiffres de stats qui sont dans le coin en haut à droite
+-> la page avec les stats a été transférée sur le nouveau backoffice
+-> la page d'optimisation des tables est terminée. Reste à tester !
+
+07 octobre 2016
+---------------
+
+Je continue de bosser sur le backoffice
+-> ajout du formulaire que permet d'envoyer un nouveau gedcom
+-> ça semble fonctionner mais il y a une erreur et un warning
+
+17 octobre 2016
+---------------
+
+-> début de la création d'une carte graphique pour le front office
+
+19 octobre 2016
+---------------
+
+-> suite de la création d'une carte graphique pour le front office
+-> transfert de la feuille de style dans un fichier externe
+
+14 décembre 2016
+----------------
+
+-> le titre du blog est personnalisable via le fichier de config
+-> le aside est commun à toutes les pages "g�n�alogie"
+-> simplification du pillmenu
+-> Les rubriques du pillmenu est personnalisable via le  ficheir de config
+-> le titre et le slogan du site sont personnalisables via le fichier config
+-> mofification du look de la page stat
+-> sur la page stat ajout du nombre d'enfants par couple
+
+15 décembre 2016
+----------------
+
+-> J'ai fait la page de géolocalisation avec l'API de Google !
+-> les éléments du menu "aside" sont personnalisables via le fichier de config
+-> Le lieu n'est plus de la forme "2 PLA Lieu" mais tout simplement "Lieu"
+
+02 janvier 2017
+---------------
+
+-> les éléments du menu "aside" sont personnalisables via le fichier de config
+-> mise à jour du fil d'ariane du la page fiche.php
+-> début de la création d'un module "derniers articles" pour le blog
+-> ajout d'un systéme de catégories/rubriques pour les articles du blog
+-> début de la création d'un module "rubriques" pour le blog
+
+03 janvier 2017
+---------------
+
+-> préparation des futurs modules
+-> mis à jour du fil d'ariane sur la page affichant un article
+
+04 janvier 2017
+---------------
+
+-> fin de l'intégration de l'API Google Map sur la page de géolocalisation
+-> mise à jour des fils d'ariane de la partie "Les Individus"
+
+06 janvier 2017
+---------------
+
+-> Le flux rss des articles du blog se crée en lançant le fichier rss.php
+-> Le flux rss est téléchargeable.
+
+10 janvier 2017
+---------------
+
+-> mise à jour du code qui génére le flux RSS
+-> le flux RSS est généré automatiquement quand la page d'accueil se charge
+
+12 janvier 2017
+---------------
+
+-> mises à jour des fils d'ariane
+
+17 janvier 2017
+---------------
+
+-> creation de la page qui ajoute un article dans la page de données. 
+Pour l'instant l'auteur de l'article n'est pas ajouté. 
+Il faudra attendre que le script de connexion à l'espace d'administration soit disponible.
+
+-> création d'un dossier langue qui va accueillir les personnalisations linguistiques du CMS
+
+-> les textes de la page index du blog sont totalement personnalisables
+-> les textes de la page qui affiche un article sont totalement personnalisables
+-> les textes de la page "anniversaires" sont totalement personnalisables
+
+TODO: Le <title> de cette page
+
+18 janvier 2017
+---------------
+
+-> les textes de la page qui affiche la liste des articles d'une catégorie sont totalement personnalisables
+-> suppresion de la page crédits... aucun intérêt pour l'utilisateur
+-> création d'une page de confirmation quand on veut effacer le gedcom
+
+07 mars 2017
+------------
+
+-> ajout d'un systeme de pagination pour l'affichage des résultats de la page liste_individu.php
+-> ajout d'une table BLOGROLL qui est destinée à accueillir les sites du module du même nom
+-> le code du blogroll est fonctionnel
+-> resolution d'un bug lié à l'insertion des noms de lieux dans la base de données. Ils étaient encore avec leurs préfixes 2 PLAC
+-> resolution d'un bug lié à l'insertion du fichier config.php. Dans certains fichiers, il était inclu plusieurs fois
+
+10 mars 2017
+------------
+
+TODO: sur la page liste individu, la variable $NombreResultatsParPage devra être personnalisable via d'admin
+
+-> dans le footer, la date de fin s'affiche automatiquement
+
+13 mars 2017
+------------
+
+-> révision de l'encodage des événements sur la page eve.php
+-> modification du nom des événements
+-> j'ai commencé à adapter le fichier lecture.php pour qu'il soit traduisible
+-> optimisation du fichier lecture.php pour qu'il s'execute plus vite
+-> ajout d'estimé et estimé par World Family Tree dans la lecture du gedcom
+
+14 mars 2017
+------------
+
+-> mise à jour du fil d'ariane de l'administration et de son aside
+-> résolution de bug sur la chatre graphique de l'adminitration
+-> sur certaines pages, l'aside de l'admin n'était pas le bon -> correction en cours
+-> début de la "traduisabilité" de l'administration
+-> dans l'admin, ajout d'une page "options.php" qui sera amenée à accueillir certains petits réglages
+
+15 mars 2017
+------------
+
+-> début de l'intégration des sources
+-> correstion d'un warning qui apparaissait après la lecture du gedcom
+-> ajout de la table sources dans le script qui vide toute les tables
+
+11 mai 2017
+-----------
+
+NB: il semble que le champ ref de la table sources soit inutile
+
+01 mai 2017
+-----------
+
+- dans le fichier lecture.php, j'ai remplacé les mots du GEDCOM (BIRT, EVEN...) par des mots en français
+
+MISE SUR GITUB
+
+- ménage dans le code : indentation, codes en commentaire devenu inutiles
+- ajout des balises <meta> et des balises <title> manquantes
+
+07 juin 2017
+-----------
+
+- j'ai continué de mettre les textes dans un fichier langue
+- j'ai supprimé des morceaux de codes inutiles dans le fichier liste-patro.php
+
+08 juin 2017
+-----------
+
+- ajout de la pagination sur liste_patro.php par défaut on affiche 25 valeurs par page
+
+09 juin 2017
+------------
+
+- le bug de l'encodage des caractéres sur la page fiche.php a été résolu en ajoutant utf8_decode().
+
+12 juin 2017
+------------
+
+- il n'y a plus de doublon dans la liste éclair ! Tout le code de la page a été réécrit
+
+13 juin 2017
+------------
+
+- un clic sur le titre d'un article affiche l'article
+- début de la mise en place des comm's
+- l'ajout des comm's fonctionne. 
+
+28 juin 2017
+------------
+
+- bug de wamp... la base de données et endomagée, ça m'apprendra à ne pas faire de sauvegarde
+- j'ai récupéré la base de la démo et changé le nom de la base qui est enfin devenu publiged
+- la table commentaires a été refaite... ça semble marcher !
+- amélioration du CSS des commentaires
+- ajout d'un champ date dans les tables des commentaires
+
+30 juin 2017
+------------
+
+- réécriture totale du code la fiche.php. L'objectif et de diminuer le nb de requête.
+
+3 juillet 2017
+--------------
+
+- les événements sont désormais tous pris en compte, le bug est résolu.  
+C'est juste la requête de la date dans le fichier lecture.php qui n'était pas la bonne.
+
+4 juillet 2017
+--------------
+
+- sur la page d'accueil le nombre de commentaire est affiché.
+- quelques modifs dans la page see-comments pour que le code soit un peu plus clair.
+- resolution des erreurs php sur la nouvelle version de la page fiche.php
+
+5 juillet 2017
+--------------
+
+- j'ai commencé à mettre les classes dans un fichier externe car c'est comme les fonctions, elles peuvent parfois être communes à plusieurs fichiers.
+
+6 juillet 2017
+--------------
+
+- mise en forme de la date dans la base de données
+- pour les dates, ajout des approximations (vers, avant, aprés, environs, etc...)
+- resolution du bug lié à l'affichage des lieux sur les listes individuelles, pareil pour les liens vers les individus
+- j'ai commencé à mettre le texte de la nouvelle version de la fiche sous la forme de constantes.
+
+10 juillet 2017
+---------------
+
+- passage à la nouvelle version d'Eclipse
+- affichage d'un message sur la fiche individuelle d'un individu qui n'a pas d'enfant
+
+11 juillet 2017
+----------------
+
+- j'ai continué de bosser sur la nouvelle version de fiche.php
+
+12 juillet 2017
+---------------
+
+- j'ai continué de bosser sur la nouvelle version de fiche.php
+
+13 juillet 2017
+---------------
+
+- j'ai continué de bosser sur la nouvelle version de fiche.php
+- j'ai intégré l'ancienne version de l'arbre à la fiche individuelle en attendant de l'améliorer
+
+17 juillet 2017
+---------------
+
+- j'ai continué de bosser sur la nouvelle version de fiche.php. Certains évenements n'étaient pas pris en compte dans la chronologie.
+
+18 juillet 2017
+---------------
+
+- idem que le 17 juillet 2017 mais il y a un soucis avec les mariages
+
+09 aout 2017
+------------
+
+- ajout de 2 liens "article suivant" et "article précédent" sur la page see_comment.
+- ajout d'un systeme qui crontrôle le premier et le dernier article pour éviter la presence d'un bouton suivant si l'article suivant n'existe pas
+
+23 octobre 2017
+---------------
+
+- test de bootstrap
+
+MISE SUR GITHUB
+
+24 octobre 2017
+---------------
+
+- création d'une copie de la page de geolocalisation qui utilise OpenStreetMap. 
+Il y a juste quelques petites choses à revoir comme par exemple le zoom et la taille de la carte.
+
+26 octobre 2017
+---------------
+
+- sur la page de géolocation: ajustement du zoom et centrage de la vue sur la 1ere ville présente dans le gedcom
+
+30 octobre 2017
+---------------
+
+- optimisation de la page cartographie
+
+MISE SUR GITHUB
+
+- sauvegarde de la base de données
+- suppression des champs inutiles dans ta table des villes de France
+- ajout d'une table contenant les villes de Belgique (d'aprés http://download.geonames.org/export/dump/)
+il a fallu importer le txt dans le tableur de LibreOffice puis exporter sous forme de csv.
+- ajout d'un bout de code qui geolocalise les individus en Belgique 
+
+MISE SUR GITHUB
+
+- Leaflet est désormais intégré au code source, il n'est plus hébergé chez un autre.
+- Mise à jour du fichier README.md: description du projet
+
+MISE SUR GITHUB
+
+1 novembre 2017
+---------------
+
+- un clic sur un petit truc de la carte emméne sur une page dédiée à ce lieu
+- nettoyage du code source de la page de géolocalisation
+- sauvegarde de la nouvelle version de la base de données (base-01112017.sql)
+- utisation des geonames pour la table des communes de France et mise en jour du script
+- le centrage fonctionne mais uniquement avec une ville de France
+
+2 novembre 2017
+---------------
+
+- utilisation de la table https://www.data.gouv.fr/fr/datasets/communes-geolocalisees/
+- suppression de l'ancienne table des villes de France
+- c'est ok pour la géolocalisation des villes de France car la requête se fait sur le nom de la ville et sur le code postal
+
+- mise à jour du fil d'ariane de lieuxpatro.php
+- mise à jour de la page lieux : un clic sur une ville affiche la page lieuxpatro qui correspond comme avec la carte.
+- la lieuxpatro affiche desormais la liste des patros d'un lieu donné. Un clic sur un patro affiche la liste des porteurs de ce nom.
+
+- resolution d'un bug sur les lieux et les évenements. une ' causait des problémes pendant l'enregistrement des données 
+
+6 novembre 2017
+---------------
+
+- résolution du bug sur l'encodage des caractéres lors de l'import du gedcom
+
+- mysql_real_escape_string() est dépréciée depuis PHP 5.5
+préparer les requétes a suffi à ressoudre les problèmes.
+
+- la requête /@ INDI/ est maintenant préparée
+
+919 lignes ^^ dans le fichier lecture.php
+
+- la requête /1 NAME/ est maintenant préparée
+- la requête /2 SURN/ est maintenant préparée
+- la requête /2 GIVN/ est maintenant préparée
+- la requête /1 SEX/ est maintenant préparée
+- la requête /1 BIRT/ est maintenant préparée
+- la requête /1 EVEN/ est maintenant préparée
+- la requête /1 DEAT/ est maintenant préparée
+- la requête /1 OCCU/ est maintenant préparée
+- la requête /1 CHR/ est maintenant préparée
+- la requête /1 BAPT/ est maintenant préparée
+- la requête /1 BURI est maintenant préparée
+- la requête /1 ADOP est maintenant préparée
+- la requête /1 CENS est maintenant préparée
+- la requête /1 CONF est maintenant préparée
+- la requête /1 CRIM est maintenant préparée
+- la requête /1 DONA est maintenant préparée
+- la requête /1 EDUC est maintenant préparée
+- la requête /1 EMIG est maintenant préparée
+- la requête /1 EMPL est maintenant préparée
+- la requête /1 FCOM est maintenant préparée
+- la requête /1 FUNE est maintenant préparée
+- la requête /1 HIST est maintenant préparée
+- la requête /1 IMMI est maintenant préparée
+- la requête /1 LVG est maintenant préparée
+- la requête /1 NATU est maintenant préparée
+- la requête /1 NOBL est maintenant préparée
+- la requête /1 ONDO est maintenant préparée
+- la requête /1 ORDN est maintenant préparée
+- la requête /1 PASL est maintenant préparée
+- la requête /1 PROB est maintenant préparée
+- la requête /1 RELI est maintenant préparée
+- la requête /1 RESI est maintenant préparée
+- la requête /1 RETI est maintenant préparée
+- la requête /1 RMRK est maintenant préparée
+- la requête /1 TBS est maintenant préparée
+- la requête /1 WILL est maintenant préparée
+- la requête /1 ANUL est maintenant préparée
+- la requête /1 DIV est maintenant préparée
+- la requête /1 ENGA est maintenant préparée
+- la requête /1 MARB est maintenant préparée
+- la requête /1 MARE est maintenant préparée
+
+1152 lignes ^^ dans le fichier lecture.php
+
+- la requête /1 MARL est maintenant préparée
+- la requête /1 SEP est maintenant préparée
+- la requête /1 SEPA est maintenant préparée
+- la requête /2 DATE est maintenant préparée
+
+1174 lignes ^^ dans le fichier lecture.php
+
+- correction de quelques avertissements dans le code: il en reste 55 sur 96
+- suppression de <?php include('../include/endcontent.php');?> dans la partie "content"
+- correction de quelques avertissements dans le code: il en reste 6 sur 96
+- suppression de <?php include('../include/endcontent.php');?> dans la partie "admin"
+
+MISE SUR GITHUB
+
+- grosse optimisation du fichier lecture.php. Les événements sont maintenant gérés par une boucle FOR pour éviter de répéter toujours le même code.
+
+549 lignes ^^ dans le fichier lecture.php
+
+- ajout d'un début de table "sources"
+- les sources sont en partie prises en compte mais pas encore liées au reste (référence, titre, nom et origine de la source) 
+
+07 novembre 2017
+----------------
+
+- mise à jour de la base de données
+
+MISE SUR GITHUB
+
+- Mise à jour de la lecture des sources dans le gedcom
+- liaison entre les fiches individuelles (fiche.php) et les sources (sources.php)
+- sauvegarde de la base de données
+
+MISE SUR GITHUB
+
+- retour en arriére au niveau de la base de données! depuis la mise en palce des clés étrangéres, une grosse partie de lecture.php ne fonctionnait plus.
+
+08 novembre 2017
+----------------
+
+Mise à jour de la base de données:
+- la table membre de devient la table membres
+- dans la table articles, le champ "auteur" passe de varchar(250) à int(11)
+- il y a désormais un lien entre la table articles et la table membres
+
+- suppression du fichier todo.txt qui ne sert à rien
+
+Mise à jour de la feuille de style:
+- fusion des feuilles de style
+- suppression de arbre.css et gedcom.css semblent être devenus inutiles
+- suppression des sélecteurs et des propriétés qui ne servent à rien
+- renomage du dossier "style" en "css"
+
+- j'ai enlevé les anciennes versions de la base de GITHUB, seule la derniére version y sera
+
+- J'ai viré tout un tas de fichiers qui sont inutiles où qui n'ont pas leur place sur Github
+
+MISE SUR GITHUB
+
+- passage de MyISAM à innoDB pour la table familles
+- passage de MyISAM à innoDB pour la table lieux
+- passage de MyISAM à innoDB pour la table membres
+- passage de utf-32 à utf8_general_ci pour la table sources
+- passage de MyISAM à innoDB pour la table ville-frances
+- passage de villes_belgique et villes_france en utf8_general_ci
+
+MISE SUR GITHUB
+
+09 novembre 2017
+----------------
+
+Mise à jour de la structure de la base de données
+- individus.ref passe de varchar(100) à int(11)
+- familles.pere passe de varchar(100) à int(11)
+- familles.mere passe de varchar(100) à int(11)
+- familles.enfants passe de varchar(100) à int(11)
+- suppression de individus.id qui était la clé auto-incrément en int(11)
+- evenements.lieux passe de varchar(100) à int(11)
+- evenements.source passe de varchar(100) à int(11)
+
+- sur la page "sources.php" le fil d'ariane est différent selon si on affiche toutes les sources où si on affiche une source en particulier.
+
+MISE SUR GITHUB
+
+10 novembre 2017
+----------------
+
+- retouche dans la base de données: sources.Titre devient sources.titre
+- affichage des infos liées à une source sur la page sources.php
+- sources.ref passe de varchar(2500) à int(11)
+
+- J'ai fait des tests avec un gedcom nommé bach.ged qui a été généré par Personal Ancestral File 5.2. 
+Il y a des problémes de communication entre les table. Je dois faire retour arriére sur les varchar(100) que j'avais transformer en int(11).
+Je les ai mis en varchar(11)
+
+- J'ai importé mon gedcom dans gramps puis créé un nouveau gedcom. 
+Il y a des problémes avec l'encodage des caractéres.
+Il y a des problémes avec la prise en compte des notes.
+
+- Ajout de nouveaux événements
+
+MISE SUR GITHUB
+
+- Ajout de nouveaux événements
+
+13 novembre 2017
+----------------
+
+MISE SUR GITHUB
+
+- Mise à jour de la feuille de style
+
+MISE SUR GITHUB
+
+- correction des warnings liés à la ligne 334 de lecture.php
+Warning: preg_match(): No ending delimiter '/' found in C:\wamp64\www\PubliGED\admin\lecture.php on line 334
+
+- correction des warnings liés à la ligne 114 de fiche.php 
+Notice: Undefined index: ref in C:\wamp64\www\PubliGED\content\fiche.php on line 114
+
+- correction des warnings liés à la ligne 194 de fiche.php 
+Notice: Undefined variable: chr in C:\wamp64\www\PubliGED\content\fiche.php on line 194
+
+- correction des warnings liés à la ligne 252 de fiche.php 
+Notice: Undefined variable: buri in C:\wamp64\www\PubliGED\content\fiche.php on line 252
+
+MISE SUR GITHUB
+
+- ajout des autres sortes de baptêmes sur fiche.php 
+- j'en ai profité pour remplacer un gros morceau de code de fiche.php par une fonction
+
+MISE SUR GITHUB
+
+- j'ai mis les classes du fichier lecture.php dans un fichier externe
+
+14 novembre 2017
+----------------
+
+- correction des erreurs suivantes:
+Notice: Use of undefined constant BAPAT - assumed 'BAPAT' in C:\wamp64\www\PubliGED\content\fiche.php on line 185
+Notice: Use of undefined constant BAPTISME - assumed 'BAPTISME' in C:\wamp64\www\PubliGED\content\fiche.php on line 185
+
+MISE SUR GITHUB
+
+- la classe individu devient la classe individus
+
+MISE SUR GITHUB
+
+- j'ai enfin fait le dictionnaire des données
+- j'ai fait qq correctionset quelques mises à jour sur la page fiche.php
+
+MISE SUR GITHUB
+
+15 novembre 2017
+----------------
+
+J'ai bossé un peu sur la page source.php
+- Pour la feuille de style qui affiche le tableau, j'ai repris le CSS du tableau de fiche.php
+- Le titre est différent selon si on affiche une source ou toutes les sources
+- mise en page du cas où on affiche une seule source
+
+16 novembre 2017
+----------------
+
+Mise à jour du traitement des sources
+- correction d'un petit probléme à la ligne 600 : source->source est plutôt source->origine
+- création d'une table médias pour y stocker les docs (actes par exemple)
+- mise à jour du fichier lecture pour traiter les médias
+
+Mise à jour du dico des données
+
+17 novembre 2017
+----------------
+
+- le fichier del.php est intégré au fichier lecture.php pour que les tables soient effacées dés que l'on envoi un gedcom mais pour l'instant je laisse la possibilité d'effacer le gedcom manuellement.
+
+MISE SUR GITHUB
+
+20 novembre 2017
+----------------
+
+- résolution d'un bug sur les dates lors de la lecture du gedcom (lecture.php)
+- ça a nécessité des changements sur la page qui affiche tous les événements (eve.php)
+
+MISE SUR GITHUB
+
+- je continu de bosser sur la fonction qui devrait permettre de bosser un peu avec les dates
+
+23 novembre 2017
+----------------
+
+- bug fix : Warning: Creating default object from empty value in C:\wamp64\www\PubliGED\admin\lecture.php on line 145
+il y avait un /1 NAME/ dans le head du gedcom qui était confondu avec des /1 NAME/ des événements  
+
+- j'ai modifié la table membres pour qu'elle puisse accueillir les coordonnées des proprios des gedcoms qui sont uploadés.
+
+- mise à jour du dico des données
+
+MISE SUR GITHUB
+
+24 novembre 2017
+----------------
+
+- nettoyage et optimisation de lecture.php. Je suis passé de 786 à 758 lignes.
+- modification de la table individus pour que je puisse prendre en compte RESN (public/privé) et 1_FIL (filiation).
+
+-> RESN est plutôt à mettre dans la table événements
+
+MISE SUR GITHUB
+
+- sauvegarde de la nouvelle version de la BD
+
+MISE SUR GITHUB
+
+- J'ai remplacé var par public dans mes classes.
+- J'ai résolu le bug qui empêchait l'affichage du nom des parents. C'était juste un nom de variable qui n'était pas bon.
+
+25 novembre 2017
+----------------
+
+- Le tableau des événements sur la fiche individuelle est masqué si il n'y pas d'événements.
+- création d'un fichier install.php qui installe les tables
+
+27 novembre 2017
+----------------
+
+- création d'un suppr_tables.php qui permets de supprimer toutes les tables
+- le fichier del.php devient suppr_gedcom pour que ce soit plus clair
+- suite de la création d'un fichier install.php qui installe (ou crée) les tables
+
+28 novembre 2017
+----------------
+
+- j'ai renommer beaucoup de fichier de la partie admin pour que ce soit plus clair
+- mise au point des clés étrangéres et des clés primaires
+
+MISE SUR GITHUB
+
+29 novembre 2017
+----------------
+
+- ajout des clés étrangéres dans la table articles
+- ajout des clés étrangéres dans la table événements
+
+-> voir les types d'union
+-> peut-être que id dans sources ne sert à rien
+
+MISE SUR GITHUB
+
+29 novembre 2017
+----------------
+
+- J'ai réglé les soucis avec les auto-increments
+
+Au final... trop de soucis, retour provisoir à l'ancienne base de données.
+
+15 février 2017
+---------------
+
+BUG FIX: enfants qui s'affichent plusieurs fois, dans le fichier fiche.php j'ai remplacé
+$req_enfants = "select * from familles where pere=:ref or mere=:ref group";
+par
+$req_enfants = "select * from familles where pere=:ref or mere=:ref group by enfant";
+
+- correction de qq bugs sur page "stats"
+- ajout d'un "Top 10 des patronymes" sur la page "stats"
+- ajout d'un "Top 10 des prénoms" sur la page "stats"
+
+19 février 2018
+---------------
+
+- Ce matin les sources ne se mettaient plus dans leur table. Le probleme a été résolu en supprimant les clés étrangéres
+
+- la valeur du top est paramétrable, sa valeur est dans la table configuration et on peut la choisir dans la partie "options" de l'admin
+- le top personnalisé a été mis en place sur la page des stats
+
+- la valeur du nombre de résultat par page est paramétrable pour liste_individu.php, sa valeur est dans la table configuration et on peut la choisir dans la partie "options" de l'admin
+- la valeur du nombre de résultat par page personnalisé a été mis en place sur la page des liste_individu
+
+21 février 2018
+---------------
+
+- encore des tests à faire mais j'ai résolu le pb des lieux en plusieurs exemplaires dans la table lieux avec une boucle if.
+C'est encore en phase de test pour le moment.
+
+- BUG FIX:
+Warning: Creating default object from empty value in C:\wamp64\www\PubliGED\admin\lecture.php on line 760
+
+- BUG FIX:
+Warning: Creating default object from empty value in C:\wamp64\www\PubliGED\admin\lecture.php on line 745
+
+27 février 2018
+---------------
+
+- Passage à bootstrap
+
+28 février 2018
+---------------
+
+- Passage à bootstrap
+
+01 mars 2018
+---------------
+
+- Suite du passage à bootstrap.
+- le backoffice reste pour le moment avec l'ancienne version de la charte graphique.
+
+MISE SUR GITHUB
+
+- suppression de quelques fichiers inutiles.
+- j'ai enlevé les fichiers xcf de The Gimp du code source.
+
+MISE SUR GITHUB
+
+07 mars 2018
+------------
+
+- résolution d'un bug sur l'affichage des dates sur le blog
+
+MISE SUR GITHUB
+
+- résolution de qq bugs sur les commentaires
+- ajout de la version 4.7.9 de Tinymce
+
+MISE SUR GITHUB
+
+08 mars 2018
+------------
+
+- affichage de la liste des commentaires dans l'administration
+- création d'une fonction qui retourne le nom d'un article à partir de son n°
+
+09 mars 2018
+------------
+
+- modification de la template
+- ajout du nombre d'articles d'une catégorie dans un badge
+
+12 mars 2018
+------------
+
+- ajout du footer sur le blog, il avait disparu ^^
+
+25 mai 2018
+-----------
+
+- Résolution du bug de redirection sur la page d'accueil
+
+MISE SUR GITHUB
+
+- Export en pdf sur l'affichage de type blog
+
+MISE SUR GITHUB
+
+- Dans la partie généalogie, affichage d'un message si aucun gedcom n'a été posté 
+
+
+
+
+
+
+
+
+
+
+
+
+Warning: Division by zero in C:\wamp64\www\PubliGED\content\stats.php on line 177 si pas de gedcom
+
+PB et TODO
+----------
+
+Il faut prévoir un msg à afficher sur les pages si il n'y a pas encore de gedcom d'importé
+
+Ordre du truncate
+
+    //   1) table famille
+    //   2) table événement
+    //   3) table lieux
+    //   4) table sources
+
+Liste des individus : si aucun nom commençant par une lettre, il faut que la lettre de soit pas cliquable. Par contre, les lettres cliquables doit être mise en valeur.
+
+string iconv ( string $in_charset , string $out_charset , string $str )
+CHAR {character} : indique le jeu de caractères utilisé pour l’enregistrement des informations dans le fichier.
+
+il faudra voir pour prendre en compte :
+CONT {continued} : indicateur de continuation des informations qui précédent, après un retour à la ligne.
+
+- depuis le début de la mise en place des clés étrangéres, le script qui vide les tables ne fonctionnent plus. Il faudra trouver le bon ordre ^^
+- centrage si la personne n'a pas d'ancêtres en France 
+- il y a toujours un soucis avec la localisation des villes de belgique. Il faudrait trouver une table comme celle de data.gouv.fr
+- il y a un grooos soucis avec les créations d'objet "$individu = new individu ();", il en manque.
+
+-> dans l'admin: une case à cocher desactive le blog si on a en pas besoin.
+-> lié un article du blog à un individu de la base de données
+
+
+
+
+
+
+
+
+

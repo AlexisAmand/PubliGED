@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE xml><rss version="2.0">
+<channel>
+<title>Flux RSS du site</title>
+<description>Description du flux RSS du site</description>
+<<<<<<< HEAD
+<lastBuildDate>Mon, 28 May 2018 10:52:53 +0000</lastBuildDate>
+=======
+<lastBuildDate>Wed, 20 Jun 2018 10:33:21 +0000</lastBuildDate>
+>>>>>>> cd15b214fa2ec04d322216753eddc32599afa90e
+<link>http://127.0.0.1/PubliGED/</link>
+<item><title>Lorem ipsum</title><description>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ip...</description><pubDate>Tue, 04 Oct 2016 00:00:00 +0000</pubDate><link>http://127.0.0.1/PubliGED/index.php?page=article&id=1</link></item><item><title>Lorem ipsum again !</title><description>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ip...</description><pubDate>Tue, 11 Oct 2016 00:00:00 +0000</pubDate><link>http://127.0.0.1/PubliGED/index.php?page=article&id=2</link></item><item><title>What else ?</title><description>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ip...</description><pubDate>Thu, 29 Sep 2016 00:00:00 +0000</pubDate><link>http://127.0.0.1/PubliGED/index.php?page=article&id=3</link></item><item><title>Et voila voilou</title><description><p>Ici c'est un article o&ugrave; il n'y a pas grand chose &agrave; racont&eacute;, c'est juste pour faire un exemple avec un...</description><pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate><link>http://127.0.0.1/PubliGED/index.php?page=article&id=8</link></item></channel></rss>

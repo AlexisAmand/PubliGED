@@ -1,0 +1,172 @@
+body 
+	{
+	background-color: #f0f0f0;
+	}
+	
+.breadcrumb 
+	{
+    background-color: #f9f9f9;
+    }
+
+.container
+	{
+	background-color:#f9f9f9;
+	-moz-box-shadow: 4px 4px 10px #888;  
+  -webkit-box-shadow: 4px 4px 10px #888;  
+  box-shadow:4px 4px 6px #888;
+	}
+		
+.stats
+	   {
+	   border:0px solid red;
+	   width:45%;	   
+	   }
+	   	   
+.gender
+    {
+    float:right;
+    }	
+ 	  
+nav
+	{    
+	margin-top:5px
+	}
+	
+footer
+	{
+	margin-top:45px; 
+	bottom: 0;
+	background-color: #f8f8f8;
+	border: 1px solid #e7e7e7;	
+	}
+	
+aside
+	{
+	
+	}	
+
+
+
+
+.alpha {		
+	text-align: center;		
+	margin-bottom: 20px;		
+}		
+		
+.alpha ul {		
+	margin-left: 0;		
+	padding-left: 0;		
+	display: inline;		
+}		
+		
+.alpha ul li {		
+	margin-left: 0;		
+	padding: 3px 5px;		
+	list-style: none;		
+	display: inline;		
+}		
+		
+.alpha a:link {		
+	text-decoration: none;		
+	color: #000000;		
+}		
+	
+.alpha a:visited {		
+	text-decoration: none;		
+	color: #000000;		
+}		
+		
+.alpha a:hover {		
+	text-decoration: underline;		
+	color: #000000;		
+}		
+		
+.alpha a:active {		
+	text-decoration: none;		
+	color: #000000;		
+}
+
+/* ---------------------------------------- */
+/* Ajout pour les tests de charte graphique */
+/* ---------------------------------------- */
+
+header {
+	
+	color: #827c7e;
+}
+
+.panel-heading
+{
+/*	background-image:url('../img/fond.jpg');	*/
+}
+
+.panel-heading strong
+{
+/*	color:#f9f9f9;	*/
+}
+
+.navbar-default
+{
+/* background-color: #f8f8f8;
+border-color: #e7e7e7; */
+margin-top: 0px;
+}		
+
+.navbar {
+    border-radius: 0px;
+}
+
+#bandeau {
+	
+ background-image:url('/PubliGED/img/fond.jpg');height:319px;
+	
+}
+
+/* --------------------- */
+/* Ajout du 12 mars 2018 */ 
+/* --------------------- */
+
+aside .badge
+	{
+	background-color: #827c7e;
+	}
+
+/* --------------------- */
+/* Ajout du 13 mars 2018 */ 
+/* --------------------- */
+
+section h4 
+	{	
+	margin-top: 30px;
+	margin-bottom: 15px;	
+	}
+	
+	
+
+
+.TreeCase {
+	border: 1px solid #ddd;
+	/*
+	width: 100px;
+	*/
+	width:10%;
+	height: 60px;
+	
+	/* background-color: #dacfb7; */
+}
+
+
+#Tree {
+	border-collapse: collapse;
+	text-align: center;
+	font-size: 12px;
+	/*
+	width: 700px;
+	*/
+	width:100%;
+}
+
+#Tree td {
+	height: 30px;
+}
+	
