@@ -123,8 +123,8 @@ $resultat = $pdo2->query ("SELECT * FROM commentaires WHERE id_article='$id_arti
 
 while ( $data = $resultat->fetch () ) 
 	{		
-	echo "<div class='well well-lg'>";		
-	echo "<strong>Le ".date("Y-m-d", strtotime($data['date_com']))." ".$data ['nom_auteur'] ." a dit: </strong><br /><br />";
+	echo "<br /><div class='card card-alert'>";		
+	echo "Le ".date("Y-m-d", strtotime($data['date_com']))." ".$data ['nom_auteur'] ." a dit: <br /><br />";
 	echo "<p>".$data ['contenu'] ."</p>";
 	echo "</div>";
 	}

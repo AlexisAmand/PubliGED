@@ -111,11 +111,11 @@
 			    if (($page==$i))
 			      {
 			      // echo "<li><a href='index.php?page=liste_individu&id=" . $i . "&l=".$_GET ['l']."' class='active'>" . $i . "</a></li>";
-			      echo "<li class='disabled'><a href='index.php?page=liste_patro_lieu&id=" . $i . "&nom=".htmlspecialchars ( $_GET ["nom"] )."' class='active'>" . $i . "</a></li>";
+			      echo "<li class='disabled page-item'><a class='page-link' href='index.php?page=liste_patro_lieu&id=" . $i . "&nom=".htmlspecialchars ( $_GET ["nom"] )."' class='active'>" . $i . "</a></li>";
 			      }
 			    else
 			      {
-			      echo "<li><a href='index.php?page=liste_patro_lieu&id=" . $i . "&nom=".htmlspecialchars ( $_GET ["nom"] )."' class='active'>" . $i . "</a></li>";
+			      echo "<li class='page-item'><a class='page-link' href='index.php?page=liste_patro_lieu&id=" . $i . "&nom=".htmlspecialchars ( $_GET ["nom"] )."' class='active'>" . $i . "</a></li>";
 			      }
 			}
 			echo "</ul>";

@@ -105,11 +105,11 @@
 				{ 
 				if (($page==$i))
 				 {
-				 echo "<li class='disabled'><a href='?id=" . $i . "&nom=".htmlspecialchars ( $_GET ["nom"] )."'>" . $i . "</a></li>";
+				 echo "<li class='disabled page-item'><a class='page-link' href='?id=" . $i . "&nom=".htmlspecialchars ( $_GET ["nom"] )."'>" . $i . "</a></li>";
 				 }
 				else    
 				 {
-				echo "<li><a href='?id=" . $i . "&nom=".htmlspecialchars ( $_GET ["nom"] )."'>" . $i . "</a></li>";
+				echo "<li class='page-item'><a class='page-link' href='?id=" . $i . "&nom=".htmlspecialchars ( $_GET ["nom"] )."'>" . $i . "</a></li>";
 				 }
 				}
 			echo "</ul>";

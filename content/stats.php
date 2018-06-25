@@ -1,9 +1,7 @@
 	<h3><?php echo TITRE_RUB_1; ?></h3>
 	
 	<?php
-	
-	<?php
-	
+		
 	if(VerifGedcom($pdo2) == "1")
 		{
 	

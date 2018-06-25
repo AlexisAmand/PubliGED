@@ -16,9 +16,10 @@ while ( $row = $req->fetch () ) {
 
 ?>
 
-<div class="panel panel-default">
 
-<div class="panel-heading"><strong><?php echo ASIDE_BLOG_1 ?></strong></div>
+<div class="card bg-light border-secondary mb-3">
+
+<div class="card-header"><?php echo ASIDE_BLOG_1 ?></div>
 
 <ul class='list-group'>
 	<li class='list-group-item'><a href="index.php?page=blog"><?php echo TITRE_RUB_0; ?></a></li>
@@ -34,16 +35,18 @@ $resultat->execute ();
 
 ?>
 
-<div class="panel panel-default">
+<br />
 
-<div class="panel-heading"><strong><?php echo ASIDE_BLOG_2 ?></strong></div>
+<div class="card bg-light border-secondary mb-3">
+
+<div class="card-header"><?php echo ASIDE_BLOG_2 ?></div>
 
 <?php 
 
 echo "<ul class='list-group'>";
 
 while ( $data = $resultat->fetch () ) {
-	echo "<li class='list-group-item'>";
+	echo "<li class='list-group-item d-flex justify-content-between align-items-center'>";
 	// get_category_name ( $pdo, $data ['id_cat'] );
 	
 	echo "<a href='index.php?page=categories&id=" . $data ['id_cat']  . "'>" . get_category_name ( $pdo2, $data ['id_cat'] ) . "</a>";
@@ -55,7 +58,7 @@ while ( $data = $resultat->fetch () ) {
 	
 	while ( $data_nbcat = $res_nbcat->fetch () ) 
 	   {
-	       echo "<span class='badge'>".$data_nbcat['nbcat']."</span>";
+	       echo "<span class='badge badge-primary badge-pill'>".$data_nbcat['nbcat']."</span>";
 	   }
 	echo "</li>";
 }
@@ -66,9 +69,11 @@ echo "</ul>";
 
 </div>
 
-<div class="panel panel-default">
+<br />
 
-<div class="panel-heading"><strong><?php echo ASIDE_BLOG_3 ?></strong></div>
+<div class="card bg-light border-secondary mb-3">
+
+<div class="card-header"><?php echo ASIDE_BLOG_3 ?></div>
 
 <?php
 
@@ -88,9 +93,11 @@ echo "</ul>";
 
 </div>
 
-<div class="panel panel-default">
+<br />
 
-<div class="panel-heading"><strong><?php echo ASIDE_BLOG_5 ?></strong></div>
+<div class="card bg-light border-secondary mb-3">
+
+<div class="card-header"><?php echo ASIDE_BLOG_5 ?></div>
 
 <div class="text-center">
 

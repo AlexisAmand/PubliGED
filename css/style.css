@@ -1,19 +1,21 @@
 body 
 	{
-	background-color: #f0f0f0;
+	/* background-color: #f0f0f0; */
 	}
 	
 .breadcrumb 
 	{
-    background-color: #f9f9f9;
+    background-color: #fff;
     }
 
 .container
 	{
+	/*
 	background-color:#f9f9f9;
 	-moz-box-shadow: 4px 4px 10px #888;  
-  -webkit-box-shadow: 4px 4px 10px #888;  
-  box-shadow:4px 4px 6px #888;
+    -webkit-box-shadow: 4px 4px 10px #888;  
+    box-shadow:4px 4px 6px #888;
+    */
 	}
 		
 .stats
@@ -44,9 +46,6 @@ aside
 	{
 	
 	}	
-
-
-
 
 .alpha {		
 	text-align: center;		
@@ -93,6 +92,8 @@ aside
 header {
 	
 	color: #827c7e;
+	/* color:#FFF; */
+
 }
 
 .panel-heading
@@ -113,14 +114,17 @@ margin-top: 0px;
 }		
 
 .navbar {
-    border-radius: 0px;
+    
 }
 
+/*
 #bandeau {
 	
  background-image:url('/PubliGED/img/fond.jpg');height:319px;
 	
 }
+*/
+
 
 /* --------------------- */
 /* Ajout du 12 mars 2018 */ 
@@ -141,9 +145,6 @@ section h4
 	margin-bottom: 15px;	
 	}
 	
-	
-
-
 .TreeCase {
 	border: 1px solid #ddd;
 	/*
@@ -169,4 +170,28 @@ section h4
 #Tree td {
 	height: 30px;
 }
+		
+/* --------------------- */
+/* Ajout du 20 juin 2018 */ 
+/* --------------------- */
+
+header
+	{
+	/*
+	background-image:url('../img/fond3.jpg');
+	height:315px; 
+	background-repeat: no-repeat;
+	background-size:cover;
+	*/
+	}
+
+.pillmenu
+	{
+	width: 100%;margin-top: 0px;
+	}	
+	
+a
+	{
+	color: #425158;
+	}	
 	

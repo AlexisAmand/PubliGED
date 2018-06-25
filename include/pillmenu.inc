@@ -1,20 +1,28 @@
-     <ul class="nav navbar-nav">
-      	<li><a href="index.php?page=blog"><?php echo PILLMENU_1 ?></a>
-		</li>
-		<li><a href="index.php?page=patro"><?php echo PILLMENU_2 ?></a>
-		</li>
-		<li><a href="admin/index.php"><?php echo PILLMENU_3 ?></a>
-		</li>
-		<li><a href="index.php?page=contact"><?php echo PILLMENU_4 ?></a>
-		</li>
-	 </ul>	
+		<nav class="navbar navbar-expand-lg navbar-light bg-light pillmenu">
 		
-	 <form method="POST" action="index.php?page=search" class="navbar-form navbar-right">
 
-		<div class="form-group">
-    		<input type="text" name="recherche" value="recherche" class="form-control" 
-    		onclick="this.value = '';">
-       		<input type="submit" value="ok" class="btn btn-default">
-   		</div>
-	
-	 </form>
+
+                <div class="collapse navbar-collapse">
+                
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="index.php?page=blog"><?php echo PILLMENU_1 ?></span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="index.php?page=patro"><?php echo PILLMENU_2 ?></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="admin/index.php"><?php echo PILLMENU_3 ?></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="index.php?page=contact"><?php echo PILLMENU_4 ?></a>
+                    </li>
+                  </ul>
+                  
+                  <form class="form-inline my-2 my-lg-0" method="POST" action="index.php?page=search" >
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" name="recherche" value="recherche" onclick="this.value = '';">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit" value="ok">Ok</button>
+                  </form>
+                  
+                </div>
+		</nav>

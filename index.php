@@ -21,24 +21,29 @@ $InfoPage = PageTop($pdo);
 		<title><?php echo $InfoPage->titre(); ?></title>
 		<meta name="description" content="<?php echo $InfoPage->description; ?>">
 				
-		<!-- Bootstrap 4.0.0 (note perso: ne pas mettre à jour vers 4.X pour l'instant) -->
+		<!-- Bootstrap 4.1.1 -->
 		
-		<link href="css/bootstrap.css" rel="stylesheet">	
+		<link href="css/bootstrap.publiged.css" rel="stylesheet">	
+		<script src="js/bootstrap.min.js"></script>
+		
+		<!-- Font Awesome Free 5.0.7 -->
+		
     	<link href="css/fontawesome-all.css" rel="stylesheet">
+    	
+    	<!--  style perso -->
+    	
     	<link href="css/style.css" rel="stylesheet">	
     	   		
-    	<!-- Jquery 3.3.1 -->
+    	<!-- Jquery 3.2.1 -->
     	
     	<script src="js/jquery.min.js"></script>
-    	
-		<script src="js/bootstrap.min.js"></script>	
-		
+    			
         <!-- OpenStreetMap et Leaflet 1.3.1 -->
 		
         <link rel="stylesheet" href="js/leaflet/leaflet.css">
         <script type="text/javascript" src="js/leaflet/leaflet.js"></script>
         
-        <!-- TinyMCE 4.7.9 -->
+        <!-- TinyMCE 4.7.13 -->
         
         <script src="js/tinymce/tinymce.min.js"></script>
 
@@ -49,7 +54,7 @@ $InfoPage = PageTop($pdo);
                
                 /* ajouter une image
                 plugins: "image", */
-                /* par dÃ©faut */
+                /* par défaut */
                 
                
                 selector: 'textarea',
@@ -65,7 +70,7 @@ $InfoPage = PageTop($pdo);
 <div class="container">
 
  	<div class="row">
- 	
+ 		
  		<header class="col-md-12">
  		
  			<?php include('include/header.inc');?>
@@ -82,12 +87,8 @@ $InfoPage = PageTop($pdo);
 
  	<div class="row">
  					
- 		<nav class="col-md-12 navbar navbar-default">
- 		
  			<?php include ('include/pillmenu.inc'); ?>
  		 		
-		</nav> 
- 		
  	</div>
  	
     <div class="row">
@@ -95,9 +96,9 @@ $InfoPage = PageTop($pdo);
 		<div class="col-md-12">
 
 		<ol class="breadcrumb">
-  			<li><a href="index.php?page=blog" title="Accueil"><?php echo HERE;?></a></li>
-  			<li><a href="">XXXXXXXXX</a></li>
-  			<li class="active"><?php echo $InfoPage->titre; ?></li>
+  			<li class="breadcrumb-item"><a href="index.php?page=blog" title="Accueil"><?php echo HERE;?></a></li>
+  			<li class="breadcrumb-item"><a href="">XXXXXXXXX</a></li>
+  			<li class="breadcrumb-item active"><?php echo $InfoPage->titre; ?></li>
 		</ol>
 
 		</div>
