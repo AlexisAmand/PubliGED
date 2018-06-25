@@ -23,7 +23,7 @@ $InfoPage = PageTop($pdo);
 				
 		<!-- Bootstrap 4.1.1 -->
 		
-		<link href="css/bootstrap.publiged.css" rel="stylesheet">	
+		<link href="css/bootstrap.simplex.css" rel="stylesheet">	
 		<script src="js/bootstrap.min.js"></script>
 		
 		<!-- Font Awesome Free 5.0.7 -->
@@ -91,7 +91,7 @@ $InfoPage = PageTop($pdo);
  		 		
  	</div>
  	
-    <div class="row">
+    <div class="row" style="margin-top:10px;">
 
 		<div class="col-md-12">
 

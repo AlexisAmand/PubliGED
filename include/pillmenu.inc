@@ -21,7 +21,7 @@
                   
                   <form class="form-inline my-2 my-lg-0" method="POST" action="index.php?page=search" >
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" name="recherche" value="recherche" onclick="this.value = '';">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit" value="ok">Ok</button>
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit" value="ok"><i class="fas fa-search"></i></button>
                   </form>
                   
                 </div>

@@ -5,7 +5,7 @@ body
 	
 .breadcrumb 
 	{
-    background-color: #fff;
+    /* background-color: #fff;*/
     }
 
 .container
@@ -177,12 +177,13 @@ section h4
 
 header
 	{
-	/*
-	background-image:url('../img/fond3.jpg');
-	height:315px; 
+
+	background-image:url('../img/header.jpg');
+	/* height:315px; */
+	height:150px; 
 	background-repeat: no-repeat;
 	background-size:cover;
-	*/
+
 	}
 
 .pillmenu
