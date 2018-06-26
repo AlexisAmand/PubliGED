@@ -69,8 +69,16 @@ $InfoPage = PageTop($pdo);
 
 <div class="container">
 
+
  	<div class="row">
- 		
+ 					
+ 			<?php include ('include/pillmenu.inc'); ?>
+ 		 		
+ 	</div>
+
+
+ 	<div class="row">
+ 	
  		<header class="col-md-12">
  		
  			<?php include('include/header.inc');?>
@@ -79,17 +87,7 @@ $InfoPage = PageTop($pdo);
  		
  	</div>
 	
- 	<!-- div class="row">
 
-		<div class="col-sm-12" id="bandeau"></div>
-        
-	</div -->
-
- 	<div class="row">
- 					
- 			<?php include ('include/pillmenu.inc'); ?>
- 		 		
- 	</div>
  	
     <div class="row" style="margin-top:10px;">
 

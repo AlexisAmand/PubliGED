@@ -95,7 +95,7 @@ while ( $row = $req->fetch () )
 		
 	echo $data ['article'];
 	
-	echo "<div><a href='index.php?page=see_comments&id=".$data['ref']."'>[".SEECOMS."] (".$res_comms->rowCount ().")</a></div>";
+	echo "<div id='commentaires'><a href='index.php?page=see_comments&id=".$data['ref']."'>[".SEECOMS."] (".$res_comms->rowCount ().")</a></div>";
 	
 	}
 	

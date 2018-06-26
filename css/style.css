@@ -178,11 +178,11 @@ section h4
 header
 	{
 
-	background-image:url('../img/header.jpg');
+	background-image:url('../img/fond.jpg');
 	/* height:315px; */
 	height:150px; 
-	background-repeat: no-repeat;
-	background-size:cover;
+	/* background-repeat: no-repeat; */
+	/* background-size:cover; */
 
 	}
 
@@ -195,4 +195,14 @@ a
 	{
 	color: #425158;
 	}	
+	
+/* --------------------- */
+/* Ajout du 26 juin 2018 */
+/* --------------------- */
+
+#commentaires
+	{
+	margin-bottom: 35px;
+	margin-top: 35px;
+	}
 	

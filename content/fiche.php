@@ -128,7 +128,7 @@ while ( $date_event = $req_event->fetch () )
     $event[$i]->note = $date_event['note']; 
     $event[$i]->source = $date_event['source']; 
     $event[$i]->evenement = $date_event['evenement']; 
-    $event[$i]->lieu = $date_event['lieu']; 
+    $event[$i]->lieu = $date_event['lieu'];
     
     $i++;
     $max = $i;

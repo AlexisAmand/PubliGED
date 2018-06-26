@@ -135,14 +135,10 @@ while ( ! feof ( $gedcom ) )
 	/* avec gramps */
 	// $ligne = iconv("UTF-8","WINDOWS-1252", $ligne);
 	
-	
+
 	/* -------------- */
 	/* Head du gedcom */
 	/* -------------- */
-	
-	
-	
-	
 	
 	if (preg_match("/2 NAME/", $ligne) and ($nb_individu == 0))
 	{
