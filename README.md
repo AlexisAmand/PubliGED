@@ -15,7 +15,7 @@ Environement de développement
 - MySQL 5.6.17
 - phpMyAdmin 4.7.5
 - Windows 7
-- Eclipse Oxygen.1a Release (4.7.1a)
+- Eclipse Oxygen.3a Release (4.7.3a)
 
 Langages utilisés
 -----------------
