@@ -34,9 +34,9 @@ $InfoPage = PageTop($pdo);
     	
     	<link href="css/style.css" rel="stylesheet">	
     	   		
-    	<!-- Jquery 3.2.1 -->
+    	<!-- Jquery 3.3.1 -->
     	
-    	<script src="js/jquery.min.js"></script>
+    	<script src="js/jquery-3.3.1.min.js"></script>
     			
         <!-- OpenStreetMap et Leaflet 1.3.1 -->
 		
