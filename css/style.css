@@ -1,23 +1,3 @@
-body 
-	{
-	/* background-color: #f0f0f0; */
-	}
-	
-.breadcrumb 
-	{
-    /* background-color: #fff;*/
-    }
-
-.container
-	{
-	/*
-	background-color:#f9f9f9;
-	-moz-box-shadow: 4px 4px 10px #888;  
-    -webkit-box-shadow: 4px 4px 10px #888;  
-    box-shadow:4px 4px 6px #888;
-    */
-	}
-		
 .stats
 	   {
 	   border:0px solid red;
@@ -42,11 +22,6 @@ footer
 	border: 1px solid #e7e7e7;	
 	}
 	
-aside
-	{
-	
-	}	
-
 .alpha {		
 	text-align: center;		
 	margin-bottom: 20px;		
@@ -89,42 +64,15 @@ aside
 /* Ajout pour les tests de charte graphique */
 /* ---------------------------------------- */
 
-header {
-	
+header 
+	{
 	color: #827c7e;
-	/* color:#FFF; */
-
-}
-
-.panel-heading
-{
-/*	background-image:url('../img/fond.jpg');	*/
-}
-
-.panel-heading strong
-{
-/*	color:#f9f9f9;	*/
-}
+	}
 
 .navbar-default
-{
-/* background-color: #f8f8f8;
-border-color: #e7e7e7; */
-margin-top: 0px;
-}		
-
-.navbar {
-    
-}
-
-/*
-#bandeau {
-	
- background-image:url('/PubliGED/img/fond.jpg');height:319px;
-	
-}
-*/
-
+	{
+	margin-top: 0px;
+	}		
 
 /* --------------------- */
 /* Ajout du 12 mars 2018 */ 
@@ -145,31 +93,25 @@ section h4
 	margin-bottom: 15px;	
 	}
 	
-.TreeCase {
+.TreeCase 
+	{
 	border: 1px solid #ddd;
-	/*
-	width: 100px;
-	*/
 	width:10%;
 	height: 60px;
-	
-	/* background-color: #dacfb7; */
-}
+	}
 
-
-#Tree {
+#Tree
+	{
 	border-collapse: collapse;
 	text-align: center;
 	font-size: 12px;
-	/*
-	width: 700px;
-	*/
 	width:100%;
-}
+	}
 
-#Tree td {
+#Tree td 
+	{
 	height: 30px;
-}
+	}
 		
 /* --------------------- */
 /* Ajout du 20 juin 2018 */ 
@@ -177,13 +119,8 @@ section h4
 
 header
 	{
-
 	background-image:url('../img/fond.jpg');
-	/* height:315px; */
 	height:150px; 
-	/* background-repeat: no-repeat; */
-	/* background-size:cover; */
-
 	}
 
 .pillmenu
