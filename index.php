@@ -26,9 +26,9 @@ $InfoPage = PageTop($pdo);
 		<link href="css/bootstrap.simplex.css" rel="stylesheet">	
 		<script src="js/bootstrap.min.js"></script>
 		
-		<!-- Font Awesome Free 5.0.7 -->
+		<!-- Font Awesome Free 5.1 -->
 		
-    	<link href="css/fontawesome-all.css" rel="stylesheet">
+    	<link href="css/fontawesome/css/all.css" rel="stylesheet">
     	
     	<!--  style perso -->
     	
