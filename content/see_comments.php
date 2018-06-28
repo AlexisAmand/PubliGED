@@ -23,6 +23,7 @@ if (!empty($_POST['pseudo']) and !empty($_POST['email']) /* and !empty($_POST['s
 	$res->bindparam(':contenu', $commentaire->contenu, PDO::PARAM_STR);
 	$res->bindparam(':today', $commentaire->today, PDO::PARAM_STR);
 	$res->execute ();
+	
 	}
 
 /* L'article */

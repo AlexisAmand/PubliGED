@@ -119,7 +119,7 @@ section h4
 
 header
 	{
-	background-image:url('../img/fond.jpg');
+	background-image:url('../img/fond04.jpg');
 	height:150px; 
 	}
 
@@ -142,4 +142,20 @@ a
 	margin-bottom: 35px;
 	margin-top: 35px;
 	}
+	
+/* --------------------- */
+/* Ajout du 26 juin 2018 */
+/* --------------------- */
+
+.hgroup a, .hgroup p
+	{
+	color: #FFFFFF;
+	}
+	
+.card-header
+	{
+	background-image: url('../img/left.jpg');
+	background-repeat:no-repeat;
+	}
+
 	

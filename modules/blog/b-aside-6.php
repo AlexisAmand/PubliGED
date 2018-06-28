@@ -1,3 +1,6 @@
+<!-- MODULE QUI AFFICHE UN BLOGROLL -->
+<!-- (non actif pour le moment) -->
+
 <h4><?php echo ASIDE_BLOG_6 ?></h4>
 
 <?php

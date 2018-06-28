@@ -11,10 +11,10 @@ define("SITE_SLOGAN", "Site de demonstration du projet");
 /* PILLMENU  */
 /* --------- */
 
-define("PILLMENU_1","Accueil");
+define("PILLMENU_1","Mon blog");
 define("PILLMENU_2","Ma généalogie");
 define("PILLMENU_3","Administration");
-define("PILLMENU_4","Contact");
+define("PILLMENU_4","Me contacter");
 
 /* -------------- */
 /*  FIL D'ARIANE  */

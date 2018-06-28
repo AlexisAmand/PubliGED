@@ -23,16 +23,16 @@ $InfoPage = PageTop($pdo);
 				
 		<!-- Bootstrap 4.1.1 -->
 		
-		<link href="css/bootstrap.simplex.css" rel="stylesheet">	
-		<script src="js/bootstrap.min.js"></script>
+		<link href="style/bootstrap/css/bootstrap.simplex.css" rel="stylesheet">	
+		<script src="style/bootstrap/js/bootstrap.min.js"></script>
 		
 		<!-- Font Awesome Free 5.1 -->
 		
-    	<link href="css/fontawesome/css/all.css" rel="stylesheet">
+    	<link href="style/fontawesome/css/all.css" rel="stylesheet">
     	
     	<!--  style perso -->
     	
-    	<link href="css/style.css" rel="stylesheet">	
+    	<link href="style/style.css" rel="stylesheet">	
     	   		
     	<!-- Jquery 3.3.1 -->
     	
@@ -41,7 +41,7 @@ $InfoPage = PageTop($pdo);
         <!-- OpenStreetMap et Leaflet 1.3.1 -->
 		
         <link rel="stylesheet" href="js/leaflet/leaflet.css">
-        <script type="text/javascript" src="js/leaflet/leaflet.js"></script>
+        <script src="js/leaflet/leaflet.js"></script>
         
         <!-- TinyMCE 4.7.13 -->
         
@@ -49,14 +49,7 @@ $InfoPage = PageTop($pdo);
 
         <script>
             tinymce.init({
-                /* ajouter un tableau dans tinymce */
-                /*plugins: "table", */
-               
-                /* ajouter une image
-                plugins: "image", */
-                /* par défaut */
-                
-               
+
                 selector: 'textarea',
                 menubar:false,
                 language: "fr_FR",
@@ -69,13 +62,11 @@ $InfoPage = PageTop($pdo);
 
 <div class="container">
 
-
  	<div class="row">
  					
  			<?php include ('include/pillmenu.inc'); ?>
  		 		
  	</div>
-
 
  	<div class="row">
  	
@@ -86,9 +77,7 @@ $InfoPage = PageTop($pdo);
  		</header>
  		
  	</div>
-	
-
- 	
+	 	
     <div class="row" style="margin-top:10px;">
 
 		<div class="col-md-12">

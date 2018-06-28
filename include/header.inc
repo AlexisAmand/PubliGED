@@ -1,4 +1,4 @@
-<hgroup>					
-	<h1 class="text-center"><?php echo SITE_TITLE ?></h1>
-	<p class="text-center"><?php echo SITE_SLOGAN ?></p>
-</hgroup>                     
+<div class="hgroup text-center">					
+	<h1><a href="index.php?page=blog"><?php echo SITE_TITLE ?></a></h1>
+	<p><?php echo SITE_SLOGAN ?></p>
+</div>                 
