@@ -44,7 +44,7 @@
 	    while( $row = $stmt->fetch(PDO::FETCH_ASSOC ))
 	    {
 	        echo "<tr>";
-	        echo "<td><a href='index.php?page=sources&?ids=".$row['ref']."'>".$row['ref']."</a></td>";
+	        echo "<td><a href='index.php?page=sources&ids=".$row['ref']."'>".$row['ref']."</a></td>";
 	        echo "<td>".$row['titre']."</td>";
 	        echo "<td>".$row['nom']."</td>";
 	        echo "<td>".$row['source']."</td>";
