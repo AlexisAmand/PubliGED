@@ -33,6 +33,7 @@ $InfoPage = PageTop($pdo);
     	<!--  style perso -->
     	
     	<link href="style/style.css" rel="stylesheet">	
+    	<link rel="icon" type="image/gif" href="img/icon.jpg" />
     	   		
     	<!-- Jquery 3.3.1 -->
     	
