@@ -1,5 +1,7 @@
 <?php
 
+
+
 /* FLUX RSS */
 
 if (file_exists ( "content/rss.xml" )) 
@@ -85,7 +87,7 @@ while ( $row = $req->fetch () )
 	
 	echo "<p>";
 	
-	echo "<a href='pdf.php?page=blog&ref=".$data['ref']."'><i class='far fa-file-pdf fa-2x'></i></a>&nbsp;&nbsp;";
+	echo "<a href='pdf.php?id=".$data['ref']."'><i class='far fa-file-pdf fa-2x'></i></a>&nbsp;&nbsp;";
 	echo "<a href='index.php?page=todo'><i class='fas fa-print fa-2x'></i></a>&nbsp;&nbsp;";
 	echo "<a href='index.php?page=todo'><i class='fas fa-envelope-square fa-2x'></i></a>&nbsp;&nbsp;";
 	
@@ -97,6 +99,5 @@ while ( $row = $req->fetch () )
 	
 	echo "<div id='commentaires'><a href='index.php?page=see_comments&id=".$data['ref']."'>[".SEECOMS."] (".$res_comms->rowCount ().")</a></div>";
 	
-	}
-	
+   }
 	?>    
