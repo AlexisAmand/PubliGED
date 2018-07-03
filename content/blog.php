@@ -88,8 +88,8 @@ while ( $row = $req->fetch () )
 	echo "<p>";
 	
 	echo "<a href='pdf.php?id=".$data['ref']."'><i class='far fa-file-pdf fa-2x'></i></a>&nbsp;&nbsp;";
-	echo "<a href='index.php?page=todo'><i class='fas fa-print fa-2x'></i></a>&nbsp;&nbsp;";
-	echo "<a href='print.php?id=".$data['ref']."'><i class='fas fa-envelope-square fa-2x'></i></a>&nbsp;&nbsp;";
+	echo "<a href='print.php?id=".$data['ref']."'><i class='fas fa-print fa-2x'></i></a>&nbsp;&nbsp;";
+	echo "<a href='#'><i class='fas fa-envelope-square fa-2x'></i></a>&nbsp;&nbsp;";
 	
 	echo "</p>";
 	
