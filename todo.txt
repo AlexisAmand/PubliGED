@@ -1,0 +1,39 @@
+---------
+PB DIVERS
+---------
+
+Il faut prévoir un msg à afficher sur les pages si il n'y a pas encore de gedcom d'importé
+
+Ordre du truncate
+
+    //   1) table famille
+    //   2) table événement
+    //   3) table lieux
+    //   4) table sources
+
+string iconv ( string $in_charset , string $out_charset , string $str )
+CHAR {character} : indique le jeu de caractères utilisé pour l’enregistrement des informations dans le fichier.
+
+il faudra voir pour prendre en compte :
+CONT {continued} : indicateur de continuation des informations qui précédent, après un retour à la ligne.
+
+- depuis le début de la mise en place des clés étrangéres, le script qui vide les tables ne fonctionnent plus. Il faudra trouver le bon ordre ^^
+
+- il y a un grooos soucis avec les créations d'objet "$individu = new individu ();", il en manque.
+
+-----
+ADMIN
+-----
+
+- choix du nombre de "derniers articles" dans le module du blog
+- nombre d'article par page sur le blog
+- une case à cocher desactive le blog si on a en pas besoin
+- lié un article du blog à un individu de la base de données
+
+-----
+GENEA
+-----
+
+- centrage si la personne n'a pas d'ancêtres en France 
+- il y a toujours un soucis avec la localisation des villes de belgique. Il faudrait trouver une table comme celle de data.gouv.fr
+- Liste des individus : si aucun nom commençant par une lettre, il faut que la lettre de soit pas cliquable. Par contre, les lettres cliquables doit être mise en valeur.

@@ -2,6 +2,6 @@
 <channel>
 <title>Flux RSS du site</title>
 <description>Description du flux RSS du site</description>
-<lastBuildDate>Tue, 03 Jul 2018 14:22:04 +0000</lastBuildDate>
+<lastBuildDate>Tue, 03 Jul 2018 14:54:37 +0000</lastBuildDate>
 <link>http://127.0.0.1/PubliGED/</link>
 <item><title>Lorem ipsum</title><description>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ip...</description><pubDate>Tue, 04 Oct 2016 00:00:00 +0000</pubDate><link>http://127.0.0.1/PubliGED/index.php?page=article&id=1</link></item><item><title>Lorem ipsum again !</title><description>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ip...</description><pubDate>Tue, 11 Oct 2016 00:00:00 +0000</pubDate><link>http://127.0.0.1/PubliGED/index.php?page=article&id=2</link></item><item><title>What else ?</title><description>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ip...</description><pubDate>Thu, 29 Sep 2016 00:00:00 +0000</pubDate><link>http://127.0.0.1/PubliGED/index.php?page=article&id=3</link></item><item><title>Et voila voilou</title><description><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque...</description><pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate><link>http://127.0.0.1/PubliGED/index.php?page=article&id=8</link></item></channel></rss>
