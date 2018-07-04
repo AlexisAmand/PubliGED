@@ -81,6 +81,7 @@ include ('../langues/fr.php');
 	    *  quand la connexion à l'admin sera ok
 	    *  il faudra récupérer le n° de l'auteur
 	    */
+	   
 	   $auteur = "1";
 	   																
        $sqlAjoutArticle = "INSERT INTO articles(titre, article, auteur, date, id_cat) values (:p1, :p2, :p3, :p4, :p5)";

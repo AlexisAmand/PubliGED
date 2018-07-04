@@ -32,21 +32,32 @@ $id_article = $_GET['id'];
 	
 $resultat = $pdo2->query ("SELECT * FROM articles WHERE ref='$id_article'");
 	
-while ( $data = $resultat->fetch () )
-    {
-	$article = new articles();
+	while ( $data = $resultat->fetch () )
+	    {
+		$article = new articles();
+				
+		$article->ref = $data['ref'];
+		$article->auteur = $data['auteur'];
+		$article->titre = $data['titre'];
+		$article->date = $data['date'];
+		$article->categorie = $data['id_cat'];
+		$article->contenu = $data['article'];		
+		}
 			
-	$article->ref = $data['ref'];
-	$article->auteur = $data['auteur'];
-	$article->titre = $data['titre'];
-	$article->date = $data['date'];
-	$article->categorie = $data['id_cat'];
-	$article->contenu = $data['article'];		
-	}
-			
-/* vue de l'article avec ses commentaires */
+	/* vue de l'article avec ses commentaires */
+		
+	?>
 
-	echo "<h3><a href='index.php?page=see_comments&id=".$article->ref."'>" . html_entity_decode ($article->titre) . "</a></h3>";
+	<div class="row">
+		<div class="col-md-12">
+			<?php echo "<h3><a href='index.php?page=see_comments&id=".$article->ref."'>" . html_entity_decode ($article->titre) . "</a></h3>"; ?>
+		</div>	
+	</div>
+	
+	<div class="row">
+		<div class="col-md-8">
+		
+	<?php 	
 	
 	/* Auteur de l'article */
 	
@@ -76,6 +87,13 @@ while ( $data = $resultat->fetch () )
 			
 	echo "<a href='index.php?page=categories&id=".$article->categorie."'>".get_category_name ( $pdo2, $article->categorie)."</a>";
 		
+	?>
+
+		</div>	
+		<div class="col-md-2 offset-md-2">
+	
+	<?php
+	
 	/* affichage des boutons d'export : pdf, mail, print */
 	
 	echo "<p>";
@@ -86,21 +104,31 @@ while ( $data = $resultat->fetch () )
 	
 	echo "</p>";
 	
+	?>
+
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+		
+	<?php 
+	
 	/* Contenu de l'article */
 		
 	echo "<p>".$article->contenu."</p>";		
 				
 	$next_article = $id_article + 1;
 	$prev_article = $id_article - 1; 
-	
-?>
+		
+	?>
 
-<ul class="pager">
+<ul class="pagination">
 	
 <?php 
 if ($id_article > 1)
     {
-	echo '<li><a href="index.php?page=see_comments&id='.$prev_article.'">< article précédent</a></li>';
+	echo '<li class="page-item"><a class="page-link" href="index.php?page=see_comments&id='.$prev_article.'">< article précédent</a></li>';
 	}
 	   
 $next_req = $pdo2->prepare('SELECT * FROM articles');
@@ -108,12 +136,15 @@ $next_req->execute();
 	
 if ($id_article < $next_req->RowCount())
     {
-	echo '<li><a href="index.php?page=see_comments&id='.$next_article.'">article suivant ></a></li>';
+	echo '<li class="page-item"><a class="page-link"  href="index.php?page=see_comments&id='.$next_article.'">article suivant ></a></li>';
 	}
 ?>
 	
 </ul>
 
+	</div>
+	</div>
+	
 <div class="col-md-12">
 
 <?php

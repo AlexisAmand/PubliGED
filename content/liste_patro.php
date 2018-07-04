@@ -105,7 +105,7 @@
 				{ 
 				if (($page==$i))
 				 {
-				 echo "<li class='disabled page-item'><a class='page-link' href='?page=liste_patro&nom=AMAND&id=" . $i . "&nom=".htmlspecialchars ( $_GET ["nom"] )."'>" . $i . "</a></li>";
+				 echo "<li class='page-item'><a class='page-link' href='?page=liste_patro&nom=AMAND&id=" . $i . "&nom=".htmlspecialchars ( $_GET ["nom"] )."'>" . $i . "</a></li>";
 				 }
 				else    
 				 {
@@ -121,4 +121,3 @@
 		echo NO_GEDCOM;
 		}
 	?>
-

@@ -56,8 +56,21 @@ while ( $row = $req->fetch () )
 	$res_comms = $pdo2->prepare ($req_comms);
 	$res_comms->execute ();
 	
-	echo "<h3><a href='index.php?page=see_comments&id=".$data['ref']."'>" . html_entity_decode ( $data ['titre'] ) . "</a></h3>";
+	?>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<?php echo "<h3><a href='index.php?page=see_comments&id=".$data['ref']."'>" . html_entity_decode ( $data ['titre'] ) . "</a></h3>"; ?>
+		</div>	
+	</div>
+	
+	<div class="row">
+		<div class="col-md-8">
 		
+	<?php 	
+	
+	/* Auteur de l'article */
+	
 	echo "<p>" . AUTHOR;
 	
 	$res_membres = $pdo2->prepare ("select * from membres where id=:id");
@@ -81,7 +94,14 @@ while ( $row = $req->fetch () )
 	echo RUBRIC;
 	
 	echo "<a href='index.php?page=categories&id=".$data ['id_cat']."'>".get_category_name ( $pdo2, $data ['id_cat'] )."</a>";
-	echo "</p>";
+
+	
+	?>
+
+		</div>	
+		<div class="col-md-2 offset-md-2">
+	
+	<?php
 	
 	/* affichage des boutons d'export : pdf, mail, print */
 	
@@ -93,6 +113,18 @@ while ( $row = $req->fetch () )
 	
 	echo "</p>";
 	
+	?>
+
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+		
+	<?php 
+		
+	
+	
 	/* Contenu de l'article */
 		
 	echo $data ['article'];
@@ -100,4 +132,7 @@ while ( $row = $req->fetch () )
 	echo "<div id='commentaires'><a href='index.php?page=see_comments&id=".$data['ref']."'>[".SEECOMS."] (".$res_comms->rowCount ().")</a></div>";
 	
    }
-	?>    
+	?>  
+	  
+		</div>
+	</div>

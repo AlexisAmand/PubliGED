@@ -5,5 +5,3 @@
  * selon le cas, il faudra inclure le fichier qui correspond
  *
  */
-
-include ('langues/fr.php');

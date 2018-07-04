@@ -5,8 +5,24 @@
     $req = $pdo2->query ( "SELECT * FROM articles WHERE id_cat = '" . $_GET ['id'] . "' ORDER BY date DESC" );
     
 	while ( $row = $req->fetch () ) {
-	    echo "<h3><a href='index.php?page=see_comments&id=".$row['ref']."'>" . html_entity_decode ( $row ['titre'] ) . "</a></h3>";
-	    
+		
+		$req_comms = "select * from commentaires where id_article='{$row['ref']}'";
+		$res_comms = $pdo2->prepare ($req_comms);
+		$res_comms->execute ();
+		
+		?>
+	
+		<div class="row">
+			<div class="col-md-12">
+				<?php echo "<h3><a href='index.php?page=see_comments&id=".$row['ref']."'>" . html_entity_decode ( $row ['titre'] ) . "</a></h3>"; ?>
+			</div>
+		</div>
+				
+		<div class="row">
+			<div class="col-md-8">
+		
+		<?php 
+				
 	    /* Auteur de l'article */
 	    
 		echo "<p>".AUTHOR;
@@ -36,6 +52,13 @@
 		echo "<a href='index.php?page=categories&id=".$row ['id_cat']."'>".get_category_name ( $pdo2, $row  ['id_cat'] )."</a>";
 		echo "</p>";
 		
+		?>
+
+			</div>	
+			<div class="col-md-2 offset-md-2">
+	
+		<?php
+		
 		/* affichage des boutons d'export : pdf, mail, print */
 		
 		echo "<p>";
@@ -46,9 +69,25 @@
 		
 		echo "</p>";
 		
+		?>
+
+			</div>
+		</div>
+	
+		<div class="row">
+			<div class="col-md-12">
+		
+		<?php 
+		
 		/* Contenu de l'article */
 		
 		echo $row ['article'];
+		
+		echo "<div id='commentaires'><a href='index.php?page=see_comments&id=".$row['ref']."'>[".SEECOMS."] (".$res_comms->rowCount ().")</a></div>";
+		
 	}
 	
 	?>
+	
+		</div>
+	</div>
