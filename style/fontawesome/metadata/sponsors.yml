@@ -68,6 +68,11 @@ bity:
     - bity
   label: Bity
   url: 'http://bity.com'
+blackpulp-designs:
+  icons:
+    - pray
+  label: Blackpulp Designs
+  url: 'https://www.blackpulp.com'
 blissbook:
   icons:
     - pen-fancy
@@ -239,6 +244,7 @@ hire-a-helper:
     - couch
     - dolly
     - people-carry
+    - route
     - sign
     - suitcase
     - tape
@@ -334,6 +340,12 @@ nimblr:
     - nimblr
   label: Nimblr
   url: 'https://nimblr.ai'
+nompse:
+  icons:
+    - chalkboard
+    - chalkboard-teacher
+  label: Nomp.se
+  url: 'https://nomp.se'
 ns8:
   icons:
     - ns8
@@ -398,6 +410,11 @@ resolving:
     - resolving
   label: Resolving
   url: 'https://resolving.com'
+rev-io:
+  icons:
+    - rev
+  label: Rev.io
+  url: 'https://rev.io'
 rock-rms:
   icons:
     - rockrms
@@ -422,6 +439,11 @@ rocket-chat:
     - video-slash
   label: Rocket.Chat
   url: 'https://rocket.chat'
+rodney-oliver:
+  icons:
+    - folder-minus
+    - folder-plus
+  label: Rodney Oliver
 schlix:
   icons:
     - schlix
@@ -437,6 +459,11 @@ service-stack:
     - servicestack
   label: ServiceStack
   url: 'https://servicestack.net'
+shawn-storie:
+  icons:
+    - teeth
+    - teeth-open
+  label: Shawn Storie
 shopware:
   icons:
     - shopware
@@ -493,9 +520,26 @@ studio-vinari:
   url: 'https://studiovinari.com'
 supple:
   icons:
+    - ad
+    - bullhorn
+    - bullseye
+    - comment-dollar
+    - comments-dollar
+    - envelope-open-text
+    - funnel-dollar
+    - mail-bulk
+    - poll
+    - poll-h
+    - search-dollar
+    - search-location
     - supple
   label: Supple
   url: 'https://supple.com.au'
+the-red-yeti:
+  icons:
+    - the-red-yeti
+  label: The Red Yeti
+  url: 'http://theredyeti.com'
 the-us-sunnah-foundation:
   icons:
     - dollar-sign
@@ -540,6 +584,13 @@ vaadin:
     - vaadin
   label: Vaadin
   url: 'http://vaadin.com'
+via:
+  icons:
+    - car-crash
+    - draw-polygon
+    - layer-group
+  label: VIA Traffic Software Solutions
+  url: 'https://www.via.software'
 vnv:
   icons:
     - vnv

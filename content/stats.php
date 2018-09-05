@@ -91,10 +91,7 @@
 		$EnfantCouple = $TotalEnfant / $TotalCouple;
 		
 		?>
-		
-		
-		
-		
+				
 		<table class='table table-bordered'>
 		    <tr>
 				<td><?php echo NB_MAN; ?></td>
@@ -145,22 +142,25 @@
 				<td><?php echo "<a href='index.php?page=lieux'>".$TotalLieu."</a>"; ?></td>
 			</tr>
 			<tr>
-				<td>Individu le plus vieux</td>
+				<td><?php echo NB_OLD; ?></td>
 				<td><?php echo "<a href='#'>TODO</a>"; ?></td>
 			</tr>
 			<tr>
-				<td>Le plus grand nombre d'enfants</td>
+				<td><?php echo NB_CHILD_R; ?></td>
 				<td><?php echo "<a href='#'>TODO</a>"; ?></td>
 			</tr>
 			<tr>
-				<td>Le plus grand nombre de mariages</td>
+				<td><?php echo NB_UNION_R; ?></td>
+				<td><?php echo "<a href='#'>TODO</a>"; ?></td>
+			</tr>
+			<tr>
+				<td><?php echo NB_UNION; ?></td>
 				<td><?php echo "<a href='#'>".$TotalCouple ."</a>"; ?></td>
 			</tr>
 			<tr>
-				<td>Nombre de couples</td>
-				<td><?php echo "<a href='#'>".$TotalCouple ."</a>"; ?></td>
+				<td><?php echo NB_OLD_R; ?></td>
+				<td><?php echo "<a href='#'>TODO</a>"; ?></td>
 			</tr>
-	
 		</table>
 		
 	<div class="stats" style="float:left;">

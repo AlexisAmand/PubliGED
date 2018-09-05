@@ -309,6 +309,11 @@ define("NB_SOSA","Nombre d'ancêtres");
 define("NB_CHILD","Nombre d'enfants par union");
 define("NB_FAM","Nombre de familles");
 define("NB_PLACE","Nombre de lieux");
+define("NB_OLD","Individu le plus vieux");
+define("NB_CHILD_R","Le plus grand nombre d'enfants");
+define("NB_UNION_R","Le plus grand nombre de mariages");
+define("NB_UNION","Nombre de couples");
+define("NB_OLD_R","Records de longivité");
 
 /* ---------- */
 /* EVENEMENTS */

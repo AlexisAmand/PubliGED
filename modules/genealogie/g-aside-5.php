@@ -1,3 +1,5 @@
+<!-- GENEALOGIE - MODULE DES EVENEMENTS -->
+
 <div class="card bg-light border-secondary mb-3">
 	<div class="card-header"><?php echo ASIDE_5 ?></div>
 	<ul class="list-group">

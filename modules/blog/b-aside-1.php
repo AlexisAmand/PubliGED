@@ -1,4 +1,4 @@
-<!-- MODULE QUI UN MENU -->
+<!-- MODULE QUI AFFICHE UN MENU -->
 <!-- (non actif pour le moment) -->
 
 <div class="card bg-light border-secondary mb-3">

@@ -1,3 +1,5 @@
+<!-- GENEALOGIE - MODULE DES STATS -->
+
 <div class="card bg-light border-secondary mb-3">
 	<div class="card-header"><?php echo ASIDE_2 ?></div>
 	<ul class="list-group">

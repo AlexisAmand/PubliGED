@@ -19,12 +19,12 @@ include ('class/class.php');
 		<title>Export d'un article au format pdf</title>
 		<meta name="description" content=" ">
 				
-		<!-- Bootstrap 4.1.1 -->
+		<!-- Bootstrap 4.1.3 -->
 		
-		<link href="style/bootstrap/css/bootstrap.simplex.css" rel="stylesheet">	
+		<link href="style/bootstrap/css/bootstrap.perso.css" rel="stylesheet">	
 		<script src="style/bootstrap/js/bootstrap.min.js"></script>
 		
-		<!-- Font Awesome Free 5.1 -->
+		<!-- Font Awesome Free 5.3.1 -->
 		
     	<link href="style/fontawesome/css/all.css" rel="stylesheet">
     	
