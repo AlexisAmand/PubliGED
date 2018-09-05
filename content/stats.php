@@ -92,6 +92,9 @@
 		
 		?>
 		
+		
+		
+		
 		<table class='table table-bordered'>
 		    <tr>
 				<td><?php echo NB_MAN; ?></td>
@@ -140,6 +143,22 @@
 			<tr>
 				<td><?php echo NB_PLACE; ?></td>
 				<td><?php echo "<a href='index.php?page=lieux'>".$TotalLieu."</a>"; ?></td>
+			</tr>
+			<tr>
+				<td>Individu le plus vieux</td>
+				<td><?php echo "<a href='#'>TODO</a>"; ?></td>
+			</tr>
+			<tr>
+				<td>Le plus grand nombre d'enfants</td>
+				<td><?php echo "<a href='#'>TODO</a>"; ?></td>
+			</tr>
+			<tr>
+				<td>Le plus grand nombre de mariages</td>
+				<td><?php echo "<a href='#'>".$TotalCouple ."</a>"; ?></td>
+			</tr>
+			<tr>
+				<td>Nombre de couples</td>
+				<td><?php echo "<a href='#'>".$TotalCouple ."</a>"; ?></td>
 			</tr>
 	
 		</table>

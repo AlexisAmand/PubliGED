@@ -39,6 +39,11 @@
                 menubar:false,
                 language: "fr_FR",
             });
+
+            $("#pop").on("click", function() {
+            	   $(this).modal();
+            	});
+            
         </script>
         		
 	</head>
@@ -50,8 +55,10 @@
  	<div class="row">
  	
  		<header class="col-md-12">
- 		
+ 			
+ 			<a href="../img/homme.png" id="pop">
  			<img src="../img/homme.png">
+ 			</a>
  						
  		</header>
  		

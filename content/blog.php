@@ -94,7 +94,6 @@ while ( $row = $req->fetch () )
 	echo RUBRIC;
 	
 	echo "<a href='index.php?page=categories&id=".$data ['id_cat']."'>".get_category_name ( $pdo2, $data ['id_cat'] )."</a>";
-
 	
 	?>
 
@@ -122,16 +121,15 @@ while ( $row = $req->fetch () )
 		<div class="col-md-12">
 		
 	<?php 
-		
-	
-	
+			
 	/* Contenu de l'article */
 		
 	echo $data ['article'];
 	
 	echo "<div id='commentaires'><a href='index.php?page=see_comments&id=".$data['ref']."'>[".SEECOMS."] (".$res_comms->rowCount ().")</a></div>";
 	
-   }
+    }
+    
 	?>  
 	  
 		</div>
