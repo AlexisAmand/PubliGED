@@ -10,6 +10,9 @@ include ('class/class.php');
 */
 /* librairie mpdf version 7 */
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 require_once 'vendor/autoload.php';
 		
 $filename = "DocPourEssayer.pdf";
@@ -23,7 +26,6 @@ try
 			{
 				unlink($filename);
 			}
-		
 		
 		/* Génération du pdf de l'article */
 		
@@ -41,20 +43,41 @@ try
 			$mpdf->Output($filename);
 		}
 		
-		/* envoi du pdf par mail */
+		/* envoi du pdf par mail avec PHPMailer */
 		
+		$mail = new PHPMailer();
+		
+		/* TODO : Serveur SMTP */
+		 
+		$mail->SMTPDebug = 2;                                 
+		$mail->isSMTP();                                      
+		$mail->Host = 'smtp.gmail.com';  
+		$mail->SMTPAuth = true;                               
+		$mail->Username = 'alexis.amand@gmail.com';                 
+		$mail->Password = '66R4HBBH';                           
+		$mail->SMTPSecure = 'tls';                            
+		$mail->Port = 587;                                    
+		
+		/* Expéditeur */
+		
+		$mail->SetFrom('alexis.amand@gmail.com', 'Expéditeur');
+		
+		/* Destinataire */
+		
+		$mail->AddAddress('alexis.amand@gmail.com');
+		
+		/* Contenu */
+		
+		$mail->IsHTML(true);	
+		$mail->CharSet = "utf-8";			
+		$mail->Subject = 'Essai pour publiGED';
+		$mail->Body = '<p><b>E-Mail</b> au format <i>HTML</i>.</p>';
+		$mail->AddAttachment('./'.$filename);
 			
-		$dest = "cible@mail.com";
-		$objet = "sujet du message";
-		$message ="Plop ! C'est un pdf super cool";
+		/* envoi */
 		
-		$entetes = "From: Alex";
-		$entetes .= "MIME-Version 1.0\r\n";
-		$entetes .= "Content-Type:text/html; charset=utf-8\r\n";
-		$entetes .= "Content-Transfert-Encoding:8 bit\r\n";
-		
-		$mail = mail($dest, $objet, $message, $entetes);
-						
+		$mail->Send();
+												
 	}
 catch (Exception $e)
 	{
