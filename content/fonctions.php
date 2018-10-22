@@ -1,5 +1,13 @@
 <?php
 
+/* un article est généré sour la forme d'un pdf qui est enregitré */
+
+function GenerationPDF($pdo3, $art)
+	{
+
+	
+	}
+
 /* fonction qui vérifie si un gedcom a été envoyé */
 /* Si aucun gedcom n'a été envoyé, elle affiche un message */
 

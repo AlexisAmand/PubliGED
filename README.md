@@ -9,13 +9,13 @@ PubliGED a deux grandes fonctionnalités :
 Environement de développement
 -----------------------------
 
-- Wampserver 3.0.6 64 bits
+- Wampserver 3.1.0 64 bits
 - Apache 2.4.23
-- PHP 5.6.25
+- PHP 7.0.10
 - MySQL 5.6.17
 - phpMyAdmin 4.7.5
 - Windows 7
-- Eclipse Oxygen.3a Release (4.7.3a)
+- Eclipse Photon Release (4.8.0)
 
 Langages utilisés
 -----------------

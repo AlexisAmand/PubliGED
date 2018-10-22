@@ -5,16 +5,14 @@ class pages
     public $nom;
     public $titre;
     public $description;
-    
-    
+       
     public function AfficherContenu($pdo2)
         {
         include('content/'.$this->nom.'.php');
         }
     
     public function AfficherAside($pdo2)
-        {
-        
+        {       
         $rubrique = array("blog", "article", "categories", "contact", "error", "search", "see_comments");
         
         if (in_array($this->nom, $rubrique))
@@ -24,8 +22,7 @@ class pages
         else
             {
             include ('include/sidebar.inc');
-            }      
-            
+            }                 
         }
     
     public function AfficherFooter()

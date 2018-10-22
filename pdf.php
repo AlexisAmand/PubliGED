@@ -10,7 +10,7 @@ include ('class/class.php');
 */
 /* librairie mpdf version 7 */
 
-require_once 'lib/mpdf/autoload.php';
+require_once 'vendor/autoload.php';
 
 /* récupération de l'article */
 
@@ -29,7 +29,10 @@ while ( $data = $res->fetch () )
 		$mpdf->WriteHTML($stylesheet,1);
 				
 		$mpdf->WriteHTML("<h1>".$data['titre']."</h1>".$data ['article'],2);
+		
 		$mpdf->Output();
 	}
+	
+	
 	
 ?>
