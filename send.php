@@ -17,8 +17,7 @@ require_once 'vendor/autoload.php';
 		
 $filename = "DocPourEssayer.pdf";
 
-try
-	{
+
 
 		/* si le pdf existe, on le supprime */
 		
@@ -48,15 +47,25 @@ try
 		$mail = new PHPMailer();
 		
 		/* TODO : Serveur SMTP */
-		 
-		$mail->SMTPDebug = 2;                                 
-		$mail->isSMTP();                                      
+		
+		$mail->isSMTP(); 
+		$mail->SMTPDebug = 2;                                 	                                     
 		$mail->Host = 'smtp.gmail.com';  
 		$mail->SMTPAuth = true;                               
 		$mail->Username = 'alexis.amand@gmail.com';                 
 		$mail->Password = '66R4HBBH';                           
 		$mail->SMTPSecure = 'tls';                            
-		$mail->Port = 587;                                    
+		$mail->Port = 587;       
+		
+		/* non recommandé : ça allow insecure connections */
+		
+		$mail->SMTPOptions = array(
+				'ssl' => array(
+						'verify_peer' => false,
+						'verify_peer_name' => false,
+						'allow_self_signed' => true
+				)
+		);
 		
 		/* Expéditeur */
 		
@@ -74,14 +83,11 @@ try
 		$mail->Body = '<p><b>E-Mail</b> au format <i>HTML</i>.</p>';
 		$mail->AddAttachment('./'.$filename);
 			
-		/* envoi */
+		/* Envoi */
 		
+
 		$mail->Send();
-												
-	}
-catch (Exception $e)
-	{
-		echo 'Exception : ',  $e->getMessage(), "\n";
-	}
+		
+
 		
 ?>
