@@ -26,7 +26,7 @@ $InfoPage = PageTop($pdo);
 		<link href="style/bootstrap/css/bootstrap.perso.css" rel="stylesheet">	
 		<script src="style/bootstrap/js/bootstrap.min.js"></script>
 		
-		<!-- Font Awesome Free 5.3.1 -->
+		<!-- Font Awesome Free 5.4.1 -->
 		
     	<link href="style/fontawesome/css/all.css" rel="stylesheet">
     	
