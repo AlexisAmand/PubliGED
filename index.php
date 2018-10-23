@@ -39,12 +39,12 @@ $InfoPage = PageTop($pdo);
     	
     	<script src="js/jquery-3.3.1.min.js"></script>
     			
-        <!-- OpenStreetMap et Leaflet 1.3.1 -->
+        <!-- OpenStreetMap et Leaflet 1.3.4 -->
 		
         <link rel="stylesheet" href="js/leaflet/leaflet.css">
         <script src="js/leaflet/leaflet.js"></script>
         
-        <!-- TinyMCE 4.7.13 -->
+        <!-- TinyMCE 4.8.3 -->
         
         <script src="js/tinymce/tinymce.min.js"></script>
 
