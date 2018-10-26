@@ -37,6 +37,7 @@
 		}
 		
 		/* Date de l'article */
+		/* TODO : mettre le mois en lettres */
 		
 		echo DATE;
 		

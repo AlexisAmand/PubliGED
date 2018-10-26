@@ -85,7 +85,7 @@ $InfoPage = PageTop($pdo);
 
 		<ol class="breadcrumb">
   			<li class="breadcrumb-item"><a href="index.php?page=blog" title="Accueil"><?php echo HERE;?></a></li>
-  			<li class="breadcrumb-item"><a href="">XXXXXXXXX</a></li>
+  			<li class="breadcrumb-item"><a href=""><?php echo $InfoPage->rubrique; ?></a></li>
   			<li class="breadcrumb-item active"><?php echo $InfoPage->titre; ?></li>
 		</ol>
 

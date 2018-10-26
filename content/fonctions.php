@@ -56,7 +56,61 @@ function PageTop($pdo2)
                 {
                 $page->nom = $row['nom'];
                 $page->titre = $row['titre'];
-                $page->description = $row['description'];               
+                
+                /* TODO: pour la balise meta description */
+                /* il pourrait s'agir d'un champ dans la table article qui serait récupéré */
+                
+                $page->description = $row['description']; 
+                
+                /* rubrique, entre les deux / */
+                
+                switch ($PageToShow)
+                	{
+                	case "stats":
+                	case "sources":
+                	case "images":
+                	case "anniversaires":
+                		$page->rubrique = ASIDE_2;
+                	break;
+                		
+                	case "lieux":
+                	case "cartographie":
+                	case "patrolieux":
+                		$page->rubrique = ASIDE_3;
+                	break;
+                	
+                	case "patro":
+                	case "eclair":
+                	case "sosa":
+                		$page->rubrique = ASIDE_4;
+                	break;
+                		
+                	case "eve":
+                		$page->rubrique = ASIDE_5;
+                	break;
+                	
+                	case "categories":
+                		$page->rubrique = ASIDE_BLOG_2;
+                	break;
+                	
+                	case "blog":
+                		$page->rubrique = PILLMENU_1;
+                	break;
+                	
+                	case "credits":
+                		$page->rubrique = "Divers"; /* TODO : Ajouter dans le fichier fr.php */
+                	break;
+                		                	
+                	case "article":
+                		$page->rubrique = "Articles"; /* TODO : Ajouter dans le fichier fr.php */
+                	break;
+                	
+                	/*
+                	default:
+                		$page->rubrique = PILLMENU_2;
+					*/                		
+                		
+                	}              
                 }
             }
         else

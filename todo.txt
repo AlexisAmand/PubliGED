@@ -25,7 +25,6 @@ CONT {continued} : indicateur de continuation des informations qui précédent, 
 ADMIN
 -----
 
-- choix du nombre de "derniers articles" dans le module du blog
 - nombre d'article par page sur le blog
 - une case à cocher desactive le blog si on a en pas besoin
 - lié un article du blog à un individu de la base de données

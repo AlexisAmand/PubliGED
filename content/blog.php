@@ -83,6 +83,7 @@ while ( $row = $req->fetch () )
 	   }
 	
 	// echo DATE . $data ['date'] . RUBRIC;
+	/* TODO : mettre le mois en lettres */
 	
 	echo DATE;
 	

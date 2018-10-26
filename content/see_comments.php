@@ -73,6 +73,7 @@ $resultat = $pdo2->query ("SELECT * FROM articles WHERE ref='$id_article'");
 	   }
 	
 	/* Date de l'article */
+	/* TODO : mettre le mois en lettres */
 	   
 	echo DATE;
 		

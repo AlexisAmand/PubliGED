@@ -65,6 +65,8 @@ while ( $data = $resultat->fetch () )
 		echo $data_membres['login'];
 	}
 	
+	/* TODO : mettre le mois en lettres */
+	
 	echo DATE;
 	
 	if(preg_match("/^[0-9]{4}(\/|-|.)(0[1-9]|1[0-2])(\/|-|.)(0[1-9]|[1-2][0-9]|3[0-1])$/", $article->date))
@@ -83,8 +85,8 @@ while ( $data = $resultat->fetch () )
 	echo "<p>";
 	
 	echo "<a href='pdf.php?page=categories&ref=".$data ['ref']."'><i class='far fa-file-pdf fa-2x'></i></a>&nbsp;&nbsp;";
-	echo "<a href='index.php?page=todo'><i class='fas fa-print fa-2x'></i></a>&nbsp;&nbsp;";
-	echo "<a href='index.php?page=todo'><i class='fas fa-envelope-square fa-2x'></i></a>&nbsp;&nbsp;";
+	echo "<a href='index.php?page=todo'><i class='fas fa-print fa-2x'></i></a>&nbsp;&nbsp;"; /* TODO */
+	echo "<a href='index.php?page=todo'><i class='fas fa-envelope-square fa-2x'></i></a>&nbsp;&nbsp;"; /* TODO */
 	
 	echo "</p>";
 	

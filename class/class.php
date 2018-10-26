@@ -5,6 +5,7 @@ class pages
     public $nom;
     public $titre;
     public $description;
+    public $rubrique;
        
     public function AfficherContenu($pdo2)
         {

@@ -53,7 +53,7 @@ $filename = "DocPourEssayer.pdf";
 		$mail->Host = 'smtp.gmail.com';  
 		$mail->SMTPAuth = true;                               
 		$mail->Username = 'alexis.amand@gmail.com';                 
-		$mail->Password = '66R4HBBH';                           
+		$mail->Password = '......'; /* TODO : j'ai supprimé le mdp */                           
 		$mail->SMTPSecure = 'tls';                            
 		$mail->Port = 587;       
 		
