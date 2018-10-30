@@ -8,12 +8,12 @@ include ('../langues/fr.php');
 <html lang="fr">
 <head>
 
-	<meta charset="utf-8">
+<meta charset="utf-8">
 	
 	<?php include('include/head.php');?>
 	
 	<title><?php echo SITE_TITLE." - Installation" ?></title>
-	<meta name="description" content=" ">
+<meta name="description" content=" ">
 
 </head>
 <body>
@@ -21,46 +21,41 @@ include ('../langues/fr.php');
 <?php include('include/content.php');?>
 			
 <div style="witdh: 100%; height: 20px; border: 0px solid black;">
-	<span class="breadcrumbs pathway">
-		<a href="index.php"><?php echo ASIDE_ADMIN_0; ?></a>
-		<img src="../img/arrow.png" alt="" /> <a href="index.php"><?php echo ASIDE_ADMIN_3; ?></a>
-		<img src="../img/arrow.png" alt="" /> <a href="biblio_ono.php.php"><?php echo TITRE_RUB_ADMIN_8; ?></a>
-	</span>
-</div>
+		<span class="breadcrumbs pathway"> <a href="index.php"><?php echo ASIDE_ADMIN_0; ?></a>
+			<img src="../img/arrow.png" alt="" /> <a href="index.php"><?php echo ASIDE_ADMIN_3; ?></a>
+			<img src="../img/arrow.png" alt="" /> <a href="biblio_ono.php.php"><?php echo TITRE_RUB_ADMIN_8; ?></a>
+		</span>
+	</div>
 
-<!-- fin du fil d'ariane -->
+	<!-- fin du fil d'ariane -->
 
-<div id="nav"><?php include ('include/sidebar.inc'); ?></div>
+	<div id="nav"><?php include ('include/sidebar.inc'); ?></div>
 
-<div id="contenu">
+	<div id="contenu">
 
-<h1><?php echo TITRE_RUB_ADMIN_8; ?></h1>
+		<h1><?php echo TITRE_RUB_ADMIN_8; ?></h1>
 
-<?php 
+<?php
 
 /* Structure de la table `categories` */
 
-try 
-    {
-    $req = "CREATE TABLE if not exists  `categories` (
+try {
+	$req = "CREATE TABLE if not exists  `categories` (
            `ref` int(11) NOT NULL AUTO_INCREMENT,
            `nom` varchar(50) NOT NULL,
            CONSTRAINT pk_categories PRIMARY KEY (ref)
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    $resultat = $pdo->prepare ( $req);
-    $resultat->execute ();
-    echo "Création de la table categories [OK]<br />";
-    }
-catch ( Exception $e )
-    {
-    echo 'Erreur pendant la création de la table categories : ', $e->getMessage (), "<br />";
-    }
-    
+	$resultat = $pdo->prepare ( $req );
+	$resultat->execute ();
+	echo "Création de la table categories [OK]<br />";
+} catch ( Exception $e ) {
+	echo 'Erreur pendant la création de la table categories : ', $e->getMessage (), "<br />";
+}
+
 /* Structure de la table `membres` */
-    
-try
-    {
-    $req = "CREATE TABLE if not exists  `membres` (
+
+try {
+	$req = "CREATE TABLE if not exists  `membres` (
            `id` int(11) NOT NULL AUTO_INCREMENT,
            `login` varchar(50) NOT NULL,
            `pass_md5` varchar(50) NOT NULL,
@@ -69,20 +64,17 @@ try
            `site` varchar(100) NOT NULL,
            CONSTRAINT pk_membres PRIMARY KEY (id)
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    $resultat = $pdo->prepare ( $req);
-    $resultat->execute ();
-    echo "Création de la table membres [OK]<br />";
-    }
-catch ( Exception $e )
-    {
-    echo 'Erreur pendant la création de la table membres : ', $e->getMessage (), "<br />";
-    }
+	$resultat = $pdo->prepare ( $req );
+	$resultat->execute ();
+	echo "Création de la table membres [OK]<br />";
+} catch ( Exception $e ) {
+	echo 'Erreur pendant la création de la table membres : ', $e->getMessage (), "<br />";
+}
 
 /* Structure de la table `articles` */
 
-try 
-    {
-    $req = "CREATE TABLE if not exists `articles` ( 
+try {
+	$req = "CREATE TABLE if not exists `articles` ( 
            `ref` int(11) NOT NULL  AUTO_INCREMENT, 
            `titre` varchar(250) NOT NULL, 
            `article` text NOT NULL, 
@@ -94,20 +86,17 @@ try
            CONSTRAINT fk_membres FOREIGN KEY (auteur) REFERENCES membres(id)
            ) ENGINE=InnoDB 
            DEFAULT CHARSET=utf8;";
-    $resultat = $pdo->prepare ( $req);
-    $resultat->execute ();
-    echo "Création de la table articles [OK]<br />";
-    }
-catch ( Exception $e )
-    {
-    echo 'Erreur pendant la création de la table articles : ', $e->getMessage (), "<br />";
-    }
-    
-/* Structure de la table `blogroll`  */
-    
-try 
-    {
-    $req ="CREATE TABLE  if not exists `blogroll` (
+	$resultat = $pdo->prepare ( $req );
+	$resultat->execute ();
+	echo "Création de la table articles [OK]<br />";
+} catch ( Exception $e ) {
+	echo 'Erreur pendant la création de la table articles : ', $e->getMessage (), "<br />";
+}
+
+/* Structure de la table `blogroll` */
+
+try {
+	$req = "CREATE TABLE  if not exists `blogroll` (
           `ref` int(11) NOT NULL AUTO_INCREMENT,
           `url` varchar(50),
           `description` varchar(200) NOT NULL,
@@ -115,20 +104,17 @@ try
           CONSTRAINT pk_blogroll PRIMARY KEY (ref)
           ) ENGINE=InnoDB 
           DEFAULT CHARSET=utf8;";
-    $resultat = $pdo->prepare ($req);
-    $resultat->execute ();
-    echo "Création de la table blogroll [OK]<br />";
-    }
-catch ( Exception $e )
-    {
-    echo 'Erreur pendant la création de la table blogroll : ', $e->getMessage (), "<br />";
-    }
-        
+	$resultat = $pdo->prepare ( $req );
+	$resultat->execute ();
+	echo "Création de la table blogroll [OK]<br />";
+} catch ( Exception $e ) {
+	echo 'Erreur pendant la création de la table blogroll : ', $e->getMessage (), "<br />";
+}
+
 /* Structure de la table `commentaires` */
-    
-try 
-    {
-    $req = "CREATE TABLE  if not exists `commentaires` (
+
+try {
+	$req = "CREATE TABLE  if not exists `commentaires` (
            `ref` int(11) AUTO_INCREMENT AUTO_INCREMENT,
            `id_article` int(11) NOT NULL,
            `nom_auteur` varchar(250) CHARACTER SET latin1 NOT NULL,
@@ -139,38 +125,32 @@ try
            CONSTRAINT pk_commentaires PRIMARY KEY (ref),
            CONSTRAINT fk_articles FOREIGN KEY (id_article) REFERENCES articles (ref)   
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    $resultat = $pdo->prepare ( $req);
-    $resultat->execute ();
-    echo "Création de la table commentaires [OK]<br />";
-    }
-catch ( Exception $e )
-    {
-    echo 'Erreur pendant la création de la table commentaires : ', $e->getMessage (), "<br />";
-    }
-              
+	$resultat = $pdo->prepare ( $req );
+	$resultat->execute ();
+	echo "Création de la table commentaires [OK]<br />";
+} catch ( Exception $e ) {
+	echo 'Erreur pendant la création de la table commentaires : ', $e->getMessage (), "<br />";
+}
+
 /* Structure de la table `configuration` */
-    
-try 
-    {
-    $req = "CREATE TABLE if not exists  `configuration` (
+
+try {
+	$req = "CREATE TABLE if not exists  `configuration` (
            `nom` varchar(250) NOT NULL,
            `valeur` varchar(250) NOT NULL,
            CONSTRAINT pk_configuration PRIMARY KEY (nom)
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    $resultat = $pdo->prepare ( $req);
-    $resultat->execute ();
-    echo "Création de la table configuration [OK]<br />";
-    }
-catch ( Exception $e )
-    {
-    echo 'Erreur pendant la création de la table configuration : ', $e->getMessage (), "<br />";
-    }
+	$resultat = $pdo->prepare ( $req );
+	$resultat->execute ();
+	echo "Création de la table configuration [OK]<br />";
+} catch ( Exception $e ) {
+	echo 'Erreur pendant la création de la table configuration : ', $e->getMessage (), "<br />";
+}
 
 /* Structure de la table `individus` */
 
-try 
-    {
-    $req = "CREATE TABLE  if not exists `individus` (
+try {
+	$req = "CREATE TABLE  if not exists `individus` (
            `id` int(11) NOT NULL,
            `ref` varchar(11) NOT NULL,
            `nom` varchar(100) DEFAULT NULL,
@@ -182,20 +162,17 @@ try
            `filiation` varchar(100) NOT NULL,
            CONSTRAINT pk_individus PRIMARY KEY (ref)
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    $resultat = $pdo->prepare ( $req);
-    $resultat->execute ();
-    echo "Création de la table individus [OK]<br />";
-    }
-catch ( Exception $e )
-    {
-    echo 'Erreur pendant la création de la table individus : ', $e->getMessage (), "<br />";
-    }
+	$resultat = $pdo->prepare ( $req );
+	$resultat->execute ();
+	echo "Création de la table individus [OK]<br />";
+} catch ( Exception $e ) {
+	echo 'Erreur pendant la création de la table individus : ', $e->getMessage (), "<br />";
+}
 
 /* Structure de la table `lieux` */
-    
-try 
-    {
-    $req = "CREATE TABLE if not exists  `lieux` (
+
+try {
+	$req = "CREATE TABLE if not exists  `lieux` (
            `ref` int(11) AUTO_INCREMENT,
            `ville` varchar(250) NOT NULL,
            `cp` varchar(10) NOT NULL,
@@ -205,39 +182,33 @@ try
            `continent` varchar(15) NOT NULL,
            CONSTRAINT pk_lieux PRIMARY KEY (ref)
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    $resultat = $pdo->prepare ($req);
-    $resultat->execute ();
-    echo "Création de la table lieux [OK]<br />";
-    }
-catch ( Exception $e )
-    {
-    echo 'Erreur pendant la création de la table lieux : ', $e->getMessage (), "<br />";
-    }
-       
+	$resultat = $pdo->prepare ( $req );
+	$resultat->execute ();
+	echo "Création de la table lieux [OK]<br />";
+} catch ( Exception $e ) {
+	echo 'Erreur pendant la création de la table lieux : ', $e->getMessage (), "<br />";
+}
+
 /* Structure de la table `media` */
-    
-try
-    {
-    $req = "CREATE TABLE if not exists  `media` (
+
+try {
+	$req = "CREATE TABLE if not exists  `media` (
            `ref` varchar(11) NOT NULL,
            `fichier` varchar(250) NOT NULL,
            `type` varchar(5) NOT NULL,
            CONSTRAINT pk_media PRIMARY KEY (ref)
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    $resultat = $pdo->prepare ( $req);
-    $resultat->execute ();
-    echo "Création de la table media [OK]<br />";
-    }
-catch ( Exception $e )
-    {
-        echo 'Erreur pendant la création de la table media : ', $e->getMessage (), "<br />";
-    }
-    
+	$resultat = $pdo->prepare ( $req );
+	$resultat->execute ();
+	echo "Création de la table media [OK]<br />";
+} catch ( Exception $e ) {
+	echo 'Erreur pendant la création de la table media : ', $e->getMessage (), "<br />";
+}
+
 /* Structure de la table `sources` */
-    
-try
-    {
-    $req = "CREATE TABLE  if not exists `sources` (
+
+try {
+	$req = "CREATE TABLE  if not exists `sources` (
            `id` int(11) NOT NULL,
            `ref` int(11) NOT NULL,
            `titre` varchar(100) NOT NULL,
@@ -247,20 +218,17 @@ try
            CONSTRAINT pk_sources PRIMARY KEY (ref),
            CONSTRAINT fk_media FOREIGN KEY (media) REFERENCES media (ref)   
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    $resultat = $pdo->prepare ( $req);
-    $resultat->execute ();
-    echo "Création de la table sources [OK]<br />";
-    }
-catch ( Exception $e )
-    {
-    echo 'Erreur pendant la création de la table sources : ', $e->getMessage (), "<br />";
-    }
-                    
+	$resultat = $pdo->prepare ( $req );
+	$resultat->execute ();
+	echo "Création de la table sources [OK]<br />";
+} catch ( Exception $e ) {
+	echo 'Erreur pendant la création de la table sources : ', $e->getMessage (), "<br />";
+}
+
 /* Structure de la table `evenements` */
-                    
-try 
-    {
-    $req = "CREATE TABLE if not exists  `evenements` (
+
+try {
+	$req = "CREATE TABLE if not exists  `evenements` (
            `n_eve` int(11) NOT NULL,
            `n_indi` varchar(11) DEFAULT NULL,
            `evenement` varchar(100) DEFAULT NULL,
@@ -274,19 +242,17 @@ try
            CONSTRAINT fk_lieu FOREIGN KEY (lieu) REFERENCES lieux (ref),
            CONSTRAINT fk_source FOREIGN KEY (source) REFERENCES sources (ref)
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    $resultat = $pdo->prepare ($req);
-    $resultat->execute ();
-    echo "Création de la table evenements [OK]<br />";
-    }
-catch ( Exception $e )
-    {
-    echo 'Erreur pendant la création de la table evenements : ', $e->getMessage (), "<br />";
-    }
+	$resultat = $pdo->prepare ( $req );
+	$resultat->execute ();
+	echo "Création de la table evenements [OK]<br />";
+} catch ( Exception $e ) {
+	echo 'Erreur pendant la création de la table evenements : ', $e->getMessage (), "<br />";
+}
 
 /* Structure de la table `familles` */
-    
+
 try {
-    $req = "CREATE TABLE  if not exists `familles` (
+	$req = "CREATE TABLE  if not exists `familles` (
            `id` int(11) NOT NULL AUTO_INCREMENT,
            `ref` varchar(100) DEFAULT NULL,
            `pere` varchar(11) DEFAULT NULL,
@@ -298,20 +264,17 @@ try {
            CONSTRAINT fk_mere FOREIGN KEY (mere) REFERENCES individus (ref),
            CONSTRAINT fk_enfant FOREIGN KEY (enfant) REFERENCES individus (ref)   
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    $resultat = $pdo->prepare ($req);
-    $resultat->execute ();
-    echo "Création de la table familles [OK]<br />";
-    }
-catch ( Exception $e )
-    {
-    echo 'Erreur pendant la création de la table familles : ', $e->getMessage (), "<br />";
-    }
-                                                                    
+	$resultat = $pdo->prepare ( $req );
+	$resultat->execute ();
+	echo "Création de la table familles [OK]<br />";
+} catch ( Exception $e ) {
+	echo 'Erreur pendant la création de la table familles : ', $e->getMessage (), "<br />";
+}
+
 /* Structure de la table `modules` */
 
-try
-    {
-    $req = "CREATE TABLE if not exists  `modules` (
+try {
+	$req = "CREATE TABLE if not exists  `modules` (
            `ref` int(11) NOT NULL AUTO_INCREMENT,
            `nomdumodule` varchar(250) NOT NULL,
            `visible` tinyint(1) NOT NULL,
@@ -319,22 +282,17 @@ try
            `description` varchar(250) NOT NULL,
            CONSTRAINT pk_modules PRIMARY KEY (ref)
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    $resultat = $pdo->prepare ( $req);
-    $resultat->execute ();
-    echo "Création de la table modules [OK]<br />";
-    }
-catch ( Exception $e )
-    {
-    echo 'Erreur pendant la création de la table modules : ', $e->getMessage (), "<br />";
-    }
-                                                                                                              
-
+	$resultat = $pdo->prepare ( $req );
+	$resultat->execute ();
+	echo "Création de la table modules [OK]<br />";
+} catch ( Exception $e ) {
+	echo 'Erreur pendant la création de la table modules : ', $e->getMessage (), "<br />";
+}
 
 /* Structure de la table `villes_belgique` */
 
-try
-    {
-    $req = "CREATE TABLE  if not exists `villes_belgique` (
+try {
+	$req = "CREATE TABLE  if not exists `villes_belgique` (
            `geonameid` int(11) NOT NULL,
            `name` varchar(200) CHARACTER SET latin1 NOT NULL,
            `asciiname` varchar(200) CHARACTER SET latin1 NOT NULL,
@@ -345,20 +303,17 @@ try
            `cc2` varchar(200) CHARACTER SET latin1 NOT NULL,
            CONSTRAINT pk_villes_belgique PRIMARY KEY (geonameid)
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    $resultat = $pdo->prepare ( $req);
-    $resultat->execute ();
-    echo "Création de la table villes_belgique [OK]<br />";
-    }
-catch ( Exception $e )
-    {
-    echo 'Erreur pendant la création de la table villes_belgique : ', $e->getMessage (), "<br />";
-    }
+	$resultat = $pdo->prepare ( $req );
+	$resultat->execute ();
+	echo "Création de la table villes_belgique [OK]<br />";
+} catch ( Exception $e ) {
+	echo 'Erreur pendant la création de la table villes_belgique : ', $e->getMessage (), "<br />";
+}
 
 /* Structure de la table `villes_france` */
 
-try
-    {
-    $req = "CREATE TABLE if not exists  `villes_france` (
+try {
+	$req = "CREATE TABLE if not exists  `villes_france` (
            `id` int(11) NOT NULL,
            `id_departement` int(11) NOT NULL,
            `nom_commune` text CHARACTER SET latin1 NOT NULL, 
@@ -369,14 +324,12 @@ try
            `longitude` text CHARACTER SET latin1 NOT NULL,
            CONSTRAINT pk_villes_france PRIMARY KEY (id)
            ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-    $resultat = $pdo->prepare ( $req);
-    $resultat->execute ();
-    echo "Création de la table villes_france [OK]<br />";
-    }
-catch ( Exception $e )
-    {
-    echo 'Erreur pendant la création de la table ville_france : ', $e->getMessage (), "<br />";
-    }
+	$resultat = $pdo->prepare ( $req );
+	$resultat->execute ();
+	echo "Création de la table villes_france [OK]<br />";
+} catch ( Exception $e ) {
+	echo 'Erreur pendant la création de la table ville_france : ', $e->getMessage (), "<br />";
+}
 
 ?>
 

@@ -8,36 +8,35 @@ use Mpdf\Utils\UtfString;
  * C128 barcodes.
  * Very capable code, excellent density, high reliability; in very wide use world-wide
  */
-class Code128 extends \Mpdf\Barcode\AbstractBarcode implements \Mpdf\Barcode\BarcodeInterface
-{
+class Code128 extends \Mpdf\Barcode\AbstractBarcode implements \Mpdf\Barcode\BarcodeInterface {
 
 	/**
+	 *
 	 * @param string $code
 	 * @param string $type
 	 * @param bool $ean
 	 */
-	public function __construct($code, $type = 'B', $ean = false)
-	{
-		$this->init($code, $type, $ean);
+	public function __construct($code, $type = 'B', $ean = false) {
+		$this->init ( $code, $type, $ean );
 
-		$this->data['nom-X'] = 0.381; // Nominal value for X-dim (bar width) in mm (2 X min. spec.)
-		$this->data['nom-H'] = 10;  // Nominal value for Height of Full bar in mm (non-spec.)
-		$this->data['lightmL'] = 10; // LEFT light margin =  x X-dim (spec.)
-		$this->data['lightmR'] = 10; // RIGHT light margin =  x X-dim (spec.)
-		$this->data['lightTB'] = 0; // TOP/BOTTOM light margin =  x X-dim (non-spec.)
+		$this->data ['nom-X'] = 0.381; // Nominal value for X-dim (bar width) in mm (2 X min. spec.)
+		$this->data ['nom-H'] = 10; // Nominal value for Height of Full bar in mm (non-spec.)
+		$this->data ['lightmL'] = 10; // LEFT light margin = x X-dim (spec.)
+		$this->data ['lightmR'] = 10; // RIGHT light margin = x X-dim (spec.)
+		$this->data ['lightTB'] = 0; // TOP/BOTTOM light margin = x X-dim (non-spec.)
 	}
 
 	/**
+	 *
 	 * @param string $code
 	 * @param string $type
 	 * @param bool $ean
 	 */
-	protected function init($code, $type, $ean)
-	{
-		$code = UtfString::strcode2utf($code); // mPDF 5.7.1 Allows e.g. <barcode code="5432&#013;1068" type="C128A" />
+	protected function init($code, $type, $ean) {
+		$code = UtfString::strcode2utf ( $code ); // mPDF 5.7.1 Allows e.g. <barcode code="5432&#013;1068" type="C128A" />
 
-		$chr = [
-			'212222', /* 00 */
+		$chr = [ 
+				'212222', /* 00 */
 			'222122', /* 01 */
 			'222221', /* 02 */
 			'121223', /* 03 */
@@ -147,37 +146,37 @@ class Code128 extends \Mpdf\Barcode\AbstractBarcode implements \Mpdf\Barcode\Bar
 			'200000' /* END */
 		];
 
-		switch (strtoupper($type)) {
-			case 'A':
+		switch (strtoupper ( $type )) {
+			case 'A' :
 				$startid = 103;
 				$keys = ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_';
-				for ($i = 0; $i < 32; ++$i) {
-					$keys .= chr($i);
+				for($i = 0; $i < 32; ++ $i) {
+					$keys .= chr ( $i );
 				}
 				break;
-			case 'B':
+			case 'B' :
 				$startid = 104;
-				$keys = ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~' . chr(127);
+				$keys = ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~' . chr ( 127 );
 				break;
-			case 'C':
+			case 'C' :
 				$startid = 105;
 				$keys = '';
-				if ((strlen($code) % 2) != 0) {
+				if ((strlen ( $code ) % 2) != 0) {
 					// The length of barcode value must be even ($code). You must pad the number with zeros
-					throw new \Mpdf\Barcode\BarcodeException('Invalid CODE128C barcode value');
+					throw new \Mpdf\Barcode\BarcodeException ( 'Invalid CODE128C barcode value' );
 				}
-				for ($i = 0; $i <= 99; ++$i) {
-					$keys .= chr($i);
+				for($i = 0; $i <= 99; ++ $i) {
+					$keys .= chr ( $i );
 				}
 				$newCode = '';
-				$hclen = (strlen($code) / 2);
-				for ($i = 0; $i < $hclen; ++$i) {
-					$newCode .= chr((int) ($code{(2 * $i)} . $code{(2 * $i + 1)}));
+				$hclen = (strlen ( $code ) / 2);
+				for($i = 0; $i < $hclen; ++ $i) {
+					$newCode .= chr ( ( int ) ($code {(2 * $i)} . $code {(2 * $i + 1)}) );
 				}
 				$code = $newCode;
 				break;
-			default:
-				throw new \Mpdf\Barcode\BarcodeException('Invalid CODE128 barcode type');
+			default :
+				throw new \Mpdf\Barcode\BarcodeException ( 'Invalid CODE128 barcode type' );
 		}
 
 		// calculate check character
@@ -185,57 +184,64 @@ class Code128 extends \Mpdf\Barcode\AbstractBarcode implements \Mpdf\Barcode\Bar
 
 		// Add FNC 1 - which identifies it as EAN-128
 		if ($ean) {
-			$code = chr(102) . $code;
+			$code = chr ( 102 ) . $code;
 		}
-		$clen = strlen($code);
-		for ($i = 0; $i < $clen; ++$i) {
+		$clen = strlen ( $code );
+		for($i = 0; $i < $clen; ++ $i) {
 			if ($ean && $i == 0) {
 				$sum += 102;
 			} else {
-				$sum += (strpos($keys, $code[$i]) * ($i + 1));
+				$sum += (strpos ( $keys, $code [$i] ) * ($i + 1));
 			}
 		}
 		$check = ($sum % 103);
 		$checkdigit = $check;
 
 		// add start, check and stop codes
-		$code = chr($startid) . $code . chr($check) . chr(106) . chr(107);
-		$bararray = ['code' => $code, 'maxw' => 0, 'maxh' => 1, 'bcode' => []];
+		$code = chr ( $startid ) . $code . chr ( $check ) . chr ( 106 ) . chr ( 107 );
+		$bararray = [ 
+				'code' => $code,
+				'maxw' => 0,
+				'maxh' => 1,
+				'bcode' => [ ]
+		];
 		$k = 0;
-		$len = strlen($code);
+		$len = strlen ( $code );
 
-		for ($i = 0; $i < $len; ++$i) {
+		for($i = 0; $i < $len; ++ $i) {
 
-			$ck = strpos($keys, $code[$i]);
+			$ck = strpos ( $keys, $code [$i] );
 			if (($i == 0) || ($ean && $i == 1) | ($i > ($len - 4))) {
-				$char_num = ord($code[$i]);
-				$seq = $chr[$char_num];
-			} elseif (($ck >= 0) && isset($chr[$ck])) {
-				$seq = $chr[$ck];
+				$char_num = ord ( $code [$i] );
+				$seq = $chr [$char_num];
+			} elseif (($ck >= 0) && isset ( $chr [$ck] )) {
+				$seq = $chr [$ck];
 			} else {
 				// invalid character
-				throw new \Mpdf\Barcode\BarcodeException(sprintf('Invalid character "%s" in CODE128C barcode value', $code[$i]));
+				throw new \Mpdf\Barcode\BarcodeException ( sprintf ( 'Invalid character "%s" in CODE128C barcode value', $code [$i] ) );
 			}
-			for ($j = 0; $j < 6; ++$j) {
+			for($j = 0; $j < 6; ++ $j) {
 				if (($j % 2) == 0) {
 					$t = true; // bar
 				} else {
 					$t = false; // space
 				}
-				$w = $seq[$j];
-				$bararray['bcode'][$k] = ['t' => $t, 'w' => $w, 'h' => 1, 'p' => 0];
-				$bararray['maxw'] += $w;
-				++$k;
+				$w = $seq [$j];
+				$bararray ['bcode'] [$k] = [ 
+						't' => $t,
+						'w' => $w,
+						'h' => 1,
+						'p' => 0
+				];
+				$bararray ['maxw'] += $w;
+				++ $k;
 			}
 		}
 
-		$bararray['checkdigit'] = $checkdigit;
+		$bararray ['checkdigit'] = $checkdigit;
 		$this->data = $bararray;
 	}
-
-	public function getType()
-	{
+	public function getType() {
 		return 'CODE128';
 	}
-
 }

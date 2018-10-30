@@ -1,4 +1,9 @@
 <?php
+
+/* --------------------------------------- */
+/* TODO : Ce fichier est peut-être inutile */
+/* -------------------------------------- */
+
 require ('fonctions.php');
 include ('../config.php');
 /* include ('../include/langue.php'); */

@@ -2,7 +2,5 @@
 
 namespace Mpdf\Tag;
 
-class PageHeader extends PageFooter
-{
-
+class PageHeader extends PageFooter {
 }

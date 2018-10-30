@@ -5,7 +5,6 @@ A default margin-top/bottom for lists is NOT set in config.php - (standard brows
 [mPDF default CSS set in configuration only works on basic elements, cannot do selectors such as "ol ol"]
 Need to add the following to do this, but also prevent margins in nested lists as per default HTML in most browsers:
 */
-
 ul, ol {
 	margin-top: 0.83em;
 	margin-bottom: 0.83em;
@@ -57,7 +56,8 @@ a.mpdf_toc_a {
 div.mpdf_toc_level_0 { /* Whole line level 0 */
 	line-height: 1.5;
 	margin-left: 0;
-	padding-right: 0em; /* should match the outdent specified for ToC; 0 is default; suggested value 2em */
+	padding-right: 0em;
+	/* should match the outdent specified for ToC; 0 is default; suggested value 2em */
 }
 
 span.mpdf_toc_t_level_0 { /* Title level 0 - may be inside <a> */
@@ -65,12 +65,14 @@ span.mpdf_toc_t_level_0 { /* Title level 0 - may be inside <a> */
 }
 
 span.mpdf_toc_p_level_0 { /* Page no. level 0 - may be inside <a> */
+	
 }
 
 div.mpdf_toc_level_1 { /* Whole line level 1 */
 	margin-left: 2em;
 	text-indent: -2em;
-	padding-right: 0em; /* should match the outdent specified for ToC; 0 is default; suggested value 2em */
+	padding-right: 0em;
+	/* should match the outdent specified for ToC; 0 is default; suggested value 2em */
 }
 
 span.mpdf_toc_t_level_1 { /* Title level 1 */
@@ -79,16 +81,20 @@ span.mpdf_toc_t_level_1 { /* Title level 1 */
 }
 
 span.mpdf_toc_p_level_1 { /* Page no. level 1 - may be inside <a> */
+	
 }
 
 div.mpdf_toc_level_2 { /* Whole line level 2 */
 	margin-left: 4em;
 	text-indent: -2em;
-	padding-right: 0em; /* should match the outdent specified for ToC; 0 is default; suggested value 2em */
+	padding-right: 0em;
+	/* should match the outdent specified for ToC; 0 is default; suggested value 2em */
 }
 
 span.mpdf_toc_t_level_2 { /* Title level 2 */
+	
 }
 
 span.mpdf_toc_p_level_2 { /* Page no. level 2 - may be inside <a> */
+	
 }

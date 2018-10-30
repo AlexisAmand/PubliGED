@@ -1,3 +1,11 @@
+	<?php 
+	
+	/* ----------------------- */
+	/* STATISTIQUES DE LA BASE */
+	/* ----------------------- */
+	
+	?>
+	
 	<h3><?php echo TITRE_RUB_1; ?></h3>
 	
 	<?php
@@ -123,11 +131,11 @@
 			</tr>
 			<tr>
 				<td><?php echo NB_MEDIA; ?></td>
-				<td><?php echo "<a href='index.php?page=images'>TODO</a>"; ?> </td> /* TODO */
+				<td><?php echo "<a href='index.php?page=images'>TODO</a>"; ?> </td> <?php  /* TODO */ ?>
 			</tr>
 			<tr>
 				<td><?php echo NB_SOSA; ?></td>
-				<td><?php echo "<a href='index.php?page=sosa'>TODO</a>"; ?> </td> /* TODO */
+				<td><?php echo "<a href='index.php?page=sosa'>TODO</a>"; ?> </td> <?php  /* TODO */ ?>
 			</tr>
 			<tr>
 				<td><?php echo NB_CHILD; ?></td>
@@ -143,15 +151,15 @@
 			</tr>
 			<tr>
 				<td><?php echo NB_OLD; ?></td>
-				<td><?php echo "<a href='#'>TODO</a>"; ?></td> /* TODO */
+				<td><?php echo "<a href='#'>TODO</a>"; ?></td> <?php  /* TODO */ ?>
 			</tr>
 			<tr>
 				<td><?php echo NB_CHILD_R; ?></td>
-				<td><?php echo "<a href='#'>TODO</a>"; ?></td> /* TODO */
+				<td><?php echo "<a href='#'>TODO</a>"; ?></td> <?php  /* TODO */ ?>
 			</tr>
 			<tr>
 				<td><?php echo NB_UNION_R; ?></td>
-				<td><?php echo "<a href='#'>TODO</a>"; ?></td> /* TODO */
+				<td><?php echo "<a href='#'>TODO</a>"; ?></td> <?php  /* TODO */ ?>
 			</tr>
 			<tr>
 				<td><?php echo NB_UNION; ?></td>
@@ -159,7 +167,7 @@
 			</tr>
 			<tr>
 				<td><?php echo NB_OLD_R; ?></td>
-				<td><?php echo "<a href='#'>TODO</a>"; ?></td> /* TODO */
+				<td><?php echo "<a href='#'>TODO</a>"; ?></td> <?php  /* TODO */ ?>
 			</tr>
 		</table>
 		

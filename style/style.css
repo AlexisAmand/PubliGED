@@ -1,177 +1,151 @@
-.stats
-	   {
-	   border:0px solid red;
-	   width:45%;	   
-	   }
-	   	   
-.gender
-    {
-    float:right;
-    }	
- 	  
-nav
-	{    
-	margin-top:5px
-	}
-	
-footer
-	{
-	margin-top:45px; 
+.stats {
+	border: 0px solid red;
+	width: 45%;
+}
+
+.gender {
+	float: right;
+}
+
+nav {
+	margin-top: 5px
+}
+
+footer {
+	margin-top: 45px;
 	bottom: 0;
 	background-color: #f8f8f8;
-	border: 1px solid #e7e7e7;	
-	}
-	
-.alpha {		
-	text-align: center;		
-	margin-bottom: 20px;		
-}		
-		
-.alpha ul {		
-	margin-left: 0;		
-	padding-left: 0;		
-	display: inline;		
-}		
-		
-.alpha ul li {		
-	margin-left: 0;		
-	padding: 3px 5px;		
-	list-style: none;		
-	display: inline;		
-}		
-		
-.alpha a:link {		
-	text-decoration: none;		
-	color: #000000;		
-}		
-	
-.alpha a:visited {		
-	text-decoration: none;		
-	color: #000000;		
-}		
-		
-.alpha a:hover {		
-	text-decoration: underline;		
-	color: #000000;		
-}		
-		
-.alpha a:active {		
-	text-decoration: none;		
-	color: #000000;		
+	border: 1px solid #e7e7e7;
+}
+
+.alpha {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.alpha ul {
+	margin-left: 0;
+	padding-left: 0;
+	display: inline;
+}
+
+.alpha ul li {
+	margin-left: 0;
+	padding: 3px 5px;
+	list-style: none;
+	display: inline;
+}
+
+.alpha a:link {
+	text-decoration: none;
+	color: #000000;
+}
+
+.alpha a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+
+.alpha a:hover {
+	text-decoration: underline;
+	color: #000000;
+}
+
+.alpha a:active {
+	text-decoration: none;
+	color: #000000;
 }
 
 /* ---------------------------------------- */
 /* Ajout pour les tests de charte graphique */
 /* ---------------------------------------- */
-
-header 
-	{
+header {
 	color: #827c7e;
-	}
+}
 
-.navbar-default
-	{
+.navbar-default {
 	margin-top: 0px;
-	}		
+}
 
 /* --------------------- */
-/* Ajout du 12 mars 2018 */ 
+/* Ajout du 12 mars 2018 */
 /* --------------------- */
-
-aside .badge
-	{
+aside .badge {
 	background-color: #827c7e;
-	}
+}
 
 /* --------------------- */
-/* Ajout du 13 mars 2018 */ 
+/* Ajout du 13 mars 2018 */
 /* --------------------- */
-
-section h4 
-	{	
+section h4 {
 	margin-top: 30px;
-	margin-bottom: 15px;	
-	}
-	
-.TreeCase 
-	{
-	border: 1px solid #ddd;
-	width:10%;
-	height: 60px;
-	}
+	margin-bottom: 15px;
+}
 
-#Tree
-	{
+.TreeCase {
+	border: 1px solid #ddd;
+	width: 10%;
+	height: 60px;
+}
+
+#Tree {
 	border-collapse: collapse;
 	text-align: center;
 	font-size: 12px;
-	width:100%;
-	}
+	width: 100%;
+}
 
-#Tree td 
-	{
+#Tree td {
 	height: 30px;
-	}
-		
-/* --------------------- */
-/* Ajout du 20 juin 2018 */ 
-/* --------------------- */
+}
 
-header
-	{
-	background-image:url('../img/fond04.jpg');
-	height:150px; 
-	}
+/* --------------------- */
+/* Ajout du 20 juin 2018 */
+/* --------------------- */
+header {
+	background-image: url('../img/fond04.jpg');
+	height: 150px;
+}
 
-.pillmenu
-	{
-	width: 100%;margin-top: 0px;
-	}	
-	
-a
-	{
+.pillmenu {
+	width: 100%;
+	margin-top: 0px;
+}
+
+a {
 	color: #425158;
-	}	
-	
+}
+
 /* --------------------- */
 /* Ajout du 26 juin 2018 */
 /* --------------------- */
-
-#commentaires
-	{
+#commentaires {
 	margin-bottom: 35px;
 	margin-top: 35px;
-	}
-	
+}
+
 /* --------------------- */
 /* Ajout du 26 juin 2018 */
 /* --------------------- */
-
-.hgroup a, .hgroup p
-	{
+.hgroup a, .hgroup p {
 	color: #FFFFFF;
-	}
-	
-.card-header
-	{
+}
+
+.card-header {
 	background-image: url('../img/left.jpg');
-	background-repeat:no-repeat;
-	}
+	background-repeat: no-repeat;
+}
 
 /* --------------------- */
 /* Ajout du 29 juin 2018 */
 /* --------------------- */
-	
-section h3
-	{
+section h3 {
 	margin-bottom: 30px;
-	}
+}
 
 /* ------------------------ */
 /* Ajout du 04 juillet 2018 */
 /* ------------------------ */
-
-section a
-	{
-	color:#958274;
-	}	
+section a {
+	color: #958274;
+}

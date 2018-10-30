@@ -9,14 +9,14 @@ include ('../langues/fr.php');
 <html lang="fr">
 <head>
 
-	<meta charset="utf-8">    
+<meta charset="utf-8">    
 	
 	<?php include('include/head.php');?>
 	
 	<title><?php echo SITE_TITLE." - ".TITRE_RUB_ADMIN_1; ?></title>
-	<meta name="description" content=" ">
+<meta name="description" content=" ">
 
-	<script src="../js/tinymce/tinymce.min.js"></script>
+<script src="../js/tinymce/tinymce.min.js"></script>
 
 <script>
     tinymce.init({
@@ -52,23 +52,22 @@ include ('../langues/fr.php');
 <?php include('include/content.php');?>
 
 <div style="witdh: 100%; height: 20px; border: 0px solid black;">
-	<span class="breadcrumbs pathway">
-		<a href="index.php"><?php echo ASIDE_ADMIN_0; ?></a>
-		<img src="../img/arrow.png" alt="" /> <a href="index.php"><?php echo ASIDE_ADMIN_1; ?></a>
-		<img src="../img/arrow.png" alt="" /> <a href="biblio_ono.php.php"><?php echo TITRE_RUB_ADMIN_1; ?></a>
-	</span>
-</div>
+		<span class="breadcrumbs pathway"> <a href="index.php"><?php echo ASIDE_ADMIN_0; ?></a>
+			<img src="../img/arrow.png" alt="" /> <a href="index.php"><?php echo ASIDE_ADMIN_1; ?></a>
+			<img src="../img/arrow.png" alt="" /> <a href="biblio_ono.php.php"><?php echo TITRE_RUB_ADMIN_1; ?></a>
+		</span>
+	</div>
 
-<!-- fin du fil d'ariane -->
+	<!-- fin du fil d'ariane -->
 
-<div id="nav"><?php include ('include/sidebar.inc');	?></div>
-	
-<div id="contenu">
+	<div id="nav"><?php include ('include/sidebar.inc');	?></div>
 
-<h1><?php echo TITRE_RUB_ADMIN_1; ?></h1>
+	<div id="contenu">
 
-<p>TODO</p>
+		<h1><?php echo TITRE_RUB_ADMIN_1; ?></h1>
 
-</div>
+		<p>TODO</p>
+
+	</div>
 
 <?php include('include/endheader.php');?>

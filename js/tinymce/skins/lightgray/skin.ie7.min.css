@@ -755,7 +755,7 @@ body .mce-abs-layout-item, .mce-abs-end {
 }
 
 .mce-primary.mce-active, .mce-primary.mce-active:hover, .mce-primary:not
-	(.mce-disabled ):active {
+	 (.mce-disabled ):active {
 	background-color: #206ea1
 }
 
@@ -845,12 +845,41 @@ body .mce-abs-layout-item, .mce-abs-end {
 	margin-left: 2px
 }
 
-.mce-btn-group:not (:first-child ){
-	border-left: 1px solid #d9d9d9;
-	padding-left: 3px;
-	margin-left: 3px
-}
+.mce-btn-group
+:not
+ 
+(
+:first-child
+ 
+){
+border-left
+:
+ 
+1
+px
+ 
+solid
+ 
+#d9d9d9
+;
 
+	
+padding-left
+:
+ 
+3
+px
+;
+
+	
+margin-left
+:
+ 
+3
+px
+
+
+}
 .mce-btn-group .mce-first {
 	margin-left: 0
 }
@@ -868,13 +897,50 @@ body .mce-abs-layout-item, .mce-abs-end {
 	margin-right: 0
 }
 
-.mce-rtl .mce-btn-group:not (:first-child ){
-	border-left: none;
-	border-right: 1px solid #d9d9d9;
-	padding-right: 4px;
-	margin-right: 4px
-}
+.mce-rtl
+ 
+.mce-btn-group
+:not
+ 
+(
+:first-child
+ 
+){
+border-left
+:
+ 
+none
+;
 
+	
+border-right
+:
+ 
+1
+px
+ 
+solid
+ 
+#d9d9d9
+;
+
+	
+padding-right
+:
+ 
+4
+px
+;
+
+	
+margin-right
+:
+ 
+4
+px
+
+
+}
 .mce-checkbox {
 	cursor: pointer
 }
@@ -1759,8 +1825,8 @@ i.mce-i-resize {
 }
 
 .mce-ico, i.mce-i-checkbox {
-	zoom: expression(this.runtimeStyle [ 'zoom' ] = '1', this.innerHTML = 
-		this.currentStyle [ '-ie7-icon' ] .substr ( 1, 1)+ '&nbsp;')
+	zoom: expression(this.runtimeStyle [ 'zoom' ] = '1', this.innerHTML =  
+		 this.currentStyle [ '-ie7-icon' ] .substr ( 1, 1)+ '&nbsp;')
 }
 
 .mce-i-save {

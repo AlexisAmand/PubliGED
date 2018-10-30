@@ -1,7 +1,6 @@
 <div class="sidebar1">
 
-	<br>
-	<br>
+	<br> <br>
 
 	<div id="cadremenu">
 
@@ -13,11 +12,10 @@
 		</ul>
 
 	</div>
-	
-	<br />
-	<br />
 
-		<div id="cadremenu">
+	<br /> <br />
+
+	<div id="cadremenu">
 
 		<h1><?php echo ASIDE_ADMIN_6; ?></h1>
 
@@ -27,8 +25,7 @@
 
 	</div>
 
-	<br />
-	<br />
+	<br /> <br />
 
 	<div id="cadremenu">
 
@@ -41,8 +38,7 @@
 
 	</div>
 
-	<br />
-	<br />
+	<br /> <br />
 
 	<div id="cadremenu">
 
@@ -57,8 +53,7 @@
 
 	</div>
 
-	<br />
-	<br />
+	<br /> <br />
 
 	<div id="cadremenu">
 
@@ -73,8 +68,7 @@
 
 	</div>
 
-	<br />
-	<br />
+	<br /> <br />
 
 	<div id="cadremenu">
 
@@ -85,5 +79,5 @@
 		</ul>
 
 	</div>
-	
+
 </div>

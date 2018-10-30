@@ -8,12 +8,12 @@ include ('../langues/fr.php');
 <html lang="fr">
 <head>
 
-	<meta charset="utf-8">
+<meta charset="utf-8">
 	
 	<?php include('include/head.php');?>
 	
 	<title><?php echo SITE_TITLE." - ".TITRE_RUB_ADMIN_11; ?></title>
-	<meta name="description" content=" ">
+<meta name="description" content=" ">
 
 </head>
 <body>
@@ -22,20 +22,19 @@ include ('../langues/fr.php');
 		
 		
 <div style="witdh: 100%; height: 20px; border: 0px solid black;">
-	<span class="breadcrumbs pathway">
-		<a href="index.php"><?php echo ASIDE_ADMIN_0; ?></a>
-		<img src="../img/arrow.png" alt="" /> <a href="index.php"><?php echo ASIDE_ADMIN_4; ?></a>
-		<img src="../img/arrow.png" alt="" /> <a href="biblio_ono.php.php"><?php echo TITRE_RUB_ADMIN_11; ?></a>
-	</span>
-</div>
+		<span class="breadcrumbs pathway"> <a href="index.php"><?php echo ASIDE_ADMIN_0; ?></a>
+			<img src="../img/arrow.png" alt="" /> <a href="index.php"><?php echo ASIDE_ADMIN_4; ?></a>
+			<img src="../img/arrow.png" alt="" /> <a href="biblio_ono.php.php"><?php echo TITRE_RUB_ADMIN_11; ?></a>
+		</span>
+	</div>
 
-<!-- fin du fil d'ariane -->
+	<!-- fin du fil d'ariane -->
 
-<div id="nav"><?php include ('include/sidebar.inc');	?></div>
+	<div id="nav"><?php include ('include/sidebar.inc');	?></div>
 
-<div id="contenu">
+	<div id="contenu">
 
-<h1><?php echo TITRE_RUB_ADMIN_11; ?></h1>
+		<h1><?php echo TITRE_RUB_ADMIN_11; ?></h1>
 
 <?php
 
@@ -53,7 +52,7 @@ try {
 		 * echo "<p style='background-color:#dbff67;'>Votre nouveau texte a bien été enregistré !</p>";
 		 */
 	}
-	
+
 	echo '<p>Ce formulaire permet de changer le titre et le slogan du site</p>';
 	echo "<p>Titre du site <input type='text' name='titre' size='72'></p>";
 	echo "<p>Slogan du site <input type='text' name='titre' size='72'></p>";

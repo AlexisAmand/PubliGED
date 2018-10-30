@@ -1,7 +1,13 @@
+	<?php
 
+	/* ---------- */
+	/* ERREUR 404 */
+	/* ---------- */
 
-	<h3>Erreur 404</h3>
+	// TODO : cette page sera surement appelée via un fichier htaccess
+	?>
 
-	<p>Oups...</p>
-	
-   
+<h3>Erreur 404</h3>
+
+<p>Oups...</p>
+

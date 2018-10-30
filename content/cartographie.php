@@ -1,27 +1,32 @@
-	<h3><?php echo TITRE_RUB_5; ?></h3>
-    	
-    <?php 	
-    if(VerifGedcom($pdo2) == "1")
-		{
-	    ?>	
-	    	
-		<div id="mapid" style="width: 100%;height: 600px;"></div>
-		
-		<script>
+	<?php
+
+	/* --------------------- */
+	/* CARTOGRAPHIE AVEC OSM */
+	/* --------------------- */
+	?>
+
+<h3><?php echo TITRE_RUB_5; ?></h3>
+
+<?php
+if (VerifGedcom ( $pdo2 ) == "1") {
+	?>
+
+<div id="mapid" style="width: 100%; height: 600px;"></div>
+
+<script>
 	
-		<?php 
-	
-		/* On centre la carte sur la premiere ville de la table lieux avec une ville de la table des villes de France */
-	
-		$req2 = $pdo2->query ( "select * from lieux, villes_france WHERE lieux.ville LIKE villes_france.nom_commune AND lieux.ref = '1' LIMIT 1" );
-	
-		while ( $data = $req2->fetch (PDO::FETCH_ASSOC) )
-		
-			{
-			echo "var mymap = L.map('mapid').setView([".$data['latitude'].", ".$data['longitude']."], 5);";
-		   	}
-	
-		?>
+		<?php
+
+	/* On centre la carte sur la premiere ville de la table lieux avec une ville de la table des villes de France */
+
+	$req2 = $pdo2->query ( "select * from lieux, villes_france WHERE lieux.ville LIKE villes_france.nom_commune AND lieux.ref = '1' LIMIT 1" );
+
+	while ( $data = $req2->fetch ( PDO::FETCH_ASSOC ) ) 
+	{
+		echo "var mymap = L.map('mapid').setView([" . $data ['latitude'] . ", " . $data ['longitude'] . "], 5);";
+	}
+
+	?>
 	
 		// var mymap = L.map('mapid').setView([50.3001, 3.3542], 5);
 	
@@ -41,30 +46,25 @@
 		var points = [
 		
 		<?php
-		
-		$req = $pdo2->query ( "select * from lieux, villes_france WHERE lieux.ville LIKE villes_france.nom_commune AND villes_france.codepostal = lieux.cp" );
-		
-		while ( $coord = $req->fetch (PDO::FETCH_ASSOC) )
-		{
-		    echo "[".$coord['latitude'].",".$coord['longitude'].",".$coord['ref']."],";
-		}    
-		
-		/* Géolocalisation pour la Belgique */
-											
-		$req = $pdo2->query ( "select * from lieux, villes_belgique WHERE lieux.ville LIKE villes_belgique.name" );
-											
-		while ( $coord_B = $req->fetch (PDO::FETCH_ASSOC) ) 
-			{	    
-			    echo "[".$coord_B['latitude'].",".$coord_B['longitude'].",".$coord_B['ref']."],";
-			}   	
-	
-		}
-	else
-		{
-		echo NO_GEDCOM;
-		}
-		
-	?>
+
+	$req = $pdo2->query ( "select * from lieux, villes_france WHERE lieux.ville LIKE villes_france.nom_commune AND villes_france.codepostal = lieux.cp" );
+
+	while ( $coord = $req->fetch ( PDO::FETCH_ASSOC ) ) {
+		echo "[" . $coord ['latitude'] . "," . $coord ['longitude'] . "," . $coord ['ref'] . "],";
+	}
+
+	/* Géolocalisation pour la Belgique */
+
+	$req = $pdo2->query ( "select * from lieux, villes_belgique WHERE lieux.ville LIKE villes_belgique.name" );
+
+	while ( $coord_B = $req->fetch ( PDO::FETCH_ASSOC ) ) {
+		echo "[" . $coord_B ['latitude'] . "," . $coord_B ['longitude'] . "," . $coord_B ['ref'] . "],";
+	}
+} else {
+	echo NO_GEDCOM;
+}
+
+?>
 	
 	];
 

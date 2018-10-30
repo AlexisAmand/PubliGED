@@ -1,3 +1,11 @@
+	<?php 
+	
+	/* -------------------- */
+	/* LISTE DES PATRONYMES */
+	/* -------------------- */
+	
+	?>
+	
 	<h3><?php echo TITRE_RUB_6; ?></h3>
 
 	<?php

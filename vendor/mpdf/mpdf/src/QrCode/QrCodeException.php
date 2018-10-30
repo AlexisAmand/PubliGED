@@ -2,7 +2,5 @@
 
 namespace Mpdf\QrCode;
 
-class QrCodeException extends \Mpdf\MpdfException
-{
-
+class QrCodeException extends \Mpdf\MpdfException {
 }

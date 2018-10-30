@@ -2,8 +2,5 @@
 
 namespace Mpdf\Tag;
 
-class Nav extends BlockTag
-{
-
-
+class Nav extends BlockTag {
 }
