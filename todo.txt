@@ -42,3 +42,9 @@ INSTALL
 -------
 
 - dans le fichier htaccess, il faudra ajouter la ligne de code pour l'erreur 404
+
+-----
+IDEES
+-----
+
+- Créer un systéme de pages comme sur wordpress. Une page est juste une sorte de gros article.
