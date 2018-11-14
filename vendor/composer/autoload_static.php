@@ -20,6 +20,10 @@ class ComposerStaticInit4a1aa739bd97454a7fe5f85ac2a82321
         array (
             'Mpdf\\' => 5,
         ),
+        'E' => 
+        array (
+            'Egulias\\EmailValidator\\' => 23,
+        ),
         'D' => 
         array (
             'DeepCopy\\' => 9,
@@ -39,9 +43,23 @@ class ComposerStaticInit4a1aa739bd97454a7fe5f85ac2a82321
         array (
             0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
         ),
+        'Egulias\\EmailValidator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator',
+        ),
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'D' => 
+        array (
+            'Doctrine\\Common\\Lexer\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
+            ),
         ),
     );
 
@@ -60,6 +78,7 @@ class ComposerStaticInit4a1aa739bd97454a7fe5f85ac2a82321
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit4a1aa739bd97454a7fe5f85ac2a82321::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit4a1aa739bd97454a7fe5f85ac2a82321::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit4a1aa739bd97454a7fe5f85ac2a82321::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit4a1aa739bd97454a7fe5f85ac2a82321::$classMap;
 
         }, null, ClassLoader::class);

@@ -343,4 +343,16 @@ define ( "THEREIS", "Il y a " );
 define ( "NB_RESULT", " resultat pour " );
 define ( "NB_RESULTS", " resultats pour " );
 
+/* ------- */
+/* CONTACT */
+/* ------- */
+
+define ( "FRM_NAME", "Votre nom" );
+define ( "FRM_MAIL", "Votre email" );
+define ( "FRM_TOPIC", "Votre sujet" );
+define ( "FRM_MSG", "Votre message" );
+define ( "CONTACT_WARNING", "Tous les champs sont obligatoires");
+define ("SEND_SUCCESS", "Votre message a bien été envoyé !");
+define ("SEND_FAIL", "Votre message n'a pas pu être envoyé !");
+
 ?>
