@@ -84,17 +84,21 @@
 		
 		$GenreInconnu = $TotalIndividu - $TotalFemme - $TotalHomme;
 		
-		/* nombre d'enfants par union */
+		/* nombre d'enfants */
 		
 		$req_nb_enfant = "SELECT distinct enfant FROM familles";
 		$req = $pdo2->prepare ( $req_nb_enfant );
 		$req->execute ();
 		$TotalEnfant = $req->rowCount ();
 		
+		/* nombre de couple */
+		
 		$req_nb_couple = "SELECT distinct pere, mere FROM familles";
 		$req = $pdo2->prepare ( $req_nb_couple );
 		$req->execute ();
 		$TotalCouple = $req->rowCount ();
+		
+		/* nombre d'enfant par couple */
 		
 		$EnfantCouple = $TotalEnfant / $TotalCouple;
 		
