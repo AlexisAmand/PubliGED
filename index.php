@@ -5,7 +5,7 @@ include ('config.php');
 include ('langues/fr.php');
 include ('class/class.php');
 
-$InfoPage = PageTop ( $pdo );
+$InfoPage = PageTop ($pdo);
 
 require_once 'vendor/autoload.php';
 
@@ -62,66 +62,65 @@ require_once 'vendor/autoload.php';
 
 <body>
 
-	<div class="container">
+<div class="container">
 
-		<div class="row">
+	<div class="row">
  					
- 			<?php include ('include/pillmenu.inc'); ?>
+ 		<?php include ('include/pillmenu.inc'); ?>
  		 		
  	</div>
 
-		<div class="row">
+	<div class="row">
 
-			<header class="col-md-12">
+		<header class="col-md-12">
  		
  			<?php include('include/header.inc');?>
  						
  		</header>
 
-		</div>
+	</div>
 
-		<div class="row" style="margin-top: 10px;">
+	<div class="row" style="margin-top: 10px;">
 
-			<div class="col-md-12">
+		<div class="col-md-12">
 
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.php?page=blog"
-						title="Accueil"><?php echo HERE;?></a></li>
-					<li class="breadcrumb-item"><a href=""><?php echo $InfoPage->rubrique; ?></a></li>
-					<li class="breadcrumb-item active"><?php echo $InfoPage->titre; ?></li>
-				</ol>
-
-			</div>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="index.php?page=blog" title="Accueil"><?php echo HERE;?></a></li>
+				<li class="breadcrumb-item"><a href=""><?php echo $InfoPage->rubrique; ?></a></li>
+				<li class="breadcrumb-item active"><?php echo $InfoPage->titre; ?></li>
+			</ol>
 
 		</div>
 
-		<div class="row">
+	</div>
 
-			<aside class="col-md-3">
+	<div class="row">
+
+		<aside class="col-md-3">
             
         	<?php $InfoPage->AfficherAside($pdo); ?>
             
         </aside>
 
-			<section class="col-md-9">
+		<section class="col-md-9">
     	
     		<?php $InfoPage->AfficherContenu($pdo); ?>		
     	
         </section>
 
-		</div>
+	</div>
 
-		<div class="row">
+	<div class="row">
 
-			<footer class="col-md-12 text-center">
+		<footer class="col-md-12 text-center">
     	
     		<?php $InfoPage->AfficherFooter(); ?>
                 	        
         </footer>
 
-		</div>
-
 	</div>
+
+</div>
 
 </body>
 </html>
