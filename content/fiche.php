@@ -261,25 +261,34 @@ while ( $a < $i ) {
 
 echo "</table>";
 
-/* ------------------ */
-/* arbre généalogique */
-/* ------------------ */
+/* ------------------------------------ */
+/* arbre généalogique version Bootstrap */
+/* ------------------------------------ */
 
-echo "<h4>" . FAMILYTREE . "</h4>";
+echo "<h4>" . FAMILYTREE . " (version Bootstrap)</h4>";
 
 ?>
 
 <div class="row">
 
-	<div class="col-sm-10 col-sm-push-1">
-
 	<?php include("arbre.php"); ?>
-
-	</div>
 
 </div>
 
 <?php
+
+/* ------------------------------- */
+/* arbre généalogique version HTML */
+/* ------------------------------- */
+
+echo "<h4>" . FAMILYTREE . " (version HTML+CSS)</h4>";
+
+echo "<div class='row'>";
+
+include("arbre-ancien.php");
+
+echo "</div>";
+
 
 /* ----- */
 /* notes */
