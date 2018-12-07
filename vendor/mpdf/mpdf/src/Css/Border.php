@@ -2,9 +2,7 @@
 
 namespace Mpdf\Css;
 
-class Border
-{
-
+class Border {
 	const ALL = 15;
 	const TOP = 8;
 	const RIGHT = 4;

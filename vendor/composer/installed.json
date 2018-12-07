@@ -57,17 +57,17 @@
     },
     {
         "name": "egulias/email-validator",
-        "version": "2.1.7",
-        "version_normalized": "2.1.7.0",
+        "version": "2.1.6",
+        "version_normalized": "2.1.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/egulias/EmailValidator.git",
-            "reference": "709f21f92707308cdf8f9bcfa1af4cb26586521e"
+            "reference": "0578b32b30b22de3e8664f797cf846fc9246f786"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/709f21f92707308cdf8f9bcfa1af4cb26586521e",
-            "reference": "709f21f92707308cdf8f9bcfa1af4cb26586521e",
+            "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/0578b32b30b22de3e8664f797cf846fc9246f786",
+            "reference": "0578b32b30b22de3e8664f797cf846fc9246f786",
             "shasum": ""
         },
         "require": {
@@ -82,7 +82,7 @@
         "suggest": {
             "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
         },
-        "time": "2018-12-04T22:38:24+00:00",
+        "time": "2018-09-25T20:47:26+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -116,17 +116,17 @@
     },
     {
         "name": "mpdf/mpdf",
-        "version": "v7.1.7",
-        "version_normalized": "7.1.7.0",
+        "version": "v7.1.6",
+        "version_normalized": "7.1.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/mpdf/mpdf.git",
-            "reference": "ac60286a7dc5250c293afebd2bd9414e58a02466"
+            "reference": "ef5d8cf2c63def40fb76fc0a9e286721cb4dffcd"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/mpdf/mpdf/zipball/ac60286a7dc5250c293afebd2bd9414e58a02466",
-            "reference": "ac60286a7dc5250c293afebd2bd9414e58a02466",
+            "url": "https://api.github.com/repos/mpdf/mpdf/zipball/ef5d8cf2c63def40fb76fc0a9e286721cb4dffcd",
+            "reference": "ef5d8cf2c63def40fb76fc0a9e286721cb4dffcd",
             "shasum": ""
         },
         "require": {
@@ -134,7 +134,7 @@
             "ext-mbstring": "*",
             "myclabs/deep-copy": "^1.7",
             "paragonie/random_compat": "^1.4|^2.0|9.99.99",
-            "php": "^5.6 || ~7.0.0 || ~7.1.0 || ~7.2.0 || ~7.3.0",
+            "php": "^5.6 || ~7.0.0 || ~7.1.0 || ~7.2.0",
             "psr/log": "^1.0",
             "setasign/fpdi": "1.6.*"
         },
@@ -149,7 +149,7 @@
             "ext-xml": "Needed mainly for SVG manipulation",
             "ext-zlib": "Needed for compression of embedded resources, such as fonts"
         },
-        "time": "2018-11-29T18:21:32+00:00",
+        "time": "2018-10-18T11:37:12+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -176,7 +176,7 @@
                 "role": "Developer (retired)"
             }
         ],
-        "description": "PHP library generating PDF files from UTF-8 encoded HTML",
+        "description": "A PHP class to generate PDF files from HTML with Unicode/UTF-8 and CJK support",
         "homepage": "https://mpdf.github.io",
         "keywords": [
             "pdf",
@@ -283,17 +283,17 @@
     },
     {
         "name": "phpmailer/phpmailer",
-        "version": "v6.0.6",
-        "version_normalized": "6.0.6.0",
+        "version": "v6.0.5",
+        "version_normalized": "6.0.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/PHPMailer/PHPMailer.git",
-            "reference": "8190d73eb5def11a43cfb020b7f36db65330698c"
+            "reference": "cb3ea134d4d3729e7857737d5f320cce9caf4d32"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/8190d73eb5def11a43cfb020b7f36db65330698c",
-            "reference": "8190d73eb5def11a43cfb020b7f36db65330698c",
+            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/cb3ea134d4d3729e7857737d5f320cce9caf4d32",
+            "reference": "cb3ea134d4d3729e7857737d5f320cce9caf4d32",
             "shasum": ""
         },
         "require": {
@@ -318,7 +318,7 @@
             "stevenmaguire/oauth2-microsoft": "Needed for Microsoft XOAUTH2 authentication",
             "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)"
         },
-        "time": "2018-11-16T00:41:32+00:00",
+        "time": "2018-03-27T13:49:45+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -351,23 +351,23 @@
     },
     {
         "name": "psr/log",
-        "version": "1.1.0",
-        "version_normalized": "1.1.0.0",
+        "version": "1.0.2",
+        "version_normalized": "1.0.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/php-fig/log.git",
-            "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
+            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
-            "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2018-11-20T15:27:04+00:00",
+        "time": "2016-10-10T12:19:37+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
