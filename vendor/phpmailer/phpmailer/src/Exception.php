@@ -1,5 +1,4 @@
 <?php
-
 /**
  * PHPMailer Exception class.
  * PHP Version 5.5.
@@ -18,20 +17,23 @@
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
  * FITNESS FOR A PARTICULAR PURPOSE.
  */
+
 namespace PHPMailer\PHPMailer;
 
 /**
  * PHPMailer exception handler.
  *
- * @author Marcus Bointon <phpmailer@synchromedia.co.uk>
+ * @author  Marcus Bointon <phpmailer@synchromedia.co.uk>
  */
-class Exception extends \Exception {
-	/**
-	 * Prettify error message output.
-	 *
-	 * @return string
-	 */
-	public function errorMessage() {
-		return '<strong>' . htmlspecialchars ( $this->getMessage () ) . "</strong><br />\n";
-	}
+class Exception extends \Exception
+{
+    /**
+     * Prettify error message output.
+     *
+     * @return string
+     */
+    public function errorMessage()
+    {
+        return '<strong>' . htmlspecialchars($this->getMessage()) . "</strong><br />\n";
+    }
 }

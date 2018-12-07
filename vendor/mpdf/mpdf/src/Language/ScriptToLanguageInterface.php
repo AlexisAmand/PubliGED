@@ -2,7 +2,11 @@
 
 namespace Mpdf\Language;
 
-interface ScriptToLanguageInterface {
+interface ScriptToLanguageInterface
+{
+
 	public function getLanguageByScript($script);
+
 	public function getLanguageDelimiters($language);
+
 }

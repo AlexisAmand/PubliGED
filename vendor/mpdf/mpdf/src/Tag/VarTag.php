@@ -2,5 +2,8 @@
 
 namespace Mpdf\Tag;
 
-class VarTag extends InlineTag {
+class VarTag extends InlineTag
+{
+
+
 }

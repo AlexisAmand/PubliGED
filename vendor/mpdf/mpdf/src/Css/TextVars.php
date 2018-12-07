@@ -2,7 +2,8 @@
 
 namespace Mpdf\Css;
 
-class TextVars {
+class TextVars
+{
 
 	// font-decoration
 	const FD_UNDERLINE = 1;
