@@ -2,5 +2,8 @@
 
 namespace Mpdf\Tag;
 
-class BlockQuote extends BlockTag {
+class BlockQuote extends BlockTag
+{
+
+
 }

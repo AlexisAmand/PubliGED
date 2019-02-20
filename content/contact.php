@@ -45,6 +45,7 @@ $mail->SMTPOptions = array (
 
 if (isset ($_POST ['nom'] ) and isset ($_POST ['email']) and isset ($_POST ['sujet']) and isset ($_POST ['message'])) 
 	{
+	/* note perso : Peut-être que j'aurais pu utiliser filter_input() au lieu de EmailValidator() */	
 	$validator = new EmailValidator();
 	
 	if(	$validator->isValid($_POST ['email'], new RFCValidation()))

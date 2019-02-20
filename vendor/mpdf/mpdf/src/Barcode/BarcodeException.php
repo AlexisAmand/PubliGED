@@ -2,5 +2,7 @@
 
 namespace Mpdf\Barcode;
 
-class BarcodeException extends \Mpdf\MpdfException {
+class BarcodeException extends \Mpdf\MpdfException
+{
+
 }

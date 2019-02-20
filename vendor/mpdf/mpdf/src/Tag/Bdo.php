@@ -2,5 +2,8 @@
 
 namespace Mpdf\Tag;
 
-class Bdo extends InlineTag {
+class Bdo extends InlineTag
+{
+
+
 }

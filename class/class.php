@@ -4,9 +4,11 @@ class pages {
 	public $titre;
 	public $description;
 	public $rubrique;
+	
 	public function AfficherContenu($pdo2) {
 		include ('content/' . $this->nom . '.php');
 	}
+	
 	public function AfficherAside($pdo2) {
 		$rubrique = array (
 				"pdf",
@@ -25,15 +27,18 @@ class pages {
 			include ('include/sidebar.inc');
 		}
 	}
+	
 	public function AfficherFooter() {
 		include ('include/footer.inc');
 	}
+	
 	public function Titre() {
 		return SITE_TITLE . " - " . $this->titre;
 	}
 }
 
 /* classes de partie généalogie */
+
 class evenements {
 	public $ref;
 	public $nom;
@@ -46,6 +51,7 @@ class evenements {
 }
 
 /* classes de la partie blog */
+
 class commentaires {
 	public $article;
 	public $nom_auteur;
@@ -64,6 +70,7 @@ class articles {
 }
 
 /* classes pour la lecture du gedcom */
+
 class uploaders {
 	public $name;
 	public $mail;

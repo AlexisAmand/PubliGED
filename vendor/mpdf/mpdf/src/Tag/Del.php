@@ -2,5 +2,8 @@
 
 namespace Mpdf\Tag;
 
-class Del extends InlineTag {
+class Del extends InlineTag
+{
+
+
 }

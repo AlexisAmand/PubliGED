@@ -2,141 +2,97 @@
 
 namespace Mpdf\Color;
 
-class ColorModeConverter {
+class ColorModeConverter
+{
 
 	/**
-	 *
 	 * @param float[] $c
 	 *
 	 * @return float[]
 	 */
-	public function rgb2gray($c) {
-		if (isset ( $c [4] )) {
-			return [ 
-					1,
-					($c [1] * .21) + ($c [2] * .71) + ($c [3] * .07),
-					ord ( 1 ),
-					$c [4]
-			];
+	public function rgb2gray($c)
+	{
+		if (isset($c[4])) {
+			return [1, ($c[1] * .21) + ($c[2] * .71) + ($c[3] * .07), ord(1), $c[4]];
 		}
 
-		return [ 
-				1,
-				($c [1] * .21) + ($c [2] * .71) + ($c [3] * .07)
-		];
+		return [1, ($c[1] * .21) + ($c[2] * .71) + ($c[3] * .07)];
 	}
 
 	/**
-	 *
 	 * @param float[] $c
 	 *
 	 * @return float[]
 	 */
-	public function cmyk2gray($c) {
-		$rgb = $this->cmyk2rgb ( $c );
-		return $this->rgb2gray ( $rgb );
+	public function cmyk2gray($c)
+	{
+		$rgb = $this->cmyk2rgb($c);
+		return $this->rgb2gray($rgb);
 	}
 
 	/**
-	 *
 	 * @param float[] $c
 	 *
 	 * @return float[]
 	 */
-	public function rgb2cmyk($c) {
-		$cyan = 1 - ($c [1] / 255);
-		$magenta = 1 - ($c [2] / 255);
-		$yellow = 1 - ($c [3] / 255);
-		$min = min ( $cyan, $magenta, $yellow );
+	public function rgb2cmyk($c)
+	{
+		$cyan = 1 - ($c[1] / 255);
+		$magenta = 1 - ($c[2] / 255);
+		$yellow = 1 - ($c[3] / 255);
+		$min = min($cyan, $magenta, $yellow);
 
 		if ($min == 1) {
-			if ($c [0] == 5) {
-				return [ 
-						6,
-						100,
-						100,
-						100,
-						100,
-						$c [4]
-				];
+			if ($c[0] == 5) {
+				return [6, 100, 100, 100, 100, $c[4]];
 			}
 
-			return [ 
-					4,
-					100,
-					100,
-					100,
-					100
-			];
+			return [4, 100, 100, 100, 100];
 			// For K-Black
-			// if ($c[0]==5) { return array (6,0,0,0,100, $c[4]); }
-			// else { return array (4,0,0,0,100); }
+			//if ($c[0]==5) { return array (6,0,0,0,100, $c[4]); }
+			//else { return array (4,0,0,0,100); }
 		}
 		$K = $min;
 		$black = 1 - $K;
-		if ($c [0] == 5) {
-			return [ 
-					6,
-					($cyan - $K) * 100 / $black,
-					($magenta - $K) * 100 / $black,
-					($yellow - $K) * 100 / $black,
-					$K * 100,
-					$c [4]
-			];
+		if ($c[0] == 5) {
+			return [6, ($cyan - $K) * 100 / $black, ($magenta - $K) * 100 / $black, ($yellow - $K) * 100 / $black, $K * 100, $c[4]];
 		}
 
-		return [ 
-				4,
-				($cyan - $K) * 100 / $black,
-				($magenta - $K) * 100 / $black,
-				($yellow - $K) * 100 / $black,
-				$K * 100
-		];
+		return [4, ($cyan - $K) * 100 / $black, ($magenta - $K) * 100 / $black, ($yellow - $K) * 100 / $black, $K * 100];
 	}
 
 	/**
-	 *
 	 * @param float[] $c
 	 *
 	 * @return float[]
 	 */
-	public function cmyk2rgb($c) {
-		$rgb = [ ];
-		$colors = 255 - ($c [4] * 2.55);
-		$rgb [0] = ( int ) ($colors * (255 - ($c [1] * 2.55)) / 255);
-		$rgb [1] = ( int ) ($colors * (255 - ($c [2] * 2.55)) / 255);
-		$rgb [2] = ( int ) ($colors * (255 - ($c [3] * 2.55)) / 255);
-		if ($c [0] == 6) {
-			return [ 
-					5,
-					$rgb [0],
-					$rgb [1],
-					$rgb [2],
-					$c [5]
-			];
+	public function cmyk2rgb($c)
+	{
+		$rgb = [];
+		$colors = 255 - ($c[4] * 2.55);
+		$rgb[0] = (int) ($colors * (255 - ($c[1] * 2.55)) / 255);
+		$rgb[1] = (int) ($colors * (255 - ($c[2] * 2.55)) / 255);
+		$rgb[2] = (int) ($colors * (255 - ($c[3] * 2.55)) / 255);
+		if ($c[0] == 6) {
+			return [5, $rgb[0], $rgb[1], $rgb[2], $c[5]];
 		}
 
-		return [ 
-				3,
-				$rgb [0],
-				$rgb [1],
-				$rgb [2]
-		];
+		return [3, $rgb[0], $rgb[1], $rgb[2]];
 	}
 
 	/**
-	 *
 	 * @param float $r
 	 * @param float $g
 	 * @param float $b
 	 *
 	 * @return float[]
 	 */
-	public function rgb2hsl($r, $g, $b) {
+	public function rgb2hsl($r, $g, $b)
+	{
 		$h = 0;
 
-		$min = min ( $r, $g, $b );
-		$max = max ( $r, $g, $b );
+		$min = min($r, $g, $b);
+		$max = max($r, $g, $b);
 
 		$diff = $max - $min;
 		$l = ($max + $min) / 2;
@@ -165,19 +121,15 @@ class ColorModeConverter {
 			}
 
 			if ($h < 0) {
-				++ $h;
+				++$h;
 			}
 
 			if ($h > 1) {
-				-- $h;
+				--$h;
 			}
 		}
 
-		return [ 
-				$h,
-				$s,
-				$l
-		];
+		return [$h, $s, $l];
 	}
 
 	/**
@@ -190,7 +142,8 @@ class ColorModeConverter {
 	 *
 	 * @return float[]
 	 */
-	public function hsl2rgb($h, $s, $l) {
+	public function hsl2rgb($h, $s, $l)
+	{
 		if ($s == 0) {
 			$r = $l * 255;
 			$g = $l * 255;
@@ -202,33 +155,29 @@ class ColorModeConverter {
 				$tmp = ($l + $s) - ($s * $l);
 			}
 			$tmp2 = 2 * $l - $tmp;
-			$r = round ( 255 * $this->hue2rgb ( $tmp2, $tmp, $h + (1 / 3) ) );
-			$g = round ( 255 * $this->hue2rgb ( $tmp2, $tmp, $h ) );
-			$b = round ( 255 * $this->hue2rgb ( $tmp2, $tmp, $h - (1 / 3) ) );
+			$r = round(255 * $this->hue2rgb($tmp2, $tmp, $h + (1 / 3)));
+			$g = round(255 * $this->hue2rgb($tmp2, $tmp, $h));
+			$b = round(255 * $this->hue2rgb($tmp2, $tmp, $h - (1 / 3)));
 		}
 
-		return [ 
-				$r,
-				$g,
-				$b
-		];
+		return [$r, $g, $b];
 	}
 
 	/**
-	 *
 	 * @param float $v1
 	 * @param float $v2
 	 * @param float $vh
 	 *
 	 * @return float
 	 */
-	public function hue2rgb($v1, $v2, $vh) {
+	public function hue2rgb($v1, $v2, $vh)
+	{
 		if ($vh < 0) {
-			++ $vh;
+			++$vh;
 		}
 
 		if ($vh > 1) {
-			-- $vh;
+			--$vh;
 		}
 
 		if ((6 * $vh) < 1) {
@@ -245,4 +194,5 @@ class ColorModeConverter {
 
 		return $v1;
 	}
+
 }

@@ -47,7 +47,7 @@ function PageTop($pdo2) {
 
 			$page->description = $row ['description'];
 
-			/* rubrique, entre les deux / */
+			/* rubrique pour le fil d'ariane, entre les deux / */
 
 			switch ($PageToShow) {
 				case "stats" :

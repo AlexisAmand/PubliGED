@@ -4,19 +4,22 @@ namespace Mpdf\Tag;
 
 use Mpdf\Mpdf;
 
-class Meter extends InlineTag {
-	public function open($attr, &$ahtml, &$ihtml) {
-		$tag = $this->getTagName ();
+class Meter extends InlineTag
+{
+
+	public function open($attr, &$ahtml, &$ihtml)
+	{
+		$tag = $this->getTagName();
 		$this->mpdf->inMeter = true;
 
 		$max = 1;
-		if (! empty ( $attr ['MAX'] )) {
-			$max = $attr ['MAX'];
+		if (!empty($attr['MAX'])) {
+			$max = $attr['MAX'];
 		}
 
 		$min = 0;
-		if (! empty ( $attr ['MIN'] ) && $tag === 'METER') {
-			$min = $attr ['MIN'];
+		if (!empty($attr['MIN']) && $tag === 'METER') {
+			$min = $attr['MIN'];
 		}
 
 		if ($max < $min) {
@@ -24,8 +27,8 @@ class Meter extends InlineTag {
 		}
 
 		$value = '';
-		if (isset ( $attr ['VALUE'] ) && ($attr ['VALUE'] || $attr ['VALUE'] === '0')) {
-			$value = $attr ['VALUE'];
+		if (isset($attr['VALUE']) && ($attr['VALUE'] || $attr['VALUE'] === '0')) {
+			$value = $attr['VALUE'];
 			if ($value < $min) {
 				$value = $min;
 			} elseif ($value > $max) {
@@ -34,8 +37,8 @@ class Meter extends InlineTag {
 		}
 
 		$low = $min;
-		if (! empty ( $attr ['LOW'] )) {
-			$low = $attr ['LOW'];
+		if (!empty($attr['LOW'])) {
+			$low = $attr['LOW'];
 		}
 		if ($low < $min) {
 			$low = $min;
@@ -43,16 +46,16 @@ class Meter extends InlineTag {
 			$low = $max;
 		}
 		$high = $max;
-		if (! empty ( $attr ['HIGH'] )) {
-			$high = $attr ['HIGH'];
+		if (!empty($attr['HIGH'])) {
+			$high = $attr['HIGH'];
 		}
 		if ($high < $low) {
 			$high = $low;
 		} elseif ($high > $max) {
 			$high = $max;
 		}
-		if (! empty ( $attr ['OPTIMUM'] )) {
-			$optimum = $attr ['OPTIMUM'];
+		if (!empty($attr['OPTIMUM'])) {
+			$optimum = $attr['OPTIMUM'];
 		} else {
 			$optimum = $min + (($max - $min) / 2);
 		}
@@ -62,195 +65,251 @@ class Meter extends InlineTag {
 			$optimum = $max;
 		}
 		$type = '';
-		if (! empty ( $attr ['TYPE'] )) {
-			$type = $attr ['TYPE'];
+		if (!empty($attr['TYPE'])) {
+			$type = $attr['TYPE'];
 		}
-		$objattr = [ ];
-		$objattr ['margin_top'] = 0;
-		$objattr ['margin_bottom'] = 0;
-		$objattr ['margin_left'] = 0;
-		$objattr ['margin_right'] = 0;
-		$objattr ['padding_top'] = 0;
-		$objattr ['padding_bottom'] = 0;
-		$objattr ['padding_left'] = 0;
-		$objattr ['padding_right'] = 0;
-		$objattr ['width'] = 0;
-		$objattr ['height'] = 0;
-		$objattr ['border_top'] ['w'] = 0;
-		$objattr ['border_bottom'] ['w'] = 0;
-		$objattr ['border_left'] ['w'] = 0;
-		$objattr ['border_right'] ['w'] = 0;
+		$objattr = [];
+		$objattr['margin_top'] = 0;
+		$objattr['margin_bottom'] = 0;
+		$objattr['margin_left'] = 0;
+		$objattr['margin_right'] = 0;
+		$objattr['padding_top'] = 0;
+		$objattr['padding_bottom'] = 0;
+		$objattr['padding_left'] = 0;
+		$objattr['padding_right'] = 0;
+		$objattr['width'] = 0;
+		$objattr['height'] = 0;
+		$objattr['border_top']['w'] = 0;
+		$objattr['border_bottom']['w'] = 0;
+		$objattr['border_left']['w'] = 0;
+		$objattr['border_right']['w'] = 0;
 
-		$properties = $this->cssManager->MergeCSS ( 'INLINE', $tag, $attr );
-		if (isset ( $properties ['DISPLAY'] ) && strtolower ( $properties ['DISPLAY'] ) === 'none') {
+		$properties = $this->cssManager->MergeCSS('INLINE', $tag, $attr);
+		if (isset($properties ['DISPLAY']) && strtolower($properties ['DISPLAY']) === 'none') {
 			return;
 		}
-		$objattr ['visibility'] = 'visible';
-		if (isset ( $properties ['VISIBILITY'] )) {
-			$v = strtolower ( $properties ['VISIBILITY'] );
+		$objattr['visibility'] = 'visible';
+		if (isset($properties['VISIBILITY'])) {
+			$v = strtolower($properties['VISIBILITY']);
 			if (($v === 'hidden' || $v === 'printonly' || $v === 'screenonly') && $this->mpdf->visibility === 'visible') {
-				$objattr ['visibility'] = $v;
+				$objattr['visibility'] = $v;
 			}
 		}
 
-		if (isset ( $properties ['MARGIN-TOP'] )) {
-			$objattr ['margin_top'] = $this->sizeConverter->convert ( $properties ['MARGIN-TOP'], $this->mpdf->blk [$this->mpdf->blklvl] ['inner_width'], $this->mpdf->FontSize, false );
+		if (isset($properties['MARGIN-TOP'])) {
+			$objattr['margin_top'] = $this->sizeConverter->convert(
+				$properties['MARGIN-TOP'],
+				$this->mpdf->blk[$this->mpdf->blklvl]['inner_width'],
+				$this->mpdf->FontSize,
+				false
+			);
 		}
-		if (isset ( $properties ['MARGIN-BOTTOM'] )) {
-			$objattr ['margin_bottom'] = $this->sizeConverter->convert ( $properties ['MARGIN-BOTTOM'], $this->mpdf->blk [$this->mpdf->blklvl] ['inner_width'], $this->mpdf->FontSize, false );
+		if (isset($properties['MARGIN-BOTTOM'])) {
+			$objattr['margin_bottom'] = $this->sizeConverter->convert(
+				$properties['MARGIN-BOTTOM'],
+				$this->mpdf->blk[$this->mpdf->blklvl]['inner_width'],
+				$this->mpdf->FontSize,
+				false
+			);
 		}
-		if (isset ( $properties ['MARGIN-LEFT'] )) {
-			$objattr ['margin_left'] = $this->sizeConverter->convert ( $properties ['MARGIN-LEFT'], $this->mpdf->blk [$this->mpdf->blklvl] ['inner_width'], $this->mpdf->FontSize, false );
+		if (isset($properties['MARGIN-LEFT'])) {
+			$objattr['margin_left'] = $this->sizeConverter->convert(
+				$properties['MARGIN-LEFT'],
+				$this->mpdf->blk[$this->mpdf->blklvl]['inner_width'],
+				$this->mpdf->FontSize,
+				false
+			);
 		}
-		if (isset ( $properties ['MARGIN-RIGHT'] )) {
-			$objattr ['margin_right'] = $this->sizeConverter->convert ( $properties ['MARGIN-RIGHT'], $this->mpdf->blk [$this->mpdf->blklvl] ['inner_width'], $this->mpdf->FontSize, false );
-		}
-
-		if (isset ( $properties ['PADDING-TOP'] )) {
-			$objattr ['padding_top'] = $this->sizeConverter->convert ( $properties ['PADDING-TOP'], $this->mpdf->blk [$this->mpdf->blklvl] ['inner_width'], $this->mpdf->FontSize, false );
-		}
-		if (isset ( $properties ['PADDING-BOTTOM'] )) {
-			$objattr ['padding_bottom'] = $this->sizeConverter->convert ( $properties ['PADDING-BOTTOM'], $this->mpdf->blk [$this->mpdf->blklvl] ['inner_width'], $this->mpdf->FontSize, false );
-		}
-		if (isset ( $properties ['PADDING-LEFT'] )) {
-			$objattr ['padding_left'] = $this->sizeConverter->convert ( $properties ['PADDING-LEFT'], $this->mpdf->blk [$this->mpdf->blklvl] ['inner_width'], $this->mpdf->FontSize, false );
-		}
-		if (isset ( $properties ['PADDING-RIGHT'] )) {
-			$objattr ['padding_right'] = $this->sizeConverter->convert ( $properties ['PADDING-RIGHT'], $this->mpdf->blk [$this->mpdf->blklvl] ['inner_width'], $this->mpdf->FontSize, false );
-		}
-
-		if (isset ( $properties ['BORDER-TOP'] )) {
-			$objattr ['border_top'] = $this->mpdf->border_details ( $properties ['BORDER-TOP'] );
-		}
-		if (isset ( $properties ['BORDER-BOTTOM'] )) {
-			$objattr ['border_bottom'] = $this->mpdf->border_details ( $properties ['BORDER-BOTTOM'] );
-		}
-		if (isset ( $properties ['BORDER-LEFT'] )) {
-			$objattr ['border_left'] = $this->mpdf->border_details ( $properties ['BORDER-LEFT'] );
-		}
-		if (isset ( $properties ['BORDER-RIGHT'] )) {
-			$objattr ['border_right'] = $this->mpdf->border_details ( $properties ['BORDER-RIGHT'] );
+		if (isset($properties['MARGIN-RIGHT'])) {
+			$objattr['margin_right'] = $this->sizeConverter->convert(
+				$properties['MARGIN-RIGHT'],
+				$this->mpdf->blk[$this->mpdf->blklvl]['inner_width'],
+				$this->mpdf->FontSize,
+				false
+			);
 		}
 
-		if (isset ( $properties ['VERTICAL-ALIGN'] )) {
-			$objattr ['vertical-align'] = self::ALIGN [strtolower ( $properties ['VERTICAL-ALIGN'] )];
+		if (isset($properties['PADDING-TOP'])) {
+			$objattr['padding_top'] = $this->sizeConverter->convert(
+				$properties['PADDING-TOP'],
+				$this->mpdf->blk[$this->mpdf->blklvl]['inner_width'],
+				$this->mpdf->FontSize,
+				false
+			);
+		}
+		if (isset($properties['PADDING-BOTTOM'])) {
+			$objattr['padding_bottom'] = $this->sizeConverter->convert(
+				$properties['PADDING-BOTTOM'],
+				$this->mpdf->blk[$this->mpdf->blklvl]['inner_width'],
+				$this->mpdf->FontSize,
+				false
+			);
+		}
+		if (isset($properties['PADDING-LEFT'])) {
+			$objattr['padding_left'] = $this->sizeConverter->convert(
+				$properties['PADDING-LEFT'],
+				$this->mpdf->blk[$this->mpdf->blklvl]['inner_width'],
+				$this->mpdf->FontSize,
+				false
+			);
+		}
+		if (isset($properties['PADDING-RIGHT'])) {
+			$objattr['padding_right'] = $this->sizeConverter->convert(
+				$properties['PADDING-RIGHT'],
+				$this->mpdf->blk[$this->mpdf->blklvl]['inner_width'],
+				$this->mpdf->FontSize,
+				false
+			);
+		}
+
+		if (isset($properties['BORDER-TOP'])) {
+			$objattr['border_top'] = $this->mpdf->border_details($properties['BORDER-TOP']);
+		}
+		if (isset($properties['BORDER-BOTTOM'])) {
+			$objattr['border_bottom'] = $this->mpdf->border_details($properties['BORDER-BOTTOM']);
+		}
+		if (isset($properties['BORDER-LEFT'])) {
+			$objattr['border_left'] = $this->mpdf->border_details($properties['BORDER-LEFT']);
+		}
+		if (isset($properties['BORDER-RIGHT'])) {
+			$objattr['border_right'] = $this->mpdf->border_details($properties['BORDER-RIGHT']);
+		}
+
+		if (isset($properties['VERTICAL-ALIGN'])) {
+			$objattr['vertical-align'] = self::ALIGN[strtolower($properties['VERTICAL-ALIGN'])];
 		}
 		$w = 0;
 		$h = 0;
-		if (isset ( $properties ['WIDTH'] )) {
-			$w = $this->sizeConverter->convert ( $properties ['WIDTH'], $this->mpdf->blk [$this->mpdf->blklvl] ['inner_width'], $this->mpdf->FontSize, false );
-		} elseif (isset ( $attr ['WIDTH'] )) {
-			$w = $this->sizeConverter->convert ( $attr ['WIDTH'], $this->mpdf->blk [$this->mpdf->blklvl] ['inner_width'], $this->mpdf->FontSize, false );
+		if (isset($properties['WIDTH'])) {
+			$w = $this->sizeConverter->convert(
+				$properties['WIDTH'],
+				$this->mpdf->blk[$this->mpdf->blklvl]['inner_width'],
+				$this->mpdf->FontSize,
+				false
+			);
+		} elseif (isset($attr['WIDTH'])) {
+			$w = $this->sizeConverter->convert($attr['WIDTH'], $this->mpdf->blk[$this->mpdf->blklvl]['inner_width'], $this->mpdf->FontSize, false);
 		}
 
-		if (isset ( $properties ['HEIGHT'] )) {
-			$h = $this->sizeConverter->convert ( $properties ['HEIGHT'], $this->mpdf->blk [$this->mpdf->blklvl] ['inner_width'], $this->mpdf->FontSize, false );
-		} elseif (isset ( $attr ['HEIGHT'] )) {
-			$h = $this->sizeConverter->convert ( $attr ['HEIGHT'], $this->mpdf->blk [$this->mpdf->blklvl] ['inner_width'], $this->mpdf->FontSize, false );
+		if (isset($properties['HEIGHT'])) {
+			$h = $this->sizeConverter->convert(
+				$properties['HEIGHT'],
+				$this->mpdf->blk[$this->mpdf->blklvl]['inner_width'],
+				$this->mpdf->FontSize,
+				false
+			);
+		} elseif (isset($attr['HEIGHT'])) {
+			$h = $this->sizeConverter->convert($attr['HEIGHT'], $this->mpdf->blk[$this->mpdf->blklvl]['inner_width'], $this->mpdf->FontSize, false);
 		}
 
-		if (isset ( $properties ['OPACITY'] ) && $properties ['OPACITY'] > 0 && $properties ['OPACITY'] <= 1) {
-			$objattr ['opacity'] = $properties ['OPACITY'];
+		if (isset($properties['OPACITY']) && $properties['OPACITY'] > 0 && $properties['OPACITY'] <= 1) {
+			$objattr['opacity'] = $properties['OPACITY'];
 		}
 		if ($this->mpdf->HREF) {
-			if (strpos ( $this->mpdf->HREF, '.' ) === false && strpos ( $this->mpdf->HREF, '@' ) !== 0) {
+			if (strpos($this->mpdf->HREF, '.') === false && strpos($this->mpdf->HREF, '@') !== 0) {
 				$href = $this->mpdf->HREF;
-				while ( array_key_exists ( $href, $this->mpdf->internallink ) ) {
+				while (array_key_exists($href, $this->mpdf->internallink)) {
 					$href = '#' . $href;
 				}
-				$this->mpdf->internallink [$href] = $this->mpdf->AddLink ();
-				$objattr ['link'] = $this->mpdf->internallink [$href];
+				$this->mpdf->internallink[$href] = $this->mpdf->AddLink();
+				$objattr['link'] = $this->mpdf->internallink[$href];
 			} else {
-				$objattr ['link'] = $this->mpdf->HREF;
+				$objattr['link'] = $this->mpdf->HREF;
 			}
 		}
-		$extraheight = $objattr ['padding_top'] + $objattr ['padding_bottom'] + $objattr ['margin_top'] + $objattr ['margin_bottom'] + $objattr ['border_top'] ['w'] + $objattr ['border_bottom'] ['w'];
+		$extraheight = $objattr['padding_top'] + $objattr['padding_bottom'] + $objattr['margin_top']
+			+ $objattr['margin_bottom'] + $objattr['border_top']['w'] + $objattr['border_bottom']['w'];
 
-		$extrawidth = $objattr ['padding_left'] + $objattr ['padding_right'] + $objattr ['margin_left'] + $objattr ['margin_right'] + $objattr ['border_left'] ['w'] + $objattr ['border_right'] ['w'];
+		$extrawidth = $objattr['padding_left'] + $objattr['padding_right'] + $objattr['margin_left']
+			+ $objattr['margin_right'] + $objattr['border_left']['w'] + $objattr['border_right']['w'];
 
-		$svg = $this->makeSVG ( $type, $value, $max, $min, $optimum, $low, $high );
-		// Save to local file
-		$srcpath = $this->cache->write ( '/_tempSVG' . uniqid ( random_int ( 1, 100000 ), true ) . '_' . strtolower ( $tag ) . '.svg', $svg );
+		$svg = $this->makeSVG($type, $value, $max, $min, $optimum, $low, $high);
+		//Save to local file
+		$srcpath = $this->cache->write('/_tempSVG' . uniqid(random_int(1, 100000), true) . '_' . strtolower($tag) . '.svg', $svg);
 		$orig_srcpath = $srcpath;
-		$this->mpdf->GetFullPath ( $srcpath );
+		$this->mpdf->GetFullPath($srcpath);
 
-		$info = $this->imageProcessor->getImage ( $srcpath, true, true, $orig_srcpath );
-		if (! $info) {
-			$info = $this->imageProcessor->getImage ( $this->mpdf->noImageFile );
+		$info = $this->imageProcessor->getImage($srcpath, true, true, $orig_srcpath);
+		if (!$info) {
+			$info = $this->imageProcessor->getImage($this->mpdf->noImageFile);
 			if ($info) {
 				$srcpath = $this->mpdf->noImageFile;
-				$w = ($info ['w'] * (25.4 / $this->mpdf->dpi));
-				$h = ($info ['h'] * (25.4 / $this->mpdf->dpi));
+				$w = ($info['w'] * (25.4 / $this->mpdf->img_dpi));
+				$h = ($info['h'] * (25.4 / $this->mpdf->img_dpi));
 			}
 		}
-		if (! $info) {
+		if (!$info) {
 			return;
 		}
 
-		$objattr ['file'] = $srcpath;
+		$objattr['file'] = $srcpath;
 
 		// Default width and height calculation if needed
 		if ($w == 0 && $h == 0) {
 			// SVG units are pixels
-			$w = $this->mpdf->FontSize / (10 / Mpdf::SCALE) * abs ( $info ['w'] ) / Mpdf::SCALE;
-			$h = $this->mpdf->FontSize / (10 / Mpdf::SCALE) * abs ( $info ['h'] ) / Mpdf::SCALE;
+			$w = $this->mpdf->FontSize / (10 / Mpdf::SCALE) * abs($info['w']) / Mpdf::SCALE;
+			$h = $this->mpdf->FontSize / (10 / Mpdf::SCALE) * abs($info['h']) / Mpdf::SCALE;
 		}
 
 		// IF WIDTH OR HEIGHT SPECIFIED
 		if ($w == 0) {
-			$w = $info ['h'] ? abs ( $h * $info ['w'] / $info ['h'] ) : INF;
+			$w = $info['h'] ? abs($h * $info['w'] / $info['h']) : INF;
 		}
 		if ($h == 0) {
-			$h = $info ['w'] ? abs ( $w * $info ['h'] / $info ['w'] ) : INF;
+			$h = $info['w'] ? abs($w * $info['h'] / $info['w']) : INF;
 		}
 
 		// Resize to maximum dimensions of page
-		$maxWidth = $this->mpdf->blk [$this->mpdf->blklvl] ['inner_width'];
+		$maxWidth = $this->mpdf->blk[$this->mpdf->blklvl]['inner_width'];
 		$maxHeight = $this->mpdf->h - ($this->mpdf->tMargin + $this->mpdf->bMargin + 1);
 		if ($this->mpdf->fullImageHeight) {
 			$maxHeight = $this->mpdf->fullImageHeight;
 		}
-		if (($w + $extrawidth) > ($maxWidth + 0.0001)) { // mPDF 5.7.4 0.0001 to allow for rounding errors when w==maxWidth
+		if (($w + $extrawidth) > ($maxWidth + 0.0001)) { // mPDF 5.7.4  0.0001 to allow for rounding errors when w==maxWidth
 			$w = $maxWidth - $extrawidth;
-			$h = abs ( $w * $info ['h'] / $info ['w'] );
+			$h = abs($w * $info['h'] / $info['w']);
 		}
 
 		if ($h + $extraheight > $maxHeight) {
 			$h = $maxHeight - $extraheight;
-			$w = abs ( $h * $info ['w'] / $info ['h'] );
+			$w = abs($h * $info['w'] / $info['h']);
 		}
-		$objattr ['type'] = 'image';
-		$objattr ['itype'] = $info ['type'];
+		$objattr['type'] = 'image';
+		$objattr['itype'] = $info['type'];
 
-		$objattr ['orig_h'] = $info ['h'];
-		$objattr ['orig_w'] = $info ['w'];
-		$objattr ['wmf_x'] = $info ['x'];
-		$objattr ['wmf_y'] = $info ['y'];
-		$objattr ['height'] = $h + $extraheight;
-		$objattr ['width'] = $w + $extrawidth;
-		$objattr ['image_height'] = $h;
-		$objattr ['image_width'] = $w;
-		$e = "\xbb\xa4\xactype=image,objattr=" . serialize ( $objattr ) . "\xbb\xa4\xac";
+		$objattr['orig_h'] = $info['h'];
+		$objattr['orig_w'] = $info['w'];
+		$objattr['wmf_x'] = $info['x'];
+		$objattr['wmf_y'] = $info['y'];
+		$objattr['height'] = $h + $extraheight;
+		$objattr['width'] = $w + $extrawidth;
+		$objattr['image_height'] = $h;
+		$objattr['image_width'] = $w;
+		$e = "\xbb\xa4\xactype=image,objattr=" . serialize($objattr) . "\xbb\xa4\xac";
 		if ($this->mpdf->tableLevel) {
-			$this->mpdf->_saveCellTextBuffer ( $e, $this->mpdf->HREF );
-			$this->mpdf->cell [$this->mpdf->row] [$this->mpdf->col] ['s'] += $objattr ['width'];
+			$this->mpdf->_saveCellTextBuffer($e, $this->mpdf->HREF);
+			$this->mpdf->cell[$this->mpdf->row][$this->mpdf->col]['s'] += $objattr['width'];
 		} else {
-			$this->mpdf->_saveTextBuffer ( $e, $this->mpdf->HREF );
+			$this->mpdf->_saveTextBuffer($e, $this->mpdf->HREF);
 		}
 	}
-	public function close(&$ahtml, &$ihtml) {
-		parent::close ( $ahtml, $ihtml );
+
+	public function close(&$ahtml, &$ihtml)
+	{
+		parent::close($ahtml, $ihtml);
 		$this->mpdf->ignorefollowingspaces = false;
 		$this->mpdf->inMeter = false;
 	}
-	protected function makeSVG($type, $value, $max, $min, $optimum, $low, $high) {
+
+	protected function makeSVG($type, $value, $max, $min, $optimum, $low, $high)
+	{
 		if ($type == '2') {
-			// ///////////////////////////////////////////////////////////////////////////////////
-			// /////// CUSTOM <meter type="2">
-			// ///////////////////////////////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////////////////////////////////
+			///////// CUSTOM <meter type="2">
+			/////////////////////////////////////////////////////////////////////////////////////
 			$h = 10;
 			$w = 160;
-			$border_radius = 0.143; // Factor of Height
+			$border_radius = 0.143;  // Factor of Height
 
 			$svg = '<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -270,16 +329,16 @@ class Meter extends InlineTag {
 			$svg .= '<rect x="0" y="0" width="' . $w . '" height="' . $h . '" fill="#f4f4f4" stroke="none" />';
 
 			// LOW to HIGH region
-			// if ($low && $high && ($low != $min || $high != $max)) {
+			//if ($low && $high && ($low != $min || $high != $max)) {
 			if ($low && $high) {
-				$barx = (($low - $min) / ($max - $min)) * $w;
-				$barw = (($high - $low) / ($max - $min)) * $w;
+				$barx = (($low - $min) / ($max - $min) ) * $w;
+				$barw = (($high - $low) / ($max - $min) ) * $w;
 				$svg .= '<rect x="' . $barx . '" y="0" width="' . $barw . '" height="' . $h . '" fill="url(#GrGRAY)" stroke="#888888" stroke-width="0.5px" />';
 			}
 
 			// OPTIMUM Marker (? AVERAGE)
 			if ($optimum) {
-				$barx = (($optimum - $min) / ($max - $min)) * $w;
+				$barx = (($optimum - $min) / ($max - $min) ) * $w;
 				$barw = $h / 2;
 				$barcol = '#888888';
 				$svg .= '<rect x="' . $barx . '" y="0" rx="' . ($h * $border_radius) . 'px" ry="' . ($h * $border_radius) . 'px" width="' . $barw . '" height="' . $h . '" fill="' . $barcol . '" stroke="none" />';
@@ -294,7 +353,7 @@ class Meter extends InlineTag {
 				} else {
 					$col = '#008800';
 				}
-				$cx = (($value - $min) / ($max - $min)) * $w;
+				$cx = (($value - $min) / ($max - $min) ) * $w;
 				$cy = $h / 2;
 				$rx = $h / 3.5;
 				$ry = $h / 2.2;
@@ -306,12 +365,12 @@ class Meter extends InlineTag {
 
 			$svg .= '</g></svg>';
 		} else if ($type == '3') {
-			// ///////////////////////////////////////////////////////////////////////////////////
-			// /////// CUSTOM <meter type="2">
-			// ///////////////////////////////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////////////////////////////////
+			///////// CUSTOM <meter type="2">
+			/////////////////////////////////////////////////////////////////////////////////////
 			$h = 10;
 			$w = 100;
-			$border_radius = 0.143; // Factor of Height
+			$border_radius = 0.143;  // Factor of Height
 
 			$svg = '<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -332,15 +391,15 @@ class Meter extends InlineTag {
 
 			// LOW to HIGH region
 			if ($low && $high && ($low != $min || $high != $max)) {
-				// if ($low && $high) {
-				$barx = (($low - $min) / ($max - $min)) * $w;
-				$barw = (($high - $low) / ($max - $min)) * $w;
+				//if ($low && $high) {
+				$barx = (($low - $min) / ($max - $min) ) * $w;
+				$barw = (($high - $low) / ($max - $min) ) * $w;
 				$svg .= '<rect x="' . $barx . '" y="0" width="' . $barw . '" height="' . $h . '" fill="url(#GrGRAY)" stroke="#888888" stroke-width="0.5px" />';
 			}
 
 			// OPTIMUM Marker (? AVERAGE)
 			if ($optimum) {
-				$barx = (($optimum - $min) / ($max - $min)) * $w;
+				$barx = (($optimum - $min) / ($max - $min) ) * $w;
 				$barw = $h / 2;
 				$barcol = '#888888';
 				$svg .= '<rect x="' . $barx . '" y="0" rx="' . ($h * $border_radius) . 'px" ry="' . ($h * $border_radius) . 'px" width="' . $barw . '" height="' . $h . '" fill="' . $barcol . '" stroke="none" />';
@@ -355,7 +414,7 @@ class Meter extends InlineTag {
 				} else {
 					$col = 'orange';
 				}
-				$cx = (($value - $min) / ($max - $min)) * $w;
+				$cx = (($value - $min) / ($max - $min) ) * $w;
 				$cy = $h / 2;
 				$rx = $h / 2.2;
 				$ry = $h / 2.2;
@@ -367,12 +426,12 @@ class Meter extends InlineTag {
 
 			$svg .= '</g></svg>';
 		} else {
-			// ///////////////////////////////////////////////////////////////////////////////////
-			// /////// DEFAULT <meter>
-			// ///////////////////////////////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////////////////////////////////
+			///////// DEFAULT <meter>
+			/////////////////////////////////////////////////////////////////////////////////////
 			$h = 10;
 			$w = 50;
-			$border_radius = 0.143; // Factor of Height
+			$border_radius = 0.143;  // Factor of Height
 
 			$svg = '<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -419,7 +478,7 @@ class Meter extends InlineTag {
 ';
 
 			if ($value) {
-				$barw = (($value - $min) / ($max - $min)) * $w;
+				$barw = (($value - $min) / ($max - $min) ) * $w;
 				if ($optimum < $low) {
 					if ($value < $low) {
 						$barcol = 'url(#GrGREEN)';
@@ -451,6 +510,8 @@ class Meter extends InlineTag {
 			$svg .= '</g></svg>';
 		}
 
+
 		return $svg;
 	}
+
 }

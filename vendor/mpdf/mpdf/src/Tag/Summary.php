@@ -2,5 +2,8 @@
 
 namespace Mpdf\Tag;
 
-class Summary extends BlockTag {
+class Summary extends BlockTag
+{
+
+
 }
