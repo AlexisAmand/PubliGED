@@ -2,9 +2,7 @@
 PB DIVERS
 ---------
 
-Il faut prévoir un msg à afficher sur les pages si il n'y a pas encore de gedcom d'importé
-
-Ordre du truncate
+Ordre du truncate ?
 
     //   1) table famille
     //   2) table événement
