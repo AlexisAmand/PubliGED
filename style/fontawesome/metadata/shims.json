@@ -1,8 +1,6 @@
 [
-	[
-		"glass"
-	
-,
+  [
+    "glass",
     null,
     "glass-martini"
   ],
@@ -1883,7 +1881,7 @@
   ],
   [
     "commenting",
-    "far",
+    null,
     "comment-dots"
   ],
   [
