@@ -40,7 +40,7 @@ require_once 'vendor/autoload.php';
 
 <script src="js/jquery-3.3.1.min.js"></script>
 
-<!-- OpenStreetMap et Leaflet 1.3.4 -->
+<!-- OpenStreetMap et Leaflet 1.4.0 -->
 
 <link rel="stylesheet" href="js/leaflet/leaflet.css">
 <script src="js/leaflet/leaflet.js"></script>
