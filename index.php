@@ -8,7 +8,6 @@ include ('class/class.php');
 $InfoPage = PageTop ($pdo);
 
 require_once 'vendor/autoload.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -16,47 +15,46 @@ require_once 'vendor/autoload.php';
 <html lang="fr">
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title><?php echo $InfoPage->titre(); ?></title>
-<meta name="description" content="<?php echo $InfoPage->description; ?>">
+	<title><?php echo $InfoPage->titre(); ?></title>
+	<meta name="description" content="<?php echo $InfoPage->description; ?>">
 
-<!-- Bootstrap 4.3.1 -->
+	<!-- Bootstrap 4.3.1 -->
 
-<link href="style/bootstrap/css/bootstrap.perso.css" rel="stylesheet">
-<script src="style/bootstrap/js/bootstrap.min.js"></script>
+	<link href="style/bootstrap/css/bootstrap.perso.css" rel="stylesheet">
+	<script src="style/bootstrap/js/bootstrap.min.js"></script>
 
-<!-- Font Awesome Free 5.7.2 -->
+	<!-- Font Awesome Free 5.7.2 -->
 
-<link href="style/fontawesome/css/all.css" rel="stylesheet">
+	<link href="style/fontawesome/css/all.css" rel="stylesheet">
 
-<!--  style perso -->
+	<!--  style perso -->
 
-<link href="style/style.css" rel="stylesheet">
-<link rel="icon" type="image/gif" href="img/icon.jpg" />
+	<link href="style/style.css" rel="stylesheet">
+	<link rel="icon" type="image/gif" href="img/icon.jpg" />
 
-<!-- Jquery 3.3.1 -->
+	<!-- Jquery 3.3.1 -->
 
-<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
 
-<!-- OpenStreetMap et Leaflet 1.4.0 -->
+	<!-- OpenStreetMap et Leaflet 1.4.0 -->
+	
+	<link rel="stylesheet" href="js/leaflet/leaflet.css">
+	<script src="js/leaflet/leaflet.js"></script>
+	
+	<!-- TinyMCE 5.0.1 -->
+	
+	<script src="js/tinymce/tinymce.min.js"></script>
 
-<link rel="stylesheet" href="js/leaflet/leaflet.css">
-<script src="js/leaflet/leaflet.js"></script>
-
-<!-- TinyMCE 5.0.1 -->
-
-<script src="js/tinymce/tinymce.min.js"></script>
-
-<script>
-            tinymce.init({
-
-                selector: 'textarea',
-                menubar:false,
-                language: "fr_FR",
+	<script>
+    	tinymce.init({
+        	selector: 'textarea',
+            menubar:false,
+            language: "fr_FR",
             });
-        </script>
+    </script>
 
 </head>
 

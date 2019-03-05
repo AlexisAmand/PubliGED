@@ -6,7 +6,7 @@ require_once 'vendor/autoload.php';
 /* récupération de l'article */
 
 $req = "select * from articles where ref='{$_GET['id']}'";
-$res = $pdo->prepare ( $req );
+$res = $pdo->prepare ($req);
 $res->execute ();
 
 /* affichage du pdf */
