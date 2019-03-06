@@ -5,6 +5,7 @@
 /* ---------------------------------- */
 /* AFFICHAGE D'UN ARBRE 3 GENERATIONS */
 /* ---------------------------------- */
+
 $ref_case_7 = $_GET ['ref'];
 
 $case_5 = "SELECT * FROM familles WHERE enfant = '{$ref_case_7}'";

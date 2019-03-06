@@ -1,7 +1,4 @@
-.stats {
-	border: 0px solid red;
-	width: 45%;
-}
+
 
 .gender {
 	float: right;
@@ -56,10 +53,26 @@ footer {
 	color: #000000;
 }
 
-/* ---------------------------------------- */
-/* Ajout pour les tests de charte graphique */
-/* ---------------------------------------- */
+.pillmenu {
+	width: 100%;
+	margin-top: 0px;
+}
+
+a {
+	color: #425158;
+}
+
+.hgroup a, .hgroup p {
+	color: #FFFFFF;
+}
+
+/* ------- */
+/* Header */
+/* ------ */
+
 header {
+	background-image: url('../img/fond04.jpg');
+	height: 150px;
 	color: #827c7e;
 }
 
@@ -67,20 +80,9 @@ header {
 	margin-top: 0px;
 }
 
-/* --------------------- */
-/* Ajout du 12 mars 2018 */
-/* --------------------- */
-aside .badge {
-	background-color: #827c7e;
-}
-
-/* --------------------- */
-/* Ajout du 13 mars 2018 */
-/* --------------------- */
-section h4 {
-	margin-top: 30px;
-	margin-bottom: 15px;
-}
+/* ----- */
+/* Arbre */
+/* ----- */
 
 .TreeCase {
 	border: 1px solid #ddd;
@@ -99,53 +101,80 @@ section h4 {
 	height: 30px;
 }
 
-/* --------------------- */
-/* Ajout du 20 juin 2018 */
-/* --------------------- */
-header {
-	background-image: url('../img/fond04.jpg');
-	height: 150px;
+/* ------------------ */
+/* Contenu de la page */
+/* ------------------ */
+
+aside .badge {
+	background-color: #827c7e;
 }
 
-.pillmenu {
-	width: 100%;
-	margin-top: 0px;
+aside .card-header {
+	background-image: url('../img/left.jpg');
+	background-repeat: no-repeat;
 }
 
-a {
-	color: #425158;
+article h3 {
+	margin-bottom: 30px;
 }
 
-/* --------------------- */
-/* Ajout du 26 juin 2018 */
-/* --------------------- */
+article h4 {
+	margin-top: 30px;
+	margin-bottom: 15px;
+}
+
+article a {
+	color: #958274;
+}
+
+/* ------------------- */
+/* Ajout du 05/03/2018 */
+/* ------------------- */
+
+.page-link {
+	color: #B89F89;
+}
+
+.page-link:hover {
+	background-color:#B89F89;
+	border-color:#B89f89;
+}
+
+/* ------------ */
+/* Commentaires */
+/* ------------ */
+
 #commentaires {
 	margin-bottom: 35px;
 	margin-top: 35px;
 }
 
-/* --------------------- */
-/* Ajout du 26 juin 2018 */
-/* --------------------- */
-.hgroup a, .hgroup p {
-	color: #FFFFFF;
+#commentaires .card {
+	margin-top: 15px;		
 }
 
-.card-header {
-	background-image: url('../img/left.jpg');
-	background-repeat: no-repeat;
+/* ------------ */
+/* Statistiques */
+/* ------------ */
+
+.stats {
+	border: 0px solid red;
+	width: 45%;
 }
 
-/* --------------------- */
-/* Ajout du 29 juin 2018 */
-/* --------------------- */
-section h3 {
-	margin-bottom: 30px;
+.right {
+	float:right;
+}
+
+.left {
+	float:left;
 }
 
 /* ------------------------ */
-/* Ajout du 04 juillet 2018 */
+/* carte pour OpenStreetMap */
 /* ------------------------ */
-section a {
-	color: #958274;
+
+#mapid {
+	width: 100%;
+	height: 600px;
 }

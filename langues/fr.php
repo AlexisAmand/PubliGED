@@ -3,6 +3,7 @@
 /* --------------- */
 /* HEADER PUBLIQUE */
 /* --------------- */
+
 define ( "SITE_TITLE", "PubliGED" );
 define ( "SITE_SLOGAN", "Site de demonstration du projet" );
 
@@ -117,6 +118,7 @@ define ( "AUTHOR", "Publié par " );
 define ( "RUBRIC", " dans la rubrique " );
 define ( "DATE", " le " );
 define ( "SEECOMS", "voir les commentaires" );
+define ( "COMMENTS", " a commenté ");
 
 define ( "ADM_ARTICLE_TITLE", "Titre" );
 define ( "ADM_ARTICLE_AUTHOR", "Auteur" );

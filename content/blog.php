@@ -4,8 +4,10 @@
 /* AFFICHAGE DES ARTICLES SOUS LA FORME D'UN BLOG */
 /* ---------------------------------------------- */
 
-/* FLUX RSS */
-if (file_exists ( "content/rss.xml" )) {
+/* Efface le FLUX RSS s'il existe */
+
+if (file_exists ( "content/rss.xml" )) 
+{
 	unlink ( "content/rss.xml" );
 }
 
@@ -25,8 +27,8 @@ $rss = '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE xml><rss version="2.0">
 
 $req = $pdo2->query ( "SELECT * FROM articles" );
 
-while ( $row = $req->fetch () ) {
-
+while ( $row = $req->fetch () ) 
+{
 	$rss = $rss . '<item>';
 	$rss = $rss . '<title>' . $row ['titre'] . '</title>';
 	$rss = $rss . '<description>' . substr ( $row ['article'], 0, 125 ) . '...</description>';
@@ -34,7 +36,7 @@ while ( $row = $req->fetch () ) {
 	/* transformation de la date SQL en date PHP au format RFC 822 */
 
 	$rss = $rss . '<pubDate>' . date ( "r", strtotime ( $row ['date'] ) ) . '</pubDate>';
-	$url = URL_SITE . "index.php?page=article&id=" . $row ['ref'];
+	$url = URL_SITE . "index.php?page=see_comments&id=" . $row ['ref'];
 	$rss = $rss . '<link>' . $url . '</link>';
 	$rss = $rss . '</item>';
 }
@@ -51,18 +53,19 @@ $req_intro = "SELECT * FROM articles ORDER BY date DESC";
 $resultat = $pdo2->prepare ( $req_intro );
 $resultat->execute ();
 
-while ( $data = $resultat->fetch () ) {
+while ( $data = $resultat->fetch () ) 
+	{
 
 	$req_comms = "select * from commentaires where id_article='{$data['ref']}'";
 	$res_comms = $pdo2->prepare ( $req_comms );
 	$res_comms->execute ();
 
-	?>
+?>
 
 <div class="row">
 	<div class="col-md-12">
-			<?php echo "<h3><a href='index.php?page=article&id=".$data['ref']."'>" . html_entity_decode ( $data ['titre'] ) . "</a></h3>"; ?>
-		</div>
+		<?php echo "<h3><a href='index.php?page=see_comments&id=".$data['ref']."'>" . html_entity_decode ( $data ['titre'] ) . "</a></h3>"; ?>
+	</div>
 </div>
 
 <div class="row">
@@ -81,14 +84,13 @@ while ( $data = $resultat->fetch () ) {
 	while ( $data_membres = $res_membres->fetch () ) {
 		echo $data_membres ['login'];
 	}
-
-	// echo DATE . $data ['date'] . RUBRIC;
-	/* TODO : mettre le mois en lettres */
-
+	
+	/* Date de l'article */
+	
 	echo DATE;
 
 	if (preg_match ( "/^[0-9]{4}(\/|-|.)(0[1-9]|1[0-2])(\/|-|.)(0[1-9]|[1-2][0-9]|3[0-1])$/", $data ['date'] )) {
-		echo substr ( $data ['date'], 8, 2 ) . substr ( $data ['date'], 7, 1 ) . substr ( $data ['date'], 5, 2 ) . substr ( $data ['date'], 4, 1 ) . substr ( $data ['date'], 0, 4 );
+		echo substr ( $data ['date'], 8, 2 ) . " " . MoisEnLettres(substr ( $data ['date'], 5, 2 )) . " " . substr ( $data ['date'], 0, 4 );
 	}
 
 	echo RUBRIC;
@@ -97,7 +99,7 @@ while ( $data = $resultat->fetch () ) {
 
 	?>
 
-		</div>
+	</div>
 	<div class="col-md-2 offset-md-2">
 	
 	<?php
@@ -114,7 +116,7 @@ while ( $data = $resultat->fetch () ) {
 
 	?>
 
-		</div>
+	</div>
 </div>
 
 <div class="row">
@@ -126,10 +128,10 @@ while ( $data = $resultat->fetch () ) {
 
 	echo $data ['article'];
 
-	echo "<div id='commentaires'><a href='index.php?page=article&id=" . $data ['ref'] . "'>[" . SEECOMS . "] (" . $res_comms->rowCount () . ")</a></div>";
-}
+	echo "<div id='commentaires'><a href='index.php?page=see_comments&id=" . $data ['ref'] . "'>[" . SEECOMS . "] (" . $res_comms->rowCount () . ")</a></div>";
+	}
 
-?>  
+	?>  
 	  
-		</div>
+	</div>
 </div>

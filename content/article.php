@@ -4,6 +4,8 @@
 /* AFFICHAGE D'UN ARTICLE */
 /* ---------------------- */
 
+/* Un commentaire est soumis et ajouté à la base de données */
+
 if (! empty ( $_POST ['pseudo'] ) and ! empty ( $_POST ['email'] ) /* and !empty($_POST['site']) */ and ! empty ( $_POST ['message'] )) {
 
 	$commentaire = new commentaires ();
@@ -28,7 +30,7 @@ if (! empty ( $_POST ['pseudo'] ) and ! empty ( $_POST ['email'] ) /* and !empty
 	$res->execute ();
 }
 
-/* L'article */
+/* L'article est extrait de la base de données */
 
 $req = $pdo2->query ( "SELECT * FROM articles WHERE ref = '" . $_GET ['id'] . "'" );
 
@@ -43,15 +45,31 @@ while ( $data = $req->fetch () ) {
 	$article->contenu = $data ['article'];
 }
 
-/* vue de l'article avec ses commentaires */
+/* Affichage de l'article et de ses commentaires éventuels */
 
 $id_article = $_GET ['id'];
 
 $resultat = $pdo2->query ( "SELECT * FROM articles WHERE ref='$id_article'" );
 
 while ( $data = $resultat->fetch () ) {
+	
+	?>
 
-	echo "<h3><a href='index.php?page=see_comments&id=" . $article->ref . "'>" . html_entity_decode ( $article->titre ) . "</a></h3>";
+<div class="row">
+	<div class="col-md-12">
+
+	<?php echo "<h3><a href='index.php?page=see_comments&id=" . $article->ref . "'>" . html_entity_decode ( $article->titre ) . "</a></h3>";?>
+		
+	</div>
+</div>
+	
+<div class="row">
+	<div class="col-md-8">
+	
+	<?php
+	
+	/* Auteur de l'article */
+		
 	echo "<p>" . AUTHOR;
 
 	$res_membres = $pdo2->prepare ( "select * from membres where id=:id" );
@@ -62,19 +80,24 @@ while ( $data = $resultat->fetch () ) {
 		echo $data_membres ['login'];
 	}
 
-	/* TODO : mettre le mois en lettres */
-
+	/* Date de l'article */
+	
 	echo DATE;
 
 	if (preg_match ( "/^[0-9]{4}(\/|-|.)(0[1-9]|1[0-2])(\/|-|.)(0[1-9]|[1-2][0-9]|3[0-1])$/", $article->date )) {
-		echo substr ( $article->date, 8, 2 ) . substr ( $article->date, 7, 1 ) . substr ( $article->date, 5, 2 ) . substr ( $article->date, 4, 1 ) . substr ( $article->date, 0, 4 );
+		echo substr ( $article->date, 8, 2 ) . " " . MoisEnLettres(substr ( $article->date, 5, 2 )) . " " . substr ( $article->date, 0, 4 );
 	}
 
 	echo RUBRIC;
 
 	echo "<a href='index.php?page=categories&id=" . $data ['id_cat'] . "'>" . get_category_name ( $pdo2, $article->categorie ) . "</a>";
 
-	echo "</p>";
+	?>
+
+	</div>
+	<div class="col-md-2 offset-md-2">
+	
+	<?php
 
 	/* affichage des boutons d'export : pdf, mail, print */
 
@@ -85,13 +108,26 @@ while ( $data = $resultat->fetch () ) {
 	echo "<a href='send.php?ref=" . $data ['ref'] . "'><i class='fas fa-envelope-square fa-2x'></i></a>&nbsp;&nbsp;";
 
 	echo "</p>";
-
+	?>
+	
+	</div>
+</div>
+	
+<div class="row">
+	<div class="col-md-12">
+	
+	<?php
+	
 	/* Contenu de l'article */
 
 	echo "<p>" . $article->contenu . "</p>";
 }
 
 ?>
+
+
+	</div>
+</div>
 
 <div class="col-md-12">
 
@@ -114,23 +150,18 @@ while ( $data = $resultat->fetch () ) {
 
 <div class="col-md-6 col-xs-12 col-sm-6">
 
-	<form
-		action="index.php?page=see_comments&id=<?php echo $id_article; ?>"
-		method="POST" class="form-vertical">
+	<form action="index.php?page=see_comments&id=<?php echo $id_article; ?>" method="POST" class="form-vertical">
 
 		<div class="form-group">
-			<label for="pseudo">Pseudo</label> <input id="pseudo" type="text"
-				name="pseudo" class="form-control" />
+			<label for="pseudo">Pseudo</label> <input id="pseudo" type="text" name="pseudo" class="form-control" />
 		</div>
 
 		<div class="form-group">
-			<label for="site">Site (ou blog)</label> <input id="site" type="text"
-				name="site" class="form-control" />
+			<label for="site">Site (ou blog)</label> <input id="site" type="text" name="site" class="form-control" />
 		</div>
 
 		<div class="form-group">
-			<label for="email">Email</label> <input id="email" type="text"
-				name="email" class="form-control" />
+			<label for="email">Email</label> <input id="email" type="text" name="email" class="form-control" />
 		</div>
 
 		<div class="form-group">

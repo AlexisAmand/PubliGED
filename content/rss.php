@@ -109,7 +109,7 @@ include ('../langues/fr.php');
 	
 		$rss = $rss . '<pubDate>' . date ( "r", strtotime ( $row ['date'] ) ) . '</pubDate>';
 	
-		$url = URL_SITE . "index.php?page=article&id=" . $row ['ref'];
+		$url = URL_SITE . "index.php?page=see_comments&id=" . $row ['ref'];
 	
 		$rss = $rss . '<link>' . $url . '</link>';
 		$rss = $rss . '</item>';

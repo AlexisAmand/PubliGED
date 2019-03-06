@@ -90,7 +90,7 @@ if (VerifGedcom ( $pdo2 ) == "1") {
 
 	/* 2e partie de la pagination */
 
-	echo "<ul class='pagination'>";
+	echo "<ul class='pagination justify-content-center'>";
 	for($i = 1; $i <= $nb_pages + 1; $i ++) {
 		if (($page == $i)) {
 			// echo "<li><a href='index.php?page=liste_individu&id=" . $i . "&l=".$_GET ['l']."' class='active'>" . $i . "</a></li>";

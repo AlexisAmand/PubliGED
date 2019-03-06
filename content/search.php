@@ -30,7 +30,7 @@ if (isset ( $_POST ['recherche'] )) {
 		echo $rest . "...<br/><br/>";
 	}
 } else {
-	echo "Pas de de recherche !"; /* TODO : cette phrase dans le fichier de langue */
+	echo "Pas de recherche !"; /* TODO : cette phrase dans le fichier de langue */
 }
 
 ?>    

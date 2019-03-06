@@ -91,16 +91,16 @@
 			
 		/* affichage pagination */
 				
-		echo "<ul class='pagination'>";
+		echo "<ul class='pagination justify-content-center'>";
 		for($i = 1; $i <= $nb_pages + 1; $i ++)
 			{
 		    if (($page==$i))
 		       {
-			   echo "<li class='disabled'><a href='index.php?page=liste_individu&id=" . $i . "&l=".$_GET ['l']."' class='active'>" . $i . "</a></li>";
+			   echo "<li class='disabled page-item'><a   class='page-link' href='index.php?page=liste_individu&id=" . $i . "&l=".$_GET ['l']."' class='active'>" . $i . "</a></li>";
 			   }
 			else
 			   {
-			   echo "<li><a href='index.php?page=liste_individu&id=" . $i . "&l=".$_GET ['l']."'>" . $i . "</a></li>";
+			   echo "<li class='page-item'><a  class='page-link' href='index.php?page=liste_individu&id=" . $i . "&l=".$_GET ['l']."'>" . $i . "</a></li>";
 			   }
 			}	    		
 		echo "</ul>";

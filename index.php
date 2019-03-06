@@ -92,7 +92,7 @@ require_once 'vendor/autoload.php';
 
 	</div>
 
-	<div class="row">
+	<section class="row">
 
 		<aside class="col-md-3">
             
@@ -100,23 +100,23 @@ require_once 'vendor/autoload.php';
             
         </aside>
 
-		<section class="col-md-9">
+		<article class="col-md-9">
     	
     		<?php $InfoPage->AfficherContenu($pdo); ?>		
     	
-        </section>
+        </article>
 
-	</div>
+	</section>
 
-	<div class="row">
+	<footer class="row">
 
-		<footer class="col-md-12 text-center">
+		<div class="col-md-12 text-center">
     	
     		<?php $InfoPage->AfficherFooter(); ?>
                 	        
-        </footer>
+        </div>
 
-	</div>
+	</footer>
 
 </div>
 

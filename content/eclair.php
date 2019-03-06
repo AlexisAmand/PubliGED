@@ -1,20 +1,23 @@
-	<?php
+<?php
 
-	/* ------------ */
-	/* LISTE ECLAIR */
-	/* ------------ */
-	?>
+/* ------------ */
+/* LISTE ECLAIR */
+/* ------------ */
+
+?>
 
 <h3><?php echo TITRE_RUB_10; ?></h3>
 
 <?php
 
-if (VerifGedcom ( $pdo2 ) == "1") {
-
+if (VerifGedcom ( $pdo2 ) == "1")
+{
 	/* affichage tableau */
 
-	if (! empty ( $_GET ['tri'] )) {
-		switch ($_GET ['tri']) {
+	if (! empty ( $_GET ['tri'] )) 
+	{
+		switch ($_GET ['tri']) 
+		{
 			case "lieu-a" :
 				$trisql = " ORDER BY L.ville ASC ";
 				break;
@@ -42,7 +45,9 @@ if (VerifGedcom ( $pdo2 ) == "1") {
 			default :
 				$trisql = "";
 		}
-	} else {
+	} 
+	else 
+	{
 		$trisql = "";
 	}
 
@@ -77,7 +82,8 @@ if (VerifGedcom ( $pdo2 ) == "1") {
 	echo "</th></tr>";
 	echo "</thead><tbody>";
 
-	while ( $data2 = $req2->fetch () ) {
+	while ( $data2 = $req2->fetch () ) 
+	{
 		// $ville = explode(" ", $data2['ville']);
 		echo "<tr>";
 		echo "<td><a href='index.php?page=liste_patro&nom=" . $data2 ['surname'] . "'>" . $data2 ['surname'] . "</a></td>";
@@ -88,6 +94,8 @@ if (VerifGedcom ( $pdo2 ) == "1") {
 	}
 
 	echo "</tbody></table>";
-} else {
+} 
+else 
+{
 	echo NO_GEDCOM;
 }

@@ -1,5 +1,23 @@
 <?php
 
+function MoisEnLettres($mois){
+	switch($mois)
+		{
+			case '01':return MOIS_1;
+			case '02':return MOIS_2;
+			case '03':return MOIS_3;
+			case '04':return MOIS_4;
+			case '05':return MOIS_5;
+			case '06':return MOIS_6;
+			case '07':return MOIS_7;
+			case '08':return MOIS_8;
+			case '09':return MOIS_9;
+			case '10':return MOIS_10;
+			case '11':return MOIS_11;
+			case '12':return MOIS_12;
+		}
+}
+
 /* un article est généré sour la forme d'un pdf qui est enregitré */
 function GenerationPDF($pdo3, $art) {
 }
@@ -125,7 +143,7 @@ function page_courante() {
 	return trim ( $parties [count ( $parties ) - 1] );
 }
 
-/* fonction qui affiche la fiche d'un individu en partant de son n° */
+/* fonction qui fait un lien vers la fiche d'un individu en partant de son n° */
 function individu($pdo2, $i) {
 	// global $nomcase, $prenomcase;
 	$req = $pdo2->query ( "select * from individus where ref='{$i}'" );
@@ -176,6 +194,7 @@ function lieu($pdo2, $lieueve) {
  * return trim($parties[count($parties) - 1]);
  * }
  */
+
 function hautdutableau() {
 	echo "<table class='table table-bordered'>";
 	echo "<thead>";
@@ -190,7 +209,7 @@ function hautdutableau() {
 	echo "</thead>";
 }
 
-/* fonction qui récupére les noms de la catégorie en partant de son numéro */
+/* fonction qui récupére le nom d'une catégorie en partant de son numéro */
 function get_category_name($pdo2, $cn) {
 	$req = $pdo2->query ( "select * from categories where ref ='" . $cn . "'" );
 
@@ -201,196 +220,75 @@ function get_category_name($pdo2, $cn) {
 
 /* fonction qui fait le tri des colonnes de la liste éclair */
 function TriListeEclair($couleur, $valeur) {
-	echo '<form action="index.php" method="GET" style="float:right;">';
+	echo '<form action="index.php" method="GET" class="right">';
 	echo '<input type="submit" value="' . $couleur . '" class="btn btn-default">';
 	echo '<input type="hidden" name="tri" value="' . $valeur . '">';
 	echo '<input type="hidden" name="page" value="eclair">';
 	echo '</form>';
 }
 
-/* fonction qui traduit les événements */
+/* fonction qui traduit les événements du GEDCOM en "mots" */
 function traduction($mot) {
 	switch ($mot) {
-		case "ADOP" :
-			$mottraduit = ADOP;
-			break;
-		case "ANUL" :
-			$mottraduit = ANUL;
-			break;
-
-		case "BAPL" :
-			$mottraduit = BAPL;
-			break;
-		case "BAPM" :
-			$mottraduit = BAPM;
-			break;
-		case "BAPT" :
-			$mottraduit = BAPT;
-			break;
-		case "BARM" :
-			$mottraduit = BARM;
-			break;
-		case "BASM" :
-			$mottraduit = BASM;
-			break;
-		case "BIRT" :
-			$mottraduit = BIRT;
-			break;
-		case "BLES" :
-			$mottraduit = BLES;
-			break;
-		case "BURI" :
-			$mottraduit = BURI;
-			break;
-
-		case "CENS" :
-			$mottraduit = CENS;
-			break;
-		case "CHR" :
-			$mottraduit = CHR;
-			break;
-		case "CONF" :
-			$mottraduit = CONF;
-			break;
-		case "CRIM" :
-			$mottraduit = CRIM;
-			break;
-		case "CHRA" :
-			$mottraduit = CHRA;
-			break;
-		case "CRIM" :
-			$mottraduit = CRIM;
-			break;
-
-		case "DEAT" :
-			$mottraduit = DEAT;
-			break;
-		case "DIVF" :
-			$mottraduit = DIVF;
-			break;
-		case "DIV" :
-			$mottraduit = DIV;
-			break;
-		case "DONA" :
-			$mottraduit = DONA;
-			break;
-
-		case "EDUC" :
-			$mottraduit = EDUC;
-			break;
-		case "EMIG" :
-			$mottraduit = EMIG;
-			break;
-		case "EMPL" :
-			$mottraduit = EMPL;
-			break;
-		case "ENGA" :
-			$mottraduit = ENGA;
-			break;
-		case "EVEN" :
-			$mottraduit = EVEN;
-			break;
-		case "ENDL" :
-			$mottraduit = ENDL;
-			break;
-
-		case "FCOM" :
-			$mottraduit = FCOM;
-			break;
-		case "FUNE" :
-			$mottraduit = FUNE;
-			break;
-
-		case "GRAD" :
-			$mottraduit = GRAD;
-			break;
-
-		case "HIST" :
-			$mottraduit = HIST;
-			break;
-
-		case "IMMI" :
-			$mottraduit = IMMI;
-			break;
-
-		case "LVG" :
-			$mottraduit = LVG;
-			break;
-
-		case "OCCU" :
-			$mottraduit = OCCU;
-			break;
-
-		case "MARB" :
-			$mottraduit = MARB;
-			break;
-		case "MARE" :
-			$mottraduit = MARE;
-			break;
-		case "MARL" :
-			$mottraduit = MARL;
-			break;
-		case "MARC" :
-			$mottraduit = MARC;
-			break;
-		case "MARR" :
-			$mottraduit = MARR;
-			break;
-		case "MARS" :
-			$mottraduit = MARS;
-			break;
-
-		case "NATU" :
-			$mottraduit = NATU;
-			break;
-		case "NOBL" :
-			$mottraduit = NOBL;
-			break;
-
-		case "ONDO" :
-			$mottraduit = ONDO;
-			break;
-		case "ORDN" :
-			$mottraduit = ORDN;
-			break;
-
-		case "PASL" :
-			$mottraduit = PASL;
-			break;
-		case "PROB" :
-			$mottraduit = PROB;
-			break;
-
-		case "RELI" :
-			$mottraduit = RELI;
-			break;
-		case "RESI" :
-			$mottraduit = RESI;
-			break;
-		case "RETI" :
-			$mottraduit = RETI;
-			break;
-		case "RMRK" :
-			$mottraduit = RMRK;
-			break;
-
-		case "SEP" :
-			$mottraduit = SEP;
-			break;
-		case "SEPA" :
-			$mottraduit = SEPA;
-			break;
-
-		case "TBS" :
-			$mottraduit = TBS;
-			break;
-
-		case "WILL" :
-			$mottraduit = WILL;
-			break;
+		case "ADOP" : $mottraduit = ADOP; break;
+		case "ANUL" : $mottraduit = ANUL; break;
+		case "BAPL" : $mottraduit = BAPL; break;
+		case "BAPM" : $mottraduit = BAPM; break;
+		case "BAPT" : $mottraduit = BAPT; break;
+		case "BARM" : $mottraduit = BARM; break;
+		case "BASM" : $mottraduit = BASM; break;
+		case "BIRT" : $mottraduit = BIRT; break;
+		case "BLES" : $mottraduit = BLES; break;
+		case "BURI" : $mottraduit = BURI; break;
+		case "CENS" : $mottraduit = CENS; break;
+		case "CHR" : $mottraduit = CHR;	break;
+		case "CONF" : $mottraduit = CONF; break;
+		case "CRIM" : $mottraduit = CRIM; break;
+		case "CHRA" : $mottraduit = CHRA; break;
+		case "CRIM" : $mottraduit = CRIM; break;
+		case "DEAT" : $mottraduit = DEAT; break;
+		case "DIVF" : $mottraduit = DIVF; break;
+		case "DIV" : $mottraduit = DIV; break;
+		case "DONA" : $mottraduit = DONA; break;
+		case "EDUC" : $mottraduit = EDUC; break;
+		case "EMIG" : $mottraduit = EMIG; break;
+		case "EMPL" : $mottraduit = EMPL; break;
+		case "ENGA" : $mottraduit = ENGA; break;
+		case "EVEN" : $mottraduit = EVEN; break;
+		case "ENDL" : $mottraduit = ENDL; break;
+		case "FCOM" : $mottraduit = FCOM; break;
+		case "FUNE" : $mottraduit = FUNE; break;
+		case "GRAD" : $mottraduit = GRAD; break;
+		case "HIST" : $mottraduit = HIST; break;
+		case "IMMI" : $mottraduit = IMMI; break;
+		case "LVG" : $mottraduit = LVG; break;
+		case "OCCU" : $mottraduit = OCCU; break;
+		case "MARB" : $mottraduit = MARB; break;
+		case "MARE" : $mottraduit = MARE; break;
+		case "MARL" : $mottraduit = MARL; break;
+		case "MARC" : $mottraduit = MARC; break;
+		case "MARR" : $mottraduit = MARR; break;
+		case "MARS" : $mottraduit = MARS; break;
+		case "NATU" : $mottraduit = NATU; break;
+		case "NOBL" : $mottraduit = NOBL; break;
+		case "ONDO" : $mottraduit = ONDO; break;
+		case "ORDN" : $mottraduit = ORDN; break;
+		case "PASL" : $mottraduit = PASL; break;
+		case "PROB" : $mottraduit = PROB; break;
+		case "RELI" : $mottraduit = RELI; break;
+		case "RESI" : $mottraduit = RESI; break;
+		case "RETI" : $mottraduit = RETI; break;
+		case "RMRK" : $mottraduit = RMRK; break;
+		case "SEP" : $mottraduit = SEP; break;
+		case "SEPA" : $mottraduit = SEPA; break;
+		case "TBS" : $mottraduit = TBS; break;
+		case "WILL" : $mottraduit = WILL; break;
 	}
 	return $mottraduit;
 }
+
+/* TODO : il semble que cette fonction ne soit plus utilisée */
+
 function evenements($d, $l, $t1, $t2) {
 	switch (array (
 			$d,

@@ -85,10 +85,10 @@ if (VerifGedcom ( $pdo2 ) == "1") {
 
 	/* pagination */
 
-	echo "<ul class='pagination'>";
+	echo "<ul class='pagination justify-content-center'>";
 	for($i = 1; $i <= $nb_pages + 1; $i ++) {
 		if (($page == $i)) {
-			echo "<li class='page-item'><a class='page-link' href='?page=liste_patro&nom=AMAND&id=" . $i . "&nom=" . htmlspecialchars ( $_GET ["nom"] ) . "'>" . $i . "</a></li>";
+			echo "<li class='disabled page-item'><a class='page-link' href='?page=liste_patro&nom=AMAND&id=" . $i . "&nom=" . htmlspecialchars ( $_GET ["nom"] ) . "'>" . $i . "</a></li>";
 		} else {
 			echo "<li class='page-item'><a class='page-link' href='?page=liste_patro&nom=AMAND&id=" . $i . "&nom=" . htmlspecialchars ( $_GET ["nom"] ) . "'>" . $i . "</a></li>";
 		}

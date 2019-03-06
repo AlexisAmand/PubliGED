@@ -1,24 +1,25 @@
-<?php
+<?php 
 
-/* ---------------------------------------------- */
-/* AFFICHAGE D'UN ARTICLE                         */
-/* todo : ce fichier est peut-être devenu inutile */
-/* ---------------------------------------------- */
+/* --------------------------------------------- */
+/* Affichage d'un article et de ses commentaires */
+/* --------------------------------------------- */
+
+/* Si un commentaire a été envoyé, on le récupére ici */
 
 if (! empty ( $_POST ['pseudo'] ) and ! empty ( $_POST ['email'] ) /* and !empty($_POST['site']) */ and ! empty ( $_POST ['message'] )) {
-
+	
 	$commentaire = new commentaires ();
-
+	
 	$commentaire->article = $_GET ['id'];
 	$commentaire->nom_auteur = $_POST ['pseudo'];
 	$commentaire->email_auteur = $_POST ['email'];
 	$commentaire->url_auteur = $_POST ['site'];
 	$commentaire->contenu = $_POST ['message'];
 	$commentaire->today = date ( "Y-m-d H:i:s" ); // (le format DATETIME de MySQL)
-
+	
 	$req = "INSERT INTO commentaires (id_article, nom_auteur, email_auteur, url_auteur, contenu, date_com)
     VALUES (:article, :nom, :email, :url, :contenu, :today)";
-
+	
 	$res = $pdo2->prepare ( $req );
 	$res->bindparam ( ':article', $commentaire->article, PDO::PARAM_STR );
 	$res->bindparam ( ':nom', $commentaire->nom_auteur, PDO::PARAM_STR );
@@ -29,16 +30,16 @@ if (! empty ( $_POST ['pseudo'] ) and ! empty ( $_POST ['email'] ) /* and !empty
 	$res->execute ();
 }
 
-/* L'article */
+/* Récupération de l'article */
 
-$id_article = $_GET ['id'];
+$article = new articles ();
 
-$resultat = $pdo2->query ( "SELECT * FROM articles WHERE ref='$id_article'" );
+$article->ref = $_GET ['id'];
 
-while ( $data = $resultat->fetch () ) {
-	$article = new articles ();
+$resultat = $pdo2->query ( "SELECT * FROM articles WHERE ref='$article->ref'" );
 
-	$article->ref = $data ['ref'];
+while ( $data = $resultat->fetch () ) 
+{
 	$article->auteur = $data ['auteur'];
 	$article->titre = $data ['titre'];
 	$article->date = $data ['date'];
@@ -46,7 +47,23 @@ while ( $data = $resultat->fetch () ) {
 	$article->contenu = $data ['article'];
 }
 
-/* vue de l'article avec ses commentaires */
+/* Auteur de l'article */
+
+$res_membres = $pdo2->prepare ( "select * from membres where id=:id" );
+$res_membres->bindValue ( "id", $article->auteur, PDO::PARAM_INT );
+$res_membres->execute ();
+
+while ( $data_membres = $res_membres->fetch () )
+{
+	$article->auteur = $data_membres ['login'];
+}
+
+/* Date de l'article */
+
+if (preg_match ( "/^[0-9]{4}(\/|-|.)(0[1-9]|1[0-2])(\/|-|.)(0[1-9]|[1-2][0-9]|3[0-1])$/", $article->date )) 
+{
+	$article->date = substr ( $article->date, 8, 2 ) . " " . MoisEnLettres(substr ( $article->date, 5, 2 )) . " " . substr ( $article->date, 0, 4 );
+}
 
 ?>
 
@@ -58,39 +75,16 @@ while ( $data = $resultat->fetch () ) {
 
 <div class="row">
 	<div class="col-md-8">
-		
 	<?php
 
-	/* Auteur de l'article */
-
-	echo "<p>" . AUTHOR;
-
-	$res_membres = $pdo2->prepare ( "select * from membres where id=:id" );
-	$res_membres->bindValue ( "id", $article->auteur, PDO::PARAM_INT );
-	$res_membres->execute ();
-
-	while ( $data_membres = $res_membres->fetch () ) {
-		echo $data_membres ['login'];
-	}
-
-	/* Date de l'article */
-	/* TODO : mettre le mois en lettres */
-
-	echo DATE;
-
-	if (preg_match ( "/^[0-9]{4}(\/|-|.)(0[1-9]|1[0-2])(\/|-|.)(0[1-9]|[1-2][0-9]|3[0-1])$/", $article->date )) {
-		echo substr ( $article->date, 8, 2 ) . substr ( $article->date, 7, 1 ) . substr ( $article->date, 5, 2 ) . substr ( $article->date, 4, 1 ) . substr ( $article->date, 0, 4 );
-	}
-
-	/* Catégorie de l'article */
-
+	echo "<p>" . AUTHOR . $article->auteur;
+	echo DATE.$article->date;
 	echo RUBRIC;
-
 	echo "<a href='index.php?page=categories&id=" . $article->categorie . "'>" . get_category_name ( $pdo2, $article->categorie ) . "</a>";
-
+	
 	?>
 
-		</div>
+	</div>
 	<div class="col-md-2 offset-md-2">
 	
 	<?php
@@ -106,8 +100,8 @@ while ( $data = $resultat->fetch () ) {
 	echo "</p>";
 
 	?>
-
-		</div>
+	
+	</div>
 </div>
 
 <div class="row">
@@ -119,80 +113,41 @@ while ( $data = $resultat->fetch () ) {
 
 	echo "<p>" . $article->contenu . "</p>";
 
-	$next_article = $id_article + 1;
-	$prev_article = $id_article - 1;
-
 	?>
-
-<ul class="pagination">
 	
-<?php
-if ($id_article > 1) {
-	echo '<li class="page-item"><a class="page-link" href="index.php?page=see_comments&id=' . $prev_article . '">< article précédent</a></li>';
-}
-
-$next_req = $pdo2->prepare ( 'SELECT * FROM articles' );
-$next_req->execute ();
-
-if ($id_article < $next_req->RowCount ()) {
-	echo '<li class="page-item"><a class="page-link"  href="index.php?page=see_comments&id=' . $next_article . '">article suivant ></a></li>';
-}
-?>
-	
-</ul>
-
 	</div>
 </div>
 
-<div class="col-md-12">
+<div id="commentaires" class="col-md-12">
 
 <?php
 
 /* affichage des comm's */
 
-$resultat = $pdo2->query ( "SELECT * FROM commentaires WHERE id_article='$id_article' ORDER BY date_com DESC" );
+/* TODO : peut-être que je peux récupérer les comms dans un tableau au début de la page */
+/* et afficher le tableau ici */
 
-while ( $data = $resultat->fetch () ) {
-	echo "<br /><div class='card card-alert'>";
-	echo "Le " . date ( "Y-m-d", strtotime ( $data ['date_com'] ) ) . " " . $data ['nom_auteur'] . " a dit: <br /><br />";
-	echo "<p>" . $data ['contenu'] . "</p>";
-	echo "</div>";
-}
+$resultat = $pdo2->query ( "SELECT * FROM commentaires WHERE id_article='$article->ref' ORDER BY date_com DESC" );
 
+while ( $data = $resultat->fetch () ) 
+{	
 ?>
 
+<div class='card card-alert'>
+	<div class="card-header">
+		<?php 	
+		$DateTemp = date ( "Y-m-d", strtotime ( $data ['date_com'] ) );
+		$DateCommentaire = explode("-" , $DateTemp);
+			
+		echo  $data ['nom_auteur'].  COMMENTS .$DateCommentaire[2]." ". MoisEnLettres($DateCommentaire[1])." ". $DateCommentaire[0];
+			
+		?>
+	</div>	
+	<div class="card-body">
+		<?php echo $data ['contenu']; ?>
+	</div>
 </div>
-
-<!-- Formulaire des commentaires -->
-
-<div class="col-md-6 col-xs-12 col-sm-6">
-
-	<form
-		action="index.php?page=see_comments&id=<?php echo $id_article; ?>"
-		method="POST" class="form-vertical">
-
-		<div class="form-group">
-			<label for="pseudo">Pseudo</label> <input id="pseudo" type="text"
-				name="pseudo" class="form-control" />
-		</div>
-
-		<div class="form-group">
-			<label for="site">Site (ou blog)</label> <input id="site" type="text"
-				name="site" class="form-control" />
-		</div>
-
-		<div class="form-group">
-			<label for="email">Email</label> <input id="email" type="text"
-				name="email" class="form-control" />
-		</div>
-
-		<div class="form-group">
-			<label for="email">Commentaire</label>
-			<textarea id="commentaire" name="message" class="form-control"></textarea>
-		</div>
-
-		<input type="submit" class="btn btn-default">
-
-	</form>
-
-</div>
+	
+<?php } ?> 
+	
+</div>	

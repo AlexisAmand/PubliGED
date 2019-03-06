@@ -23,7 +23,7 @@ $mail->SMTPDebug = 2;
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
 $mail->Username = 'alexis.amand@gmail.com';
-$mail->Password = '66R4HBBH'; /* TODO : le mdp */
+$mail->Password = '......'; /* TODO : j'ai supprimé le mdp */
 $mail->SMTPSecure = 'tls';
 $mail->Port = 587;
 
@@ -71,16 +71,18 @@ if (isset ($_POST ['nom'] ) and isset ($_POST ['email']) and isset ($_POST ['suj
 		if($mail->Send ())
 			{
 			echo '<div class="alert alert-success" role="alert">le mail a été envoyé</div>'; 
-		
+			$erreur = 0;
 			}
 		else 
 			{
 			echo '<div class="alert alert-warning" role="alert">le mail n\'a pas été envoyé</div>';
+			$erreur = 1;
 			}
 		}
 	else
 		{
 		echo '<div class="alert alert-warning" role="alert">le mail n\'est pas bon</div>';
+		$erreur = 1;
 		}
 	} 
 else
