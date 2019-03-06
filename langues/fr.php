@@ -36,7 +36,7 @@ define ( "ASIDE_6", "Divers" );
 
 /* ------------------------------------------------------ */
 /* TITRE PAGES, ASIDE et MESSAGES DE LA PARTIE GENEALOGIE */
-/* ------------------------------------------------------ */
+/* -------------------------------------------------------*/
 
 define ( "TITRE_RUB_0", "Sommaire" );
 
@@ -62,12 +62,14 @@ define ( "TITRE_RUB_14", "Crédits" );
 
 define ( "NO_GEDCOM", "Aucun Gedcom n'a encore été envoyé." );
 
-/* --------------------------------------- */
-/* TITRE PAGES ET ASIDE DE LA PARTIE ADMIN */
-/* --------------------------------------- */
+/* ------------------------------------------------- */
+/* TITRE PAGES ET ASIDE DE LA PARTIE ADMIN - TO MOVE */
+/* ------------------------------------------------- */
 
 define ( "TITRE_RUB_ADMIN_0", "Ajouter un article" );
 define ( "TITRE_RUB_ADMIN_1", "Modifier un article" );
+define ( "TITRE_RUB_ADMIN_14", "Ajouter une catégorie" );
+define ( "TITRE_RUB_ADMIN_15", "Modifier une catégorie" );
 
 define ( "TITRE_RUB_ADMIN_2", "Effacer un gedcom" );
 define ( "TITRE_RUB_ADMIN_3", "Envoyer un gedcom" );
@@ -86,6 +88,8 @@ define ( "TITRE_RUB_ADMIN_10", "Liste des membres" );
 
 define ( "TITRE_RUB_ADMIN_12", "Modérer les commentaires" );
 
+define ("DASHBOARD", "Tableau de bord");
+
 /* ----------------------- */
 /* ASIDE DE LA PARTIE BLOG */
 /* ----------------------- */
@@ -99,10 +103,10 @@ define ( "ASIDE_BLOG_6", "Blogroll" );
 define ( "ASIDE_BLOG_7", "Recherche" );
 
 /* ------------------------ */
-/* ASIDE DE LA PARTIE ADMIN */
+/* ASIDE DE LA PARTIE ADMIN - TO MOVE */
 /* ------------------------ */
 
-define ( "ASIDE_ADMIN_0", "Administration du site" );
+define ( "ASIDE_ADMIN_0", "PubliGED<br />Administration" );
 define ( "ASIDE_ADMIN_1", "Articles" );
 define ( "ASIDE_ADMIN_2", "Gedcom" );
 define ( "ASIDE_ADMIN_3", "Base de données" );
@@ -122,6 +126,7 @@ define ( "COMMENTS", " a commenté ");
 
 define ( "ADM_ARTICLE_TITLE", "Titre" );
 define ( "ADM_ARTICLE_AUTHOR", "Auteur" );
+define ( "ADM_ARTICLE_CAT", "Catégorie" );
 define ( "ADM_ARTICLE_EDIT", "éditer" );
 
 /* ---------- */
