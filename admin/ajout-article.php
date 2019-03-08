@@ -1,5 +1,5 @@
 <?php
-require ('../content/fonctions.php');
+require ('fonctions.php');
 include ('../config.php');
 /* include ('../include/langue.php'); */
 include ('../langues/fr.php');

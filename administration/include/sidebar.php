@@ -24,21 +24,21 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Blog
+        <?php echo ASIDE_ADMIN_1; ?>
       </div>
 
       <!-- Articles -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="far fa-newspaper"></i>
-          <span>Articles</span>
+          <span><?php echo ASIDE_ADMIN_2; ?></span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="ajout-article.php"><?php echo TITRE_RUB_ADMIN_0; ?></a>
-            <a class="collapse-item" href="modif-articles.php"><?php echo TITRE_RUB_ADMIN_1; ?></a>
-            <a class="collapse-item" href="#"><?php echo TITRE_RUB_ADMIN_14; ?></a>
-            <a class="collapse-item" href="#"><?php echo TITRE_RUB_ADMIN_15; ?></a>
+            <a class="collapse-item" href="ajout-article.php"><?php echo ADM_RUB_TITRE_0; ?></a>
+            <a class="collapse-item" href="modif-articles.php"><?php echo ADM_RUB_TITRE_1; ?></a>
+            <a class="collapse-item" href="#"><?php echo ADM_RUB_TITRE_2; ?></a>
+            <a class="collapse-item" href="#"><?php echo ADM_RUB_TITRE_3; ?></a>
           </div>
         </div>
       </li>
@@ -47,11 +47,11 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
           <i class="far fa-comments"></i>
-          <span>Commentaires</span>
+          <span><?php echo ASIDE_ADMIN_3; ?></span>
         </a>
         <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#">Modérer</a>
+            <a class="collapse-item" href="commentaires.php"><?php echo ADM_RUB_TITRE_4; ?></a>
           </div>
         </div>
       </li>
@@ -60,7 +60,7 @@
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="far fa-clone"></i>
-          <span>Modules</span></a>
+          <span><?php echo ASIDE_ADMIN_4; ?></span></a>
       </li>
 
       <!-- Divider -->
@@ -68,19 +68,19 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Généalogie
+        <?php echo ASIDE_ADMIN_5; ?>
       </div>
 
       <!-- Gedcom -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
           <i class="fas fa-sitemap"></i>
-          <span>Gedcom</span>
+          <span><?php echo ASIDE_ADMIN_6;  ?></span>
         </a>
         <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#">Effacer un gedcom</a>
-            <a class="collapse-item" href="#">envoyer un gedcom</a>
+            <a class="collapse-item" href="#"><?php echo ADM_RUB_TITRE_5;  ?></a>
+            <a class="collapse-item" href="#"><?php echo ADM_RUB_TITRE_6;  ?></a>
           </div>
         </div>
       </li>
@@ -89,7 +89,7 @@
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="far fa-clone"></i>
-          <span>Modules</span></a>
+          <span><?php echo ASIDE_ADMIN_4 ?></span></a>
       </li>
      
       <!-- Divider -->
@@ -97,21 +97,20 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Paramétres
+        <?php echo ASIDE_ADMIN_7 ?>
       </div>
       
       <!-- Gedcom -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
           <i class="fas fa-database"></i>
-          <span>Base de données</span>
+          <span><?php echo ASIDE_ADMIN_8 ?></span>
         </a>
         <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-			<a class="collapse-item" href="#">Supression des tables</a>
-		    <a class="collapse-item" href="#">Création des tables</a>
-		    <a class="collapse-item" href="#">Données de démos</a>
-		    <a class="collapse-item" href="#">Taille</a>          
+			<a class="collapse-item" href="#"><?php echo ADM_DB_SUPPR; ?></a>
+		    <a class="collapse-item" href="#"><?php echo ADM_DB_CREATE; ?></a>
+		    <a class="collapse-item" href="#"><?php echo ADM_DB_SIZE; ?></a>          
           </div>
         </div>
       </li>
@@ -120,14 +119,14 @@
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Options</span></a>
+          <span><?php echo ASIDE_ADMIN_9 ?></span></a>
       </li>
       
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Métas et SEO</span></a>
+          <span><?php echo ASIDE_ADMIN_10 ?></span></a>
       </li>
 
       <!-- Divider -->

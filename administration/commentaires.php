@@ -15,17 +15,48 @@ include('../langues/admin.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><?php echo ADM_RUB_TITRE_1; ?></title>
+  <title><?php echo ADM_RUB_TITRE_4; ?></title>
 
-  <!-- Custom fonts for this template -->
+  <!-- Custom fonts for this template-->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
+  <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+  
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  
+  <!-- TinyMCE 5.0.1 -->
+  <script src="../js/tinymce/tinymce.min.js"></script>
+  
+<script>
+    tinymce.init({
+        /* ajouter un tableau dans tinymce */
+        /*plugins: "table", */
+        tools: "inserttable",
+        /* ajouter une image
+        plugins: "image", */
+        /* par dÃ©faut */
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+        plugins: [
+        "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+        "save table contextmenu directionality emoticons template paste textcolor"
+        ],
+        selector: 'textarea',
+        language: "fr_FR",
+        style_formats: [
+        { title: 'Bold text', inline: 'b' },
+        { title: 'Red text', inline: 'span', styles: { color: '#ff0000' } },
+        { title: 'Red header', block: 'h1', styles: { color: '#ff0000' } },
+        { title: 'Example 1', inline: 'span', classes: 'example1' },
+        { title: 'Example 2', inline: 'span', classes: 'example2' },
+        { title: 'Table styles' },
+        { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' }
+        ]
+    });
+</script>
 
 </head>
 
@@ -33,8 +64,8 @@ include('../langues/admin.php');
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-  
-  	<?php include('include/sidebar.php'); ?>
+
+    <?php include('include/sidebar.php'); ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -64,26 +95,6 @@ include('../langues/admin.php');
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..." aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
@@ -116,77 +127,75 @@ include('../langues/admin.php');
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_1; ?></h1>
+        
+        <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_4; ?></h1>
           <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
-
-          <!-- DataTales Example -->
+          
+          <!-- DataTales Example -->         
           <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_ARTICLE_LIST; ?></h6>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-              
-              <?php
+               <div class="card-header py-3">
+                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_RUB_TITRE_4; ?></h6>
+               </div>
+               <div class="card-body">
+                 <div class="table-responsive">   	
+                  	
+                  	
+                <?php
 
-			  $nb_a = "SELECT * FROM articles";
-			  $res_nb_a = $pdo->prepare ( $nb_a );
-			  $res_nb_a->execute ();
-
-			  ?>
-              
+				$req_comm = "SELECT * FROM commentaires";
+				$res_comm = $pdo->prepare ( $req_comm );
+				$res_comm->execute ();
+				
+				?>     	
+                  	                 	
+                
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>#</th>
-                      <th><?php echo ADM_ARTICLE_TITLE; ?></th>
-                      <th><?php echo ADM_ARTICLE_AUTHOR; ?></th>
-                      <th><?php echo ADM_ARTICLE_CAT; ?></th>
-                      <th style="width: 3.5em;"></th>
-                      <th style="width: 3.5em;"></th>
+                      <th>#</th>	
+                      <th><?php echo ADM_COMM_DATE; ?></th>
+                      <th><?php echo ADM_COMM_AUTHOR; ?></th>
+                      <th><?php echo ADM_COMM_TITLE; ?></th>
+                      <th><?php echo ADM_COMM_TEXT; ?></th>
+                      <th></th>
+                      <th></th>
                     </tr>
                   </thead>
-                 
                   <tfoot>
-                  <tr>
-                      <th>#</th>
-                      <th><?php echo ADM_ARTICLE_TITLE; ?></th>
-                      <th><?php echo ADM_ARTICLE_AUTHOR; ?></th>
-                      <th><?php echo ADM_ARTICLE_CAT; ?></th>
-                      <th style="width: 3.5em;"></th>
-                      <th style="width: 3.5em;"></th>
+                    <tr>
+                      <th>#</th>	
+                      <th><?php echo ADM_COMM_DATE; ?></th>
+                      <th><?php echo ADM_COMM_AUTHOR; ?></th>
+                      <th><?php echo ADM_COMM_TITLE; ?></th>
+                      <th><?php echo ADM_COMM_TEXT; ?></th>
+                      <th></th>
+                      <th></th>
                     </tr>
-                  </tfoot>  
+                  </tfoot>
                   <tbody>
-                   
-                  	<?php
-
-					while ( $data_a = $res_nb_a->fetch () ) 
-					{
+                    <?php
+                    while ( $data_comm = $res_comm->fetch () )
+                    {
 						echo "<tr>";
-						echo "<td>" . $data_a ['ref'] . "</td>";
-						echo "<td>" . $data_a ['titre'] . "</td>";
-						echo "<td>" . $data_a ['auteur'] . "</td>";
-						echo "<td>" . get_category_name($pdo, $data_a ['id_cat']) . "</td>";
-						echo '<td> <a href="editer-article.php" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
+						echo "<td>" . $data_comm ['ref'] . "</td>";
+						echo "<td>" . $data_comm ['date_com'] . "</td>";
+						echo "<td>" . $data_comm ['nom_auteur'] . "</td>";
+						echo "<td>";
+						echo "<a href='index.php?page=see_comments&id=".$data_comm ['id_article']."'>".RecupTitreArticle ( $pdo, $data_comm ['id_article'] )."</a>"; 
+						echo "</td>";
+						echo "<td>" . substr($data_comm ['contenu'], 0, 150)."...</td>";						
+						echo '<td> <a href="#" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
 						echo '<td> <a href="#" data-toggle="tooltip" data-placement="left" title="Supprimer"><i class="far fa-trash-alt text-danger"></i></a></td>';
-					
-						/* TODO : ajouter une colonne qui permet de publier ou dépublier un article
-						 * via un booleen dans la table des articles. L'icone change en fonction du ppublié ou non
-					 	*/
-					
-						echo "</tr>";					
-					}
-
-					?> 
-                                  
-                  </tbody>
+						echo "</tr>";
+                    } 
+					?>
+                 </tbody>
                 </table>
               </div>
             </div>
           </div>
+              
 
         </div>
         <!-- /.container-fluid -->
@@ -249,17 +258,9 @@ include('../langues/admin.php');
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-  <!-- Ce script contient l'initialisation du plugin datatables de jquery -->
+    <!-- Ce script contient l'initialisation du plugin datatables de jquery -->
   <script src="js/demo/datatables-demo.js"></script>
-  
-    <script>
-  
-  $(function () {
-	  $('[data-toggle="tooltip"]').tooltip()
-	})
-  
-  </script>
-
+ 
 </body>
 
 </html>

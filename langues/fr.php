@@ -86,7 +86,7 @@ define ( "TITRE_RUB_ADMIN_11", "Metas" );
 
 define ( "TITRE_RUB_ADMIN_10", "Liste des membres" );
 
-define ( "TITRE_RUB_ADMIN_12", "Modérer les commentaires" );
+define ( "TITRE_RUB_ADMIN_12", "Modérer" );
 
 define ("DASHBOARD", "Tableau de bord");
 
@@ -113,6 +113,7 @@ define ( "ASIDE_ADMIN_3", "Base de données" );
 define ( "ASIDE_ADMIN_4", "Réglages" );
 define ( "ASIDE_ADMIN_5", "Utilisateurs" );
 define ( "ASIDE_ADMIN_6", "Commentaires" );
+define ( "ASIDE_ADMIN_7", "Modules");
 
 /* -------------------------------- */
 /* PUBLICATION DES ARTICLES DU BLOG */
@@ -123,11 +124,6 @@ define ( "RUBRIC", " dans la rubrique " );
 define ( "DATE", " le " );
 define ( "SEECOMS", "voir les commentaires" );
 define ( "COMMENTS", " a commenté ");
-
-define ( "ADM_ARTICLE_TITLE", "Titre" );
-define ( "ADM_ARTICLE_AUTHOR", "Auteur" );
-define ( "ADM_ARTICLE_CAT", "Catégorie" );
-define ( "ADM_ARTICLE_EDIT", "éditer" );
 
 /* ---------- */
 /* FLUX RSS */

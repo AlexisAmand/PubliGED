@@ -12,4 +12,14 @@ function RecupTitreArticle($pdo2, $a) {
 	}
 }
 
+/* fonction qui récupére le nom d'une catégorie en partant de son numéro */
+
+function get_category_name($pdo2, $cn) {
+	$req = $pdo2->query ( "select * from categories where ref ='" . $cn . "'" );
+	
+	while ( $row = $req->fetch () ) {
+		return $row ['nom'];
+	}
+}
+
 ?>

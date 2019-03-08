@@ -1,9 +1,9 @@
 <?php
 require ('../content/fonctions.php');
 include ('../config.php');
-/* include('../langues/admin.php'); */
-include ('../langues/fr.php');
+include('../langues/admin.php');
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -16,7 +16,7 @@ include ('../langues/fr.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><?php echo SITE_TITLE." - ".TITRE_RUB_ADMIN_0; ?></title>
+  <title><?php echo ADM_RUB_TITRE_0; ?></title>
 
   <!-- Custom fonts for this template-->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
@@ -82,7 +82,7 @@ include ('../langues/fr.php');
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">
                   <i class="fas fa-search fa-sm"></i>
@@ -97,27 +97,23 @@ include ('../langues/fr.php');
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Alexis A.</span>
+                <img class="img-profile rounded-circle" src="img/avatar.jpg">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
+                  <?php echo PROFIL; ?>
                 </a>
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
+                  <?php echo SETTINGS; ?>
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
+                  <?php echo LOGOUT; ?>
                 </a>
               </div>
             </li>
@@ -132,7 +128,7 @@ include ('../langues/fr.php');
 		          
           <div class="card shadow mb-4">
                <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary">Ajouter un article</h6>
+                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_RUB_TITRE_1; ?></h6>
                </div>
                <div class="card-body">
                   	<?php
@@ -165,7 +161,7 @@ include ('../langues/fr.php');
 		?>
 		
 		<div class="alert alert-success" role="alert">
-		L'article a bien été enregistré !
+		<?php echo ADM_ARTICLE_SEND; ?>
 		</div>
 		
 		<?php
@@ -179,34 +175,34 @@ include ('../langues/fr.php');
 <form method="POST" action="ajout-article.php">
 
 	<div class="form-group">
-		<label for="TitreArticle">Titre de l'article</label>
+		<label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_TITLE; ?></label>
 	    <input class="form-control" id="TitreArticle" name='titre'>
 	</div>
 
 	<?php 
 	$cat = $pdo->query ( "select * from categories" );
 	?>
-		<div class="form-group">
-		<label for="TitreArticle">Titre de l'article</label>
-	<select name='categorie' class="custom-select">
-	<option selected>Choisir une catégorie</option>
-
 	
-	<?php 
-	while ( $rowcat = $cat->fetch () ) 
-	{
-		echo "<option value='" . $rowcat ['ref'] . "'>" . $rowcat ['nom'] . "</option>";
-	}
-	?>
-	</select>
-</div>
+	<div class="form-group">
+		<label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_CAT; ?></label>
+		<select name='categorie' class="custom-select">
+		<option selected><?php echo ADM_ARTICLE_CAT_LIST;?></option>
+
+		<?php 
+		while ( $rowcat = $cat->fetch () ) 
+		{
+			echo "<option value='" . $rowcat ['ref'] . "'>" . $rowcat ['nom'] . "</option>";
+		}
+		?>
+		</select>
+	</div>
 
 	 <div class="form-group">
-	    <label for="TitreArticle">Texte de l'article</label>
+	    <label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_CONTENT; ?></label>
 	    <textarea name="texte"></textarea>
 	 </div>
 	
-	<input type="submit" class="btn btn-primary" value="Enregistrer">
+	<input type="submit" class="btn btn-primary" value="<?php echo SEND; ?>">
 </form>
 
  <?php  } ?>
@@ -250,15 +246,15 @@ include ('../langues/fr.php');
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="exampleModalLabel"><?php echo LOGOUT_TITLE; ?></h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body"><?php echo LOGOUT_TEXT; ?></div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo LOGOUT_CANCEL; ?></button>
+          <a class="btn btn-primary" href="login.html"><?php echo LOGOUT_OK; ?></a>
         </div>
       </div>
     </div>
