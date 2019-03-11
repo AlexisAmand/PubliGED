@@ -79,7 +79,7 @@
         </a>
         <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#"><?php echo ADM_RUB_TITRE_5;  ?></a>
+            <a class="collapse-item" href="effacer_gedcom.php"><?php echo ADM_RUB_TITRE_5;  ?></a>
             <a class="collapse-item" href="#"><?php echo ADM_RUB_TITRE_6;  ?></a>
           </div>
         </div>
@@ -117,7 +117,7 @@
       
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="options.php">
           <i class="fas fa-fw fa-cog"></i>
           <span><?php echo ASIDE_ADMIN_9 ?></span></a>
       </li>

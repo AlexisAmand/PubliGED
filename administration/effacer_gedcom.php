@@ -27,37 +27,6 @@ include('../langues/admin.php');
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
   
-  <!-- TinyMCE 5.0.1 -->
-  <script src="../js/tinymce/tinymce.min.js"></script>
-  
-<script>
-    tinymce.init({
-        /* ajouter un tableau dans tinymce */
-        /*plugins: "table", */
-        tools: "inserttable",
-        /* ajouter une image
-        plugins: "image", */
-        /* par dÃ©faut */
-        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
-        plugins: [
-        "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
-        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-        "save table contextmenu directionality emoticons template paste textcolor"
-        ],
-        selector: 'textarea',
-        language: "fr_FR",
-        style_formats: [
-        { title: 'Bold text', inline: 'b' },
-        { title: 'Red text', inline: 'span', styles: { color: '#ff0000' } },
-        { title: 'Red header', block: 'h1', styles: { color: '#ff0000' } },
-        { title: 'Example 1', inline: 'span', classes: 'example1' },
-        { title: 'Example 2', inline: 'span', classes: 'example2' },
-        { title: 'Table styles' },
-        { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' }
-        ]
-    });
-</script>
-
 </head>
 
 <body id="page-top">
@@ -138,62 +107,16 @@ include('../langues/admin.php');
                  <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_RUB_TITRE_4; ?></h6>
                </div>
                <div class="card-body">
-                 <div class="table-responsive">   	
-                  	
-                  	
-                <?php
-
-				$req_comm = "SELECT * FROM commentaires";
-				$res_comm = $pdo->prepare ( $req_comm );
-				$res_comm->execute ();
+               <div class="form-group">
+               <form action="#" method="post">
 				
-				?>     	
-                  	                 	
-                
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>#</th>	
-                      <th><?php echo ADM_COMM_DATE; ?></th>
-                      <th><?php echo ADM_COMM_AUTHOR; ?></th>
-                      <th><?php echo ADM_COMM_TITLE; ?></th>
-                      <th><?php echo ADM_COMM_TEXT; ?></th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>#</th>	
-                      <th><?php echo ADM_COMM_DATE; ?></th>
-                      <th><?php echo ADM_COMM_AUTHOR; ?></th>
-                      <th><?php echo ADM_COMM_TITLE; ?></th>
-                      <th><?php echo ADM_COMM_TEXT; ?></th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <?php
-                    while ( $data_comm = $res_comm->fetch () )
-                    {
-						echo "<tr>";
-						echo "<td>" . $data_comm ['ref'] . "</td>";
-						echo "<td>" . $data_comm ['date_com'] . "</td>";
-						echo "<td>" . $data_comm ['nom_auteur'] . "</td>";
-						echo "<td>";
-						echo "<a href='index.php?page=see_comments&id=".$data_comm ['id_article']."'>".RecupTitreArticle ( $pdo, $data_comm ['id_article'] )."</a>"; 
-						echo "</td>";
-						echo "<td>" . substr($data_comm ['contenu'], 0, 150)."...</td>";						
-						echo '<td> <a href="#" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
-						echo '<td> <a href="#" data-toggle="tooltip" data-placement="left" title="Supprimer"><i class="far fa-trash-alt text-danger"></i></a></td>';
-						echo "</tr>";
-                    } 
-					?>
-                 </tbody>
-                </table>
-              </div>
-            </div>
+			   <?php /* TODO: une modale pour la déco, qui demande si pa personne est sûre de vouloir supprimer son gedcom */ ?>
+			   
+			   <input type="submit" name="validerdel" class="btn btn-primary" value="Confirmer la suppression des tables">
+	
+			   </form>  
+			   </div>
+               </div>
           </div>
               
         </div>

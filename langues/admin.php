@@ -15,7 +15,7 @@ define ("ASIDE_ADMIN_3", "Commentaires" );
 define ( "ASIDE_ADMIN_4", "Modules");
 define ( "ASIDE_ADMIN_5", "Généalogie");
 define ( "ASIDE_ADMIN_6", "Gedcom" );
-define ( "ASIDE_ADMIN_7", "Paramétres" );
+define ( "ASIDE_ADMIN_7", "Paramètres" );
 define ( "ASIDE_ADMIN_8", "Base de données" );
 define ( "ASIDE_ADMIN_9", "Options" );
 define ( "ASIDE_ADMIN_10", "Métas et SEO" );
@@ -60,16 +60,32 @@ define ( "ADM_COMM_TEXT", "Commentaire" );
 /* Gestion de la BD */
 /* ---------------- */
 
-define ( "ADM_DB_SUPPR", "Titre" );
-define ( "ADM_DB_CREATE", "Auteur" );
-define ( "ADM_DB_SIZE", "Catégorie" );
+define ( "ADM_DB_SUPPR", "Supprimer les tables" );
+define ( "ADM_DB_CREATE", "Créer les tables (?)" ); /* pas sûr */
+define ( "ADM_DB_SIZE", "Taille de la base" );
+
+
+/* ------------------- */
+/* Gestion des options */
+/* ------------------- */
+
+define ( "ADM_ST_TITLE", "Paramètres" );
+define ( "ADM_ST_RUBRIC_1", "Généralités" );
+define ( "ADM_ST_ACT1", "Activer le blog" );
+define ( "ADM_ST_ACT2", "Activer la partie généalogie" );
+define ( "ADM_ST_RUBRIC_2","Partie généalogie");
+define ( "ADM_ST_PAGE","Nombre de resultats par page");
+define ( "ADM_ST_TOP","Valeurs des tops");
+define ( "ADM_ST_RUBRIC_3","Partie blog");
+define ( "ADM_ST_ACT3","Activer les commentaires");
+define ( "ADM_ST_SEND","Enregistrer");
 
 /* ------ */
 /* Profil */
 /* ------ */
 
 define ("PROFIL","Profil");
-define ( "SETTINGS", "Paramétres" );
+define ( "SETTINGS", "Paramètres" );
 define ("LOGOUT","Se déconnecter");
 
 /* ----------------------------- */

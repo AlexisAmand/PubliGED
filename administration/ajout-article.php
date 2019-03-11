@@ -207,9 +207,6 @@ include('../langues/admin.php');
 
  <?php  } ?>
 	
-
-	
-	
                </div>
           </div>
               

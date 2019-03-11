@@ -27,37 +27,6 @@ include('../langues/admin.php');
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
   
-  <!-- TinyMCE 5.0.1 -->
-  <script src="../js/tinymce/tinymce.min.js"></script>
-  
-<script>
-    tinymce.init({
-        /* ajouter un tableau dans tinymce */
-        /*plugins: "table", */
-        tools: "inserttable",
-        /* ajouter une image
-        plugins: "image", */
-        /* par dÃ©faut */
-        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
-        plugins: [
-        "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
-        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-        "save table contextmenu directionality emoticons template paste textcolor"
-        ],
-        selector: 'textarea',
-        language: "fr_FR",
-        style_formats: [
-        { title: 'Bold text', inline: 'b' },
-        { title: 'Red text', inline: 'span', styles: { color: '#ff0000' } },
-        { title: 'Red header', block: 'h1', styles: { color: '#ff0000' } },
-        { title: 'Example 1', inline: 'span', classes: 'example1' },
-        { title: 'Example 2', inline: 'span', classes: 'example2' },
-        { title: 'Table styles' },
-        { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' }
-        ]
-    });
-</script>
-
 </head>
 
 <body id="page-top">
@@ -129,73 +98,109 @@ include('../langues/admin.php');
         <div class="container-fluid">
         
         <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_4; ?></h1>
+          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_ST_TITLE; ?></h1>
           <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
           
           <!-- DataTales Example -->         
           <div class="card shadow mb-4">
                <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_RUB_TITRE_4; ?></h6>
+                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_ST_RUBRIC_1; ?></h6>
                </div>
                <div class="card-body">
-                 <div class="table-responsive">   	
-                  	
-                  	
-                <?php
+               
+               <?php 
+               if (isset ( $_POST ['top'] ) and isset ( $_POST ['nrpp'] )) 
+               {
 
-				$req_comm = "SELECT * FROM commentaires";
-				$res_comm = $pdo->prepare ( $req_comm );
-				$res_comm->execute ();
+					$valeur = "top";
 				
-				?>     	
-                  	                 	
-                
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>#</th>	
-                      <th><?php echo ADM_COMM_DATE; ?></th>
-                      <th><?php echo ADM_COMM_AUTHOR; ?></th>
-                      <th><?php echo ADM_COMM_TITLE; ?></th>
-                      <th><?php echo ADM_COMM_TEXT; ?></th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>#</th>	
-                      <th><?php echo ADM_COMM_DATE; ?></th>
-                      <th><?php echo ADM_COMM_AUTHOR; ?></th>
-                      <th><?php echo ADM_COMM_TITLE; ?></th>
-                      <th><?php echo ADM_COMM_TEXT; ?></th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <?php
-                    while ( $data_comm = $res_comm->fetch () )
-                    {
-						echo "<tr>";
-						echo "<td>" . $data_comm ['ref'] . "</td>";
-						echo "<td>" . $data_comm ['date_com'] . "</td>";
-						echo "<td>" . $data_comm ['nom_auteur'] . "</td>";
-						echo "<td>";
-						echo "<a href='index.php?page=see_comments&id=".$data_comm ['id_article']."'>".RecupTitreArticle ( $pdo, $data_comm ['id_article'] )."</a>"; 
-						echo "</td>";
-						echo "<td>" . substr($data_comm ['contenu'], 0, 150)."...</td>";						
-						echo '<td> <a href="#" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
-						echo '<td> <a href="#" data-toggle="tooltip" data-placement="left" title="Supprimer"><i class="far fa-trash-alt text-danger"></i></a></td>';
-						echo "</tr>";
-                    } 
-					?>
-                 </tbody>
-                </table>
-              </div>
-            </div>
+					$stmt = $pdo->prepare ( "UPDATE configuration SET valeur = :valeur WHERE nom=:nom" );
+				
+					$stmt->bindParam ( ':nom', $valeur, PDO::PARAM_STR );
+					$stmt->bindParam ( ':valeur', $_POST ['top'], PDO::PARAM_STR );
+					$stmt->execute ();
+				
+					$valeur = "nrpp";
+				
+					$stmt->bindParam ( ':nom', $valeur, PDO::PARAM_STR );
+					$stmt->bindParam ( ':valeur', $_POST ['nrpp'], PDO::PARAM_STR );
+					$stmt->execute ();
+				
+                ?>
+            
+            	<div class="alert alert-success" role="alert">
+				<?php echo "Les options ont bien été enregistrées"; ?>
+				</div>
+		            
+		        <?php
+				} 
+				else 
+				{
+				?>
+                           
+               <div class="form-group">
+               <form method="POST" action="options.php">
+			
+				<div class="form-check">
+				  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+				  <label class="form-check-label" for="defaultCheck1">
+				    <?php echo ADM_ST_ACT1; ?>
+				  </label>
+				</div>	
+					
+				<div class="form-check">
+				  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+				  <label class="form-check-label" for="defaultCheck1">
+				    <?php echo ADM_ST_ACT2; ?>
+				  </label>
+				</div>
+	
+			   </div>
+               </div>
           </div>
-              
+          
+          <div class="card shadow mb-4">
+               <div class="card-header py-3">
+                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_ST_RUBRIC_2; ?></h6>
+               </div>
+               <div class="card-body">
+               <div class="form-group">        
+               	 <?php /* TODO : 
+               	 		- Récupérer la valeur des options dans les tables
+               	 		- faire une vérification pour que les valeurs soit bien des nombres
+               	 		- peut-être qu'il faut un min et un max ? 
+               	 	   */
+               	 ?>
+	             <label><?php echo ADM_ST_PAGE; ?></label> 
+	          	 <input type="text" value="12" name="nrpp">       	   
+	          	 <label><?php echo ADM_ST_TOP; ?></label>
+	          	 <input type="text" value="10" name="top">	
+			   </div>
+               </div>
+          </div>
+          
+          <div class="card shadow mb-4">
+          	   <div class="card-header py-3">
+                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_ST_RUBRIC_3; ?></h6>
+               </div>
+               <div class="card-body">
+               <div class="form-group">
+       
+			   <div class="form-check">
+			      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+				  <label class="form-check-label" for="defaultCheck1">
+				    <?php echo ADM_ST_ACT3; ?>
+				  </label>
+			   </div>	
+			   </div>
+		  </div>
+ 		</div>
+			<input type="submit" class="btn btn-primary" value="<?php echo ADM_ST_SEND; ?>">
+
+		</form>
+		
+		 <?php  } ?>
+			   
         </div>
         <!-- /.container-fluid -->
 
