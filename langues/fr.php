@@ -316,6 +316,15 @@ define ( "NB_UNION_R", "Le plus grand nombre de mariages" );
 define ( "NB_UNION", "Nombre de couples" );
 define ( "NB_OLD_R", "Records de longivité" );
 
+/* ------------ */
+/* LISTE ECLAIR */
+/* ------------ */
+
+define ( "LIST_NAME", "Nom" );
+define ( "LIST_PLACE", "Lieu" );
+define ( "LIST_REGION", "Région" );
+define ( "LIST_COUNTRY", "Pays" );
+
 /* ---------- */
 /* EVENEMENTS */
 /* ---------- */
