@@ -26,7 +26,7 @@ require_once 'vendor/autoload.php';
 	<link href="style/bootstrap/css/bootstrap.perso.css" rel="stylesheet">
 	<script src="style/bootstrap/js/bootstrap.min.js"></script>
 
-	<!-- Font Awesome Free 5.7.2 -->
+	<!-- Font Awesome Free 5.9.0 -->
 
 	<link href="style/fontawesome/css/all.css" rel="stylesheet">
 
@@ -35,9 +35,9 @@ require_once 'vendor/autoload.php';
 	<link href="style/style.css" rel="stylesheet">
 	<link rel="icon" type="image/gif" href="img/icon.jpg" />
 
-	<!-- Jquery 3.3.1 -->
+	<!-- Jquery 3.4.1 -->
 
-	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery-3.4.1.min.js"></script>
 
 	<!-- OpenStreetMap et Leaflet 1.4.0 -->
 	
