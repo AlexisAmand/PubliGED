@@ -15,7 +15,7 @@ Environement de développement
 - MySQL 5.6.17
 - phpMyAdmin 4.8.3
 - Windows 7
-- Eclipse IDE for PHP Developers 2018-12 (4.10.0)
+- Eclipse IDE for PHP Developers 2019-06 (4.12.0)
 
 Langages utilisés
 -----------------

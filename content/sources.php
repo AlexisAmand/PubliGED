@@ -40,21 +40,53 @@
 	    
 	    $stmt = $pdo2->prepare("SELECT * FROM sources");
 	    $stmt->execute();
+	    ?>
 	    
-	    echo "<table class='table table-bordered'>";
-	    echo "<thead><tr><th>".REFSRC."</th><th>".TITRESRC."</th><th>".NOMSRC."</th><th>".SOURCESRC."</th><th>".MEDIASRC."</th></tr></thead>";
-	    	    
-	    while( $row = $stmt->fetch(PDO::FETCH_ASSOC ))
-	    {
-	        echo "<tr>";
-	        echo "<td><a href='index.php?page=sources&ids=".$row['ref']."'>".$row['ref']."</a></td>";
-	        echo "<td>".$row['titre']."</td>";
-	        echo "<td>".$row['nom']."</td>";
-	        echo "<td>".$row['source']."</td>";
-	        echo "<td>lien vers images</td>";
-	        echo "</tr>";
-	    }
-	    echo "</table>";
+	    <div class="table-responsive">
+	    
+	    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+	    
+	    <thead>
+	    <tr>
+		    <th><?php echo REFSRC ?></th>
+			<th><?php echo TITRESRC ?></th>
+			<th><?php echo NOMSRC ?></th>
+			<th><?php echo SOURCESRC ?></th>
+			<th><?php echo MEDIASRC ?></th>
+		</tr>
+		</thead>
+		
+		<tfoot>
+		<tr>
+			<th><?php echo REFSRC ?></th>
+			<th><?php echo TITRESRC ?></th>
+			<th><?php echo NOMSRC ?></th>
+			<th><?php echo SOURCESRC ?></th>
+			<th><?php echo MEDIASRC ?></th>
+		</tr>
+		</tfoot>	
+	    <tbody>
+                   
+		<?php
+				
+		while( $row = $stmt->fetch(PDO::FETCH_ASSOC ))
+			{
+		    echo "<tr>";
+		    echo "<td><a href='index.php?page=sources&ids=".$row['ref']."'>".$row['ref']."</a></td>";
+		    echo "<td>".$row['titre']."</td>";
+		    echo "<td>".$row['nom']."</td>";
+		    echo "<td>".$row['source']."</td>";
+		    echo "<td>lien vers images</td>";
+		    echo "</tr>";
+		    }
+		
+		?>
+				
+		</tbody>
+    	</table>
+        </div>
+                
+    <?php 
 	}
 
     ?>
