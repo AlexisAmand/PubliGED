@@ -3,7 +3,6 @@
 	/* ----------------- */
 	/* LISTE DES SOURCES */
 	/* ---------------- */
-
 	
 	if (isset($_GET['ids']))
 	{
@@ -44,7 +43,7 @@
 	    
 	    <div class="table-responsive">
 	    
-	    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+	    <table class="table table-bordered" id="dataTable">
 	    
 	    <thead>
 	    <tr>
@@ -88,6 +87,4 @@
                 
     <?php 
 	}
-
-    ?>
-   
+    ?>   

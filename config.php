@@ -5,7 +5,8 @@
 /* --------------- */
 /* connexion à SQL */
 /* --------------- */
-try {
+
+try {	
 	$pdo = new PDO ( 'mysql:host=localhost;dbname=publiged', 'root', '' );
 	// $pdo = new PDO('mysql:charset=utf8mb4');
 	$pdo->exec ( 'SET NAMES utf8' );

@@ -8,5 +8,4 @@ while ( $row = $req->fetch () ) {
 
 	include ("modules/genealogie/" . $row ['nomdumodule'] . ".php");
 }
-
 ?>

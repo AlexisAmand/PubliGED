@@ -11,8 +11,6 @@ Environement de développement
 
 - Wampserver 3.1.7 - 64bit
 - Apache 2.4.37
-- PHP 7.2.11
-- MySQL 5.6.17
 - phpMyAdmin 4.8.3
 - Windows 7
 - Eclipse IDE for PHP Developers 2019-06 (4.12.0)
@@ -22,12 +20,32 @@ Langages utilisés
 
 - HTML
 - CSS
-- PHP
-- SQL
+- PHP 7.2.11
+- SQL (via MySQL 5.6.17)
 - Javascript
+
+Framework
+---------
+
+- Bootstrap 4.3.1
+
+Librairies PHP
+--------------
+
+Obtenues via https://packagist.org
+
+- PHPMailer/PHPMailer 6.0.7  
+- egulias/EmailValidator 2.1.9 
+- mpdf/mpdf 7.1.9
+
+Librairies jQuery ou Javascript
+-------------------------------
+
+- Datatables 1.10.18
+- Leaflet 1.5.1
 
 Plus d'infos : 
 --------------
 
 - http://publiged.genealexis.fr
-- https://www.tipeee.com/genealexis
+- https://ww.tipeee.com/genealexis

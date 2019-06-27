@@ -31,10 +31,9 @@ switch ($_GET ['page']) {
 				{
 				echo '<li class="nav-item">';
 				}
-			?>                                    
-        	<a class="nav-link" href="index.php?page=blog"><?php echo PILLMENU_1 ?></a>
-			</li>
-	       <?php
+                                  
+        	echo '<a class="nav-link" href="index.php?page=blog">'.PILLMENU_1.'</a>';
+			echo '</li>';
 	       
 	       if ($PageActive == '2') 
 	       		{
@@ -44,12 +43,12 @@ switch ($_GET ['page']) {
 				{
 				echo '<li class="nav-item">';
 				}
-			?> 
-            <a class="nav-link" href="index.php?page=patro"><?php echo PILLMENU_2 ?></a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="admin/index.php"><?php echo PILLMENU_3 ?></a>
-			</li>
-			<?php
+			
+            echo '<a class="nav-link" href="index.php?page=patro">'.PILLMENU_2.'</a>';
+			echo '</li>';
+			echo '<li class="nav-item"><a class="nav-link" href="admin/index.php">'.PILLMENU_3.'</a>';
+			echo '</li>';
+			
 			if ($PageActive == '3')
 				{
 				echo '<li class="nav-item active">';
@@ -58,9 +57,10 @@ switch ($_GET ['page']) {
 				{
 				echo '<li class="nav-item">';
 				}
-			?> 
-        	<a class="nav-link" href="index.php?page=contact"><?php echo PILLMENU_4 ?></a>
-			</li>
+			 
+        	echo '<a class="nav-link" href="index.php?page=contact">'.PILLMENU_4.'</a>';
+			echo '</li>';
+			?>
 		</ul>
 
 		<form class="form-inline my-2 my-lg-0" method="POST" action="index.php?page=search">
