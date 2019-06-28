@@ -47,6 +47,7 @@ require_once 'vendor/autoload.php';
   	<script src="js/datatables/datatables/js/dataTables.bootstrap4.min.js "></script>
 
   	<!-- Ce script contient l'initialisation du plugin datatables de jquery -->
+  	
   	<script src="administration/js/demo/datatables-demo.js"></script>
 
 	<!-- OpenStreetMap et Leaflet 1.5.1 -->

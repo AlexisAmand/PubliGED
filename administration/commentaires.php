@@ -150,7 +150,7 @@ include('../langues/admin.php');
 				?>     	
                   	                 	
                 
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable">
                   <thead>
                     <tr>
                       <th>#</th>	
@@ -182,7 +182,7 @@ include('../langues/admin.php');
 						echo "<td>" . $data_comm ['date_com'] . "</td>";
 						echo "<td>" . $data_comm ['nom_auteur'] . "</td>";
 						echo "<td>";
-						echo "<a href='index.php?page=see_comments&id=".$data_comm ['id_article']."'>".RecupTitreArticle ( $pdo, $data_comm ['id_article'] )."</a>"; 
+						echo "<a href='index.php?page=article&id=".$data_comm ['id_article']."'>".RecupTitreArticle ( $pdo, $data_comm ['id_article'] )."</a>"; 
 						echo "</td>";
 						echo "<td>" . substr($data_comm ['contenu'], 0, 150)."...</td>";						
 						echo '<td> <a href="#" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';

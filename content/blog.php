@@ -36,7 +36,7 @@ while ( $row = $req->fetch () )
 	/* transformation de la date SQL en date PHP au format RFC 822 */
 
 	$rss = $rss . '<pubDate>' . date ( "r", strtotime ( $row ['date'] ) ) . '</pubDate>';
-	$url = URL_SITE . "index.php?page=see_comments&id=" . $row ['ref'];
+	$url = URL_SITE . "index.php?page=article&id=" . $row ['ref'];
 	$rss = $rss . '<link>' . $url . '</link>';
 	$rss = $rss . '</item>';
 }
@@ -64,7 +64,7 @@ while ( $data = $resultat->fetch () )
 
 <div class="row">
 	<div class="col-md-12">
-		<?php echo "<h3><a href='index.php?page=see_comments&id=".$data['ref']."'>" . html_entity_decode ( $data ['titre'] ) . "</a></h3>"; ?>
+		<?php echo "<h3><a href='index.php?page=article&id=".$data['ref']."'>" . html_entity_decode ( $data ['titre'] ) . "</a></h3>"; ?>
 	</div>
 </div>
 
@@ -128,7 +128,7 @@ while ( $data = $resultat->fetch () )
 
 	echo $data ['article'];
 
-	echo "<div id='commentaires'><a href='index.php?page=see_comments&id=" . $data ['ref'] . "'>[" . SEECOMS . "] (" . $res_comms->rowCount () . ")</a></div>";
+	echo "<div id='commentaires'><a href='index.php?page=article&id=" . $data ['ref'] . "'>[" . SEECOMS . "] (" . $res_comms->rowCount () . ")</a></div>";
 	}
 
 	?>  

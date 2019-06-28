@@ -1,25 +1,25 @@
 <?php
 
-/* ---------------------- */
-/* AFFICHAGE D'UN ARTICLE */
-/* ---------------------- */
+/* --------------------------------------------- */
+/* Affichage d'un article et de ses commentaires */
+/* --------------------------------------------- */
 
-/* Un commentaire est soumis et ajouté à la base de données */
+/* Si un commentaire a été envoyé, on le récupére ici */
 
 if (! empty ( $_POST ['pseudo'] ) and ! empty ( $_POST ['email'] ) /* and !empty($_POST['site']) */ and ! empty ( $_POST ['message'] )) {
-
+	
 	$commentaire = new commentaires ();
-
+	
 	$commentaire->article = $_GET ['id'];
 	$commentaire->nom_auteur = $_POST ['pseudo'];
 	$commentaire->email_auteur = $_POST ['email'];
 	$commentaire->url_auteur = $_POST ['site'];
 	$commentaire->contenu = $_POST ['message'];
 	$commentaire->today = date ( "Y-m-d H:i:s" ); // (le format DATETIME de MySQL)
-
+	
 	$req = "INSERT INTO commentaires (id_article, nom_auteur, email_auteur, url_auteur, contenu, date_com)
     VALUES (:article, :nom, :email, :url, :contenu, :today)";
-
+	
 	$res = $pdo2->prepare ( $req );
 	$res->bindparam ( ':article', $commentaire->article, PDO::PARAM_STR );
 	$res->bindparam ( ':nom', $commentaire->nom_auteur, PDO::PARAM_STR );
@@ -30,14 +30,16 @@ if (! empty ( $_POST ['pseudo'] ) and ! empty ( $_POST ['email'] ) /* and !empty
 	$res->execute ();
 }
 
-/* L'article est extrait de la base de données */
+/* Récupération de l'article */
 
-$req = $pdo2->query ( "SELECT * FROM articles WHERE ref = '" . $_GET ['id'] . "'" );
+$article = new articles ();
 
-while ( $data = $req->fetch () ) {
-	$article = new articles ();
+$article->ref = $_GET ['id'];
 
-	$article->ref = $data ['ref'];
+$resultat = $pdo2->query ( "SELECT * FROM articles WHERE ref='$article->ref'" );
+
+while ( $data = $resultat->fetch () )
+{
 	$article->auteur = $data ['auteur'];
 	$article->titre = $data ['titre'];
 	$article->date = $data ['date'];
@@ -45,53 +47,41 @@ while ( $data = $req->fetch () ) {
 	$article->contenu = $data ['article'];
 }
 
-/* Affichage de l'article et de ses commentaires éventuels */
+/* Auteur de l'article */
 
-$id_article = $_GET ['id'];
+$res_membres = $pdo2->prepare ( "select * from membres where id=:id" );
+$res_membres->bindValue ( "id", $article->auteur, PDO::PARAM_INT );
+$res_membres->execute ();
 
-$resultat = $pdo2->query ( "SELECT * FROM articles WHERE ref='$id_article'" );
+while ( $data_membres = $res_membres->fetch () )
+{
+	$article->auteur = $data_membres ['login'];
+}
 
-while ( $data = $resultat->fetch () ) {
-	
-	?>
+/* Date de l'article */
+
+if (preg_match ( "/^[0-9]{4}(\/|-|.)(0[1-9]|1[0-2])(\/|-|.)(0[1-9]|[1-2][0-9]|3[0-1])$/", $article->date ))
+{
+	$article->date = substr ( $article->date, 8, 2 ) . " " . MoisEnLettres(substr ( $article->date, 5, 2 )) . " " . substr ( $article->date, 0, 4 );
+}
+
+?>
 
 <div class="row">
 	<div class="col-md-12">
-
-	<?php echo "<h3><a href='index.php?page=see_comments&id=" . $article->ref . "'>" . html_entity_decode ( $article->titre ) . "</a></h3>";?>
-		
-	</div>
+			<?php echo "<h3><a href='index.php?page=article&id=".$article->ref."'>" . html_entity_decode ($article->titre) . "</a></h3>"; ?>
+		</div>
 </div>
-	
+
 <div class="row">
 	<div class="col-md-8">
-	
 	<?php
-	
-	/* Auteur de l'article */
-		
-	echo "<p>" . AUTHOR;
 
-	$res_membres = $pdo2->prepare ( "select * from membres where id=:id" );
-	$res_membres->bindValue ( "id", $article->auteur, PDO::PARAM_INT );
-	$res_membres->execute ();
-
-	while ( $data_membres = $res_membres->fetch () ) {
-		echo $data_membres ['login'];
-	}
-
-	/* Date de l'article */
-	
-	echo DATE;
-
-	if (preg_match ( "/^[0-9]{4}(\/|-|.)(0[1-9]|1[0-2])(\/|-|.)(0[1-9]|[1-2][0-9]|3[0-1])$/", $article->date )) {
-		echo substr ( $article->date, 8, 2 ) . " " . MoisEnLettres(substr ( $article->date, 5, 2 )) . " " . substr ( $article->date, 0, 4 );
-	}
-
+	echo "<p>" . AUTHOR . $article->auteur;
+	echo DATE.$article->date;
 	echo RUBRIC;
-
-	echo "<a href='index.php?page=categories&id=" . $data ['id_cat'] . "'>" . get_category_name ( $pdo2, $article->categorie ) . "</a>";
-
+	echo "<a href='index.php?page=categories&id=" . $article->categorie . "'>" . get_category_name ( $pdo2, $article->categorie ) . "</a>";
+	
 	?>
 
 	</div>
@@ -103,54 +93,68 @@ while ( $data = $resultat->fetch () ) {
 
 	echo "<p>";
 
-	echo "<a href='pdf.php?page=categories&ref=" . $data ['ref'] . "'><i class='far fa-file-pdf fa-2x'></i></a>&nbsp;&nbsp;";
-	echo "<a href='print.php?ref=" . $data ['ref'] . "'><i class='fas fa-print fa-2x'></i></a>&nbsp;&nbsp;";
-	echo "<a href='send.php?ref=" . $data ['ref'] . "'><i class='fas fa-envelope-square fa-2x'></i></a>&nbsp;&nbsp;";
+	echo "<a href='pdf.php?page=categories&id=" . $article->ref . "'><i class='far fa-file-pdf fa-2x'></i></a>&nbsp;&nbsp;";
+	echo "<a href='print.php?id=" . $article->ref . "'><i class='fas fa-print fa-2x'></i></a>&nbsp;&nbsp;";
+	echo "<a href='#'><i class='fas fa-envelope-square fa-2x'></i></a>&nbsp;&nbsp;";
 
 	echo "</p>";
+
 	?>
 	
 	</div>
 </div>
-	
+
 <div class="row">
 	<div class="col-md-12">
-	
+		
 	<?php
-	
+
 	/* Contenu de l'article */
 
 	echo "<p>" . $article->contenu . "</p>";
-}
 
-?>
-
-
+	?>
+	
 	</div>
 </div>
 
-<div class="col-md-12">
+<div id="commentaires" class="col-md-12">
 
 <?php
 
 /* affichage des comm's */
 
-$resultat = $pdo2->query ( "SELECT * FROM commentaires WHERE id_article='$id_article' ORDER BY date_com DESC" );
+/* TODO : peut-être que je peux récupérer les comms dans un tableau au début de la page */
+/* et afficher le tableau ici */
 
-while ( $data = $resultat->fetch () ) {
-	echo "<div class='well well-lg'>";
-	echo "<strong>Le " . date ( "Y-m-d", strtotime ( $data ['date_com'] ) ) . " " . $data ['nom_auteur'] . " a dit: </strong><br /><br />";
-	echo "<p>" . $data ['contenu'] . "</p>";
-	echo "</div>";
-}
+$resultat = $pdo2->query ( "SELECT * FROM commentaires WHERE id_article='$article->ref' ORDER BY date_com DESC" );
 
+while ( $data = $resultat->fetch () ) 
+{	
 ?>
 
+<div class='card card-alert'>
+	<div class="card-header">
+		<?php 	
+		$DateTemp = date ( "Y-m-d", strtotime ( $data ['date_com'] ) );
+		$DateCommentaire = explode("-" , $DateTemp);
+			
+		echo  $data ['nom_auteur'].  COMMENTS .$DateCommentaire[2]." ". MoisEnLettres($DateCommentaire[1])." ". $DateCommentaire[0];
+			
+		?>
+	</div>	
+	<div class="card-body">
+		<?php echo $data ['contenu']; ?>
+	</div>
 </div>
+	
+<?php } ?> 
+	
+</div>	
 
 <div class="col-md-6 col-xs-12 col-sm-6">
 
-	<form action="index.php?page=see_comments&id=<?php echo $id_article; ?>" method="POST" class="form-vertical">
+	<form action="index.php?page=article&id=<?php echo $article->ref; ?>" method="POST" class="form-vertical">
 
 		<div class="form-group">
 			<label for="pseudo">Pseudo</label> <input id="pseudo" type="text" name="pseudo" class="form-control" />

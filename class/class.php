@@ -17,8 +17,7 @@ class pages {
 				"categories",
 				"contact",
 				"error",
-				"search",
-				"see_comments"
+				"search"
 		);
 
 		if (in_array ( $this->nom, $rubrique )) {

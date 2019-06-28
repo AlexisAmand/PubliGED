@@ -1,6 +1,7 @@
 <!-- MODULE QUI AFFICHE LA LISTE DES CATEGORIES -->
 
 <?php
+
 $req_intro = "SELECT * FROM articles GROUP BY id_cat";
 $resultat = $pdo2->prepare ( $req_intro );
 $resultat->execute ();

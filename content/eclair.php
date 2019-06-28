@@ -9,6 +9,7 @@
 <h3><?php echo TITRE_RUB_10; ?></h3>
 
 <?php 
+
 $sql = "SELECT * FROM individus I, evenements E, lieux L WHERE I.ref = E.n_indi AND E.lieu = L.ref";
 $req2 = $pdo2->query ($sql );
 

@@ -16,7 +16,7 @@ while ( $row = $req->fetch () )
 
 <div class="row">
 	<div class="col-md-12">
-		<?php echo "<h3><a href='index.php?page=see_comments&id=".$row['ref']."'>" . html_entity_decode ( $row ['titre'] ) . "</a></h3>"; ?>
+		<?php echo "<h3><a href='index.php?page=article&id=".$row['ref']."'>" . html_entity_decode ( $row ['titre'] ) . "</a></h3>"; ?>
 	</div>
 </div>
 
@@ -82,7 +82,7 @@ while ( $row = $req->fetch () )
 		/* Contenu de l'article */
 
 		echo $row ['article'];
-		echo "<div id='commentaires'><a href='index.php?page=see_comments&id=" . $row ['ref'] . "'>[" . SEECOMS . "] (" . $res_comms->rowCount () . ")</a></div>";
+		echo "<div id='commentaires'><a href='index.php?page=article&id=" . $row ['ref'] . "'>[" . SEECOMS . "] (" . $res_comms->rowCount () . ")</a></div>";
 		
 	}
 

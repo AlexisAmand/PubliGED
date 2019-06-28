@@ -16,7 +16,7 @@ $resultat->execute ();
 echo "<ul class='list-group'>";
 
 while ( $data = $resultat->fetch () ) {
-	echo "<li class='list-group-item'><a href='index.php?page=see_comments&id=" . $data ['ref'] . "'>" . html_entity_decode ( $data ['titre'] ) . "</a></li>";
+	echo "<li class='list-group-item'><a href='index.php?page=article&id=" . $data ['ref'] . "'>" . html_entity_decode ( $data ['titre'] ) . "</a></li>";
 }
 
 echo "</ul>";
