@@ -48,7 +48,9 @@
 		$req = $pdo2->prepare ( $req_eve );
 		$req->execute ();
 		
-		echo "<table class='table table-bordered'>";
+		echo '<div class="table-responsive">';
+		
+		echo "<table class='table table-bordered' id ='dataTable'>";
 		echo "<thead>";
 		echo "<tr><th>".EVEDATE."</th>";
 		echo "<th>".EVELIEU."</th>";
@@ -56,6 +58,16 @@
 		echo "<th>".EVESOURCE."</th>";
 		echo "<th>".EVENOTE."</th>";
 		echo "</tr></thead>";
+		
+		echo "<tfoot>";
+		echo "<tr><th>".EVEDATE."</th>";
+		echo "<th>".EVELIEU."</th>";
+		echo "<th>".EVETYPE."</th>";
+		echo "<th>".EVESOURCE."</th>";
+		echo "<th>".EVENOTE."</th>";
+		echo "</tr></tfoot>";
+		
+		echo '<tbody>';
 		
 		while ( $data = $req->fetch () ) 
 		   {
@@ -68,7 +80,11 @@
 		   echo "</tr>";	
 		   }
 		
+		echo '</tbody>';
+		   
 		echo "</table>";
+		
+		echo "</div>";
 		}
 	else
 		{
