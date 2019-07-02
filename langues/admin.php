@@ -6,7 +6,7 @@ define ("DASHBOARD", "Tableau de bord");
 /* Titres des pages */
 /* ---------------- */
 
-define ("ASIDE_ADMIN_0", "PubliGED<br />Administration" );
+define ("ASIDE_ADMIN_0", "PubliGED Administration" );
 
 
 define ("ASIDE_ADMIN_1", "Blog" );

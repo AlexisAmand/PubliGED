@@ -1,4 +1,8 @@
 <?php
+
+/* basé sur le template SB Admin 2 for Bootstrap 3 */
+/* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
+
 require ('../content/fonctions.php');
 include ('../config.php');
 include('../langues/admin.php');

@@ -1,4 +1,8 @@
 <?php
+
+/* basé sur le template SB Admin 2 for Bootstrap 3 */
+/* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
+
 require ('../content/fonctions.php');
 include ('../config.php');
 include('../langues/admin.php');
@@ -16,7 +20,7 @@ include('../langues/admin.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><?php echo ADM_RUB_TITRE_0; ?></title>
+  <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_0; ?></title>
 
   <!-- Font Awesome 5.9.0 -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
