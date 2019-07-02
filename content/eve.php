@@ -34,10 +34,10 @@
 					
 					echo "<td>".$row_birt_lieu ['ville'] . "<br />(" . $row_birt_lieu ['dep'] . " - " . $row_birt_lieu ['pays'] . ")</td>";
 		
-					if (empty ( $row_birt ['note'] )) {
+					if (empty ( $row_birt_lieu['note'] )) {
 					} else {
 						echo "<sup>" . $i_note . "</sup>";
-						$note [$i_note] = $row_birt ['note'];
+						$note [$i_note] = $row_birt_lieu ['note'];
 						$i_note = $i_note + 1;
 					}
 				}

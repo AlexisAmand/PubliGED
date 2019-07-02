@@ -1,5 +1,19 @@
 <?php
 
+/* fonction qui récupére le nom d'un auteur en partant de son numéro */
+
+function RecupAuteurArticle($pdo2, $idAuteur) {
+	$res_membres = $pdo2->prepare ( "select * from membres where id=:id" );
+	$res_membres->bindValue ( "id", $idAuteur, PDO::PARAM_INT );
+	$res_membres->execute ();
+	
+	while ( $data_membres = $res_membres->fetch () )
+	{
+		$idAuteur = $data_membres ['login'];
+	}
+	return $idAuteur;
+}
+
 /* fonction qui récupére le titre d'un article à partir de son numéro */
 
 function RecupTitreArticle($pdo2, $a) {

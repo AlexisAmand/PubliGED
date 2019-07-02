@@ -167,8 +167,8 @@ include('../langues/admin.php');
 					{
 						echo "<tr>";
 						echo "<td>" . $data_a ['ref'] . "</td>";
-						echo "<td>" . $data_a ['titre'] . "</td>";
-						echo "<td>" . $data_a ['auteur'] . "</td>";
+						echo "<td>" . $data_a ['titre'] . "</td>";						
+						echo "<td>" . RecupAuteurArticle($pdo, $data_a ['auteur']) . "</td>";					
 						echo "<td>" . get_category_name($pdo, $data_a ['id_cat']) . "</td>";
 						echo '<td> <a href="editer-article.php" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
 						echo '<td> <a href="#" data-toggle="tooltip" data-placement="left" title="Supprimer"><i class="far fa-trash-alt text-danger"></i></a></td>';

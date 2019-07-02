@@ -261,21 +261,7 @@ while ( $a < $i ) {
 
 echo "</table>";
 
-/* ------------------------------------ */
-/* arbre généalogique version Bootstrap */
-/* ------------------------------------ */
 
-echo "<h4>" . FAMILYTREE . " (version Bootstrap)</h4>";
-
-?>
-
-<div class="row">
-
-	<?php include("arbre.php"); ?>
-
-</div>
-
-<?php
 
 /* ------------------------------- */
 /* arbre généalogique version HTML */

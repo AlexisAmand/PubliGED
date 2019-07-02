@@ -48,8 +48,7 @@ if (VerifGedcom ( $pdo2 ) == "1")
 			echo "<td>" . $data2 ['region'] . "</td>";
 			echo "<td>" . $data2 ['pays'] . "</td>";
 			echo "</tr>";
-		}
-		
+		}		
 		?>			
 		</tbody>
 		
