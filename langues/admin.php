@@ -103,6 +103,11 @@ define ('LOGOUT_TEXT','Sélectionnez "Se déconnecter" ci-dessous si vous êtes 
 define ("LOGOUT_OK","Se déconnecter");
 define ("LOGOUT_CANCEL", "Annuler");
 
+/* -------------------------------- */
+/* Pied de page de l'administration */
+/* -------------------------------- */
+
+define ('FOOTER_MESSAGE', "Copyright &copy; PubliGED 2019");
 
 
 
