@@ -37,7 +37,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="ajout-article.php"><?php echo ADM_RUB_TITRE_0; ?></a>
             <a class="collapse-item" href="modif-articles.php"><?php echo ADM_RUB_TITRE_1; ?></a>
-            <a class="collapse-item" href="#"><?php echo ADM_RUB_TITRE_2; ?></a>
+            <a class="collapse-item" href="ajout-cat.php"><?php echo ADM_RUB_TITRE_2; ?></a>
             <a class="collapse-item" href="#"><?php echo ADM_RUB_TITRE_3; ?></a>
           </div>
         </div>

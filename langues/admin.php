@@ -48,6 +48,12 @@ define ("SEND","Enregistrer");
 define ("ADM_ARTICLE_SEND","L'article a bien été enregistré !");
 
 /* -------------------- */
+/* Gestion des articles */
+/* -------------------- */
+
+define ("ADM_CAT_SEND","La nouvelle catégorie a bien été enregistrée !");
+
+/* -------------------- */
 /* Gestion des comms */
 /* -------------------- */
 
