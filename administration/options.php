@@ -1,6 +1,6 @@
 <?php
 
-/* basé sur le template SB Admin 2 for Bootstrap 3 */
+/* basé sur le template SB Admin 2 for Bootstrap 4.0.2 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
 
 require ('fonctions.php');
@@ -130,8 +130,7 @@ include('../langues/admin.php');
 				
 					$stmt->bindParam ( ':nom', $valeur, PDO::PARAM_STR );
 					$stmt->bindParam ( ':valeur', $_POST ['nrpp'], PDO::PARAM_STR );
-					$stmt->execute ();
-				
+					$stmt->execute ();				
                 ?>
             
             	<div class="alert alert-success" role="alert">

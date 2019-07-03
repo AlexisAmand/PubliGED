@@ -1,6 +1,6 @@
 <?php
 
-/* basé sur le template SB Admin 2 for Bootstrap 3 */
+/* basé sur le template SB Admin 2 for Bootstrap 4.0.2 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
 
 require ('../content/fonctions.php');
@@ -128,11 +128,27 @@ include('../langues/admin.php');
 	{
 ?>
 
-<p>Ce formulaire utilise des ressources en ligne</p>
+<p><?php echo ADM_ONLINE_TOOLS; ?></p>
 
+	<?php 
+	$cat = $pdo->query ( "select * from categories" );
+	?>
+	
+	<div class="form-group">
+		<label for="TitreArticle"><?php echo ADM_CAT_LIST; ?></label>
+		<select name='categorie' class="custom-select">
+		<option selected><?php echo ADM_CAT_ROOL; ?></option>
+
+		<?php 
+		while ( $rowcat = $cat->fetch () ) 
+		{
+			echo "<option value='" . $rowcat ['ref'] . "'>" . $rowcat ['nom'] . "</option>";
+		}
+		?>
+		</select>
+	</div>
+	
 <form method="POST" action="ajout-cat.php">
-
-<?php /* TODO: afficher la liste des catégories qui existent déjà dans un SELECT ? */ ?>
 
 	<div class="form-group">
 		<label for="categorie"><?php echo ADM_RUB_TITRE_2; ?></label>

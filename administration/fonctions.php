@@ -1,5 +1,44 @@
 <?php
 
+/* fonction qui récupére les infos de la page à afficher */
+function PageTop($pdo2) {
+	if (isset ( $_GET ['page'] )) {
+		$PageToShow = $_GET ['page'];
+	} else {
+		header ( 'Location: index.php?page=blog' );
+	}
+	
+	/* récupération de la page à afficher */
+	
+	$sql = "select * from pages where nom = :nom";
+	$resultat = $pdo2->prepare ( $sql );
+	$resultat->bindParam ( ':nom', $PageToShow );
+	$resultat->execute ();
+	
+	$nb = $resultat->rowCount ();
+	
+	/* On vérifie si la page demandée existe. Si elle n'existe pas, on redirige vers le blog */
+	
+	if ($nb != 0) {
+		$page = new pages ();
+		
+		while ( $row = $resultat->fetch () ) {
+			$page->nom = $row ['nom'];
+			$page->titre = $row ['titre'];
+			
+			/* TODO: pour la balise meta description */
+			/* il pourrait s'agir d'un champ dans la table article qui serait récupéré */
+			
+			$page->description = $row ['description'];
+			
+			/* rubrique pour le fil d'ariane, entre les deux / */
+		}
+	} else {
+		header ( 'Location: index.php?page=blog' );
+	}
+	
+	return $page;
+}
 /* fonction qui récupére le nom d'un auteur en partant de son numéro */
 
 function RecupAuteurArticle($pdo2, $idAuteur) {

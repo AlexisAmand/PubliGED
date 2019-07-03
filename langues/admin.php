@@ -1,6 +1,7 @@
 <?php
 
 define ("DASHBOARD", "Tableau de bord");
+define ("ADM_ONLINE_TOOLS" , "Ce formulaire utilise des ressources en ligne");
 
 /* ---------------- */
 /* Titres des pages */
@@ -44,14 +45,20 @@ define ( "ADM_ARTICLE_EDIT_CAT", "Catégorie de l'article" );
 define ( "ADM_ARTICLE_CAT_LIST", "Choisir une catégorie");
 define ( "ADM_ARTICLE_EDIT_CONTENT", "Contenu de l'article" );
 
-define ("SEND","Enregistrer");
 define ("ADM_ARTICLE_SEND","L'article a bien été enregistré !");
 
-/* -------------------- */
-/* Gestion des articles */
-/* -------------------- */
+define ("ADM_ARTICLE_MODIF_INTRO", "Cette page vous permet de modifier ou supprimer un article. Pour créer un nouvel article, rendez-vous plutôt sur <a href='ajout-article.php'>cette page</a>.");
+define ("ADM_ARTICLE_ADD_INTRO", "Cette page vous permet de créer un article. Pour modifier ou supprimer un article, rendez-vous plutôt sur <a href='modif-article.php'>cette page</a>.");
+
+define ("ADM_ARTICLE_PUBLISH","Publier");
+
+/* ---------------------- */
+/* Gestion des catégories */
+/* ---------------------- */
 
 define ("ADM_CAT_SEND","La nouvelle catégorie a bien été enregistrée !");
+define ("ADM_CAT_LIST","Liste des catégories existantes");
+define ("ADM_CAT_ROOL","Déroulez pour voir la liste des catégories existantes");
 
 /* -------------------- */
 /* Gestion des comms */
