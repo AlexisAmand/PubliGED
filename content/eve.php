@@ -3,11 +3,11 @@
 	/* -------------------- */
 	/* LISTE DES EVENEMENTS */
 	/* -------------------- */
-	
+
 	?>
   	 	
-  	<h3><?php echo TITRE_RUB_12; ?></h3>
-
+  	<h3><?php echo $GLOBALS['InfoPage']->titre; ?></h3>
+  	
 	<?php
 	
 	if(VerifGedcom($pdo2) == "1")

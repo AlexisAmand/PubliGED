@@ -35,7 +35,8 @@
 	}
 	else 
 	{
-	    echo "<h3>".TITRE_RUB_2."</h3>";
+			
+		echo "<h3>".$GLOBALS['InfoPage']->titre."</h3>";
 	    
 	    $stmt = $pdo2->prepare("SELECT * FROM sources");
 	    $stmt->execute();

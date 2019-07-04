@@ -47,14 +47,14 @@ define ( "TITRE_RUB_11", "Mes ancêtres" );
 
 define ( "TITRE_RUB_12", "Liste des événements" );
 
-define ( "TITRE_RUB_4", "Liste des lieux" );
-define ( "TITRE_RUB_5", "Répartition géographique" );
-define ( "TITRE_RUB_7", "Liste des patronymes par lieux" );
+// define ( "TITRE_RUB_4", "Liste des lieux" );
+// define ( "TITRE_RUB_5", "Répartition géographique" );
+// define ( "TITRE_RUB_7", "Liste des patronymes par lieux" );
 
-define ( "TITRE_RUB_1", "Statistiques" );
-define ( "TITRE_RUB_2", "Les sources" );
-define ( "TITRE_RUB_3", "Les images" );
-define ( "TITRE_RUB_13", "Anniversaires du jour" );
+// define ( "TITRE_RUB_1", "Statistiques" );
+// define ( "TITRE_RUB_2", "Les sources" );
+// define ( "TITRE_RUB_3", "Les images" );
+// define ( "TITRE_RUB_13", "Anniversaires du jour" );
 
 define ( "TITRE_RUB_9", "Fiches individuelles" );
 

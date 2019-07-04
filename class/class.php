@@ -5,6 +5,7 @@ class pages {
 	public $description;
 	public $rubrique;
 	
+
 	public function AfficherContenu($pdo2) {
 		include ('content/' . $this->nom . '.php');
 	}
