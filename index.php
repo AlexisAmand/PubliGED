@@ -5,10 +5,10 @@ include ('config.php');
 include ('langues/fr.php');
 include ('class/class.php');
 
-
-
 $GLOBALS['InfoPage'] = PageTop ($pdo);
 
+var_dump($GLOBALS['InfoPage']);
+var_dump($InfoPage);
 
 require_once 'vendor/autoload.php';
 ?>
@@ -23,20 +23,19 @@ require_once 'vendor/autoload.php';
 
 	<title><?php echo $InfoPage->titre(); ?></title>
 	<meta name="description" content="<?php echo $InfoPage->description; ?>">
-
-	<!-- Bootstrap 4.3.1 -->
-
-	<link href="style/bootstrap/css/bootstrap.perso.css" rel="stylesheet">
-	<script src="style/bootstrap/js/bootstrap.min.js"></script>
 	
-	<!-- Font Awesome Free 5.9.0 -->
-
-	<link href="style/fontawesome/css/all.css" rel="stylesheet">
-
+	<?php /* TODO: Cette CSS sera générée automatiquement en fonction des préférences de l'utilisateur; */ ?>
+		
+	<link href="style/bootstrap/css/bootstrap.perso.css" rel="stylesheet">
+		
 	<!--  style perso -->
 
 	<link href="style/style.css" rel="stylesheet">
 	<link rel="icon" type="image/gif" href="img/icon.jpg" />
+
+	<!-- Bootstrap 4.3.1 -->
+	
+	<script src="style/bootstrap/js/bootstrap.min.js"></script>
 	
 	<!-- Jquery 3.4.1 -->
 
@@ -44,8 +43,6 @@ require_once 'vendor/autoload.php';
 	
 	<!-- librairie datatables 1.10.18 pour tableaux bootstrap 4 -->
 	
-	<link href="js/datatables/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-
   	<script src="js/datatables/datatables/js/jquery.datatables.min.js"></script>
   	<script src="js/datatables/datatables/js/dataTables.bootstrap4.min.js "></script>
 
@@ -55,7 +52,6 @@ require_once 'vendor/autoload.php';
 
 	<!-- OpenStreetMap et Leaflet 1.5.1 -->
 	
-	<link rel="stylesheet" href="js/leaflet/leaflet.css">
 	<script src="js/leaflet/leaflet.js"></script>
 	
 	<!-- TinyMCE 5.0.1 -->
@@ -110,13 +106,13 @@ require_once 'vendor/autoload.php';
 
 		<aside class="col-md-3">
             
-        	<?php $InfoPage->AfficherAside($pdo); ?>
+        	<?php $GLOBALS['InfoPage']->AfficherAside($pdo); ?>
             
         </aside>
 
 		<article class="col-md-9">
     	
-    		<?php $InfoPage->AfficherContenu($pdo); ?>		
+    		<?php $GLOBALS['InfoPage']->AfficherContenu($pdo); ?>		
     	
         </article>
 
@@ -126,7 +122,7 @@ require_once 'vendor/autoload.php';
 
 		<div class="col-md-12 text-center">
     	
-    		<?php $InfoPage->AfficherFooter(); ?>
+    		<?php $GLOBALS['InfoPage']->AfficherFooter(); ?>
                 	        
         </div>
 

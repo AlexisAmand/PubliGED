@@ -6,6 +6,39 @@
 require ('fonctions.php');
 include ('../config.php');
 include('../langues/admin.php');
+
+$traitement  = 0;
+
+if (! empty ( $_POST ['g-aside-1'] )) 
+	{
+	
+	$sql = "SELECT * FROM modules WHERE type='genealogie'";
+	$req = $pdo->query ( $sql );
+
+	/* mise à jour des positions */
+
+	while ( $row = $req->fetch () ) 
+		{
+		$temp = $row ['nomdumodule'];
+
+		$mod = "UPDATE modules SET position ='" . $_POST [$temp] . "' WHERE nomdumodule = '" . $temp . "' AND type='genealogie'";
+		$res = $pdo->prepare ( $mod );
+		$res->execute ();
+		}
+
+	/* mise à jour de visible */
+
+	foreach ( $_POST ['visible'] as $valeur ) 
+		{
+		$mod = "UPDATE modules SET visible ='" . $valeur . "' WHERE nomdumodule = '" . $temp . "' AND type='genealogie'";
+		// echo $mod."<br />";
+		$res = $pdo->prepare ( $mod );
+		$res->execute ();
+		}
+	
+	$traitement = 1;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +52,7 @@ include('../langues/admin.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_4; ?></title>
+  <title><?php echo ASIDE_ADMIN_0." - ".TITRE_RUB_ADMIN_6; ?></title>
 
   <!-- Font Awesome 5.9.0 -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
@@ -32,7 +65,7 @@ include('../langues/admin.php');
   
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-  
+ 
 </head>
 
 <body id="page-top">
@@ -106,31 +139,102 @@ include('../langues/admin.php');
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-        
-        <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_4; ?></h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
-          
-          <!-- DataTales Example -->         
-          <div class="card shadow mb-4">
-               <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_RUB_TITRE_4; ?></h6>
-               </div>
-               <div class="card-body">
-               <div class="form-group">
-               <form action="#" method="post">
+
+		<!-- Page Heading -->
+		<h1 class="h3 mb-2 text-gray-800"><?php echo TITRE_RUB_ADMIN_6; ?></h1>
+
+		<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+
+		<?php 
+		if($traitement == 1)
+			{
+			echo '<div class="alert alert-success" role="alert">Les options ont bien été enregistrées</div>';
+			}
+		?>
+
+		<form method="POST" action="modules_genealogie.php">
+
+		<!-- DataTales Example -->         
+        <div class="card shadow mb-4">
+        	<div class="card-header py-3">
+            	<h6 class="m-0 font-weight-bold text-primary"><?php echo "Gestion des modules"; ?></h6>
+            </div>
+          	<div class="card-body">
+            	<div class="table-responsive">
+
+				<?php
 				
-			   <?php /* TODO: une modale pour la déco, qui demande si pa personne est sûre de vouloir supprimer son gedcom */ ?>
-			   
-			   <input type="submit" name="validerdel" class="btn btn-primary" value="Confirmer la suppression des tables">
-	
-			   </form>  
-			   </div>
-               </div>
-          </div>
-              
-        </div>
-        <!-- /.container-fluid -->
+				$stat = "SELECT * FROM modules WHERE nomdumodule LIKE 'g-aside%'";
+				$res_stat = $pdo->query ( $stat );
+				
+				?>
+
+				<table class="table table-bordered" id="dataTable">
+				<thead>
+					<tr>
+						<th>Nom du module</th>
+						<th>Description</th>
+						<th>Position</th>
+						<th>Visible</th>
+					</tr>
+				</thead>
+				
+				<tfoot>
+					<tr>
+						<th>Nom du module</th>
+						<th>Description</th>
+						<th>Position</th>
+						<th>Visible</th>
+					</tr>
+				</tfoot>
+				
+				<tbody> 
+
+				<?php
+				
+				while ( $data = $res_stat->fetch () ) {
+					echo "<tr>";
+					echo "<td>" . $data ['nomdumodule'] . "</td>";
+					echo "<td>" . $data ['description'] . "</td>";
+				
+					echo '<td><input type="text" value="' . $data ['position'] . '" name="' . $data ['nomdumodule'] . '"></td>';
+				
+					if ($data ['visible'] == 0) {
+						/* si non visible - le name de l'input est $data['nomdumodule']."_chk" */
+						echo '<td><INPUT type="checkbox" name="visible[]" value="0"></td>';
+					} else {
+						/* si visible - le name de l'input est $data['nomdumodule']."_chk" */
+						echo '<td><INPUT type="checkbox" name="visible[]" value="1" checked></td>';
+					}
+				
+					echo "</tr>";
+				}
+				
+				?> 
+
+				</tbody>
+				</table>
+				
+ 			 	</div>
+         	</div>
+         </div>
+                       
+         <div class="card shadow mb-4">
+         	<div class="card-header py-3">
+            	<h6 class="m-0 font-weight-bold text-primary"><?php echo "Titre todo"; ?></h6>
+            </div>
+            
+            <div class="card-body">
+     	    Contenu : Titres et noms des modules 
+            </div>
+         </div> 
+             
+         <input type="submit" class="btn btn-primary" value="Enregistrer">
+
+	     </form>     
+             
+         </div>
+         <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->

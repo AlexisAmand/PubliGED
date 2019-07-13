@@ -75,4 +75,24 @@ while ( $data = $res->fetch () ) {
 
 }
 
+/* --------------------------------------------------------- */
+/* trouver la première lettre du premier nom par ordre alpha */
+/* --------------------------------------------------------- */
+
+$sql = "SELECT * FROM individus GROUP BY surname ORDER BY surname ";
+$resultat = $pdo->prepare ( $sql );
+$resultat->execute();
+
+$i = 0;
+
+while ($row = $resultat->fetch ())
+{
+	var_dump($row);
+	$tabsurname[$i] = $row['surname'];
+	$i++;
+}
+
+$premier = array_shift($tabsurname);
+var_dump($premier);
+echo substr($premier, 0, 1);
 ?>

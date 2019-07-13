@@ -3,12 +3,13 @@
 define ("DASHBOARD", "Tableau de bord");
 define ("ADM_ONLINE_TOOLS" , "Ce formulaire utilise des ressources en ligne");
 
+define ("SEE_SITE","Voir le site");
+
 /* ---------------- */
 /* Titres des pages */
 /* ---------------- */
 
 define ("ASIDE_ADMIN_0", "PubliGED Administration" );
-
 
 define ("ASIDE_ADMIN_1", "Blog" );
 define ("ASIDE_ADMIN_2", "Articles" );
@@ -38,7 +39,10 @@ define ("ADM_ARTICLE_LIST", "Liste des articles");
 define ( "ADM_ARTICLE_TITLE", "Titre" );
 define ( "ADM_ARTICLE_AUTHOR", "Auteur" );
 define ( "ADM_ARTICLE_CAT", "Catégorie" );
-define ( "ADM_ARTICLE_EDIT", "éditer" );
+
+define ( "ADM_ART_EDIT", "Editer" );
+define ( "ADM_ART_SUPPR", "Supprimer" );
+define ( "ADM_ART_PUBLISH", "Publier" );
 
 define ( "ADM_ARTICLE_EDIT_TITLE", "Titre de l'article" );
 define ( "ADM_ARTICLE_EDIT_CAT", "Catégorie de l'article" );
@@ -50,6 +54,7 @@ define ("ADM_ARTICLE_SEND","L'article a bien été enregistré !");
 define ("ADM_ARTICLE_MODIF_INTRO", "Cette page vous permet de modifier ou supprimer un article. Pour créer un nouvel article, rendez-vous plutôt sur <a href='ajout-article.php'>cette page</a>.");
 define ("ADM_ARTICLE_ADD_INTRO", "Cette page vous permet de créer un article. Pour modifier ou supprimer un article, rendez-vous plutôt sur <a href='modif-article.php'>cette page</a>.");
 
+define ("ADM_ARTICLE_SAVE","Enregistrer");
 define ("ADM_ARTICLE_PUBLISH","Publier");
 
 /* ---------------------- */
@@ -59,15 +64,32 @@ define ("ADM_ARTICLE_PUBLISH","Publier");
 define ("ADM_CAT_SEND","La nouvelle catégorie a bien été enregistrée !");
 define ("ADM_CAT_LIST","Liste des catégories existantes");
 define ("ADM_CAT_ROOL","Déroulez pour voir la liste des catégories existantes");
+define ("SEND","Sauvegarder");
 
-/* -------------------- */
+/* ----------------- */
 /* Gestion des comms */
-/* -------------------- */
+/* ----------------- */
 
 define ( "ADM_COMM_TITLE", "Titre" );
 define ( "ADM_COMM_AUTHOR", "Auteur" );
 define ( "ADM_COMM_DATE", "Date" );
 define ( "ADM_COMM_TEXT", "Commentaire" );
+
+define ( "ADM_COMM_EDIT", "Editer" );
+define ( "ADM_COMM_SUPPR", "Supprimer" );
+define ( "ADM_COMM_PUBLISH", "Publier" );
+
+/* --------------- */
+/* Modules du blog */
+/* --------------- */
+
+define ( "TITRE_RUB_ADMIN_5", "Modules du blog" );
+
+/* --------------------- */
+/* Modules de généalogie */
+/* --------------------- */
+
+define ( "TITRE_RUB_ADMIN_6", "Modules généalogie" );
 
 /* ---------------- */
 /* Gestion de la BD */
@@ -77,6 +99,11 @@ define ( "ADM_DB_SUPPR", "Supprimer les tables" );
 define ( "ADM_DB_CREATE", "Créer les tables (?)" ); /* pas sûr */
 define ( "ADM_DB_SIZE", "Taille de la base" );
 
+/* ----------- */
+/* Gestion SEO */
+/* ----------- */
+
+// define ( "ADM_DB_SUPPR", "Supprimer les tables" );
 
 /* ------------------- */
 /* Gestion des options */
@@ -115,10 +142,3 @@ define ("LOGOUT_CANCEL", "Annuler");
 /* -------------------------------- */
 
 define ('FOOTER_MESSAGE', "Copyright &copy; PubliGED 2019");
-
-
-
-
-
-
-

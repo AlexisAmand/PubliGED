@@ -8,7 +8,6 @@
 	
 	$sql = "select * from pages where module = 'g-aside-3'";
 	$resultat = $pdo2->prepare ( $sql );
-	//$resultat->bindParam ( ':module', "g-aside-2" );
 	$resultat->execute ();
 
 	/* On vérifie si la page demandée existe. Si elle n'existe pas, on redirige vers le blog */

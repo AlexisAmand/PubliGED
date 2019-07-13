@@ -1,6 +1,6 @@
 <?php
 
-/* basé sur le template SB Admin 2 for Bootstrap 4.0.2 */
+/* basé sur le template SB Admin 2 for Bootstrap 4 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
 
 require ('../content/fonctions.php');
@@ -68,6 +68,10 @@ include('../langues/admin.php');
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
+          
+          	<li class="nav-item">
+			  <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
+			</li>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
@@ -106,65 +110,65 @@ include('../langues/admin.php');
                  <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_RUB_TITRE_2; ?></h6>
                </div>
                <div class="card-body">
-                  	<?php
+                <?php
 
-	if (! empty ( $_POST ['categorie'] )) {
+				if (! empty ( $_POST ['categorie'] )) {
+			
+					$sqlAjoutArticle = "INSERT INTO categories(nom) values (:p5)";
+			
+					$AjoutArticle = $pdo->prepare ( $sqlAjoutArticle );
+					$AjoutArticle->bindparam ( ':p5', $_POST ['categorie'] );
+			
+					$AjoutArticle->execute ();
+					?>
+					
+					<div class="alert alert-success" role="alert">
+					<?php echo ADM_CAT_SEND; ?>
+					</div>
+					
+					<?php
+				} 
+				else 
+				{
+				?>
 
-		$sqlAjoutArticle = "INSERT INTO categories(nom) values (:p5)";
+				<p><?php echo ADM_ONLINE_TOOLS; ?></p>
 
-		$AjoutArticle = $pdo->prepare ( $sqlAjoutArticle );
-		$AjoutArticle->bindparam ( ':p5', $_POST ['categorie'] );
-
-		$AjoutArticle->execute ();
-		?>
-		
-		<div class="alert alert-success" role="alert">
-		<?php echo ADM_CAT_SEND; ?>
-		</div>
-		
-		<?php
-	} 
-	else 
-	{
-?>
-
-<p><?php echo ADM_ONLINE_TOOLS; ?></p>
-
-	<?php 
-	$cat = $pdo->query ( "select * from categories" );
-	?>
+				<?php
+				$cat = $pdo->query ( "select * from categories" );
+				?>
 	
-	<div class="form-group">
-		<label for="TitreArticle"><?php echo ADM_CAT_LIST; ?></label>
-		<select name='categorie' class="custom-select">
-		<option selected><?php echo ADM_CAT_ROOL; ?></option>
-
-		<?php 
-		while ( $rowcat = $cat->fetch () ) 
-		{
-			echo "<option value='" . $rowcat ['ref'] . "'>" . $rowcat ['nom'] . "</option>";
-		}
-		?>
-		</select>
-	</div>
+				<div class="form-group">
+					<label for="TitreArticle"><?php echo ADM_CAT_LIST; ?></label>
+					<select name='categorie' class="custom-select">
+					<option selected><?php echo ADM_CAT_ROOL; ?></option>
+			
+					<?php 
+					while ( $rowcat = $cat->fetch () ) 
+					{
+						echo "<option value='" . $rowcat ['ref'] . "'>" . $rowcat ['nom'] . "</option>";
+					}
+					?>
+					
+					</select>
+				</div>
 	
-<form method="POST" action="ajout-cat.php">
-
-	<div class="form-group">
-		<label for="categorie"><?php echo ADM_RUB_TITRE_2; ?></label>
-	    <input class="form-control" id="categorie" name='categorie'>
-	</div>
-	
-	<input type="submit" class="btn btn-primary" value="<?php echo SEND; ?>">
-
-</form>
-
- <?php  } ?>
+				<form method="POST" action="ajout-cat.php">
+				
+					<div class="form-group">
+						<label for="categorie"><?php echo ADM_RUB_TITRE_2; ?></label>
+					    <input class="form-control" id="categorie" name='categorie'>
+					</div>
+					
+					<input type="submit" class="btn btn-primary" value="<?php echo SEND; ?>">
+				
+				</form>
+				
+				<?php } ?>
 	
                </div>
           </div>
               
-
         </div>
         <!-- /.container-fluid -->
 

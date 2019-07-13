@@ -1,6 +1,6 @@
 <?php
 
-/* basé sur le template SB Admin 2 for Bootstrap 4.0.2 */
+/* basé sur le template SB Admin 2 for Bootstrap 4 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
 
 require ('fonctions.php');
@@ -101,6 +101,10 @@ include('../langues/admin.php');
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
+          
+          	<li class="nav-item">
+			  <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
+			</li>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
@@ -145,8 +149,7 @@ include('../langues/admin.php');
                </div>
                <div class="card-body">
                  <div class="table-responsive">   	
-                  	
-                  	
+                  	                 	
                 <?php
 
 				$req_comm = "SELECT * FROM commentaires";
@@ -154,8 +157,7 @@ include('../langues/admin.php');
 				$res_comm->execute ();
 				
 				?>     	
-                  	                 	
-                
+                  	                 	          
                 <table class="table table-bordered" id="dataTable">
                   <thead>
                     <tr>
@@ -164,8 +166,9 @@ include('../langues/admin.php');
                       <th><?php echo ADM_COMM_AUTHOR; ?></th>
                       <th><?php echo ADM_COMM_TITLE; ?></th>
                       <th><?php echo ADM_COMM_TEXT; ?></th>
-                      <th></th>
-                      <th></th>
+                      <th style="width: 3.5em;"><?php echo ADM_COMM_EDIT; ?></th>
+                      <th style="width: 3.5em;"><?php echo ADM_COMM_SUPPR; ?></th>
+                      <th style="width: 3.5em;"><?php echo ADM_COMM_PUBLISH; ?></th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -175,8 +178,9 @@ include('../langues/admin.php');
                       <th><?php echo ADM_COMM_AUTHOR; ?></th>
                       <th><?php echo ADM_COMM_TITLE; ?></th>
                       <th><?php echo ADM_COMM_TEXT; ?></th>
-                      <th></th>
-                      <th></th>
+                      <th style="width: 3.5em;"><?php echo ADM_COMM_EDIT; ?></th>
+                      <th style="width: 3.5em;"><?php echo ADM_COMM_SUPPR; ?></th>
+                      <th style="width: 3.5em;"><?php echo ADM_COMM_PUBLISH; ?></th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -191,8 +195,15 @@ include('../langues/admin.php');
 						echo "<a href='index.php?page=article&id=".$data_comm ['id_article']."'>".RecupTitreArticle ( $pdo, $data_comm ['id_article'] )."</a>"; 
 						echo "</td>";
 						echo "<td>" . substr($data_comm ['contenu'], 0, 150)."...</td>";						
-						echo '<td> <a href="#" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
-						echo '<td> <a href="#" data-toggle="tooltip" data-placement="left" title="Supprimer"><i class="far fa-trash-alt text-danger"></i></a></td>';
+						echo '<td class="text-center"> <a href="#" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
+						echo '<td class="text-center"> <a href="#" data-toggle="tooltip" data-placement="left" title="Supprimer"><i class="far fa-trash-alt text-danger"></i></a></td>';
+						
+						/* TODO : ajouter une colonne qui permet de publier ou dépublier un commentaire
+						 * via un booleen dans la table des commentaires. L'icone change en fonction du ppublié ou non
+						 * il se peut que l'on veuille ne pas publier un article, mais vouloir le garder
+						 */
+						
+						echo '<td class="text-center"> <a href="#" data-toggle="tooltip" data-placement="left" title="Publier"><i class="far fa-star text-warning"></i></a></td>';
 						echo "</tr>";
                     } 
 					?>

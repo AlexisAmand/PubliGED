@@ -79,8 +79,8 @@ define ( "TITRE_RUB_ADMIN_8", "Création des tables" );
 define ( "TITRE_RUB_ADMIN_13", "Données de démos" );
 define ( "TITRE_RUB_ADMIN_9", "Taille de la base de données" );
 
-define ( "TITRE_RUB_ADMIN_5", "Modules du blog" );
-define ( "TITRE_RUB_ADMIN_6", "Modules généalogie" );
+// define ( "TITRE_RUB_ADMIN_5", "Modules du blog" );
+// define ( "TITRE_RUB_ADMIN_6", "Modules généalogie" );
 define ( "TITRE_RUB_ADMIN_7", "Options" );
 define ( "TITRE_RUB_ADMIN_11", "Metas" );
 

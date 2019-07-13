@@ -6,6 +6,7 @@
 require ('fonctions.php');
 include ('../config.php');
 include('../langues/admin.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +20,7 @@ include('../langues/admin.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_4; ?></title>
+  <title><?php echo ASIDE_ADMIN_0." - ".ASIDE_ADMIN_10; ?></title>
 
   <!-- Font Awesome 5.9.0 -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
@@ -32,7 +33,7 @@ include('../langues/admin.php');
   
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-  
+ 
 </head>
 
 <body id="page-top">
@@ -106,31 +107,25 @@ include('../langues/admin.php');
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-        
-        <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_4; ?></h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
-          
-          <!-- DataTales Example -->         
-          <div class="card shadow mb-4">
-               <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_RUB_TITRE_4; ?></h6>
-               </div>
-               <div class="card-body">
-               <div class="form-group">
-               <form action="#" method="post">
-				
-			   <?php /* TODO: une modale pour la déco, qui demande si pa personne est sûre de vouloir supprimer son gedcom */ ?>
-			   
-			   <input type="submit" name="validerdel" class="btn btn-primary" value="Confirmer la suppression des tables">
-	
-			   </form>  
-			   </div>
-               </div>
-          </div>
-              
-        </div>
-        <!-- /.container-fluid -->
+
+		<!-- Page Heading -->
+		<h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_10; ?></h1>
+
+		<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>                   
+         <div class="card shadow mb-4">
+         	<div class="card-header py-3">
+            	<h6 class="m-0 font-weight-bold text-primary"><?php echo "Titre todo"; ?></h6>
+            </div>
+            
+            <div class="card-body">
+     	    Contenu : Titres et noms des modules 
+            </div>
+         </div> 
+             
+         <input type="submit" class="btn btn-primary" value="Enregistrer">
+
+         </div>
+         <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->

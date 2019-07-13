@@ -7,8 +7,6 @@
 
 <?php
 
-/* TODO : choix du nombre de "derniers articles" dans le module du blog */
-
 $req_intro = "SELECT * FROM articles ORDER BY date DESC limit 0,5";
 $resultat = $pdo2->prepare ( $req_intro );
 $resultat->execute ();

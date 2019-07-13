@@ -18,7 +18,6 @@ echo "<ul class='list-group'>";
 
 while ( $data = $resultat->fetch () ) {
 	echo "<li class='list-group-item d-flex justify-content-between align-items-center'>";
-	// get_category_name ( $pdo, $data ['id_cat'] );
 
 	echo "<a href='index.php?page=categories&id=" . $data ['id_cat'] . "'>" . get_category_name ( $pdo2, $data ['id_cat'] ) . "</a>";
 

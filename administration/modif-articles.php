@@ -1,6 +1,6 @@
 <?php
 
-/* basé sur le template SB Admin 2 for Bootstrap 4.0.2 */
+/* basé sur le template SB Admin 2 for Bootstrap 4 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
 
 require ('fonctions.php');
@@ -70,6 +70,10 @@ include('../langues/admin.php');
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
+          
+         	<li class="nav-item">
+			  <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
+			</li>
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
@@ -125,7 +129,7 @@ include('../langues/admin.php');
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_1; ?></h1>
-          <p class="mb-4"><?php echo ADM_ARTICLE_INTRO; ?></p>
+          <p class="mb-4"><?php echo ADM_ARTICLE_MODIF_INTRO; ?></p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -150,8 +154,9 @@ include('../langues/admin.php');
                       <th><?php echo ADM_ARTICLE_TITLE; ?></th>
                       <th><?php echo ADM_ARTICLE_AUTHOR; ?></th>
                       <th><?php echo ADM_ARTICLE_CAT; ?></th>
-                      <th style="width: 3.5em;"></th>
-                      <th style="width: 3.5em;"></th>
+                      <th style="width: 3.5em;"><?php echo ADM_ART_EDIT; ?></th>
+                      <th style="width: 3.5em;"><?php echo ADM_ART_SUPPR; ?></th>
+                      <th style="width: 3.5em;"><?php echo ADM_ART_PUBLISH; ?></th>
                     </tr>
                   </thead>
                  
@@ -161,8 +166,9 @@ include('../langues/admin.php');
                       <th><?php echo ADM_ARTICLE_TITLE; ?></th>
                       <th><?php echo ADM_ARTICLE_AUTHOR; ?></th>
                       <th><?php echo ADM_ARTICLE_CAT; ?></th>
-                      <th style="width: 3.5em;"></th>
-                      <th style="width: 3.5em;"></th>
+                      <th style="width: 3.5em;"><?php echo ADM_ART_EDIT; ?></th>
+                      <th style="width: 3.5em;"><?php echo ADM_ART_SUPPR; ?></th>
+                      <th style="width: 3.5em;"><?php echo ADM_ART_PUBLISH; ?></th>
                     </tr>
                   </tfoot>  
                   <tbody>
@@ -176,13 +182,14 @@ include('../langues/admin.php');
 						echo "<td>" . $data_a ['titre'] . "</td>";						
 						echo "<td>" . RecupAuteurArticle($pdo, $data_a ['auteur']) . "</td>";					
 						echo "<td>" . get_category_name($pdo, $data_a ['id_cat']) . "</td>";
-						echo '<td> <a href="editer-article.php" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
-						echo '<td> <a href="#" data-toggle="tooltip" data-placement="left" title="Supprimer"><i class="far fa-trash-alt text-danger"></i></a></td>';
+						echo '<td class="text-center"><a href="editer-article.php" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
+						echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Supprimer"><i class="far fa-trash-alt text-danger"></i></a></td>';
 					
 						/* TODO : ajouter une colonne qui permet de publier ou dépublier un article
 						 * via un booleen dans la table des articles. L'icone change en fonction du ppublié ou non
 					 	*/
 					
+						echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Publier"><i class="far fa-star text-warning"></i></a></td>';
 						echo "</tr>";					
 					}
 

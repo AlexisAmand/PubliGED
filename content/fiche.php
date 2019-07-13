@@ -275,6 +275,19 @@ include("arbre-ancien.php");
 
 echo "</div>";
 
+/* ------------------------------------ */
+/* arbre généalogique version Bootstrap */
+/* ------------------------------------ */
+
+echo "<h4>" . FAMILYTREE . " (version BT)</h4>";
+
+echo "<div class='row'>";
+
+include("arbre.php");
+
+echo "</div>";
+
+
 
 /* ----- */
 /* notes */

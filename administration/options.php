@@ -1,11 +1,12 @@
 <?php
 
-/* basé sur le template SB Admin 2 for Bootstrap 4.0.2 */
+/* basé sur le template SB Admin 2 for Bootstrap 4 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
 
 require ('fonctions.php');
 include ('../config.php');
 include('../langues/admin.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +71,11 @@ include('../langues/admin.php');
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
+          	
+          	<li class="nav-item">
+			  <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
+			</li>
+          
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -114,49 +119,29 @@ include('../langues/admin.php');
                </div>
                <div class="card-body">
                
-               <?php 
-               if (isset ( $_POST ['top'] ) and isset ( $_POST ['nrpp'] )) 
-               {
-
-					$valeur = "top";
-				
-					$stmt = $pdo->prepare ( "UPDATE configuration SET valeur = :valeur WHERE nom=:nom" );
-				
-					$stmt->bindParam ( ':nom', $valeur, PDO::PARAM_STR );
-					$stmt->bindParam ( ':valeur', $_POST ['top'], PDO::PARAM_STR );
-					$stmt->execute ();
-				
-					$valeur = "nrpp";
-				
-					$stmt->bindParam ( ':nom', $valeur, PDO::PARAM_STR );
-					$stmt->bindParam ( ':valeur', $_POST ['nrpp'], PDO::PARAM_STR );
-					$stmt->execute ();				
-                ?>
-            
-            	<div class="alert alert-success" role="alert">
-				<?php echo "Les options ont bien été enregistrées"; ?>
-				</div>
-		            
-		        <?php
-				} 
-				else 
-				{
-				?>
+               
                            
                <div class="form-group">
-               <form method="POST" action="options.php">
+               <form method="POST" action="save-options.php">
 			
 				<div class="form-check">
-				  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+				  <input class="form-check-input" type="checkbox" value="ActivBlog" id="defaultCheck1" name="tabOptions[]">
 				  <label class="form-check-label" for="defaultCheck1">
 				    <?php echo ADM_ST_ACT1; ?>
 				  </label>
 				</div>	
 					
 				<div class="form-check">
-				  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-				  <label class="form-check-label" for="defaultCheck1">
+				  <input class="form-check-input" type="checkbox" value="ActivGene" id="defaultCheck2" name="tabOptions[]">
+				  <label class="form-check-label" for="defaultCheck2">
 				    <?php echo ADM_ST_ACT2; ?>
+				  </label>
+				</div>
+				
+				<div class="form-check">
+				  <input class="form-check-input" type="checkbox" value="ActivContact" id="defaultCheck3" name="tabOptions[]">
+				  <label class="form-check-label" for="defaultCheck3">
+				    <?php echo "Activation de la page contact"; ?>
 				  </label>
 				</div>
 	
@@ -171,13 +156,11 @@ include('../langues/admin.php');
                <div class="card-body">
                <div class="form-group">        
                	 <?php /* TODO : 
-               	 		- Récupérer la valeur des options dans les tables
+               	 		- Récupérer la valeur de "value" dans les options dans les tables
                	 		- faire une vérification pour que les valeurs soit bien des nombres
                	 		- peut-être qu'il faut un min et un max ? 
                	 	   */
-               	 ?>
-	             <label><?php echo ADM_ST_PAGE; ?></label> 
-	          	 <input type="text" value="12" name="nrpp">       	   
+               	 ?>    	   
 	          	 <label><?php echo ADM_ST_TOP; ?></label>
 	          	 <input type="text" value="10" name="top">	
 			   </div>
@@ -192,7 +175,7 @@ include('../langues/admin.php');
                <div class="form-group">
        
 			   <div class="form-check">
-			      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+			      <input class="form-check-input" type="checkbox" value="ActivComm" id="defaultCheck1" name="tabOptions[]">
 				  <label class="form-check-label" for="defaultCheck1">
 				    <?php echo ADM_ST_ACT3; ?>
 				  </label>
@@ -203,9 +186,7 @@ include('../langues/admin.php');
 			<input type="submit" class="btn btn-primary" value="<?php echo ADM_ST_SEND; ?>">
 
 		</form>
-		
-		 <?php  } ?>
-			   
+		   
         </div>
         <!-- /.container-fluid -->
 
