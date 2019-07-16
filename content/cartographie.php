@@ -24,9 +24,9 @@ $req2 = $pdo2->query ( "select * from lieux, villes_france WHERE lieux.ville LIK
 
 while ( $data = $req2->fetch ( PDO::FETCH_ASSOC ) ) 
 	{
-	echo "var mymap = L.map('mapid').setView([" . $data ['latitude'] . ", " . $data ['longitude'] . "], 5);";
+	echo "var mymap = L.map('mapid').setView([" . $data ['latitude'] . ", " . $data ['longitude'] . "], 5);";	
 	}
-
+	
 ?>
 	
 // var mymap = L.map('mapid').setView([50.3001, 3.3542], 5);
