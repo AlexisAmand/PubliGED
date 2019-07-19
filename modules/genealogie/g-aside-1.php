@@ -6,5 +6,3 @@
 		<li class="list-group-item"><a href="index.php?page=blog"><?php echo TITRE_RUB_0; ?></a></li>
 	</ul>
 </div>
-
-<br />

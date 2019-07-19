@@ -4,7 +4,6 @@
 	<div class="card-header"><?php echo ASIDE_4 ?></div>
 	<ul class="list-group">
 		<li class="list-group-item"><a href="index.php?page=patro"><?php echo TITRE_RUB_6; ?></a></li>
-		<li class="list-group-item"><a href="index.php?page=liste_individu&l=A"><?php echo TITRE_RUB_8; ?></a></li>
 			
 		<?php 	
 		$resultat = $pdo2->prepare("select substring(surname from 1 for 1) from individus order by surname LIMIT 1");
@@ -17,7 +16,3 @@
 		<li class="list-group-item"><a href="index.php?page=sosa"><?php echo TITRE_RUB_11; ?></a></li>
 	</ul>
 </div>
-
-<?php // TODO : border sous le module ? ?>
-
-<br />
