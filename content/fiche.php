@@ -242,7 +242,17 @@ echo "<h4>" . CHRONO . "</h4>";
 $a = 1;
 
 if ($nb_eve != 0) {
-	hautdutableau ();
+	echo "<table class='table table-bordered'>";
+	echo "<thead>";
+	echo "<tr>";
+	echo "<th>Nom</th>";
+	echo "<th>Date</th>";
+	echo "<th>Lieu</th>";
+	echo "<th>Source</th>";
+	echo "<th>Type</th>";
+	echo "<th>Note</th>";
+	echo "</tr>";
+	echo "</thead>"; 
 } else {
 	echo NOEVENT;
 }

@@ -62,6 +62,7 @@
 			
 		/* parametres pagination */
 		
+		
 		$NombreResultatsParPage = recup_page($pdo2);
 		
 		if (isset($_GET['id']))

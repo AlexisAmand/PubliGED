@@ -1,1 +1,0 @@
-ErrorDocument 404 http://www.genealexis.fr/divers/plan_du_site.php

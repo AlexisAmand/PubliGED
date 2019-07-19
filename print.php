@@ -4,7 +4,6 @@ include ('config.php');
 // include ('include/langue.php');
 include ('langues/fr.php');
 include ('class/class.php');
-
 ?>
 
 <!DOCTYPE html>

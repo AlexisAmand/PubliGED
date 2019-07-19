@@ -7,9 +7,6 @@ include ('class/class.php');
 
 $GLOBALS['InfoPage'] = PageTop ($pdo);
 
-var_dump($GLOBALS['InfoPage']);
-var_dump($InfoPage);
-
 require_once 'vendor/autoload.php';
 ?>
 

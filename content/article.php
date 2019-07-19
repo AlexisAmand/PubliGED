@@ -33,6 +33,7 @@ if (! empty ( $_POST ['pseudo'] ) and ! empty ( $_POST ['email'] ) /* and !empty
 /* Récupération de l'article */
 
 $article = new articles ();
+$commentaire = new commentaires();
 
 $article->ref = $_GET ['id'];
 
@@ -65,116 +66,7 @@ if (preg_match ( "/^[0-9]{4}(\/|-|.)(0[1-9]|1[0-2])(\/|-|.)(0[1-9]|[1-2][0-9]|3[
 	$article->date = substr ( $article->date, 8, 2 ) . " " . MoisEnLettres(substr ( $article->date, 5, 2 )) . " " . substr ( $article->date, 0, 4 );
 }
 
+$article->Afficher($pdo2);
+$commentaire->AfficheCommentaire($article->ref, $pdo2);
+
 ?>
-
-<div class="row">
-	<div class="col-md-12">
-			<?php echo "<h3><a href='index.php?page=article&id=".$article->ref."'>" . html_entity_decode ($article->titre) . "</a></h3>"; ?>
-		</div>
-</div>
-
-<div class="row">
-	<div class="col-md-8">
-	<?php
-
-	echo "<p>" . AUTHOR . $article->auteur;
-	echo DATE.$article->date;
-	echo RUBRIC;
-	echo "<a href='index.php?page=categories&id=" . $article->categorie . "'>" . get_category_name ( $pdo2, $article->categorie ) . "</a>";
-	
-	?>
-
-	</div>
-	<div class="col-md-2 offset-md-2">
-	
-	<?php
-
-	/* affichage des boutons d'export : pdf, mail, print */
-
-	echo "<p>";
-
-	echo "<a href='pdf.php?page=categories&id=" . $article->ref . "'><i class='far fa-file-pdf fa-2x'></i></a>&nbsp;&nbsp;";
-	echo "<a href='print.php?id=" . $article->ref . "'><i class='fas fa-print fa-2x'></i></a>&nbsp;&nbsp;";
-	echo "<a href='#'><i class='fas fa-envelope-square fa-2x'></i></a>&nbsp;&nbsp;";
-
-	echo "</p>";
-
-	?>
-	
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-md-12">
-		
-	<?php
-
-	/* Contenu de l'article */
-
-	echo "<p>" . $article->contenu . "</p>";
-
-	?>
-	
-	</div>
-</div>
-
-<div id="commentaires" class="col-md-12">
-
-<?php
-
-/* affichage des comm's */
-
-/* TODO : peut-être que je peux récupérer les comms dans un tableau au début de la page */
-/* et afficher le tableau ici */
-
-$resultat = $pdo2->query ( "SELECT * FROM commentaires WHERE id_article='$article->ref' ORDER BY date_com DESC" );
-
-while ( $data = $resultat->fetch () ) 
-{	
-?>
-
-<div class='card card-alert'>
-	<div class="card-header">
-		<?php 	
-		$DateTemp = date ( "Y-m-d", strtotime ( $data ['date_com'] ) );
-		$DateCommentaire = explode("-" , $DateTemp);
-			
-		echo  $data ['nom_auteur'].  COMMENTS .$DateCommentaire[2]." ". MoisEnLettres($DateCommentaire[1])." ". $DateCommentaire[0];
-			
-		?>
-	</div>	
-	<div class="card-body">
-		<?php echo $data ['contenu']; ?>
-	</div>
-</div>
-	
-<?php } ?> 
-	
-</div>	
-
-<div class="col-md-6 col-xs-12 col-sm-6">
-
-	<form action="index.php?page=article&id=<?php echo $article->ref; ?>" method="POST" class="form-vertical">
-
-		<div class="form-group">
-			<label for="pseudo">Pseudo</label> <input id="pseudo" type="text" name="pseudo" class="form-control" />
-		</div>
-
-		<div class="form-group">
-			<label for="site">Site (ou blog)</label> <input id="site" type="text" name="site" class="form-control" />
-		</div>
-
-		<div class="form-group">
-			<label for="email">Email</label> <input id="email" type="text" name="email" class="form-control" />
-		</div>
-
-		<div class="form-group">
-			<label for="email">Commentaire</label>
-			<textarea id="commentaire" name="message" class="form-control"></textarea>
-		</div>
-
-		<input type="submit" class="btn btn-default">
-
-	</form>
-
-</div>

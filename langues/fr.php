@@ -367,4 +367,10 @@ define ( "CONTACT_WARNING", "Tous les champs sont obligatoires");
 define ("SEND_SUCCESS", "Votre message a bien été envoyé !");
 define ("SEND_FAIL", "Votre message n'a pas pu être envoyé !");
 
+/* ----------- */
+/* PAGE ERREUR */
+/* ----------- */
+
+define ( "ERROR_404", "Erreur 404" );
+
 ?>

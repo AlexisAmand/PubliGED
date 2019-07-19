@@ -16,8 +16,7 @@
 		{
 		echo '<li class="list-group-item"><a href="index.php?page='.$row['nom'].'">'.$row['titre'].'</a></li>';
 		}
-	
-	
+		
 	?>
 	
 	</ul>

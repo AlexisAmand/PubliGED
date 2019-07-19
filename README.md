@@ -1,4 +1,4 @@
-PubliGED est ce que j’appelle un GMS (Genealogy Management System) par analogie avec les CMS, comme Joomla, WordPress ou Spip. Développé essentiellement en PHP et SQL, avec quelques gouttes de CSS et de HTML, PubliGED a pour but de permettre aux généalogistes de publier facilement et rapidement leurs généalogies en utilisant le gedcom, un format de fichier commun à la plupart des logiciels de généalogie.
+jQuery et librairies JavascriptPubliGED est ce que j’appelle un GMS (Genealogy Management System) par analogie avec les CMS, comme Joomla, WordPress ou Spip. Développé essentiellement en PHP et SQL, avec quelques gouttes de CSS et de HTML, PubliGED a pour but de permettre aux généalogistes de publier facilement et rapidement leurs généalogies en utilisant le gedcom, un format de fichier commun à la plupart des logiciels de généalogie.
 
 PubliGED a deux grandes fonctionnalités :
 -----------------------------------------
@@ -38,7 +38,7 @@ Obtenues via https://packagist.org
 - egulias/EmailValidator 2.1.9 
 - mpdf/mpdf 7.1.9
 
-Librairies jQuery ou Javascript
+jQuery et librairies Javascript
 -------------------------------
 
 - Datatables 1.10.18
