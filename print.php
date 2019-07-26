@@ -1,8 +1,7 @@
 <?php
 require ('content/fonctions.php');
 include ('config.php');
-// include ('include/langue.php');
-include ('langues/fr.php');
+include ('include/langue.php');
 include ('class/class.php');
 ?>
 
