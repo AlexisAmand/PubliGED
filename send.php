@@ -24,17 +24,17 @@ if (file_exists ( $filename )) {
 
 /* Génération du pdf de l'article */
 
-$req = "select * from articles where ref='" . $_GET ['id'] . "'";
-$res = $pdo->prepare ( $req );
-$res->execute ();
+$sqlArticle = "select * from articles where ref='".$_GET['id']."'";
+$reqArticle = $pdo->prepare($sqlArticle);
+$reqArticle->execute();
 
-while ( $data = $res->fetch () ) {
-	$mpdf = new \Mpdf\Mpdf ();
-	$stylesheet = file_get_contents ( 'style/style.css' );
-	$mpdf->WriteHTML ( $stylesheet, 1 );
-	$mpdf->WriteHTML ( "<h1>" . $data ['titre'] . "</h1>" . $data ['article'], 2 );
+while ($data = $reqArticle->fetch()) {
+	$mpdf = new \Mpdf\Mpdf();
+	$stylesheet = file_get_contents ('style/style.css');
+	$mpdf->WriteHTML ($stylesheet, 1 );
+	$mpdf->WriteHTML ("<h1>".$data['titre']."</h1>".$data ['article'], 2);
 
-	$mpdf->Output ( $filename );
+	$mpdf->Output ($filename);
 }
 
 /* envoi du pdf par mail avec PHPMailer */
@@ -43,7 +43,7 @@ $mail = new PHPMailer ();
 
 /* TODO : Serveur SMTP */
 
-$mail->isSMTP ();
+$mail->isSMTP();
 $mail->SMTPDebug = 2;
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;

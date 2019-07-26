@@ -5,20 +5,21 @@
 
 	<div class="card-header"><?php echo ASIDE_BLOG_3 ?></div>
 
-<?php
-
-$req_intro = "SELECT * FROM articles ORDER BY date DESC limit 0,5";
-$resultat = $pdo2->prepare ( $req_intro );
-$resultat->execute ();
-
-echo "<ul class='list-group'>";
-
-while ( $data = $resultat->fetch () ) {
-	echo "<li class='list-group-item'><a href='index.php?page=article&id=" . $data ['ref'] . "'>" . html_entity_decode ( $data ['titre'] ) . "</a></li>";
-}
-
-echo "</ul>";
-
-?>    
+	<?php
+	
+	$sqlDerniersArticles = "SELECT * FROM articles ORDER BY date DESC limit 0,5";
+	$reqDerniersArticles = $pdo2->prepare($sqlDerniersArticles);
+	$reqDerniersArticles->execute();
+	
+	echo "<ul class='list-group'>";
+	
+	while ($row = $reqDerniersArticles->fetch()) 
+		{
+		echo "<li class='list-group-item'><a href='index.php?page=article&id=".$row['ref']."'>".html_entity_decode($row['titre'])."</a></li>";
+		}
+	
+	echo "</ul>";
+	
+	?>    
 
 </div>

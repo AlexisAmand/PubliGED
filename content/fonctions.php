@@ -48,7 +48,7 @@ function VerifGedcom($pdo3)
 	$res_verif = $pdo3->prepare($req_verif); 	
 	$res_verif->execute(); 	
 	
-	while($data_verif = $res_verif->fetch()) 
+	while ($data_verif = $res_verif->fetch()) 
 		{ 		
 		return $data_verif['valeur']; 	
 		} 
@@ -152,7 +152,7 @@ function recup_page($pdo2)
 	$req_nrpp = $pdo2->prepare($req_nrpp);
 	$req_nrpp->execute(); 	
 	
-	while(($row = $req_nrpp->fetch( PDO::FETCH_ASSOC )))
+	while (($row = $req_nrpp->fetch( PDO::FETCH_ASSOC )))
 		{ 		
 		$nrpp = $row['valeur'];
 		} 	
@@ -178,7 +178,7 @@ function individu($pdo2, $i)
 	// global $nomcase, $prenomcase; 	
 	$req = $pdo2->query( "select * from individus where ref='{$i}'");
 	
-	while($row = $req->fetch ()) 
+	while ($row = $req->fetch ()) 
 		{ 	
 		$lien = "<a href='index.php?page=fiche&ref=" . $i . "'>" . $row ['prenom'] . " " . $row ['surname'] . "</a>"; 	
 		return $lien; 	
@@ -194,7 +194,7 @@ function casearbre($pdo2, $i)
 	// global $nomcase, $prenomcase; 	
 	$req = $pdo2->query ( "select * from individus where ref='{$i}'" ); 	
 	
-	while($row = $req->fetch ())
+	while ($row = $req->fetch ())
 		{ 		
 		echo "<a href='index.php?page=fiche&ref=" . $i . "'>" . $row ['surname'] . "<br />" . $row ['prenom'] . "</a>"; 	
 		
@@ -211,7 +211,7 @@ function lieu($pdo2, $lieueve)
 	$req_lieu = $pdo2->prepare ( $result_birt_lieu ); 	
 	$req_lieu->execute (); 	
 	
-	while($row_birt_lieu = $req_lieu->fetch ( PDO::FETCH_ASSOC )) 
+	while ($row_birt_lieu = $req_lieu->fetch ( PDO::FETCH_ASSOC )) 
 		{ 		
 			$row_birt_lieu['pays'] = ucwords (strtolower($row_birt_lieu ['pays']));
 			$lieu = $row_birt_lieu['ville'] . " (" . $row_birt_lieu ['dep'] . ", " . $row_birt_lieu ['pays'] . ")"; 
@@ -254,7 +254,7 @@ function get_category_name($pdo2, $cn)
 	{ 	
 	$req = $pdo2->query("select * from categories where ref ='" . $cn . "'"); 	
 	
-	while($row = $req->fetch()) 
+	while ($row = $req->fetch()) 
 		{ 		
 		return $row ['nom']; 	
 		} 

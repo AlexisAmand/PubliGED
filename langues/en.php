@@ -3,6 +3,7 @@
 /* --------------- */
 /* HEADER PUBLIQUE */
 /* --------------- */
+
 define ( "SITE_TITLE", "PubliGED" );
 define ( "SITE_SLOGAN", "Site de demonstration du projet" );
 
@@ -35,7 +36,7 @@ define ( "ASIDE_6", "Divers" );
 
 /* ------------------------------------------------------ */
 /* TITRE PAGES, ASIDE et MESSAGES DE LA PARTIE GENEALOGIE */
-/* ------------------------------------------------------ */
+/* -------------------------------------------------------*/
 
 define ( "TITRE_RUB_0", "Sommaire" );
 
@@ -46,14 +47,14 @@ define ( "TITRE_RUB_11", "Mes ancêtres" );
 
 define ( "TITRE_RUB_12", "Liste des événements" );
 
-define ( "TITRE_RUB_4", "Liste des lieux" );
-define ( "TITRE_RUB_5", "Répartition géographique" );
-define ( "TITRE_RUB_7", "Liste des patronymes par lieux" );
+// define ( "TITRE_RUB_4", "Liste des lieux" );
+// define ( "TITRE_RUB_5", "Répartition géographique" );
+// define ( "TITRE_RUB_7", "Liste des patronymes par lieux" );
 
-define ( "TITRE_RUB_1", "Statistiques" );
-define ( "TITRE_RUB_2", "Les sources" );
-define ( "TITRE_RUB_3", "Les images" );
-define ( "TITRE_RUB_13", "Anniversaires du jour" );
+// define ( "TITRE_RUB_1", "Statistiques" );
+// define ( "TITRE_RUB_2", "Les sources" );
+// define ( "TITRE_RUB_3", "Les images" );
+// define ( "TITRE_RUB_13", "Anniversaires du jour" );
 
 define ( "TITRE_RUB_9", "Fiches individuelles" );
 
@@ -61,12 +62,14 @@ define ( "TITRE_RUB_14", "Crédits" );
 
 define ( "NO_GEDCOM", "Aucun Gedcom n'a encore été envoyé." );
 
-/* --------------------------------------- */
-/* TITRE PAGES ET ASIDE DE LA PARTIE ADMIN */
-/* --------------------------------------- */
+/* ------------------------------------------------- */
+/* TITRE PAGES ET ASIDE DE LA PARTIE ADMIN - TO MOVE */
+/* ------------------------------------------------- */
 
 define ( "TITRE_RUB_ADMIN_0", "Ajouter un article" );
 define ( "TITRE_RUB_ADMIN_1", "Modifier un article" );
+define ( "TITRE_RUB_ADMIN_14", "Ajouter une catégorie" );
+define ( "TITRE_RUB_ADMIN_15", "Modifier une catégorie" );
 
 define ( "TITRE_RUB_ADMIN_2", "Effacer un gedcom" );
 define ( "TITRE_RUB_ADMIN_3", "Envoyer un gedcom" );
@@ -76,14 +79,16 @@ define ( "TITRE_RUB_ADMIN_8", "Création des tables" );
 define ( "TITRE_RUB_ADMIN_13", "Données de démos" );
 define ( "TITRE_RUB_ADMIN_9", "Taille de la base de données" );
 
-define ( "TITRE_RUB_ADMIN_5", "Modules du blog" );
-define ( "TITRE_RUB_ADMIN_6", "Modules généalogie" );
+// define ( "TITRE_RUB_ADMIN_5", "Modules du blog" );
+// define ( "TITRE_RUB_ADMIN_6", "Modules généalogie" );
 define ( "TITRE_RUB_ADMIN_7", "Options" );
 define ( "TITRE_RUB_ADMIN_11", "Metas" );
 
 define ( "TITRE_RUB_ADMIN_10", "Liste des membres" );
 
-define ( "TITRE_RUB_ADMIN_12", "Modérer les commentaires" );
+define ( "TITRE_RUB_ADMIN_12", "Modérer" );
+
+define ("DASHBOARD", "Tableau de bord");
 
 /* ----------------------- */
 /* ASIDE DE LA PARTIE BLOG */
@@ -98,16 +103,17 @@ define ( "ASIDE_BLOG_6", "Blogroll" );
 define ( "ASIDE_BLOG_7", "Recherche" );
 
 /* ------------------------ */
-/* ASIDE DE LA PARTIE ADMIN */
+/* ASIDE DE LA PARTIE ADMIN - TO MOVE */
 /* ------------------------ */
 
-define ( "ASIDE_ADMIN_0", "Administration du site" );
+define ( "ASIDE_ADMIN_0", "PubliGED<br />Administration" );
 define ( "ASIDE_ADMIN_1", "Articles" );
 define ( "ASIDE_ADMIN_2", "Gedcom" );
 define ( "ASIDE_ADMIN_3", "Base de données" );
 define ( "ASIDE_ADMIN_4", "Réglages" );
 define ( "ASIDE_ADMIN_5", "Utilisateurs" );
 define ( "ASIDE_ADMIN_6", "Commentaires" );
+define ( "ASIDE_ADMIN_7", "Modules");
 
 /* -------------------------------- */
 /* PUBLICATION DES ARTICLES DU BLOG */
@@ -117,10 +123,7 @@ define ( "AUTHOR", "Publié par " );
 define ( "RUBRIC", " dans la rubrique " );
 define ( "DATE", " le " );
 define ( "SEECOMS", "voir les commentaires" );
-
-define ( "ADM_ARTICLE_TITLE", "Titre" );
-define ( "ADM_ARTICLE_AUTHOR", "Auteur" );
-define ( "ADM_ARTICLE_EDIT", "éditer" );
+define ( "COMMENTS", " a commenté ");
 
 /* ---------- */
 /* FLUX RSS */
@@ -313,6 +316,15 @@ define ( "NB_UNION_R", "Le plus grand nombre de mariages" );
 define ( "NB_UNION", "Nombre de couples" );
 define ( "NB_OLD_R", "Records de longivité" );
 
+/* ------------ */
+/* LISTE ECLAIR */
+/* ------------ */
+
+define ( "LIST_NAME", "Nom" );
+define ( "LIST_PLACE", "Lieu" );
+define ( "LIST_REGION", "Région" );
+define ( "LIST_COUNTRY", "Pays" );
+
 /* ---------- */
 /* EVENEMENTS */
 /* ---------- */
@@ -342,5 +354,23 @@ define ( "RESULT", "Résultats de la recherche" );
 define ( "THEREIS", "Il y a " );
 define ( "NB_RESULT", " resultat pour " );
 define ( "NB_RESULTS", " resultats pour " );
+
+/* ------- */
+/* CONTACT */
+/* ------- */
+
+define ( "FRM_NAME", "Votre nom" );
+define ( "FRM_MAIL", "Votre email" );
+define ( "FRM_TOPIC", "Votre sujet" );
+define ( "FRM_MSG", "Votre message" );
+define ( "CONTACT_WARNING", "Tous les champs sont obligatoires");
+define ("SEND_SUCCESS", "Votre message a bien été envoyé !");
+define ("SEND_FAIL", "Votre message n'a pas pu être envoyé !");
+
+/* ----------- */
+/* PAGE ERREUR */
+/* ----------- */
+
+define ( "ERROR_404", "Erreur 404" );
 
 ?>

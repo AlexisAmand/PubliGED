@@ -373,4 +373,10 @@ define ("SEND_FAIL", "Votre message n'a pas pu être envoyé !");
 
 define ( "ERROR_404", "Erreur 404" );
 
+/* ------------ */
+/* PIED DE PAGE */
+/* ------------ */
+
+define ("CREATED_BY","Site propulsé par ");
+define ("COPYRIGHT","Tous droits réservés.");
 ?>

@@ -4,37 +4,39 @@
 /* LISTE DES ARTICLES D'UNE CATEGORIE */
 /* ---------------------------------- */
 
-$req = $pdo2->query ( "SELECT * FROM articles WHERE id_cat = '" . $_GET ['id'] . "' ORDER BY date DESC" );
+$sqlCategories = $pdo2->query("SELECT * FROM articles WHERE id_cat = '" . $_GET ['id'] . "' ORDER BY date DESC");
 
-while ( $row = $req->fetch () ) 
+while ($row = $sqlCategories->fetch()) 
 	{
-	$article = new articles ();
+	$article = new articles();
 	$commentaire = new commentaires();
 	
 	/* ref de l'article */
 	
-	$article->ref = $row ['ref'];
+	$article->ref = $row['ref'];
 	
-	/* TODO : Pour l'instant récupérer les comms semble servir à rien */
+	/* TODO : Pour l'instant récupérer les comms semble servir à rien
 	
 	$req_comms = "select * from commentaires where id_article='{$article->ref}'";
-	$res_comms = $pdo2->prepare ( $req_comms );
-	$res_comms->execute ();
+	$res_comms = $pdo2->prepare($req_comms);
+	$res_comms->execute();
+	
+	 */
 	
 	/* auteur de l'article */
+		
+	$sqlAuteur $pdo2->prepare("select * from membres where id=:id");
+	$sqlAuteur->bindValue("id", $row['auteur'], PDO::PARAM_INT );
+	$sqlAuteur->execute();
 	
-	$res_membres = $pdo2->prepare ( "select * from membres where id=:id" );
-	$res_membres->bindValue ( "id", $row ['auteur'], PDO::PARAM_INT );
-	$res_membres->execute ();
-	
-	while ( $data_membres = $res_membres->fetch () ) 
+	while ($data_membres = $sqlAuteur->fetch()) 
 		{
-		$article->auteur = $data_membres ['login'];
+		$article->auteur = $data_membres['login'];
 		}
 		
 	/* titre de l'article */
 	
-	$article->titre = $row ['titre'];
+	$article->titre = $row['titre'];
 	
 	/* date de l'article */
 	
@@ -44,11 +46,11 @@ while ( $row = $req->fetch () )
 	
 	/* catégorie de l'article */
 	
-	$article->categorie = $_GET ['id'];
+	$article->categorie = $_GET['id'];
 	
 	/* contenu de l'article */
 	
-	$article->contenu = $row ['article'];
+	$article->contenu = $row['article'];
 	
 	/* contenu de l'article */
 	

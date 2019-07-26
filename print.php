@@ -36,7 +36,7 @@ include ('class/class.php');
 
 	<script src="js/jquery-3.4.1.min.js"></script>
 	
-	<!-- OpenStreetMap et Leaflet 1.4.0 -->
+	<!-- OpenStreetMap et Leaflet 1.5.1 -->
 	<!-- Peut-être pas utile ici -->
 	
 	<link rel="stylesheet" href="js/leaflet/leaflet.css">
@@ -50,12 +50,12 @@ include ('class/class.php');
 
 /* récupération de l'article */
 
-$req = "select * from articles where ref='{$_GET['id']}'";
-$res = $pdo->prepare ( $req );
-$res->execute ();
+$sqlArticle = "select * from articles where ref='{$_GET['id']}'";
+$reqArticle = $pdo->prepare ($sqlArticle);
+$reqArticle->execute();
 
-while ( $data = $res->fetch () ) {
-	echo "<h1>" . $data ['titre'] . "</h1>" . $data ['article'];
+while ($data = $reqArticle->fetch()) {
+	echo "<h1>".$data['titre']."</h1>".$data['article'];
 }
 
 ?>	

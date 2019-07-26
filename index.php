@@ -5,7 +5,7 @@ include ('config.php');
 include ('langues/fr.php');
 include ('class/class.php');
 
-$GLOBALS['InfoPage'] = PageTop ($pdo);
+$GLOBALS['InfoPage'] = PageTop($pdo);
 
 require_once 'vendor/autoload.php';
 ?>

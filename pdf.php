@@ -6,20 +6,20 @@ require_once 'vendor/autoload.php';
 
 /* récupération de l'article */
 
-$req = "select * from articles where ref='{$_GET['id']}'";
-$res = $pdo->prepare ($req);
-$res->execute ();
+$sqlArticle = "select * from articles where ref='{$_GET['id']}'";
+$reqArticle = $pdo->prepare($sqlArticle);
+$reqArticle->execute();
 
-/* affichage du pdf */
+/* Affichage du pdf */
 
-while ( $data = $res->fetch () ) {
-	$mpdf = new \Mpdf\Mpdf ();
+while ($data = $reqArticle->fetch()) {
+	$mpdf = new \Mpdf\Mpdf();
 
-	$stylesheet = file_get_contents ( 'style/style.css' );
+	$stylesheet = file_get_contents('style/style.css');
 
-	$mpdf->WriteHTML ( $stylesheet, 1 );
+	$mpdf->WriteHTML($stylesheet, 1 );
 
-	$mpdf->WriteHTML ( "<h1>" . $data ['titre'] . "</h1>" . $data ['article'], 2 );
+	$mpdf->WriteHTML("<h1>".$data['titre']."</h1>".$data['article'], 2 );
 
 	$mpdf->Output ();
 }

@@ -13,7 +13,7 @@
 	    $stmt->execute();	  
 	    
 	    echo "<table class='table table-bordered'>";	    
-	    while( $row = $stmt->fetch(PDO::FETCH_ASSOC ))
+	    while ( $row = $stmt->fetch(PDO::FETCH_ASSOC ))
 	        {
 	        echo "<tr><th>".REFSRC."</td><td>".$row['ref']."</th></tr>";
 	        echo "<tr><th>".TITRESRC."</td><td>".$row['titre']."</th></tr>";
@@ -24,7 +24,7 @@
 	        $stmt2->bindParam ( ":ref", $row['media'], PDO::PARAM_STR );
 	        $stmt2->execute();	
 	        
-	        while( $row2 = $stmt2->fetch(PDO::FETCH_ASSOC ))
+	        while ( $row2 = $stmt2->fetch(PDO::FETCH_ASSOC ))
 	           {
 	           echo "<tr><th>".MEDIASRC."</td><td>".$row2['fichier']."</th></tr>";
 	           // echo "<tr><td class='case'>".MEDIASRC."</td><td><img src='file:///".$row2['fichier']."'></td></tr>";
@@ -69,7 +69,7 @@
                    
 		<?php
 				
-		while( $row = $stmt->fetch(PDO::FETCH_ASSOC ))
+		while ( $row = $stmt->fetch(PDO::FETCH_ASSOC ))
 			{
 		    echo "<tr>";
 		    echo "<td><a href='index.php?page=sources&ids=".$row['ref']."'>".$row['ref']."</a></td>";

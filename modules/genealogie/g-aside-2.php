@@ -13,13 +13,13 @@
 	
 	<?php
 	
-	$sql = "select * from pages where module = 'g-aside-2'";
-	$resultat = $pdo2->prepare ( $sql );
-	$resultat->execute ();
+	$sqlModuleStat = "select * from pages where module = 'g-aside-2'";
+	$reqModuleStat = $pdo2->prepare($sqlModuleStat);
+	$reqModuleStat->execute();
 
 	/* On vérifie si la page demandée existe. Si elle n'existe pas, on redirige vers le blog */
 
-	while ($row = $resultat->fetch ()) 
+	while ($row = $reqModuleStat->fetch())
 		{
 		echo '<li class="list-group-item"><a href="index.php?page='.$row['nom'].'">'.$row['titre'].'</a></li>';
 		}

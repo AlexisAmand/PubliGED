@@ -10,13 +10,13 @@
 
 <?php
 
-if (VerifGedcom ( $pdo2 ) == "1") 
+if (VerifGedcom ($pdo2)=="1") 
 	{
-		echo '<p>Prochainement...</p>';
+	echo '<p>Prochainement...</p>';
 	}
 else 
 	{
-		echo NO_GEDCOM;
+	echo NO_GEDCOM;
 	}
 
 ?>

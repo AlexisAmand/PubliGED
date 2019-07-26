@@ -5,16 +5,17 @@
 
 <?php
 
-$req_blogroll = "SELECT * FROM blogroll ORDER BY nom DESC";
-$resultat = $pdo->prepare ( $req_blogroll );
-$resultat->execute ();
+$sqlBlogroll = "SELECT * FROM blogroll ORDER BY nom DESC";
+$reqBlogroll = $pdo2->prepare($sqlBlogroll);
+$reqBlogroll->execute();
 
 echo "<ul>";
 
-while ( $data_blogroll = $resultat->fetch () ) {
-	echo "<li><a href='" . $data_blogroll ['url'] . "' title='" . $data_blogroll ['description'] . "' >" . html_entity_decode ( $data_blogroll ['nom'] ) . "</a></li>";
-}
+while ( $row = $reqBlogroll->fetch()) 
+	{
+	echo "<li><a href='".$row['url']."' title='".$row['description']."' >".html_entity_decode( $row['nom'] )."</a></li>";
+	}
 
 echo "</ul>";
 
-?>   
+?>  

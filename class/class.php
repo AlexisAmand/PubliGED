@@ -73,13 +73,13 @@ class commentaires
 	
 	public function AfficheLien($id,$pdo3)
 		{		
-		$req_comms = "select * from commentaires where id_article='{$id}'";
-		$res_comms = $pdo3->prepare($req_comms );
-		$res_comms->execute();
+		$sqlCommentaires = "select * from commentaires where id_article='{$id}'";
+		$reqCommentaires = $pdo3->prepare($sqlCommentaires);
+		$reqCommentaires->execute();
 		
 		echo "<div class='row'>";
 			echo "<div class='col-md-12' id='commentaires'>";
-			echo "<a href='index.php?page=article&id=" . $id . "'>[" . SEECOMS . "] (" . $res_comms->rowCount () . ")</a>";
+			echo "<a href='index.php?page=article&id=".$id."'>[".SEECOMS."] (".$reqCommentaires->rowCount().")</a>";
 			echo "</div>";
 		echo "</div>";
 		}
@@ -88,26 +88,26 @@ class commentaires
 	
 	public function AfficheCommentaire($id,$pdo3)
 		{
-			$req_comms = "select * from commentaires where id_article='{$id}' ORDER BY date_com DESC";
-			$res_comms = $pdo3->prepare($req_comms);
-			$res_comms->execute();
+			$sqlCommentaires = "select * from commentaires where id_article='{$id}' ORDER BY date_com DESC";
+			$reqCommentaires = $pdo3->prepare($sqlCommentaires);
+			$reqCommentaires->execute();
 			
 			echo "<div class='row'>";
 			echo "<div class='col-md-12' id='commentaires'>";
 			
-			while($data = $res_comms->fetch ())
-			{
+			while ($data = $reqCommentaires->fetch())
+				{
 				echo "<div class='card card-alert'>";
 					echo "<div class='card-header'>";
-					$DateTemp = date ( "Y-m-d", strtotime ( $data ['date_com'] ) );
+					$DateTemp = date("Y-m-d", strtotime($data['date_com']));
 					$DateCommentaire = explode("-" , $DateTemp);
-					echo  $data ['nom_auteur'].  COMMENTS .$DateCommentaire[2]." ". MoisEnLettres($DateCommentaire[1])." ". $DateCommentaire[0];
-					echo "</div>	";
+					echo  $data ['nom_auteur'].COMMENTS.$DateCommentaire[2]." ". MoisEnLettres($DateCommentaire[1])." ". $DateCommentaire[0];
+					echo "</div>";
 					echo "<div class='card-body'>";
 					echo $data ['contenu'];
 					echo "</div>";
 				echo "</div>";
-			}
+				}
 			
 			echo '</div>';
 			echo '</div>';
@@ -165,7 +165,7 @@ class articles
 			
 		echo "<div class='row'>";			
 			echo "<div class='col-md-12'>";
-			echo "<h3><a href='index.php?page=article&id=".$this->ref."'>" . html_entity_decode ($this->titre) . "</a></h3>"; 
+			echo "<h3><a href='index.php?page=article&id=".$this->ref."'>".html_entity_decode ($this->titre)."</a></h3>"; 
 			echo "</div>";		
 		echo "</div>";
 		
@@ -174,18 +174,17 @@ class articles
 		/* Auteur et date de l'article */
 		
 		echo "<div class='col-md-8'>";		
-			echo "<p>" . AUTHOR . $this->auteur;
+			echo "<p>".AUTHOR.$this->auteur;
 			echo DATE.$this->date;
 			echo RUBRIC;
-			echo "<a href='index.php?page=categories&id=" . $this->categorie . "'>" . get_category_name ( $pdo3, $this->categorie ) . "</a>";		
-		echo "</div>";
-		
+			echo "<a href='index.php?page=categories&id=".$this->categorie."'>".get_category_name($pdo3, $this->categorie)."</a>";		
+		echo "</div>";		
 		/* affichage des boutons d'export : pdf, mail, print */
 		
 		echo "<div class='col-md-2 offset-md-2'>";
 			echo "<p>";
-			echo "<a href='pdf.php?page=categories&id=" . $this->ref . "'><i class='far fa-file-pdf fa-2x'></i></a>&nbsp;&nbsp;";
-			echo "<a href='print.php?id=" . $this->ref . "'><i class='fas fa-print fa-2x'></i></a>&nbsp;&nbsp;";
+			echo "<a href='pdf.php?page=categories&id=".$this->ref."'><i class='far fa-file-pdf fa-2x'></i></a>&nbsp;&nbsp;";
+			echo "<a href='print.php?id=".$this->ref."'><i class='fas fa-print fa-2x'></i></a>&nbsp;&nbsp;";
 			echo "<a href='#'><i class='fas fa-envelope-square fa-2x'></i></a>&nbsp;&nbsp;";
 			echo "</p>";
 		echo "</div>";
@@ -196,7 +195,7 @@ class articles
 		
 		echo "<div class='row'>";
 			echo "<div class='col-md-12'>";
-			echo "<p>" . $this->contenu . "</p>";		
+			echo "<p>".$this->contenu."</p>";		
 			echo "</div>";
 		echo "</div>";
 		

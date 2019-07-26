@@ -2,9 +2,9 @@
 
 <?php
 
-$req_intro = "SELECT * FROM articles GROUP BY id_cat";
-$resultat = $pdo2->prepare ( $req_intro );
-$resultat->execute ();
+$sqlCategorie = "SELECT * FROM articles GROUP BY id_cat";
+$reqCategorie = $pdo2->prepare($sqlCategorie);
+$reqCategorie->execute();
 
 ?>
 
@@ -12,28 +12,30 @@ $resultat->execute ();
 
 	<div class="card-header"><?php echo ASIDE_BLOG_2 ?></div>
 
-<?php
-
-echo "<ul class='list-group'>";
-
-while ( $data = $resultat->fetch () ) {
-	echo "<li class='list-group-item d-flex justify-content-between align-items-center'>";
-
-	echo "<a href='index.php?page=categories&id=" . $data ['id_cat'] . "'>" . get_category_name ( $pdo2, $data ['id_cat'] ) . "</a>";
-
-	$req_nbcat = "SELECT id_cat, count(*) AS nbcat FROM articles WHERE id_cat=:id_cat GROUP BY id_cat";
-	$res_nbcat = $pdo2->prepare ( $req_nbcat );
-	$res_nbcat->bindparam ( ':id_cat', $data ['id_cat'] );
-	$res_nbcat->execute ();
-
-	while ( $data_nbcat = $res_nbcat->fetch () ) {
-		echo "<span class='badge badge-primary badge-pill'>" . $data_nbcat ['nbcat'] . "</span>";
-	}
-	echo "</li>";
-}
-
-echo "</ul>";
-
-?>
+	<?php
+	
+	echo "<ul class='list-group'>";
+	
+	while ( $row = $reqCategorie->fetch () ) 
+		{
+		echo "<li class='list-group-item d-flex justify-content-between align-items-center'>";	
+		echo "<a href='index.php?page=categories&id=".$row['id_cat']."'>".get_category_name($pdo2,$row['id_cat'])."</a>";
+	
+		$sqlNombreCategories = "SELECT id_cat, count(*) AS nbcat FROM articles WHERE id_cat=:id_cat GROUP BY id_cat";
+		$reqNombreCategories = $pdo2->prepare($sqlNombreCategories);
+		$reqNombreCategories->bindparam(':id_cat',$row['id_cat']);
+		$reqNombreCategories->execute();
+	
+		while ($row = $reqNombreCategories->fetch()) 
+			{
+			echo "<span class='badge badge-primary badge-pill'>".$row['nbcat']."</span>";
+			}
+			
+		echo "</li>";
+		}
+	
+	echo "</ul>";
+	
+	?>
 
 </div>

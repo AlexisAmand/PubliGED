@@ -13,7 +13,6 @@ switch ($_GET ['page']) {
 		$PageActive = 1;
 		break;
 }
-
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light pillmenu">

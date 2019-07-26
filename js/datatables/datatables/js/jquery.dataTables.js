@@ -2335,7 +2335,7 @@
 					if ( typeof aTargets[j] === 'number' && aTargets[j] >= 0 )
 					{
 						/* Add columns that we don't yet know about */
-						while( columns.length <= aTargets[j] )
+						while ( columns.length <= aTargets[j] )
 						{
 							_fnAddColumn( oSettings );
 						}
@@ -3325,7 +3325,7 @@
 			/* All cells are going to be replaced, so empty out the row */
 			if ( nLocalTr )
 			{
-				while( (n = nLocalTr.firstChild) )
+				while ( (n = nLocalTr.firstChild) )
 				{
 					nLocalTr.removeChild( n );
 				}
