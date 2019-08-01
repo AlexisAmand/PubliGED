@@ -21,7 +21,7 @@ include ('class/class.php');
 	<link href="style/bootstrap/css/bootstrap.perso.css" rel="stylesheet">
 	<script src="style/bootstrap/js/bootstrap.min.js"></script>
 	
-	<!-- Font Awesome Free 5.9.0 -->
+	<!-- Font Awesome Free 5.10.0 -->
 	
 	<link href="style/fontawesome/css/all.css" rel="stylesheet">
 	
