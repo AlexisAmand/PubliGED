@@ -25,7 +25,7 @@ include ('../langues/fr.php');
         tools: "inserttable",
         /* ajouter une image
         plugins: "image", */
-        /* par dÃ©faut */
+        /* par défaut */
         toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
         plugins: [
         "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",

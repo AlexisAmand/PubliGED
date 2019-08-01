@@ -43,7 +43,7 @@ include('../langues/admin.php');
         tools: "inserttable",
         /* ajouter une image
         plugins: "image", */
-        /* par dÃ©faut */
+        /* par défaut */
         toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
         plugins: [
         "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
@@ -150,13 +150,13 @@ include('../langues/admin.php');
                <div class="card-body">
                  <div class="table-responsive">   	
                   	                 	
-                <?php
+                 <?php
 
-				$req_comm = "SELECT * FROM commentaires";
-				$res_comm = $pdo->prepare ( $req_comm );
-				$res_comm->execute ();
+				 $sqlCommentaires = "SELECT * FROM commentaires";				
+				 $reqCommentaires = $pdo->prepare($sqlCommentaires);
+				 $reqCommentaires->execute();
 				
-				?>     	
+				 ?>
                   	                 	          
                 <table class="table table-bordered" id="dataTable">
                   <thead>
@@ -185,25 +185,25 @@ include('../langues/admin.php');
                   </tfoot>
                   <tbody>
                     <?php
-                    while ( $data_comm = $res_comm->fetch () )
+                    while ( $rowCommentaires = $reqCommentaires->fetch () )
                     {
 						echo "<tr>";
-						echo "<td>" . $data_comm ['ref'] . "</td>";
-						echo "<td>" . $data_comm ['date_com'] . "</td>";
-						echo "<td>" . $data_comm ['nom_auteur'] . "</td>";
+						echo "<td>".$rowCommentaires['ref']."</td>";
+						echo "<td>".$rowCommentaires['date_com']."</td>";
+						echo "<td>".$rowCommentaires['nom_auteur']."</td>";
 						echo "<td>";
-						echo "<a href='index.php?page=article&id=".$data_comm ['id_article']."'>".RecupTitreArticle ( $pdo, $data_comm ['id_article'] )."</a>"; 
+						echo "<a href='index.php?page=article&id=".$rowCommentaires ['id_article']."'>".RecupTitreArticle( $pdo, $rowCommentaires['id_article'] )."</a>"; 
 						echo "</td>";
-						echo "<td>" . substr($data_comm ['contenu'], 0, 150)."...</td>";						
-						echo '<td class="text-center"> <a href="#" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
-						echo '<td class="text-center"> <a href="#" data-toggle="tooltip" data-placement="left" title="Supprimer"><i class="far fa-trash-alt text-danger"></i></a></td>';
+						echo "<td>".substr($rowCommentaires ['contenu'], 0, 150)."...</td>";						
+						echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
+						echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Supprimer"><i class="far fa-trash-alt text-danger"></i></a></td>';
 						
 						/* TODO : ajouter une colonne qui permet de publier ou dépublier un commentaire
-						 * via un booleen dans la table des commentaires. L'icone change en fonction du ppublié ou non
-						 * il se peut que l'on veuille ne pas publier un article, mais vouloir le garder
+						 * via un booleen dans la table des commentaires. L'icone change en fonction du "publié" ou non
+						 * il se peut que l'on veuille ne pas publier un commentaire, mais vouloir le garder
 						 */
 						
-						echo '<td class="text-center"> <a href="#" data-toggle="tooltip" data-placement="left" title="Publier"><i class="far fa-star text-warning"></i></a></td>';
+						echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Publier"><i class="far fa-star text-warning"></i></a></td>';
 						echo "</tr>";
                     } 
 					?>
