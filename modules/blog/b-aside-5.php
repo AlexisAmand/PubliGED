@@ -3,18 +3,21 @@
 <div class="card bg-light border-secondary mb-3">
 
 	<div class="card-header"><?php echo ASIDE_BLOG_5 ?></div>
-
+	
 	<div class="text-center">
-
-		<a href="#"><i class="fab fa-facebook-square fa-3x"></i></a> 
-		<a href="#"><i class="fab fa-twitter-square fa-3x"></i></a> 
-		<a href="#"><i class="fab fa-vimeo-square  fa-3x"></i></a>
-		<a href="#"><i class="fab fa-linkedin fa-3x"></i></a>
-		 
-		<a href="#"><i class="fas fa-rss-square fa-3x"></i></a>
-		<a href="#"><i class="fab fa-pinterest-square fa-3x"></i></a> 
-		<a href="#"><i class="fab fa-instagram fa-3x"></i></a> 
-		<a href="#"><i class="fab fa-youtube-square fa-3x"></i></a>
+	
+	<?php
+	
+	$sqlSocial = "select * from module_reseau where actif='1'";
+	$reqSocial = $pdo2->prepare($sqlSocial);
+	$reqSocial->execute();
+		
+	while ($row = $reqSocial->fetch())
+		{
+		echo '<a href="'.$row['url'].'"><i class="'.$row['icone'].'"></i></a>';
+		}
+	
+	?>
 
 	</div>
 
