@@ -6,7 +6,7 @@
 		<li class="list-group-item"><a href="index.php?page=patro"><?php echo TITRE_RUB_6; ?></a></li>
 			
 		<?php 	
-		$sqlModulesIndividus = $pdo2->prepare("select substring(surname from 1 for 1) from individus order by surname LIMIT 1");
+		$reqModulesIndividus = $pdo2->prepare("select substring(surname from 1 for 1) from individus order by surname LIMIT 1");
 		$reqModulesIndividus->execute();
 		$row = $reqModulesIndividus->fetch();
 		?>

@@ -25,7 +25,7 @@ while ($row = $sqlCategories->fetch())
 	
 	/* auteur de l'article */
 		
-	$sqlAuteur $pdo2->prepare("select * from membres where id=:id");
+	$sqlAuteur = $pdo2->prepare("select * from membres where id=:id");
 	$sqlAuteur->bindValue("id", $row['auteur'], PDO::PARAM_INT );
 	$sqlAuteur->execute();
 	
