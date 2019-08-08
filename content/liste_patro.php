@@ -3,10 +3,10 @@
 
 <?php
 
-if (VerifGedcom ( $pdo2 ) == "1") {
+if (VerifGedcom ($pdo2)=="1") {
 
-	$req_patro = 'SELECT * FROM individus WHERE surname = "' . htmlspecialchars ( $_GET ["nom"] ) . '" ORDER BY prenom';
-	$res_patro = $pdo2->prepare ( $req_patro );
+	$sqlPatronyme = 'SELECT * FROM individus WHERE surname = "' . htmlspecialchars ( $_GET ["nom"] ) . '" ORDER BY prenom';
+	$res_patro = $pdo2->prepare ($sqlPatronyme);
 	$res_patro->execute ();
 
 	/* pagination */
@@ -27,7 +27,7 @@ if (VerifGedcom ( $pdo2 ) == "1") {
 
 	/* fin pagination */
 
-	$resultat_patro = $pdo2->query ( $req_patro . " LIMIT " . $max . "," . $nrpp );
+	$resultat_patro = $pdo2->query ( $sqlPatronyme . " LIMIT " . $max . "," . $nrpp );
 
 	while ( $data_patro = $resultat_patro->fetch () ) {
 		echo "<a href='index.php?page=fiche&ref=" . $data_patro ['ref'] . "'>" . $data_patro ['surname'] . " ";

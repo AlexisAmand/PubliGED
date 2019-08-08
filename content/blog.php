@@ -47,23 +47,29 @@ $rss = $rss . "</channel></rss>";
 
 fwrite ( $fp, $rss );
 
-/* affichage des articles du blog */
-
-if (!isset($_GET['p']))
-	{
-	$p = 1;
-	}
-else 
-	{
-	$p = $_GET['p'];	
-	}
-	
-$x = 3; /* nbre d'articles par page */
-$y = 1 + ($p - 1) * $x; /* point de départ */
-
-$req_intro = "SELECT * FROM articles ORDER BY date DESC LIMIT $y, $x";
+$req_intro = "SELECT * FROM articles ORDER BY date DESC";
 $resultat = $pdo2->prepare( $req_intro );
 $resultat->execute();
+
+/* pagination */
+
+$nrpp = 3; /* TODO : nombre d'articles par page, devra être récupérer via l'admin */
+
+if (isset ( $_GET ['p'] )) {
+	$page = $_GET ['p'];
+	$i = $page - 1;
+	$max = $nrpp * $i;
+} else {
+	$page = 1;
+	$max = 0;
+}
+
+$total = $resultat->rowCount ();
+$nb_pages = $total / $nrpp;
+
+/* fin pagination */
+
+$resultat = $pdo2->query ( $req_intro . " LIMIT " . $max . "," . $nrpp );
 
 while ( $data = $resultat->fetch() )
 {
@@ -108,18 +114,22 @@ while ( $data = $resultat->fetch() )
 	$article->Afficher($pdo2);
 	$commentaire->AfficheLien($article->ref, $pdo2);
 	
+
+	
 }
 
+/* pagination */
+
+echo "<ul class='pagination justify-content-center'>";
+for($i = 1; $i <= $nb_pages + 1; $i ++) {
+	if (($page == $i)) {
+		echo "<li class='disabled page-item'><a class='page-link' href='?page=blog&p=" . $i . "'>" . $i . "</a></li>";
+	} else {
+		echo "<li class='page-item'><a class='page-link' href='?page=blog&p=" . $i . "'>" . $i . "</a></li>";
+	}
+}
+echo "</ul>";
+
+/* fin pagination */
+
 ?>
-
-<nav aria-label="Page navigation example">
-	<ul class="pagination">
-	
-		<?php if ($p == 1) { echo '<li class="page-item disabled">'; } else { echo '<li class="page-item">'; } ?><a  class="page-link" href="#">Previous</a></li>
-		<li class="page-item"><a  class="page-link" href="index.php?page=blog&p=<?php if ($p == 1) { echo $p; } else { echo $p - 1; } ?>">1</a></li>
-		<li class="page-item"><a  class="page-link" href="index.php?page=blog&p=<?php if ($p == 1) { echo $p + 1; } else { echo $p; } ?>">2</a></li>
-		<li class="page-item"><a  class="page-link" href="index.php?page=blog&p=<?php echo $p + 1; ?>" >3</a></li>
-		<?php if ($p == 1) { echo '<li class="page-item disabled">'; } else { echo '<li class="page-item">'; } ?><a  class="page-link" href="#">Next</a></li>
-
-	</ul>
-</nav>
