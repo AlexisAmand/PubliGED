@@ -101,6 +101,7 @@ if (! isset ( $erreur )) // S'il n'y a pas d'erreur, on upload
 	exit ();
 }
 
+/* TODO : cette ligne est déjà dans le config */
 $pdo = new PDO ( 'mysql:host=localhost;dbname=publiged', 'root', '' );
 
 set_time_limit ( 600 );
@@ -110,6 +111,8 @@ $fichier_to_open = $fichier;
 /* Lecture du gedcom pour le mettre dans la base */
 
 $gedcom = fopen ( $dossier . $fichier_to_open, 'r' );
+
+/* TODO : trop de variables, voir pour mettre ça dans les classes */
 
 $nb_eve = 0;
 $nb_individu = 0;
@@ -539,7 +542,7 @@ while ( ! feof ( $gedcom ) ) {
 		$evenement->date = str_replace ( "EST", EST, $evenement->date );
 		$evenement->date = str_replace ( "WFT", WFT, $evenement->date );
 
-		/* hop ! on met la date dans la table */
+		/* hop ! On met la date dans la table */
 
 		$req = $pdo->prepare ( "UPDATE evenements SET date = :date WHERE n_indi=:indiv and nom=:nom" );
 		$req->bindValue ( ':date', $evenement->date, PDO::PARAM_STR );
@@ -584,7 +587,7 @@ while ( ! feof ( $gedcom ) ) {
 		$lieu->ville = $place [0];
 
 		$lieufinal = explode ( " ", $lieu->ville );
-		$lieutmp = array_shift ( $lieufinal );
+		//$lieutmp = array_shift ( $lieufinal );
 		$lieutmp = array_shift ( $lieufinal );
 		$lieu->ville = implode ( $lieufinal );
 
@@ -908,7 +911,7 @@ fclose ( $gedcom );
 		</table>
 
 		<h3>Résumé de l'importation du Gedcom</h3>
-
+		
 		<table id='EveT'>
 			<tr>
 				<td>Nombre d'événements importés</td>

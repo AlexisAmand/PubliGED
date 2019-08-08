@@ -44,10 +44,10 @@ while ( $row = $req->fetch () ) {
 /* Naissance, baptême, décès et inhumation de l'individu */
 /* ----------------------------------------------------- */
 
-$req = $pdo2->prepare ( "SELECT * FROM evenements WHERE n_indi = :ref" );
-$req->bindparam ( ':ref', $_GET ['ref'] );
-$req->execute ();
-$nb_eve = $req->rowCount ();
+$reqBMS = $pdo2->prepare("SELECT * FROM evenements WHERE n_indi = :ref");
+$reqBMS->bindparam(':ref', $_GET ['ref']);
+$reqBMS->execute();
+$nb_eve = $reqBMS->rowCount();
 
 while ( $row = $req->fetch ( PDO::FETCH_ASSOC ) ) {
 	switch ($row ['nom']) {
@@ -261,7 +261,7 @@ while ( $a < $i ) {
 	echo "<tr>";
 	echo "<td>" . traduction ( $event [$a]->nom ) . "</td>";
 	echo "<td>" . utf8_decode ( $event [$a]->date ) . "</td>";
-	echo "<td>" . lieu ( $pdo2, $event [$a]->lieu ) . "</td>";
+	echo "<td>".lieu($pdo2, $event [$a]->lieu)."</td>";
 	echo "<td><a href='index.php?page=sources&ids=" . $event [$a]->source . "'>" . $event [$a]->source . "</a></td>";
 	echo "<td>" . $event [$a]->evenement . "</td>";
 	echo "<td>" . $event [$a]->note . "</td>";

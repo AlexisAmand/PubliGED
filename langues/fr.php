@@ -265,6 +265,7 @@ define ( "INTERMENTAT", "Inhumé(e) à " );
 define ( "NOINTERMENT", "L'inhumation est inconnue." );
 
 define ( "NOPLACE", " dans un lieu inconnu." );
+define ( "PLACEUNKNOW", "lieu inconnu." );
 
 define ( "JOBS", "Profession(s): " );
 

@@ -49,7 +49,19 @@ fwrite ( $fp, $rss );
 
 /* affichage des articles du blog */
 
-$req_intro = "SELECT * FROM articles ORDER BY date DESC";
+if (!isset($_GET['p']))
+	{
+	$p = 1;
+	}
+else 
+	{
+	$p = $_GET['p'];	
+	}
+	
+$x = 3; /* nbre d'articles par page */
+$y = 1 + ($p - 1) * $x; /* point de départ */
+
+$req_intro = "SELECT * FROM articles ORDER BY date DESC LIMIT $y, $x";
 $resultat = $pdo2->prepare( $req_intro );
 $resultat->execute();
 
@@ -99,3 +111,15 @@ while ( $data = $resultat->fetch() )
 }
 
 ?>
+
+<nav aria-label="Page navigation example">
+	<ul class="pagination">
+	
+		<?php if ($p == 1) { echo '<li class="page-item disabled">'; } else { echo '<li class="page-item">'; } ?><a  class="page-link" href="#">Previous</a></li>
+		<li class="page-item"><a  class="page-link" href="index.php?page=blog&p=<?php if ($p == 1) { echo $p; } else { echo $p - 1; } ?>">1</a></li>
+		<li class="page-item"><a  class="page-link" href="index.php?page=blog&p=<?php if ($p == 1) { echo $p + 1; } else { echo $p; } ?>">2</a></li>
+		<li class="page-item"><a  class="page-link" href="index.php?page=blog&p=<?php echo $p + 1; ?>" >3</a></li>
+		<?php if ($p == 1) { echo '<li class="page-item disabled">'; } else { echo '<li class="page-item">'; } ?><a  class="page-link" href="#">Next</a></li>
+
+	</ul>
+</nav>

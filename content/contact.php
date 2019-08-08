@@ -115,7 +115,7 @@ $erreur = 1
 
 	<div class="form-group">
 		<label for="message"><?php echo FRM_MSG; ?></label>
-		<textarea id="message" name="message" class="form-control" value="<?php if ($erreur==1) {echo 'oups';}?>"></textarea>
+		<textarea id="message" name="message" class="form-control"><?php if ($erreur==1) {echo 'oups';}?></textarea>
 	</div>
 
 	<input type="submit" class="btn btn-default">

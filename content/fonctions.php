@@ -1,9 +1,44 @@
 <?php 
 
-/* fonction qui affiche un article */
+function testhello()
+	{
+	echo "hello world !";
+	}
 
+/* fonction qui affiche le lieu d'un événement en partant de sa ref */
+/* TODO : trouver un nom plus parlant */
 
-
+function lieu($pdo2, $lieueve) {
+	$result_birt_lieu = "SELECT * FROM lieux WHERE ref = '{$lieueve}'";
+	$req_lieu = $pdo2->prepare ( $result_birt_lieu );
+	$req_lieu->execute();
+	
+	$count = $req_lieu->rowCount();
+	
+	if ($count == 0) {
+		/* si un lieu existe pas */
+		echo PLACEUNKNOW;
+	} else {
+		/* si un lieu existe */
+		
+		while ( $row_birt_lieu = $req_lieu->fetch(PDO::FETCH_ASSOC)) {
+			
+			$ville = explode(" ", $row_birt_lieu ['ville']);
+						
+			echo $row_birt_lieu ['ville']."<br />(".$row_birt_lieu ['dep']." - ".$row_birt_lieu ['pays'].")";
+		
+			/* TODO: vérifier si cette partie prend bien en compte les notes */
+			
+			if (empty($row_birt_lieu['note'])) {
+			} else {
+				echo "<sup>".$i_note."</sup>";
+				$note [$i_note] = $row_birt_lieu ['note'];
+				$i_note = $i_note + 1;
+			}
+						
+		}
+	}
+}
 
 function MoisEnLettres($mois)
 	{ 	
@@ -204,6 +239,8 @@ function casearbre($pdo2, $i)
 	} 
 
 /* fonction qui affiche le lieu d'un événement */ 
+
+/*	
 	
 function lieu($pdo2, $lieueve)
 	{ 	
@@ -229,7 +266,8 @@ function lieu($pdo2, $lieueve)
 				} 	
 		} 
 	} 
-		
+	
+*/		
 
 /*
 function hautdutableau() 

@@ -50,7 +50,7 @@ include ('class/class.php');
 /* récupération de l'article */
 
 $sqlArticle = "select * from articles where ref='{$_GET['id']}'";
-$reqArticle = $pdo->prepare ($sqlArticle);
+$reqArticle = $pdo->prepare($sqlArticle);
 $reqArticle->execute();
 
 while ($data = $reqArticle->fetch()) {
