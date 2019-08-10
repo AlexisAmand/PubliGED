@@ -38,7 +38,7 @@ if(VerifGedcom($pdo2) == "1")
 	
 	echo '<tbody>';
 	
-	while ( $row = $reqEvenements->fetch () ) 
+	while ( $row = $reqEvenements->fetch(PDO::FETCH_ASSOC) ) 
 	   {
 	   echo "<tr>"; 	
 	   echo "<td style='white-space: nowrap;'>".utf8_decode($row['date'])."</td>";	   	   

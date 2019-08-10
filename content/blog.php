@@ -27,7 +27,7 @@ $rss = '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE xml><rss version="2.0">
 
 $req = $pdo2->query ( "SELECT * FROM articles" );
 
-while ( $row = $req->fetch () )
+while ( $row = $req->fetch (PDO::FETCH_ASSOC) )
 {
 	$rss = $rss . '<item>';
 	$rss = $rss . '<title>' . $row ['titre'] . '</title>';
@@ -53,25 +53,31 @@ $resultat->execute();
 
 /* pagination */
 
+$total = $resultat->rowCount ();
 $nrpp = 3; /* TODO : nombre d'articles par page, devra être récupérer via l'admin */
 
-if (isset ( $_GET ['p'] )) {
-	$page = $_GET ['p'];
-	$i = $page - 1;
-	$max = $nrpp * $i;
-} else {
-	$page = 1;
-	$max = 0;
-}
+$nb_pages = round($total / $nrpp);
 
-$total = $resultat->rowCount ();
-$nb_pages = $total / $nrpp;
+if (isset ( $_GET ['p'] )) 
+	{
+	$page = $_GET ['p'];
+	if ($page > $nb_pages)
+		{	
+		$page = $nb_pages;
+		}
+	}
+else
+	{
+	$page = 1;
+	}
+	
+$max = 	($page - 1 ) * $nrpp;
 
 /* fin pagination */
 
 $resultat = $pdo2->query ( $req_intro . " LIMIT " . $max . "," . $nrpp );
 
-while ( $data = $resultat->fetch() )
+while ( $data = $resultat->fetch(PDO::FETCH_ASSOC) )
 {
 	
 	$article = new articles();
@@ -87,7 +93,7 @@ while ( $data = $resultat->fetch() )
 	$res_membres->bindValue ( "id", $data['auteur'], PDO::PARAM_INT );
 	$res_membres->execute();
 	
-	while ( $data_membres = $res_membres->fetch() ) {
+	while ( $data_membres = $res_membres->fetch(PDO::FETCH_ASSOC) ) {
 		$article->auteur = $data_membres['login'];
 	}
 	
@@ -103,7 +109,7 @@ while ( $data = $resultat->fetch() )
 	
 	/* catégorie de l'article */
 	
-	$article->categorie = $data['ref'];
+	$article->categorie = $data['id_cat'];
 	
 	/* contenu de l'article */
 	
@@ -113,21 +119,51 @@ while ( $data = $resultat->fetch() )
 	
 	$article->Afficher($pdo2);
 	$commentaire->AfficheLien($article->ref, $pdo2);
-	
-
-	
+		
 }
 
 /* pagination */
 
 echo "<ul class='pagination justify-content-center'>";
-for($i = 1; $i <= $nb_pages + 1; $i ++) {
-	if (($page == $i)) {
-		echo "<li class='disabled page-item'><a class='page-link' href='?page=blog&p=" . $i . "'>" . $i . "</a></li>";
-	} else {
-		echo "<li class='page-item'><a class='page-link' href='?page=blog&p=" . $i . "'>" . $i . "</a></li>";
-	}
+
+switch ($page) {
+	case '1':
+		echo "<li class='page-item disabled'><a class='page-link' href='#'>Précédent</a></li>";
+		$p = $page;
+		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>1</a></li>";
+		$p = $page + 1;
+		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>2</a></li>";
+		$p = $page + 2;
+		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>3</a></li>";
+		$p = $page + 3;
+		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>Suivant</a></li>";
+	break;
+	
+	case $nb_pages:
+		$p = $page - 1;
+		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>Précédent</a></li>";
+		$p = $page - 2;
+		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>".$p."</a></li>";
+		$p = $page - 1;
+		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>".$p."</a></li>";
+		$p = $page;
+		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>".$p."</a></li>";
+		echo "<li class='page-item disabled'><a class='page-link' href='index.php?page=blog&p=".$p."'>Suivant</a></li>";
+	break;
+	
+	default:
+		$p = $page - 1;
+		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>Précédent</a></li>";
+		$p = $page - 1;
+		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>".$p."</a></li>";
+		$p = $page;
+		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>".$p."</a></li>";
+		$p = $page + 1;
+		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>".$p."</a></li>";
+		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>Suivant</a></li>";
+	break;
 }
+
 echo "</ul>";
 
 /* fin pagination */

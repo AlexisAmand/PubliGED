@@ -15,7 +15,7 @@ if (VerifGedcom ( $pdo2 ) == "1") {
 
 	echo "<table>";
 
-	while ( $data = $req->fetch () ) {
+	while ( $data = $req->fetch(PDO::FETCH_ASSOC)) {
 		echo "<tr>";
 		echo "<td><a href='#'>" . $data ['surname'] . " " . $data ['prenom'] . "</a></td>";
 		echo "</tr>";

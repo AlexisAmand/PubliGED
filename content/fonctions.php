@@ -72,7 +72,7 @@ function GenerationPDF($pdo3, $art)
 /* TODO : peut-être que le while n'est pas obligatoire ?
  * Il suffirait alors de remplacer le while par :
  
-$data_verif = $res_verif->fetch();
+$data_verif = $res_verif->fetch(PDO::FETCH_ASSOC);
 return $data_verif['valeur']; 	
 
  */	
@@ -83,7 +83,7 @@ function VerifGedcom($pdo3)
 	$res_verif = $pdo3->prepare($req_verif); 	
 	$res_verif->execute(); 	
 	
-	while ($data_verif = $res_verif->fetch()) 
+	while ($data_verif = $res_verif->fetch(PDO::FETCH_ASSOC)) 
 		{ 		
 		return $data_verif['valeur']; 	
 		} 
@@ -114,7 +114,7 @@ function PageTop($pdo2)
 		if ($nb != 0) 
 			{
 			$page = new pages ();
-			while ($row = $resultat->fetch ()) 
+			while ($row = $resultat->fetch (PDO::FETCH_ASSOC)) 
 				{ 			
 				$page->nom = $row['nom'];
 				$page->titre = $row['titre']; 
@@ -213,7 +213,7 @@ function individu($pdo2, $i)
 	// global $nomcase, $prenomcase; 	
 	$req = $pdo2->query( "select * from individus where ref='{$i}'");
 	
-	while ($row = $req->fetch ()) 
+	while ($row = $req->fetch (PDO::FETCH_ASSOC)) 
 		{ 	
 		$lien = "<a href='index.php?page=fiche&ref=" . $i . "'>" . $row ['prenom'] . " " . $row ['surname'] . "</a>"; 	
 		return $lien; 	
@@ -229,7 +229,7 @@ function casearbre($pdo2, $i)
 	// global $nomcase, $prenomcase; 	
 	$req = $pdo2->query ( "select * from individus where ref='{$i}'" ); 	
 	
-	while ($row = $req->fetch ())
+	while ($row = $req->fetch (PDO::FETCH_ASSOC))
 		{ 		
 		echo "<a href='index.php?page=fiche&ref=" . $i . "'>" . $row ['surname'] . "<br />" . $row ['prenom'] . "</a>"; 	
 		
@@ -292,7 +292,7 @@ function get_category_name($pdo2, $cn)
 	{ 	
 	$req = $pdo2->query("select * from categories where ref ='" . $cn . "'"); 	
 	
-	while ($row = $req->fetch()) 
+	while ($row = $req->fetch(PDO::FETCH_ASSOC)) 
 		{ 		
 		return $row ['nom']; 	
 		} 

@@ -200,9 +200,9 @@ include('../langues/admin.php');
 		<option selected><?php echo ADM_ARTICLE_CAT_LIST;?></option>
 
 		<?php 
-		while ( $rowcat = $cat->fetch () ) 
+		while ($rowcat = $cat->fetch(PDO::FETCH_ASSOC)) 
 		{
-			echo "<option value='" . $rowcat ['ref'] . "'>" . $rowcat ['nom'] . "</option>";
+			echo "<option value='".$rowcat['ref']."'>".$rowcat['nom']."</option>";
 		}
 		?>
 		</select>

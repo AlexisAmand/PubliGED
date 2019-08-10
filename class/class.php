@@ -95,7 +95,7 @@ class commentaires
 			echo "<div class='row'>";
 			echo "<div class='col-md-12' id='commentaires'>";
 			
-			while ($data = $reqCommentaires->fetch())
+			while ($data = $reqCommentaires->fetch(PDO::FETCH_ASSOC))
 				{
 				echo "<div class='card card-alert'>";
 					echo "<div class='card-header'>";

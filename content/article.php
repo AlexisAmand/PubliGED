@@ -40,7 +40,7 @@ $article->ref = $_GET['id'];
 
 $sqlArticle = $pdo2->query("SELECT * FROM articles WHERE ref='$article->ref'");
 
-while ($row = $sqlArticle->fetch ())
+while ($row = $sqlArticle->fetch(PDO::FETCH_ASSOC))
 	{
 	$article->auteur = $row['auteur'];
 	$article->titre = $row['titre'];
@@ -55,7 +55,7 @@ $sqlAuteur = $pdo2->prepare("select * from membres where id=:id");
 $sqlAuteur->bindValue("id", $article->auteur, PDO::PARAM_INT);
 $sqlAuteur->execute();
 
-while ($row = $sqlAuteur->fetch())
+while ($row = $sqlAuteur->fetch(PDO::FETCH_ASSOC))
 	{
 	$article->auteur = $row['login'];
 	}

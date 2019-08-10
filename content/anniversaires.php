@@ -10,7 +10,7 @@
 
 <?php
 
-if (VerifGedcom ($pdo2)=="1") 
+if (VerifGedcom($pdo2)=="1") 
 	{
 	echo '<p>Prochainement...</p>';
 	}

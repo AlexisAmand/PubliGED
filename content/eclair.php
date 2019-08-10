@@ -40,7 +40,7 @@ if (VerifGedcom($pdo2) == "1")
 				
 			<tbody>		
 			<?php
-			while ($rowListeEclair = $reqListeEclair->fetch ())
+			while ($rowListeEclair = $reqListeEclair->fetch(PDO::FETCH_ASSOC))
 				{
 				echo "<tr>";
 					echo "<td><a href='index.php?page=liste_patro&nom=".$rowListeEclair['surname']."'>".$rowListeEclair['surname']."</a></td>";

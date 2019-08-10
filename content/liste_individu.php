@@ -26,7 +26,7 @@
 		   $resultat3 = $pdo->prepare($req3);
 		   $resultat3->execute();
 		   
-		   while ( $row3 = $resultat3->fetch () )
+		   while ( $row3 = $resultat3->fetch (PDO::FETCH_ASSOC) )
 		       {
 	
 		       echo $row3 ['surname'] . " " . $row3 ['prenom'] . "<br />";
@@ -83,7 +83,7 @@
 			
 		$sql = $pdo2->query ( $req . " LIMIT " . $max . ",".$NombreResultatsParPage );
 		
-		while ( $row = $sql->fetch () )
+		while ( $row = $sql->fetch (PDO::FETCH_ASSOC))
 			{
 			echo "<a href='index.php?page=fiche&ref=" . $row ['ref'] . "'>";
 			echo $row ['surname'] . " " . $row ['prenom'] . "<br />";

@@ -12,7 +12,7 @@
 	$reqSocial = $pdo2->prepare($sqlSocial);
 	$reqSocial->execute();
 		
-	while ($row = $reqSocial->fetch())
+	while ($row = $reqSocial->fetch(PDO::FETCH_ASSOC))
 		{
 		echo '<a href="'.$row['url'].'"><i class="'.$row['icone'].'"></i></a>';
 		}

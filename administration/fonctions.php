@@ -7,7 +7,7 @@ function RecupAuteurArticle($pdo2, $idAuteur) {
 	$res_membres->bindValue ( "id", $idAuteur, PDO::PARAM_INT );
 	$res_membres->execute ();
 	
-	while ( $data_membres = $res_membres->fetch () )
+	while ( $data_membres = $res_membres->fetch(PDO::FETCH_ASSOC))
 	{
 		$idAuteur = $data_membres ['login'];
 	}
@@ -21,7 +21,7 @@ function RecupTitreArticle($pdo2, $a) {
 	$res->bindparam ( ':ref', $a );
 	$res->execute ();
 
-	while ( ($row = $res->fetch ( PDO::FETCH_ASSOC )) ) {
+	while ( ($row = $res->fetch(PDO::FETCH_ASSOC)) ) {
 		return $row ['titre'];
 	}
 }
@@ -31,7 +31,7 @@ function RecupTitreArticle($pdo2, $a) {
 function get_category_name($pdo2, $cn) {
 	$req = $pdo2->query ( "select * from categories where ref ='" . $cn . "'" );
 	
-	while ( $row = $req->fetch () ) {
+	while ( $row = $req->fetch(PDO::FETCH_ASSOC)) {
 		return $row ['nom'];
 	}
 }

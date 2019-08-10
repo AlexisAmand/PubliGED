@@ -1,11 +1,11 @@
 <?php
-$req_lieux = $pdo2->query ( "select * from lieux WHERE lieux.ref = " . $_GET ['id'] );
+$reqLieux = $pdo2->query ( "select * from lieux WHERE lieux.ref = " . $_GET ['id'] );
 
-while ( $coord = $req_lieux->fetch ( PDO::FETCH_ASSOC ) ) {
+while ( $coord = $reqLieux->fetch ( PDO::FETCH_ASSOC ) ) {
 	$ville = $coord ['ville'];
 }
 
-echo "<h1>" . $ville . "</h1>";
+echo "<h3>" . $ville . "</h3>";
 
 $req = $pdo2->query ( "select * from individus, evenements, lieux where evenements.lieu = '" . $_GET ['id'] . "' and evenements.n_indi = individus.ref group by individus.surname" );
 

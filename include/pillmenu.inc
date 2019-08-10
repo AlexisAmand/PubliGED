@@ -45,7 +45,7 @@ switch ($_GET ['page']) {
 			
             echo '<a class="nav-link" href="index.php?page=patro">'.PILLMENU_2.'</a>';
 			echo '</li>';
-			echo '<li class="nav-item"><a class="nav-link" href="admin/index.php">'.PILLMENU_3.'</a>';
+			echo '<li class="nav-item"><a class="nav-link" href="administration/index.php">'.PILLMENU_3.'</a>';
 			echo '</li>';
 			
 			if ($PageActive == '3')

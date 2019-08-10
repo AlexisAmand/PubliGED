@@ -14,7 +14,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require_once 'vendor/autoload.php';
 
-$filename = "DocPourEssayer.pdf";
+$filename = "article.pdf";
 
 /* si le pdf existe, on le supprime */
 
@@ -28,7 +28,7 @@ $sqlArticle = "select * from articles where ref='".$_GET['id']."'";
 $reqArticle = $pdo->prepare($sqlArticle);
 $reqArticle->execute();
 
-while ($data = $reqArticle->fetch()) {
+while ($data = $reqArticle->fetch(PDO::FETCH_ASSOC)) {
 	$mpdf = new \Mpdf\Mpdf();
 	$stylesheet = file_get_contents ('style/style.css');
 	$mpdf->WriteHTML ($stylesheet, 1 );

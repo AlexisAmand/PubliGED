@@ -16,7 +16,7 @@ $reqCategorie->execute();
 	
 	echo "<ul class='list-group'>";
 	
-	while ( $row = $reqCategorie->fetch () ) 
+	while ( $row = $reqCategorie->fetch(PDO::FETCH_ASSOC)) 
 		{
 		echo "<li class='list-group-item d-flex justify-content-between align-items-center'>";	
 		echo "<a href='index.php?page=categories&id=".$row['id_cat']."'>".get_category_name($pdo2,$row['id_cat'])."</a>";
@@ -26,7 +26,7 @@ $reqCategorie->execute();
 		$reqNombreCategories->bindparam(':id_cat',$row['id_cat']);
 		$reqNombreCategories->execute();
 	
-		while ($row = $reqNombreCategories->fetch()) 
+		while ($row = $reqNombreCategories->fetch(PDO::FETCH_ASSOC)) 
 			{
 			echo "<span class='badge badge-primary badge-pill'>".$row['nbcat']."</span>";
 			}

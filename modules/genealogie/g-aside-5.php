@@ -12,7 +12,7 @@
 
 	/* On vérifie si la page demandée existe. Si elle n'existe pas, on redirige vers le blog */
 
-	while ($row = $reqEvenements->fetch ()) 
+	while ($row = $reqEvenements->fetch(PDO::FETCH_ASSOC)) 
 		{
 		echo '<li class="list-group-item"><a href="index.php?page='.$row['nom'].'">'.$row['titre'].'</a></li>';
 		}

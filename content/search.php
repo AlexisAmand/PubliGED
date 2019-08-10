@@ -24,7 +24,7 @@ if (isset ( $_POST ['recherche'] )) {
 		echo "<p class='alert alert-info'>" . THEREIS . $nbsearch . NB_RESULT . $_POST ['recherche'] . "</p>";
 	}
 
-	while ( $row = $sql->fetch () ) {
+	while ( $row = $sql->fetch (PDO::FETCH_ASSOC) ) {
 		echo "<a href='" . URL_SITE . "index.php?page=article&id=" . $row ['ref'] . "'>" . $row ['titre'] . "</a><br />";
 		$rest = substr ( $row ['article'], 0, 250 );
 		echo $rest . "...<br/><br/>";

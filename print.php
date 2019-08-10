@@ -53,7 +53,7 @@ $sqlArticle = "select * from articles where ref='{$_GET['id']}'";
 $reqArticle = $pdo->prepare($sqlArticle);
 $reqArticle->execute();
 
-while ($data = $reqArticle->fetch()) {
+while ($data = $reqArticle->fetch(PDO::FETCH_ASSOC)) {
 	echo "<h1>".$data['titre']."</h1>".$data['article'];
 }
 

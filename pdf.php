@@ -12,7 +12,7 @@ $reqArticle->execute();
 
 /* Affichage du pdf */
 
-while ($data = $reqArticle->fetch()) {
+while ($data = $reqArticle->fetch(PDO::FETCH_ASSOC)) {
 	$mpdf = new \Mpdf\Mpdf();
 
 	$stylesheet = file_get_contents('style/style.css');

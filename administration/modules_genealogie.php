@@ -17,7 +17,7 @@ if (! empty ( $_POST ['g-aside-1'] ))
 
 	/* mise à jour des positions */
 
-	while ( $row = $req->fetch () ) 
+	while ( $row = $req->fetch(PDO::FETCH_ASSOC) ) 
 		{
 		$temp = $row ['nomdumodule'];
 
@@ -192,7 +192,7 @@ if (! empty ( $_POST ['g-aside-1'] ))
 
 				<?php
 				
-				while ( $data = $res_stat->fetch () ) {
+				while ( $data = $res_stat->fetch (PDO::FETCH_ASSOC) ) {
 					echo "<tr>";
 					echo "<td>" . $data ['nomdumodule'] . "</td>";
 					echo "<td>" . $data ['description'] . "</td>";

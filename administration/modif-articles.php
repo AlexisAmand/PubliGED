@@ -175,7 +175,7 @@ include('../langues/admin.php');
                    
                   	<?php
 
-					while ( $data_a = $res_nb_a->fetch () ) 
+                  	while ( $data_a = $res_nb_a->fetch(PDO::FETCH_ASSOC) ) 
 					{
 						echo "<tr>";
 						echo "<td>" . $data_a ['ref'] . "</td>";

@@ -4,33 +4,29 @@
 <?php
 
 if (VerifGedcom ( $pdo2 ) == "1") {
-	$req_pays = "SELECT * FROM lieux GROUP BY pays";
+	$sqlPays = "SELECT * FROM lieux GROUP BY pays";
 
-	$resultat_pays = $pdo2->prepare ( $req_pays );
-	$resultat_pays->execute ();
+	$reqPays = $pdo2->prepare ($sqlPays);
+	$reqPays->execute ();
 
-	while ( $data_pays = $resultat_pays->fetch () ) {
+	while ($data_pays = $reqPays->fetch(PDO::FETCH_ASSOC)) {
 		echo "<ul>";
-		echo "<li>" . utf8_decode ( $data_pays ['pays'] ) . "</li>";
+		echo "<li>".utf8_decode($data_pays ['pays'])."</li>";
 
-		$req_dep = "SELECT * FROM lieux WHERE pays = '{$data_pays['pays']}' GROUP BY dep";
-		$resultat_dep = $pdo2->prepare ( $req_dep );
-		$resultat_dep->execute ();
+		$sqlDep = "SELECT * FROM lieux WHERE pays = '{$data_pays['pays']}' GROUP BY dep";
+		$reqDep = $pdo2->prepare($sqlDep);
+		$reqDep->execute();
 
 		echo "<ul>";
-		while ( $data_dep = $resultat_dep->fetch () ) {
-			echo "<li>" . utf8_decode ( $data_dep ['dep'] ) . "</li>";
+		while ($data_dep = $reqDep->fetch(PDO::FETCH_ASSOC)) {
+			echo "<li>".utf8_decode($data_dep['dep'])."</li>";
 
-			$req_ville = "SELECT * FROM lieux WHERE dep = '{$data_dep['dep']}' GROUP BY ville";
-			$resultat_ville = $pdo2->prepare ( $req_ville );
-			$resultat_ville->execute ();
+			$sqlVille = "SELECT * FROM lieux WHERE dep = '{$data_dep['dep']}' GROUP BY ville";
+			$reqVille = $pdo2->prepare($sqlVille);
+			$reqVille->execute ();
 			echo "<ul>";
-			while ( $data_ville = $resultat_ville->fetch () ) {
-				/*
-				 * $ville = explode(" ",$data_ville['ville']);
-				 * echo "<li>".$ville[2]."</li>";
-				 */
-				echo "<li><a href='index?page=lieuxpatro&id=" . $data_ville ['ref'] . "'>" . $data_ville ['ville'] . "</a></li>";
+			while ($data_ville = $reqVille->fetch(PDO::FETCH_ASSOC)) {
+				echo "<li><a href='index?page=lieuxpatro&id=".$data_ville ['ref']."'>".$data_ville ['ville']."</a></li>";
 			}
 			echo "</ul>";
 			echo "<br />";

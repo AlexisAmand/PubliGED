@@ -11,7 +11,7 @@ $reqBlogroll->execute();
 
 echo "<ul>";
 
-while ( $row = $reqBlogroll->fetch()) 
+while ( $row = $reqBlogroll->fetch(PDO::FETCH_ASSOC)) 
 	{
 	echo "<li><a href='".$row['url']."' title='".$row['description']."' >".html_entity_decode( $row['nom'] )."</a></li>";
 	}

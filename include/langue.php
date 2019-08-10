@@ -1,9 +1,9 @@
 <?php
 
-/* ------------------------------------------------------- */
-/* Test sur la langue utilisée par le navigateur           */
-/* selon le cas, il faut inclure le fichier qui correspond */
-/* ------------------------------------------------------- */
+/* -------------------------------------------------------------------- */
+/* Test sur la langue utilisée par le navigateur                        */
+/* selonla langue qui est détectée, le fichier correspondant est inclus */
+/* -------------------------------------------------------------------- */
 
 $language = explode(',' , $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 

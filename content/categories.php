@@ -4,9 +4,37 @@
 /* LISTE DES ARTICLES D'UNE CATEGORIE */
 /* ---------------------------------- */
 
-$sqlCategories = $pdo2->query("SELECT * FROM articles WHERE id_cat = '" . $_GET ['id'] . "' ORDER BY date DESC");
+$sqlCategories = "SELECT * FROM articles WHERE id_cat = '" . $_GET ['id'] . "' ORDER BY date DESC";
+$reqCategories = $pdo2->prepare( $sqlCategories);
+$reqCategories ->execute();
 
-while ($row = $sqlCategories->fetch()) 
+/* pagination */
+
+$total = $reqCategories ->rowCount ();
+$nrpp = 3; /* TODO : nombre d'articles par page, devra être récupérer via l'admin */
+
+$nb_pages = round($total / $nrpp);
+
+if (isset ( $_GET ['p'] ))
+{
+	$page = $_GET ['p'];
+	if ($page > $nb_pages)
+	{
+		$page = $nb_pages;
+	}
+}
+else
+{
+	$page = 1;
+}
+
+$max = 	($page - 1 ) * $nrpp;
+
+/* fin pagination */
+
+$reqCategories  = $pdo2->query ( $sqlCategories . " LIMIT " . $max . "," . $nrpp );
+
+while ($row = $reqCategories ->fetch(PDO::FETCH_ASSOC)) 
 	{
 	$article = new articles();
 	$commentaire = new commentaires();
@@ -29,7 +57,7 @@ while ($row = $sqlCategories->fetch())
 	$sqlAuteur->bindValue("id", $row['auteur'], PDO::PARAM_INT );
 	$sqlAuteur->execute();
 	
-	while ($data_membres = $sqlAuteur->fetch()) 
+	while ($data_membres = $sqlAuteur->fetch(PDO::FETCH_ASSOC)) 
 		{
 		$article->auteur = $data_membres['login'];
 		}
@@ -58,5 +86,52 @@ while ($row = $sqlCategories->fetch())
 	$commentaire->AfficheLien($article->ref, $pdo2);
 	
 	}
+	
+	/* pagination */
+	
+	echo "<ul class='pagination justify-content-center'>";
+	
+	switch ($page) {
+		case '1':
+			echo "<li class='page-item disabled'><a class='page-link' href='#'>Précédent</a></li>";
+			$p = $page;
+			echo "<li class='page-item'><a class='page-link' href='index.php?page=categories&id=".$_GET['id']."&p=".$p."'>1</a></li>";
+			$p = $page + 1;
+			echo "<li class='page-item'><a class='page-link' href='index.php?page=categories&id=".$_GET['id']."&p=".$p."'>2</a></li>";
+			$p = $page + 2;
+			echo "<li class='page-item'><a class='page-link' href='index.php?page=categories&id=".$_GET['id']."&p=".$p."'>3</a></li>";
+			$p = $page + 3;
+			echo "<li class='page-item'><a class='page-link' href='index.php?page=categories&id=".$_GET['id']."&p=".$p."'>Suivant</a></li>";
+			break;
+			
+		case $nb_pages:
+			$p = $page - 1;
+			echo "<li class='page-item'><a class='page-link' href='index.php?page=categories&id=".$_GET['id']."&p=".$p."'>Précédent</a></li>";
+			$p = $page - 2;
+			echo "<li class='page-item'><a class='page-link' href='index.php?page=categories&id=".$_GET['id']."&p=".$p."'>".$p."</a></li>";
+			$p = $page - 1;
+			echo "<li class='page-item'><a class='page-link' href='index.php?page=categories&id=".$_GET['id']."&p=".$p."'>".$p."</a></li>";
+			$p = $page;
+			echo "<li class='page-item'><a class='page-link' href='index.php?page=categories&id=".$_GET['id']."&p=".$p."'>".$p."</a></li>";
+			echo "<li class='page-item disabled'><a class='page-link' href='index.php?page=categories&id=".$_GET['id']."&p=".$p."'>Suivant</a></li>";
+			break;
+			
+		default:
+			$p = $page - 1;
+			echo "<li class='page-item'><a class='page-link' href='index.php?page=categories&id=".$_GET['id']."&p=".$p."'>Précédent</a></li>";
+			$p = $page - 1;
+			echo "<li class='page-item'><a class='page-link' href='index.php?page=categories&id=".$_GET['id']."&p=".$p."'>".$p."</a></li>";
+			$p = $page;
+			echo "<li class='page-item'><a class='page-link' href='index.php?page=categories&id=".$_GET['id']."&p=".$p."'>".$p."</a></li>";
+			$p = $page + 1;
+			echo "<li class='page-item'><a class='page-link' href='index.php?page=categories&id=".$_GET['id']."&p=".$p."'>".$p."</a></li>";
+			echo "<li class='page-item'><a class='page-link' href='index.php?page=categories&id=".$_GET['id']."&p=".$p."'>Suivant</a></li>";
+			break;
+	}
+	
+	echo "</ul>";
+	
+	/* fin pagination */
+	
 	
 ?>

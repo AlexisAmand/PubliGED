@@ -33,7 +33,7 @@
 			   {
 			   echo "<h4>" . $alphabet [$i] . "</h4>";
 						
-			   while ( $data_patro = $req_lieu->fetch () ) 
+			   while ( $data_patro = $req_lieu->fetch (PDO::FETCH_ASSOC) ) 
 			      {
 				        
 				  /* affichage du nom avec un lien qui affiche la liste des individus qui ont ce nom */

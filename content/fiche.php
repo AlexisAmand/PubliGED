@@ -10,7 +10,7 @@ $individu->ref = $_GET ['ref'];
 
 $req = $pdo2->query ( "select * from individus where ref='$individu->ref'" );
 
-while ( $row = $req->fetch () ) {
+while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
 
 	/* --------------------------- */
 	/* Nom et prénom de l'individu */
@@ -98,7 +98,7 @@ $req_parents = $pdo2->prepare ( "select * from familles where enfant=:ref" );
 $req_parents->bindparam ( ':ref', $individu->ref );
 $req_parents->execute ();
 
-while ( $row = $req_parents->fetch () ) {
+while ( $row = $req_parents->fetch(PDO::FETCH_ASSOC) ) {
 	$individu->pere = $row ['pere'];
 	$individu->mere = $row ['mere'];
 }
@@ -113,7 +113,7 @@ $req_event->execute ();
 
 $i = 1;
 
-while ( $date_event = $req_event->fetch () ) {
+while ( $date_event = $req_event->fetch(PDO::FETCH_ASSOC) ) {
 
 	$event [$i] = new evenements ();
 	$event [$i]->date = $date_event ['date'];
@@ -181,11 +181,11 @@ echo "</ul>";
 /* Affichage de la profession */
 /* -------------------------- */
 
-$result_prof = $pdo2->prepare ( "SELECT * FROM evenements WHERE n_indi = :ref and nom = 'OCCU'" );
-$result_prof->bindparam ( ':ref', $individu->ref );
-$result_prof->execute ();
+$sqlProfession = $pdo2->prepare( "SELECT * FROM evenements WHERE n_indi = :ref and nom = 'OCCU'" );
+$sqlProfession->bindparam( ':ref', $individu->ref );
+$sqlProfession->execute();
 
-while ( $row_prof = $result_prof->fetch () ) {
+while ($row_prof = $sqlProfession->fetch(PDO::FETCH_ASSOC)) {
 	echo "<p>" . JOBS . $row_prof ['evenement'] . "<br />" . $row_prof ['note'] . "</p>";
 }
 
@@ -221,7 +221,7 @@ if ($count == 0) {
 
 echo "<ul>";
 
-while ( $row_enfants = $req->fetch () ) {
+while ( $row_enfants = $req->fetch (PDO::FETCH_ASSOC) ) {
 	if (! empty ( $row_enfants ['enfant'] )) {
 		echo "<li>";
 		echo individu ( $pdo2, $row_enfants ['enfant'] );

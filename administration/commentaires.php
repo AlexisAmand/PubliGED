@@ -185,8 +185,8 @@ include('../langues/admin.php');
                   </tfoot>
                   <tbody>
                     <?php
-                    while ( $rowCommentaires = $reqCommentaires->fetch () )
-                    {
+                    while ($rowCommentaires = $reqCommentaires->fetch(PDO::FETCH_ASSOC))
+                    	{
 						echo "<tr>";
 						echo "<td>".$rowCommentaires['ref']."</td>";
 						echo "<td>".$rowCommentaires['date_com']."</td>";
@@ -205,7 +205,7 @@ include('../langues/admin.php');
 						
 						echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Publier"><i class="far fa-star text-warning"></i></a></td>';
 						echo "</tr>";
-                    } 
+                    	} 
 					?>
                  </tbody>
                 </table>

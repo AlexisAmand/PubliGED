@@ -31,7 +31,7 @@ if (VerifGedcom ( $pdo2 ) == "1") {
 
 	$resultat_patro = $pdo2->query ( $req_patro . " LIMIT " . $max . "," . $NombreResultatsParPage );
 
-	while ( $data_patro = $resultat_patro->fetch () ) 
+	while ( $data_patro = $resultat_patro->fetch (PDO::FETCH_ASSOC) ) 
 	{
 
 		echo "<a href='index.php?page=fiche&ref=" . $data_patro ['ref'] . "'>" . $data_patro ['surname'] . " ";
@@ -51,11 +51,11 @@ if (VerifGedcom ( $pdo2 ) == "1") {
 
 			$req_date_chr = "select * from evenements where nom = 'CHR' and n_indi = '{$temp}'";
 			$resultat_date_chr = $pdo2->query ( $req_date_chr );
-			while ( $data_chr = $resultat_date_chr->fetch () ) {
+			while ( $data_chr = $resultat_date_chr->fetch (PDO::FETCH_ASSOC) ) {
 				echo $data_chr ['date'];
 			}
 		} else {
-			while ( $data_birt = $resultat_date_birt->fetch () ) {
+			while ( $data_birt = $resultat_date_birt->fetch (PDO::FETCH_ASSOC) ) {
 				echo $data_birt ['date'];
 			}
 		}
@@ -73,11 +73,11 @@ if (VerifGedcom ( $pdo2 ) == "1") {
 
 			$req_date_buri = "select * from evenements where nom = 'BURI' and n_indi = '{$temp}'";
 			$resultat_date_buri = $pdo2->query ( $req_date_buri );
-			while ( $data_buri = $resultat_date_buri->fetch () ) {
+			while ( $data_buri = $resultat_date_buri->fetch (PDO::FETCH_ASSOC) ) {
 				echo $data_buri ['date'];
 			}
 		} else {
-			while ( $data_deat = $resultat_date_deat->fetch () ) {
+			while ( $data_deat = $resultat_date_deat->fetch (PDO::FETCH_ASSOC) ) {
 				echo $data_deat ['date'];
 			}
 		}

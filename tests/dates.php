@@ -62,7 +62,7 @@ $req = "select * from temp order by datesql";
 $res = $pdo->prepare ( $req );
 $res->execute ();
 
-while ( $data = $res->fetch () ) {
+while ( $data = $res->fetch(PDO::FETCH_ASSOC)) {
 	
 	$DateChrono = new Dates();
 	$test = date_parse($data ['datesql']);
@@ -85,7 +85,7 @@ $resultat->execute();
 
 $i = 0;
 
-while ($row = $resultat->fetch ())
+while ($row = $resultat->fetch(PDO::FETCH_ASSOC))
 {
 	var_dump($row);
 	$tabsurname[$i] = $row['surname'];

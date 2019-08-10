@@ -144,9 +144,9 @@ include('../langues/admin.php');
 					<option selected><?php echo ADM_CAT_ROOL; ?></option>
 			
 					<?php 
-					while ( $rowcat = $cat->fetch () ) 
+					while ($rowcat = $cat->fetch(PDO::FETCH_ASSOC)) 
 					{
-						echo "<option value='" . $rowcat ['ref'] . "'>" . $rowcat ['nom'] . "</option>";
+						echo "<option value='".$rowcat ['ref']."'>".$rowcat['nom']."</option>";
 					}
 					?>
 					

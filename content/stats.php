@@ -191,7 +191,7 @@ if(VerifGedcom($pdo2) == "1")
 			$resultat_stat = $pdo2->prepare ($req_stat);
 			$resultat_stat->execute ();
 			
-			while ( $row_stat = $resultat_stat->fetch () )
+			while ( $row_stat = $resultat_stat->fetch (PDO::FETCH_ASSOC) )
 			{
 				echo "<tr>";
 			    echo "<td>".$row_stat['surname']."</td>";
@@ -224,7 +224,7 @@ if(VerifGedcom($pdo2) == "1")
 			$resultat_stat = $pdo2->prepare ($req_stat);
 			$resultat_stat->execute ();
 			
-			while ( $row_stat = $resultat_stat->fetch () )
+			while ( $row_stat = $resultat_stat->fetch (PDO::FETCH_ASSOC) )
 			   {
 			       echo "<tr>";
 			       echo "<td>".$row_stat['prenom']."</td>";

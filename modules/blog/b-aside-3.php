@@ -13,7 +13,7 @@
 	
 	echo "<ul class='list-group'>";
 	
-	while ($row = $reqDerniersArticles->fetch()) 
+	while ($row = $reqDerniersArticles->fetch(PDO::FETCH_ASSOC)) 
 		{
 		echo "<li class='list-group-item'><a href='index.php?page=article&id=".$row['ref']."'>".html_entity_decode($row['titre'])."</a></li>";
 		}
