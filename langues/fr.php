@@ -356,6 +356,11 @@ define ( "THEREIS", "Il y a " );
 define ( "NB_RESULT", " resultat pour " );
 define ( "NB_RESULTS", " resultats pour " );
 
+define ("MENU_RESULT","Resultats");
+define ("MENU_RESULT_ARTICLE","Article(s)");
+define ("MENU_RESULT_INDIVIDU","Individu(s)");
+define ("MENU_RESULT_PLACE","Lieu(x)");
+
 /* ------- */
 /* CONTACT */
 /* ------- */

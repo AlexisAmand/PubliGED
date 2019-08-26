@@ -7,32 +7,56 @@ class pages
 	public $rubrique;
 	
 	public function AfficherContenu($pdo2) 
-		{
+		{	
+		echo '<article class="col-md-9">';
 		include ('content/' . $this->nom . '.php');
+		echo '</article>';
 		}
 	
 	public function AfficherAside($pdo2) 
 		{
-		$rubrique = array (
-				"pdf",
-				"blog",
-				"article",
-				"categories",
-				"contact",
-				"error",
-				"search"
-		);
-
-		if (in_array ( $this->nom, $rubrique )) 
+		
+		$sqlPages = "select * from pages";
+		$reqPages = $pdo2->prepare($sqlPages);
+		$reqPages->execute();
+		
+		/* TODO: ici un test si l'user veut le menu à droite ou à gauche, selon le cas il me semble qu'il existe un class bootstrap qui permet de choisir d'autre des colonnes (aside et article, ou article puis aside. */
+		
+		echo '<aside class="col-md-3">';
+		
+		while($row = $reqPages->fetch())
 			{
-			include ('include/sidebar-blog.inc');
+				
+			if ($row['nom'] == $this->nom)	
+				{
+				switch ($row['section'])
+					{
+					
+					/* $aside est une sorte de booléen. Si = 1, il y a un menu à mettre dans l'aside, si = 0, il n'y a pas de menu à afficher, comme dans contact par exemple */	
+						
+					case 'blog':
+						include ('include/sidebar-blog.inc');
+						//$aside = 1;
+						break;
+					case 'genealogie':
+						include ('include/sidebar-genealogie.inc');
+						//$aside = 1;
+						break;
+					case 'search':
+						include ('include/sidebar-search.inc');
+						//$aside = 1;
+						break;
+					default:
+						//$aside = 0;
+						/* TODO: pas de sidebar, on peut afficher l'article sur toute la largeur de la page */
+					}
+				}
 			}
-		else
-			{
-			include ('include/sidebar.inc');
-			}
+		
+		echo '</aside>';
+						
 		}
-	
+
 	public function AfficherFooter() 
 		{
 		include ('include/footer.inc');

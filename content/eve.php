@@ -42,7 +42,7 @@ if(VerifGedcom($pdo2) == "1")
 	   {
 	   echo "<tr>"; 	
 	   echo "<td style='white-space: nowrap;'>".utf8_decode($row['date'])."</td>";	   	   
-	   echo "<td>";lieu($pdo2, $row['lieu']);echo "</td>";
+	   echo "<td>".lieu($pdo2, $row['lieu'])."</td>";
 	   echo "<td>".traduction($row['nom'])."</td>";
 	   echo "<td><a href='index.php?page=sources&ids=".$row['source']."'>".$row['source']."</a></td>";
 	   echo "<td>".$row['note']."</td>";

@@ -99,11 +99,19 @@ require_once 'vendor/autoload.php';
 	</div>
 
 	<section class="row">
-           
+
+		<aside class="col-md-3">
+            
         	<?php $GLOBALS['InfoPage']->AfficherAside($pdo); ?>
-              	
+            
+        </aside>
+
+		<article class="col-md-9">
+    	
     		<?php $GLOBALS['InfoPage']->AfficherContenu($pdo); ?>		
     	
+        </article>
+
 	</section>
 
 	<footer class="row">

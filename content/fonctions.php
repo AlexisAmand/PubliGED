@@ -17,7 +17,7 @@ function lieu($pdo2, $lieueve) {
 	
 	if ($count == 0) {
 		/* si un lieu existe pas */
-		echo PLACEUNKNOW;
+		return PLACEUNKNOW;
 	} else {
 		/* si un lieu existe */
 		
@@ -25,16 +25,19 @@ function lieu($pdo2, $lieueve) {
 			
 			$ville = explode(" ", $row_birt_lieu ['ville']);
 						
-			echo $row_birt_lieu ['ville']."<br />(".$row_birt_lieu ['dep']." - ".$row_birt_lieu ['pays'].")";
+			$temp = $row_birt_lieu ['ville']." (".$row_birt_lieu ['dep']." - ".$row_birt_lieu ['pays'].")";
+			
+			return $temp;
 		
 			/* TODO: vérifier si cette partie prend bien en compte les notes */
-			
+			/*
 			if (empty($row_birt_lieu['note'])) {
 			} else {
 				echo "<sup>".$i_note."</sup>";
 				$note [$i_note] = $row_birt_lieu ['note'];
 				$i_note = $i_note + 1;
 			}
+			*/
 						
 		}
 	}

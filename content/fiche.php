@@ -49,7 +49,7 @@ $reqBMS->bindparam(':ref', $_GET ['ref']);
 $reqBMS->execute();
 $nb_eve = $reqBMS->rowCount();
 
-while ( $row = $req->fetch ( PDO::FETCH_ASSOC ) ) {
+while ( $row = $reqBMS->fetch ( PDO::FETCH_ASSOC ) ) {
 	switch ($row ['nom']) {
 		case "BIRT": /* naissance */
 		$birt = new evenements ();
