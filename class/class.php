@@ -7,8 +7,10 @@ class pages
 	public $rubrique;
 	
 	public function AfficherContenu($pdo2) 
-		{	
-		echo '<article class="col-md-9">';
+		{
+		
+		$balise = ($GLOBALS['aside']==1)?'<article class="col-md-9">':'<article class="col-md-12">';
+		echo $balise;			
 		include ('content/' . $this->nom . '.php');
 		echo '</article>';
 		}
@@ -16,14 +18,19 @@ class pages
 	public function AfficherAside($pdo2) 
 		{
 		
+		/* Par défaut, on supppose que le aside est affiché */	
+		
+		$GLOBALS['aside'] = '1';
+			
 		$sqlPages = "select * from pages";
 		$reqPages = $pdo2->prepare($sqlPages);
 		$reqPages->execute();
 		
 		/* TODO: ici un test si l'user veut le menu à droite ou à gauche, selon le cas il me semble qu'il existe un class bootstrap qui permet de choisir d'autre des colonnes (aside et article, ou article puis aside. */
-		
-		echo '<aside class="col-md-3">';
-		
+				
+		$balise = ($GLOBALS['aside']==1)?'<aside class="col-md-3">':'<aside class="col-md-12">';		
+		echo $balise;
+					
 		while($row = $reqPages->fetch())
 			{
 				
@@ -36,18 +43,18 @@ class pages
 						
 					case 'blog':
 						include ('include/sidebar-blog.inc');
-						//$aside = 1;
+						$GLOBALS['aside'] = 1;
 						break;
 					case 'genealogie':
 						include ('include/sidebar-genealogie.inc');
-						//$aside = 1;
+						$GLOBALS['aside'] = 1;
 						break;
 					case 'search':
 						include ('include/sidebar-search.inc');
-						//$aside = 1;
+						$GLOBALS['aside'] = 1;
 						break;
 					default:
-						//$aside = 0;
+						$GLOBALS['aside'] = 0;
 						/* TODO: pas de sidebar, on peut afficher l'article sur toute la largeur de la page */
 					}
 				}
