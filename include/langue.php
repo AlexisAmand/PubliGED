@@ -2,21 +2,23 @@
 
 /* -------------------------------------------------------------------- */
 /* Test sur la langue utilisée par le navigateur                        */
-/* selonla langue qui est détectée, le fichier correspondant est inclus */
+/* selon la langue qui est détectée, le fichier correspondant est inclus */
 /* -------------------------------------------------------------------- */
 
 $language = explode(',' , $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 
+var_dump($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+
 switch($language[0])
 	{
-	case 'fr':
-		include('langues/'.$language[0].'.php');
+	case 'fr-FR':
+		include('langues/fr.php');
 		break;
 	case 'en':
-		include('langues/'.$language[0].'.php');
+		include('langues/en.php');
 		break;
 	default:
-		include('langues/'.$language[0].'.php');
+		include('langues/fr.php');
 		break;
 	}
 
