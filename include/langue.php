@@ -7,14 +7,14 @@
 
 $language = explode(',' , $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 
-var_dump($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+// var_dump($_SERVER['HTTP_ACCEPT_LANGUAGE']);
 
 switch($language[0])
 	{
 	case 'fr-FR':
 		include('langues/fr.php');
 		break;
-	case 'en':
+	case 'en-GB':
 		include('langues/en.php');
 		break;
 	default:
