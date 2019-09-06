@@ -126,42 +126,24 @@ while ( $data = $resultat->fetch(PDO::FETCH_ASSOC) )
 
 echo "<ul class='pagination justify-content-center'>";
 
-switch ($page) {
-	case '1':
-		echo "<li class='page-item disabled'><a class='page-link' href='#'>Précédent</a></li>";
-		$p = $page;
-		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>1</a></li>";
-		$p = $page + 1;
-		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>2</a></li>";
-		$p = $page + 2;
-		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>3</a></li>";
-		$p = $page + 3;
-		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>Suivant</a></li>";
-	break;
-	
-	case $nb_pages:
-		$p = $page - 1;
-		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>Précédent</a></li>";
-		$p = $page - 2;
-		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>".$p."</a></li>";
-		$p = $page - 1;
-		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>".$p."</a></li>";
-		$p = $page;
-		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>".$p."</a></li>";
-		echo "<li class='page-item disabled'><a class='page-link' href='index.php?page=blog&p=".$p."'>Suivant</a></li>";
-	break;
-	
-	default:
-		$p = $page - 1;
-		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>Précédent</a></li>";
-		$p = $page - 1;
-		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>".$p."</a></li>";
-		$p = $page;
-		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>".$p."</a></li>";
-		$p = $page + 1;
-		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>".$p."</a></li>";
-		echo "<li class='page-item'><a class='page-link' href='index.php?page=blog&p=".$p."'>Suivant</a></li>";
-	break;
+if ($page == 1)
+	{	
+	echo "<li class='page-item disabled'><a class='page-link' href='#'>Précédent</a></li>";
+	}
+else
+	{
+	$p = $page - 1;
+	echo "<li class='page-item'><a class='page-link' href='index?page=blog&p=".$p."'>Précédent</a></li>";
+	}
+
+if ($page == $nb_pages)
+{
+	echo "<li class='page-item disabled'><a class='page-link' href='#'>Suivant</a></li>";
+}
+else
+{
+	$p = $page + 1;
+	echo "<li class='page-item'><a class='page-link' href='index?page=blog&p=".$p."'>Suivant</a></li>";
 }
 
 echo "</ul>";

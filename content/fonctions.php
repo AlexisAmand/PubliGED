@@ -1,10 +1,53 @@
 <?php 
 
-function testhello()
-	{
-	echo "hello world !";
+function nextArticle($id, $pdo2)
+	{	
+	$id++;
+	$reffound = 0;
+	while ($reffound == 0)	
+		{
+		$sql = "SELECT ref FROM articles WHERE ref = '{$id}'";
+		$req = $pdo2->prepare ($sql);
+		$req->execute();
+		
+		$count = $req->rowCount();
+		
+		if ($count == 1)
+			{			
+			$reffound = 1;
+			}
+		else
+			{
+			$id++;
+			}				
+		}		
+	return "index.php?page=article&id=".$id;
 	}
 
+function previousArticle($id, $pdo2)
+	{
+	$id--;
+	$reffound = 0;
+	while ($reffound == 0)
+		{
+		$sql = "SELECT ref FROM articles WHERE ref = '{$id}'";
+		$req = $pdo2->prepare ($sql);
+		$req->execute();
+		
+		$count = $req->rowCount();
+		
+		if ($count == 1)
+			{	
+			$reffound = 1;
+			}
+		else
+			{
+			$id--;
+			}
+		}
+	return "index.php?page=article&id=".$id;
+	}
+		
 /* fonction qui affiche le lieu d'un événement en partant de sa ref */
 /* TODO : trouver un nom plus parlant */
 

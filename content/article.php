@@ -30,7 +30,7 @@ if (!empty($_POST['pseudo']) and !empty($_POST['email']) /* and !empty($_POST['s
 	$reqCommentaires->bindparam (':today', $commentaire->today, PDO::PARAM_STR);
 	$reqCommentaires->execute();
 	}
-
+	
 /* Récupération de l'article */
 
 $article = new articles ();
@@ -39,6 +39,30 @@ $commentaire = new commentaires();
 $article->ref = $_GET['id'];
 
 $sqlArticle = $pdo2->query("SELECT * FROM articles WHERE ref='$article->ref'");
+
+/* pagination */
+
+$total = $sqlArticle->rowCount ();
+$nrpp = 3; /* TODO : nombre d'articles par page, devra être récupérer via l'admin */
+
+$nb_pages = round($total / $nrpp);
+
+if (isset ( $_GET ['p'] ))
+{
+	$page = $_GET ['p'];
+	if ($page > $nb_pages)
+	{
+		$page = $nb_pages;
+	}
+}
+else
+{
+	$page = 1;
+}
+
+$max = 	($page - 1 ) * $nrpp;
+
+/* fin pagination */
 
 while ($row = $sqlArticle->fetch(PDO::FETCH_ASSOC))
 	{
@@ -69,5 +93,16 @@ if (preg_match ( "/^[0-9]{4}(\/|-|.)(0[1-9]|1[0-2])(\/|-|.)(0[1-9]|[1-2][0-9]|3[
 
 $article->Afficher($pdo2);
 $commentaire->AfficheCommentaire($article->ref, $pdo2);
+
+/* pagination */
+
+echo "<ul class='pagination justify-content-center'>";
+
+echo "<li class='page-item'><a class='page-link' href='".previousArticle($article->ref, $pdo2)."'>Précédent</a></li>";
+echo "<li class='page-item'><a class='page-link' href='".nextArticle($article->ref, $pdo2)."'>Suivant</a></li>";
+
+echo "</ul>";
+
+/* fin pagination */
 
 ?>
