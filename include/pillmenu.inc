@@ -15,7 +15,7 @@ switch ($_GET ['page']) {
 }
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light pillmenu">
+<nav class="navbar navbar-expand-lg navbar-light bg-light pillmenu navbar-fixed-top" style="position: absolute;top: 0;right: 0;left: 0;z-index: 1030;">
 
 	<div class="collapse navbar-collapse">
 
@@ -65,7 +65,7 @@ switch ($_GET ['page']) {
 		<form class="form-inline my-2 my-lg-0" method="POST" action="index.php?page=search">
 			<input class="form-control mr-sm-2" type="text"	placeholder="Recherche" name="recherche" value="recherche" onclick="this.value = '';">
 			<button class="btn btn-secondary my-2 my-sm-0" type="submit" value="ok">
-				<i class="fas fa-search"></i>
+				<i class="fa fa-search"></i>
 			</button>
 		</form>
 

@@ -7,7 +7,7 @@
 }
 
 nav {
-	margin-top: 5px
+	/* margin-top: 5px */
 }
 
 footer {
@@ -73,8 +73,8 @@ a {
 /* ------ */
 
 header {
-	background-image: url('../img/fond04.jpg');
-	height: 150px;
+	/* background-image: url('../img/fond04.jpg'); */
+	/* height: 150px; */
 	color: #827c7e;
 }
 
@@ -180,3 +180,16 @@ article a {
 	width: 100%;
 	height: 600px;
 }
+
+/* ------------------------------------------------------ */
+/* modification de Bootstrap pour la fixation du pillmenu */
+/* ------------------------------------------------------ */
+
+.navbar-fixed-top.scrolled {
+  background-image: url('../img/fond03.jpg');
+  background-size: cover;	
+  /* background-color: #fff !important; */
+  /* transition: background-image 200ms ease-in; */ 
+}}
+
+

@@ -45,7 +45,7 @@ require_once 'vendor/autoload.php';
   	<!-- Ce script contient l'initialisation du plugin datatables de jquery -->
   	
   	<script src="administration/js/demo/datatables-demo.js"></script>
-
+  	
 	<!-- OpenStreetMap et Leaflet 1.5.1 -->
 	
 	<script src="js/leaflet/leaflet.js"></script>
@@ -53,36 +53,36 @@ require_once 'vendor/autoload.php';
 	<!-- TinyMCE 5.0.1 -->
 	
 	<script src="js/tinymce/tinymce.min.js"></script>
+	
+	<!-- Divers Javascript -->
+	
+	<script src="js/scripts.js"></script>
 
 	<script>
-    	tinymce.init({
-        	selector: 'textarea',
-            menubar:false,
-            language: "fr_FR",
-            });
+    	
     </script>
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="container fixed-top">
 
-	<div class="row">
- 					
- 		<?php include ('include/pillmenu.inc'); ?>
- 		 		
- 	</div>
-
-	<div class="row">
-
-		<header class="col-md-12">
- 		
- 			<?php include('include/header.inc');?>
- 						
- 		</header>
-
+	<div class="col-md-12">
+	
+		<?php include ('include/pillmenu.inc'); ?>
+	
 	</div>
+
+</div>
+
+<header style="background-image: url('img/fond03.jpg');height: 250px;background-size: cover;position: relative;background-color: #212529;opacity: 0.7;">
+
+	<?php include('include/header.inc');?>
+ 							
+</header>	
+
+<div class="container">
 
 	<div class="row" style="margin-top: 10px;">
 
