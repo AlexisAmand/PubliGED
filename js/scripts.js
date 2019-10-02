@@ -10,9 +10,7 @@ $(function () {
 		  });
 		});
 
-/* ----------------------------- */
 /* TinyMCE pour les commentaires */
-/* ----------------------------- */
 
 tinymce.init({
 	selector: 'textarea',

@@ -58,10 +58,6 @@ require_once 'vendor/autoload.php';
 	
 	<script src="js/scripts.js"></script>
 
-	<script>
-    	
-    </script>
-
 </head>
 
 <body>
