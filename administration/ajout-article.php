@@ -34,31 +34,52 @@ include('../langues/admin.php');
   <script src="../js/tinymce/tinymce.min.js"></script>
   
 <script>
-    tinymce.init({
-        /* ajouter un tableau dans tinymce */
-        /*plugins: "table", */
-        tools: "inserttable",
-        /* ajouter une image
-        plugins: "image", */
-        /* par défaut */
-        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
-        plugins: [
-        "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
-        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-        "save table contextmenu directionality emoticons template paste textcolor"
-        ],
-        selector: 'textarea',
-        language: "fr_FR",
-        style_formats: [
-        { title: 'Bold text', inline: 'b' },
-        { title: 'Red text', inline: 'span', styles: { color: '#ff0000' } },
-        { title: 'Red header', block: 'h1', styles: { color: '#ff0000' } },
-        { title: 'Example 1', inline: 'span', classes: 'example1' },
-        { title: 'Example 2', inline: 'span', classes: 'example2' },
-        { title: 'Table styles' },
-        { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' }
-        ]
-    });
+tinymce.init({
+	  selector: "textarea#custom-menu-item",	  
+	  /* ajouter un tableau dans tinymce */
+	  /* plugins: "table", */
+	  tools: "inserttable",
+	  /* ajouter une image
+	  plugins: "image", */
+	  /* par défaut */
+	  toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+	  plugins: [
+	  	"advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+	     "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+	        "save table contextmenu directionality emoticons template paste textcolor"
+	        ],
+	        selector: 'textarea',
+	        language: "fr_FR",
+	        style_formats: [
+	        { title: 'Bold text', inline: 'b' },
+	        { title: 'Red text', inline: 'span', styles: { color: '#ff0000' } },
+	        { title: 'Red header', block: 'h1', styles: { color: '#ff0000' } },
+	        { title: 'Example 1', inline: 'span', classes: 'example1' },
+	        { title: 'Example 2', inline: 'span', classes: 'example2' },
+	        { title: 'Table styles' },
+	        { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' }
+	        ],	        
+	  height: 500,
+	  toolbar: true,
+	  menubar: 'file edit insert view format table tools help custom',
+	  menu: {
+	    custom: { title: "généalogie", items: "basicitem nesteditem toggleitem" }
+	  },
+	  content_css: [
+	    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+	    '//www.tiny.cloud/css/codepen.min.css'
+	  ],
+	  setup: function (editor) {
+	    var toggleState = false;
+
+	    editor.ui.registry.addMenuItem('basicitem', {
+	      text: 'Lier un individu',
+	      onAction: function () {
+	        editor.insertContent("<a href='#'>ici c'est un lien vers un individu</a>");
+	      }
+	    });
+	  }
+	});
 </script>
 
 </head>
@@ -210,7 +231,7 @@ include('../langues/admin.php');
 
 	 <div class="form-group">
 	    <label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_CONTENT; ?></label>
-	    <textarea name="texte"></textarea>
+	    <textarea name="texte" id="custom-menu-item"></textarea>
 	 </div>
 	
 	<input type="submit" class="btn btn-primary" value="<?php echo ADM_ARTICLE_SAVE; ?>">
