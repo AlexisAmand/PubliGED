@@ -34,15 +34,56 @@ include('../langues/admin.php');
   <script src="../js/tinymce/tinymce.min.js"></script>
   
 <script>
+
+var dialogConfig =  {
+		  title: 'Lier un individu',
+		  body: {
+		    type: 'panel',
+		    items: [
+		      {
+		        type: 'input',
+		        name: 'nomData',
+		        label: 'Entrez le nom de la personne'
+		      }
+		    ]
+		  },
+		  buttons: [
+		    {
+		      type: 'cancel',
+		      name: 'closeButton',
+		      text: 'Annuler'
+		    },
+		    {
+		      type: 'submit',
+		      name: 'submitButton',
+		      text: 'Ok',
+		      primary: true
+		    }
+		  ],
+		  initialData: {
+		    // catdata: '',
+		    isdog: false
+		  },
+		  onSubmit: function (api) {
+		    var data = api.getData();    
+		    var truc = data.nomData;
+
+		    tinymce.activeEditor.execCommand('mceInsertContent', false, '<a href="#">' + truc +'</a>');	
+		    
+		    // tinymce.activeEditor.execCommand('mceInsertContent', false, '<p>My ' + pet +'\'s name is: <strong>' + data.catdata + '</strong></p>');
+		    api.close();
+		  }
+		};
+
 tinymce.init({
-	  selector: "textarea#custom-menu-item",	  
+	  selector: "textarea.individu",	  
 	  /* ajouter un tableau dans tinymce */
 	  /* plugins: "table", */
 	  tools: "inserttable",
 	  /* ajouter une image
 	  plugins: "image", */
 	  /* par défaut */
-	  toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+	  toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons | dialog-example-btn",
 	  plugins: [
 	  	"advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
 	     "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
@@ -60,7 +101,7 @@ tinymce.init({
 	        { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' }
 	        ],	        
 	  height: 500,
-	  toolbar: true,
+	  // toolbar: true,
 	  menubar: 'file edit insert view format table tools help custom',
 	  menu: {
 	    custom: { title: "généalogie", items: "basicitem nesteditem toggleitem" }
@@ -70,12 +111,13 @@ tinymce.init({
 	    '//www.tiny.cloud/css/codepen.min.css'
 	  ],
 	  setup: function (editor) {
-	    var toggleState = false;
+	    //var toggleState = false;
 
-	    editor.ui.registry.addMenuItem('basicitem', {
-	      text: 'Lier un individu',
-	      onAction: function () {
-	        editor.insertContent("<a href='#'>ici c'est un lien vers un individu</a>");
+	   editor.ui.registry.addButton('dialog-example-btn', {
+		 text: 'Lier un individu',
+     	 // icon: 'code-sample',
+      		onAction: function () {
+        	editor.windowManager.open(dialogConfig)
 	      }
 	    });
 	  }
@@ -231,7 +273,7 @@ tinymce.init({
 
 	 <div class="form-group">
 	    <label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_CONTENT; ?></label>
-	    <textarea name="texte" id="custom-menu-item"></textarea>
+	    <textarea name="texte" id="custom-menu-item" class="individu"></textarea>
 	 </div>
 	
 	<input type="submit" class="btn btn-primary" value="<?php echo ADM_ARTICLE_SAVE; ?>">
