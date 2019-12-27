@@ -35,7 +35,7 @@ include ('class/class.php');
 
 	<script src="js/jquery-3.4.1.min.js"></script>
 	
-	<!-- OpenStreetMap et Leaflet 1.5.1 -->
+	<!-- OpenStreetMap et Leaflet 1.6 -->
 	<!-- Peut-être pas utile ici -->
 	
 	<link rel="stylesheet" href="js/leaflet/leaflet.css">

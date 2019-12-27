@@ -46,7 +46,7 @@ require_once 'vendor/autoload.php';
   	
   	<script src="administration/js/demo/datatables-demo.js"></script>
   	
-	<!-- OpenStreetMap et Leaflet 1.7 -->
+	<!-- OpenStreetMap et Leaflet 1.6 -->
 	
 	<script src="js/leaflet/leaflet.js"></script>
 	
