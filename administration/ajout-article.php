@@ -68,11 +68,7 @@ var dialogConfig =  {
 		    var data = api.getData();    
 		    var truc = data.nomData;
 
- 			var truc2 = "<?php echo 'toto'; ?>";
-		    
-		    tinymce.activeEditor.execCommand('mceInsertContent', false, '<a href="#">' + truc2 +'</a>');
-
-		    // tinymce.activeEditor.execCommand('mceInsertContent', false, '<a href="#">' + truc +'</a>');	
+		    tinymce.activeEditor.execCommand('mceInsertContent', false, '<a href="#">' + truc +'</a>');	
 		    
 		    // tinymce.activeEditor.execCommand('mceInsertContent', false, '<p>My ' + pet +'\'s name is: <strong>' + data.catdata + '</strong></p>');
 		    api.close();
@@ -106,12 +102,10 @@ tinymce.init({
 	        ],	        
 	  height: 500,
 	  // toolbar: true,
-	  /*
 	  menubar: 'file edit insert view format table tools help custom',
 	  menu: {
 	    custom: { title: "généalogie", items: "basicitem nesteditem toggleitem" }
 	  },
-	  */
 	  content_css: [
 	    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
 	    '//www.tiny.cloud/css/codepen.min.css'
@@ -213,80 +207,102 @@ tinymce.init({
                  <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_RUB_TITRE_0; ?></h6>
                </div>
                <div class="card-body">
-                  	<?php
+               
+               	<?php
 
-	if (! empty ( $_POST ['texte'] ) and ! empty ( $_POST ['titre'] ) and ! empty ( $_POST ['categorie'] )) {
+               	if (empty ( $_POST ['texte'] ))
+               		{
+               		echo '<div class="alert alert-warning" role="alert">';
+                	echo "<i class='fas fa-exclamation-triangle'></i>Vous n'avez pas indiqué de texte";
+					echo '</div>';
+                	}
+                                 	
+				if (empty ( $_POST ['titre'] ))
+					{
+                    echo '<div class="alert alert-warning" role="alert">';
+                    echo "<i class='fas fa-exclamation-triangle'></i>Vous n'avez pas indiqué de titre";
+                    echo '</div>';
+                    }
+         
+                if (empty ( $_POST ['categorie'] ))
+                	{
+                    echo '<div class="alert alert-warning" role="alert">';
+                    echo "<i class='fas fa-exclamation-triangle'></i>Vous n'avez pas indiqué de catégorie";
+                    echo '</div>';
+                	}
+                                	
+                if (! empty ( $_POST ['texte'] ) and ! empty ( $_POST ['titre'] ) and ! empty ( $_POST ['categorie'] )) 
+                	{
+					$datearticle = date ( "Y-m-d", time () );
 
-		$datearticle = date ( "Y-m-d", time () );
+					/*
+					 * TODO: Pour l'instant, l'auteur de l'article est 1
+					 * quand la connexion à l'admin sera ok
+					 * il faudra récupérer le n° de l'auteur
+					 */
 
-		/*
-		 * TODO: Pour l'instant, l'auteur de l'article est 1
-		 * quand la connexion à l'admin sera ok
-		 * il faudra récupérer le n° de l'auteur
-		 */
-
-		$auteur = "1";
-
-		$sqlAjoutArticle = "INSERT INTO articles(titre, article, auteur, date, id_cat) values (:p1, :p2, :p3, :p4, :p5)";
-
-		$AjoutArticle = $pdo->prepare ( $sqlAjoutArticle );
-
-		$AjoutArticle->bindparam ( ':p1', $_POST ['titre'] );
-		$AjoutArticle->bindparam ( ':p2', $_POST ['texte'] );
-		$AjoutArticle->bindparam ( ':p3', $auteur );
-		$AjoutArticle->bindparam ( ':p4', $datearticle );
-		$AjoutArticle->bindparam ( ':p5', $_POST ['categorie'] );
-
-		$AjoutArticle->execute ();
-		?>
+					$auteur = "1";
+			
+					$sqlAjoutArticle = "INSERT INTO articles(titre, article, auteur, date, id_cat) values (:p1, :p2, :p3, :p4, :p5)";
+			
+					$AjoutArticle = $pdo->prepare ( $sqlAjoutArticle );
+			
+					$AjoutArticle->bindparam ( ':p1', $_POST ['titre'] );
+					$AjoutArticle->bindparam ( ':p2', $_POST ['texte'] );
+					$AjoutArticle->bindparam ( ':p3', $auteur );
+					$AjoutArticle->bindparam ( ':p4', $datearticle );
+					$AjoutArticle->bindparam ( ':p5', $_POST ['categorie'] );
+			
+					$AjoutArticle->execute ();
+					?>
 		
-		<div class="alert alert-success" role="alert">
-		<?php echo ADM_ARTICLE_SEND; ?>
-		</div>
+					<div class="alert alert-success" role="alert">
+					<?php echo ADM_ARTICLE_SEND; ?>
+					</div>
 		
-		<?php
-	} 
-	else 
-	{
-?>
+					<?php
+					} 
+					else 
+					{
+					?>
 
-<p><?php echo ADM_ONLINE_TOOLS; ?></p>
-
-<form method="POST" action="ajout-article.php">
-
-	<div class="form-group">
-		<label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_TITLE; ?></label>
-	    <input class="form-control" id="TitreArticle" name='titre'>
-	</div>
-
-	<?php 
-	$cat = $pdo->query ( "select * from categories" );
-	?>
-	
-	<div class="form-group">
-		<label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_CAT; ?></label>
-		<select name='categorie' class="custom-select">
-		<option selected><?php echo ADM_ARTICLE_CAT_LIST;?></option>
-
-		<?php 
-		while ($rowcat = $cat->fetch(PDO::FETCH_ASSOC)) 
-		{
-			echo "<option value='".$rowcat['ref']."'>".$rowcat['nom']."</option>";
-		}
-		?>
-		</select>
-	</div>
-
-	 <div class="form-group">
-	    <label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_CONTENT; ?></label>
-	    <textarea name="texte" id="custom-menu-item" class="individu"></textarea>
-	 </div>
-	
-	<input type="submit" class="btn btn-primary" value="<?php echo ADM_ARTICLE_SAVE; ?>">
-	<input type="submit" class="btn btn-primary" value="<?php echo ADM_ARTICLE_PUBLISH; ?>">
-</form>
-
- <?php  } ?>
+					<p><?php echo ADM_ONLINE_TOOLS; ?></p>
+					
+					<form method="POST" action="ajout-article.php">
+					
+						<div class="form-group">
+							<label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_TITLE; ?></label>
+						    <input class="form-control" id="TitreArticle" name='titre' value='<?php echo $_POST ['titre']; ?>'>
+						</div>
+					
+						<?php 
+						$cat = $pdo->query ( "select * from categories" );
+						?>
+						
+						<div class="form-group">
+							<label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_CAT; ?></label>
+							<select name='categorie' class="custom-select">
+							<option selected><?php echo ADM_ARTICLE_CAT_LIST;?></option>
+					
+							<?php 
+							while ($rowcat = $cat->fetch(PDO::FETCH_ASSOC)) 
+							{
+								echo "<option value='".$rowcat['ref']."'>".$rowcat['nom']."</option>";
+							}
+							?>
+							</select>
+						</div>
+					
+						 <div class="form-group">
+						    <label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_CONTENT; ?></label>
+						    <textarea name="texte" id="custom-menu-item" class="individu" value="<?php echo $_POST ['texte']; ?>"></textarea>
+						 </div>
+						
+						<input type="submit" class="btn btn-primary" value="<?php echo ADM_ARTICLE_SAVE; ?>">
+						<input type="submit" class="btn btn-primary" value="<?php echo ADM_ARTICLE_PUBLISH; ?>">
+					</form>
+					
+					 <?php } ?>
 	
                </div>
           </div>
