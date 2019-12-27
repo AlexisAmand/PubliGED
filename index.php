@@ -29,7 +29,7 @@ require_once 'vendor/autoload.php';
 	<link href="style/style.css" rel="stylesheet">
 	<link rel="icon" type="image/gif" href="img/icon.jpg" />
 
-	<!-- Bootstrap 4.3.1 -->
+	<!-- Bootstrap 4.4.1 -->
 	
 	<script src="style/bootstrap/js/bootstrap.min.js"></script>
 	

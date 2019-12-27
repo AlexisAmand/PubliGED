@@ -16,7 +16,7 @@ include ('class/class.php');
 	<title>Export d'un article au format pdf</title>
 	<meta name="description" content=" ">
 
-	<!-- Bootstrap 4.3.1 -->
+	<!-- Bootstrap 4.4.1 -->
 
 	<link href="style/bootstrap/css/bootstrap.perso.css" rel="stylesheet">
 	<script src="style/bootstrap/js/bootstrap.min.js"></script>

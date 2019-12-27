@@ -13,7 +13,7 @@ Environement de développement
 - Apache 2.4.37
 - phpMyAdmin 4.8.3
 - Windows 7
-- Eclipse IDE for PHP Developers 2019-06 (4.12.0)
+- Eclipse IDE for PHP Developers 2019-12 (4.14.0)
 
 Langages utilisés
 -----------------
@@ -27,7 +27,7 @@ Langages utilisés
 Framework
 ---------
 
-- Bootstrap 4.3.1
+- Bootstrap 4.4.1
 
 Librairies PHP
 --------------
