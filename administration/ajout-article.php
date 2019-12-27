@@ -68,7 +68,11 @@ var dialogConfig =  {
 		    var data = api.getData();    
 		    var truc = data.nomData;
 
-		    tinymce.activeEditor.execCommand('mceInsertContent', false, '<a href="#">' + truc +'</a>');	
+ 			var truc2 = "<?php echo 'toto'; ?>";
+		    
+		    tinymce.activeEditor.execCommand('mceInsertContent', false, '<a href="#">' + truc2 +'</a>');
+
+		    // tinymce.activeEditor.execCommand('mceInsertContent', false, '<a href="#">' + truc +'</a>');	
 		    
 		    // tinymce.activeEditor.execCommand('mceInsertContent', false, '<p>My ' + pet +'\'s name is: <strong>' + data.catdata + '</strong></p>');
 		    api.close();
@@ -102,10 +106,12 @@ tinymce.init({
 	        ],	        
 	  height: 500,
 	  // toolbar: true,
+	  /*
 	  menubar: 'file edit insert view format table tools help custom',
 	  menu: {
 	    custom: { title: "généalogie", items: "basicitem nesteditem toggleitem" }
 	  },
+	  */
 	  content_css: [
 	    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
 	    '//www.tiny.cloud/css/codepen.min.css'
