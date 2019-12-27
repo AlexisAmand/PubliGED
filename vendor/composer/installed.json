@@ -1,17 +1,17 @@
 [
     {
         "name": "doctrine/lexer",
-        "version": "1.1.0",
-        "version_normalized": "1.1.0.0",
+        "version": "1.2.0",
+        "version_normalized": "1.2.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/doctrine/lexer.git",
-            "reference": "e17f069ede36f7534b95adec71910ed1b49c74ea"
+            "reference": "5242d66dbeb21a30dd8a3e66bf7a73b66e05e1f6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/lexer/zipball/e17f069ede36f7534b95adec71910ed1b49c74ea",
-            "reference": "e17f069ede36f7534b95adec71910ed1b49c74ea",
+            "url": "https://api.github.com/repos/doctrine/lexer/zipball/5242d66dbeb21a30dd8a3e66bf7a73b66e05e1f6",
+            "reference": "5242d66dbeb21a30dd8a3e66bf7a73b66e05e1f6",
             "shasum": ""
         },
         "require": {
@@ -22,11 +22,11 @@
             "phpstan/phpstan": "^0.11.8",
             "phpunit/phpunit": "^8.2"
         },
-        "time": "2019-07-30T19:33:28+00:00",
+        "time": "2019-10-30T14:39:59+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.1.x-dev"
+                "dev-master": "1.2.x-dev"
             }
         },
         "installation-source": "dist",
@@ -65,17 +65,17 @@
     },
     {
         "name": "egulias/email-validator",
-        "version": "2.1.11",
-        "version_normalized": "2.1.11.0",
+        "version": "2.1.12",
+        "version_normalized": "2.1.12.0",
         "source": {
             "type": "git",
             "url": "https://github.com/egulias/EmailValidator.git",
-            "reference": "92dd169c32f6f55ba570c309d83f5209cefb5e23"
+            "reference": "a6255605af39f2db7f5cb62e672bd8a7bad8d208"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/92dd169c32f6f55ba570c309d83f5209cefb5e23",
-            "reference": "92dd169c32f6f55ba570c309d83f5209cefb5e23",
+            "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/a6255605af39f2db7f5cb62e672bd8a7bad8d208",
+            "reference": "a6255605af39f2db7f5cb62e672bd8a7bad8d208",
             "shasum": ""
         },
         "require": {
@@ -91,7 +91,7 @@
         "suggest": {
             "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
         },
-        "time": "2019-08-13T17:33:27+00:00",
+        "time": "2019-12-20T12:49:39+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -195,17 +195,17 @@
     },
     {
         "name": "myclabs/deep-copy",
-        "version": "1.9.3",
-        "version_normalized": "1.9.3.0",
+        "version": "1.9.4",
+        "version_normalized": "1.9.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/myclabs/DeepCopy.git",
-            "reference": "007c053ae6f31bba39dfa19a7726f56e9763bbea"
+            "reference": "579bb7356d91f9456ccd505f24ca8b667966a0a7"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/007c053ae6f31bba39dfa19a7726f56e9763bbea",
-            "reference": "007c053ae6f31bba39dfa19a7726f56e9763bbea",
+            "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/579bb7356d91f9456ccd505f24ca8b667966a0a7",
+            "reference": "579bb7356d91f9456ccd505f24ca8b667966a0a7",
             "shasum": ""
         },
         "require": {
@@ -219,7 +219,7 @@
             "doctrine/common": "^2.6",
             "phpunit/phpunit": "^7.1"
         },
-        "time": "2019-08-09T12:45:53+00:00",
+        "time": "2019-12-15T19:12:40+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -292,17 +292,17 @@
     },
     {
         "name": "phpmailer/phpmailer",
-        "version": "v6.1.1",
-        "version_normalized": "6.1.1.0",
+        "version": "v6.1.4",
+        "version_normalized": "6.1.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/PHPMailer/PHPMailer.git",
-            "reference": "26bd96350b0b2fcbf0ef4e6f0f9cf3528302a9d8"
+            "reference": "c5e61d0729507049cec9673aa1a679f9adefd683"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/26bd96350b0b2fcbf0ef4e6f0f9cf3528302a9d8",
-            "reference": "26bd96350b0b2fcbf0ef4e6f0f9cf3528302a9d8",
+            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/c5e61d0729507049cec9673aa1a679f9adefd683",
+            "reference": "c5e61d0729507049cec9673aa1a679f9adefd683",
             "shasum": ""
         },
         "require": {
@@ -311,13 +311,9 @@
             "php": ">=5.5.0"
         },
         "require-dev": {
-            "doctrine/annotations": "1.2.*",
+            "doctrine/annotations": "^1.2",
             "friendsofphp/php-cs-fixer": "^2.2",
-            "phpdocumentor/phpdocumentor": "2.*",
-            "phpunit/phpunit": "^4.8 || ^5.7",
-            "zendframework/zend-eventmanager": "3.0.*",
-            "zendframework/zend-i18n": "2.7.3",
-            "zendframework/zend-serializer": "2.7.*"
+            "phpunit/phpunit": "^4.8 || ^5.7"
         },
         "suggest": {
             "ext-mbstring": "Needed to send email in multibyte encoding charset",
@@ -327,7 +323,7 @@
             "stevenmaguire/oauth2-microsoft": "Needed for Microsoft XOAUTH2 authentication",
             "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)"
         },
-        "time": "2019-09-27T21:33:43+00:00",
+        "time": "2019-12-10T11:17:38+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -360,27 +356,27 @@
     },
     {
         "name": "psr/log",
-        "version": "1.1.0",
-        "version_normalized": "1.1.0.0",
+        "version": "1.1.2",
+        "version_normalized": "1.1.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/php-fig/log.git",
-            "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
+            "reference": "446d54b4cb6bf489fc9d75f55843658e6f25d801"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
-            "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/446d54b4cb6bf489fc9d75f55843658e6f25d801",
+            "reference": "446d54b4cb6bf489fc9d75f55843658e6f25d801",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2018-11-20T15:27:04+00:00",
+        "time": "2019-11-01T11:05:21+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.0.x-dev"
+                "dev-master": "1.1.x-dev"
             }
         },
         "installation-source": "dist",

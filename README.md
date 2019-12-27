@@ -32,10 +32,10 @@ Framework
 Librairies PHP
 --------------
 
-Obtenues via https://packagist.org
+Obtenues via https://packagist.org et composer
 
-- PHPMailer/PHPMailer 6.0.7  
-- egulias/EmailValidator 2.1.9 
+- PHPMailer/PHPMailer 6.1.4 
+- egulias/EmailValidator 2.1.12 
 - mpdf/mpdf 7.1.9
 
 Javascript (dont tinyMCE et JavaScript)
