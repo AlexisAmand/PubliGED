@@ -30,7 +30,7 @@ include('../langues/admin.php');
   <!-- Custom styles for this template -->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
   
-  <!-- TinyMCE 5.0.1 -->
+  <!-- TinyMCE 5.1.5 -->
   <script src="../js/tinymce/tinymce.min.js"></script>
   
 <script>

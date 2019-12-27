@@ -38,11 +38,14 @@ Obtenues via https://packagist.org
 - egulias/EmailValidator 2.1.9 
 - mpdf/mpdf 7.1.9
 
-jQuery et librairies Javascript
--------------------------------
+Javascript (dont tinyMCE et JavaScript)
+---------------------------------------
 
 - Datatables 1.10.18
-- Leaflet 1.5.1
+- Leaflet 1.7
+https://leafletjs.com/download.html
+- tinyMCE 5.1.5
+https://www.tiny.cloud/get-tiny/self-hosted/
 
 Plus d'infos : 
 --------------

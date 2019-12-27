@@ -46,11 +46,11 @@ require_once 'vendor/autoload.php';
   	
   	<script src="administration/js/demo/datatables-demo.js"></script>
   	
-	<!-- OpenStreetMap et Leaflet 1.5.1 -->
+	<!-- OpenStreetMap et Leaflet 1.7 -->
 	
 	<script src="js/leaflet/leaflet.js"></script>
 	
-	<!-- TinyMCE 5.0.1 -->
+	<!-- TinyMCE 5.1.5 -->
 	
 	<script src="js/tinymce/tinymce.min.js"></script>
 	
