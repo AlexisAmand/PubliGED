@@ -1,3 +1,9 @@
 - fond03.jpg -> source : le site devostock
 
 - liste des professions ?
+
+BUGS TO FIX
+-----------
+
+- lors de l'envoi d'un article, il y a un bug si la personne oublie de mettre une catégorie
+

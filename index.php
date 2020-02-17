@@ -96,9 +96,9 @@ require_once 'vendor/autoload.php';
 
 	<section class="row">
            
-        	<?php $GLOBALS['InfoPage']->AfficherAside($pdo); ?>
+        	<?php $InfoPage->AfficherAside($pdo); ?>
               	
-    		<?php $GLOBALS['InfoPage']->AfficherContenu($pdo); ?>		
+    		<?php $InfoPage->AfficherContenu($pdo); ?>		
     	
 	</section>
 
@@ -106,7 +106,7 @@ require_once 'vendor/autoload.php';
 
 		<div class="col-md-12 text-center">
     	
-    		<?php $GLOBALS['InfoPage']->AfficherFooter(); ?>
+    		<?php $InfoPage->AfficherFooter(); ?>
                 	        
         </div>
 

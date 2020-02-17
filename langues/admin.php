@@ -5,6 +5,15 @@ define ("ADM_ONLINE_TOOLS" , "Ce formulaire utilise des ressources en ligne");
 
 define ("SEE_SITE","Voir le site");
 
+/* ------------------ */
+/* Accueil de l'admin */
+/* ------------------ */
+
+define ("NB_ARTICLES", "Nombre d'articles" );
+define ("NB_CATEGORIES", "Nombre de catégories" );
+define ("NB_USERS", "Nombre d'utilisateurs" );
+define ("NB_COMMENTAIRES", "Nombre de commentaires" );
+
 /* ---------------- */
 /* Titres des pages */
 /* ---------------- */

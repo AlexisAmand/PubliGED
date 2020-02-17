@@ -7,8 +7,7 @@ class pages
 	public $rubrique;
 	
 	public function AfficherContenu($pdo2) 
-		{
-		
+		{		
 		$balise = ($GLOBALS['aside']==1)?'<article class="col-md-9">':'<article class="col-md-12">';
 		echo $balise;			
 		include ('content/' . $this->nom . '.php');
@@ -17,7 +16,7 @@ class pages
 	
 	public function AfficherAside($pdo2) 
 		{
-		
+
 		/* Par défaut, on supppose que le aside est affiché */	
 		
 		$GLOBALS['aside'] = '1';

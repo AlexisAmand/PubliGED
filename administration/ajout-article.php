@@ -4,6 +4,7 @@
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
 
 require ('../content/fonctions.php');
+require ('../class/class.php');
 include ('../config.php');
 include('../langues/admin.php');
 ?>
@@ -200,7 +201,7 @@ tinymce.init({
 		          
 		 <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_0; ?></h1>
-          <p class="mb-4"><?php echo ADM_ARTICLE_ADD_INTRO; ?></p>         
+          <p class="mb-4"><?php echo ADM_ARTICLE_ADD_INTRO; ?></p>
 		                    
           <div class="card shadow mb-4">
                <div class="card-header py-3">
@@ -210,28 +211,52 @@ tinymce.init({
                
                	<?php
 
-               	if (empty ( $_POST ['texte'] ))
-               		{
-               		echo '<div class="alert alert-warning" role="alert">';
-                	echo "<i class='fas fa-exclamation-triangle'></i>Vous n'avez pas indiqué de texte";
-					echo '</div>';
-                	}
-                                 	
-				if (empty ( $_POST ['titre'] ))
-					{
-                    echo '<div class="alert alert-warning" role="alert">';
-                    echo "<i class='fas fa-exclamation-triangle'></i>Vous n'avez pas indiqué de titre";
-                    echo '</div>';
-                    }
-         
-                if (empty ( $_POST ['categorie'] ))
-                	{
-                    echo '<div class="alert alert-warning" role="alert">';
-                    echo "<i class='fas fa-exclamation-triangle'></i>Vous n'avez pas indiqué de catégorie";
-                    echo '</div>';
-                	}
-                                	
-                if (! empty ( $_POST ['texte'] ) and ! empty ( $_POST ['titre'] ) and ! empty ( $_POST ['categorie'] )) 
+				$article = new articles();
+
+				if(isset($_POST["envoyer"])) 
+					{ 
+
+					// Pas de titre
+
+					if(empty ( $_POST ['titre'] ))
+						{
+						echo "Pas de titre";
+						}
+					else
+						{
+						$article->titre = $_POST ['titre'];
+						}
+
+					// Pas de contenu
+					
+					if(empty ( $_POST ['texte'] ))
+						{
+						echo "Pas de contenu";
+						}
+					else
+						{
+						$article->contenu = $_POST ['texte'];
+						}
+
+					// Pas de catégorie
+					
+					if(empty ( $_POST ['categorie'] ))
+						{
+						echo "Pas de catégorie";
+						}
+					else
+						{
+						$article->categorie = $_POST ['categorie'];
+						echo $article->categorie;
+						}
+					
+					}
+						
+				// Tout est bien rempli !
+                               	
+				// if (!empty ( $_POST ['texte'] ) and !empty ( $_POST ['titre'] ) and !empty ( $_POST ['categorie'] )) 
+				
+				if (isset($article->titre) and isset($article->categorie) and isset($article->contenu))
                 	{
 					$datearticle = date ( "Y-m-d", time () );
 
@@ -247,11 +272,11 @@ tinymce.init({
 			
 					$AjoutArticle = $pdo->prepare ( $sqlAjoutArticle );
 			
-					$AjoutArticle->bindparam ( ':p1', $_POST ['titre'] );
-					$AjoutArticle->bindparam ( ':p2', $_POST ['texte'] );
+					$AjoutArticle->bindparam ( ':p1', $article->titre );
+					$AjoutArticle->bindparam ( ':p2', $article->contenu );
 					$AjoutArticle->bindparam ( ':p3', $auteur );
 					$AjoutArticle->bindparam ( ':p4', $datearticle );
-					$AjoutArticle->bindparam ( ':p5', $_POST ['categorie'] );
+					$AjoutArticle->bindparam ( ':p5', $article->categorie);
 			
 					$AjoutArticle->execute ();
 					?>
@@ -272,7 +297,7 @@ tinymce.init({
 					
 						<div class="form-group">
 							<label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_TITLE; ?></label>
-						    <input class="form-control" id="TitreArticle" name='titre' value='<?php echo $_POST ['titre']; ?>'>
+						    <input class="form-control" id="TitreArticle" name="titre" value="<?php if(isset($article->titre)) { echo $article->titre; }?>">
 						</div>
 					
 						<?php 
@@ -286,20 +311,21 @@ tinymce.init({
 					
 							<?php 
 							while ($rowcat = $cat->fetch(PDO::FETCH_ASSOC)) 
-							{
+								{
 								echo "<option value='".$rowcat['ref']."'>".$rowcat['nom']."</option>";
-							}
+								}
 							?>
+							
 							</select>
 						</div>
 					
 						 <div class="form-group">
 						    <label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_CONTENT; ?></label>
-						    <textarea name="texte" id="custom-menu-item" class="individu" value="<?php echo $_POST ['texte']; ?>"></textarea>
+						    <textarea name="texte" id="custom-menu-item" class="individu" value="<?php if(isset($article->contenu)) { echo $article->contenu; }?>"></textarea>
 						 </div>
 						
 						<input type="submit" class="btn btn-primary" value="<?php echo ADM_ARTICLE_SAVE; ?>">
-						<input type="submit" class="btn btn-primary" value="<?php echo ADM_ARTICLE_PUBLISH; ?>">
+						<input type="submit" name="envoyer" class="btn btn-primary" value="<?php echo ADM_ARTICLE_PUBLISH; ?>">
 					</form>
 					
 					 <?php } ?>
