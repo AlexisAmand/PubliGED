@@ -72,8 +72,8 @@ include('../langues/admin.php');
           <ul class="navbar-nav ml-auto">
           
          	<li class="nav-item">
-			  <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
-			</li>
+			    <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
+			    </li>
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
@@ -141,11 +141,11 @@ include('../langues/admin.php');
               
               <?php
 
-			  $nb_a = "SELECT * FROM articles";
-			  $res_nb_a = $pdo->prepare ( $nb_a );
-			  $res_nb_a->execute ();
+              $nb_a = "SELECT * FROM articles";
+              $res_nb_a = $pdo->prepare ( $nb_a );
+              $res_nb_a->execute ();
 
-			  ?>
+              ?>
               
                 <table class="table table-bordered" id="dataTable">
                   <thead>
@@ -175,25 +175,25 @@ include('../langues/admin.php');
                    
                   	<?php
 
-                  	while ( $data_a = $res_nb_a->fetch(PDO::FETCH_ASSOC) ) 
-					{
-						echo "<tr>";
-						echo "<td>" . $data_a ['ref'] . "</td>";
-						echo "<td>" . $data_a ['titre'] . "</td>";						
-						echo "<td>" . RecupAuteurArticle($pdo, $data_a ['auteur']) . "</td>";					
-						echo "<td>" . get_category_name($pdo, $data_a ['id_cat']) . "</td>";
-						echo '<td class="text-center"><a href="editer-article.php" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
-						echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Supprimer"><i class="far fa-trash-alt text-danger"></i></a></td>';
-					
-						/* TODO : ajouter une colonne qui permet de publier ou dépublier un article
-						 * via un booleen dans la table des articles. L'icone change en fonction du ppublié ou non
-					 	*/
-					
-						echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Publier"><i class="far fa-star text-warning"></i></a></td>';
-						echo "</tr>";					
-					}
+                    while ( $data_a = $res_nb_a->fetch(PDO::FETCH_ASSOC) ) 
+                    	{
+                      	echo "<tr>";
+                      	echo "<td>" . $data_a ['ref'] . "</td>";
+                      	echo "<td>" . $data_a ['titre'] . "</td>";						
+                      	echo "<td>" . RecupAuteurArticle($pdo, $data_a ['auteur']) . "</td>";					
+                      	echo "<td>" . get_category_name($pdo, $data_a ['id_cat']) . "</td>";
+                      	echo '<td class="text-center"><a href="editer-article.php" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
+                      	echo '<td class="text-center"><a href="#" data-toggle="modal" data-target="#DelArticle" data-whatever="'.$data_a ['ref'].'"><i class="far fa-trash-alt text-danger"></i></a></td>';
 
-					?> 
+                      	/* TODO : ajouter une colonne qui permet de publier ou dépublier un article
+                      	* via un booleen dans la table des articles. L'icone change en fonction du ppublié ou non
+                      	*/
+                    
+                      	echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Publier"><i class="far fa-star text-warning"></i></a></td>';
+                        echo "</tr>";
+                    	}
+
+                    ?> 
                                   
                   </tbody>
                 </table>
@@ -247,6 +247,27 @@ include('../langues/admin.php');
     </div>
   </div>
 
+  <!-- DelArticle Modal-->
+  <div class="modal fade" id="DelArticle" tabindex="-1" role="dialog" aria-labelledby="DelArticleLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="DelArticleLabel"><?php SUPPR_ARTICLE_MODAL_TITLE ?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="ConfirmText">Etes-vous sûr de vouloir effacer l'article n°</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php SUPPR_ARTICLE_MODAL_YES ?></button>
+        <a class="btn btn-primary" href="#"><?php SUPPR_ARTICLE_MODAL_NO ?></a>
+      </div>
+    </div>
+  </div>
+</div>
+
   <!-- Bootstrap core JavaScript-->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -265,14 +286,22 @@ include('../langues/admin.php');
   <!-- Ce script contient l'initialisation du plugin datatables de jquery -->
   <script src="js/demo/datatables-demo.js"></script>
   
-    <script>
-  
+  <script>
   $(function () {
 	  $('[data-toggle="tooltip"]').tooltip()
 	})
-  
+  </script>
+
+  <!-- JS pour la modale qui confirme la suppression d'un article -->
+
+  <script>
+  $('#DelArticle').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var recipient = button.data('whatever')
+  var modal = $(this)
+  modal.find('.ConfirmText').text("Etes-vous sûr de vouloir effacer l'article n° " + recipient)
+  })
   </script>
 
 </body>
-
 </html>

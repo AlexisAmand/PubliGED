@@ -59,12 +59,24 @@ define ( "ADM_ARTICLE_CAT_LIST", "Choisir une catégorie");
 define ( "ADM_ARTICLE_EDIT_CONTENT", "Contenu de l'article" );
 
 define ("ADM_ARTICLE_SEND","L'article a bien été enregistré !");
+define ("ADM_ARTICLE_NOSEND","L'article n'a pas pu être envoyé !");
+
+define ("ADM_ARTICLE_NOTITLE","Vous n'avez pas indiqué de titre pour votre article");
+define ("ADM_ARTICLE_NOCONTENT","Vous n'avez pas indiqué de contenu pour votre article");
+define ("ADM_ARTICLE_NOCAT","Vous n'avez pas indiqué de catégorie pour votre article");
 
 define ("ADM_ARTICLE_MODIF_INTRO", "Cette page vous permet de modifier ou supprimer un article. Pour créer un nouvel article, rendez-vous plutôt sur <a href='ajout-article.php'>cette page</a>.");
 define ("ADM_ARTICLE_ADD_INTRO", "Cette page vous permet de créer un article. Pour modifier ou supprimer un article, rendez-vous plutôt sur <a href='modif-article.php'>cette page</a>.");
 
 define ("ADM_ARTICLE_SAVE","Enregistrer");
 define ("ADM_ARTICLE_PUBLISH","Publier");
+
+/* Modale qui confirme la suppression d'un article */
+
+define ("SUPPR_ARTICLE_MODAL_TITLE","Confirmation");
+define ("","Etes-vous sûr de vouloir effacer l'article n°");
+define ("SUPPR_ARTICLE_MODAL_YES","Oui");
+define ("SUPPR_ARTICLE_MODAL_NO","non");
 
 /* ---------------------- */
 /* Gestion des catégories */

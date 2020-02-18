@@ -220,7 +220,12 @@ tinymce.init({
 
 					if(empty ( $_POST ['titre'] ))
 						{
-						echo "Pas de titre";
+						echo '<div class="alert alert-warning" role="alert">';
+						echo '<i class="fas fa-exclamation-triangle"></i> '.ADM_ARTICLE_NOTITLE;
+						echo '</div>';
+						echo '<div class="alert alert-warning" role="alert">';
+						echo '<i class="fas fa-exclamation-triangle"></i> '.ADM_ARTICLE_NOSEND;
+						echo '</div>';
 						}
 					else
 						{
@@ -231,7 +236,12 @@ tinymce.init({
 					
 					if(empty ( $_POST ['texte'] ))
 						{
-						echo "Pas de contenu";
+						echo '<div class="alert alert-warning" role="alert">';
+						echo '<i class="fas fa-exclamation-triangle"></i> '.ADM_ARTICLE_NOCONTENT;
+						echo '</div>';
+						echo '<div class="alert alert-warning" role="alert">';
+						echo '<i class="fas fa-exclamation-triangle"></i> '.ADM_ARTICLE_NOSEND;
+						echo '</div>';
 						}
 					else
 						{
@@ -242,12 +252,16 @@ tinymce.init({
 					
 					if(empty ( $_POST ['categorie'] ))
 						{
-						echo "Pas de catégorie";
+						echo '<div class="alert alert-warning" role="alert">';
+						echo '<i class="fas fa-exclamation-triangle"></i> '.ADM_ARTICLE_NOCAT;
+						echo '</div>';
+						echo '<div class="alert alert-warning" role="alert">';
+						echo '<i class="fas fa-exclamation-triangle"></i> '.ADM_ARTICLE_NOSEND;
+						echo '</div>';
 						}
 					else
 						{
 						$article->categorie = $_POST ['categorie'];
-						echo $article->categorie;
 						}
 					
 					}
@@ -282,7 +296,7 @@ tinymce.init({
 					?>
 		
 					<div class="alert alert-success" role="alert">
-					<?php echo ADM_ARTICLE_SEND; ?>
+					<?php echo '<i class="fas fa-check"></i> '.ADM_ARTICLE_SEND; ?>
 					</div>
 		
 					<?php
@@ -299,29 +313,43 @@ tinymce.init({
 							<label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_TITLE; ?></label>
 						    <input class="form-control" id="TitreArticle" name="titre" value="<?php if(isset($article->titre)) { echo $article->titre; }?>">
 						</div>
-					
-						<?php 
-						$cat = $pdo->query ( "select * from categories" );
-						?>
 						
 						<div class="form-group">
 							<label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_CAT; ?></label>
-							<select name='categorie' class="custom-select">
-							<option selected><?php echo ADM_ARTICLE_CAT_LIST;?></option>
-					
-							<?php 
-							while ($rowcat = $cat->fetch(PDO::FETCH_ASSOC)) 
-								{
-								echo "<option value='".$rowcat['ref']."'>".$rowcat['nom']."</option>";
-								}
-							?>
-							
-							</select>
+								<select name='categorie' class="custom-select">										
+								<?php 
+								if(isset($article->categorie))
+									{
+																												
+									$cat = $pdo->query("SELECT * FROM categories WHERE ref = '{$article->categorie}'");
+									$rowcat = $cat->fetch(PDO::FETCH_ASSOC);
+									echo "<option value='".$rowcat['ref']."'>".$rowcat['nom']."</option>";
+									
+									$cat = $pdo->query("SELECT * FROM categories WHERE NOT ref = '{$article->categorie}'");								
+									while ($rowcat = $cat->fetch(PDO::FETCH_ASSOC))
+										{
+										echo "<option value='".$rowcat['ref']."'>".$rowcat['nom']."</option>";
+										}
+									
+									}
+								else 
+									{
+									echo "<option selected>".ADM_ARTICLE_CAT_LIST."</option>";
+									
+									$cat = $pdo->query("SELECT * FROM categories");
+									
+									while ($rowcat = $cat->fetch(PDO::FETCH_ASSOC))
+										{
+										echo "<option value='".$rowcat['ref']."'>".$rowcat['nom']."</option>";
+										}
+									}
+								?>
+								</select>
 						</div>
 					
 						 <div class="form-group">
 						    <label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_CONTENT; ?></label>
-						    <textarea name="texte" id="custom-menu-item" class="individu" value="<?php if(isset($article->contenu)) { echo $article->contenu; }?>"></textarea>
+						    <textarea name="texte" id="custom-menu-item" class="individu"><?php if(isset($article->contenu)) { echo $article->contenu; }?></textarea>
 						 </div>
 						
 						<input type="submit" class="btn btn-primary" value="<?php echo ADM_ARTICLE_SAVE; ?>">
