@@ -334,10 +334,10 @@ tinymce.init({
 									}
 								else 
 									{
+										
 									echo "<option selected>".ADM_ARTICLE_CAT_LIST."</option>";
 									
 									$cat = $pdo->query("SELECT * FROM categories");
-									
 									while ($rowcat = $cat->fetch(PDO::FETCH_ASSOC))
 										{
 										echo "<option value='".$rowcat['ref']."'>".$rowcat['nom']."</option>";
