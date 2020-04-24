@@ -24,8 +24,12 @@ require_once 'vendor/autoload.php';
 		
 	<link href="style/bootstrap/css/bootstrap.perso.css" rel="stylesheet">
 		
-	<!--  style perso -->
-
+	<!-- Obligatoire - importe les css de Font Awesome et Leaflet -->
+	
+	<link href="style/commons.css" rel="stylesheet">
+	
+	<!-- Perso -->
+	
 	<link href="style/style.css" rel="stylesheet">
 	<link rel="icon" type="image/gif" href="img/icon.jpg" />
 

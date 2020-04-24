@@ -7,3 +7,13 @@ BUGS TO FIX
 
 - lors de l'envoi d'un article, il y a un bug si la personne oublie de mettre une catégorie
 
+24 avril 2020
+-------------
+
+- BUGFIX : depuis le passage à Laragon, soucis avec mysql : une histoire de sql_mode=only_full_group_by j'ai résolu avec SET sql_mode = ' ' dans mon fichier config
+
+- BUGFIX : surchauffe de mon processeur, j'ai cru comprendre que c'est à cause de mes tables qui étaient en InnoDB, je les ai donc passé en MyISAM car ce serait moins gourmand en ressources et la solution la plus utilisée sur les sites web
+
+https://sql.sh/1548-mysql-innodb-myisam
+
+- j'ai donc du vider la table "commentaires" car il y avait un soucis de format de non valide

@@ -1,9 +1,3 @@
-/* FontAwesome 5.12.0 */
-@import "fontawesome/css/all.css";
-
-@import "../js/datatables/datatables/css/dataTables.bootstrap4.min.css";
-@import "../js/leaflet/leaflet.css";
-
 .gender {
 	float: right;
 }
@@ -135,6 +129,8 @@ article a {
 /* Ajout du 05/03/2018 */
 /* ------------------- */
 
+/*
+
 .page-link {
 	color: #B89F89;
 }
@@ -143,6 +139,8 @@ article a {
 	background-color:#B89F89;
 	border-color:#B89f89;
 }
+
+*/
 
 /* ------------ */
 /* Commentaires */

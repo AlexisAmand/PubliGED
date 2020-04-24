@@ -8,8 +8,8 @@ class pages
 	
 	public function AfficherContenu($pdo2) 
 		{		
-		$balise = ($GLOBALS['aside']==1)?'<article class="col-md-9">':'<article class="col-md-12">';
-		echo $balise;			
+		// $balise = ($GLOBALS['aside']==1)?'<article class="col-md-9">':'<article class="col-md-12">';
+		// echo $balise;			
 		include ('content/' . $this->nom . '.php');
 		echo '</article>';
 		}

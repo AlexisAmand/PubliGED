@@ -9,19 +9,19 @@ PubliGED a deux grandes fonctionnalités :
 Environement de développement
 -----------------------------
 
-- Wampserver 3.1.9 - 64bit
-- Apache 2.4.37
-- phpMyAdmin 4.8.3
-- Windows 7
-- Eclipse IDE for PHP Developers 2019-12 (4.14.0)
+- Laragon 4.0.16
+- Apache 2.4.35
+- phpMyAdmin 4.8.5
+- Windows 10
+- Eclipse IDE for PHP Developers 2020-03 (4.15.0)
 
 Langages utilisés
 -----------------
 
 - HTML
 - CSS
-- PHP 7.2.11
-- SQL (via MySQL 5.6.17)
+- PHP 7.2.19
+- SQL (via MySQL 5.7.24)
 - Javascript
 
 Framework
