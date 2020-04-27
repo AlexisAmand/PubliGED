@@ -72,7 +72,7 @@ define ( "TITRE_RUB_ADMIN_14", "Ajouter une catégorie" );
 define ( "TITRE_RUB_ADMIN_15", "Modifier une catégorie" );
 
 define ( "TITRE_RUB_ADMIN_2", "Effacer un gedcom" );
-define ( "TITRE_RUB_ADMIN_3", "Envoyer un gedcom" );
+// define ( "TITRE_RUB_ADMIN_3", "Envoyer un gedcom" );
 
 define ( "TITRE_RUB_ADMIN_4", "Supression des tables" );
 define ( "TITRE_RUB_ADMIN_8", "Création des tables" );

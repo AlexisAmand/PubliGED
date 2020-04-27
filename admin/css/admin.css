@@ -1,0 +1,698 @@
+/* begin Page */
+body {
+	margin: 0 auto;
+	padding: 0;
+	background-image: url('../img/fond.jpg');
+	background-color: #d2c6b5;
+	background-attachment: fixed;
+	margin-top: 10px;
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	color: #231C10;
+}
+
+.Main {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	margin-top: 10px;
+}
+
+/* begin Box, Sheet */
+.Sheet {
+	overflow: hidden;
+	position: relative;
+	z-index: 0;
+	width: 929px;
+	background-color: #f4eade;
+	-webkit-border-radius: 22px;
+	-moz-border-radius: 22px;
+	border-radius: 22px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	behavior: url(/PIE.htc);
+	-moz-box-shadow: 4px 4px 6px #aaa;
+	-webkit-box-shadow: 4px 4px 6px #aaa;
+	box-shadow: 4px 4px 6px #555;
+	margin-top: -13px !important;
+}
+
+.Sheet-body {
+	position: relative;
+	z-index: 0;
+	margin: 0px;
+}
+
+/* end Box, Sheet */
+a img {
+	border: 0;
+}
+
+a {
+	font-family: Arial, Helvetica, Sans-Serif;
+	text-decoration: underline;
+	color: #175D82;
+}
+/* Adds special style to an unvisited link. */
+a:link {
+	font-family: Arial, Helvetica, Sans-Serif;
+	text-decoration: none;
+	color: #695330;
+}
+
+/* Adds special style to a visited link. */
+a:visited, a.visited {
+	font-family: Arial, Helvetica, Sans-Serif;
+	text-decoration: none;
+	color: #695330;
+}
+
+/* :hover - adds special style to an element when you mouse over it. */
+a:hover, a.hover {
+	font-family: Arial, Helvetica, Sans-Serif;
+	text-decoration: underline;
+	color: #695330;
+}
+
+/* Finish Content link style */
+
+/* Resert some headings default style & links default style for links in headings*/
+h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a h1 a:hover,
+	h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover h1 a:visited,
+	h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+}
+
+/* Start Content headings Fonts & Colors  */
+h1, h1 a, h1 a:link, h1 a:visited, h1 a:hover {
+	font-family: 'Handlee', cursive;
+	font-style: normal;
+	font-weight: 700;
+	text-align: left;
+	color: #175D82;
+}
+
+h2, h2 a, h2 a:link, h2 a:visited, h2 a:hover {
+	font-family: 'Handlee', cursive;
+	font-size: 28px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: left;
+	color: #175D82;
+}
+
+h3, h3 a, h3 a:link, h3 a:visited, h3 a:hover {
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 17px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: left;
+	color: rgb(41, 120, 162);
+	text-decoration: underline;
+}
+
+h4, h4 a, h4 a:link, h4 a:visited, h4 a:hover {
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 15px;
+	font-style: normal;
+	text-align: left;
+	color: rgb(41, 120, 162);
+}
+
+h5, h5 a, h5 a:link, h5 a:visited, h5 a:hover {
+	
+}
+
+h6, h6 a, h6 a:link, h6 a:visited, h6 a:hover {
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: bold;
+	text-align: left;
+	color: #231C10;
+}
+
+/* Finish Content headings Fonts & Colors  */
+
+/* end PostContent */
+
+/* begin PostBullets */
+/* Start Content list */
+ul {
+	color: #110E08;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 12px;
+}
+
+input, select {
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* begin Footer */
+.Footer {
+	position: relative;
+	z-index: 0;
+	overflow: hidden;
+	width: 100%;
+	/* margin: 5px auto 0px auto; */
+	background-color: #dbbda3;
+}
+
+.breadcrumbs {
+	display: block;
+	padding: .7em 0em;
+}
+
+.pagination span {
+	padding: 2px;
+}
+
+.pagination a {
+	padding: 2px;
+}
+
+span.pathway {
+	display: block;
+	margin: 0 20px;
+	height: 16px;
+	line-height: 16px;
+	overflow: hidden;
+}
+
+div.message {
+	font-weight: bold;
+	font-size: 14px;
+	color: #c30;
+	text-align: center;
+	width: auto;
+	background-color: #f9f9f9;
+	border: solid 1px #d5d5d5;
+	margin: 3px 0px 10px;
+	padding: 3px 20px;
+}
+
+/* see system general.css */
+.pagination span {
+	padding: 2px;
+}
+
+.pagination a {
+	padding: 2px;
+}
+
+/* ------- */
+/* Sidebar */
+/* ------- */
+#cadremenu {
+	/* css3 pure */
+	border-radius: 10px;
+	/* pour les vieux Firefox */
+	-moz-border-radius: 10px;
+	/* pour les vieux webkit */
+	-webkit-border-radius: 10px;
+	/* pour IE entre 6 et 8*/
+	behavior: url(/PIE.htc);
+	background-color: #dacfb7;
+	border: 1px solid #d4c8aa;
+	margin-bottom: 7px;
+	margin-left: 7px;
+	margin-right: 7px;
+	margin-top: 7px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#cadremenu h1 {
+	font-family: 'Short Stack', cursive;
+	font-size: 16px;
+	text-align: left;
+	color: #695330;
+	margin-bottom: 7px;
+}
+
+#cadremenu ul {
+	list-style-type: none;
+	color: #082230;
+	margin: 0;
+	padding: 0;
+}
+
+#cadremenu li {
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+#cadremenu ul li {
+	padding: 0px 0 0px 13px;
+	background-image: url('../img/BlockContentBullets.png');
+	background-repeat: no-repeat;
+	margin: 0.5em 0 0.5em 0;
+	line-height: 1.2em;
+}
+
+/* Adds special style to an unvisited link. */
+#cadremenu a:link {
+	text-decoration: none;
+	color: #175D82;
+}
+
+/* Adds special style to a visited link. */
+#cadremenu a:visited, a.visited {
+	text-decoration: none;
+	color: #175D82;
+}
+
+/* :hover - adds special style to an element when you mouse over it. */
+#cadremenu a:hover, a.hover {
+	text-decoration: underline;
+	color: #1F7BAD;
+}
+
+strong {
+	color: rgb(41, 120, 162);
+}
+
+/* ajout du 7/2/2013 par exemple pour la compatibilité avec IE */
+h3:first-letter {
+	color: #175D82;
+}
+
+h4:first-letter {
+	color: #175D82;
+}
+
+#nav {
+	width: 200px;
+	float: left;
+}
+
+#contenu {
+	width: 700px;
+	float: left;
+	padding-top: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 25px;
+}
+
+#contenu p {
+	text-align: justify;
+}
+
+#contenu img {
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+}
+
+#contenu ul {
+	padding: 0;
+	margin-left: 15px;
+}
+
+#contenu ul li {
+	color: black;
+	list-style-image: url(../images/puce.png);
+	text-align: justify;
+}
+
+#contenu ul li a:link {
+	color: #175D82;
+}
+
+#contenu ul li a:hover {
+	color: #175D82;
+	text-decoration: underline;
+}
+
+#contenu ul li a:visited {
+	color: #175D82;
+}
+
+#contenu a:link {
+	color: #175D82;
+}
+
+#contenu a:hover {
+	color: #175D82;
+	text-decoration: underline;
+}
+
+#contenu a:visited {
+	color: #175D82;
+}
+
+/* -------- */
+/* Pillmenu */
+/* -------- */
+#menu-demo2, #menu-demo2 ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-align: center
+}
+
+#menu-demo2 li {
+	display: inline-block;
+	position: relative;
+	border-radius: 8px 8px 0 0
+}
+
+#menu-demo2 ul li {
+	display: inherit;
+	border-radius: 0
+}
+
+#menu-demo2 ul li:hover {
+	border-radius: 0
+}
+
+#menu-demo2 ul li:last-child {
+	border-radius: 0 0 8px 8px
+}
+
+#menu-demo2 ul {
+	position: absolute;
+	max-height: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	-moz-transition: .8s all .3s;
+	-webkit-transition: .8s all .3s;
+	transition: .8s all .3s
+}
+
+#menu-demo2 li:hover ul {
+	max-height: 35em
+}
+
+#menu-demo2 li:first-child {
+	background-color: #729EBF;
+	background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
+	background-image: linear-gradient(to bottom, #729EBF 0%, #333A40 100%)
+}
+
+#menu-demo2 li:nth-child(2) {
+	background-color: #729EBF;
+	background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
+	background-image: linear-gradient(to bottom, #729EBF 0%, #333A40 100%)
+}
+
+#menu-demo2 li:nth-child(3) {
+	background-color: #729EBF;
+	background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
+	background-image: linear-gradient(to bottom, #729EBF 0%, #333A40 100%)
+}
+
+#menu-demo2 li:nth-child(4) {
+	background-color: #729EBF;
+	background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
+	background-image: linear-gradient(to bottom, #729EBF 0%, #333A40 100%)
+}
+
+#menu-demo2 li:nth-child(5) {
+	background-color: #729EBF;
+	background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
+	background-image: linear-gradient(to bottom, #729EBF 0%, #333A40 100%)
+}
+
+#menu-demo2 li:nth-child(6) {
+	background-color: #729EBF;
+	background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
+	background-image: linear-gradient(to bottom, #729EBF 0%, #333A40 100%)
+}
+
+#menu-demo2 li:last-child {
+	background-color: #729EBF;
+	background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
+	background-image: linear-gradient(to bottom, #729EBF 0%, #333A40 100%)
+}
+
+#menu-demo2 li:first-child li {
+	background: #2A2333
+}
+
+#menu-demo2 li:nth-child(2) li {
+	background: #333A40
+}
+
+#menu-demo2 li:nth-child(3) li {
+	background: #9F391A
+}
+
+#menu-demo2 li:last-child li {
+	background: #677F35
+}
+
+#menu-demo2 li:first-child:hover, #menu-demo2 li:first-child li:hover {
+	background: #729EBF
+}
+
+#menu-demo2 li:nth-child(2):hover, #menu-demo2 li:nth-child(2) li:hover
+	{
+	background: #729EBF
+}
+
+#menu-demo2 li:nth-child(3):hover, #menu-demo2 li:nth-child(3) li:hover
+	{
+	background: #729EBF
+}
+
+#menu-demo2 li:nth-child(4):hover, #menu-demo2 li:nth-child(3) li:hover
+	{
+	background: #729EBF
+}
+
+#menu-demo2 li:nth-child(5):hover, #menu-demo2 li:nth-child(3) li:hover
+	{
+	background: #729EBF
+}
+
+#menu-demo2 li:nth-child(6):hover, #menu-demo2 li:nth-child(3) li:hover
+	{
+	background: #729EBF
+}
+
+#menu-demo2 li:last-child:hover, #menu-demo2 li:last-child li:hover {
+	background: #729EBF
+}
+
+#menu-demo2 a {
+	text-decoration: none;
+	display: block;
+	padding: 8px 32px;
+	color: #dacfb7;
+	font-family: arial
+}
+
+#menu-demo2 ul a {
+	padding: 8px 0
+}
+
+#menu-demo2 li:hover li a {
+	color: #fff;
+	text-transform: inherit
+}
+
+#menu-demo2 li:hover a, #menu-demo2 li li:hover a {
+	color: #000
+}
+
+nav {
+	background-color: #dbbda3;
+	border-bottom: 5px solid #997843;
+	position: relative;
+	z-index: 99
+}
+
+/* ------------- */
+/* Pour publiged */
+/* ------------- */
+#mapid {
+	
+}
+
+.pagination {
+	text-align: center;
+	margin-top: 25px;
+}
+
+.gender {
+	float: right;
+}
+
+/* ------- */
+/* Tableau */
+/* ------- */
+#EveT {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#EveT td {
+	border: 1px solid #6B6B6B;
+	height: 25px;
+	padding: 5px 5px 5px 5px;
+}
+
+#EveT thead tr td {
+	background-color: #dacfb7;
+	border: 1px solid #6B6B6B;
+}
+
+/* -------------------- */
+/* Affichage de l'arbre */
+/* -------------------- */
+.TreeCase {
+	border: 2px solid #6B6B6B;
+	width: 100px;
+	height: 60px;
+	background-color: #dacfb7;
+}
+
+#Tree {
+	border-collapse: collapse;
+	text-align: center;
+	font-size: 12px;
+	width: 700px;
+}
+
+#Tree td {
+	height: 30px;
+}
+
+/* -------- */
+/* Alphabet */
+/* -------- */
+.alpha {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.alpha ul {
+	margin-left: 0;
+	padding-left: 0;
+	display: inline;
+}
+
+.alpha ul li {
+	margin-left: 0;
+	padding: 3px 5px;
+	list-style: none;
+	display: inline;
+}
+
+.alpha a:link {
+	text-decoration: none;
+	color: #000000;
+}
+
+.alpha a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+
+.alpha a:hover {
+	text-decoration: underline;
+	color: #000000;
+}
+
+.alpha a:active {
+	text-decoration: none;
+	color: #000000;
+}
+
+/* ---------------- */
+/* Les commentaires */
+/* ---------------- */
+#comms {
+	margin-top: 5px;
+}
+
+.comm {
+	margin: 0;
+	padding: 4px 8px;
+	width: auto;
+	line-height: 100%;
+	overflow: hidden;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	margin-bottom: 15px;
+}
+
+.comm p {
+	color: #999;
+}
+
+/* ------ */
+/* header */
+/* ------ */
+header {
+	height: 225px;
+	width: 100%;
+	background-image: url(../img/Header.jpg);
+	background-repeat: repeat-x;
+	background-position: center center;
+	-webkit-border-top-left-radius: 22px;
+	-webkit-border-top-right-radius: 22px;
+	-moz-border-radius-topleft: 22px;
+	-moz-border-radius-topright: 22px;
+	border-top-left-radius: 22px;
+	border-top-right-radius: 22px
+}
+
+header hgroup {
+	color: #fff;
+	width: 50%;
+	padding-top: 45px
+}
+
+hgroup h1 {
+	text-align: center;
+	font-family: 'Varela Round', sans-serif;
+	font-size: 38px;
+	font-style: normal;
+	font-weight: 700;
+	text-decoration: none;
+	padding: 0;
+}
+
+hgroup h1, h1 a, h1 a:link, h1 a:visited, h1 a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+hgroup h2 {
+	text-align: center;
+	text-shadow: 2px 2px 2px #aaa;
+	text-decoration: none;
+	text-transform: none;
+	letter-spacing: 0;
+	word-spacing: 0;
+	line-height: 1.2;
+	text-align: center;
+	font-family: 'Varela Round', sans-serif;
+	font-size: 19px;
+	font-style: normal;
+	font-weight: 400;
+	padding: 0;
+	margin-top: -22px;
+	color: #E9F5FB !important
+}

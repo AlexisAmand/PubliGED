@@ -17,3 +17,5 @@ BUGS TO FIX
 https://sql.sh/1548-mysql-innodb-myisam
 
 - j'ai donc du vider la table "commentaires" car il y avait un soucis de format de non valide
+
+

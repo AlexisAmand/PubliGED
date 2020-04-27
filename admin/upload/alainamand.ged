@@ -1,0 +1,1400 @@
+0 HEAD
+1 SOUR HEREDIS 11 PC
+2 VERS 11
+2 NAME HEREDIS PC
+2 CORP BSD Concept ©
+3 ADDR www.heredis.com
+1 DATE 7 JUN 2019
+2 TIME 16:08:22
+1 GEDC
+2 VERS 5.5
+2 FORM LINEAGE-LINKED
+1 CHAR ANSI
+1 PLAC
+2 FORM Town , Area code , County , Region , Country, Subdivision
+1 SUBM @S0@
+0 @S0@ SUBM
+1 NAME Amand Alexis
+1 ADDR 
+1 PHON 0662637921
+1 EMAIL alexis.amand@gmail.com
+1 WWW http://www.genealexis.fr
+0 @3I@ INDI
+1 NAME Alain/AMAND/
+2 GIVN Alain
+2 SURN AMAND
+1 SEX M
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\portraits\alain-amand.jpg
+2 NOTE Alain AMAND
+1 OCCU pianiste
+1 FAMC @10U@
+1 _FIL LEGITIMATE_CHILD
+0 @7I@ INDI
+1 NAME Albert Abélard/AMAND/
+2 GIVN Albert Abélard
+2 SURN AMAND
+1 SEX M
+1 EVEN
+2 TYPE Residence
+2 DATE 1960
+2 PLAC Neuville-sur-Escaut,59293,Nord,Nord-Pas-de-Calais,FRANCE,
+2 NOTE 14 rue Lamendin
+1 DEAT
+2 DATE 19 NOV 2017
+2 PLAC Neuville-sur-Escaut,59293,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @397S@
+1 BURI
+2 DATE 23 NOV 2017
+2 PLAC Neuville-sur-Escaut,59293,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @397S@
+1 OCCU retraité
+1 FAMS @10U@
+1 FAMC @29U@
+1 NOTE Il est cité comme retraité en 1960.
+1 _FIL LEGITIMATE_CHILD
+0 @9I@ INDI
+1 NAME Bronislawa/MIZERA/
+2 GIVN Bronislawa
+2 SURN MIZERA
+1 SEX F
+1 FAMS @10U@
+1 _FIL LEGITIMATE_CHILD
+0 @23I@ INDI
+1 NAME Hoche Gaston Blomy/AMAND/
+2 GIVN Hoche Gaston Blomy
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 10 FEB 1895
+2 PLAC Lourches,59156,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @30S@
+2 NOTE Il est né dans le bateau de ses parents, en stationnement sur l'Escaut.
+3 CONT 
+3 CONT Fiche matricule n°1328 volume 4 du bureau de Valenciennes.
+1 EVEN
+2 TYPE Residence
+2 DATE 7 AUG 1929
+2 PLAC Neuville-sur-Escaut,59293,Nord,Nord-Pas-de-Calais,FRANCE,
+2 NOTE Selon sa fiche matricule il habite rue des sans-culottes.
+1 OCCU ouvrier mineur
+1 FAMS @29U@
+1 FAMC @40U@
+1 _FIL LEGITIMATE_CHILD
+0 @27I@ INDI
+1 NAME Germaine/THIERY/
+2 GIVN Germaine
+2 SURN THIERY
+1 SEX F
+1 BIRT
+2 DATE 20 MAR 1898
+3 TIME 5:0
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @337S@
+1 FAMS @29U@
+1 FAMC @346U@
+1 _FIL LEGITIMATE_CHILD
+0 @34I@ INDI
+1 NAME Blomy Abélard/AMAND/
+2 GIVN Blomy Abélard
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 21 MAY 1865
+2 PLAC Banteux,59266,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @65S@
+2 NOTE Il est né dans le bateau de ses parents en amont de l'ecluse de Banteux.
+2 ASSO @45I@
+3 TYPE INDI
+3 RELA Informant
+3 TITL Déclarant
+2 ASSO @333I@
+3 TYPE INDI
+3 RELA Registry officer
+3 TITL Officier d'état civil
+2 ASSO @329I@
+3 TYPE INDI
+3 RELA Attending
+3 TITL Présent
+2 ASSO @325I@
+3 TYPE INDI
+3 RELA Attending
+3 TITL Présent
+1 DEAT
+2 DATE 26 APR 1906
+2 PLAC Bouchain,59111,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @50S@
+1 OCCU Batelier
+1 FAMS @40U@
+1 FAMC @49U@
+1 _FIL LEGITIMATE_CHILD
+0 @38I@ INDI
+1 NAME Adeline/DESPLANQUES/
+2 GIVN Adeline
+2 SURN DESPLANQUES
+1 SEX F
+1 BIRT
+2 DATE ABT 1870
+1 EVEN
+2 TYPE Residence
+2 DATE 24 MAY 1919
+2 PLAC Neuville-sur-Escaut,59293,Nord,Nord-Pas-de-Calais,FRANCE,
+1 OCCU batelière
+1 FAMS @40U@
+1 _FIL LEGITIMATE_CHILD
+0 @45I@ INDI
+1 NAME Blomé Adolphe/AMAND/
+2 GIVN Blomé Adolphe
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 17 MAR 1832
+2 PLAC Chauny,02300,Aisne,Picardie,FRANCE,
+2 OBJE 
+3 FORM jpg
+3 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\cpa\CHAUNY_Vue_du_Port.jpg
+3 NOTE Une vue du port à Chauny
+2 SOUR @286S@
+2 NOTE Il est né dans le bateau de ses parents, stationné dans le port de Chauny.
+2 ASSO @297I@
+3 TYPE INDI
+3 RELA Witness
+3 TITL Témoin
+2 ASSO @301I@
+3 TYPE INDI
+3 RELA Witness
+3 TITL Témoin
+2 ASSO @293I@
+3 TYPE INDI
+3 RELA Informant
+3 TITL Déclarant
+1 DEAT
+2 DATE 18 SEP 1888
+2 PLAC Lourches,59156,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @83S@
+2 NOTE Il est décédé dans son bateau, en stationnement sur l'escaut mais est domicilié à Clairoix dans l'Oise.
+1 FAMS @49U@
+1 FAMC @77U@
+1 _FIL LEGITIMATE_CHILD
+0 @48I@ INDI
+1 NAME Hortense Caroline/FERNEZ/
+2 GIVN Hortense Caroline
+2 SURN FERNEZ
+1 SEX F
+1 BIRT
+2 DATE ABT 1836
+1 EVEN
+2 TYPE Residence
+2 DATE 1888
+2 PLAC Clairoix,60200,Oise,Picardie,FRANCE,
+1 FAMS @49U@
+1 _FIL LEGITIMATE_CHILD
+0 @72I@ INDI
+1 NAME (Georges) Florentin Guillaume/AMAND/
+2 GIVN (Georges) Florentin Guillaume
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 27 MAR 1791
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+1 EVEN
+2 TYPE Maladie
+2 DATE 17 MAR 1832
+2 PLAC Chauny,02300,Aisne,Picardie,FRANCE,
+2 NOTE A la naissance de son fils, il est déclaré qu'il est alité pour cause de maladie.
+1 DEAT
+2 DATE 18 APR 1832
+2 PLAC Fargniers,02700,Aisne,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @96S@
+2 NOTE Il est décédé dans son bateau, en aval de l'écluse intermédiaire de Fargniers.
+1 OCCU Batelier de Condé
+1 FAMS @77U@
+1 FAMC @95U@
+1 _FIL LEGITIMATE_CHILD
+0 @76I@ INDI
+1 NAME Pauline/BLANCART/
+2 GIVN Pauline
+2 SURN BLANCART
+1 SEX F
+1 DEAT
+2 DATE BEF 1888
+2 PLAC Thun-L'Évêque,59141,Nord,Nord-Pas-de-Calais,FRANCE,
+1 OCCU Batelière
+1 FAMS @77U@
+1 _FIL LEGITIMATE_CHILD
+0 @92I@ INDI
+1 NAME François Joseph/AMAND/
+2 GIVN François Joseph
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 4 NOV 1749
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @315S@
+2 ASSO @142I@
+3 TYPE INDI
+3 RELA Godparent
+3 TITL Parrain
+2 ASSO @312I@
+3 TYPE INDI
+3 RELA Godparent
+3 TITL Parrain
+1 DEAT
+2 DATE 8 MAY 1819
+2 PLAC Valenciennes,59300,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @104S@
+2 NOTE Il est décédé dans sa maison au Faubourg de Paris.
+2 ASSO @120I@
+3 TYPE INDI
+3 RELA Informant
+3 TITL Déclarant
+2 ASSO @117I@
+3 TYPE INDI
+3 RELA Informant
+3 TITL Déclarant
+1 OCCU conducteur de bateaux
+1 FAMS @95U@
+1 FAMC @115U@
+1 _FIL LEGITIMATE_CHILD
+0 @94I@ INDI
+1 NAME Augustine/DAPSENCE/
+2 GIVN Augustine
+2 SURN DAPSENCE
+1 SEX F
+1 BIRT
+2 DATE ABT 1751
+1 FAMS @95U@
+1 _FIL LEGITIMATE_CHILD
+0 @108I@ INDI
+1 NAME Georges/AMAND/
+2 GIVN Georges
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 5 APR 1723
+2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @147S@
+1 DEAT
+2 DATE 31 JUL 1801
+2 PLAC Jemappes,7012,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @306S@
+1 OCCU Batelier de Condé
+1 FAMS @115U@
+1 FAMC @143U@
+1 SIGN YES
+1 _FIL LEGITIMATE_CHILD
+0 @114I@ INDI
+1 NAME Gabrielle/FENEULLE/
+2 GIVN Gabrielle
+2 SURN FENEULLE
+1 SEX F
+1 CHR
+2 DATE 22 JAN 1726
+2 SOUR @145S@
+2 NOTE peut-être Condé.
+1 DEAT
+2 DATE BEF 1819
+1 FAMS @115U@
+1 FAMC @154U@
+1 _FIL LEGITIMATE_CHILD
+0 @117I@ INDI
+1 NAME Charles Marie/AMAND/
+2 GIVN Charles Marie
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE ABT 1795
+1 OCCU batelier de Condé
+1 FAMC @95U@
+1 _FIL LEGITIMATE_CHILD
+0 @120I@ INDI
+1 NAME Jean/GUEROT/
+2 GIVN Jean
+2 SURN GUEROT
+1 SEX M
+1 OCCU instituteur à Valenciennes
+1 _FIL LEGITIMATE_CHILD
+0 @123I@ INDI
+1 NAME Augustine Fidèle/AMAND/
+2 GIVN Augustine Fidèle
+2 SURN AMAND
+1 SEX F
+1 CHR
+2 DATE 21 JUN 1782
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @145S@
+1 FAMC @95U@
+1 _FIL LEGITIMATE_CHILD
+0 @125I@ INDI
+1 NAME Fidel Joseph/AMAND/
+2 GIVN Fidel Joseph
+2 SURN AMAND
+1 SEX M
+1 OCCU batelier de Condé
+1 FAMC @115U@
+1 _FIL LEGITIMATE_CHILD
+0 @128I@ INDI
+1 NAME Gabriel Joseph Fidel/AMAND/
+2 GIVN Gabriel Joseph Fidel
+2 SURN AMAND
+1 SEX M
+1 CHR
+2 DATE 20 JUL 1762
+2 PLAC Vieux-Condé,59690,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @145S@
+1 EVEN
+2 TYPE Occupation
+2 DATE 1823
+2 PLAC Tournai,7500,Hainaut,Wallonie,BELGIQUE,
+2 NOTE Il est marchand de charbon
+1 DEAT
+2 DATE 18 OCT 1830
+2 PLAC Quaregnon,7390,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @147S@
+2 NOTE Il serait domicilié à Tournai
+1 OCCU batelier de Condé
+1 FAMS @135U@
+1 FAMC @115U@
+1 _FIL LEGITIMATE_CHILD
+0 @133I@ INDI
+1 NAME Apoline Françoise Joseph/TRUFFIN/
+2 GIVN Apoline Françoise Joseph
+2 SURN TRUFFIN
+1 SEX F
+1 CHR
+2 DATE 17 NOV 1777
+2 PLAC Fresnes-sur-Escaut,59970,Nord,Nord-Pas-de-Calais,FRANCE,
+1 FAMS @135U@
+1 FAMC @172U@
+1 _FIL LEGITIMATE_CHILD
+0 @140I@ INDI
+1 NAME Nicolas François/AMAND/
+2 GIVN Nicolas François
+2 SURN AMAND
+1 SEX M
+1 CHR
+2 DATE 8 SEP 1697
+2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @386S@
+1 BURI
+2 DATE BEF 1786
+2 NOTE Quand son épouse décéde, elle est veuve.
+1 OCCU batelier de Condé
+1 FAMS @143U@
+1 FAMC @194U@
+1 NOTE il serait originaire de Condé sur Escaut
+1 _FIL LEGITIMATE_CHILD
+0 @142I@ INDI
+1 NAME Anne Catherine/CHOQUET/
+2 GIVN Anne Catherine
+2 SURN CHOQUET
+1 SEX F
+1 BIRT
+2 DATE ABT 1703
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 NOTE Elle a 19 ans lors de son mariage.
+3 CONT Elle y est dite originaire de la paroisse de Flines Les Mortagnes.
+1 BURI
+2 DATE 6 JAN 1786
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 NOTE source: relevés en ligne sur Geneanet.
+3 CONT 1786 n'est pas en ligne sur le site des AD.
+1 FAMS @143U@
+1 FAMC @199U@
+1 SIGN YES
+1 _FIL LEGITIMATE_CHILD
+0 @151I@ INDI
+1 NAME Jean-Baptiste/FENEULLE/
+2 GIVN Jean-Baptiste
+2 SURN FENEULLE
+1 SEX M
+1 FAMS @154U@
+1 _FIL LEGITIMATE_CHILD
+0 @153I@ INDI
+1 NAME Marguerite Joseph/BLASSEAU/
+2 GIVN Marguerite Joseph
+2 SURN BLASSEAU
+1 SEX F
+1 FAMS @154U@
+1 _FIL LEGITIMATE_CHILD
+0 @167I@ INDI
+1 NAME Nicolas/TRUFFIN/
+2 GIVN Nicolas
+2 SURN TRUFFIN
+1 SEX M
+1 BIRT
+2 DATE ABT 1736
+2 PLAC Jemappes,7012,Hainaut,Wallonie,BELGIQUE,
+1 OCCU batelier de Condé
+1 FAMS @172U@
+1 _FIL LEGITIMATE_CHILD
+0 @170I@ INDI
+1 NAME /PISSON/
+2 SURN PISSON
+1 SEX F
+1 BIRT
+2 DATE ABT 1744
+2 PLAC Fresnes-sur-Escaut,59970,Nord,Nord-Pas-de-Calais,FRANCE,
+1 FAMS @172U@
+1 _FIL LEGITIMATE_CHILD
+0 @175I@ INDI
+1 NAME Louis Joseph/DUMONT/
+2 GIVN Louis Joseph
+2 SURN DUMONT
+1 SEX M
+1 BIRT
+2 DATE ABT 1756
+2 PLAC Tournai,7500,Hainaut,Wallonie,BELGIQUE,
+1 OCCU charpentier de bateaux
+1 _FIL LEGITIMATE_CHILD
+0 @179I@ INDI
+1 NAME Jean-Baptiste/POSIERE/
+2 GIVN Jean-Baptiste
+2 SURN POSIERE
+1 SEX M
+1 BIRT
+2 DATE ABT 1755
+1 OCCU tailleur
+1 FAMS @189U@
+1 _FIL LEGITIMATE_CHILD
+0 @183I@ INDI
+1 NAME Marie Magdelaine/AMERSE/
+2 GIVN Marie Magdelaine
+2 SURN AMERSE
+1 SEX F
+1 FAMS @189U@
+1 _FIL LEGITIMATE_CHILD
+0 @186I@ INDI
+1 NAME Louis/WERY/
+2 GIVN Louis
+2 SURN WERY
+1 SEX M
+1 BIRT
+2 DATE ABT 1762
+2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
+1 OCCU ferronier
+1 _FIL LEGITIMATE_CHILD
+0 @191I@ INDI
+1 NAME André/AMAND/
+2 GIVN André
+2 SURN AMAND
+1 SEX M
+1 FAMS @194U@
+1 _FIL LEGITIMATE_CHILD
+0 @193I@ INDI
+1 NAME Marie/RASEZ/
+2 GIVN Marie
+2 SURN RASEZ
+1 SEX F
+1 FAMS @194U@
+1 _FIL LEGITIMATE_CHILD
+0 @196I@ INDI
+1 NAME Thomas/CHOQUET/
+2 GIVN Thomas
+2 SURN CHOQUET
+1 SEX M
+1 FAMS @199U@
+1 _FIL LEGITIMATE_CHILD
+0 @198I@ INDI
+1 NAME Marie Anne/BROSSART/
+2 GIVN Marie Anne
+2 SURN BROSSART
+1 SEX F
+1 FAMS @199U@
+1 _FIL LEGITIMATE_CHILD
+0 @206I@ INDI
+1 NAME Anne Marie Joseph/AMAND/
+2 GIVN Anne Marie Joseph
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE ABT 1727
+1 DEAT
+2 DATE 7 JAN 1783
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @145S@
+1 FAMS @210U@
+1 FAMC @143U@
+1 _FIL LEGITIMATE_CHILD
+0 @209I@ INDI
+1 NAME Jean François Joseph/TELLIER/
+2 GIVN Jean François Joseph
+2 SURN TELLIER
+1 SEX M
+1 FAMS @210U@
+1 _FIL LEGITIMATE_CHILD
+0 @215I@ INDI
+1 NAME Jean Joseph/AMAND/
+2 GIVN Jean Joseph
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 25 FEB 1742
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 NOTE Lors de son mariage, il est dit originaire de Condé.
+1 FAMS @219U@
+1 FAMC @143U@
+1 _FIL LEGITIMATE_CHILD
+0 @218I@ INDI
+1 NAME Marie Suzanne/PICART/
+2 GIVN Marie Suzanne
+2 SURN PICART
+1 SEX F
+1 FAMS @219U@
+1 _FIL LEGITIMATE_CHILD
+0 @222I@ INDI
+1 NAME Jean-Baptiste/AMAND/
+2 GIVN Jean-Baptiste
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 25 MAR 1731
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+1 FAMC @143U@
+1 _FIL LEGITIMATE_CHILD
+0 @224I@ INDI
+1 NAME Marie Magdelaine Joseph/AMAND/
+2 GIVN Marie Magdelaine Joseph
+2 SURN AMAND
+1 SEX F
+1 CHR
+2 DATE 7 AUG 1732
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+1 FAMC @143U@
+1 _FIL LEGITIMATE_CHILD
+0 @226I@ INDI
+1 NAME Marie Eugénie Joseph/AMAND/
+2 GIVN Marie Eugénie Joseph
+2 SURN AMAND
+1 SEX F
+1 CHR
+2 DATE 26 MAR 1735
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+1 FAMC @143U@
+1 _FIL LEGITIMATE_CHILD
+0 @228I@ INDI
+1 NAME Catherine Joseph/AMAND/
+2 GIVN Catherine Joseph
+2 SURN AMAND
+1 SEX F
+1 CHR
+2 DATE 22 DEC 1738
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @281S@
+1 FAMC @143U@
+1 _FIL LEGITIMATE_CHILD
+0 @230I@ INDI
+1 NAME Adorateur Joseph/AMAND/
+2 GIVN Adorateur Joseph
+2 SURN AMAND
+1 SEX M
+1 CHR
+2 DATE 15 APR 1775
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @145S@
+1 FAMC @219U@
+1 _FIL LEGITIMATE_CHILD
+0 @232I@ INDI
+1 NAME François Théodore/AMAND/
+2 GIVN François Théodore
+2 SURN AMAND
+1 SEX M
+1 CHR
+2 DATE 1 APR 1779
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @145S@
+1 FAMC @219U@
+1 _FIL LEGITIMATE_CHILD
+0 @234I@ INDI
+1 NAME Julie Eugénie/AMAND/
+2 GIVN Julie Eugénie
+2 SURN AMAND
+1 SEX F
+1 CHR
+2 DATE 20 MAY 1781
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @145S@
+1 FAMC @219U@
+1 _FIL LEGITIMATE_CHILD
+0 @240I@ INDI
+1 NAME Fernande Adeline/AMAND/
+2 GIVN Fernande Adeline
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 18 JAN 1897
+2 PLAC Lourches,59156,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @242S@
+2 NOTE Elle est née dans le bateau de ses parents.
+3 CONT Elle est déclarée le lendemain à la mairie de Lourches.
+2 ASSO @262I@
+3 TYPE INDI
+3 RELA Registry officer
+3 TITL Officier d'état civil
+2 ASSO @247I@
+3 TYPE INDI
+3 RELA Informant
+3 TITL Déclarant
+2 ASSO @250I@
+3 TYPE INDI
+3 RELA Informant
+3 TITL Déclarant
+1 FAMS @259U@
+1 FAMC @40U@
+1 _FIL LEGITIMATE_CHILD
+0 @247I@ INDI
+1 NAME Joseph/WADIN/
+2 GIVN Joseph
+2 SURN WADIN
+1 SEX M
+1 BIRT
+2 DATE ABT 1837
+1 OCCU Batelier
+1 _FIL LEGITIMATE_CHILD
+0 @250I@ INDI
+1 NAME Charlemagne/DEGAGE/
+2 GIVN Charlemagne
+2 SURN DEGAGE
+1 SEX M
+1 BIRT
+2 DATE ABT 1838
+1 OCCU batelier
+1 _FIL LEGITIMATE_CHILD
+0 @258I@ INDI
+1 NAME Pierre/MACHECOURT/
+2 GIVN Pierre
+2 SURN MACHECOURT
+1 SEX M
+1 FAMS @259U@
+1 _FIL LEGITIMATE_CHILD
+0 @262I@ INDI
+1 NAME Léon/DREYFUS/
+2 GIVN Léon
+2 SURN DREYFUS
+1 SEX M
+1 OCCU Maire de Lourches (1897)
+1 _FIL LEGITIMATE_CHILD
+0 @264I@ INDI
+1 NAME Marceau/AMAND/
+2 GIVN Marceau
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 17 APR 1899
+2 PLAC Aubervilliers,93300,Seine-Saint-Denis,Île-de-France,FRANCE,
+1 OCCU machiniste
+1 FAMS @268U@
+1 FAMC @40U@
+1 _FIL LEGITIMATE_CHILD
+0 @266I@ INDI
+1 NAME Odette/TATINCLAUX/
+2 GIVN Odette
+2 SURN TATINCLAUX
+1 SEX F
+1 BIRT
+2 DATE 14 DEC 1905
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+1 OCCU ménagère
+1 FAMS @268U@
+1 _FIL LEGITIMATE_CHILD
+0 @293I@ INDI
+1 NAME Elisabeth/DESHAYES/
+2 GIVN Elisabeth
+2 SURN DESHAYES
+1 SEX F
+1 BIRT
+2 DATE ABT 1776
+1 OCCU Sage-femme à Chauny (02)
+1 _FIL LEGITIMATE_CHILD
+0 @297I@ INDI
+1 NAME Xavier/DISANT/
+2 GIVN Xavier
+2 SURN DISANT
+1 SEX M
+1 BIRT
+2 DATE ABT 1807
+1 OCCU Batelier de Lille
+1 _FIL LEGITIMATE_CHILD
+0 @301I@ INDI
+1 NAME Joseph Charles/GILBERT/
+2 GIVN Joseph Charles
+2 SURN GILBERT
+1 SEX M
+1 BIRT
+2 DATE ABT 1810
+1 OCCU Batelier
+1 _FIL LEGITIMATE_CHILD
+0 @312I@ INDI
+1 NAME François/DE BUCHY/
+2 GIVN François
+2 SURN DE BUCHY
+1 SEX M
+1 SIGN YES
+1 _FIL LEGITIMATE_CHILD
+0 @325I@ INDI
+1 NAME Augustin/DERVAL/
+2 GIVN Augustin
+2 SURN DERVAL
+1 SEX M
+1 BIRT
+2 DATE ABT 1817
+1 EVEN
+2 TYPE Residence
+2 DATE 1865
+2 PLAC Banteux,59266,Nord,Nord-Pas-de-Calais,FRANCE,
+1 OCCU Eclusier à Banteux
+1 _FIL LEGITIMATE_CHILD
+0 @329I@ INDI
+1 NAME François/PAGNIEZ/
+2 GIVN François
+2 SURN PAGNIEZ
+1 SEX M
+1 BIRT
+2 DATE ABT 1833
+1 EVEN
+2 TYPE Residence
+2 DATE 1865
+2 PLAC Banteux,59266,Nord,Nord-Pas-de-Calais,FRANCE,
+1 OCCU Cabaretier
+1 _FIL LEGITIMATE_CHILD
+0 @333I@ INDI
+1 NAME Quentin/SORLIN/
+2 GIVN Quentin
+2 SURN SORLIN
+1 SEX M
+1 OCCU Maire de Banteux (1865)
+1 _FIL LEGITIMATE_CHILD
+0 @341I@ INDI
+1 NAME Henri/THIERY/
+2 GIVN Henri
+2 SURN THIERY
+1 SEX M
+1 BIRT
+2 DATE 18 MAR 1863
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @349S@
+1 EVEN
+2 TYPE Residence
+2 DATE 20 MAR 1898
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+1 EVEN
+2 TYPE Residence
+2 DATE 1906
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @349S@
+2 NOTE Il habite Coron Mocq à Roeulx
+1 OCCU Mineur à la Compagnie des Mines de Douchy
+1 FAMS @346U@
+1 _FIL LEGITIMATE_CHILD
+0 @344I@ INDI
+1 NAME Anna/NAUTET/
+2 GIVN Anna
+2 SURN NAUTET
+1 SEX F
+1 BIRT
+2 DATE ABT 1866
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @349S@
+1 EVEN
+2 TYPE Residence
+2 DATE 20 MAR 1898
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+1 EVEN
+2 TYPE Residence
+2 DATE 1906
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @349S@
+2 NOTE Elle habite Coron Mocq à Roeulx
+1 OCCU Ménagère (1898)
+1 FAMS @346U@
+1 _FIL LEGITIMATE_CHILD
+0 @356I@ INDI
+1 NAME Jean Baptiste/THIERY/
+2 GIVN Jean Baptiste
+2 SURN THIERY
+1 SEX M
+1 BIRT
+2 DATE 1890
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @349S@
+1 EVEN
+2 TYPE Residence
+2 DATE 1906
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @349S@
+2 NOTE Il habite Coron Mocq à Roeulx
+1 OCCU Mineur à la Compagnie des Mines de Douchy (1906)
+1 FAMC @346U@
+1 _FIL LEGITIMATE_CHILD
+0 @360I@ INDI
+1 NAME Louis/THIERY/
+2 GIVN Louis
+2 SURN THIERY
+1 SEX M
+1 BIRT
+2 DATE 1894
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @349S@
+1 EVEN
+2 TYPE Residence
+2 DATE 1906
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 NOTE Il habite Coron Mocq à Roeulx
+1 FAMC @346U@
+1 _FIL LEGITIMATE_CHILD
+0 @364I@ INDI
+1 NAME Germain/THIERY/
+2 GIVN Germain
+2 SURN THIERY
+1 SEX M
+1 BIRT
+2 DATE AFT 1897
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @349S@
+1 EVEN
+2 TYPE Residence
+2 DATE 1906
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @349S@
+2 NOTE Il habite Coron Mocq à Roeulx
+1 FAMC @346U@
+1 _FIL LEGITIMATE_CHILD
+0 @367I@ INDI
+1 NAME Arthur/THIERY/
+2 GIVN Arthur
+2 SURN THIERY
+1 SEX M
+1 BIRT
+2 DATE AFT 1897
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @349S@
+1 EVEN
+2 TYPE Residence
+2 DATE 1906
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @349S@
+2 NOTE Il habite Coron Mocq à Roeulx
+1 FAMC @346U@
+1 _FIL LEGITIMATE_CHILD
+0 @370I@ INDI
+1 NAME Virginie/THIERY/
+2 GIVN Virginie
+2 SURN THIERY
+1 SEX F
+1 BIRT
+2 DATE AFT 1897
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @349S@
+1 EVEN
+2 TYPE Residence
+2 DATE 1906
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @349S@
+2 NOTE Elle habite Coron Mocq à Roeulx
+1 FAMC @346U@
+1 _FIL LEGITIMATE_CHILD
+0 @373I@ INDI
+1 NAME Alphonse/THIERY/
+2 GIVN Alphonse
+2 SURN THIERY
+1 SEX M
+1 BIRT
+2 DATE AFT 1897
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @349S@
+1 EVEN
+2 TYPE Residence
+2 DATE 1906
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @349S@
+2 NOTE Il habite Coron Mocq à Roeulx
+1 FAMC @346U@
+1 _FIL LEGITIMATE_CHILD
+0 @402I@ INDI
+1 NAME Marie Aimée Joséphine/AMAND/
+2 GIVN Marie Aimée Joséphine
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 18 JAN 1802
+2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
+1 FAMS @408U@
+1 FAMC @135U@
+1 _FIL LEGITIMATE_CHILD
+0 @406I@ INDI
+1 NAME Etienne Victor Joseph/CALOTTE/
+2 GIVN Etienne Victor Joseph
+2 SURN CALOTTE
+1 SEX M
+1 BIRT
+2 DATE 8 OCT 1800
+2 PLAC Tournai,7500,Hainaut,Wallonie,BELGIQUE,
+1 FAMS @408U@
+1 _FIL LEGITIMATE_CHILD
+0 @10U@ FAM
+1 HUSB @7I@
+1 WIFE @9I@
+1 CHIL @3I@
+1 MARR
+2 DATE 25 FEB 1950
+2 PLAC Abscon,59215,Nord,Nord-Pas-de-Calais,FRANCE,
+1 _UST MARRIED
+0 @29U@ FAM
+1 HUSB @23I@
+1 WIFE @27I@
+1 CHIL @7I@
+1 MARR
+2 DATE 24 MAY 1919
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @54S@
+1 _UST MARRIED
+0 @40U@ FAM
+1 HUSB @34I@
+1 WIFE @38I@
+1 CHIL @23I@
+1 CHIL @240I@
+1 CHIL @264I@
+1 _UST MARRIED
+0 @49U@ FAM
+1 HUSB @45I@
+1 WIFE @48I@
+1 CHIL @34I@
+1 _UST MARRIED
+0 @77U@ FAM
+1 HUSB @72I@
+1 WIFE @76I@
+1 CHIL @45I@
+1 MARR
+2 DATE 3 JUN 1818
+2 PLAC Thun-L'Évêque,59141,Nord,Nord-Pas-de-Calais,FRANCE,
+1 _UST MARRIED
+0 @95U@ FAM
+1 HUSB @92I@
+1 WIFE @94I@
+1 CHIL @72I@
+1 CHIL @117I@
+1 CHIL @123I@
+1 _UST MARRIED
+0 @115U@ FAM
+1 HUSB @108I@
+1 WIFE @114I@
+1 CHIL @92I@
+1 CHIL @125I@
+1 CHIL @128I@
+1 MARR
+2 DATE 8 JAN 1749
+2 PLAC Saint-Ghislain,7330,Hainaut,Wallonie,BELGIQUE,
+2 NOTE Georges a obtenu une permission pour mariage à Saint-Guislain (B).
+3 CONT 4e degrès de consanguinuité avec Marie Gabrielle Feneulle.
+3 CONT (source: mention en marge du registre de Condé).
+3 CONT 
+3 CONT L'ancêtre commun est au niveau des arrière arrière grands-parents.
+3 CONT L'arrière grand-père de l'un est donc le frère de l'arrière grand-mère de l'autre (ou l'inverse, ou deux frères, ou deux soeurs, bref...)
+1 _UST MARRIED
+0 @135U@ FAM
+1 HUSB @128I@
+1 WIFE @133I@
+1 CHIL @402I@
+1 MARR
+2 DATE 8 NOV 1800
+2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @145S@
+2 ASSO @179I@
+3 TYPE INDI
+3 RELA Witness
+3 TITL Témoin
+2 ASSO @186I@
+3 TYPE INDI
+3 RELA Witness
+3 TITL Témoin
+2 ASSO @183I@
+3 TYPE INDI
+3 RELA Witness
+3 TITL Témoin
+2 ASSO @175I@
+3 TYPE INDI
+3 RELA Witness
+3 TITL Témoin
+1 _UST MARRIED
+0 @143U@ FAM
+1 HUSB @140I@
+1 WIFE @142I@
+1 CHIL @108I@
+1 CHIL @206I@
+1 CHIL @215I@
+1 CHIL @222I@
+1 CHIL @224I@
+1 CHIL @226I@
+1 CHIL @228I@
+1 MARR
+2 DATE 28 APR 1722
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @200S@
+1 _UST MARRIED
+0 @154U@ FAM
+1 HUSB @151I@
+1 WIFE @153I@
+1 CHIL @114I@
+1 MARR
+2 TYPE Religious marriage
+2 DATE 1715
+2 SOUR @145S@
+1 _UST MARRIED
+0 @172U@ FAM
+1 HUSB @167I@
+1 WIFE @170I@
+1 CHIL @133I@
+1 _UST MARRIED
+0 @189U@ FAM
+1 HUSB @179I@
+1 WIFE @183I@
+1 _UST MARRIED
+0 @194U@ FAM
+1 HUSB @191I@
+1 WIFE @193I@
+1 CHIL @140I@
+1 _UST MARRIED
+0 @199U@ FAM
+1 HUSB @196I@
+1 WIFE @198I@
+1 CHIL @142I@
+1 _UST MARRIED
+0 @210U@ FAM
+1 HUSB @209I@
+1 WIFE @206I@
+1 MARR
+2 TYPE Religious marriage
+2 DATE 11 NOV 1749
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @145S@
+1 _UST MARRIED
+0 @219U@ FAM
+1 HUSB @215I@
+1 WIFE @218I@
+1 CHIL @230I@
+1 CHIL @232I@
+1 CHIL @234I@
+1 MARR
+2 TYPE Religious marriage
+2 DATE 9 APR 1771
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @145S@
+1 _UST MARRIED
+0 @259U@ FAM
+1 HUSB @258I@
+1 WIFE @240I@
+1 MARR
+2 DATE 12 JUL 1919
+2 PLAC Venette,60200,Oise,Picardie,FRANCE,
+1 _UST MARRIED
+0 @268U@ FAM
+1 HUSB @264I@
+1 WIFE @266I@
+1 MARR
+2 DATE 17 JAN 1925
+2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @273S@
+1 _UST MARRIED
+0 @346U@ FAM
+1 HUSB @341I@
+1 WIFE @344I@
+1 CHIL @27I@
+1 CHIL @356I@
+1 CHIL @360I@
+1 CHIL @364I@
+1 CHIL @367I@
+1 CHIL @370I@
+1 CHIL @373I@
+1 _UST MARRIED
+0 @408U@ FAM
+1 HUSB @406I@
+1 WIFE @402I@
+1 MARR
+2 DATE 23 JUL 1823
+2 PLAC Tournai,7500,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @410S@
+1 _UST MARRIED
+0 @30S@ SOUR
+1 TITL Acte de naissance  (1895)
+1 ABBR AMAND Hoche Gaston Blomy
+1 REPO Archives du Nord
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND Hoche Gaston Blomy - naissance - 1895.jpg
+2 NOTE acte de naissance de Hoche Gaston Blomy AMAND à Lourches
+2 DATE 1895
+0 @50S@ SOUR
+1 TITL Acte de décès (1906)
+1 ABBR AMAND Blomy Abélard
+1 REPO Archives du Nord
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND Blomy Abélard - décès - 1906.jpg
+2 NOTE Acte de décès de Blomy Abélard AMAND à Bouchain
+2 DATE 1906
+0 @54S@ SOUR
+1 TITL Acte de mariage (1919)
+1 ABBR AMAND x THIERY
+1 REPO Archives du Nord
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND x THIERY - mariage - 1919 (1).jpg
+2 NOTE Acte de mariage entre Hoche Gaston Blomy AMAND et Germaine THIERY
+2 DATE 1919
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND x THIERY - mariage - 1919 (2).jpg
+2 NOTE Acte de mariage entre Hoche Gaston Blomy AMAND et Germaine THIERY
+2 DATE 1919
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND x THIERY - mariage - 1919 (3).jpg
+2 NOTE Acte de mariage entre Hoche Gaston Blomy AMAND et Germaine THIERY
+2 DATE 1919
+0 @65S@ SOUR
+1 TITL Acte de naissance (1865)
+1 ABBR AMAND Blomy
+1 REPO Archives du Nord
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND Blomy - naissance - 1865 - (1).jpg
+2 NOTE Acte de naissance de Blomy AMAND à Clairvoix
+2 DATE 1865
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND Blomy - naissance - 1865 - (2).jpg
+2 NOTE Acte de naissance de Blomy AMAND à Banteux
+2 DATE 1865
+1 TEXT L'an mil huit cent soixante-cinq, le vingt-un du mois de mai, à sept heures du matin, par devant nous Quentin SORLIN, Maire, officier de l'état-civil de la commune de Banteux, canton de Marcoing, arrondissement de Cambrai, département du Nord
+2 CONC , a comparu Blomy Adolphe AMAND, âgé de trente-trois ans, batelier, domicilié à Clairvoix (Oise): Lequel nous a présenté un enfant du sexe masculin né aujourd'hui à quatre heures du matin, de lui déclarant en son bateau stationnant en amont d
+2 CONC e l'écluse de cette commune et de Hortense Caroline FERNEZ âgée de vingt-neuf ans, batelière, domiciliée au même lieu, son épouse légitime, et auquel il a déclaré vouloir donner des prénoms de Blomy Abailard. Les dites déclaration et présenta
+2 CONC tion faites en presence d'Augustin DERVAL, âgé de quarante huit ans, éclusier, et de François PAGNIEZ, âgé de vingt deux ans, cabaretier, tous deux domiciliés à Banteux et amis du comparant. Les deux témoins et le ère ont signé avec nous le p
+2 CONC résent acte après lecture faite.
+0 @83S@ SOUR
+1 TITL Acte de décès (1888)
+1 ABBR AMAND Blomy Adolphe
+1 REPO Archives du Nord
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND Blomy - décès - 1888 (1).jpg
+2 NOTE Acte de décès de Blomy AMAND à Lourches
+2 DATE 1888
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND Blomy - décès - 1888 (2).jpg
+2 NOTE Acte de décès de Blomy AMAND ) Clairoix
+2 DATE 1888
+0 @96S@ SOUR
+1 TITL Acte de décès (1832)
+1 ABBR AMAND Florentin
+1 REPO Archives de l'Aisne
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND Florentin - décès - 1832 (1).jpg
+2 NOTE Acte de naissance de Florentin AMAND à Farquiers
+2 DATE 1832
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND Florentin - décès - 1832 (2).jpg
+2 NOTE Acte de naissance de Florentin AMAND
+2 DATE 1832
+0 @104S@ SOUR
+1 TITL Acte de décès (1819)
+1 ABBR AMAND François
+1 REPO Archives du Nord
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND François - décès -1819.jpg
+2 NOTE Acte de décès de François AMAND à Valenciennes
+2 DATE 1819
+0 @145S@ SOUR
+1 TITL Relevés des BMS et NMD
+1 REPO A.G.F.H
+2 CALN 
+3 MEDI Transcription
+1 QUAY 0
+0 @147S@ SOUR
+1 TITL Relevés des BMS et NMD de Quaregnon
+1 REPO ddupprez
+2 CALN 
+3 MEDI Internet
+1 QUAY 0
+0 @200S@ SOUR
+1 TITL Acte de mariage (1722)
+1 ABBR AMAND x CHOQUET
+1 REPO Archives du Nord
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND x CHOQUET - mariage - 1722 - (1).jpg
+2 NOTE Acte de mariage AMAND x CHOQUET
+2 DATE 1722
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND x CHOQUET - mariage - 1722 - (2).jpg
+2 NOTE Acte de mariage AMAND x CHOQUET
+2 DATE 1722
+0 @242S@ SOUR
+1 TITL Acte de naissance (1897)
+1 ABBR AMAND Fernande
+1 REPO Archives du Nord
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND Fernande - naissance - 1897.jpg
+2 NOTE Acte de naissance de Fernande AMAND à Lourches
+2 DATE 1897
+0 @273S@ SOUR
+1 TITL Acte de mariage (1905)
+1 ABBR AMAND x TATINCLAUX
+1 REPO Archives du Nord
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND x TATINCLAUX - mariage -1905 (1).jpg
+2 NOTE Acte de mariage entre Marceau AMAND et Odette TATINCLAUX
+2 DATE 1905
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND x TATINCLAUX - mariage -1905 (2).jpg
+2 NOTE Acte de mariage entre Marceau AMAND et Odette TATINCLAUX
+2 DATE 1905
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND x TATINCLAUX - mariage -1905 (3).jpg
+2 NOTE Acte de mariage entre Marceau AMAND et Odette TATINCLAUX
+2 DATE 1905
+0 @281S@ SOUR
+1 TITL Acte de baptême (1738)
+1 ABBR AMAND Catherine
+1 REPO Archives du Nord
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND Catherine - baptême - 1738.jpg
+2 NOTE Acte de baptême de Catherine AMAND
+2 DATE 1738
+0 @286S@ SOUR
+1 TITL Acte de naissance (1832)
+1 ABBR AMAND Blomy
+1 REPO Archives de l'Aisne
+2 CALN AB1832
+3 MEDI Numerisation
+1 QUAY 2
+1 _ARCH archi-AB1832
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND Blomy - naissance - 1832 (1).jpg
+2 NOTE Acte de naissance de Blomy AMAND à Chauny
+2 DATE 1832
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND Blomy - naissance - 1832 (2).jpg
+2 NOTE Acte de naissance de Blomy AMAND à Chauny
+2 DATE 1832
+0 @306S@ SOUR
+1 TITL Acte de décès (1801)
+1 ABBR AMAND Georges
+1 REPO Archives de l'État en Belgique
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND Georges - décès - 1801.jpg
+2 NOTE Acte de décès de Georges AMAND à Jemappes
+2 DATE 1801
+0 @315S@ SOUR
+1 TITL Acte de baptême (1749)
+1 ABBR AMAND François Joseph
+1 REPO Archives du Nord
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND François Joseph - baptême - 1749.jpg
+2 NOTE Acte de baptême de François AMAND
+2 DATE 1749
+0 @337S@ SOUR
+1 TITL Acte de naissance (1898)
+1 ABBR THIERY Germaine
+1 REPO Archives du Nord
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Thiery\THIERY Germaine - naissance - 1898.jpg
+2 NOTE Acte de naissance de Germaine THIERY à Roeulx
+2 DATE 1898
+0 @349S@ SOUR
+1 TITL Recensement de la commune de Roeulx (1906)
+1 ABBR Famille THIERY
+1 REPO Genealo
+2 CALN 
+3 MEDI Internet
+1 QUAY 2
+0 @386S@ SOUR
+1 TITL Acte de baptême (1697)
+1 ABBR AMAND Nicolas François
+1 REPO Archives du Nord
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND Nicolas François -  Baptême - 1697.jpg
+2 NOTE Acte de baptême de Nicolas François AMAND
+2 DATE 1697
+0 @397S@ SOUR
+1 TITL Avis de décès (2017)
+1 ABBR AMAND Albert
+1 REPO Voix du Nord
+2 CALN 
+3 MEDI Internet
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND Albert - décès - 2017.jpg
+0 @410S@ SOUR
+1 TITL Acte de mariage (1823)
+1 ABBR AMAND x CALOTTE
+1 REPO FamilySearch
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\actes\Amand\AMAND x CALOTTE - 1823 - mariage.jpg
+0 TRLR
