@@ -243,7 +243,7 @@ if (! empty ( $_POST ['g-aside-1'] ))
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span><?php include('include/footer.php'); ?></span>
+            <span><?php include('include/footer.inc'); ?></span>
           </div>
         </div>
       </footer>

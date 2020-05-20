@@ -1,8 +1,8 @@
 <?php
 
-/* --------------- */
-/* HEADER PUBLIQUE */
-/* --------------- */
+/* ------------- */
+/* HEADER PUBLIC */
+/* ------------- */
 
 define ( "SITE_TITLE", "PubliGED" );
 define ( "SITE_SLOGAN", "Site de demonstration du projet" );
@@ -71,7 +71,7 @@ define ( "TITRE_RUB_ADMIN_1", "Modifier un article" );
 define ( "TITRE_RUB_ADMIN_14", "Ajouter une catégorie" );
 define ( "TITRE_RUB_ADMIN_15", "Modifier une catégorie" );
 
-define ( "TITRE_RUB_ADMIN_2", "Effacer un gedcom" );
+// define ( "TITRE_RUB_ADMIN_2", "Effacer un gedcom" );
 // define ( "TITRE_RUB_ADMIN_3", "Envoyer un gedcom" );
 
 define ( "TITRE_RUB_ADMIN_4", "Supression des tables" );

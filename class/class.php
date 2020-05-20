@@ -233,6 +233,12 @@ class articles
 	}
 
 /* classes pour la lecture du gedcom */
+	
+class logiciels 
+	{
+	public $nom;
+	public $nomcomplet;
+	}
 
 class uploaders 
 	{

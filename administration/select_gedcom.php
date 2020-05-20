@@ -5,11 +5,11 @@
 
 require ('../content/fonctions.php');
 include ('../config.php');
-include('../langues/admin.php');
+include ('../langues/admin.php');
+include ('../class/class.php');
 ?>
 
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 
 <head>
@@ -17,8 +17,8 @@ include('../langues/admin.php');
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content=" ">
-  <meta name="author" content=" ">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
   <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_6; ?></title>
 
@@ -30,7 +30,11 @@ include('../langues/admin.php');
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Css de Dropzone -->
+    <link href="js/dropzone/dropzone.min.css" rel="stylesheet">
   
+
 </head>
 
 <body id="page-top">
@@ -77,7 +81,7 @@ include('../langues/admin.php');
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Alexis A.</span>
-                <img class="img-profile rounded-circle" src="img/Avatar.jpg">
+                <img class="img-profile rounded-circle" src="img/avatar.jpg">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -102,91 +106,115 @@ include('../langues/admin.php');
         </nav>
         <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
+        <!-- Begin Page Content -->
         <div class="container-fluid">
 		          
           <div class="card shadow mb-4">
-               <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_RUB_TITRE_6; ?></h6>
-               </div>
-               <div class="card-body">
 
-				<p style='text-align: justify;'>Vous pouvez utiliser ce formulaire pour envoyer votre gedcom. Si vous avez d&eacute;jà envoy&eacute; un gedcom sur le site, celui-ci sera effac&eacute; et remplacé par le nouveau.</p>
-								
-				<form method="POST" action="lecture.php" enctype="multipart/form-data">
-				  <div class="form-group">
-				    <label for="SelectionGedcom">Choisissez un fichier : </label>
-				    <input type="file" class="form-control-file" id="SelectionGedcom" name="AvatarGedcom">
-				  </div>
-				  <button type="submit" class="btn btn-primary">Envoyer</button>
-				</form>
-				
-				</div>
+               <div class="card-header py-3">
+                 <h6 class="m-0 font-weight-bold text-primary"><?php echo READ_GEDCOM; ?></h6>
+               </div>
+               	<div class="card-body">
+
+                  <p style='text-align: justify;'>Vous pouvez utiliser ce formulaire pour envoyer votre gedcom. Si vous avez d&eacute;jà envoy&eacute; un gedcom sur le site, celui-ci sera effac&eacute; et remplacé par le nouveau.</p>
+
+                  <form method="POST" action="lecture.php" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="exampleFormControlFile1">Selectionnez votre fichier</label>
+                      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="avatar">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                  </form>
+
+                  <br /><br /><br /><br /><br />
+                      
+                  <form action="lecture.php" class="dropzone" id="LaDropzone">
+                    <div class="fallback">
+                      <input name="avatar" type="file"/>
+                    </div>
+                  </form>
+
 			          </div>
-			              
-			        </div>
-			        <!-- /.container-fluid -->
-			
-			      </div>
-			      <!-- End of Main Content -->
-			
-			      <!-- Footer -->
-			      <footer class="sticky-footer bg-white">
-			        <div class="container my-auto">
-			          <div class="copyright text-center my-auto">
-			            <span><?php include('include/footer.php'); ?></span>
-			          </div>
-			        </div>
-			      </footer>
-			      <!-- End of Footer -->
-			
-			    </div>
-			    <!-- End of Content Wrapper -->
-			
-			  </div>
-			  <!-- End of Page Wrapper -->
-			
-			  <!-- Scroll to Top Button-->
-			  <a class="scroll-to-top rounded" href="#page-top">
-			    <i class="fas fa-angle-up"></i>
-			  </a>
-			
-			  <!-- Logout Modal-->
-			  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			    <div class="modal-dialog" role="document">
-			      <div class="modal-content">
-			        <div class="modal-header">
-			          <h5 class="modal-title" id="exampleModalLabel"><?php echo LOGOUT_TITLE; ?></h5>
-			          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-			            <span aria-hidden="true">×</span>
-			          </button>
-			        </div>
-			        <div class="modal-body"><?php echo LOGOUT_TEXT; ?></div>
-			        <div class="modal-footer">
-			          <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo LOGOUT_CANCEL; ?></button>
-			          <a class="btn btn-primary" href="login.html"><?php echo LOGOUT_OK; ?></a>
-			        </div>
-			      </div>
-			    </div>
-			  </div>
-			
-			  <!-- Bootstrap core JavaScript-->
-			  <script src="vendor/jquery/jquery.min.js"></script>
-			  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-			
-			  <!-- Core plugin JavaScript-->
-			  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-			
-			  <!-- Custom scripts for all pages-->
-			  <script src="js/sb-admin-2.min.js"></script>
-			
-			  <!-- Page level plugins -->
-			  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-			  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-			
-			    <!-- Ce script contient l'initialisation du plugin datatables de jquery -->
-			  <script src="js/demo/datatables-demo.js"></script>
-			 
-			</body>
-			
-			</html>
+          </div>
+              
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span><?php include('include/footer.inc'); ?></span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><?php echo LOGOUT_TITLE; ?></h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body"><?php echo LOGOUT_TEXT; ?></div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo LOGOUT_CANCEL; ?></button>
+          <a class="btn btn-primary" href="login.html"><?php echo LOGOUT_OK; ?></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Ce script contient l'initialisation du plugin datatables de jquery -->
+  <script src="js/demo/datatables-demo.js"></script>
+
+  <!--  Dropzone -->
+  <script src="js/dropzone/dropzone.fr.js"></script>
+
+  <script>
+  Dropzone.options.LaDropzone = {
+
+  acceptedFiles : ".ged",
+  addRemoveLinks: true,
+  maxFiles : 1
+
+  };
+
+
+
+  </script>
+
+</body>
+</html>

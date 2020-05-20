@@ -4,8 +4,8 @@
 2 NAME HEREDIS PC
 2 CORP BSD Concept ©
 3 ADDR www.heredis.com
-1 DATE 20 NOV 2017
-2 TIME 13:00:22
+1 DATE 13 FEB 2020
+2 TIME 10:44:24
 1 GEDC
 2 VERS 5.5
 2 FORM LINEAGE-LINKED
@@ -16,6 +16,7 @@
 0 @S0@ SUBM
 1 NAME Amand Alexis
 1 ADDR 
+1 PHON 0662637921
 1 EMAIL alexis.amand@gmail.com
 1 WWW http://www.genealexis.fr
 0 @3I@ INDI
@@ -24,23 +25,9 @@
 2 SURN AMAND
 1 SEX M
 1 OBJE 
-2 RESN privacy
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\portraits\alain amand concert.jpg
-2 NOTE Alain AMAND pendant un concert
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\portraits\alain-amand.jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\portraits\alain-amand.jpg
 2 NOTE Alain AMAND
-1 BIRT
-2 RESN privacy
-2 DATE 18 OCT 1960
-2 PLAC Somain,59490,Nord,Nord-Pas-de-Calais,FRANCE,
-2 NOTE essai d'une note
-1 DEAT
-2 RESN privacy
-2 DATE 21 NOV 1995
-2 PLAC Paris,75000,Paris,Île-de-France,FRANCE,
 1 OCCU pianiste
 1 FAMC @10U@
 1 _FIL LEGITIMATE_CHILD
@@ -49,16 +36,19 @@
 2 GIVN Albert Abélard
 2 SURN AMAND
 1 SEX M
-1 BIRT
-2 RESN privacy
-2 DATE 22 AUG 1928
-2 PLAC Neuville-sur-Escaut,59293,Nord,Nord-Pas-de-Calais,FRANCE,
-2 SOUR @18S@
 1 EVEN
 2 TYPE Residence
 2 DATE 1960
 2 PLAC Neuville-sur-Escaut,59293,Nord,Nord-Pas-de-Calais,FRANCE,
 2 NOTE 14 rue Lamendin
+1 DEAT
+2 DATE 19 NOV 2017
+2 PLAC Neuville-sur-Escaut,59293,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @397S@
+1 BURI
+2 DATE 23 NOV 2017
+2 PLAC Neuville-sur-Escaut,59293,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @397S@
 1 OCCU retraité
 1 FAMS @10U@
 1 FAMC @29U@
@@ -69,12 +59,6 @@
 2 GIVN Bronislawa
 2 SURN MIZERA
 1 SEX F
-1 EVEN
-2 TYPE Residence
-2 RESN privacy
-2 DATE 1960
-2 PLAC Neuville-sur-Escaut,59293,Nord,Nord-Pas-de-Calais,FRANCE,
-2 NOTE 14 rue Lamendin
 1 FAMS @10U@
 1 _FIL LEGITIMATE_CHILD
 0 @23I@ INDI
@@ -169,15 +153,15 @@
 2 PLAC Chauny,02300,Aisne,Picardie,FRANCE,
 2 OBJE 
 3 FORM jpg
-3 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\cpa\CHAUNY_Vue_du_Port.jpg
+3 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\cpa\CHAUNY_Vue_du_Port.jpg
 3 NOTE Une vue du port à Chauny
 2 SOUR @286S@
 2 NOTE Il est né dans le bateau de ses parents, stationné dans le port de Chauny.
-2 ASSO @297I@
+2 ASSO @301I@
 3 TYPE INDI
 3 RELA Witness
 3 TITL Témoin
-2 ASSO @301I@
+2 ASSO @297I@
 3 TYPE INDI
 3 RELA Witness
 3 TITL Témoin
@@ -281,6 +265,7 @@
 1 BIRT
 2 DATE ABT 1751
 1 FAMS @95U@
+1 FAMC @440U@
 1 _FIL LEGITIMATE_CHILD
 0 @108I@ INDI
 1 NAME Georges/AMAND/
@@ -359,10 +344,16 @@
 2 DATE 20 JUL 1762
 2 PLAC Vieux-Condé,59690,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @145S@
+1 EVEN
+2 TYPE Occupation
+2 DATE 1823
+2 PLAC Tournai,7500,Hainaut,Wallonie,BELGIQUE,
+2 NOTE Il est marchand de charbon
 1 DEAT
 2 DATE 18 OCT 1830
 2 PLAC Quaregnon,7390,Hainaut,Wallonie,BELGIQUE,
 2 SOUR @147S@
+2 NOTE Il serait domicilié à Tournai
 1 OCCU batelier de Condé
 1 FAMS @135U@
 1 FAMC @115U@
@@ -693,6 +684,12 @@
 1 BIRT
 2 DATE 17 APR 1899
 2 PLAC Aubervilliers,93300,Seine-Saint-Denis,Île-de-France,FRANCE,
+2 SOUR @419S@
+2 NOTE Fiche matricule n°1601 volume 4 du bureau de Valenciennes.
+1 DEAT
+2 DATE 5 APR 1969
+2 PLAC Beaucaire,30300,Gard,Languedoc-Roussillon,FRANCE,
+2 SOUR @419S@
 1 OCCU machiniste
 1 FAMS @268U@
 1 FAMC @40U@
@@ -781,7 +778,7 @@
 2 SURN THIERY
 1 SEX M
 1 BIRT
-2 DATE ABT 1863
+2 DATE 18 MAR 1863
 2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @349S@
 1 EVEN
@@ -921,6 +918,156 @@
 2 NOTE Il habite Coron Mocq à Roeulx
 1 FAMC @346U@
 1 _FIL LEGITIMATE_CHILD
+0 @402I@ INDI
+1 NAME Marie Aimée Joséphine/AMAND/
+2 GIVN Marie Aimée Joséphine
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 18 JAN 1802
+2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
+1 FAMS @408U@
+1 FAMC @135U@
+1 _FIL LEGITIMATE_CHILD
+0 @406I@ INDI
+1 NAME Etienne Victor Joseph/CALOTTE/
+2 GIVN Etienne Victor Joseph
+2 SURN CALOTTE
+1 SEX M
+1 BIRT
+2 DATE 8 OCT 1800
+2 PLAC Tournai,7500,Hainaut,Wallonie,BELGIQUE,
+1 FAMS @408U@
+1 _FIL LEGITIMATE_CHILD
+0 @427I@ INDI
+1 NAME Alexandre Joseph Fidel/AMAND/
+2 GIVN Alexandre Joseph Fidel
+2 SURN AMAND
+1 SEX M
+1 CHR
+2 DATE 9 MAR 1767
+2 PLAC Saint-Amand-les-Eaux,59230,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @429S@
+2 ASSO @435I@
+3 TYPE INDI
+3 RELA Godparent
+3 TITL Parrain
+2 ASSO @433I@
+3 TYPE INDI
+3 RELA Godparent
+3 TITL Parrain
+1 FAMC @115U@
+1 _FIL LEGITIMATE_CHILD
+0 @433I@ INDI
+1 NAME Nicolas Joseph/AMAND/
+2 GIVN Nicolas Joseph
+2 SURN AMAND
+1 SEX M
+1 _FIL LEGITIMATE_CHILD
+0 @435I@ INDI
+1 NAME Fidèle Véronique/TELLIER/
+2 GIVN Fidèle Véronique
+2 SURN TELLIER
+1 SEX F
+1 _FIL LEGITIMATE_CHILD
+0 @438I@ INDI
+1 NAME Henri Joseph/DAPSENCE/
+2 GIVN Henri Joseph
+2 SURN DAPSENCE
+1 SEX M
+1 FAMS @440U@
+1 _FIL LEGITIMATE_CHILD
+0 @439I@ INDI
+1 NAME Marie Anne Joseph/FENEUILLE/
+2 GIVN Marie Anne Joseph
+2 SURN FENEUILLE
+1 SEX F
+1 FAMS @440U@
+1 _FIL LEGITIMATE_CHILD
+0 @445I@ INDI
+1 NAME Anne Catherine/AMAND/
+2 GIVN Anne Catherine
+2 SURN AMAND
+1 SEX F
+1 CHR
+2 DATE 16 AUG 1777
+2 PLAC Saint-Amand-les-Eaux,59230,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @447S@
+2 ASSO @453I@
+3 TYPE INDI
+3 RELA Godparent
+3 TITL Parrain
+2 ASSO @451I@
+3 TYPE INDI
+3 RELA Godparent
+3 TITL Parrain
+1 FAMC @95U@
+1 _FIL LEGITIMATE_CHILD
+0 @451I@ INDI
+1 NAME Jean Baptiste/DAPSENCE/
+2 GIVN Jean Baptiste
+2 SURN DAPSENCE
+1 SEX M
+1 _FIL LEGITIMATE_CHILD
+0 @453I@ INDI
+1 NAME Anne Marie/AMAND/
+2 GIVN Anne Marie
+2 SURN AMAND
+1 SEX F
+1 _FIL LEGITIMATE_CHILD
+0 @456I@ INDI
+1 NAME Joséphine Adélaïde Joseph/AMAND/
+2 GIVN Joséphine Adélaïde Joseph
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 12 JUL 1765
+2 PLAC Lille,59000,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @458S@
+1 FAMS @464U@
+1 FAMC @95U@
+1 _FIL LEGITIMATE_CHILD
+0 @462I@ INDI
+1 NAME Henri Joseph Albert/DARTOIS/
+2 GIVN Henri Joseph Albert
+2 SURN DARTOIS
+1 SEX M
+1 BIRT
+2 DATE 23 AUG 1784
+2 NOTE Il est dit originaire de Gand (Belgique)
+1 OCCU Batelier
+1 FAMS @464U@
+1 FAMC @469U@
+1 _FIL LEGITIMATE_CHILD
+0 @466I@ INDI
+1 NAME Jacques Joseph/DARTOIS/
+2 GIVN Jacques Joseph
+2 SURN DARTOIS
+1 SEX M
+1 OCCU batelier
+1 FAMS @469U@
+1 _FIL LEGITIMATE_CHILD
+0 @468I@ INDI
+1 NAME Anne Marie Françoise/SENECAUX/
+2 GIVN Anne Marie Françoise
+2 SURN SENECAUX
+1 SEX F
+1 FAMS @469U@
+1 _FIL LEGITIMATE_CHILD
+0 @474I@ INDI
+1 NAME Lucie/DARTOIS/
+2 GIVN Lucie
+2 SURN DARTOIS
+1 SEX F
+1 BIRT
+2 DATE ABT APR 1824
+1 DEAT
+2 DATE 5 MAR 1825
+2 PLAC Proville,59267,Nord,Nord-Pas-de-Calais,FRANCE,
+2 AGE 11 mois
+2 SOUR @477S@
+1 FAMC @464U@
+1 _FIL LEGITIMATE_CHILD
 0 @10U@ FAM
 1 HUSB @7I@
 1 WIFE @9I@
@@ -964,6 +1111,12 @@
 1 CHIL @72I@
 1 CHIL @117I@
 1 CHIL @123I@
+1 CHIL @445I@
+1 CHIL @456I@
+1 MARR
+2 DATE 6 AUG 1776
+2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @441S@
 1 _UST MARRIED
 0 @115U@ FAM
 1 HUSB @108I@
@@ -971,6 +1124,7 @@
 1 CHIL @92I@
 1 CHIL @125I@
 1 CHIL @128I@
+1 CHIL @427I@
 1 MARR
 2 DATE 8 JAN 1749
 2 PLAC Saint-Ghislain,7330,Hainaut,Wallonie,BELGIQUE,
@@ -984,6 +1138,7 @@
 0 @135U@ FAM
 1 HUSB @128I@
 1 WIFE @133I@
+1 CHIL @402I@
 1 MARR
 2 DATE 8 NOV 1800
 2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
@@ -1095,18 +1250,33 @@
 1 CHIL @370I@
 1 CHIL @373I@
 1 _UST MARRIED
-0 @18S@ SOUR
-1 TITL Acte de naissance  (1928)
-1 ABBR AMAND Albert Abélard
-1 REPO Archives du Nord
-2 CALN 
-3 MEDI Photograph
-1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND Albert Abélard - naissance - 1928.jpg
-2 NOTE Acte de naissance d'Albert Abélard AMAND
-2 DATE 1928
+0 @408U@ FAM
+1 HUSB @406I@
+1 WIFE @402I@
+1 MARR
+2 DATE 23 JUL 1823
+2 PLAC Tournai,7500,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @410S@
+1 _UST MARRIED
+0 @440U@ FAM
+1 HUSB @438I@
+1 WIFE @439I@
+1 CHIL @94I@
+1 _UST MARRIED
+0 @464U@ FAM
+1 HUSB @462I@
+1 WIFE @456I@
+1 CHIL @474I@
+1 MARR
+2 DATE 5 OCT 1806
+2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
+2 SOUR @458S@
+1 _UST MARRIED
+0 @469U@ FAM
+1 HUSB @466I@
+1 WIFE @468I@
+1 CHIL @462I@
+1 _UST MARRIED
 0 @30S@ SOUR
 1 TITL Acte de naissance  (1895)
 1 ABBR AMAND Hoche Gaston Blomy
@@ -1116,7 +1286,7 @@
 1 QUAY 2
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND Hoche Gaston Blomy - naissance - 1895.jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Hoche Gaston Blomy - naissance - 1895.jpg
 2 NOTE acte de naissance de Hoche Gaston Blomy AMAND à Lourches
 2 DATE 1895
 0 @50S@ SOUR
@@ -1128,7 +1298,7 @@
 1 QUAY 2
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND Blomy Abélard - décès - 1906.jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Blomy Abélard - décès - 1906.jpg
 2 NOTE Acte de décès de Blomy Abélard AMAND à Bouchain
 2 DATE 1906
 0 @54S@ SOUR
@@ -1140,17 +1310,17 @@
 1 QUAY 2
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND x THIERY - mariage - 1919 (1).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x THIERY - mariage - 1919 (1).jpg
 2 NOTE Acte de mariage entre Hoche Gaston Blomy AMAND et Germaine THIERY
 2 DATE 1919
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND x THIERY - mariage - 1919 (2).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x THIERY - mariage - 1919 (2).jpg
 2 NOTE Acte de mariage entre Hoche Gaston Blomy AMAND et Germaine THIERY
 2 DATE 1919
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND x THIERY - mariage - 1919 (3).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x THIERY - mariage - 1919 (3).jpg
 2 NOTE Acte de mariage entre Hoche Gaston Blomy AMAND et Germaine THIERY
 2 DATE 1919
 0 @65S@ SOUR
@@ -1162,12 +1332,12 @@
 1 QUAY 2
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND Blomy - naissance - 1865 - (1).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Blomy - naissance - 1865 - (1).jpg
 2 NOTE Acte de naissance de Blomy AMAND à Clairvoix
 2 DATE 1865
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND Blomy - naissance - 1865 - (2).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Blomy - naissance - 1865 - (2).jpg
 2 NOTE Acte de naissance de Blomy AMAND à Banteux
 2 DATE 1865
 1 TEXT L'an mil huit cent soixante-cinq, le vingt-un du mois de mai, à sept heures du matin, par devant nous Quentin SORLIN, Maire, officier de l'état-civil de la commune de Banteux, canton de Marcoing, arrondissement de Cambrai, département du Nord
@@ -1184,12 +1354,12 @@
 1 QUAY 2
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND Blomy - décès - 1888 (1).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Blomy - décès - 1888 (1).jpg
 2 NOTE Acte de décès de Blomy AMAND à Lourches
 2 DATE 1888
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND Blomy - décès - 1888 (2).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Blomy - décès - 1888 (2).jpg
 2 NOTE Acte de décès de Blomy AMAND ) Clairoix
 2 DATE 1888
 0 @96S@ SOUR
@@ -1201,12 +1371,12 @@
 1 QUAY 2
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND Florentin - décès - 1832 (1).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Florentin - décès - 1832 (1).jpg
 2 NOTE Acte de naissance de Florentin AMAND à Farquiers
 2 DATE 1832
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND Florentin - décès - 1832 (2).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Florentin - décès - 1832 (2).jpg
 2 NOTE Acte de naissance de Florentin AMAND
 2 DATE 1832
 0 @104S@ SOUR
@@ -1218,7 +1388,7 @@
 1 QUAY 2
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND François - décès -1819.jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND François - décès -1819.jpg
 2 NOTE Acte de décès de François AMAND à Valenciennes
 2 DATE 1819
 0 @145S@ SOUR
@@ -1242,12 +1412,12 @@
 1 QUAY 2
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND x CHOQUET - mariage - 1722 - (1).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x CHOQUET - mariage - 1722 - (1).jpg
 2 NOTE Acte de mariage AMAND x CHOQUET
 2 DATE 1722
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND x CHOQUET - mariage - 1722 - (2).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x CHOQUET - mariage - 1722 - (2).jpg
 2 NOTE Acte de mariage AMAND x CHOQUET
 2 DATE 1722
 0 @242S@ SOUR
@@ -1259,7 +1429,7 @@
 1 QUAY 2
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND Fernande - naissance - 1897.jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Fernande - naissance - 1897.jpg
 2 NOTE Acte de naissance de Fernande AMAND à Lourches
 2 DATE 1897
 0 @273S@ SOUR
@@ -1271,17 +1441,17 @@
 1 QUAY 2
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND x TATINCLAUX - mariage -1905 (1).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x TATINCLAUX - mariage -1905 (1).jpg
 2 NOTE Acte de mariage entre Marceau AMAND et Odette TATINCLAUX
 2 DATE 1905
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND x TATINCLAUX - mariage -1905 (2).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x TATINCLAUX - mariage -1905 (2).jpg
 2 NOTE Acte de mariage entre Marceau AMAND et Odette TATINCLAUX
 2 DATE 1905
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND x TATINCLAUX - mariage -1905 (3).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x TATINCLAUX - mariage -1905 (3).jpg
 2 NOTE Acte de mariage entre Marceau AMAND et Odette TATINCLAUX
 2 DATE 1905
 0 @281S@ SOUR
@@ -1293,12 +1463,12 @@
 1 QUAY 2
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND Catherine - baptême - 1738.jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Catherine - baptême - 1738.jpg
 2 NOTE Acte de baptême de Catherine AMAND
 2 DATE 1738
 0 @286S@ SOUR
 1 TITL Acte de naissance (1832)
-1 ABBR AMAND Blomy
+1 ABBR AMAND Blomé
 1 REPO Archives de l'Aisne
 2 CALN AB1832
 3 MEDI Numerisation
@@ -1306,12 +1476,12 @@
 1 _ARCH archi-AB1832
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND Blomy - naissance - 1832 (1).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Blomy - naissance - 1832 (1).jpg
 2 NOTE Acte de naissance de Blomy AMAND à Chauny
 2 DATE 1832
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND Blomy - naissance - 1832 (2).jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Blomy - naissance - 1832 (2).jpg
 2 NOTE Acte de naissance de Blomy AMAND à Chauny
 2 DATE 1832
 0 @306S@ SOUR
@@ -1323,7 +1493,7 @@
 1 QUAY 2
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND Georges - décès - 1801.jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Georges - décès - 1801.jpg
 2 NOTE Acte de décès de Georges AMAND à Jemappes
 2 DATE 1801
 0 @315S@ SOUR
@@ -1335,7 +1505,7 @@
 1 QUAY 2
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND François Joseph - baptême - 1749.jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND François Joseph - baptême - 1749.jpg
 2 NOTE Acte de baptême de François AMAND
 2 DATE 1749
 0 @337S@ SOUR
@@ -1347,7 +1517,7 @@
 1 QUAY 2
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Thiery\THIERY Germaine - naissance - 1898.jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Thiery\THIERY Germaine - naissance - 1898.jpg
 2 NOTE Acte de naissance de Germaine THIERY à Roeulx
 2 DATE 1898
 0 @349S@ SOUR
@@ -1366,7 +1536,87 @@
 1 QUAY 2
 1 OBJE 
 2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogie cousins Amand\actes\Amand\AMAND Nicolas François -  Baptême - 1697.jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Nicolas François -  Baptême - 1697.jpg
 2 NOTE Acte de baptême de Nicolas François AMAND
 2 DATE 1697
+0 @397S@ SOUR
+1 TITL Avis de décès (2017)
+1 ABBR AMAND Albert
+1 REPO Voix du Nord
+2 CALN 
+3 MEDI Internet
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Albert - décès - 2017.jpg
+0 @410S@ SOUR
+1 TITL Acte de mariage (1823)
+1 ABBR AMAND x CALOTTE
+1 REPO FamilySearch
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x CALOTTE - 1823 - mariage.jpg
+0 @419S@ SOUR
+1 TITL Acte de naissance (1899)
+1 ABBR AMAND Marceau
+1 REPO Archives de Seine-Saint-Denis
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Marceau - naissance - 1899.jpg
+0 @429S@ SOUR
+1 TITL Répertoire des bateliers de nord de la France et de la Belgique (Tome 5)
+1 ABBR AMAND Alexandre Joseph Fidel - naissance (1767)
+1 REPO FamilySearch
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 0
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Répertoire des Bateliers\Amand\AMAND Alexandre Joseph Fidel - baptême - 1767.jpg
+0 @441S@ SOUR
+1 TITL Répertoire des bateliers de nord de la France et de la Belgique (Tome 5)
+1 ABBR AMAND x DAPSENCE - mariage (1776)
+1 REPO FamilySearch
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Répertoire des Bateliers\Amand\AMAND x DAPSENCE - mariage - 1776.jpg
+0 @447S@ SOUR
+1 TITL Répertoire des bateliers de nord de la France et de la Belgique (Tome 5)
+1 ABBR AMAND Anne Catherine - Baptême (1777)
+1 REPO FamilySearch
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Répertoire des Bateliers\Amand\AMAND Anne Catherine - baptême - 1777.jpg
+0 @458S@ SOUR
+1 TITL Répertoire des bateliers de nord de la France et de la Belgique (Tome 5)
+1 ABBR DARTOIS x AMAND - mariage (1806)
+1 REPO FamilySearch
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Répertoire des Bateliers\Dartois\DARTOIS x AMAND - mariage - 1806.jpg
+0 @477S@ SOUR
+1 TITL Répertoire des bateliers de nord de la France et de la Belgique (Tome 5)
+1 ABBR DARTOIS Lucie - décès (1825)
+1 REPO FamilySearch
+2 CALN 
+3 MEDI Numerisation
+1 QUAY 2
+1 OBJE 
+2 FORM jpg
+2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Répertoire des Bateliers\Dartois\DARTOIS Lucie - décès - 1825.jpg
 0 TRLR

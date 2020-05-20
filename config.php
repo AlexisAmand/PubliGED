@@ -12,7 +12,9 @@ try {
 	
 	// $pdo = new PDO('mysql:charset=utf8mb4');
 	$pdo->exec ( 'SET NAMES utf8' );
-	
+	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$pdo->exec ( "SET sql_mode = ''" );
+	$pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);	
 } 
 catch ( Exception $e ) {
 	die ( 'Erreur: '.$e->getMessage () );
@@ -23,11 +25,11 @@ catch ( Exception $e ) {
 /* ---------------------- */
 
 
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 
 /* cette ligne empêche le bug ONLY_FULL_GROUP_BY que j'ai rencontré lors du passage à Laragon */
 
-$pdo->exec ( "SET sql_mode = ''" );
+
 
 /* TODO: l'adresse du site sera une variable dont on récupére la valeur dans la base de données. 
  * Ensuite, on utilise define(), pour mettre la valeur de variable dans la constante. (LOL)

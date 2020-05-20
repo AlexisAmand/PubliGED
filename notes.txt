@@ -18,4 +18,20 @@ https://sql.sh/1548-mysql-innodb-myisam
 
 - j'ai donc du vider la table "commentaires" car il y avait un soucis de format de non valide
 
+1 mai 2020
+----------
+
+- MAJ : date dans le pied de page de l'administration
+
+- MAJ : formulaire pour ajouter d'un gedcom 
+- MAJ : script qui lit le gedcom que l'on a envoyé
+
+- MAJ : le formulaire qui envoi le fichier est presque un drag and drop avec Dropzone JS dont j'ai commencé à mettre certains éléments en français
+
+
+
+
+
+
+
 

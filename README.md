@@ -46,6 +46,8 @@ Javascript (dont tinyMCE et JavaScript)
 https://leafletjs.com/download.html
 - tinyMCE 5.1.5
 https://www.tiny.cloud/get-tiny/self-hosted/
+- Dropzone 5.7.0
+https://gitlab.com/meno/dropzone
 
 Plus d'infos : 
 --------------

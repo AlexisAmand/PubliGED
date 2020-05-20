@@ -71,6 +71,29 @@ define ("ADM_ARTICLE_ADD_INTRO", "Cette page vous permet de créer un article. P
 define ("ADM_ARTICLE_SAVE","Enregistrer");
 define ("ADM_ARTICLE_PUBLISH","Publier");
 
+/* ---- */
+/* MOIS */
+/* ---- */
+
+define ( "MOIS_1", "janvier" );
+define ( "MOIS_2", "février" );
+define ( "MOIS_3", "mars" );
+define ( "MOIS_4", "avril" );
+define ( "MOIS_5", "mai" );
+define ( "MOIS_6", "juin" );
+define ( "MOIS_7", "juillet" );
+define ( "MOIS_8", "aout" );
+define ( "MOIS_9", "septembre" );
+define ( "MOIS_10", "octobre" );
+define ( "MOIS_11", "novembre" );
+define ( "MOIS_12", "décembre" );
+
+define ( "BEF", "avant" );
+define ( "ABT", "vers" );
+define ( "AFT", "après" );
+define ( "EST", "estimé" );
+define ( "WFT", "estimé par World Family Tree" );
+
 /* Modale qui confirme la suppression d'un article */
 
 define ("SUPPR_ARTICLE_MODAL_TITLE","Confirmation");
@@ -86,6 +109,13 @@ define ("ADM_CAT_SEND","La nouvelle catégorie a bien été enregistrée !");
 define ("ADM_CAT_LIST","Liste des catégories existantes");
 define ("ADM_CAT_ROOL","Déroulez pour voir la liste des catégories existantes");
 define ("SEND","Sauvegarder");
+
+/* ------------------- */
+/* Gestion des gedcoms */
+/* ------------------- */
+
+define ( "READ_GEDCOM", "Lecture du gedcom" );
+define ( "BILAN_GEDCOM", "Résumé de l'importation du gedcom" );
 
 /* ----------------- */
 /* Gestion des comms */
@@ -162,4 +192,10 @@ define ("LOGOUT_CANCEL", "Annuler");
 /* Pied de page de l'administration */
 /* -------------------------------- */
 
-define ('FOOTER_MESSAGE', "Copyright &copy; PubliGED 2019");
+/* ------------ */
+/* PIED DE PAGE */
+/* ------------ */
+
+define ("CREATED_BY","Site propulsé par ");
+define ("COPYRIGHT","Tous droits réservés.");
+?>

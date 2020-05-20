@@ -4,8 +4,8 @@
 2 NAME HEREDIS PC
 2 CORP BSD Concept ©
 3 ADDR www.heredis.com
-1 DATE 13 FEB 2020
-2 TIME 10:44:24
+1 DATE 28 APR 2020
+2 TIME 14:24:19
 1 GEDC
 2 VERS 5.5
 2 FORM LINEAGE-LINKED
@@ -105,10 +105,10 @@
 2 PLAC Banteux,59266,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @65S@
 2 NOTE Il est né dans le bateau de ses parents en amont de l'ecluse de Banteux.
-2 ASSO @325I@
+2 ASSO @45I@
 3 TYPE INDI
-3 RELA Attending
-3 TITL Présent
+3 RELA Informant
+3 TITL Déclarant
 2 ASSO @333I@
 3 TYPE INDI
 3 RELA Registry officer
@@ -117,10 +117,10 @@
 3 TYPE INDI
 3 RELA Attending
 3 TITL Présent
-2 ASSO @45I@
+2 ASSO @325I@
 3 TYPE INDI
-3 RELA Informant
-3 TITL Déclarant
+3 RELA Attending
+3 TITL Présent
 1 DEAT
 2 DATE 26 APR 1906
 2 PLAC Bouchain,59111,Nord,Nord-Pas-de-Calais,FRANCE,
@@ -1143,7 +1143,7 @@
 2 DATE 8 NOV 1800
 2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @145S@
-2 ASSO @183I@
+2 ASSO @179I@
 3 TYPE INDI
 3 RELA Witness
 3 TITL Témoin
@@ -1151,7 +1151,7 @@
 3 TYPE INDI
 3 RELA Witness
 3 TITL Témoin
-2 ASSO @179I@
+2 ASSO @183I@
 3 TYPE INDI
 3 RELA Witness
 3 TITL Témoin

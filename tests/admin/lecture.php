@@ -62,7 +62,7 @@ include ('../class/class.php');
 /* Maintenant, on envoit le gedcom et on le traite */
 /* ----------------------------------------------- */
 
-// error_reporting(0);
+error_reporting(0);
 
 $dossier = 'upload/';
 $fichier = basename ( $_FILES ['avatar'] ['name'] );
@@ -703,7 +703,7 @@ while ( ! feof ( $gedcom ) ) {
 	/* -------------------- */
 	/* Gestion des familles */
 	/* -------------------- */
-
+	
 	if (preg_match ( "/@ FAM/", $ligne )) {
 		$famille = new famille ();
 		$nb_famille = $nb_famille + 1;
@@ -713,25 +713,25 @@ while ( ! feof ( $gedcom ) ) {
 		$resultat = $pdo->exec ( $req );
 		$nb_chil = 0;
 	}
-
+	
 	if (preg_match ( "/1 HUSB/", $ligne )) {
 		$fam_husb = explode ( "@", $ligne );
 		$famille->husb = $fam_husb [1];
 		$req = "UPDATE familles SET pere = '$famille->husb' WHERE ref='$famille->ref'";
 		$resultat = $pdo->exec ( $req );
 	}
-
+	
 	if (preg_match ( "/1 WIFE/", $ligne )) {
 		$fam_wife = explode ( "@", $ligne );
 		$famille->wife = $fam_wife [1];
 		$req = "UPDATE familles SET mere = '$famille->wife' WHERE ref='$famille->ref'";
 		$resultat = $pdo->exec ( $req );
 	}
-
+	
 	if (preg_match ( "/1 CHIL/", $ligne )) {
 		$fam_chil = explode ( "@", $ligne );
 		$famille->chil = $fam_chil [1];
-
+		
 		/* si le couple n'a pas encore d'enfant, on complete */
 		if ($nb_chil == 0) {
 			$req = "UPDATE familles SET enfant = '$famille->chil' WHERE ref='$famille->ref'";
@@ -742,16 +742,16 @@ while ( ! feof ( $gedcom ) ) {
 		}
 		$resultat = $pdo->exec ( $req );
 	}
-
+	
 	if (preg_match ( "/1 MARR/", $ligne )) {
 		$evenement = new evenement ();
 		$nb_eve = $nb_eve + 1;
 		$evenement->nom = "MARR";
 		$pere = substr ( $famille->husb, 0, - 1 );
 		$individu->ref = $pere;
-
+		
 		/* mariage des deux parents d'une famille */
-
+		
 		$stmt = $pdo->prepare ( "INSERT INTO evenements (n_eve, n_indi, nom) VALUES (:eve, :pere, :nom)" );
 		$stmt->bindParam ( ':eve', $nb_eve );
 		$stmt->bindParam ( ':pere', $famille->husb );
