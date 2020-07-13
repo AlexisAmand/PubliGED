@@ -1,4 +1,121 @@
 <?php
+
+class BasesDeDonnees
+	{
+
+	/* Cette méthode retourne le "top" pour la page de stats */
+
+	public function Top($pdo2)
+		{
+			$req_top = "SELECT * FROM configuration WHERE nom = 'top'";
+			$res_top = $pdo2->prepare($req_top);
+			$res_top->execute();	
+			$row = $res_top->fetch(PDO::FETCH_ASSOC);
+			return $row['valeur'];
+		}
+
+	/* Cette méthode retourne le nombre d'individus présents dans la base de données */
+
+	public function NombreIndividu($pdo2)
+		{
+			$requete = "SELECT * FROM individus";
+			$req = $pdo2->prepare ( $requete );
+			$req->execute ();
+			return $req->rowCount ();	
+		}	
+
+	/* Cette méthode retourne le nombre de patronymes présents dans la base de données */
+
+	public function NombrePatro($pdo2)
+		{
+			$req_nb_patro = "SELECT distinct surname FROM individus";
+			$req = $pdo2->prepare ( $req_nb_patro );
+			$req->execute ();
+			return $req->rowCount ();
+		}	
+
+	/* Cette méthode retourne le nombre total d'hommes dans la base de données */
+
+	public function NombreHommes($pdo2)
+		{
+			$req_nb_patro = "SELECT * FROM individus WHERE sex LIKE '%M%'";
+			$req = $pdo2->prepare ( $req_nb_patro );
+			$req->execute ();
+			return $req->rowCount ();
+		}
+
+	/* Cette méthode retourne le nombre total de femmmes dans la base de données */
+
+	public function NombreFemmes($pdo2)
+		{
+			$req_nb_patro = "SELECT * FROM individus WHERE sex LIKE '%F%'";
+			$req = $pdo2->prepare ( $req_nb_patro );
+			$req->execute ();
+			return $req->rowCount ();
+		}
+
+	/* Cette méthode retourne le nombre total d'évenements dans la base de données */
+
+	public function NombreEvenements($pdo2)
+		{
+			$req_nb_eve = "SELECT * FROM evenements";
+			$req = $pdo2->prepare ( $req_nb_eve );
+			$req->execute ();
+			return $req->rowCount ();
+		}
+
+	/* Cette méthode retourne le nombre total d'évenements dans la base de données */
+
+	public function NombreSources($pdo2)
+		{
+			$req_nb_src = "SELECT * FROM sources";
+			$req = $pdo2->prepare ( $req_nb_src );
+			$req->execute ();
+			return $req->rowCount ();
+		}	
+
+	/* Cette méthode retourne le nombre total d'enfants dans la base de données */
+
+	public function NombreEnfants($pdo2)
+		{
+			$req_nb_enfant = "SELECT distinct enfant FROM familles";
+			$req = $pdo2->prepare ( $req_nb_enfant );
+			$req->execute ();
+			return $req->rowCount ();
+		}
+		
+	/* Cette méthode retourne le nombre total de couples dans la base de données */
+
+	public function NombreCouples($pdo2)
+		{
+			$req_nb_couple = "SELECT distinct pere, mere FROM familles";
+			$req = $pdo2->prepare ( $req_nb_couple );
+			$req->execute ();
+			return $req->rowCount ();	
+		}
+
+	/* Cette méthode retourne le nombre total de lieux dans la base de données */
+
+	public function NombreLieux($pdo2)
+		{
+			$req_nb_lieu = "SELECT * FROM lieux GROUP BY ville";
+			$req = $pdo2->prepare ( $req_nb_lieu );
+			$req->execute ();
+			return $req->rowCount ();
+		}
+
+	/* Cette méthode retourne le nombre de Famille dans la base de données */
+
+	public function NombreFamilles($pdo2)
+		{
+			$req_famille = "SELECT * FROM familles group by pere,mere";
+			$req = $pdo2->prepare ( $req_famille );
+			$req->execute ();
+			return $req->rowCount ();
+		}
+
+	}
+
 class pages 
 	{
 	public $nom;
@@ -180,14 +297,18 @@ class articles
 	public $date;
 	public $categorie;
 	public $contenu;
-	
-	
-	
-	public function Recuperer($pdo3)
-		{
 		
+	/* Cette méthode récupére la liste de tous les articles */
+
+	public function RecupererLesArticles($pdo3)
+		{
+			$res = $pdo3->prepare ("SELECT * FROM articles");
+			$res->execute ();
+			return  $res->fetchAll(PDO::FETCH_ASSOC);
 		}
 	
+	/* Cette méthode affiche un article */	
+
 	public function Afficher($pdo3)
 		{
 		

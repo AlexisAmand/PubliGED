@@ -1,5 +1,7 @@
 <?php
 
+echo $_GET['avatar'];
+
 /* basé sur le template SB Admin 2 for Bootstrap 4 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
 
@@ -147,6 +149,8 @@ include ('../class/class.php');
 				pour éviter de lancer le script lecture.php si l'extension n'est pas bonne.
 				*/
 				
+				/*
+				
 				if (! in_array ( $extension, $extensions )) // Si l'extension n'est pas dans le tableau
 					{
 					$erreur = 'Vous devez uploader un fichier de type ged (gedcom)';
@@ -156,6 +160,8 @@ include ('../class/class.php');
 					{
 					$erreur = 'Le fichier est trop gros...';
 					}
+				
+				*/
 				
 				if (!isset ( $erreur )) // S'il n'y a pas d'erreur, on upload
 					{
@@ -233,7 +239,7 @@ include ('../class/class.php');
 						}
 											
 					/* Information sur l'auteur du gedcom */
-					
+					 
 					if (preg_match ( "/0 @S0@/", $ligne ))
 						{
 						$uploader = new uploaders ();
@@ -292,7 +298,7 @@ include ('../class/class.php');
 					
 					if (preg_match ( "/@ INDI/", $ligne )) 
 						{
-						$individu = new individus ();
+						$individu = new individus();
 						$nb_individu = $nb_individu + 1;
 						$exploderef = explode ( "@", $ligne );
 						$individu->ref = $exploderef [1];
@@ -304,8 +310,8 @@ include ('../class/class.php');
 						
 					/* Nom complet de l'individu */
 						
-					if (preg_match ( "/1 NAME/", $ligne )) 
-						{							
+					if (preg_match ( "/1 NAME/", $ligne ) and ($nb_individu != 0))
+						{
 						$individu->nom = implode(" ",array_slice(explode(" ",$ligne), 2));						
 						$res = $pdo->prepare ( "UPDATE individus SET nom = :nom WHERE ref=:ref" );
 						$res->bindparam ( ':nom', $individu->nom, PDO::PARAM_STR );
@@ -795,6 +801,7 @@ include ('../class/class.php');
 					if (preg_match ( "/1 OBJE/", $ligne )) 
 						{
 						$media = new medias ();
+						echo $ligne;
 						$nb_media ++;
 						$media->ref = $nb_media;
 						$source->media = $media->ref;
@@ -876,27 +883,27 @@ include ('../class/class.php');
 		               	<table class='table table-bordered'>
 		               		<tr>
 								<th scope="row">Logiciel</th>
-								<td><?php echo $logiciel->nomcomplet; ?></td>
+								<td><?php echo isset($logiciel->nomcomplet) ? $logiciel->nomcomplet : "inconnu"; ?></td>
 							</tr>
 							<tr>
 								<th scope="row">Logiciel</th>
-								<td><?php echo $logiciel->nom; ?></td>
+								<td><?php echo isset($logiciel->nom) ? $logiciel->nom : "inconnu"; ?></td>
 							</tr>
 							<tr>
 								<th scope="row">Nom</th>
-								<td><?php echo $uploader->name; ?></td>
+								<td><?php echo isset($uploader->name ) ? $uploader->name : "inconnu"; ?></td>
 							</tr>
 							<tr>
 								<th scope="row">Adresse</th>
-								<td><?php echo $uploader->adresse; ?></td>
+								<td><?php echo isset($uploader->adresse ) ? $uploader->adresse : "inconnu"; ?></td>
 							</tr>
 							<tr>
 								<th scope="row">Mail</th>
-								<td><?php echo $uploader->mail; ?></td>
+								<td><?php echo isset($uploader->mail ) ? $uploader->mail : "inconnu"; ?></td>
 							</tr>
 							<tr>
 								<th scope="row">Site</th>
-								<td><?php echo "<a href='".$uploader->www."'>".$uploader->www."</a>"; ?></td>
+								<td><?php echo isset($uploader->www ) ? $uploader->www : "inconnu"; ?></td>
 							</tr>
 						</table>
 			

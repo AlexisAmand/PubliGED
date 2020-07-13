@@ -5,7 +5,11 @@
 
 require ('fonctions.php');
 include ('../config.php');
-include('../langues/admin.php');
+include ('../langues/admin.php');
+include ('../class/class.php');
+
+$article = new articles();
+
 ?>
 
 <!DOCTYPE html>
@@ -128,7 +132,7 @@ include('../langues/admin.php');
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_1; ?></h1>
+          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_1."test"; ?></h1>
           <p class="mb-4"><?php echo ADM_ARTICLE_MODIF_INTRO; ?></p>
 
           <!-- DataTales Example -->
@@ -140,11 +144,11 @@ include('../langues/admin.php');
               <div class="table-responsive">
               
               <?php
-
+              /*
               $nb_a = "SELECT * FROM articles";
               $res_nb_a = $pdo->prepare ( $nb_a );
               $res_nb_a->execute ();
-
+              */
               ?>
               
                 <table class="table table-bordered" id="dataTable">
@@ -175,7 +179,20 @@ include('../langues/admin.php');
                    
                   	<?php
 
-                    while ( $data_a = $res_nb_a->fetch(PDO::FETCH_ASSOC) ) 
+                    while($donnees = $article->RecupererLesArticles($pdo)){
+                        echo "<tr>";
+                      	echo "<td>" . $donnees['ref'] . "</td>";
+                      	echo "<td>" . $donnees['titre'] . "</td>";						
+                      	echo "<td>" . RecupAuteurArticle($pdo, $donnees['auteur']) . "</td>";					
+                      	echo "<td>" . get_category_name($pdo, $donnees['id_cat']) . "</td>";
+                      	echo '<td class="text-center"><a href="editer-article.php" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
+                      	echo '<td class="text-center"><a href="#" data-toggle="modal" data-target="#DelArticle" data-whatever="'.$donnees ['ref'].'"><i class="far fa-trash-alt text-danger"></i></a></td>';
+                      	echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Publier"><i class="far fa-star text-warning"></i></a></td>';
+                        echo "</tr>";
+                    }
+
+                    /*
+                    while ($data_a = $article->RecupererLesArticles($pdo))
                     	{
                       	echo "<tr>";
                       	echo "<td>" . $data_a ['ref'] . "</td>";
@@ -187,11 +204,18 @@ include('../langues/admin.php');
 
                       	/* TODO : ajouter une colonne qui permet de publier ou dépublier un article
                       	* via un booleen dans la table des articles. L'icone change en fonction du ppublié ou non
-                      	*/
+                        */
+                        
+                        /*
                     
                       	echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Publier"><i class="far fa-star text-warning"></i></a></td>';
                         echo "</tr>";
-                    	}
+
+                        
+                      
+                      }
+                      
+                      */
 
                     ?> 
                                   

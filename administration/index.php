@@ -7,8 +7,10 @@ require ('../content/fonctions.php');
 require ('../class/class.php');
 include ('../config.php');
 include ('../langues/admin.php');
-?>
 
+$BaseDeDonnees = new BasesDeDonnees;
+
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -217,15 +219,17 @@ include ('../langues/admin.php');
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Stats de la DB</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Ma base de données</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  - nb individus<br />
-                  - nb lieux<br />
-                  - nb familles<br />
-                  - nb sources<br />
-                  - etc...<br />                 
+                  <ul clas="list-group list-group-flush">
+                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreIndividu($pdo)." individus dans la base."; ?></li>
+                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreLieux($pdo)." lieux dans la base."; ?></li>
+                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreFamilles($pdo)." familles dans la base."; ?></li>
+                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreSources($pdo)." sources dans la base."; ?></li>
+                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreEvenements($pdo)." événements dans la base."; ?></li>
+                  </ul>
                 </div>
               </div>
             </div>

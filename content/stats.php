@@ -9,127 +9,50 @@
 <h3><?php echo $GLOBALS['InfoPage']->titre; ?></h3>
 	
 <?php
+
+$BaseDeDonnees = new BasesDeDonnees;
 		
 if(VerifGedcom($pdo2) == "1")
 	{
 	
 	/* valeur du top */
-		
-	$req_top = "SELECT * FROM configuration WHERE nom = 'top'";
-	$res_top = $pdo2->prepare($req_top);
-	$res_top->execute();
-		
-	$row = $res_top->fetch(PDO::FETCH_ASSOC);
-	$top = $row['valeur'];	    
-    		
-	/* nombre d'individus */
-		
-	$requete = "SELECT * FROM individus";
-	$req = $pdo2->prepare ( $requete );
-	$req->execute ();
-	$TotalIndividu = $req->rowCount ();
-		
-	/* nombre de patros */
-		
-	$req_nb_patro = "SELECT distinct surname FROM individus";
-	$req = $pdo2->prepare ( $req_nb_patro );
-	$req->execute ();
-	$TotalPatro = $req->rowCount ();
-		
-	/* nombre d'événements */
-		
-	$req_nb_eve = "SELECT * FROM evenements";
-	$req = $pdo2->prepare ( $req_nb_eve );
-	$req->execute ();
-	$TotalEve = $req->rowCount ();
-		
-	/* nombre de sources */
-		
-	$req_nb_src = "SELECT * FROM sources";
-	$req = $pdo2->prepare ( $req_nb_src );
-	$req->execute ();
-	$TotalSrc = $req->rowCount ();
-	
-	/* nombre de lieux */
-		
-	$req_nb_lieu = "SELECT * FROM lieux GROUP BY ville";
-	$req = $pdo2->prepare ( $req_nb_lieu );
-	$req->execute ();
-	$TotalLieu = $req->rowCount ();
-		
-	/* nombre d'hommes */
-		
-	$req_nb_patro = "SELECT * FROM individus WHERE sex LIKE '%M%'";
-	$req = $pdo2->prepare ( $req_nb_patro );
-	$req->execute ();
-	$TotalHomme = $req->rowCount ();
-		
-	/* nombre de femmes */
-		
-	$req_nb_patro = "SELECT * FROM individus WHERE sex LIKE '%F%'";
-	$req = $pdo2->prepare ( $req_nb_patro );
-	$req->execute ();
-	$TotalFemme = $req->rowCount ();
-		
-	/* nombre de famille */
-		
-	$req_famille = "SELECT * FROM familles group by pere,mere";
-	$req = $pdo2->prepare ( $req_famille );
-	$req->execute ();
-	$TotalFamille = $req->rowCount ();
-		
-	/* genre inconnu */
-		
-	$GenreInconnu = $TotalIndividu - $TotalFemme - $TotalHomme;
-		
-	/* nombre d'enfants */
-		
-	$req_nb_enfant = "SELECT distinct enfant FROM familles";
-	$req = $pdo2->prepare ( $req_nb_enfant );
-	$req->execute ();
-	$TotalEnfant = $req->rowCount ();
-		
-	/* nombre de couple */
-		
-	$req_nb_couple = "SELECT distinct pere, mere FROM familles";
-	$req = $pdo2->prepare ( $req_nb_couple );
-	$req->execute ();
-	$TotalCouple = $req->rowCount ();
-		
+
+	$top = $BaseDeDonnees->Top($pdo2);
+
 	/* nombre d'enfant par couple */
 		
-	$EnfantCouple = $TotalEnfant / $TotalCouple;
+	$EnfantCouple = $BaseDeDonnees->NombreEnfants($pdo2) / $BaseDeDonnees->NombreCouples($pdo2);
 		
 	?>
 					
 	<table class='table table-bordered'>
 		<tr>
-			<td><?php echo NB_MAN; ?></td>
-			<td><?php echo $TotalHomme; ?></td>
-		</tr>
-		<tr>
-			<td><?php echo NB_WOMAN; ?></td>
-			<td><?php echo $TotalFemme; ?></td>
-		</tr>
-		<tr>
-			<td><?php echo NB_UK; ?></td>
-			<td><?php echo $GenreInconnu; ?></td>
-		</tr>
-		<tr>
 			<td><?php echo NB_NAME; ?></td>
-			<td><?php echo "<a href='index.php?page=patro'>".$TotalPatro."</a>"; ?></td>
+			<td><?php echo "<a href='index.php?page=patro'>".$BaseDeDonnees->NombrePatro($pdo2)."</a>"; ?></td>
 		</tr>	    
 		<tr>
 			<td><?php echo NB_PEOPLE; ?></td>
-			<td><?php echo "<a href='index.php?page=liste_individu.php&l=A'>".$TotalIndividu."</a>"; ?></td>
+			<td><?php echo "<a href='index.php?page=liste_individu.php&l=A'>".$BaseDeDonnees->NombreIndividu($pdo2)."</a>"; ?></td>
+		</tr>
+		<tr>
+			<td><?php echo NB_MAN; ?></td>
+			<td><?php echo $BaseDeDonnees->NombreHommes($pdo2); ?></td>
+		</tr>
+		<tr>
+			<td><?php echo NB_WOMAN; ?></td>
+			<td><?php echo $BaseDeDonnees->NombreFemmes($pdo2); ?></td>
+		</tr>
+		<tr>
+			<td><?php echo NB_UK; ?></td>
+			<td><?php echo $BaseDeDonnees->NombreIndividu($pdo2) - $BaseDeDonnees->NombreHommes($pdo2) - $BaseDeDonnees->NombreFemmes($pdo2); ?></td>
 		</tr>
 		<tr>
 			<td><?php echo NB_EVE; ?></td>
-			<td><?php echo "<a href='index.php?page=eve'>".$TotalEve."</a>"; ?></td>
+			<td><?php echo "<a href='index.php?page=eve'>".$BaseDeDonnees->NombreEvenements($pdo2)."</a>"; ?></td>
 		</tr>
 		<tr>
 			<td><?php echo NB_SRC; ?></td>
-			<td><?php echo "<a href='index.php?page=sources'>".$TotalSrc."</a>"; ?> </td>
+			<td><?php echo "<a href='index.php?page=sources'>".$BaseDeDonnees->NombreSources($pdo2)."</a>"; ?> </td>
 		</tr>
 		<tr>
 			<td><?php echo NB_MEDIA; ?></td>
@@ -141,15 +64,15 @@ if(VerifGedcom($pdo2) == "1")
 		</tr>
 		<tr>
 			<td><?php echo NB_CHILD; ?></td>
-			<td><?php echo round($EnfantCouple, 1); ?></td>
+			<td><?php echo round($BaseDeDonnees->NombreEnfants($pdo2), 1); ?></td>
 		</tr>
 		<tr>
 			<td><?php echo NB_FAM; ?></td>
-			<td><?php echo $TotalFamille; ?></td> 
+			<td><?php echo $BaseDeDonnees->NombreFamilles($pdo2); ?></td> 
 		</tr>
 		<tr>
 			<td><?php echo NB_PLACE; ?></td>
-			<td><?php echo "<a href='index.php?page=lieux'>".$TotalLieu."</a>"; ?></td>
+			<td><?php echo "<a href='index.php?page=lieux'>".$BaseDeDonnees->NombreLieux($pdo2)."</a>"; ?></td>
 		</tr>
 		<tr>
 			<td><?php echo NB_OLD; ?></td>
@@ -165,7 +88,7 @@ if(VerifGedcom($pdo2) == "1")
 		</tr>
 		<tr>
 			<td><?php echo NB_UNION; ?></td>
-			<td><?php echo "<a href='#'>".$TotalCouple ."</a>"; ?></td>
+			<td><?php echo "<a href='#'>".$BaseDeDonnees->NombreCouples($pdo2)."</a>"; ?></td>
 		</tr>
 		<tr>
 			<td><?php echo NB_OLD_R; ?></td>

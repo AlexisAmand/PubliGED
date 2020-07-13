@@ -14,22 +14,23 @@ define ("NB_CATEGORIES", "Nombre de catégories" );
 define ("NB_USERS", "Nombre d'utilisateurs" );
 define ("NB_COMMENTAIRES", "Nombre de commentaires" );
 
-/* ---------------- */
-/* Titres des pages */
-/* ---------------- */
+/* ----------------------------------- */
+/* Titres des pages + ELEMENTS DU MENU */
+/* ----------------------------------- */
 
 define ("ASIDE_ADMIN_0", "PubliGED Administration" );
 
 define ("ASIDE_ADMIN_1", "Blog" );
 define ("ASIDE_ADMIN_2", "Articles" );
 define ("ASIDE_ADMIN_3", "Commentaires" );
-define ( "ASIDE_ADMIN_4", "Modules");
-define ( "ASIDE_ADMIN_5", "Généalogie");
-define ( "ASIDE_ADMIN_6", "Gedcom" );
-define ( "ASIDE_ADMIN_7", "Paramètres" );
-define ( "ASIDE_ADMIN_8", "Base de données" );
-define ( "ASIDE_ADMIN_9", "Options" );
-define ( "ASIDE_ADMIN_10", "Métas et SEO" );
+define ("ASIDE_ADMIN_4", "Modules");
+define ("ASIDE_ADMIN_5", "Généalogie");
+define ("ASIDE_ADMIN_6", "Gedcom" );
+define ("ASIDE_ADMIN_7", "Paramètres" );
+define ("ASIDE_ADMIN_8", "Base de données" );
+define ("ASIDE_ADMIN_9", "Options" );
+define ("ASIDE_ADMIN_10", "Métas et SEO" );
+define ("ASIDE_ADMIN_11", "Utilisateurs");
 
 define("ADM_RUB_TITRE_0", "Ajouter un article");
 define("ADM_RUB_TITRE_1", "Modifier les articles" );
@@ -38,6 +39,10 @@ define("ADM_RUB_TITRE_3", "Modifier une catégorie" );
 define("ADM_RUB_TITRE_4", "Modérer" );
 define ("ADM_RUB_TITRE_5", "Effacer un gedcom" );
 define ("ADM_RUB_TITRE_6", "Envoyer un gedcom" );
+define ("ADM_RUB_TITRE_10","Paramètres");
+define ("ADM_RUB_TITRE_9","Thèmes");
+define ("ADM_RUB_TITRE_7","Liste des utilisateurs");
+define ("ADM_RUB_TITRE_8","Ajout d'un utilisateur");
 
 /* -------------------- */
 /* Gestion des articles */

@@ -108,9 +108,9 @@
         </a>
         <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-			<a class="collapse-item" href="database-del.php"><?php echo ADM_DB_SUPPR; ?></a>
-		    <a class="collapse-item" href="database-create.php"><?php echo ADM_DB_CREATE; ?></a>
-		    <a class="collapse-item" href="database-size.php"><?php echo ADM_DB_SIZE; ?></a>          
+			      <a class="collapse-item" href="database-del.php"><?php echo ADM_DB_SUPPR; ?></a>
+		        <a class="collapse-item" href="database-create.php"><?php echo ADM_DB_CREATE; ?></a>
+		        <a class="collapse-item" href="database-size.php"><?php echo ADM_DB_SIZE; ?></a>          
           </div>
         </div>
       </li>
@@ -122,27 +122,41 @@
           
           <?php /* TODO : mettre le mot option dans le fichier admin.php, il y est peut-être déjà */ ?>
           
-          <span><?php echo "Options";  ?></span>
+          <span><?php echo ASIDE_ADMIN_9;  ?></span>
         </a>
         <div id="collapse6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-          
-          	<?php /* TODO : mettre le mot paramètres dans le fichier admin.php, il y est peut-être déjà */ ?>
-          
-            <a class="collapse-item" href="options.php"><?php echo "Paramètres";  ?></a>
-            
-            <?php /* TODO : mettre le mot thèmes dans le fichier admin.php, il y est peut-être déjà */ ?>
-            
-            <a class="collapse-item" href="#"><?php echo "Thèmes"  ?></a>
+            <a class="collapse-item" href="options.php"><?php echo ADM_RUB_TITRE_10;  ?></a>
+            <a class="collapse-item" href="#"><?php echo ADM_RUB_TITRE_9;  ?></a>
           </div>
         </div>
       </li>
-      
+
       <!-- Metas et SEO -->
+
       <li class="nav-item">
         <a class="nav-link" href="seo.php">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span><?php echo ASIDE_ADMIN_10 ?></span></a>
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span><?php echo ASIDE_ADMIN_10 ?></span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- ADMINISTRATION DES UTILISATEURS -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers"
+        aria-expanded="true" aria-controls="collapseUsers">
+          <i class="far fa-newspaper"></i>
+          <span><?php echo ASIDE_ADMIN_11; ?></span>
+        </a>
+        <div id="collapseUsers" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="#"><?php echo ADM_RUB_TITRE_7; ?></a>
+            <a class="collapse-item" href="#"><?php echo ADM_RUB_TITRE_8; ?></a>
+          </div>
+        </div>
       </li>
 
       <!-- Divider -->

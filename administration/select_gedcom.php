@@ -127,14 +127,16 @@ include ('../class/class.php');
                   </form>
 
                   <br /><br /><br /><br /><br />
-                      
-                  <form action="lecture.php" class="dropzone" id="LaDropzone">
-                    <div class="fallback">
-                      <input name="avatar" type="file"/>
-                    </div>
+                    
+                  <form action="lecture.php" method="GET">
+                                  
+                    <div class="dropzone"></div>
+                    <button id="startUpload" type="submit" class="btn btn-primary">Envoyer le fichier</button>
+                        
                   </form>
 
-			          </div>
+                </div>
+                        
           </div>
               
         </div>
@@ -152,7 +154,7 @@ include ('../class/class.php');
         </div>
       </footer>
       <!-- End of Footer -->
-
+      
     </div>
     <!-- End of Content Wrapper -->
 
@@ -204,17 +206,25 @@ include ('../class/class.php');
   <script src="js/dropzone/dropzone.fr.js"></script>
 
   <script>
-  Dropzone.options.LaDropzone = {
+  //Disabling autoDiscover
+  Dropzone.autoDiscover = false;
 
-  acceptedFiles : ".ged",
-  addRemoveLinks: true,
-  maxFiles : 1
-
-  };
-
-
-
-  </script>
-
+  $(function() {
+      //Dropzone class
+      var myDropzone = new Dropzone(".dropzone", {
+          url: "lecture.php",
+          paramName: "avatar",
+          // maxFilesize: 2,
+          maxFiles: 1,
+          acceptedFiles: ".ged, .GED",
+          autoProcessQueue: false
+      });
+      
+      $('#startUpload').click(function(){           
+          myDropzone.processQueue();
+      });
+  });
+  </script>  
+  
 </body>
 </html>
