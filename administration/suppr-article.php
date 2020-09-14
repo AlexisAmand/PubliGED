@@ -5,7 +5,8 @@
 
 require ('fonctions.php');
 include ('../config.php');
-include('../langues/admin.php');
+include ('../langues/admin.php');
+include ('../class/class.php');
 
 ?>
 
@@ -20,7 +21,7 @@ include('../langues/admin.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><?php echo ASIDE_ADMIN_0." - ".ASIDE_ADMIN_10; ?></title>
+  <title><?php echo ASIDE_ADMIN_0." - ".SUPPR_ARTICLE_TITLE; ?></title>
 
   <!-- Font Awesome 5.9.0 -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
@@ -28,20 +29,20 @@ include('../langues/admin.php');
   <!-- Custom fonts for this template -->	
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
+  <!-- Custom styles for this template -->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-  
+
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
- 
+
 </head>
 
 <body id="page-top">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-
-    <?php include('include/sidebar.php'); ?>
+  
+  	<?php include('include/sidebar.php'); ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -72,9 +73,29 @@ include('../langues/admin.php');
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
           
-          	<li class="nav-item">
-			  <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
+         	<li class="nav-item">
+			    <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
 			</li>
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
@@ -108,34 +129,31 @@ include('../langues/admin.php');
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-		<!-- Page Heading -->
-		<h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_10; ?></h1>
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800"><?php echo SUPPR_ARTICLE_TITLE; ?></h1>
+          <p class="mb-4">
+          
+          	<?php
+          	if (isset($_GET['id']))
+				{
+				$sql = $pdo->prepare('DELETE FROM articles WHERE ref=:ref');	
+				$sql->bindparam ( ':ref', $_GET['id'] );
+				$req = $sql->execute ();
+				
+				echo '<div class="alert alert-success" role="alert">';
+				echo "<i class='fas fa-check'></i> L'article n° ".$_GET['id']." a bien été effacé !";
+				echo '</div>';			
+				}
+			else 
+				{
+				/* redirection sur l'index */
+				}
+			?>  
+              
+          </p>
 
-		<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>                   
-         <div class="card shadow mb-4">
-         	<div class="card-header py-3">
-            	<h6 class="m-0 font-weight-bold text-primary"><?php echo "Titre todo"; ?></h6>
-            </div>
-            
-            <div class="card-body">
-     	   
-     	   	  <div class="form-group">
-			    <label for="exampleFormControlInput1">Nom du site</label>
-			    <input type="text" class="form-control" id="exampleFormControlInput1">
-			  </div>
-			  
-			  <div class="form-group">
-			    <label for="exampleFormControlInput2">Description du site</label>
-			    <input type="tex" class="form-control" id="exampleFormControlInput2">
-			  </div>
-     	   
-            </div>
-         </div> 
-             
-         <input type="submit" class="btn btn-primary" value="Enregistrer">
-
-         </div>
-         <!-- /.container-fluid -->
+        </div>
+        <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
@@ -160,8 +178,9 @@ include('../langues/admin.php');
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
+    
   <!-- Logout Modal-->
+  
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -195,9 +214,8 @@ include('../langues/admin.php');
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Ce script contient l'initialisation du plugin datatables de jquery -->
+  <!-- Ce script contient l'initialisation du plugin datatables de jquery -->
   <script src="js/demo/datatables-demo.js"></script>
- 
+     
 </body>
-
 </html>

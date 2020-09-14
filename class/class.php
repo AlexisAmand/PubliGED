@@ -1,8 +1,23 @@
 <?php
 
+/* ---------------------------------------- */
+/* Cette class permet des stats sur la base */
+/* ---------------------------------------- */
+
 class BasesDeDonnees
 	{
 
+	/*	Cette méthode retourne la liste des titres des articles */
+		
+	public function ListeTitreArticle($pdo2)
+		{
+		  	$sql = "SELECT * FROM articles ORDER BY date DESC";
+		  	$req = $pdo2->prepare($sql);
+		  	$req->execute();
+		  	$row = $req->fetchAll();
+		  	return $row;	    
+		}
+				
 	/* Cette méthode retourne le "top" pour la page de stats */
 
 	public function Top($pdo2)
@@ -300,12 +315,16 @@ class articles
 		
 	/* Cette méthode récupére la liste de tous les articles */
 
+	/*
+	
 	public function RecupererLesArticles($pdo3)
 		{
 			$res = $pdo3->prepare ("SELECT * FROM articles");
 			$res->execute ();
 			return  $res->fetchAll(PDO::FETCH_ASSOC);
 		}
+	
+	*/
 	
 	/* Cette méthode affiche un article */	
 

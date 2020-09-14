@@ -58,6 +58,9 @@ define ( "ADM_ART_EDIT", "Editer" );
 define ( "ADM_ART_SUPPR", "Supprimer" );
 define ( "ADM_ART_PUBLISH", "Publier" );
 
+define ( "LAST_ALL_ARTICLES","Mes derniers articles");
+define ( "ALL_ARTICLE", "Voir tous les articles");
+
 define ( "ADM_ARTICLE_EDIT_TITLE", "Titre de l'article" );
 define ( "ADM_ARTICLE_EDIT_CAT", "Catégorie de l'article" );
 define ( "ADM_ARTICLE_CAT_LIST", "Choisir une catégorie");
@@ -75,6 +78,15 @@ define ("ADM_ARTICLE_ADD_INTRO", "Cette page vous permet de créer un article. P
 
 define ("ADM_ARTICLE_SAVE","Enregistrer");
 define ("ADM_ARTICLE_PUBLISH","Publier");
+
+/* Suppression d'un article */
+
+define ("SUPPR_ARTICLE_TITLE", "Suppression d'un article");
+
+define ("SUPPR_ARTICLE_MODAL_TITLE","Confirmation");
+define ("SUPPR_ARTICLE_MODAL_TEXT","Etes-vous sûr de vouloir effacer l'article n°");
+define ("SUPPR_ARTICLE_MODAL_YES","Oui");
+define ("SUPPR_ARTICLE_MODAL_NO","non");
 
 /* ---- */
 /* MOIS */
@@ -98,13 +110,6 @@ define ( "ABT", "vers" );
 define ( "AFT", "après" );
 define ( "EST", "estimé" );
 define ( "WFT", "estimé par World Family Tree" );
-
-/* Modale qui confirme la suppression d'un article */
-
-define ("SUPPR_ARTICLE_MODAL_TITLE","Confirmation");
-define ("","Etes-vous sûr de vouloir effacer l'article n°");
-define ("SUPPR_ARTICLE_MODAL_YES","Oui");
-define ("SUPPR_ARTICLE_MODAL_NO","non");
 
 /* ---------------------- */
 /* Gestion des catégories */

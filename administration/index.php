@@ -10,6 +10,7 @@ include ('../langues/admin.php');
 
 $BaseDeDonnees = new BasesDeDonnees;
 
+
 ?>
 
 <!DOCTYPE html>
@@ -113,7 +114,7 @@ $BaseDeDonnees = new BasesDeDonnees;
           <!-- Content Row -->
           <div class="row">
 
-            <!-- Earnings (Monthly) Card Example -->
+            <!-- Nombre de catégories -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
@@ -137,7 +138,7 @@ $BaseDeDonnees = new BasesDeDonnees;
               </div>
             </div>
 
-            <!-- Earnings (Monthly) Card Example -->
+            <!-- Nombre de membres -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
@@ -213,8 +214,40 @@ $BaseDeDonnees = new BasesDeDonnees;
           <!-- Content Row -->
 
           <div class="row">
-
-            <!-- Area Chart -->
+          
+            <!-- Zone pour les derniers articles -->
+            <div class="col-6">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary"><?php echo LAST_ALL_ARTICLES; ?></h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                
+                <ul clas="list-group list-group-flush">
+                <?php 
+                
+                $output = array_slice($BaseDeDonnees->ListeTitreArticle($pdo), 0, 5); 
+                
+                foreach ($output as $value) {
+                	echo "<li class='list-group-item d-flex justify-content-between align-items-center'>".$value['titre'];
+                	echo "<span class='badge badge-pill badge-light'><a href='editer-article.php'><i class='far fa-edit text-success'></i></a></span>";
+					echo "</li>";
+                }
+                        
+                ?>
+                </ul>   
+                
+                <p class="text-right">
+                	<a href="modif-articles.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><?php echo ALL_ARTICLE; ?></a>
+                </p>             
+                
+                </div>
+              </div>
+            </div>
+          
+            <!-- Zone avec les stats de la base de données  -->
             <div class="col-6">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
@@ -230,20 +263,6 @@ $BaseDeDonnees = new BasesDeDonnees;
                     <li class="list-group-item"><?php echo $BaseDeDonnees->NombreSources($pdo)." sources dans la base."; ?></li>
                     <li class="list-group-item"><?php echo $BaseDeDonnees->NombreEvenements($pdo)." événements dans la base."; ?></li>
                   </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Area Chart -->
-            <div class="col-6">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Todo</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                
                 </div>
               </div>
             </div>

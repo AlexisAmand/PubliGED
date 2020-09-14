@@ -5,7 +5,8 @@
 
 require ('fonctions.php');
 include ('../config.php');
-include('../langues/admin.php');
+include ('../langues/admin.php');
+include ('../langues/help.php');
 
 ?>
 
@@ -20,7 +21,7 @@ include('../langues/admin.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><?php echo ASIDE_ADMIN_0." - ".ASIDE_ADMIN_10; ?></title>
+  <title><?php echo ASIDE_ADMIN_0." - Edition d'une catégorie"; ?></title>
 
   <!-- Font Awesome 5.9.0 -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
@@ -111,28 +112,71 @@ include('../langues/admin.php');
 		<!-- Page Heading -->
 		<h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_10; ?></h1>
 
-		<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>                   
          <div class="card shadow mb-4">
          	<div class="card-header py-3">
-            	<h6 class="m-0 font-weight-bold text-primary"><?php echo "Titre todo"; ?></h6>
+            	<h6 class="m-0 font-weight-bold text-primary"><?php echo "Edition d'une catégorie"; ?></h6>
             </div>
             
             <div class="card-body">
-     	   
-     	   	  <div class="form-group">
-			    <label for="exampleFormControlInput1">Nom du site</label>
-			    <input type="text" class="form-control" id="exampleFormControlInput1">
-			  </div>
-			  
-			  <div class="form-group">
-			    <label for="exampleFormControlInput2">Description du site</label>
-			    <input type="tex" class="form-control" id="exampleFormControlInput2">
-			  </div>
-     	   
+            
+            <?php
+
+            if (!empty($_POST['Nom']) and !empty($_POST['NouveauNom']))
+                {
+                    /* $sql = $pdo->prepare("update categories set nom = :nouveaunom , description = :descriptionnom where nom = :nom"); */
+                    $sql = $pdo->prepare("update categories set nom = :nouveaunom where nom = :nom");
+                    $sql->bindparam(':nom', $_POST['Nom'] , PDO::PARAM_STR);
+                    $sql->bindparam(':nouveaunom', $_POST['NouveauNom'] , PDO::PARAM_STR);
+                    // $sql->bindparam(':descriptionnom', $_POST['DescriptionNom'] , PDO::PARAM_STR);
+
+                    echo var_dump($_POST);
+                    
+                    try
+                        {
+                        $sql->execute();
+                        echo '<div class="alert alert-success" role="alert">';
+                        echo '<i class="fas fa-check"></i>La catégorie a bien été modifiée';
+                        echo '</div>';
+                        }
+                    catch(exception $e)
+                        {
+                        echo '<div class="alert alert-warning" role="alert">';
+                        echo '<i class="fas fa-exclamation-triangle"></i>'.$e;
+                        echo '</div>';
+                        }
+                }
+                
+            ?>
+
+            <form action="edit-categorie.php?cat=<?php echo $_GET['cat']; ?>" method="POST">
+                <div class="form-group">
+                    <?php // TODO : rendre ce champ non modifiable */ ?>
+                    <label for="NomCategorie">Nom actuel de la catégorie
+                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo HELP_1; ?>">
+                    <i class="far fa-question-circle"></i></a></label>
+                    <input type="text" class="form-control" id="NomCategorie" name="Nom" value="<?php echo get_category_name($pdo, $_GET['cat']); ?>">
+                </div>
+                <div class="form-group">
+                    <label for="NouveauNomCategorie">Nouveau nom (facultatif)
+                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo HELP_2; ?>">
+                    <i class="far fa-question-circle"></i></a></label>
+                    <input type="text" class="form-control" id="NouveauNomCategorie" name="NouveauNom">
+                </div>
+                <div class="form-group">
+                    <label for="DescriptionCategorie">Description de la catégorie (facultatif)
+                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo HELP_3; ?>">
+                    <i class="far fa-question-circle"></i></a></label>
+                    <textarea class="form-control" id="DescriptionCategorie" rows="3" name="DescriptionNom"></textarea>
+                </div>
+
+                <input type="submit" class="btn btn-primary" value="Enregistrer">
+
+            </form>
+
             </div>
          </div> 
              
-         <input type="submit" class="btn btn-primary" value="Enregistrer">
+         
 
          </div>
          <!-- /.container-fluid -->
@@ -197,6 +241,12 @@ include('../langues/admin.php');
 
     <!-- Ce script contient l'initialisation du plugin datatables de jquery -->
   <script src="js/demo/datatables-demo.js"></script>
+
+  <script>
+  $(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})
+  </script>
  
 </body>
 

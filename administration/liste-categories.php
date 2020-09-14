@@ -5,7 +5,10 @@
 
 require ('fonctions.php');
 include ('../config.php');
-include('../langues/admin.php');
+include ('../langues/admin.php');
+include ('../class/class.php');
+
+$article = new articles();
 
 ?>
 
@@ -20,7 +23,7 @@ include('../langues/admin.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><?php echo ASIDE_ADMIN_0." - ".ASIDE_ADMIN_10; ?></title>
+  <title><?php echo ASIDE_ADMIN_0." - Liste des catégories"; ?></title>
 
   <!-- Font Awesome 5.9.0 -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
@@ -28,20 +31,20 @@ include('../langues/admin.php');
   <!-- Custom fonts for this template -->	
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
+  <!-- Custom styles for this template -->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-  
+
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
- 
+
 </head>
 
 <body id="page-top">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-
-    <?php include('include/sidebar.php'); ?>
+  
+  	<?php include('include/sidebar.php'); ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -72,9 +75,29 @@ include('../langues/admin.php');
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
           
-          	<li class="nav-item">
-			  <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
-			</li>
+         	<li class="nav-item">
+			    <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
+			    </li>
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
@@ -108,34 +131,71 @@ include('../langues/admin.php');
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-		<!-- Page Heading -->
-		<h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_10; ?></h1>
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_1."test"; ?></h1>
+          <p class="mb-4"><?php echo ADM_ARTICLE_MODIF_INTRO; ?></p>
 
-		<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>                   
-         <div class="card shadow mb-4">
-         	<div class="card-header py-3">
-            	<h6 class="m-0 font-weight-bold text-primary"><?php echo "Titre todo"; ?></h6>
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_ARTICLE_LIST; ?></h6>
             </div>
-            
             <div class="card-body">
-     	   
-     	   	  <div class="form-group">
-			    <label for="exampleFormControlInput1">Nom du site</label>
-			    <input type="text" class="form-control" id="exampleFormControlInput1">
-			  </div>
-			  
-			  <div class="form-group">
-			    <label for="exampleFormControlInput2">Description du site</label>
-			    <input type="tex" class="form-control" id="exampleFormControlInput2">
-			  </div>
-     	   
+              <div class="table-responsive">
+              
+              <?php
+              
+              $req = $pdo->prepare ("SELECT * FROM categories");
+              $req->execute ();
+              
+              ?>
+              
+                <table class="table table-bordered" id="dataTable">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th><?php echo "Nom de la catégorie"; ?></th>
+                      <th style="width: 3.5em;"><?php echo ADM_ART_EDIT; ?></th>
+                      <th style="width: 3.5em;"><?php echo ADM_ART_SUPPR; ?></th>
+                      <th style="width: 3.5em;"><?php echo ADM_ART_PUBLISH; ?></th>
+                    </tr>
+                  </thead>
+                 
+                  <tfoot>
+                  <tr>
+                      <th>#</th>
+                      <th><?php echo "Nom de la catégorie"; ?></th>
+                      <th style="width: 3.5em;"><?php echo ADM_ART_EDIT; ?></th>
+                      <th style="width: 3.5em;"><?php echo ADM_ART_SUPPR; ?></th>
+                      <th style="width: 3.5em;"><?php echo ADM_ART_PUBLISH; ?></th>
+                    </tr>
+                  </tfoot>  
+                  <tbody>
+                   
+                  	<?php
+                 
+                  	while ($data = $req->fetch(PDO::FETCH_ASSOC))
+                    	{
+                      	echo "<tr>";
+                      	echo "<td>" . $data ['ref'] . "</td>";
+                      	echo "<td>" . $data ['nom'] . "</td>";
+                      	echo '<td class="text-center"><a href="edit-categorie.php?cat='.$data['ref'].'" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
+                      	echo '<td class="text-center"><a href="#" data-toggle="modal"><i class="far fa-trash-alt text-danger"></i></a></td>';                                
+                      	echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Publier"><i class="far fa-star text-warning"></i></a></td>';
+                        echo "</tr>";
+                    
+                      }
+                      
+                    ?> 
+                                  
+                  </tbody>
+                </table>
+              </div>
             </div>
-         </div> 
-             
-         <input type="submit" class="btn btn-primary" value="Enregistrer">
+          </div>
 
-         </div>
-         <!-- /.container-fluid -->
+        </div>
+        <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
@@ -179,7 +239,7 @@ include('../langues/admin.php');
       </div>
     </div>
   </div>
-
+  
   <!-- Bootstrap core JavaScript-->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -195,9 +255,25 @@ include('../langues/admin.php');
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Ce script contient l'initialisation du plugin datatables de jquery -->
+  <!-- Ce script contient l'initialisation du plugin datatables de jquery -->
   <script src="js/demo/datatables-demo.js"></script>
- 
-</body>
+  
+  <script>
+  $(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})
+  </script>
 
+  <!-- JS pour la modale qui confirme la suppression d'un article -->
+
+  <script>
+  $('#DelArticle').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var recipient = button.data('whatever')
+  var modal = $(this)
+  modal.find('.ConfirmText').text("Etes-vous sûr de vouloir effacer l'article n° " + recipient)
+  })
+  </script>
+
+</body>
 </html>
