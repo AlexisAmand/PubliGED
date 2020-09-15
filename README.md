@@ -13,7 +13,7 @@ Environement de développement
 - Apache 2.4.35
 - phpMyAdmin 4.8.5
 - Windows 10
-- Eclipse IDE for PHP Developers 2020-03 (4.15.0)
+- Eclipse IDE for PHP Developers 2020-06 (4.16.0)
 
 Langages utilisés
 -----------------
@@ -32,10 +32,10 @@ Framework
 Librairies PHP
 --------------
 
-Obtenues via https://packagist.org et composer
+Obtenues via https://packagist.org et Composer
 
-- PHPMailer/PHPMailer 6.1.4 
-- egulias/EmailValidator 2.1.12 
+- PHPMailer/PHPMailer 6.1.7
+- egulias/EmailValidator 2.1.20 
 - mpdf/mpdf 7.1.9
 
 Javascript (dont tinyMCE et JavaScript)
@@ -52,5 +52,5 @@ https://gitlab.com/meno/dropzone
 Plus d'infos : 
 --------------
 
-- http://publiged.genealexis.fr
 - https://ww.tipeee.com/genealexis
+- http://publiged.genealexis.fr
