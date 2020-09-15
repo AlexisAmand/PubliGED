@@ -73,6 +73,7 @@ include ('../class/class.php');
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
           
+         	<!-- Affichage du lien "voir le site" -->
          	<li class="nav-item">
 			    <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
 			</li>

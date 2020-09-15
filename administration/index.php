@@ -3,7 +3,7 @@
 /* basé sur le template SB Admin 2 for Bootstrap 4 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
 
-require ('../content/fonctions.php');
+require ('fonctions.php');
 require ('../class/class.php');
 include ('../config.php');
 include ('../langues/admin.php');
@@ -72,6 +72,11 @@ $BaseDeDonnees = new BasesDeDonnees;
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
+          
+          	<!-- Affichage du lien "voir le site" -->
+          	<li class="nav-item">
+			    <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
+			</li>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
@@ -108,13 +113,12 @@ $BaseDeDonnees = new BasesDeDonnees;
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Bonjour Alexis A.</h1> <?php /* TODO : récupérer ici le nom de l'utilisateur */ ?>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
           <!-- Content Row -->
           <div class="row">
 
-            <!-- Nombre de catégories -->
+            <!-- Affichage du nombre total de catégories -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
@@ -138,7 +142,7 @@ $BaseDeDonnees = new BasesDeDonnees;
               </div>
             </div>
 
-            <!-- Nombre de membres -->
+            <!-- Affichage du nombre total de membres -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
@@ -162,7 +166,7 @@ $BaseDeDonnees = new BasesDeDonnees;
               </div>
             </div>
 
-            <!-- Affichage du nombre total de commentaires -->
+            <!-- Affichage du nombre total d'articles -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
@@ -246,27 +250,98 @@ $BaseDeDonnees = new BasesDeDonnees;
                 </div>
               </div>
             </div>
-          
+                      
             <!-- Zone avec les stats de la base de données  -->
             <div class="col-6">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Ma base de données</h6>
+                  <h6 class="m-0 font-weight-bold text-primary"><?php echo MY_GEDCOM; ?></h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                   <ul clas="list-group list-group-flush">
-                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreIndividu($pdo)." individus dans la base."; ?></li>
-                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreLieux($pdo)." lieux dans la base."; ?></li>
-                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreFamilles($pdo)." familles dans la base."; ?></li>
-                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreSources($pdo)." sources dans la base."; ?></li>
-                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreEvenements($pdo)." événements dans la base."; ?></li>
-                  </ul>
+                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreIndividu($pdo).MY_GEDCOM_INDIVIDUALS; ?></li>
+                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreLieux($pdo).MY_GEDCOM_PLACE; ?></li>
+                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreFamilles($pdo).MY_GEDCOM_FAMILIES; ?></li>
+                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreSources($pdo).MY_GEDCOM_SRC; ?></li>
+                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreEvenements($pdo).MY_GEDCOM_EVE; ?></li>
+                  </ul>    
+                  
+                  <p class="text-right">
+                	<a href="modif-articles.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><?php echo "Envoyer mon gedcom"; ?></a>
+                  </p>  
+                                    
                 </div>
               </div>
             </div>
-                    
+                                
+            <!-- Zone pour les derniers commentaires  -->
+            <div class="col-6">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary"><?php echo LAST_ALL_COM; ?></h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                                 		     
+                	<?php 
+             			                                 
+	                $sql = $pdo->prepare ("SELECT * FROM commentaires");
+	                $sql->execute();
+	                  
+	                if ($sql->rowCount() > 0)
+	                  	{
+	                  		
+	                ?>
+	                  
+	            	<table class="table table-striped">
+	             		<thead>
+		                	<tr>
+			                	<th scope="col">Date</th>
+			                  	<th scope="col">Article</th>
+			                  	<th scope="col">Auteur</th>
+			                  	<th scope="col">Commentaire</th>
+		                  	</tr>
+	                  	</thead>
+	                  	<tbody>
+	                  
+	                    <?php                  
+	                
+	                  	// var_dump($sql->execute()); -> donne true
+	                                        		                                  
+		                while($row = $sql->fetch(PDO::FETCH_ASSOC)) 
+		                	{
+		                  	echo '<tr>';
+		                  	echo "<td>".$row['date_com']."</td>";
+		                  	echo "<td>".RecupTitreArticle($pdo, $row['id_article'])."</td>";
+		                    echo "<td>".$row['nom_auteur']."</td>";
+		                    echo "<td>".$row['contenu']."</td>";
+		                    echo "</tr>";
+			                }
+			          
+			           ?>
+			
+					   </tbody>
+                  	</table>
+                  
+                  	<?php			               
+			          	}
+	                  else 
+	                  	{
+	                  	echo "Pas de commentaire pour le moment !";
+	                  	}
+		            ?>
+		                  			                                                                                          
+                  <p class="text-right">
+                	<a href="commentaires.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><?php echo ALL_COM; ?></a>
+                  </p>   
+                  
+                </div>
+              </div>
+            </div>
+                                    
           </div>
 
         </div>
@@ -333,5 +408,4 @@ $BaseDeDonnees = new BasesDeDonnees;
   <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
-
 </html>

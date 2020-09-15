@@ -14,6 +14,19 @@ define ("NB_CATEGORIES", "Nombre de catégories" );
 define ("NB_USERS", "Nombre d'utilisateurs" );
 define ("NB_COMMENTAIRES", "Nombre de commentaires" );
 
+define ( "LAST_ALL_ARTICLES","Mes derniers articles");
+define ( "ALL_ARTICLE", "Voir tous les articles");
+
+define ( "LAST_ALL_COM","Mes derniers commentaires");
+define ( "ALL_COM", "Voir tous les commentaires");
+
+define ("MY_GEDCOM","Ma généalogie");
+define ("MY_GEDCOM_INDIVIDUALS"," individus dans la base de données");
+define ("MY_GEDCOM_PLACE"," lieux dans la base de données");
+define ("MY_GEDCOM_FAMILIES"," familles dans la base de données");
+define ("MY_GEDCOM_SRC"," sources dans la base de données");
+define ("MY_GEDCOM_EVE"," événements dans la base de données");
+
 /* ----------------------------------- */
 /* Titres des pages + ELEMENTS DU MENU */
 /* ----------------------------------- */
@@ -57,9 +70,6 @@ define ( "ADM_ARTICLE_CAT", "Catégorie" );
 define ( "ADM_ART_EDIT", "Editer" );
 define ( "ADM_ART_SUPPR", "Supprimer" );
 define ( "ADM_ART_PUBLISH", "Publier" );
-
-define ( "LAST_ALL_ARTICLES","Mes derniers articles");
-define ( "ALL_ARTICLE", "Voir tous les articles");
 
 define ( "ADM_ARTICLE_EDIT_TITLE", "Titre de l'article" );
 define ( "ADM_ARTICLE_EDIT_CAT", "Catégorie de l'article" );
@@ -124,7 +134,7 @@ define ("SEND","Sauvegarder");
 /* Gestion des gedcoms */
 /* ------------------- */
 
-define ( "READ_GEDCOM", "Lecture du gedcom" );
+define ( "READ_GEDCOM", "Envoyer un gedcom" );
 define ( "BILAN_GEDCOM", "Résumé de l'importation du gedcom" );
 
 /* ----------------- */
