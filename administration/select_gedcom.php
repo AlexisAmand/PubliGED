@@ -116,6 +116,8 @@ include ('../class/class.php');
                  <h6 class="m-0 font-weight-bold text-primary"><?php echo READ_GEDCOM; ?></h6>
                </div>
                	<div class="card-body">
+               	
+               	  <!-- Formulaire html classique -->	
 
                   <p style='text-align: justify;'>Vous pouvez utiliser ce formulaire pour envoyer votre gedcom. Si vous avez d&eacute;jà envoy&eacute; un gedcom sur le site, celui-ci sera effac&eacute; et remplacé par le nouveau.</p>
 
@@ -128,6 +130,8 @@ include ('../class/class.php');
                   </form>
 
                   <br /><br /><br /><br /><br />
+                  
+                  <!-- Formulaire avec une dropzone -->
                     
                   <form action="lecture.php" method="GET">
                                   

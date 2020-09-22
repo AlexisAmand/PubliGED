@@ -197,11 +197,11 @@ include ('../class/class.php');
 				$nb_eve = 0;
 				$nb_individu = 0;
 				$nb_lieu = 0;
-				$tablelieu = 1;
+				// $tablelieu = 1;
 				$nb_source = 0;
 				$place = 1;
 				$nb_media = 0;
-				$public = 1;
+				// $public = 1;
 				$nb_famille = 0;
 				
 				while ( ! feof ( $gedcom ) ) 
@@ -602,10 +602,14 @@ include ('../class/class.php');
 						
 						$lieu->ville = $place [0];
 						
+						/* TODO : il faut enlever 2 PLAC dans $lieu->ville */
+						
+						/*
 						$lieufinal = explode ( " ", $lieu->ville );
 						//$lieutmp = array_shift ( $lieufinal );
 						$lieutmp = array_shift ( $lieufinal );
-						$lieu->ville = implode ( $lieufinal );
+						$lieu->ville = $lieufinal;
+						*/
 						
 						$lieu->dep = $place [2];
 						$lieu->region = $place [3];
@@ -802,7 +806,7 @@ include ('../class/class.php');
 					if (preg_match ( "/1 OBJE/", $ligne )) 
 						{
 						$media = new medias ();
-						echo $ligne;
+						// echo $ligne;
 						$nb_media ++;
 						$media->ref = $nb_media;
 						$source->media = $media->ref;

@@ -4,9 +4,7 @@ include ('config.php');
 include ('include/langue.php');
 include ('class/class.php');
 
-// $GLOBALS['InfoPage'] = PageTop($pdo);
-
-$InfoPage = new pages($pdo);
+$GLOBALS['InfoPage'] = PageTop($pdo);
 
 require_once 'vendor/autoload.php';
 ?>
@@ -16,19 +14,11 @@ require_once 'vendor/autoload.php';
 <html lang="fr">
 <head>
 
-	<?php 
-	
-	/* récupération du meta description et du title de la page en cours en fonction de ce qui est dans la base de données sinon on met les trucs par défaut */
-	
-	/*
-	 *  - switch pour type de page
-	 *  - recherche dans la BD en fonction du type de page 
-	 *  - attichage du title et de la meta
-	 */
-	
-	?>
-	
-	<?php $InfoPage->AfficherMeta($pdo); ?>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+	<title><?php echo $InfoPage->titre(); ?></title>
+	<meta name="description" content="<?php echo $InfoPage->description; ?>">
 	
 	<?php /* TODO: Cette CSS sera générée automatiquement en fonction des préférences de l'utilisateur; */ ?>
 		
@@ -71,7 +61,7 @@ require_once 'vendor/autoload.php';
 	<!-- Divers Javascript -->
 	
 	<script src="js/scripts.js"></script>
-	
+
 </head>
 
 <body>

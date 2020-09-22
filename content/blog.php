@@ -51,30 +51,6 @@ $req_intro = "SELECT * FROM articles ORDER BY date DESC";
 $resultat = $pdo2->prepare( $req_intro );
 $resultat->execute();
 
-/* pagination */
-
-$total = $resultat->rowCount ();
-$nrpp = 3; /* TODO : nombre d'articles par page, devra être récupérer via l'admin */
-
-$nb_pages = round($total / $nrpp);
-
-if (isset ( $_GET ['p'] )) 
-	{
-	$page = $_GET ['p'];
-	if ($page > $nb_pages)
-		{	
-		$page = $nb_pages;
-		}
-	}
-else
-	{
-	$page = 1;
-	}
-	
-$max = 	($page - 1 ) * $nrpp;
-
-/* fin pagination */
-
 $resultat = $pdo2->query ( $req_intro . " LIMIT " . $max . "," . $nrpp );
 
 while ( $data = $resultat->fetch(PDO::FETCH_ASSOC) )
@@ -121,33 +97,5 @@ while ( $data = $resultat->fetch(PDO::FETCH_ASSOC) )
 	$commentaire->AfficheLien($article->ref, $pdo2);
 		
 }
-
-/* pagination */
-
-echo "<ul class='pagination justify-content-center'>";
-
-if ($page == 1)
-	{	
-	echo "<li class='page-item disabled'><a class='page-link' href='#'>Précédent</a></li>";
-	}
-else
-	{
-	$p = $page - 1;
-	echo "<li class='page-item'><a class='page-link' href='index?page=blog&p=".$p."'>Précédent</a></li>";
-	}
-
-if ($page == $nb_pages)
-{
-	echo "<li class='page-item disabled'><a class='page-link' href='#'>Suivant</a></li>";
-}
-else
-{
-	$p = $page + 1;
-	echo "<li class='page-item'><a class='page-link' href='index?page=blog&p=".$p."'>Suivant</a></li>";
-}
-
-echo "</ul>";
-
-/* fin pagination */
 
 ?>

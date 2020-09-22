@@ -137,7 +137,108 @@ class pages
 	public $titre;
 	public $description;
 	public $rubrique;
+	
+	public function __construct($pdo2)
+		{
 		
+		/* Si le param page est pas là redirection sur index */
+		if (!isset($_GET ['page']))
+			{
+			header('Location: index.php?page=blog');
+			} 	
+		else
+			{
+			$this->nom = $_GET['page'];	
+			}
+			
+		$sql = "select * from pages where nom = :nom";
+		$resultat = $pdo2->prepare ( $sql );
+		$resultat->bindParam ( ':nom', $_GET ['page'] );
+		$resultat->execute (); 	
+		$nb = $resultat->rowCount (); 	
+		
+		if ($nb != 0)
+			{
+			/* récup les infos de la page 
+			 * avec un seul fetch comme dans afficherMeta()
+			 */	
+			
+			$row = $resultat->fetch ();
+			
+			$this->nom = $row['nom'];
+			$this->titre = $row['titre'];
+			
+			/* rubrique pour le fil d'ariane, entre les deux / */
+			
+			switch($this->nom)
+				{
+				case "stats" :
+				case "sources" :
+				case "images" :
+				case "anniversaires" :
+					$this->rubrique = ASIDE_2;
+					break;
+				case "lieux" :
+				case "cartographie" :
+				case "patrolieux" :
+					$this->rubrique = ASIDE_3;
+					break;
+				case "patro" :
+				case "eclair" :
+				case "sosa" :
+				case "fiche" :
+				case "lieuxpatro" :
+				case "liste_patro" :
+					$this->rubrique = ASIDE_4;
+					break;
+				case "eve" :
+					$this->rubrique = ASIDE_5;
+					break;
+				case "categories" :
+					$this->rubrique = ASIDE_BLOG_2;
+					break;
+				case "blog" :
+					$this->rubrique = ASIDE_BLOG_1;
+					break;
+				case "credits" :
+					$this->rubrique = "Divers";
+					
+					/* TODO : Ajouter dans le fichier fr.php */
+					
+					break;
+				case "article" :
+					$this->rubrique = ARTICLES;
+					break;
+					/*
+					 *  default:
+					 *  $page->rubrique = PILLMENU_2;
+					 */
+				} 
+			
+			
+							
+			}
+		else 
+			{
+			/* le param n'a pas été trouvé dans la BD... donc redirection */
+			header('Location: index.php?page=blog');
+			}
+		
+		}
+	
+	public function AfficherMeta($pdo2)
+		{	
+		$sqlMeta = $pdo2->prepare("select * from pages where nom = :page");
+		$sqlMeta->bindParam ( ':page', $_GET['page'] ); 	
+		$sqlMeta->execute();
+		$data = $sqlMeta->fetch();
+		
+		/* affichage du title */
+		echo "<title>".$data['titre']."</title>\n";
+		/* affichage de la meta description */
+		echo "<meta name='description' content='>".$data['description']."'>\n";
+		}
+	
 	public function AfficherContenu($pdo2) 
 		{		
 		$balise = ($GLOBALS['aside']==1)?'<article class="col-md-9">':'<article class="col-md-12">';
