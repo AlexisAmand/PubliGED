@@ -15,7 +15,7 @@ switch ($_GET ['page']) {
 }
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light pillmenu navbar-fixed-top" style="position: absolute;top: 0;right: 0;left: 0;z-index: 1030;">
+<nav class="navbar navbar-expand-lg navbar-light navbar-dark bg-primary pillmenu navbar-fixed-top" style="position: absolute;top: 0;right: 0;left: 0;z-index: 1030;">
 
 	<div class="collapse navbar-collapse">
 

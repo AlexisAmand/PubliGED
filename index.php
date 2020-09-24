@@ -32,7 +32,7 @@ require_once 'vendor/autoload.php';
 	
 	<?php /* TODO: Cette CSS sera générée automatiquement en fonction des préférences de l'utilisateur; */ ?>
 		
-	<link href="templates/bootstrap/css/bootstrap.perso.css" rel="stylesheet">
+	<link href="templates/bootstrap/css/bootstrap.cerulean.css" rel="stylesheet">
 		
 	<!-- Obligatoire - importe les css de Font Awesome et Leaflet -->
 	
@@ -40,7 +40,7 @@ require_once 'vendor/autoload.php';
 	
 	<!-- Perso -->
 	
-	<link href="templates/css/style.css" rel="stylesheet">
+	<!-- >link href="templates/css/style.css" rel="stylesheet"-->
 	<link rel="icon" type="image/gif" href="img/icon.jpg" />
 
 	<!-- Bootstrap 4.4.1 -->
@@ -86,7 +86,7 @@ require_once 'vendor/autoload.php';
 
 </div>
 
-<header style="background-image: url('img/fond03.jpg');height: 250px;background-size: cover;position: relative;background-color: #212529;opacity: 0.7;">
+<header>
 
 	<?php include('include/header.inc');?>
  							

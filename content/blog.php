@@ -1,8 +1,8 @@
 <?php
 
-/* ---------------------------------------------- */
-/* AFFICHAGE DES ARTICLES SOUS LA FORME D'UN BLOG */
-/* ---------------------------------------------- */
+/* ------------------------- */
+/* CREATION D'UN FICHIER RSS */
+/* ------------------------- */
 
 /* Efface le FLUX RSS s'il existe */
 
@@ -47,11 +47,50 @@ $rss = $rss . "</channel></rss>";
 
 fwrite ( $fp, $rss );
 
-$req_intro = "SELECT * FROM articles ORDER BY date DESC";
-$resultat = $pdo2->prepare( $req_intro );
-$resultat->execute();
+/* ---------------------------- */
+/* PREPARATION DE LA PAGINATION */
+/* ---------------------------- */
 
-$resultat = $pdo2->query ( $req_intro . " LIMIT " . $max . "," . $nrpp );
+/* Nombre d'articles par page */
+
+$messagesParPage = NombreArticlePage($pdo2);
+
+/* ici on compte le nombre d'articles total */
+
+$sql = "select * from articles";
+$req = $pdo2->prepare ($sql);
+$req->execute ();
+$total = $req->rowCount ();
+
+/* On peut en déduire le nombre d'articles par page */
+
+$ndp=ceil($total/$messagesParPage);
+
+/* Page en cours... */
+
+if(isset($_GET['pg'])) 
+	{
+	$pa=intval($_GET['pg']);
+	
+	if($pa>$ndp) 
+		{
+		$pa=$ndp;
+		}
+	}
+else
+	{
+	$pa=1; 
+	}
+
+$premiereEntree=($pa-1)*$messagesParPage;
+
+/* ---------------------------------------------- */
+/* AFFICHAGE DES ARTICLES SOUS LA FORME D'UN BLOG */
+/* ---------------------------------------------- */
+
+$req = 'SELECT * FROM articles ORDER BY date DESC LIMIT '.$premiereEntree.', '.$messagesParPage.' ';
+$resultat = $pdo2->prepare( $req );
+$resultat->execute();
 
 while ( $data = $resultat->fetch(PDO::FETCH_ASSOC) )
 {
@@ -98,4 +137,64 @@ while ( $data = $resultat->fetch(PDO::FETCH_ASSOC) )
 		
 }
 
+/* -------------------------- */
+/* AFFICHAGE DE LA PAGINATION */
+/* -------------------------- */
+
 ?>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
+    
+  	<?php 
+      
+   	/* bouton "page précédente" */
+      
+    if ($pa >= 2)
+      	{
+      	$i = $pa - 1;
+      	echo '<li class="page-item">';
+      	echo '<a class="page-link" href="index.php?page=blog&pg='.$i.'">&laquo;</a>';
+      	echo '</li>';
+      	}
+    else 
+      	{
+      	echo '<li class="page-item disable"><span class="page-link" href="#">&laquo;</span></li>';
+      	}
+      	
+    /* boutons avec les numéros des pages */  	
+      
+    for($i=1; $i<=$ndp; $i++) 
+		{
+		if($i==$pa)
+			{
+		    echo '<li class="page-item active">';
+		    echo '<span class="page-link">'.$i.'</span>';
+		    echo '</li>';
+		    }    
+		else
+		    {
+		    echo '<li class="page-item">';
+		    echo '<a class="page-link" href="index.php?page=blog&pg='.$i.'">'.$i.'</a>';
+		    echo '</li>';
+		    }
+		}
+      
+    /* bouton "page suivante" */
+         
+	if ($pa < $ndp)
+      	{
+      	$i = $pa + 1;
+      	echo '<li class="page-item">';
+		echo '<a class="page-link" href="index.php?page=blog&pg='.$i.'">';
+        echo '&raquo;</a></li>';
+      	}
+    else 
+      	{
+      	echo '<li class="page-item disable"><span class="page-link" href="#">&raquo;</span></li>';
+      	}
+      
+    ?>
+   
+  </ul>
+</nav>

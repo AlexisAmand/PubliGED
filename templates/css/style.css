@@ -72,6 +72,9 @@ header {
 	/* background-image: url('../img/fond04.jpg'); */
 	/* height: 150px; */
 	color: #827c7e;
+	
+	background-image: url('img/fond03.jpg');height: 250px;background-size: cover;position: relative;background-color: #212529;opacity: 0.7;
+	
 }
 
 .navbar-default {

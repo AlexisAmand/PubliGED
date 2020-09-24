@@ -135,6 +135,23 @@ function VerifGedcom($pdo3)
 		} 
 	}
 			
+
+/* fonction qui récupére le nombre d'article à afficher par page */
+	
+function NombreArticlePage($pdo2)
+	{
+		$req_napp = "SELECT * FROM configuration WHERE nom = 'napp'";
+		$req_napp = $pdo2->prepare($req_napp);
+		$req_napp->execute();
+		
+		while (($row = $req_napp->fetch( PDO::FETCH_ASSOC )))
+		{
+			$napp = $row['valeur'];
+		}
+		
+		return $napp;
+	} 
+			
 /* fonction qui récupére le nombre de resultat à afficher par page */ 
 
 function recup_page($pdo2) 
