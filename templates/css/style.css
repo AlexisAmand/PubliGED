@@ -175,15 +175,6 @@ article a {
 	float:left;
 }
 
-/* ------------------------ */
-/* carte pour OpenStreetMap */
-/* ------------------------ */
-
-#mapid {
-	width: 100%;
-	height: 600px;
-}
-
 /* ------------------------------------------------------ */
 /* modification de Bootstrap pour la fixation du pillmenu */
 /* ------------------------------------------------------ */

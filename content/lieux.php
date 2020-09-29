@@ -26,7 +26,7 @@ if (VerifGedcom ( $pdo2 ) == "1") {
 			$reqVille->execute ();
 			echo "<ul>";
 			while ($data_ville = $reqVille->fetch(PDO::FETCH_ASSOC)) {
-				echo "<li><a href='index?page=lieuxpatro&id=".$data_ville ['ref']."'>".$data_ville ['ville']."</a></li>";
+				echo "<li><a href='index.php?page=lieuxpatro&id=".$data_ville ['ref']."'>".$data_ville ['ville']."</a></li>";
 			}
 			echo "</ul>";
 			echo "<br />";

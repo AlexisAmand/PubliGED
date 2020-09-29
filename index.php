@@ -9,6 +9,7 @@ include ('class/class.php');
 $InfoPage = new pages($pdo);
 
 require_once 'vendor/autoload.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +29,9 @@ require_once 'vendor/autoload.php';
 	
 	?>
 	
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 	<?php $InfoPage->AfficherMeta($pdo); ?>
 	
 	<?php /* TODO: Cette CSS sera générée automatiquement en fonction des préférences de l'utilisateur; */ ?>
@@ -38,40 +42,15 @@ require_once 'vendor/autoload.php';
 	
 	<link href="templates/css/commons.css" rel="stylesheet">
 	
-	<!-- Perso -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+	<link href="js/datatables/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 	
-	<!-- >link href="templates/css/style.css" rel="stylesheet"-->
-	<link rel="icon" type="image/gif" href="img/icon.jpg" />
-
-	<!-- Bootstrap 4.4.1 -->
-	
-	<script src="templates/bootstrap/js/bootstrap.min.js"></script>
-	
-	<!-- Jquery 3.4.1 -->
-
-	<script src="js/jquery-3.4.1.min.js"></script>
-	
-	<!-- librairie datatables 1.10.20 pour tableaux bootstrap 4 -->
-	
-  	<script src="js/datatables/datatables/js/jquery.datatables.min.js"></script>
-  	<script src="js/datatables/datatables/js/dataTables.bootstrap4.min.js "></script>
-
-  	<!-- Ce script contient l'initialisation du plugin datatables de jquery -->
-  	
-  	<script src="administration/js/demo/datatables-demo.js"></script>
-  	
 	<!-- OpenStreetMap et Leaflet 1.6 -->
 	
-	<script src="js/leaflet/leaflet.js"></script>
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 	
-	<!-- TinyMCE 5.1.5 -->
-	
-	<script src="js/tinymce/tinymce.min.js"></script>
-	
-	<!-- Divers Javascript -->
-	
-	<script src="js/scripts.js"></script>
-	
+	<link rel="icon" type="image/gif" href="img/icon.jpg" />
+		
 </head>
 
 <body>
@@ -86,13 +65,17 @@ require_once 'vendor/autoload.php';
 
 </div>
 
-<header>
-
-	<?php include('include/header.inc');?>
- 							
-</header>	
-
 <div class="container">
+
+	<header class="row">
+
+		<div class="col-12">
+
+			<?php include('include/header.inc');?>
+		
+		</div>
+					
+	</header>	
 
 	<div class="row" style="margin-top: 10px;">
 
@@ -127,6 +110,31 @@ require_once 'vendor/autoload.php';
 	</footer>
 
 </div>
+
+	<!-- Jquery 3.4.1 -->
+
+	<script src="js/jquery-3.4.1.min.js"></script>
+
+	<!-- Bootstrap 4.4.1 -->
+	
+	<script src="templates/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- librairie datatables 1.10.20 pour tableaux bootstrap 4 -->
+	
+  	<script src="js/datatables/datatables/js/jquery.datatables.min.js"></script>
+  	<script src="js/datatables/datatables/js/dataTables.bootstrap4.min.js "></script>
+
+  	<!-- Ce script contient l'initialisation du plugin datatables de jquery-->
+  	
+  	<script src="administration/js/demo/datatables-demo.js"></script>
+  	
+	<!-- TinyMCE 5.1.5 -->
+	
+	<script src="js/tinymce/tinymce.min.js"></script>
+	
+	<!-- Divers Javascript -->
+	
+	<script src="js/scripts.js"></script>
 
 </body>
 </html>

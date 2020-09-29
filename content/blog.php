@@ -163,9 +163,13 @@ while ( $data = $resultat->fetch(PDO::FETCH_ASSOC) )
       	}
       	
     /* boutons avec les numéros des pages */  	
+      	
+    /* TODO : ça plante l'affichage si il y a trop de pages */
       
-    for($i=1; $i<=$ndp; $i++) 
-		{
+    for($i=1; $i<=$ndp; $i++)	
+
+    // for($i=1; $i<=80; $i++)	
+    	{
 		if($i==$pa)
 			{
 		    echo '<li class="page-item active">';

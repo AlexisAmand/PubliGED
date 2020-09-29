@@ -486,7 +486,7 @@ include ('../class/class.php');
 							
 							$req = $pdo->prepare ( "INSERT INTO evenements (n_eve, n_indi, nom) VALUES (:n_eve, :indiv,:nom)" );			
 							$req->bindValue ( ':n_eve', $nb_eve, PDO::PARAM_INT );			
-							$req->bindValue ( ':indiv', $evenement->indiv, PDO::PARAM_INT );
+							$req->bindValue ( ':indiv', $evenement->indiv, PDO::PARAM_STR );
 							$req->bindValue ( ':nom', $evenement->nom, PDO::PARAM_STR );
 							$req->execute ();
 							}
@@ -509,7 +509,7 @@ include ('../class/class.php');
 							}
 							
 						$req = $pdo->prepare ( "INSERT INTO evenements (n_indi, nom, evenement) VALUES (:indiv,:nom,:type)" );
-						$req->bindValue ( ':indiv', $evenement->indiv, PDO::PARAM_INT );
+						$req->bindValue ( ':indiv', $evenement->indiv, PDO::PARAM_STR );
 						$req->bindValue ( ':nom', $evenement->nom, PDO::PARAM_STR );
 						$req->bindValue ( ':type', $evenement->type, PDO::PARAM_STR );
 						$req->execute ();
@@ -599,17 +599,16 @@ include ('../class/class.php');
 							{
 							$lieu->cp = "";
 							}
+																	
+						$t1 = explode ( " ", $place [0]);
 						
-						$lieu->ville = $place [0];
+						// suppression case "2" et de la case "PLAC"
 						
-						/* TODO : il faut enlever 2 PLAC dans $lieu->ville */
+						$t2 = array_slice($t1, 2); 
+							
+						// le reste du tableau redevient une chaine
 						
-						/*
-						$lieufinal = explode ( " ", $lieu->ville );
-						//$lieutmp = array_shift ( $lieufinal );
-						$lieutmp = array_shift ( $lieufinal );
-						$lieu->ville = $lieufinal;
-						*/
+						$lieu->ville = implode(" ", $t2);
 						
 						$lieu->dep = $place [2];
 						$lieu->region = $place [3];
