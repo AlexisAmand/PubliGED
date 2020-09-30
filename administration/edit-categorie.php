@@ -151,11 +151,10 @@ include ('../langues/help.php');
 
             <form action="edit-categorie.php?cat=<?php echo $_GET['cat']; ?>" method="POST">
                 <div class="form-group">
-                    <?php // TODO : rendre ce champ non modifiable */ ?>
                     <label for="NomCategorie">Nom actuel de la catégorie
                     <a href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo HELP_1; ?>">
                     <i class="far fa-question-circle"></i></a></label>
-                    <input type="text" class="form-control" id="NomCategorie" name="Nom" value="<?php echo get_category_name($pdo, $_GET['cat']); ?>">
+                    <input readonly type="text" class="form-control" id="NomCategorie" name="Nom" value="<?php echo get_category_name($pdo, $_GET['cat']); ?>">
                 </div>
                 <div class="form-group">
                     <label for="NouveauNomCategorie">Nouveau nom (facultatif)
