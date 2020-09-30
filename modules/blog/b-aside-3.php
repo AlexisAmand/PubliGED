@@ -1,6 +1,6 @@
 <!-- MODULE QUI AFFICHE LE5 5 DERNIERS ARTICLES -->
 
-<div class="card bg-light border-secondary mb-3">
+<div class="card mb-3">
 
 	<div class="card-header"><?php echo ASIDE_BLOG_3 ?></div>
 

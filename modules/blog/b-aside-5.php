@@ -1,6 +1,6 @@
 <!-- MODULE SOCIAL -->
 
-<div class="card bg-light border-secondary mb-3">
+<div class="card mb-3">
 
 	<div class="card-header"><?php echo ASIDE_BLOG_5 ?></div>
 	
@@ -14,7 +14,7 @@
 		
 	while ($row = $reqSocial->fetch(PDO::FETCH_ASSOC))
 		{
-		echo '<a href="'.$row['url'].'"><i class="'.$row['icone'].'"></i></a>';
+		echo '<a href="'.$row['url'].'"><i class="'.$row['icone'].' fa-2x"></i></a>';
 		}
 	
 	?>

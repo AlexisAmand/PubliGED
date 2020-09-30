@@ -1,7 +1,7 @@
 <!-- EXEMPLE DE MODULE AVEC DES CREDITS -->
 <?php /* TODO : non actif pour le moment, sans doute inutile mais je peux peut-être envisager un lien dans le footer */ ?>
 
-<div class="card bg-light border-secondary mb-3">
+<div class="card mb-3">
 
 	<div class="card-header"><?php echo ASIDE_BLOG_4 ?></div>
 

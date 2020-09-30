@@ -1,3 +1,5 @@
+<h3><?php echo $GLOBALS['InfoPage']->titre; ?></h3>
+
 <?php
 
 /* ------------------ */
@@ -15,6 +17,8 @@ use Egulias\EmailValidator\Validation\RFCValidation;
 require_once 'vendor/autoload.php';
 
 $mail = new PHPMailer ();
+
+/* TODO : Cette partie est à revoir... la personne ne saura pas configurer le SMTP
 
 /* TODO : Serveur SMTP */
 
@@ -36,12 +40,6 @@ $mail->SMTPOptions = array (
 				'allow_self_signed' => true
 		)
 );
-
-?>
-
-<h3><?php echo $GLOBALS['InfoPage']->titre; ?></h3>
-
-<?php 
 
 if (isset ($_POST ['nom'] ) and isset ($_POST ['email']) and isset ($_POST ['sujet']) and isset ($_POST ['message'])) 
 	{
@@ -100,24 +98,24 @@ $erreur = 1
 
 	<div class="form-group">
 		<label for="pseudo"><?php echo FRM_NAME; ?></label>
-		<input id="pseudo" type="text" name="nom" class="form-control" value="<?php if (($erreur==1) and (empty($_POST['nom']))) {echo 'oups';}?>" />
+		<input id="pseudo" type="text" name="nom" class="form-control" value="<?php if(isset($_POST ['nom'])) { echo $_POST ['nom'];} ?>" />
 	</div>
 
 	<div class="form-group">
 		<label for="email"><?php echo FRM_MAIL; ?></label>
-		<input id="email" type="text" name="email" class="form-control" value="<?php if ($erreur==1) {echo 'oups';}?>" />
+		<input id="email" type="text" name="email" class="form-control" value="<?php if(isset($_POST ['email'])) { echo $_POST ['email'];} ?>" />
 	</div>
 
 	<div class="form-group">
 		<label for="sujet"><?php echo FRM_TOPIC; ?></label>
-		<input id="sujet" name="sujet" class="form-control" value="<?php if ($erreur==1) {echo 'oups';}?>" />
+		<input id="sujet" name="sujet" class="form-control" value="<?php if(isset($_POST ['sujet'])) { echo $_POST ['sujet'];} ?>" />
 	</div>
 
 	<div class="form-group">
 		<label for="message"><?php echo FRM_MSG; ?></label>
-		<textarea id="message" name="message" class="form-control"><?php if ($erreur==1) {echo 'oups';}?></textarea>
+		<textarea id="message" name="message" class="form-control"><?php if(isset($_POST ['message'])) { echo $_POST ['message'];} ?></textarea>
 	</div>
 
-	<input type="submit" class="btn btn-default">
+	<button type="submit" class="btn btn-primary">Envoyer</button>
 
 </form>

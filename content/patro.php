@@ -29,24 +29,25 @@
 		       {
 			   $i ++;
 			   } 
-		   else 
+		   else
 			   {
 			   echo "<h4>" . $alphabet [$i] . "</h4>";
-						
+			   echo "<ul class='mb-3'>";			
 			   while ( $data_patro = $req_lieu->fetch (PDO::FETCH_ASSOC) ) 
-			      {
-				        
+			   	  {
+				  
 				  /* affichage du nom avec un lien qui affiche la liste des individus qui ont ce nom */
-				  echo "<a href='index.php?page=liste_patro&nom=" . urlencode ( $data_patro ['surname'] ) . "'>" . $data_patro ['surname'] . "</a>";
+				  echo "<li><a href='index.php?page=liste_patro&nom=" . urlencode ( $data_patro ['surname'] ) . "'>" . $data_patro ['surname'] . "</a>";
 					
 				  /* affichage du nombre d'occurence du nom */
 				  $data_patro ['surname'] = addslashes ( $data_patro ['surname'] );
 				
 				  $req_nb_occ = $pdo2->query ( "SELECT * FROM individus WHERE surname = '{$data_patro['surname']}'" );
 							
-				  echo " (" . $req_nb_occ->rowCount () . ")<br>";
+				  echo " (" . $req_nb_occ->rowCount () . ")</li>";
 				  
 				  }
+			 	echo "</ul>";
 				$i ++;
 			    }
 	        }
@@ -57,4 +58,4 @@
 		echo NO_GEDCOM;
 		}
 	     
-	?>     
+	?>

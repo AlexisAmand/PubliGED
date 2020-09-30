@@ -36,7 +36,7 @@ require_once 'vendor/autoload.php';
 	
 	<?php /* TODO: Cette CSS sera générée automatiquement en fonction des préférences de l'utilisateur; */ ?>
 		
-	<link href="templates/bootstrap/css/bootstrap.cerulean.css" rel="stylesheet">
+	<link href="templates/bootstrap/css/bootstrap.minty.css" rel="stylesheet">
 		
 	<!-- Obligatoire - importe les css de Font Awesome et Leaflet -->
 	
@@ -110,6 +110,8 @@ require_once 'vendor/autoload.php';
 	</footer>
 
 </div>
+
+	<?php /* TODO: regrouper tous les trucs si dessous dans une méthode de la classe page ? */ ?>
 
 	<!-- Jquery 3.4.1 -->
 

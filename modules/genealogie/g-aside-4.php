@@ -1,6 +1,6 @@
 <!-- GENEALOGIE - MODULE DES INDIVIDUS -->
 
-<div class="card bg-light border-secondary mb-3">
+<div class="card mb-3">
 	<div class="card-header"><?php echo ASIDE_4 ?></div>
 	<ul class="list-group">
 		<li class="list-group-item"><a href="index.php?page=patro"><?php echo TITRE_RUB_6; ?></a></li>

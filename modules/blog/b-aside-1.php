@@ -1,7 +1,7 @@
 <!-- MODULE QUI AFFICHE UN MENU -->
 <!-- (non actif pour le moment) -->
 
-<div class="card bg-light border-secondary mb-3">
+<div class="card mb-3">
 
 	<div class="card-header"><?php echo ASIDE_BLOG_1 ?></div>
 

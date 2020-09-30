@@ -434,7 +434,7 @@ class articles
 		
 		/* Titre de l'article */
 			
-		echo "<div class='row'>";			
+		echo "<div class='row mt-5'>";			
 			echo "<div class='col-md-12'>";
 			echo "<h3><a href='index.php?page=article&id=".$this->ref."'>".html_entity_decode ($this->titre)."</a></h3>"; 
 			echo "</div>";		
@@ -444,19 +444,20 @@ class articles
 		
 		/* Auteur et date de l'article */
 		
-		echo "<div class='col-md-8'>";		
+		echo "<div class='col-md-10'>";		
 			echo "<p>".AUTHOR.$this->auteur;
 			echo DATE.$this->date;
 			echo RUBRIC;
 			echo "<a href='index.php?page=categories&id=".$this->categorie."'>".get_category_name($pdo3, $this->categorie)."</a>";		
-		echo "</div>";		
+		echo "</div>";
+		
 		/* affichage des boutons d'export : pdf, mail, print */
 		
-		echo "<div class='col-md-2 offset-md-2'>";
+		echo "<div class='col-md-2'>";
 			echo "<p>";
-			echo "<a href='pdf.php?page=categories&id=".$this->ref."'><i class='far fa-file-pdf fa-2x'></i></a>&nbsp;&nbsp;";
-			echo "<a href='print.php?id=".$this->ref."'><i class='fas fa-print fa-2x'></i></a>&nbsp;&nbsp;";
-			echo "<a href='#'><i class='fas fa-envelope-square fa-2x'></i></a>&nbsp;&nbsp;";
+			echo "<a href='pdf.php?page=categories&id=".$this->ref."'><i class='far fa-file-pdf fa-1x'></i></a>&nbsp;&nbsp;";
+			echo "<a href='print.php?id=".$this->ref."'><i class='fas fa-print fa-1x'></i></a>&nbsp;&nbsp;";
+			echo "<a href='#'><i class='fas fa-envelope-square fa-1x'></i></a>&nbsp;&nbsp;";
 			echo "</p>";
 		echo "</div>";
 		
