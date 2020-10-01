@@ -58,7 +58,7 @@
       
       <!-- Modules du blog -->
       <li class="nav-item">
-        <a class="nav-link" href="index.php?page=modules_blog">
+        <a class="nav-link" href="modules_blog.php">
           <i class="far fa-clone"></i>
           <span><?php echo ASIDE_ADMIN_4; ?></span></a>
       </li>

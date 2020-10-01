@@ -7,6 +7,38 @@ require ('fonctions.php');
 include ('../config.php');
 include('../langues/admin.php');
 
+$traitement  = 0;
+
+if (! empty ( $_POST ['b-aside-1'] )) 
+	{
+	
+	$sql = "SELECT * FROM modules WHERE type='blog'";
+	$req = $pdo->query ( $sql );
+
+	/* mise à jour des positions */
+
+	while ( $row = $req->fetch(PDO::FETCH_ASSOC) ) 
+		{
+		$temp = $row ['nomdumodule'];
+
+		$mod = "UPDATE modules SET position ='" . $_POST [$temp] . "' WHERE nomdumodule = '" . $temp . "' AND type='blog'";
+		$res = $pdo->prepare ( $mod );
+		$res->execute ();
+		}
+
+	/* mise à jour de visible */
+
+	foreach ( $_POST ['visible'] as $valeur ) 
+		{
+		$mod = "UPDATE modules SET visible ='" . $valeur . "' WHERE nomdumodule = '" . $temp . "' AND type='blog'";
+		// echo $mod."<br />";
+		$res = $pdo->prepare ( $mod );
+		$res->execute ();
+		}
+	
+	$traitement = 1;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +52,7 @@ include('../langues/admin.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><?php echo ASIDE_ADMIN_0." - ".ASIDE_ADMIN_4; ?></title>
+  <title><?php echo ASIDE_ADMIN_0." - ".TITRE_RUB_ADMIN_5; ?></title>
 
   <!-- Font Awesome 5.9.0 -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
@@ -110,21 +142,89 @@ include('../langues/admin.php');
         <div class="container-fluid">
 
 		<!-- Page Heading -->
-		<h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_4; ?></h1>
+		<h1 class="h3 mb-2 text-gray-800"><?php echo TITRE_RUB_ADMIN_5; ?></h1>
 
-		<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>                   
-         <div class="card shadow mb-4">
-         	<div class="card-header py-3">
-            	<h6 class="m-0 font-weight-bold text-primary"><?php echo "Titre todo"; ?></h6>
+		<p class="mb-4"><?php INTRO_MODUL_BLOG; ?></p>
+
+		<?php 
+		if($traitement == 1)
+			{
+			echo '<div class="alert alert-success" role="alert">'.ALERT_MODUL_BLOG.'</div>';
+			}
+		?>
+
+		<form method="POST" action="modules_blog.php">
+
+		<!-- DataTales Example -->         
+        <div class="card shadow mb-4">
+        	<div class="card-header py-3">
+            	<h6 class="m-0 font-weight-bold text-primary"><?php echo MODUL_GES; ?></h6>
             </div>
-            
-            <div class="card-body">
-     	    Contenu : Titres et noms des modules 
-            </div>
-         </div> 
+          	<div class="card-body">
+            	<div class="table-responsive">
+
+				<?php
+				
+				$stat = "SELECT * FROM modules WHERE nomdumodule LIKE 'b-aside%'";
+				$res_stat = $pdo->query ( $stat );
+				
+				?>
+
+				<table class="table table-bordered" id="dataTable">
+				<thead>
+          <tr>
+						<th><?php echo MODUL_NAME; ?></th>
+						<th><?php echo MODUL_DES; ?></th>
+						<th><?php echo MODUL_POS; ?></th>
+						<th><?php echo MODUL_VIS; ?></th>
+					</tr>
+				</thead>
+				
+				<tfoot>
+          <tr>
+						<th><?php echo MODUL_NAME; ?></th>
+						<th><?php echo MODUL_DES; ?></th>
+						<th><?php echo MODUL_POS; ?></th>
+						<th><?php echo MODUL_VIS; ?></th>
+					</tr>
+				</tfoot>
+				
+				<tbody> 
+
+				<?php
+				
+				while ( $data = $res_stat->fetch (PDO::FETCH_ASSOC) ) {
+					echo "<tr>";
+					echo "<td>" . $data ['nomdumodule'] . "</td>";
+					echo "<td>" . $data ['description'] . "</td>";
+				
+					echo '<td><input type="text" value="' . $data ['position'] . '" name="' . $data ['nomdumodule'] . '"></td>';
+				
+					if ($data ['visible'] == 0) {
+						/* si non visible - le name de l'input est $data['nomdumodule']."_chk" */
+						echo '<td><INPUT type="checkbox" name="visible[]" value="0"></td>';
+					} else {
+						/* si visible - le name de l'input est $data['nomdumodule']."_chk" */
+						echo '<td><INPUT type="checkbox" name="visible[]" value="1" checked></td>';
+					}
+				
+					echo "</tr>";
+				}
+				
+				?> 
+
+				</tbody>
+				</table>
+				
+ 			 	</div>
+         	</div>
+         </div>
+
+         <!-- input type="submit" class="btn btn-primary" value="Enregistrer" -->
+         <button type="submit" class="btn btn-primary"><?php echo MODUL_SAVE; ?></button>
+
+	     </form>     
              
-         <input type="submit" class="btn btn-primary" value="Enregistrer">
-
          </div>
          <!-- /.container-fluid -->
 

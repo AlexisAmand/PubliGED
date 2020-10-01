@@ -144,12 +144,12 @@ if (! empty ( $_POST ['g-aside-1'] ))
 		<!-- Page Heading -->
 		<h1 class="h3 mb-2 text-gray-800"><?php echo TITRE_RUB_ADMIN_6; ?></h1>
 
-		<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+		<p class="mb-4"><?php INTRO_MODUL_GEN; ?></p>
 
 		<?php 
 		if($traitement == 1)
 			{
-			echo '<div class="alert alert-success" role="alert">Les options ont bien été enregistrées</div>';
+      echo '<div class="alert alert-success" role="alert">'.ALERT_MODUL_BLOG.'</div>';
 			}
 		?>
 
@@ -158,7 +158,7 @@ if (! empty ( $_POST ['g-aside-1'] ))
 		<!-- DataTales Example -->         
         <div class="card shadow mb-4">
         	<div class="card-header py-3">
-            	<h6 class="m-0 font-weight-bold text-primary"><?php echo "Gestion des modules"; ?></h6>
+            	<h6 class="m-0 font-weight-bold text-primary"><?php echo MODUL_GES; ?></h6>
             </div>
           	<div class="card-body">
             	<div class="table-responsive">
@@ -173,19 +173,19 @@ if (! empty ( $_POST ['g-aside-1'] ))
 				<table class="table table-bordered" id="dataTable">
 				<thead>
 					<tr>
-						<th>Nom du module</th>
-						<th>Description</th>
-						<th>Position</th>
-						<th>Visible</th>
+						<th><?php echo MODUL_NAME; ?></th>
+						<th><?php echo MODUL_DES; ?></th>
+						<th><?php echo MODUL_POS; ?></th>
+						<th><?php echo MODUL_VIS; ?></th>
 					</tr>
 				</thead>
 				
 				<tfoot>
-					<tr>
-						<th>Nom du module</th>
-						<th>Description</th>
-						<th>Position</th>
-						<th>Visible</th>
+          <tr>
+						<th><?php echo MODUL_NAME; ?></th>
+						<th><?php echo MODUL_DES; ?></th>
+						<th><?php echo MODUL_POS; ?></th>
+						<th><?php echo MODUL_VIS; ?></th>
 					</tr>
 				</tfoot>
 				
@@ -220,17 +220,8 @@ if (! empty ( $_POST ['g-aside-1'] ))
          	</div>
          </div>
                        
-         <div class="card shadow mb-4">
-         	<div class="card-header py-3">
-            	<h6 class="m-0 font-weight-bold text-primary"><?php echo "Titre todo"; ?></h6>
-            </div>
-            
-            <div class="card-body">
-     	    Contenu : Titres et noms des modules 
-            </div>
-         </div> 
-             
-         <input type="submit" class="btn btn-primary" value="Enregistrer">
+         <!-- input type="submit" class="btn btn-primary" value="Enregistrer" -->
+         <button type="submit" class="btn btn-primary"><?php echo MODUL_SAVE; ?></button>
 
 	     </form>     
              

@@ -150,21 +150,32 @@ define ( "ADM_COMM_EDIT", "Editer" );
 define ( "ADM_COMM_SUPPR", "Supprimer" );
 define ( "ADM_COMM_PUBLISH", "Publier" );
 
-/* --------------- */
+/* --------------------------------- */
+/* Position et affichage des modules */
+/* --------------------------------- */
+
+define ("MODUL_GES","Gestion des modules");
+define ("MODUL_NAME","Nom du module");
+define ("MODUL_DES","Description");
+define ("MODUL_POS","Position");
+define ("MODUL_VIS","Visible");
+define ("MODUL_SAVE","Sauvegarder");
+
 /* Modules du blog */
-/* --------------- */
 
 define ( "TITRE_RUB_ADMIN_5", "Modules du blog" );
+define ( "ALERT_MODUL_BLOG", "Les options des modules du blog ont bien été enregistrées");
+define ( "INTRO_MODUL_BLOG", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
 
-/* --------------------- */
 /* Modules de généalogie */
-/* --------------------- */
 
 define ( "TITRE_RUB_ADMIN_6", "Modules généalogie" );
+define ( "ALERT_MODUL_GEN", "Les options des modules de généalogie ont bien été enregistrées");
+define ( "INTRO_MODUL_GEN", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
 
-/* ---------------- */
-/* Gestion de la BD */
-/* ---------------- */
+/* ----------------------------- */
+/* Gestion de la Base de données */
+/* ----------------------------- */
 
 define ( "ADM_DB_SUPPR", "Supprimer les tables" );
 define ( "ADM_DB_CREATE", "Créer les tables (?)" ); /* pas sûr */
