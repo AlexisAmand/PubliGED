@@ -10,7 +10,7 @@
 	$reqModuleLieux = $pdo2->prepare($sqlModuleLieux);
 	$reqModuleLieux->execute();
 
-	/* On vérifie si la page demandée existe. Si elle n'existe pas, on redirige vers le blog */
+	/*  */
 
 	while ($row = $reqModuleLieux->fetch(PDO::FETCH_ASSOC)) 
 		{

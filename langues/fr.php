@@ -1,31 +1,31 @@
 <?php
 
-/* ------------- */
-/* HEADER PUBLIC */
-/* ------------- */
+/* ---------------------- */
+/* Header du Front Office */
+/* ---------------------- */
 
 define ( "SITE_TITLE", "PubliGED" );
 define ( "SITE_SLOGAN", "Site de demonstration du projet" );
 
-/* --------- */
-/* PILLMENU */
-/* --------- */
+/* ------------------------ */
+/* Pillmenu du Front Office */
+/* ------------------------ */
 
 define ( "PILLMENU_1", "Mon blog" );
 define ( "PILLMENU_2", "Ma généalogie" );
 define ( "PILLMENU_3", "Administration" );
 define ( "PILLMENU_4", "Me contacter" );
 
-/* -------------- */
-/* FIL D'ARIANE */
-/* -------------- */
+/* ---------------------------- */
+/* Fil d'ariane du Front Office */
+/* ---------------------------- */
 
 define ( "HERE", "Accueil" );
 define ( "ARTICLES", "Articles" );
 
-/* ---------------------------------------------------- */
-/* TEXTES DES TITRES DE L'ASIDE DE LA PARTIE GENEALOGIE */
-/* ---------------------------------------------------- */
+/* ------------------------------------- */
+/* Titres de l'aside - Partie Généalogie */
+/* ------------------------------------- */
 
 define ( "ASIDE_1", "Le blog" );
 define ( "ASIDE_2", "Les stats" );
@@ -67,29 +67,30 @@ define ( "NO_GEDCOM", "Aucun Gedcom n'a encore été envoyé." );
 /* TODO : A DEPLACER DANS admin.php        */
 /* --------------------------------------- */
 
-define ( "TITRE_RUB_ADMIN_0", "Ajouter un article" );
-define ( "TITRE_RUB_ADMIN_1", "Modifier un article" );
-define ( "TITRE_RUB_ADMIN_14", "Ajouter une catégorie" );
-define ( "TITRE_RUB_ADMIN_15", "Modifier une catégorie" );
+// define ( "TITRE_RUB_ADMIN_0", "Ajouter un article" );
+// define ( "TITRE_RUB_ADMIN_1", "Modifier un article" );
+// define ( "TITRE_RUB_ADMIN_14", "Ajouter une catégorie" );
+// define ( "TITRE_RUB_ADMIN_15", "Modifier une catégorie" );
 
 // define ( "TITRE_RUB_ADMIN_2", "Effacer un gedcom" );
 // define ( "TITRE_RUB_ADMIN_3", "Envoyer un gedcom" );
 
-define ( "TITRE_RUB_ADMIN_4", "Supression des tables" );
-define ( "TITRE_RUB_ADMIN_8", "Création des tables" );
-define ( "TITRE_RUB_ADMIN_13", "Données de démos" );
-define ( "TITRE_RUB_ADMIN_9", "Taille de la base de données" );
+// define ( "TITRE_RUB_ADMIN_4", "Supression des tables" );
+// define ( "TITRE_RUB_ADMIN_8", "Création des tables" );
+// define ( "TITRE_RUB_ADMIN_13", "Données de démos" );
+// define ( "TITRE_RUB_ADMIN_9", "Taille de la base de données" );
 
 // define ( "TITRE_RUB_ADMIN_5", "Modules du blog" );
 // define ( "TITRE_RUB_ADMIN_6", "Modules généalogie" );
-define ( "TITRE_RUB_ADMIN_7", "Options" );
-define ( "TITRE_RUB_ADMIN_11", "Metas" );
 
-define ( "TITRE_RUB_ADMIN_10", "Liste des membres" );
+// define ( "TITRE_RUB_ADMIN_7", "Options" );
+// define ( "TITRE_RUB_ADMIN_11", "Metas" );
 
-define ( "TITRE_RUB_ADMIN_12", "Modérer" );
+// define ( "TITRE_RUB_ADMIN_10", "Liste des membres" );
 
-define ("DASHBOARD", "Tableau de bord");
+// define ( "TITRE_RUB_ADMIN_12", "Modérer" );
+
+// define ("DASHBOARD", "Tableau de bord");
 
 /* ----------------------- */
 /* ASIDE DE LA PARTIE BLOG */
@@ -108,14 +109,14 @@ define ( "ASIDE_BLOG_7", "Recherche" );
 /* TODO : A DEPLACER DANS admin.php */
 /* -------------------------------- */
 
-define ( "ASIDE_ADMIN_0", "PubliGED<br />Administration" );
-define ( "ASIDE_ADMIN_1", "Articles" );
-define ( "ASIDE_ADMIN_2", "Gedcom" );
-define ( "ASIDE_ADMIN_3", "Base de données" );
-define ( "ASIDE_ADMIN_4", "Réglages" );
-define ( "ASIDE_ADMIN_5", "Utilisateurs" );
-define ( "ASIDE_ADMIN_6", "Commentaires" );
-define ( "ASIDE_ADMIN_7", "Modules");
+// define ( "ASIDE_ADMIN_0", "PubliGED<br />Administration" );
+// define ( "ASIDE_ADMIN_1", "Articles" );
+// define ( "ASIDE_ADMIN_2", "Gedcom" );
+// define ( "ASIDE_ADMIN_3", "Base de données" );
+// define ( "ASIDE_ADMIN_4", "Réglages" );
+// define ( "ASIDE_ADMIN_5", "Utilisateurs" );
+// define ( "ASIDE_ADMIN_6", "Commentaires" );
+// define ( "ASIDE_ADMIN_7", "Modules");
 
 /* -------------------------------- */
 /* PUBLICATION DES ARTICLES DU BLOG */
@@ -127,16 +128,16 @@ define ( "DATE", " le " );
 define ( "SEECOMS", "voir les commentaires" );
 define ( "COMMENTS", " a commenté ");
 
-/* ---------- */
+/* -------- */
 /* FLUX RSS */
-/* ---------- */
+/* -------- */
 
 define ( "RSS_TITLE", "Flux RSS du site" );
 define ( "RSS_DESCRIPTION", "Description du flux RSS du site" );
 
-/* ----------------- */
+/* ---------------- */
 /* MESSAGES SYSTEME */
-/* ----------------- */
+/* ---------------- */
 
 define ( "TOO_BIG", "Le fichier est trop gros..." );
 define ( "BAD_TYPE", "Vous devez uploader un fichier de type gedcom !" );
@@ -387,4 +388,5 @@ define ( "ERROR_404", "Erreur 404" );
 
 define ("CREATED_BY","Site propulsé par ");
 define ("COPYRIGHT","Tous droits réservés.");
+
 ?>

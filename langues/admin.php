@@ -200,7 +200,7 @@ define ( "SETTINGS", "Paramètres" );
 define ("LOGOUT","Se déconnecter");
 
 /* ----------------------------- */
-/* Fênetre modale de déconnexion */ 
+/* Fenêtre modale de déconnexion */ 
 /* ----------------------------- */
 
 define ("LOGOUT_TITLE","Prêt à quitter?");
@@ -212,10 +212,7 @@ define ("LOGOUT_CANCEL", "Annuler");
 /* Pied de page de l'administration */
 /* -------------------------------- */
 
-/* ------------ */
-/* PIED DE PAGE */
-/* ------------ */
-
 define ("CREATED_BY","Site propulsé par ");
 define ("COPYRIGHT","Tous droits réservés.");
+
 ?>
