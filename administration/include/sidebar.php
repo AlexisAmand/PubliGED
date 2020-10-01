@@ -119,9 +119,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
           <i class="fas fa-fw fa-cog"></i>
-          
-          <?php /* TODO : mettre le mot option dans le fichier admin.php, il y est peut-être déjà */ ?>
-          
+                    
           <span><?php echo ASIDE_ADMIN_9;  ?></span>
         </a>
         <div id="collapse6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">

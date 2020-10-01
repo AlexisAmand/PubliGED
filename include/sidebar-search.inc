@@ -1,50 +1,50 @@
-<!-- MODULE QUI AFFICHE LE MENU DE LA RECHERCHE -->
+<?php
 
-<?php 
+$sqlArticles = $pdo2->prepare ( "SELECT * FROM articles WHERE article LIKE '%" . $_GET['recherche'] . "%' OR titre LIKE '%" . $_GET['recherche'] . "%'" );
+$sqlArticles->execute ();
+$nbSearchArticles = $sqlArticles->rowCount ();
 
-if (isset ( $_POST ['recherche'] )) {
-	// echo "Votre recherche: ".$_POST['recherche'] . "<br />";
+$sqlIndividu = $pdo2->prepare ( "SELECT * FROM individus WHERE nom LIKE '%" . $_GET['recherche'] . "%' OR prenom LIKE '%" . $_GET['recherche'] . "%'" );
+$sqlIndividu->execute ();
+$nbSearchIndividus = $sqlIndividu->rowCount();
 
-	$sqlRechercheArticle = $pdo2->prepare("SELECT * FROM articles WHERE article LIKE '%" . $_POST ['recherche'] . "%' OR titre LIKE '%" . $_POST ['recherche'] . "%'");
-	$sqlRechercheArticle->execute();
-	$nbRechercheArticle= $sqlRechercheArticle->rowCount();
-	
-	$sqlRechercheIndividu = $pdo2->prepare("SELECT * FROM individus WHERE nom LIKE '%" . $_POST ['recherche'] . "%' OR surname LIKE '%" . $_POST ['recherche'] . "%'");
-	$sqlRechercheIndividu->execute();
-	$nbRechercheIndividu= $sqlRechercheIndividu->rowCount();
-	
-	$sqlRechercheLieu = $pdo2->prepare("SELECT * FROM lieux WHERE ville LIKE '%" . $_POST ['recherche'] . "%' OR region LIKE '%" . $_POST ['recherche'] . "%'");
-	$sqlRechercheLieu->execute();
-	$nbRechercheLieu= $sqlRechercheLieu->rowCount();
-	
-	/*
-	$sqlRechercheEvenements = $pdo2->prepare(" ");
-	$sqlRechercheEvenements->execute();
-	$nbRechercheEvenements= $sqlRechercheEvenements->rowCount();
-	*/
-	
-} else {
-	$nbRechercheArticle = 0;
-	$nbRechercheIndividu = 0;
-	$nbRechercheLieu = 0;
-	$nbRechercheEvenements = 0;
-}
+$sqlLieux = $pdo2->prepare ( "SELECT * FROM lieux WHERE ville LIKE '%" . $_GET['recherche'] . "%' OR dep LIKE '%" . $_GET['recherche'] . "%'" );
+$sqlLieux->execute ();
+$nbSearchLieux = $sqlLieux->rowCount();
 
 ?>
 
-<div class="card bg-light border-secondary mb-3">
+<!-- MODULE QUI AFFICHE LE MENU DE LA RECHERCHE -->
+
+<div class="card mb-3">
 
 	<div class="card-header"><?php echo MENU_RESULT; ?></div>
 
 	<ul class='list-group'>
-		<li class='list-group-item'><a href="#"><?php echo MENU_RESULT_ARTICLE; ?>
-		<span class='badge badge-primary badge-pill'><?php echo $nbRechercheArticle; ?></span></a></li>
-		<li class='list-group-item'><a href="#"><?php echo MENU_RESULT_INDIVIDU; ?>
-		<span class='badge badge-primary badge-pill'><?php echo $nbRechercheIndividu; ?></span></a></li>
-		<li class='list-group-item'><a href="#"><?php echo MENU_RESULT_PLACE; ?>
-		<span class='badge badge-primary badge-pill'><?php echo $nbRechercheLieu; ?></span></li>
-		<li class='list-group-item'><a href="#"><?php echo "Evenements" ?>
-		<span class='badge badge-primary badge-pill'>X</span></li>
+		<li class='list-group-item d-flex justify-content-between align-items-center'>
+			<a href="index.php?page=search&type=1&recherche=<?php echo $_GET['recherche']; ?>">
+			<?php echo MENU_RESULT_ARTICLE; ?>
+			<span class='badge badge-primary badge-pill'><?php echo $nbSearchArticles; ?></span>
+			</a>
+		</li>
+		<li class='list-group-item d-flex justify-content-between align-items-center'>
+			<a href="index.php?page=search&type=2&recherche=<?php echo $_GET['recherche']; ?>">
+			<?php echo MENU_RESULT_INDIVIDU; ?>
+			<span class='badge badge-primary badge-pill'><?php echo $nbSearchIndividus; ?></span>
+			</a>
+		</li>
+		<li class='list-group-item d-flex justify-content-between align-items-center'>
+			<a href="index.php?page=search&type=3&recherche=<?php echo $_GET['recherche']; ?>">
+			<?php echo MENU_RESULT_PLACE; ?>
+			<span class='badge badge-primary badge-pill'><?php echo $nbSearchLieux; ?></span>
+			</a>
+		</li>
+		<li class='list-group-item d-flex justify-content-between align-items-center'>
+			<a href="index.php?page=search&type=3&recherche=<?php echo $_GET['recherche']; ?>">
+			<?php /* a ajouter dans le menu de langue */ echo "Evenements"; ?>
+			<span class='badge badge-primary badge-pill'>X</span>
+			</a>
+		</li>
 	</ul>
 
 </div>

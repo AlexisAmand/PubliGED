@@ -197,6 +197,9 @@ class pages
 				case "categories" :
 					$this->rubrique = ASIDE_BLOG_2;
 					break;
+				case "search" :
+					$this->rubrique = MENU_RESULT;
+					break;
 				case "blog" :
 					$this->rubrique = ASIDE_BLOG_1;
 					break;

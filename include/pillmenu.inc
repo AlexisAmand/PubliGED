@@ -62,8 +62,10 @@ switch ($_GET ['page']) {
 			?>
 		</ul>
 
-		<form class="form-inline my-2 my-lg-0" method="POST" action="index.php?page=search">
+		<form class="form-inline my-2 my-lg-0" method="GET" action="index.php">
 			<input class="form-control mr-sm-2" type="text"	placeholder="Recherche" name="recherche" value="recherche" onclick="this.value = '';">
+			<input type="hidden" name="page" value="search">
+			<input type="hidden" name="type" value="1">
 			<button class="btn btn-secondary my-2 my-sm-0" type="submit" value="ok">
 				<i class="fa fa-search"></i>
 			</button>

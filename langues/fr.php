@@ -62,9 +62,10 @@ define ( "TITRE_RUB_14", "Crédits" );
 
 define ( "NO_GEDCOM", "Aucun Gedcom n'a encore été envoyé." );
 
-/* ------------------------------------------------- */
-/* TITRE PAGES ET ASIDE DE LA PARTIE ADMIN - TO MOVE */
-/* ------------------------------------------------- */
+/* --------------------------------------- */
+/* TITRE PAGES ET ASIDE DE LA PARTIE ADMIN */
+/* TODO : A DEPLACER DANS admin.php        */
+/* --------------------------------------- */
 
 define ( "TITRE_RUB_ADMIN_0", "Ajouter un article" );
 define ( "TITRE_RUB_ADMIN_1", "Modifier un article" );
@@ -102,9 +103,10 @@ define ( "ASIDE_BLOG_5", "Réseaux sociaux" );
 define ( "ASIDE_BLOG_6", "Blogroll" );
 define ( "ASIDE_BLOG_7", "Recherche" );
 
-/* ------------------------ */
-/* ASIDE DE LA PARTIE ADMIN - TO MOVE */
-/* ------------------------ */
+/* -------------------------------- */
+/* ASIDE DE LA PARTIE ADMIN         */
+/* TODO : A DEPLACER DANS admin.php */
+/* -------------------------------- */
 
 define ( "ASIDE_ADMIN_0", "PubliGED<br />Administration" );
 define ( "ASIDE_ADMIN_1", "Articles" );
@@ -356,7 +358,7 @@ define ( "THEREIS", "Il y a " );
 define ( "NB_RESULT", " resultat pour " );
 define ( "NB_RESULTS", " resultats pour " );
 
-define ("MENU_RESULT","Resultats");
+define ("MENU_RESULT","Recherche");
 define ("MENU_RESULT_ARTICLE","Article(s)");
 define ("MENU_RESULT_INDIVIDU","Individu(s)");
 define ("MENU_RESULT_PLACE","Lieu(x)");
