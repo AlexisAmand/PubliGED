@@ -1,6 +1,98 @@
+Todo Liste du 2 octobre 2020
+----------------------------
+
+Blog
+----
+
+- remettre le module "crédits" en bas.
+- remettre le module "blog" en haut.
+
+catégories
+----------
+
+- dans le fil d'ariane, le nom de la catégorie ne s'affiche pas.
+
+article
+-------
+
+- dans le fil d'ariane, le nom de l'article en cours ne s'affiche pas.
+
+eve
+---
+
+- dans la colonne date, il y a un soucis avec les caracteres spéciaux
+
+cartographie
+------------
+
+- possibilité de changer le fond de carte ? 
+- centrer la carte sur les individus
+- intégrer la géolocalisation de la belgique ?
+- voir pour les régions (anciennes et récentes)
+- la carte actuelle semble être en anglais
+
+patrolieux
+----------
+
+- page à faire 
+
+anniversaires
+-------------
+
+- page à faire
+
+images
+------
+
+- page à faire
+
+sources
+-------
+
+- RAS pour le moment
+
+stats
+-----
+
+- il faut rendre cette page un peu plus ludique, un peu plus jolie
+- graph baton avec les mois de naissance
+
+fiche individuelle
+------------------
+
+- Âge au décès ?
+- Mariages
+
+patro
+-----
+
+- RAS pour le moment
+
+liste individu
+--------------
+
+- RAS pour le moment
+
+liste éclair
+------------
+
+- RAS pour le moment
+
+sosa
+----
+
+- page à faire
+
+Todo Liste
+----------
+
 - fond03.jpg -> source : le site devostock
 
 - liste des professions ?
+
+- changer le nom des modules
+
+-  la licence de Font Awesome est a vérifier, il faudra peut-être trouver une alternative
 
 BUGS TO FIX
 -----------
@@ -27,11 +119,3 @@ https://sql.sh/1548-mysql-innodb-myisam
 - MAJ : script qui lit le gedcom que l'on a envoyé
 
 - MAJ : le formulaire qui envoi le fichier est presque un drag and drop avec Dropzone JS dont j'ai commencé à mettre certains éléments en français
-
-
-
-
-
-
-
-

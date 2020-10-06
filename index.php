@@ -36,16 +36,16 @@ require_once 'vendor/autoload.php';
 	
 	<?php /* TODO: Cette CSS sera générée automatiquement en fonction des préférences de l'utilisateur; */ ?>
 		
-	<link href="templates/bootstrap/css/bootstrap.minty.css" rel="stylesheet">
+	<link href="templates/cerulean/bootstrap.cerulean.css" rel="stylesheet">
 		
 	<!-- Obligatoire - importe les css de Font Awesome et Leaflet -->
 	
-	<link href="templates/css/commons.css" rel="stylesheet">
+	<link href="templates/system/css/commons.css" rel="stylesheet">
 	
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
 	<link href="js/datatables/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 	
-	<!-- OpenStreetMap et Leaflet 1.6 -->
+	<!-- OpenStreetMap et Leaflet 1.7 -->
 	
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 	
@@ -57,17 +57,21 @@ require_once 'vendor/autoload.php';
 
 <div class="container fixed-top">
 
-	<div class="col-md-12">
-	
-		<?php include ('include/pillmenu.inc'); ?>
-	
+	<div class="row">
+
+		<div class="col-md-12">
+		
+			<?php include ('include/pillmenu.inc'); ?>
+		
+		</div>
+
 	</div>
 
 </div>
 
 <div class="container">
 
-	<header class="row">
+	<header class="row" style="background-image: url(img/fond03.jpg);background-position: center;">
 
 		<div class="col-12">
 
@@ -119,7 +123,7 @@ require_once 'vendor/autoload.php';
 
 	<!-- Bootstrap 4.4.1 -->
 	
-	<script src="templates/bootstrap/js/bootstrap.min.js"></script>
+	<script src="templates/system/bootstrap/js/bootstrap.min.js"></script>
 	
 	<!-- librairie datatables 1.10.20 pour tableaux bootstrap 4 -->
 	
