@@ -53,7 +53,7 @@ define("ADM_RUB_TITRE_4", "Modérer" );
 define ("ADM_RUB_TITRE_5", "Effacer un gedcom" );
 define ("ADM_RUB_TITRE_6", "Envoyer un gedcom" );
 define ("ADM_RUB_TITRE_10","Paramètres");
-define ("ADM_RUB_TITRE_9","Thèmes");
+define ("ADM_RUB_TITRE_9","Personnalisation");
 define ("ADM_RUB_TITRE_7","Liste des utilisateurs");
 define ("ADM_RUB_TITRE_8","Ajout d'un utilisateur");
 
@@ -191,6 +191,10 @@ define ( "ADM_DB_SIZE", "Taille de la base" );
 /* Gestion des options */
 /* ------------------- */
 
+define ( "ADM_ST_SEND","Enregistrer");
+
+/* Paramètres */
+
 define ( "ADM_ST_TITLE", "Paramètres" );
 define ( "ADM_ST_RUBRIC_1", "Généralités" );
 define ( "ADM_ST_ACT1", "Activer le blog" );
@@ -200,7 +204,14 @@ define ( "ADM_ST_PAGE","Nombre de resultats par page");
 define ( "ADM_ST_TOP","Valeurs des tops");
 define ( "ADM_ST_RUBRIC_3","Partie blog");
 define ( "ADM_ST_ACT3","Activer les commentaires");
-define ( "ADM_ST_SEND","Enregistrer");
+
+/* Thèmes */
+
+define ("","Liste des themes disponibles");
+
+/* Favicon */
+
+define ("CHOOSE_FAV","Choix du favicon");
 
 /* ------ */
 /* Profil */

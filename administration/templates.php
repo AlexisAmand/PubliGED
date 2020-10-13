@@ -7,6 +7,21 @@ require ('fonctions.php');
 include ('../config.php');
 include('../langues/admin.php');
 
+/* mise à jour si un theme a été choisi */
+
+if (isset($_GET['template']))
+  {
+    $mod = "UPDATE configuration SET valeur ='" . $_GET['template'] . "' WHERE nom = 'template'";
+		$res = $pdo->prepare ( $mod );
+		$res->execute ();
+  }
+
+/* récup du theme actuel pour la bouton radio */
+
+$req = $pdo->prepare("SELECT * FROM configuration WHERE nom='template'");
+$req->execute();
+$row = $req->fetch();
+
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +48,7 @@ include('../langues/admin.php');
   
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-  
+
 </head>
 
 <body id="page-top">
@@ -110,78 +125,99 @@ include('../langues/admin.php');
         <div class="container-fluid">
         
         <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_ST_TITLE; ?></h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_9; ?></h1>
+          <p class="mb-4"> </p>
+
+          <form action="templates.php" method="GET">
           
-          <!-- DataTales Example -->         
+          <!-- Choix du theme -->
           <div class="card shadow mb-4">
                <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_ST_RUBRIC_1; ?></h6>
+                 <h6 class="m-0 font-weight-bold text-primary">Liste des themes disponibles</h6>
                </div>
                <div class="card-body">
-                                        
-               <div class="form-group">
-               <form method="POST" action="save-options.php">
-			
-				<div class="form-check">
-				  <input class="form-check-input" type="checkbox" value="ActivBlog" id="defaultCheck1" name="tabOptions[]">
-				  <label class="form-check-label" for="defaultCheck1">
-				    <?php echo ADM_ST_ACT1; ?>
-				  </label>
-				</div>	
-					
-				<div class="form-check">
-				  <input class="form-check-input" type="checkbox" value="ActivGene" id="defaultCheck2" name="tabOptions[]">
-				  <label class="form-check-label" for="defaultCheck2">
-				    <?php echo ADM_ST_ACT2; ?>
-				  </label>
-				</div>
-				
-				<div class="form-check">
-				  <input class="form-check-input" type="checkbox" value="ActivContact" id="defaultCheck3" name="tabOptions[]">
-				  <label class="form-check-label" for="defaultCheck3">
-				    <?php echo "Activation de la page contact"; ?>
-				  </label>
-				</div>
+
+               <div class="row">
+
+                  <?php
+
+                  /* 
+                  - Récup du nom des dossiers contenus dans /templates/
+                  - Voir la doc pour plus d'infos 
+                  */
+
+                  $d = dir("../templates/");
+                  while($entry = $d->read()) 
+                    {
+                    $pasglop = array(".", "..", "system");
+                    if (!in_array($entry, $pasglop)) 
+                      {
+                      echo '<div class="col-md-4 col-12 col-sm-6 mb-3 col-lg-3">';
+                      //.'<img src="../templates/'.$entry.'/'.$entry.'.png" class="img-fluid rounded">'
+                      
+                      /* */
+                      
+                      /* La minature existe ? On affiche sinon... bah une miniature par défaut */
+
+                      $thumbTheme = '../templates/'.$entry.'/'.$entry.'.png';
+
+                      if(file_exists($thumbTheme))
+                        {
+                        echo '<img src="'.$thumbTheme.'" class="img-fluid rounded img-thumbnail">';
+                        }
+                      else
+                        {
+                        echo '<img src="https://via.placeholder.com/260x165.png" class="img-fluid rounded img-thumbnail">';
+                        }
+                      
+                      /* vérification du theme actuel, pour cocher la case... */
+      
+                      if($entry == $row['valeur'])
+                        {
+                        echo '<input type="radio" name="template" value="'.$entry.'" checked>&nbsp;'
+                        ."<span class='text-capitalize'>".$entry.'</span></div>';
+                        }
+                      else
+                        {
+                        echo '<input type="radio" name="template" value="'.$entry.'">&nbsp;'
+                        ."<span class='text-capitalize'>".$entry.'</span></div>';
+                        }
+
+                      }
+
+                    }
+
+                  /* Fermeture du dossier template */ 
+                  $d->close();
+                  ?>
+
+                </div>
 	
-			   </div>
-               </div>
+			    </div>
+
           </div>
-          
+
+          <!-- Choix du favicon -->
+
           <div class="card shadow mb-4">
                <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_ST_RUBRIC_2; ?></h6>
+                 <h6 class="m-0 font-weight-bold text-primary"><?php echo CHOOSE_FAV; ?></h6>
                </div>
                <div class="card-body">
-               <div class="form-group">        
-               	 <?php /* TODO : 
-               	 		- Récupérer la valeur de "value" dans les options dans les tables
-               	 		- faire une vérification pour que les valeurs soit bien des nombres
-               	 		- peut-être qu'il faut un min et un max ? 
-               	 	   */
-               	 ?>    	   
-	          	 <label><?php echo ADM_ST_TOP; ?></label>
-	          	 <input type="text" value="10" name="top">	
-			   </div>
-               </div>
+
+               <div class="row">
+
+                <div class="form-group">
+                  <label for="envoyerAvatar">Lorem ipsum</label>
+                  <input type="file" class="form-control-file" id="envoyerAvatar">
+                </div>
+
+                </div>
+	
+			    </div>
+
           </div>
           
-          <div class="card shadow mb-4">
-          	   <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_ST_RUBRIC_3; ?></h6>
-               </div>
-               <div class="card-body">
-               <div class="form-group">
-       
-			   <div class="form-check">
-			      <input class="form-check-input" type="checkbox" value="ActivComm" id="defaultCheck1" name="tabOptions[]">
-				  <label class="form-check-label" for="defaultCheck1">
-				    <?php echo ADM_ST_ACT3; ?>
-				  </label>
-			   </div>	
-			   </div>
-		  </div>
- 		</div>
 			<input type="submit" class="btn btn-primary" value="<?php echo ADM_ST_SEND; ?>">
 
 		</form>

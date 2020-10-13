@@ -125,7 +125,7 @@
         <div id="collapse6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="options.php"><?php echo ADM_RUB_TITRE_10;  ?></a>
-            <a class="collapse-item" href="#"><?php echo ADM_RUB_TITRE_9;  ?></a>
+            <a class="collapse-item" href="templates.php"><?php echo ADM_RUB_TITRE_9;  ?></a>
           </div>
         </div>
       </li>

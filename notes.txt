@@ -81,7 +81,12 @@ liste éclair
 sosa
 ----
 
-- page à faire
+- page à 
+
+templates
+---------
+
+- indiquer la source des templates -> vérifier la licence
 
 Todo Liste
 ----------

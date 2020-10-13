@@ -228,6 +228,8 @@ class pages
 			}
 		
 		}
+
+	/* cette méthode récupére le title et la meta description pour le HEAD */
 	
 	public function AfficherMeta($pdo2)
 		{	
@@ -241,7 +243,24 @@ class pages
 		/* affichage de la meta description */
 		echo "<meta name='description' content='>".$data['description']."'>\n";
 		}
-	
+
+	/* cette méthode récupére le template perso */
+
+	public function AfficherHeader($pdo2)
+		{
+		$sqlHeader = $pdo2->prepare("select * from configuration where nom = 'template'");
+		$sqlHeader->execute();
+		$data = $sqlHeader->fetch();
+
+		/* affichage du template perso */
+		echo '<link href="templates/'.$data['valeur'].'/bootstrap.min.css" rel="stylesheet">';
+
+		/* TODO : récupération et affichage de favicon perso */
+		echo '<link rel="icon" type="image/gif" href="img/icon.jpg" />';
+		}
+
+	/* Cette méthode affiche le aside et le contenu du site*/
+
 	public function AfficherContenu($pdo2) 
 		{		
 		$balise = ($GLOBALS['aside']==1)?'<article class="col-md-9">':'<article class="col-md-12">';
@@ -299,10 +318,14 @@ class pages
 						
 		}
 
+	/* Cette méthode affiche le pied de page du site */
+
 	public function AfficherFooter() 
 		{
 		include ('include/footer.inc');
 		}
+
+	/* Todo : Je ne suis pas sûr que cette méthode serve encore */
 	
 	public function Titre() 
 		{

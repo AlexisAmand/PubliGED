@@ -33,11 +33,9 @@ require_once 'vendor/autoload.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<?php $InfoPage->AfficherMeta($pdo); ?>
+
+	<?php $InfoPage->AfficherHeader($pdo); ?>
 	
-	<?php /* TODO: Cette CSS sera générée automatiquement en fonction des préférences de l'utilisateur; */ ?>
-		
-	<link href="templates/cerulean/bootstrap.cerulean.css" rel="stylesheet">
-		
 	<!-- Obligatoire - importe les css de Font Awesome et Leaflet -->
 	
 	<link href="templates/system/css/commons.css" rel="stylesheet">
@@ -48,9 +46,7 @@ require_once 'vendor/autoload.php';
 	<!-- OpenStreetMap et Leaflet 1.7 -->
 	
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-	
-	<link rel="icon" type="image/gif" href="img/icon.jpg" />
-		
+
 </head>
 
 <body>
