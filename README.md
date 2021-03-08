@@ -1,5 +1,7 @@
 PubliGED est ce que j’appelle un GMS (Genealogy Management System) par analogie avec les CMS, comme Joomla, WordPress ou Spip. Développé essentiellement en PHP et SQL, avec quelques gouttes de CSS et de HTML, PubliGED a pour but de permettre aux généalogistes de publier facilement et rapidement leurs généalogies en utilisant le gedcom, un format de fichier commun à la plupart des logiciels de généalogie.
 
+Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet pour le moment, j'ai un peu peur que ça parte dans tous les sens. Cependant, n'hésitez pas à me soumettre vos idées et vos suggestions, voire même à consulter les sources à titre pédagogique.
+
 PubliGED a deux grandes fonctionnalités :
 -----------------------------------------
 
