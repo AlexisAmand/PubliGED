@@ -36,16 +36,21 @@ require_once 'vendor/autoload.php';
 
 	<?php $InfoPage->AfficherHeader($pdo); ?>
 	
-	<!-- Obligatoire - importe les css de Font Awesome et Leaflet -->
+	<!-- Obligatoire - importe le css de Font Awesome -->
 	
 	<link href="templates/system/css/commons.css" rel="stylesheet">
 	
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
 	<link href="js/datatables/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 	
 	<!-- OpenStreetMap et Leaflet 1.7 -->
+
+	 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   	 integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+     crossorigin=""/>
 	
-	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
 
 </head>
 

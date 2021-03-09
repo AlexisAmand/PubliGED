@@ -239,7 +239,7 @@ class pages
 		$data = $sqlMeta->fetch();
 		
 		/* affichage du title */
-		echo "<title>".$data['titre']."</title>\n";
+		echo "<title>".$data['titre']." | ".$GLOBALS['NomduSite']."</title>\n";
 		/* affichage de la meta description */
 		echo "<meta name='description' content='>".$data['description']."'>\n";
 		}

@@ -1,6 +1,13 @@
 <?php
 
 /* TODO : Je me demande si ce fichier ne devrait pas plutôt être un DB.php qui serait includé partout. */
+/* Ce fichier sera créé de façon dynamique au moment de l'installation */
+
+/* ----------- */
+/* Nom du site */
+/* ----------- */
+
+$GLOBALS['NomduSite'] = "Site de démo de PubliGED";
 
 /* --------------- */
 /* connexion à SQL */
@@ -24,12 +31,7 @@ catch ( Exception $e ) {
 /* activation des erreurs */
 /* ---------------------- */
 
-
-
-
 /* cette ligne empêche le bug ONLY_FULL_GROUP_BY que j'ai rencontré lors du passage à Laragon */
-
-
 
 /* TODO: l'adresse du site sera une variable dont on récupére la valeur dans la base de données. 
  * Ensuite, on utilise define(), pour mettre la valeur de variable dans la constante. (LOL)

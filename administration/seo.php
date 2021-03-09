@@ -121,14 +121,17 @@ include('../langues/admin.php');
             <div class="card-body">
      	   
      	   	  <div class="form-group">
-			    <label for="exampleFormControlInput1">Nom du site</label>
-			    <input type="text" class="form-control" id="exampleFormControlInput1">
-			  </div>
+              <!-- ce champ devra est placé dans la variable $GLOBALS['NomduSite'] du fichier config.php -->
+			        <label for="exampleFormControlInput1">Nom du site</label>
+			        <input type="text" class="form-control" id="exampleFormControlInput1">
+			      </div>
 			  
-			  <div class="form-group">
-			    <label for="exampleFormControlInput2">Description du site</label>
-			    <input type="tex" class="form-control" id="exampleFormControlInput2">
-			  </div>
+			      <div class="form-group">
+
+              <!-- dans la plupart des pages, ce champ est récupéré dans la BD, mais peut-être faut-il une sorte de valeur par défaut -->
+			        <label for="exampleFormControlInput2">Description du site</label>
+			        <input type="text" class="form-control" id="exampleFormControlInput2">
+			      </div>
      	   
             </div>
          </div> 
