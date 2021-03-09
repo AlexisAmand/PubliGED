@@ -37,7 +37,7 @@ catch ( Exception $e ) {
  * Ensuite, on utilise define(), pour mettre la valeur de variable dans la constante. (LOL)
  */
 
-define("URL_SITE", "http://127.0.0.1/PubliGED/");
+define("URL_SITE", "/");
 
 // Reporte toutes les erreurs PHP
 
