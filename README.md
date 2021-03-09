@@ -43,8 +43,8 @@ Obtenues via https://packagist.org et Composer 2
 Javascript (dont tinyMCE et JavaScript)
 ---------------------------------------
 
-- Datatables 1.10.18
-- Leaflet 1.6
+- Datatables 1.10.23
+- Leaflet 1.7.1
 https://leafletjs.com/download.html
 - tinyMCE 5.1.5
 https://www.tiny.cloud/get-tiny/self-hosted/

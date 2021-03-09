@@ -126,7 +126,7 @@ require_once 'vendor/autoload.php';
 	
 	<script src="templates/system/bootstrap/js/bootstrap.min.js"></script>
 	
-	<!-- librairie datatables 1.10.20 pour tableaux bootstrap 4 -->
+	<!-- librairie datatables 1.10.23 pour tableaux bootstrap 4 -->
 	
   	<script src="js/datatables/datatables/js/jquery.datatables.min.js"></script>
   	<script src="js/datatables/datatables/js/dataTables.bootstrap4.min.js "></script>
