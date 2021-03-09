@@ -34,7 +34,7 @@ Framework
 Librairies PHP
 --------------
 
-Obtenues via https://packagist.org et Composer
+Obtenues via https://packagist.org et Composer 2
 
 - PHPMailer/PHPMailer 6.3.0
 - egulias/EmailValidator 2.1.25
