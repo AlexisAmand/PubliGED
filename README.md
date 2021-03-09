@@ -36,8 +36,8 @@ Librairies PHP
 
 Obtenues via https://packagist.org et Composer
 
-- PHPMailer/PHPMailer 6.1.7
-- egulias/EmailValidator 2.1.20 
+- PHPMailer/PHPMailer 6.3.0
+- egulias/EmailValidator 2.1.25
 - mpdf/mpdf 7.1.9
 
 Javascript (dont tinyMCE et JavaScript)
