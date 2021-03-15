@@ -72,7 +72,7 @@ require_once 'vendor/autoload.php';
 
 <div class="container">
 
-	<header class="row" style="background-image: url(img/fond03.jpg);background-position: center;">
+	<header class="row" style="background-image: url('https://via.placeholder.com/2560x1560.png');">
 
 		<div class="col-12">
 

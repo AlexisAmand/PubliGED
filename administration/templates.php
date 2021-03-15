@@ -157,7 +157,7 @@ $row = $req->fetch();
                       
                       /* */
                       
-                      /* La minature existe ? On affiche sinon... bah une miniature par défaut */
+                      /* La miniature existe ? On affiche sinon... bah une miniature par défaut */
 
                       $thumbTheme = '../templates/'.$entry.'/'.$entry.'.png';
 
@@ -167,7 +167,7 @@ $row = $req->fetch();
                         }
                       else
                         {
-                        echo '<img src="https://via.placeholder.com/260x165.png" class="img-fluid rounded img-thumbnail">';
+                        echo '<img src="https://via.placeholder.com/2560x1560.png" class="img-fluid rounded img-thumbnail">';
                         }
                       
                       /* vérification du theme actuel, pour cocher la case... */
