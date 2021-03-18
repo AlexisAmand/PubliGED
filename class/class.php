@@ -241,22 +241,48 @@ class pages
 		/* affichage du title */
 		echo "<title>".$data['titre']." | ".$GLOBALS['NomduSite']."</title>\n";
 		/* affichage de la meta description */
-		echo "<meta name='description' content='>".$data['description']."'>\n";
+		echo "<meta name='description' content='".$data['description']."'>\n";
 		}
 
 	/* cette méthode récupére le template perso */
 
-	public function AfficherHeader($pdo2)
+	public function AfficherCSS($pdo2)
 		{
-		$sqlHeader = $pdo2->prepare("select * from configuration where nom = 'template'");
+		$sqlHeader = $pdo2->prepare("SELECT * FROM configuration WHERE nom = 'template'");
 		$sqlHeader->execute();
 		$data = $sqlHeader->fetch();
 
 		/* affichage du template perso */
+
 		echo '<link href="templates/'.$data['valeur'].'/bootstrap.min.css" rel="stylesheet">';
 
+		/* récupération des feuilles de styles obligatoires */
+
+		echo '<link href="templates/system/css/commons.css" rel="stylesheet">';
+		echo '<link href="js/datatables/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet">';
+
 		/* TODO : récupération et affichage de favicon perso */
-		echo '<link rel="icon" type="image/gif" href="img/icon.jpg" />';
+
+		$req = $pdo2->prepare("SELECT * FROM configuration WHERE nom='favicon'");
+		$req->execute();
+		$rowFavicon = $req->fetch();
+		$NomDuFavicon = $rowFavicon['valeur'];
+		// echo '/templates/'.$data['valeur'].'/images/'.$NomDuFavicon; 
+		echo '<link rel="icon" href="/templates/'.$data['valeur'].'/images/'.$NomDuFavicon.'">'; 
+		// echo '<link rel="icon" href="img/icon.jpg">';
+		// echo '<link rel="icon" type="image/gif" href="img/icon.jpg" />';
+		}
+
+	/* Cette méthode affiche le pied de page du site */
+
+	public function AfficherPillmenu() 
+		{
+		include ('include/pillmenu.inc');
+		}
+
+	public function AfficherHeader() 
+		{
+		include ('include/header.inc');
 		}
 
 	/* Cette méthode affiche le aside et le contenu du site*/

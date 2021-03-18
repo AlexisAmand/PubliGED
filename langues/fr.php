@@ -13,8 +13,7 @@ define ( "SITE_SLOGAN", "Site de demonstration du projet" );
 
 define ( "PILLMENU_1", "Mon blog" );
 define ( "PILLMENU_2", "Ma généalogie" );
-define ( "PILLMENU_3", "Administration" );
-define ( "PILLMENU_4", "Me contacter" );
+define ( "PILLMENU_3", "Me contacter" );
 
 /* ---------------------------- */
 /* Fil d'ariane du Front Office */
@@ -386,7 +385,9 @@ define ( "ERROR_404", "Erreur 404" );
 /* PIED DE PAGE */
 /* ------------ */
 
-define ("CREATED_BY","Site propulsé par ");
+define ("CREATED_BY","Site propulsé sur le web par ");
 define ("COPYRIGHT","Tous droits réservés.");
+define ("CMS_NAME", "PubliGED");
+define ("ADMIN_LINK", "Administrer mon site" );
 
 ?>

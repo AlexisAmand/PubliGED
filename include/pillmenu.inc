@@ -45,8 +45,6 @@ switch ($_GET ['page']) {
 			
             echo '<a class="nav-link" href="index.php?page=patro">'.PILLMENU_2.'</a>';
 			echo '</li>';
-			echo '<li class="nav-item"><a class="nav-link" href="administration/index.php">'.PILLMENU_3.'</a>';
-			echo '</li>';
 			
 			if ($PageActive == '3')
 				{
@@ -57,7 +55,7 @@ switch ($_GET ['page']) {
 				echo '<li class="nav-item">';
 				}
 			 
-        	echo '<a class="nav-link" href="index.php?page=contact">'.PILLMENU_4.'</a>';
+        	echo '<a class="nav-link" href="index.php?page=contact">'.PILLMENU_3.'</a>';
 			echo '</li>';
 			?>
 		</ul>

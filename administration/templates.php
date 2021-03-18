@@ -7,20 +7,56 @@ require ('fonctions.php');
 include ('../config.php');
 include('../langues/admin.php');
 
-/* mise à jour si un theme a été choisi */
+/* Récup du thème utilisé ou mise à jour de la BD avec le nouveau */
 
-if (isset($_GET['template']))
+if (!empty($_POST['template']))
   {
-    $mod = "UPDATE configuration SET valeur ='" . $_GET['template'] . "' WHERE nom = 'template'";
-		$res = $pdo->prepare ( $mod );
-		$res->execute ();
+  $mod = "UPDATE configuration SET valeur ='" . $_POST['template'] . "' WHERE nom = 'template'";
+	$res = $pdo->prepare ( $mod );
+	$res->execute ();
+  $NomDuTemplate = $_POST['template'];
+  }
+else
+  {
+  $req = $pdo->prepare("SELECT * FROM configuration WHERE nom='template'");
+  $req->execute();
+  $rowTemplate = $req->fetch();  
+  $NomDuTemplate = $rowTemplate['valeur'];
   }
 
-/* récup du theme actuel pour la bouton radio */
+/* Récup du favicon utilisé ou mise à jour de la BD avec le nouveau */
 
-$req = $pdo->prepare("SELECT * FROM configuration WHERE nom='template'");
-$req->execute();
-$row = $req->fetch();
+if(!empty($_FILES['favicon']))
+  {
+
+  echo "Le fichier a été envoyé";
+
+  $NomDuFavicon = $_FILES['favicon']['name'];
+
+  var_dump($NomDuFavicon);
+
+  $mod = "UPDATE configuration SET valeur ='" . $NomDuFavicon . "' WHERE nom = 'favicon'";
+	$res = $pdo->prepare ( $mod );
+	$res->execute (); 
+
+  /* On déplace le nouveau favicon vers le dossier du template */
+
+  // $up_dir = '/templates/'.$NomDuTemplate.'/images';
+  // $tmp_name = $_FILES["favicon"]["tmp_name"];
+  /*$name = basename($_FILES["favicon"]["name"]);*/
+  // $NomDuFavicon = $_FILES["favicon"]["name"];
+  // move_uploaded_file($tmp_name, $up_dir."/".$NomDuFavicon);
+  }
+else
+  {
+
+  echo "Le fichier n'a pas été envoyé";
+
+  $req = $pdo->prepare("SELECT * FROM configuration WHERE nom='favicon'");
+  $req->execute();
+  $rowFavicon = $req->fetch();
+  $NomDuFavicon = $rowFavicon['valeur'];
+  }
 
 ?>
 
@@ -48,6 +84,17 @@ $row = $req->fetch();
   
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+  <style>
+
+  /* Personnalisation du bouton parcourir */
+
+  .custom-file-input ~ .custom-file-label::after 
+    {
+    content: "Parcourir";
+    }
+
+  </style>
 
 </head>
 
@@ -128,7 +175,7 @@ $row = $req->fetch();
           <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_9; ?></h1>
           <p class="mb-4"> </p>
 
-          <form action="templates.php" method="GET">
+          <form action="templates.php" method="POST" enctype="multipart/form-data">
           
           <!-- Choix du theme -->
           <div class="card shadow mb-4">
@@ -137,14 +184,11 @@ $row = $req->fetch();
                </div>
                <div class="card-body">
 
+               <p class="text-justify">Ces themes sont issus du site <a href="https://bootswatch.com">Bootswatch</a> et disponibles sous licence <a href="https://mit-license.org">MIT</a>.</p>
+
                <div class="row">
 
                   <?php
-
-                  /* 
-                  - Récup du nom des dossiers contenus dans /templates/
-                  - Voir la doc pour plus d'infos 
-                  */
 
                   $d = dir("../templates/");
                   while($entry = $d->read()) 
@@ -153,13 +197,12 @@ $row = $req->fetch();
                     if (!in_array($entry, $pasglop)) 
                       {
                       echo '<div class="col-md-4 col-12 col-sm-6 mb-3 col-lg-3">';
-                      //.'<img src="../templates/'.$entry.'/'.$entry.'.png" class="img-fluid rounded">'
-                      
-                      /* */
-                      
-                      /* La miniature existe ? On affiche sinon... bah une miniature par défaut */
+                                            
+                      /* La miniature existe ? On affiche sinon... bah une miniature par défaut récupérée sur Placeholder */
 
                       $thumbTheme = '../templates/'.$entry.'/'.$entry.'.png';
+
+                      echo '<figure class="figure">';
 
                       if(file_exists($thumbTheme))
                         {
@@ -172,16 +215,22 @@ $row = $req->fetch();
                       
                       /* vérification du theme actuel, pour cocher la case... */
       
-                      if($entry == $row['valeur'])
+                      if($entry == $NomDuTemplate)
                         {
+                        echo '<figcaption class="figure-caption text-center pt-2">';
                         echo '<input type="radio" name="template" value="'.$entry.'" checked>&nbsp;'
                         ."<span class='text-capitalize'>".$entry.'</span></div>';
+                        echo '</figcaption>';
                         }
                       else
                         {
+                        echo '<figcaption class="figure-caption text-center pt-2">';
                         echo '<input type="radio" name="template" value="'.$entry.'">&nbsp;'
                         ."<span class='text-capitalize'>".$entry.'</span></div>';
+                        echo '</figcaption>';
                         }
+                      
+                      echo '</figure>';
 
                       }
 
@@ -205,12 +254,16 @@ $row = $req->fetch();
                </div>
                <div class="card-body">
 
-               <div class="row">
+                <div class="row">
 
-                <div class="form-group">
-                  <label for="envoyerAvatar">Lorem ipsum</label>
-                  <input type="file" class="form-control-file" id="envoyerAvatar">
-                </div>
+                <p>Le favicon actuel est : <img src="<?php echo '/templates/'.$NomDuTemplate.'/images/'.$NomDuFavicon ?>"></p>
+  
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="validatedInputGroupCustomFile" name="favicon" value="plop">
+                      <label class="custom-file-label" for="validatedInputGroupCustomFile">Selectionnez votre fichier si vous voulez le changer...</label>
+                    </div>
+
+                    <!-- Favicon actuel -->
 
                 </div>
 	
@@ -218,10 +271,10 @@ $row = $req->fetch();
 
           </div>
           
-			<input type="submit" class="btn btn-primary" value="<?php echo ADM_ST_SEND; ?>">
+			<input type="submit" class="btn btn-primary" value="Enregistrer les modifications">
 
 		</form>
-		   
+
         </div>
         <!-- /.container-fluid -->
 
@@ -285,7 +338,7 @@ $row = $req->fetch();
 
     <!-- Ce script contient l'initialisation du plugin datatables de jquery -->
   <script src="js/demo/datatables-demo.js"></script>
- 
+
 </body>
 
 </html>

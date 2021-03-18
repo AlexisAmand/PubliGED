@@ -234,7 +234,7 @@ define ("LOGOUT_CANCEL", "Annuler");
 /* Pied de page de l'administration */
 /* -------------------------------- */
 
-define ("CREATED_BY","Site propulsé par ");
+define ("CREATED_BY","Site propulsé sur le web par ");
 define ("COPYRIGHT","Tous droits réservés.");
 
 ?>

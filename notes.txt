@@ -1,6 +1,3 @@
-Todo Liste du 2 octobre 2020
-----------------------------
-
 Blog
 ----
 
@@ -87,11 +84,10 @@ templates
 ---------
 
 - indiquer la source des templates -> vérifier la licence
+- Le <title> n'est pas bon
 
 Todo Liste
 ----------
-
-- fond03.jpg -> source : le site devostock
 
 - liste des professions ?
 
@@ -103,6 +99,7 @@ BUGS TO FIX
 -----------
 
 - lors de l'envoi d'un article, il y a un bug si la personne oublie de mettre une catégorie
+- Dans son état actuel, publiged fonctionne uniquement s'il est installé à la racine du site
 
 24 avril 2020
 -------------

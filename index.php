@@ -34,14 +34,8 @@ require_once 'vendor/autoload.php';
 	
 	<?php $InfoPage->AfficherMeta($pdo); ?>
 
-	<?php $InfoPage->AfficherHeader($pdo); ?>
-	
-	<!-- Obligatoire - importe le css de Font Awesome -->
-	
-	<link href="templates/system/css/commons.css" rel="stylesheet">
-	
-	<link href="js/datatables/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-	
+	<?php $InfoPage->AfficherCSS($pdo); ?>
+		
 	<!-- OpenStreetMap et Leaflet 1.7 -->
 
 	 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -62,7 +56,7 @@ require_once 'vendor/autoload.php';
 
 		<div class="col-md-12">
 		
-			<?php include ('include/pillmenu.inc'); ?>
+			<?php $InfoPage->AfficherPillmenu(); ?>
 		
 		</div>
 
@@ -76,7 +70,7 @@ require_once 'vendor/autoload.php';
 
 		<div class="col-12">
 
-			<?php include('include/header.inc');?>
+			<?php $InfoPage->AfficherHeader(); ?>
 		
 		</div>
 					
@@ -98,20 +92,16 @@ require_once 'vendor/autoload.php';
 
 	<section class="row">
            
-        	<?php $InfoPage->AfficherAside($pdo); ?>
+        <?php $InfoPage->AfficherAside($pdo); ?>
               	
-    		<?php $InfoPage->AfficherContenu($pdo); ?>		
+    	<?php $InfoPage->AfficherContenu($pdo); ?>		
     	
 	</section>
 
 	<footer class="row">
 
-		<div class="col-md-12 text-center">
-    	
-    		<?php $InfoPage->AfficherFooter(); ?>
+    	<?php $InfoPage->AfficherFooter(); ?>
                 	        
-        </div>
-
 	</footer>
 
 </div>

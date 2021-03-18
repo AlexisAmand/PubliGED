@@ -1,6 +1,6 @@
-<?php 
-/* TODO: A la place de 2016, il faut répurérer la date d'installation du site */ 
+<div class="col-md-12 text-center mt-5">
 
-// echo "&copy; 2016-".date('Y')." - ".COPYRIGHT."<br />";
-echo CREATED_BY.'<a href="http://publiged.genealexis.fr" title="site officiel du PubliGED">PubliGED</a><br />';
-?>
+<?php echo CREATED_BY; ?><a href="http://publiged.genealexis.fr" title="site officiel du PubliGED"><?php echo CMS_NAME; ?></a>
+&nbsp;&nbsp;|&nbsp;&nbsp;<a href="administration/index.php"><?php echo ADMIN_LINK; ?></a><br />
+
+</div>
