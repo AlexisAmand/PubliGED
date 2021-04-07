@@ -5,7 +5,7 @@
 
 require ('../content/fonctions.php');
 include ('../config.php');
-include ('../langues/admin.php');
+include ('../langues/admin/fr.php');
 include ('../class/class.php');
 ?>
 
@@ -18,11 +18,11 @@ include ('../class/class.php');
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="">
+  
 
   <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_6; ?></title>
 
-  <!-- Font Awesome 5.9.0 -->
+  <!-- Font Awesome -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
   
   <!-- Custom fonts for this template -->	
@@ -113,30 +113,30 @@ include ('../class/class.php');
           <div class="card shadow mb-4">
 
                <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo READ_GEDCOM; ?></h6>
+                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_GED_READ; ?></h6>
                </div>
                	<div class="card-body">
                	
                	  <!-- Formulaire html classique -->	
 
-                  <p style='text-align: justify;'>Vous pouvez utiliser ce formulaire pour envoyer votre gedcom. Si vous avez d&eacute;jà envoy&eacute; un gedcom sur le site, celui-ci sera effac&eacute; et remplacé par le nouveau.</p>
+                  <p style='text-align: justify;'><?php echo ADM_GED_TEXT; ?></p>
 
                   <form method="POST" action="lecture.php" enctype="multipart/form-data">
                     <div class="form-group">
-                      <label for="exampleFormControlFile1">Selectionnez votre fichier</label>
+                      <label for="exampleFormControlFile1"><?php echo ADM_GED_SELECT; ?></label>
                       <input type="file" class="form-control-file" id="exampleFormControlFile1" name="avatar">
                     </div>
-                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <button type="submit" class="btn btn-primary"><?php echo ADM_GED_SEND; ?></button>
                   </form>
 
+                  <!-- TODO : Formulaire avec une dropzone -->
+
                   <br /><br /><br /><br /><br />
-                  
-                  <!-- Formulaire avec une dropzone -->
-                    
+
                   <form action="lecture.php" method="GET">
                                   
                     <div class="dropzone"></div>
-                    <button id="startUpload" type="submit" class="btn btn-primary">Envoyer le fichier</button>
+                    <button id="startUpload" type="submit" class="btn btn-primary"><?php echo ADM_GED_SEND; ?></button>
                         
                   </form>
 

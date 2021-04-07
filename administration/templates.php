@@ -5,7 +5,7 @@
 
 require ('fonctions.php');
 include ('../config.php');
-include('../langues/admin.php');
+include('../langues/admin/fr.php');
 
 /* Récup du thème utilisé ou mise à jour de la BD avec le nouveau */
 
@@ -69,11 +69,11 @@ else
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="">
+  
 
   <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_4; ?></title>
 
-  <!-- Font Awesome 5.9.0 -->
+  <!-- Font Awesome -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
   
   <!-- Custom fonts for this template -->	
@@ -180,11 +180,11 @@ else
           <!-- Choix du theme -->
           <div class="card shadow mb-4">
                <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary">Liste des themes disponibles</h6>
+                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_TH_TITLE; ?></h6>
                </div>
                <div class="card-body">
 
-               <p class="text-justify">Ces themes sont issus du site <a href="https://bootswatch.com">Bootswatch</a> et disponibles sous licence <a href="https://mit-license.org">MIT</a>.</p>
+               <p class="text-justify"><?php echo ADM_TH_TEXT_PART_1; ?><a href="https://bootswatch.com">Bootswatch</a><?php echo ADM_TH_TEXT_PART_2; ?><a href="https://mit-license.org">MIT</a>.</p>
 
                <div class="row">
 
@@ -250,17 +250,17 @@ else
 
           <div class="card shadow mb-4">
                <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo CHOOSE_FAV; ?></h6>
+                 <h6 class="m-0 font-weight-bold text-primary"><?php echo FAV_TITLE; ?></h6>
                </div>
                <div class="card-body">
 
                 <div class="row">
 
-                <p>Le favicon actuel est : <img src="<?php echo '/templates/'.$NomDuTemplate.'/images/'.$NomDuFavicon ?>"></p>
+                <p><?php echo FAV_TEXT; ?><img src="<?php echo '/templates/'.$NomDuTemplate.'/images/'.$NomDuFavicon ?>"></p>
   
                     <div class="custom-file">
                       <input type="file" class="custom-file-input" id="validatedInputGroupCustomFile" name="favicon" value="plop">
-                      <label class="custom-file-label" for="validatedInputGroupCustomFile">Selectionnez votre fichier si vous voulez le changer...</label>
+                      <label class="custom-file-label" for="validatedInputGroupCustomFile"><?php echo FAV_SELECT; ?></label>
                     </div>
 
                     <!-- Favicon actuel -->
@@ -271,7 +271,7 @@ else
 
           </div>
           
-			<input type="submit" class="btn btn-primary" value="Enregistrer les modifications">
+			<input type="submit" class="btn btn-primary" value="<?php echo FAV_SEND; ?>">
 
 		</form>
 

@@ -79,8 +79,8 @@
         </a>
         <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="effacer_gedcom.php"><?php echo ADM_RUB_TITRE_5;  ?></a>
             <a class="collapse-item" href="select_gedcom.php"><?php echo ADM_RUB_TITRE_6;  ?></a>
+            <a class="collapse-item" href="effacer_gedcom.php"><?php echo ADM_RUB_TITRE_5;  ?></a>
           </div>
         </div>
       </li>

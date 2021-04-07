@@ -1,3 +1,15 @@
-<h3>Crédits</h3>
+<?php 
+	
+/* -------- */
+/* CREDITS  */
+/* -------- */
+	
+?>
+	
+<h3><?php echo TITRE_RUB_11; ?></h3>
 
-<p>Prochainement...</p>
+<?php
+
+echo '<p>'.SOON.'</p>';
+		
+?>

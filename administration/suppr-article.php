@@ -5,7 +5,7 @@
 
 require ('fonctions.php');
 include ('../config.php');
-include ('../langues/admin.php');
+include ('../langues/admin/fr.php');
 include ('../class/class.php');
 
 ?>
@@ -19,11 +19,10 @@ include ('../class/class.php');
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="">
 
   <title><?php echo ASIDE_ADMIN_0." - ".SUPPR_ARTICLE_TITLE; ?></title>
 
-  <!-- Font Awesome 5.9.0 -->
+  <!-- Font Awesome -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
   
   <!-- Custom fonts for this template -->	
@@ -132,25 +131,23 @@ include ('../class/class.php');
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800"><?php echo SUPPR_ARTICLE_TITLE; ?></h1>
+
           <p class="mb-4">
-          
-          	<?php
-          	if (isset($_GET['id']))
-				{
-				$sql = $pdo->prepare('DELETE FROM articles WHERE ref=:ref');	
-				$sql->bindparam ( ':ref', $_GET['id'] );
-				$req = $sql->execute ();
-				
-				echo '<div class="alert alert-success" role="alert">';
-				echo "<i class='fas fa-check'></i> L'article n° ".$_GET['id']." a bien été effacé !";
-				echo '</div>';			
-				}
-			else 
-				{
-				/* redirection sur l'index */
-				}
-			?>  
-              
+          <?php
+          if (isset($_GET['id']))
+				    {
+				    $sql = $pdo->prepare('DELETE FROM articles WHERE ref=:ref');	
+				    $sql->bindparam ( ':ref', $_GET['id'] );
+				    $req = $sql->execute ();
+			  		echo '<div class="alert alert-success" role="alert">';
+				    echo "<i class='fas fa-check'></i> L'article n° ".$_GET['id']." a bien été effacé !";
+				    echo '</div>';
+				    }
+			    else
+				    {
+				    /* redirection sur l'index */
+				    }
+			    ?>
           </p>
 
         </div>

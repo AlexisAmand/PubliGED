@@ -5,7 +5,7 @@
 
 require ('fonctions.php');
 include ('../config.php');
-include('../langues/admin.php');
+include('../langues/admin/fr.php');
 
 ?>
 
@@ -18,11 +18,11 @@ include('../langues/admin.php');
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="">
+  
 
   <title><?php echo ASIDE_ADMIN_0." - ".ASIDE_ADMIN_10; ?></title>
 
-  <!-- Font Awesome 5.9.0 -->
+  <!-- Font Awesome -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
   
   <!-- Custom fonts for this template -->	
@@ -112,24 +112,24 @@ include('../langues/admin.php');
 		<!-- Page Heading -->
 		<h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_10; ?></h1>
 
-		<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>                   
+		<p class="mb-4"><?php echo ADM_SEO_TEXT; ?></p>                   
          <div class="card shadow mb-4">
          	<div class="card-header py-3">
-            	<h6 class="m-0 font-weight-bold text-primary"><?php echo "Titre todo"; ?></h6>
+            	<h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_SEO_TITLE; ?></h6>
             </div>
             
             <div class="card-body">
      	   
      	   	  <div class="form-group">
               <!-- ce champ devra est placé dans la variable $GLOBALS['NomduSite'] du fichier config.php -->
-			        <label for="exampleFormControlInput1">Nom du site</label>
+			        <label for="exampleFormControlInput1"><?php echo ADM_SEO_SITE_NAME; ?></label>
 			        <input type="text" class="form-control" id="exampleFormControlInput1">
 			      </div>
 			  
 			      <div class="form-group">
 
               <!-- dans la plupart des pages, ce champ est récupéré dans la BD, mais peut-être faut-il une sorte de valeur par défaut -->
-			        <label for="exampleFormControlInput2">Description du site</label>
+			        <label for="exampleFormControlInput2"><?php echo ADM_SEO_SITE_DESC; ?></label>
 			        <input type="text" class="form-control" id="exampleFormControlInput2">
 			      </div>
      	   

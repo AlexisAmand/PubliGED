@@ -76,7 +76,7 @@
 		    echo "<td>".$row['titre']."</td>";
 		    echo "<td>".$row['nom']."</td>";
 		    echo "<td>".$row['source']."</td>";
-		    echo "<td>lien vers images</td>";
+		    echo "<td>".SRC_IMG_LINK."</td>";
 		    echo "</tr>";
 		    }
 		

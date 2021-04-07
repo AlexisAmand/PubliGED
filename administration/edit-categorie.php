@@ -5,8 +5,8 @@
 
 require ('fonctions.php');
 include ('../config.php');
-include ('../langues/admin.php');
-include ('../langues/help.php');
+include ('../langues/admin/fr.php');
+include ('../langues/admin/help.php');
 
 ?>
 
@@ -19,11 +19,11 @@ include ('../langues/help.php');
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="">
+  
 
   <title><?php echo ASIDE_ADMIN_0." - Edition d'une catégorie"; ?></title>
 
-  <!-- Font Awesome 5.9.0 -->
+  <!-- Font Awesome -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
   
   <!-- Custom fonts for this template -->	
@@ -111,12 +111,9 @@ include ('../langues/help.php');
         <div class="container-fluid">
 
 		<!-- Page Heading -->
-		<h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_10; ?></h1>
+		<h1 class="h3 mb-2 text-gray-800"><?php echo ADM_CAT_EDIT; ?></h1>
 
          <div class="card shadow mb-4">
-         	<div class="card-header py-3">
-            	<h6 class="m-0 font-weight-bold text-primary"><?php echo "Edition d'une catégorie"; ?></h6>
-            </div>
             
             <div class="card-body">
             
@@ -151,19 +148,19 @@ include ('../langues/help.php');
 
             <form action="edit-categorie.php?cat=<?php echo $_GET['cat']; ?>" method="POST">
                 <div class="form-group">
-                    <label for="NomCategorie">Nom actuel de la catégorie
+                    <label for="NomCategorie"><?php echo ADM_CAT_NAME; ?>
                     <a href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo HELP_1; ?>">
                     <i class="far fa-question-circle"></i></a></label>
                     <input readonly type="text" class="form-control" id="NomCategorie" name="Nom" value="<?php echo get_category_name($pdo, $_GET['cat']); ?>">
                 </div>
                 <div class="form-group">
-                    <label for="NouveauNomCategorie">Nouveau nom (facultatif)
+                    <label for="NouveauNomCategorie"><?php echo ADM_CAT_NEW; ?>
                     <a href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo HELP_2; ?>">
                     <i class="far fa-question-circle"></i></a></label>
                     <input type="text" class="form-control" id="NouveauNomCategorie" name="NouveauNom">
                 </div>
                 <div class="form-group">
-                    <label for="DescriptionCategorie">Description de la catégorie (facultatif)
+                    <label for="DescriptionCategorie"><?php echo ADM_CAT_DES; ?>
                     <a href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo HELP_3; ?>">
                     <i class="far fa-question-circle"></i></a></label>
                     <textarea class="form-control" id="DescriptionCategorie" rows="3" name="DescriptionNom"></textarea>

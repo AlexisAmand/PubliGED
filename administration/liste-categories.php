@@ -5,7 +5,7 @@
 
 require ('fonctions.php');
 include ('../config.php');
-include ('../langues/admin.php');
+include ('../langues/admin/fr.php');
 include ('../class/class.php');
 
 $article = new articles();
@@ -21,11 +21,11 @@ $article = new articles();
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="">
+  
 
   <title><?php echo ASIDE_ADMIN_0." - Liste des catégories"; ?></title>
 
-  <!-- Font Awesome 5.9.0 -->
+  <!-- Font Awesome -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
   
   <!-- Custom fonts for this template -->	
@@ -133,8 +133,8 @@ $article = new articles();
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_1."test"; ?></h1>
-          <p class="mb-4"><?php echo ADM_ARTICLE_MODIF_INTRO; ?></p>
+          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_CAT_LIST; ?></h1>
+          <p class="mb-4"><?php echo ADM_CAT_MODIF_INTRO; ?></p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">

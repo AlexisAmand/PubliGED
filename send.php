@@ -48,7 +48,7 @@ $mail->SMTPDebug = 2;
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
 $mail->Username = 'alexis.amand@gmail.com';
-$mail->Password = '......'; /* TODO : j'ai supprimé le mdp */
+$mail->Password = '......'; /* TODO : j'ai supprimé le mdp pour la mise sur GitHub*/
 $mail->SMTPSecure = 'tls';
 $mail->Port = 587;
 

@@ -24,6 +24,7 @@ if (isset ( $_GET['recherche']))
 
 	switch($_GET['type'])
 		{
+		/* recherche dans les articles du blog */
 		case '1':
 		
 			$sqlArticles = $pdo2->prepare ( "SELECT * FROM articles WHERE article LIKE '%" . $_GET['recherche'] . "%' OR titre LIKE '%" . $_GET['recherche'] . "%'" );
@@ -47,6 +48,8 @@ if (isset ( $_GET['recherche']))
 				}
 			
 			break;
+
+		/* Recherche dans parmi les individus */	
 		case '2':
 				
 			$sqlIndividu = $pdo2->prepare ( "SELECT * FROM individus WHERE nom LIKE '%" . $_GET['recherche'] . "%' OR prenom LIKE '%" . $_GET['recherche'] . "%'" );
@@ -69,6 +72,8 @@ if (isset ( $_GET['recherche']))
 				}
 
 			break;
+
+		/* Recherche dans parmi les lieux */
 		case '3':
 
 			$sqlLieux = $pdo2->prepare ( "SELECT * FROM lieux WHERE ville LIKE '%" . $_GET['recherche'] . "%' OR dep LIKE '%" . $_GET['recherche'] . "%'" );
@@ -91,11 +96,13 @@ if (isset ( $_GET['recherche']))
 				}
 
 			break;
+
+		/* Recherche todo */
 		case '4':
-			echo "type de recheche n°4";
+			echo SEARCH_4;
 			break;
 		default:
-			echo "Il y a eu une erreur pendant la recherche !";
+			echo SEARCH_ERROR;
 			}
 	}
 

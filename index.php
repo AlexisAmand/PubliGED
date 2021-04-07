@@ -116,7 +116,7 @@ require_once 'vendor/autoload.php';
 	
 	<script src="templates/system/bootstrap/js/bootstrap.min.js"></script>
 	
-	<!-- librairie datatables 1.10.23 pour tableaux bootstrap 4 -->
+	<!-- librairie datatables pour tableaux bootstrap 4 -->
 	
   	<script src="js/datatables/datatables/js/jquery.datatables.min.js"></script>
   	<script src="js/datatables/datatables/js/dataTables.bootstrap4.min.js "></script>
@@ -125,7 +125,7 @@ require_once 'vendor/autoload.php';
   	
   	<script src="administration/js/demo/datatables-demo.js"></script>
   	
-	<!-- TinyMCE 5.1.5 -->
+	<!-- TinyMCE -->
 	
 	<script src="js/tinymce/tinymce.min.js"></script>
 	

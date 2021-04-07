@@ -6,7 +6,7 @@
 require ('fonctions.php');
 require ('../class/class.php');
 include ('../config.php');
-include ('../langues/admin.php');
+include ('../langues/admin/fr.php');
 
 $BaseDeDonnees = new BasesDeDonnees;
 
@@ -22,7 +22,7 @@ $BaseDeDonnees = new BasesDeDonnees;
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="">
+  
 
   <title><?php echo ASIDE_ADMIN_0; ?></title>
 

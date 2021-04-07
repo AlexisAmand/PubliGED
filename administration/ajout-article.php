@@ -6,7 +6,7 @@
 require ('../content/fonctions.php');
 require ('../class/class.php');
 include ('../config.php');
-include('../langues/admin.php');
+include('../langues/admin/fr.php');
 ?>
 
 <!DOCTYPE html>
@@ -18,11 +18,11 @@ include('../langues/admin.php');
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="">
+  
 
   <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_0; ?></title>
 
-  <!-- Font Awesome 5.9.0 -->
+  <!-- Font Awesome -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
   
   <!-- Custom fonts for this template -->	

@@ -5,7 +5,7 @@
 
 require ('fonctions.php');
 include ('../config.php');
-include('../langues/admin.php');
+include('../langues/admin/fr.php');
 ?>
 
 <!DOCTYPE html>
@@ -17,11 +17,11 @@ include('../langues/admin.php');
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="">
+  
 
   <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_4; ?></title>
 
-  <!-- Font Awesome 5.9.0 -->
+  <!-- Font Awesome -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
   
   <!-- Custom fonts for this template -->	
@@ -109,14 +109,11 @@ include('../langues/admin.php');
         <div class="container-fluid">
         
         <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_4; ?></h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_5; ?></h1>
+          <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           
           <!-- DataTales Example -->         
           <div class="card shadow mb-4">
-               <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_RUB_TITRE_4; ?></h6>
-               </div>
                <div class="card-body">
                <div class="form-group">
                <form action="#" method="post">

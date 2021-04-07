@@ -6,7 +6,7 @@
 require ('../content/fonctions.php');
 require ('../class/class.php');
 include ('../config.php');
-include ('../langues/admin.php');
+include ('../langues/admin/fr.php');
 ?>
 
 
@@ -19,11 +19,11 @@ include ('../langues/admin.php');
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="">
+  
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title><?php echo ASIDE_ADMIN_0." - ".ADM_404_TITLE; ?></title>
 
-  <!-- Font Awesome 5.9.0 -->
+  <!-- Font Awesome -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
   
   <!-- Custom fonts for this template -->	
@@ -104,10 +104,10 @@ include ('../langues/admin.php');
 
           <!-- 404 Error Text -->
           <div class="text-center">
-            <div class="error mx-auto" data-text="404">404</div>
-            <p class="lead text-gray-800 mb-5">Page non trouvée</p>
-            <p class="text-gray-500 mb-0">Il semble que vous ayez trouvé un pépin dans la matrice...</p>
-            <a href="index.html">&larr; Retour au tableau de bord</a>
+            <div class="error mx-auto" data-text="404"><?php echo ADM_404; ?></div>
+            <p class="lead text-gray-800 mb-5"><?php echo ADM_404_NO_FOUND; ?></p>
+            <p class="text-gray-500 mb-0"><?php echo ADM_404_TEXT; ?></p>
+            <a href="index.html"><?php echo "&larr;&nbsp;".ADM_404_ROLLBACK; ?></a>
           </div>
 
         </div>

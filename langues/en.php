@@ -1,382 +1,351 @@
 <?php
 
-/* --------------- */
-/* HEADER PUBLIQUE */
-/* --------------- */
+/* --------------------- */
+/* Textes du Frontoffice */
+/*     (version  EN)     */
+/* --------------------- */
 
-define ( "SITE_TITLE", "PubliGED" );
-define ( "SITE_SLOGAN", "Site de demonstration du projet" );
+/* ---------------------- */
+/* Header du Front Office */
+/* ---------------------- */
 
-/* --------- */
-/* PILLMENU */
-/* --------- */
+define("SITE_TITLE","PubliGED");
+define("SITE_SLOGAN","Project demonstration site");
 
-define ( "PILLMENU_1", "Mon blog" );
-define ( "PILLMENU_2", "Ma généalogie" );
-define ( "PILLMENU_3", "Administration" );
-define ( "PILLMENU_4", "Me contacter" );
+/* ------------------------ */
+/* Pillmenu du Front Office */
+/* ------------------------ */
 
-/* -------------- */
-/* FIL D'ARIANE */
-/* -------------- */
+define("PILLMENU_1","My blog");
+define("PILLMENU_2","My genealogy");
+define("PILLMENU_3","Contact me");
 
-define ( "HERE", "Accueil" );
-define ( "ARTICLES", "Articles" );
+/* ---------------------------- */
+/* Fil d'ariane du Front Office */
+/* ---------------------------- */
 
-/* ---------------------------------------------------- */
-/* TEXTES DES TITRES DE L'ASIDE DE LA PARTIE GENEALOGIE */
-/* ---------------------------------------------------- */
+define("HERE","Home");
+define("ARTICLES","Articles");
 
-define ( "ASIDE_1", "Le blog" );
-define ( "ASIDE_2", "Les stats" );
-define ( "ASIDE_3", "Les lieux" );
-define ( "ASIDE_4", "Les individus" );
-define ( "ASIDE_5", "Les événements" );
-define ( "ASIDE_6", "Divers" );
+/* ------------------------------------- */
+/* Titres de l'aside - Partie Généalogie */
+/* ------------------------------------- */
+
+define("ASIDE_1","The blog");
+define("ASIDE_2","The stats");
+define("ASIDE_3","The places");
+define("ASIDE_4","The individuals");
+define("ASIDE_5","The events");
+define("ASIDE_6","Various");
 
 /* ------------------------------------------------------ */
 /* TITRE PAGES, ASIDE et MESSAGES DE LA PARTIE GENEALOGIE */
 /* -------------------------------------------------------*/
 
-define ( "TITRE_RUB_0", "Sommaire" );
+define("TITRE_RUB_0","Summary");
 
-define ( "TITRE_RUB_6", "Liste des patronymes" );
-define ( "TITRE_RUB_8", "Liste des individus" );
-define ( "TITRE_RUB_10", "Liste éclair" );
-define ( "TITRE_RUB_11", "Mes ancêtres" );
+define("TITRE_RUB_6","List of surnames");
+define("TITRE_RUB_8","List of individuals");
+define("TITRE_RUB_10","flash list");
+define("TITRE_RUB_11","my ancestors");
 
-define ( "TITRE_RUB_12", "Liste des événements" );
+define("TITRE_RUB_12","List of events");
 
-// define ( "TITRE_RUB_4", "Liste des lieux" );
-// define ( "TITRE_RUB_5", "Répartition géographique" );
-// define ( "TITRE_RUB_7", "Liste des patronymes par lieux" );
+define("TITRE_RUB_9","Fiches individuelles");
 
-// define ( "TITRE_RUB_1", "Statistiques" );
-// define ( "TITRE_RUB_2", "Les sources" );
-// define ( "TITRE_RUB_3", "Les images" );
-// define ( "TITRE_RUB_13", "Anniversaires du jour" );
+define("TITRE_RUB_14","Crédits");
 
-define ( "TITRE_RUB_9", "Fiches individuelles" );
-
-define ( "TITRE_RUB_14", "Crédits" );
-
-define ( "NO_GEDCOM", "Aucun Gedcom n'a encore été envoyé." );
-
-/* ------------------------------------------------- */
-/* TITRE PAGES ET ASIDE DE LA PARTIE ADMIN - TO MOVE */
-/* ------------------------------------------------- */
-
-define ( "TITRE_RUB_ADMIN_0", "Ajouter un article" );
-define ( "TITRE_RUB_ADMIN_1", "Modifier un article" );
-define ( "TITRE_RUB_ADMIN_14", "Ajouter une catégorie" );
-define ( "TITRE_RUB_ADMIN_15", "Modifier une catégorie" );
-
-define ( "TITRE_RUB_ADMIN_2", "Effacer un gedcom" );
-define ( "TITRE_RUB_ADMIN_3", "Envoyer un gedcom" );
-
-define ( "TITRE_RUB_ADMIN_4", "Supression des tables" );
-define ( "TITRE_RUB_ADMIN_8", "Création des tables" );
-define ( "TITRE_RUB_ADMIN_13", "Données de démos" );
-define ( "TITRE_RUB_ADMIN_9", "Taille de la base de données" );
-
-// define ( "TITRE_RUB_ADMIN_5", "Modules du blog" );
-// define ( "TITRE_RUB_ADMIN_6", "Modules généalogie" );
-define ( "TITRE_RUB_ADMIN_7", "Options" );
-define ( "TITRE_RUB_ADMIN_11", "Metas" );
-
-define ( "TITRE_RUB_ADMIN_10", "Liste des membres" );
-
-define ( "TITRE_RUB_ADMIN_12", "Modérer" );
-
-define ("DASHBOARD", "Tableau de bord");
+define("NO_GEDCOM","Aucun Gedcom n'a encore été envoyé.");
 
 /* ----------------------- */
 /* ASIDE DE LA PARTIE BLOG */
 /* ----------------------- */
 
-define ( "ASIDE_BLOG_1", "Le blog" );
-define ( "ASIDE_BLOG_2", "Rubriques" );
-define ( "ASIDE_BLOG_3", "Derniers articles" );
-define ( "ASIDE_BLOG_4", "Crédits" );
-define ( "ASIDE_BLOG_5", "Réseaux sociaux" );
-define ( "ASIDE_BLOG_6", "Blogroll" );
-define ( "ASIDE_BLOG_7", "Recherche" );
-
-/* ------------------------ */
-/* ASIDE DE LA PARTIE ADMIN - TO MOVE */
-/* ------------------------ */
-
-define ( "ASIDE_ADMIN_0", "PubliGED<br />Administration" );
-define ( "ASIDE_ADMIN_1", "Articles" );
-define ( "ASIDE_ADMIN_2", "Gedcom" );
-define ( "ASIDE_ADMIN_3", "Base de données" );
-define ( "ASIDE_ADMIN_4", "Réglages" );
-define ( "ASIDE_ADMIN_5", "Utilisateurs" );
-define ( "ASIDE_ADMIN_6", "Commentaires" );
-define ( "ASIDE_ADMIN_7", "Modules");
+define("ASIDE_BLOG_1","Le blog");
+define("ASIDE_BLOG_2","Rubriques");
+define("ASIDE_BLOG_3","Derniers articles");
+define("ASIDE_BLOG_4","Crédits");
+define("ASIDE_BLOG_5","Réseaux sociaux");
+define("ASIDE_BLOG_6","Blogroll");
+define("ASIDE_BLOG_7","Recherche");
 
 /* -------------------------------- */
 /* PUBLICATION DES ARTICLES DU BLOG */
 /* -------------------------------- */
 
-define ( "AUTHOR", "Publié par " );
-define ( "RUBRIC", " dans la rubrique " );
-define ( "DATE", " le " );
-define ( "SEECOMS", "voir les commentaires" );
-define ( "COMMENTS", " a commenté ");
+define("AUTHOR","Publié par ");
+define("RUBRIC"," dans la rubrique ");
+define("DATE"," le ");
+define("SEECOMS","voir les commentaires");
+define("COMMENTS"," a commenté ");
 
-/* ---------- */
+/* -------- */
 /* FLUX RSS */
-/* ---------- */
+/* -------- */
 
-define ( "RSS_TITLE", "Flux RSS du site" );
-define ( "RSS_DESCRIPTION", "Description du flux RSS du site" );
+define("RSS_TITLE","Flux RSS du site");
+define("RSS_DESCRIPTION","Description du flux RSS du site");
 
-/* ----------------- */
+/* ---------------- */
 /* MESSAGES SYSTEME */
-/* ----------------- */
+/* ---------------- */
 
-define ( "TOO_BIG", "Le fichier est trop gros..." );
-define ( "BAD_TYPE", "Vous devez uploader un fichier de type gedcom !" );
-define ( "UPLOAD_OK", "Upload effectué avec succès !" );
-define ( "UPLOAD_NOOK", "Echec de l\'upload !" );
+define("TOO_BIG","Le fichier est trop gros...");
+define("BAD_TYPE","Vous devez uploader un fichier de type gedcom !");
+define("UPLOAD_OK","Upload effectué avec succès !");
+define("UPLOAD_NOOK","Echec de l\'upload !");
 
 /* -------------------- */
 /* EVENEMENTS DU GEDCOM */
 /* -------------------- */
 
-define ( "ADOP", "Adoption" );
-define ( "ANUL", "Annulation de mariage" );
+define("ADOP","Adoption");
+define("ANUL","Annulation de mariage");
 
-define ( "BAPL", "Baptême mormon" );
-define ( "BAPM", "Baptême" );
-define ( "BAPT", "Baptême" );
-define ( "BARM", "Bar mitzvah" );
-define ( "BASM", "Bas mitzvah" );
-define ( "BIRT", "Naissance" );
-define ( "BLES", "Bénédiction religieuse" );
-define ( "BURI", "Inhumation" );
+define("BAPL","Baptême mormon");
+define("BAPM","Baptême");
+define("BAPT","Baptême");
+define("BARM","Bar mitzvah");
+define("BASM","Bas mitzvah");
+define("BIRT","Naissance");
+define("BLES","Bénédiction religieuse");
+define("BURI","Inhumation");
 
-define ( "CENS", "Recensement" );
-define ( "CHR", "Baptême" );
-define ( "CONF", "Première communion" );
-define ( "CRIM", "Crime" );
-define ( "CHRA", "baptême religieux d'une personne adute" );
-define ( "CREM", "incinération" );
+define("CENS","Recensement");
+define("CHR","Baptême");
+define("CONF","Première communion");
+define("CRIM","Crime");
+define("CHRA","baptême religieux d'une personne adute");
+define("CREM","incinération");
 
-define ( "DEAT", "Décès" );
-define ( "DIV", "Divorce" );
-define ( "DIVF", "Dossier de divorce d'un epoux" );
-define ( "DONA", "Donation" );
+define("DEAT","Décès");
+define("DIV","Divorce");
+define("DIVF","Dossier de divorce d'un epoux");
+define("DONA","Donation");
 
-define ( "EDUC", "Education" );
-define ( "EMIG", "Emmigration" );
-define ( "EMPL", "Emploi" );
-define ( "ENGA", "Fiançailles" );
-define ( "EVEN", "Evénement" );
-define ( "ENDL", "dotation" );
+define("EDUC","Education");
+define("EMIG","Emmigration");
+define("EMPL","Emploi");
+define("ENGA","Fiançailles");
+define("EVEN","Evénement");
+define("ENDL","dotation");
 
-define ( "FCOM", "Confirmation" );
-define ( "FUNE", "Funérailles" );
+define("FCOM","Confirmation");
+define("FUNE","Funérailles");
 
-define ( "GRAD", "Diplôme" );
+define("GRAD","Diplôme");
 
-define ( "HIST", "Histoire" );
+define("HIST","Histoire");
 
-define ( "IMMI", "Immigration" );
+define("IMMI","Immigration");
 
-define ( "LVG", "Vivant" );
+define("LVG","Vivant");
 
-define ( "MARB", "Bans de mariage" );
-define ( "MARE", "Fiançailles" );
-define ( "MARL", "License de mariage" );
-define ( "MARC", "contrat de mariage" );
-define ( "MARR", "Création d'une famille" );
-define ( "MARS", "Contrat avant mariage" );
+define("MARB","Bans de mariage");
+define("MARE","Fiançailles");
+define("MARL","License de mariage");
+define("MARC","contrat de mariage");
+define("MARR","Création d'une famille");
+define("MARS","Contrat avant mariage");
 
-define ( "NATU", "Naturalisation" );
-define ( "NOBL", "Anoblissement" );
+define("NATU","Naturalization");
+define("NOBL","ennoblement");
 
-define ( "OCCU", "Profession" );
+define("OCCU","Occupation");
 
-define ( "ONDO", "Ondoiement" );
-define ( "ORDN", "Ordination" );
+define("ONDO","Ripple");
+define("ORDN","Ordination");
 
-define ( "PASL", "Liste de passagers" );
-define ( "PROB", "Ouverture de testament" );
+define("PASL","Passenger list");
+define("PROB","Opening a will");
 
-define ( "RELI", "Religion pratiquée" );
-define ( "RESI", "Residence" );
-define ( "RETI", "Retraire" );
-define ( "RMRK", "Remarques" );
+define("RELI","Religion practised");
+define("RESI","Residence");
+define("RETI","Retirement");
+define("RMRK","Remarks");
 
-define ( "SEP", "Séparation" );
-define ( "SEPA", "Séparation" );
+define("SEP","Separation");
+define("SEPA","Separation");
 
-define ( "TBS", "Pierre tombale" );
+define("TBS","Tombstone");
 
-define ( "WILL", "Testament" );
+define("WILL","Will");
 
 /* ---- */
 /* MOIS */
 /* ---- */
 
-define ( "MOIS_1", "janvier" );
-define ( "MOIS_2", "février" );
-define ( "MOIS_3", "mars" );
-define ( "MOIS_4", "avril" );
-define ( "MOIS_5", "mai" );
-define ( "MOIS_6", "juin" );
-define ( "MOIS_7", "juillet" );
-define ( "MOIS_8", "aout" );
-define ( "MOIS_9", "septembre" );
-define ( "MOIS_10", "octobre" );
-define ( "MOIS_11", "novembre" );
-define ( "MOIS_12", "décembre" );
+define("MOIS_1","January");
+define("MOIS_2","February");
+define("MOIS_3","March");
+define("MOIS_4","April");
+define("MOIS_5","May");
+define("MOIS_6","June");
+define("MOIS_7","July");
+define("MOIS_8","August");
+define("MOIS_9","September");
+define("MOIS_10","October");
+define("MOIS_11","November");
+define("MOIS_12","December");
 
-define ( "BEF", "avant" );
-define ( "ABT", "vers" );
-define ( "AFT", "après" );
-define ( "EST", "estimé" );
-define ( "WFT", "estimé par World Family Tree" );
+define("BEF","before");
+define("ABT","about");
+define("AFT","after");
+define("EST","estimated");
+define("WFT","estimated by World Family Tree");
 
 /* ------------------ */
 /* FICHE INDIVIDUELLE */
 /* ------------------ */
 
-define ( "SEX_MAN", "homme" );
-define ( "SEX_WOMAN", "femme" );
-define ( "SEX_UNKNOW", "inconnu" );
+define("SEX_MAN","man");
+define("SEX_WOMAN","woman");
+define("SEX_UNKNOW","unknow");
 
-define ( "BORN", "Né(e) le " );
-define ( "NOBORN", "La naissance est inconnue." );
-define ( "BORNAT", "Né à " );
+define("BORN","Born on ");
+define("NOBORN","The birth is unknown.");
+define("BORNAT","Born at ");
 
-define ( "BAPTISM", "Baptisé(e) le " );
-define ( "NOBAPT", "Le baptême est inconnu." );
-define ( "BAPTAT", "Baptisé(e) à " );
+define("BAPTISM","Baptized on ");
+define("NOBAPT","The baptism is unknown.");
+define("BAPTAT","Baptized at ");
 
-define ( "DEAD", "Décédé(e) le " );
-define ( "NODEAD", "Le décès est inconnu." );
-define ( "DEADAT", "Décédé(e) à " );
+define("DEAD","Died on ");
+define("NODEAD","The death is unknown.");
+define("DEADAT","Died at ");
 
-define ( "INTERMENT", "Inhumé(e) le " );
-define ( "INTERMENTAT", "Inhumé(e) à " );
-define ( "NOINTERMENT", "L'inhumation est inconnue." );
+define("INTERMENT","Buried on ");
+define("INTERMENTAT","Buried at ");
+define("NOINTERMENT","The burial is unknown.");
 
-define ( "NOPLACE", " dans un lieu inconnu." );
+define("NOPLACE"," in an unknown place.");
+define("PLACEUNKNOW","unknown place.");
 
-define ( "JOBS", "Profession(s): " );
+define("JOBS","Occupation(s): ");
 
-define ( "PARENTS", "Ses parents" );
-define ( "NOPARENTS", "Ses parents ne sont pas connus" );
-define ( "FATHER", "Père" );
-define ( "MOTHER", "Mère" );
+define("PARENTS","His parents");
+define("NOPARENTS","His parents are not known");
+define("FATHER","Father");
+define("MOTHER","Mother");
 
-define ( "CHILDREN", "Ses enfants" );
-define ( "NOCHILDREN", "Pas d'enfants connus pour l'instant." );
+define("CHILDREN","His children");
+define("NOCHILDREN","No children known at the moment.");
 
-define ( "CHRONO", "Chronologie" );
+define("CHRONO","Chronology");
 
-define ( "FAMILYTREE", "Arbre" );
+define("FAMILYTREE","Tree");
 
-define ( "NOTE", "Note(s)" );
-define ( "NONOTE", "pas de note." );
+define("NOTE","Note(s)");
+define("NONOTE","no note.");
 
-define ( "NOEVENT", "Pas d'événements connus pour cette personne." );
+define("NOEVENT","No known events for this person.");
 
-define ( "AT", " à " );
+define("AT"," at ");
 
 /* ------------ */
 /* STATISTIQUES */
 /* ------------ */
 
-define ( "TOP", "Top" );
-define ( "TOP_NAME", "des prénoms" );
-define ( "TOP_SURNAME", "des patronymes" );
-define ( "TAB_TOP_SURNAME", "Patronymes" );
-define ( "TAB_TOP_NAME", "Prénoms" );
-define ( "TAB_TOP_QUANTITY", "Quantités" );
+define("TOP","Top");
+define("TOP_NAME","forenames");
+define("TOP_SURNAME","surnames");
+define("TAB_TOP_SURNAME","Surnames");
+define("TAB_TOP_NAME","Forenames");
+define("TAB_TOP_QUANTITY","Quantities");
 
-define ( "NB_MAN", "Nombre d'hommes" );
-define ( "NB_WOMAN", "Nombre de femmes" );
-define ( "NB_UK", "Genre inconnu" );
-define ( "NB_NAME", "Nombre de noms" );
-define ( "NB_PEOPLE", "Nombre d'individus" );
-define ( "NB_EVE", "Nombre d'événements" );
-define ( "NB_SRC", "Nombre de sources" );
-define ( "NB_MEDIA", "Nombre de médias" );
-define ( "NB_SOSA", "Nombre d'ancêtres" );
-define ( "NB_CHILD", "Nombre d'enfants par union" );
-define ( "NB_FAM", "Nombre de familles" );
-define ( "NB_PLACE", "Nombre de lieux" );
-define ( "NB_OLD", "Individu le plus vieux" );
-define ( "NB_CHILD_R", "Le plus grand nombre d'enfants" );
-define ( "NB_UNION_R", "Le plus grand nombre de mariages" );
-define ( "NB_UNION", "Nombre de couples" );
-define ( "NB_OLD_R", "Records de longivité" );
+define("NB_MAN","Number of men");
+define("NB_WOMAN","Number of women");
+define("NB_UK","Unknown genre");
+define("NB_NAME","Number of names");
+define("NB_PEOPLE","Number of individuals");
+define("NB_EVE","Number of events");
+define("NB_SRC","Nombre de sources");
+define("NB_MEDIA","Number of media");
+define("NB_SOSA","Nombre de sources");
+define("NB_CHILD","Number of children per union");
+define("NB_FAM","Number of families");
+define("NB_PLACE","Number of locations");
+define("NB_OLD","Oldest individual");
+define("NB_CHILD_R","The largest number of children");
+define("NB_UNION_R","The largest number of marriages");
+define("NB_UNION","Number of couples");
+define("NB_OLD_R","Long life records");
 
 /* ------------ */
 /* LISTE ECLAIR */
 /* ------------ */
 
-define ( "LIST_NAME", "Nom" );
-define ( "LIST_PLACE", "Lieu" );
-define ( "LIST_REGION", "Région" );
-define ( "LIST_COUNTRY", "Pays" );
+define("LIST_NAME","Name");
+define("LIST_PLACE","Place");
+define("LIST_REGION","Region");
+define("LIST_COUNTRY","Country");
 
 /* ---------- */
 /* EVENEMENTS */
 /* ---------- */
 
-define ( "EVEDATE", "Date" );
-define ( "EVELIEU", "Lieu" );
-define ( "EVETYPE", "Type" );
-define ( "EVESOURCE", "Source" );
-define ( "EVENOTE", "Note" );
+define("EVEDATE","Date");
+define("EVELIEU","Place");
+define("EVETYPE","Type");
+define("EVESOURCE","Source");
+define("EVENOTE","Note");
 
 /* ------- */
 /* SOURCES */
 /* ------- */
 
-define ( "TITRE_SRC", "La source n°" );
-define ( "REFSRC", "Ref" );
-define ( "TITRESRC", "Titre" );
-define ( "SOURCESRC", "Source" );
-define ( "MEDIASRC", "Media" );
-define ( "NOMSRC", "Nom" );
+define("TITRE_SRC","The source no.");
+define("REFSRC","Ref");
+define("TITRESRC","Title");
+define("SOURCESRC","Source");
+define("MEDIASRC","Media");
+define("NOMSRC","Name");
 
 /* ---------- */
 /* RECHERCHES */
 /* ---------- */
 
-define ( "RESULT", "Résultats de la recherche" );
-define ( "THEREIS", "Il y a " );
-define ( "NB_RESULT", " resultat pour " );
-define ( "NB_RESULTS", " resultats pour " );
+define("RESULT","Search results");
+define("THEREIS","There is ");
+define("NB_RESULT"," result for ");
+define("NB_RESULTS"," results for ");
+
+define("MENU_RESULT","Search");
+define("MENU_RESULT_ARTICLE","Article(s)");
+define("MENU_RESULT_INDIVIDU","Individual(s)");
+define("MENU_RESULT_PLACE","Place(s)");
 
 /* ------- */
 /* CONTACT */
 /* ------- */
 
-define ( "FRM_NAME", "Votre nom" );
-define ( "FRM_MAIL", "Votre email" );
-define ( "FRM_TOPIC", "Votre sujet" );
-define ( "FRM_MSG", "Votre message" );
-define ( "CONTACT_WARNING", "Tous les champs sont obligatoires");
-define ("SEND_SUCCESS", "Votre message a bien été envoyé !");
-define ("SEND_FAIL", "Votre message n'a pas pu être envoyé !");
+define("FRM_NAME","Your name");
+define("FRM_MAIL","Your email");
+define("FRM_TOPIC","Your subject");
+define("FRM_MSG","Your message");
+define("CONTACT_WARNING","All fields are required");
+define("SEND_SUCCESS","Your message has been sent !");
+define("SEND_FAIL","Your message could not be sent!");
 
 /* ----------- */
 /* PAGE ERREUR */
 /* ----------- */
 
-define ( "ERROR_404", "Erreur 404" );
+define("ERROR_404","Error 404");
+
+/* ------------------ */
+/* Textes provisoires */
+/* ------------------ */
+
+define("SOON","Coming soon...");
 
 /* ------------ */
 /* PIED DE PAGE */
 /* ------------ */
 
-define ("CREATED_BY","Site propulsé par ");
-define ("COPYRIGHT","Tous droits réservés.");
+define("CREATED_BY","Site powered on the web by ");
+define("COPYRIGHT","All rights reserved.");
+define("CMS_NAME","PubliGED");
+define("ADMIN_LINK","Manage my site");
+
 ?>

@@ -12,7 +12,7 @@
 
 if (VerifGedcom($pdo2)=="1") 
 	{
-	echo '<p>Prochainement...</p>';
+	echo '<p>'.SOON.'</p>';
 	}
 else 
 	{
