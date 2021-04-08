@@ -34,7 +34,7 @@ Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet p
 
 Obtenues via https://packagist.org et Composer 2
 
-* PHPMailer/PHPMailer 6.3.0
+* PHPMailer/PHPMailer 6.4.0
 * egulias/EmailValidator 2.1.25
 * mpdf/mpdf 7.1.9
 
