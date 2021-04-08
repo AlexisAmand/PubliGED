@@ -70,7 +70,7 @@ require_once 'vendor/autoload.php';
 
 		<div class="col-12">
 
-			<?php $InfoPage->AfficherHeader(); ?>
+			<?php $InfoPage->AfficherHeader($pdo); ?>
 		
 		</div>
 					

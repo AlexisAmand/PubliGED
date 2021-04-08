@@ -3,11 +3,11 @@
 /* TODO : Je me demande si ce fichier ne devrait pas plutôt être un DB.php qui serait includé partout. */
 /* Ce fichier sera créé de façon dynamique au moment de l'installation */
 
-/* ----------- */
+/* ----------- */ 
 /* Nom du site */
 /* ----------- */
 
-$GLOBALS['NomduSite'] = "Site de démo de PubliGED";
+$GLOBALS['NomduSite'] = "Site de démo de PubliGED (constante)";
 
 /* --------------- */
 /* connexion à SQL */

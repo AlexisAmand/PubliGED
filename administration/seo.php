@@ -5,7 +5,40 @@
 
 require ('fonctions.php');
 include ('../config.php');
-include('../langues/admin/fr.php');
+include ('../langues/admin/fr.php');
+
+if (isset($_POST['TitreSite']) and isset($_POST['DescriptionSite']))
+  {
+  $sql = "update configuration set valeur ='".$_POST['TitreSite']."' where nom='titre'";
+  $req = $pdo->prepare($sql);
+  $req->execute();
+
+  $sql = "update configuration set valeur ='".$_POST['DescriptionSite']."' where nom='titre'";
+  $req = $pdo->prepare($sql);
+  $req->execute();
+  }
+
+/*
+UPDATE table_name
+SET column1=value, column2=value2,...
+WHERE some_column=some_value 
+*/
+
+/* récup du titre du site pour le header */
+$sql = "select * from configuration where nom='titre'";
+$req = $pdo->prepare($sql);
+$req->execute();
+
+$row = $req->fetch();
+$TitreSite = $row['valeur'];
+
+/* récup du slogan du site pour le header */
+$sql = "select * from configuration where nom='description'";
+$req = $pdo->prepare($sql);
+$req->execute();
+
+$row = $req->fetch();
+$DescriptionSite = $row['valeur'];
 
 ?>
 
@@ -107,42 +140,61 @@ include('../langues/admin/fr.php');
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
+        
         <div class="container-fluid">
 
-		<!-- Page Heading -->
-		<h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_10; ?></h1>
+        <form action="seo.php" method="POST"> 
+		    <!-- Page Heading -->
+		    
+          <h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_10; ?></h1>
 
-		<p class="mb-4"><?php echo ADM_SEO_TEXT; ?></p>                   
-         <div class="card shadow mb-4">
-         	<div class="card-header py-3">
-            	<h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_SEO_TITLE; ?></h6>
-            </div>
+
+		        <p class="mb-4"><?php echo ADM_SEO_TEXT; ?></p>                   
             
-            <div class="card-body">
-     	   
-     	   	  <div class="form-group">
-              <!-- ce champ devra est placé dans la variable $GLOBALS['NomduSite'] du fichier config.php -->
-			        <label for="exampleFormControlInput1"><?php echo ADM_SEO_SITE_NAME; ?></label>
-			        <input type="text" class="form-control" id="exampleFormControlInput1">
-			      </div>
-			  
-			      <div class="form-group">
+            <div class="card shadow mb-4">
+         	    <div class="card-header py-3">
+            	<h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_HD_TITLE; ?></h6>
+              </div>
+            
+              <div class="card-body">     	   
+                <div class="form-group">
+                <label for="exampleFormControlInput1"><?php echo ADM_HD_SITE_NAME; ?></label>
+                  <input type="text" class="form-control" id="exampleFormControlInput1" value="<?php echo $TitreSite; ?>" name="TitreSite">
+                </div>
 
-              <!-- dans la plupart des pages, ce champ est récupéré dans la BD, mais peut-être faut-il une sorte de valeur par défaut -->
-			        <label for="exampleFormControlInput2"><?php echo ADM_SEO_SITE_DESC; ?></label>
-			        <input type="text" class="form-control" id="exampleFormControlInput2">
-			      </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput2"><?php echo ADM_HD_SITE_DESC; ?></label>
+                  <input type="text" class="form-control" id="exampleFormControlInput2" value="<?php echo $DescriptionSite; ?>" name="DescriptionSite">
+                </div>
      	   
+              </div>
             </div>
-         </div> 
+
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+            	<h6 class="m-0 font-weight-bold text-primary">SEO (Référencement)</h6>
+              </div>
+
+              <div class="card-body">
+                <div class="form-group">
+                  <label for=" ">Titre du site (SEO)</label>
+                  <input type="text" class="form-control" id=" " value=" " name=" ">
+                </div>
+
+                <div class="form-group">
+                  <label for=" ">Description (SEO)</label>
+                  <input type="text" class="form-control" id=" " value=" " name=" ">
+                </div>
+
+              </div>
+            </div>
              
-         <input type="submit" class="btn btn-primary" value="Enregistrer">
+            <input type="submit" class="btn btn-primary" value="Enregistrer">
+        </form>
 
-         </div>
-         <!-- /.container-fluid -->
+        </div> <!-- /.container-fluid -->
 
-      </div>
-      <!-- End of Main Content -->
+      </div> <!-- End of Main Content -->
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">

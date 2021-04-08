@@ -237,9 +237,12 @@ define("ADM_DB_TOTAL","Total");
 /* ----------- */
 
 define("ADM_SEO_TEXT","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
-define("ADM_SEO_TITLE","Titre Todo");
-define("ADM_SEO_SITE_NAME","Nom du site");
-define("ADM_SEO_SITE_DESC","Description du site");
+
+/* infos du header */
+
+define("ADM_HD_TITLE","Informations de l'entête");
+define("ADM_HD_SITE_NAME","Nom du site");
+define("ADM_HD_SITE_DESC","Slogan du site");
 
 /* ------------------- */
 /* Gestion des options */

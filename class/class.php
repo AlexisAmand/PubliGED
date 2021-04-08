@@ -240,6 +240,7 @@ class pages
 		
 		/* affichage du title */
 		echo "<title>".$data['titre']." | ".$GLOBALS['NomduSite']."</title>\n";
+		
 		/* affichage de la meta description */
 		echo "<meta name='description' content='".$data['description']."'>\n";
 		}
@@ -280,9 +281,31 @@ class pages
 		include ('include/pillmenu.inc');
 		}
 
-	public function AfficherHeader() 
+	public function AfficherHeader($pdo2) 
 		{
-		include ('include/header.inc');
+
+		/* récup du titre du site pour le header */
+		$sql = "select * from configuration where nom='titre'";
+		$req = $pdo2->prepare($sql);
+		$req->execute();
+
+		$row = $req->fetch();
+		$TitreSite = $row['valeur'];
+
+		/* récup du slogan du site pour le header */
+		$sql = "select * from configuration where nom='description'";
+		$req = $pdo2->prepare($sql);
+		$req->execute();
+
+		$row = $req->fetch();
+		$DescriptionSite = $row['valeur'];
+			
+		echo'<div class="hgroup text-center" style="padding: 100px 0;">
+			<h1>
+				<a href="index.php?page=blog">'.$TitreSite.'</a>
+			</h1>
+			<p>'.$DescriptionSite.'</p>
+		</div>';
 		}
 
 	/* Cette méthode affiche le aside et le contenu du site*/
