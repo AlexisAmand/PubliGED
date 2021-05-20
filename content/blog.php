@@ -96,7 +96,7 @@ while ( $data = $resultat->fetch(PDO::FETCH_ASSOC) )
 {
 	
 	$article = new articles();
-	$commentaire = new commentaires();
+	$commentaire = new Commentaires();
 	
 	/* ref de l'article */
 	

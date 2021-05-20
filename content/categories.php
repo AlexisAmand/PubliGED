@@ -52,7 +52,7 @@ $reqCategories  = $pdo2->query ( $sqlCategories . ' LIMIT '.$premiereEntree.', '
 while ($row = $reqCategories ->fetch(PDO::FETCH_ASSOC)) 
 	{
 	$article = new articles();
-	$commentaire = new commentaires();
+	$commentaire = new Commentaires();
 	
 	/* ref de l'article */
 	

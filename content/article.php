@@ -33,7 +33,7 @@ $article->Afficher($pdo2);
 
 /* Commentaires de l'article */
 
-$commentaire = new commentaires();
+$commentaire = new Commentaires();
  
 $commentaire->AfficheCommentaire($article->ref, $pdo2);
 

@@ -4,8 +4,8 @@
 2 NAME HEREDIS PC
 2 CORP BSD Concept ©
 3 ADDR www.heredis.com
-1 DATE 28 APR 2020
-2 TIME 14:24:19
+1 DATE 25 MAR 2021
+2 TIME 11:54:40
 1 GEDC
 2 VERS 5.5
 2 FORM LINEAGE-LINKED
@@ -24,10 +24,6 @@
 2 GIVN Alain
 2 SURN AMAND
 1 SEX M
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\portraits\alain-amand.jpg
-2 NOTE Alain AMAND
 1 OCCU pianiste
 1 FAMC @10U@
 1 _FIL LEGITIMATE_CHILD
@@ -151,10 +147,6 @@
 1 BIRT
 2 DATE 17 MAR 1832
 2 PLAC Chauny,02300,Aisne,Picardie,FRANCE,
-2 OBJE 
-3 FORM jpg
-3 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\cpa\CHAUNY_Vue_du_Port.jpg
-3 NOTE Une vue du port à Chauny
 2 SOUR @286S@
 2 NOTE Il est né dans le bateau de ses parents, stationné dans le port de Chauny.
 2 ASSO @301I@
@@ -1284,11 +1276,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Hoche Gaston Blomy - naissance - 1895.jpg
-2 NOTE acte de naissance de Hoche Gaston Blomy AMAND à Lourches
-2 DATE 1895
 0 @50S@ SOUR
 1 TITL Acte de décès (1906)
 1 ABBR AMAND Blomy Abélard
@@ -1296,11 +1283,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Blomy Abélard - décès - 1906.jpg
-2 NOTE Acte de décès de Blomy Abélard AMAND à Bouchain
-2 DATE 1906
 0 @54S@ SOUR
 1 TITL Acte de mariage (1919)
 1 ABBR AMAND x THIERY
@@ -1308,21 +1290,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x THIERY - mariage - 1919 (1).jpg
-2 NOTE Acte de mariage entre Hoche Gaston Blomy AMAND et Germaine THIERY
-2 DATE 1919
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x THIERY - mariage - 1919 (2).jpg
-2 NOTE Acte de mariage entre Hoche Gaston Blomy AMAND et Germaine THIERY
-2 DATE 1919
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x THIERY - mariage - 1919 (3).jpg
-2 NOTE Acte de mariage entre Hoche Gaston Blomy AMAND et Germaine THIERY
-2 DATE 1919
 0 @65S@ SOUR
 1 TITL Acte de naissance (1865)
 1 ABBR AMAND Blomy
@@ -1330,16 +1297,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Blomy - naissance - 1865 - (1).jpg
-2 NOTE Acte de naissance de Blomy AMAND à Clairvoix
-2 DATE 1865
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Blomy - naissance - 1865 - (2).jpg
-2 NOTE Acte de naissance de Blomy AMAND à Banteux
-2 DATE 1865
 1 TEXT L'an mil huit cent soixante-cinq, le vingt-un du mois de mai, à sept heures du matin, par devant nous Quentin SORLIN, Maire, officier de l'état-civil de la commune de Banteux, canton de Marcoing, arrondissement de Cambrai, département du Nord
 2 CONC , a comparu Blomy Adolphe AMAND, âgé de trente-trois ans, batelier, domicilié à Clairvoix (Oise): Lequel nous a présenté un enfant du sexe masculin né aujourd'hui à quatre heures du matin, de lui déclarant en son bateau stationnant en amont d
 2 CONC e l'écluse de cette commune et de Hortense Caroline FERNEZ âgée de vingt-neuf ans, batelière, domiciliée au même lieu, son épouse légitime, et auquel il a déclaré vouloir donner des prénoms de Blomy Abailard. Les dites déclaration et présenta
@@ -1352,16 +1309,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Blomy - décès - 1888 (1).jpg
-2 NOTE Acte de décès de Blomy AMAND à Lourches
-2 DATE 1888
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Blomy - décès - 1888 (2).jpg
-2 NOTE Acte de décès de Blomy AMAND ) Clairoix
-2 DATE 1888
 0 @96S@ SOUR
 1 TITL Acte de décès (1832)
 1 ABBR AMAND Florentin
@@ -1369,16 +1316,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Florentin - décès - 1832 (1).jpg
-2 NOTE Acte de naissance de Florentin AMAND à Farquiers
-2 DATE 1832
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Florentin - décès - 1832 (2).jpg
-2 NOTE Acte de naissance de Florentin AMAND
-2 DATE 1832
 0 @104S@ SOUR
 1 TITL Acte de décès (1819)
 1 ABBR AMAND François
@@ -1386,11 +1323,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND François - décès -1819.jpg
-2 NOTE Acte de décès de François AMAND à Valenciennes
-2 DATE 1819
 0 @145S@ SOUR
 1 TITL Relevés des BMS et NMD
 1 REPO A.G.F.H
@@ -1410,16 +1342,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x CHOQUET - mariage - 1722 - (1).jpg
-2 NOTE Acte de mariage AMAND x CHOQUET
-2 DATE 1722
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x CHOQUET - mariage - 1722 - (2).jpg
-2 NOTE Acte de mariage AMAND x CHOQUET
-2 DATE 1722
 0 @242S@ SOUR
 1 TITL Acte de naissance (1897)
 1 ABBR AMAND Fernande
@@ -1427,11 +1349,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Fernande - naissance - 1897.jpg
-2 NOTE Acte de naissance de Fernande AMAND à Lourches
-2 DATE 1897
 0 @273S@ SOUR
 1 TITL Acte de mariage (1905)
 1 ABBR AMAND x TATINCLAUX
@@ -1439,21 +1356,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x TATINCLAUX - mariage -1905 (1).jpg
-2 NOTE Acte de mariage entre Marceau AMAND et Odette TATINCLAUX
-2 DATE 1905
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x TATINCLAUX - mariage -1905 (2).jpg
-2 NOTE Acte de mariage entre Marceau AMAND et Odette TATINCLAUX
-2 DATE 1905
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x TATINCLAUX - mariage -1905 (3).jpg
-2 NOTE Acte de mariage entre Marceau AMAND et Odette TATINCLAUX
-2 DATE 1905
 0 @281S@ SOUR
 1 TITL Acte de baptême (1738)
 1 ABBR AMAND Catherine
@@ -1461,11 +1363,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Catherine - baptême - 1738.jpg
-2 NOTE Acte de baptême de Catherine AMAND
-2 DATE 1738
 0 @286S@ SOUR
 1 TITL Acte de naissance (1832)
 1 ABBR AMAND Blomé
@@ -1474,16 +1371,6 @@
 3 MEDI Numerisation
 1 QUAY 2
 1 _ARCH archi-AB1832
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Blomy - naissance - 1832 (1).jpg
-2 NOTE Acte de naissance de Blomy AMAND à Chauny
-2 DATE 1832
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Blomy - naissance - 1832 (2).jpg
-2 NOTE Acte de naissance de Blomy AMAND à Chauny
-2 DATE 1832
 0 @306S@ SOUR
 1 TITL Acte de décès (1801)
 1 ABBR AMAND Georges
@@ -1491,11 +1378,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Georges - décès - 1801.jpg
-2 NOTE Acte de décès de Georges AMAND à Jemappes
-2 DATE 1801
 0 @315S@ SOUR
 1 TITL Acte de baptême (1749)
 1 ABBR AMAND François Joseph
@@ -1503,11 +1385,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND François Joseph - baptême - 1749.jpg
-2 NOTE Acte de baptême de François AMAND
-2 DATE 1749
 0 @337S@ SOUR
 1 TITL Acte de naissance (1898)
 1 ABBR THIERY Germaine
@@ -1515,11 +1392,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Thiery\THIERY Germaine - naissance - 1898.jpg
-2 NOTE Acte de naissance de Germaine THIERY à Roeulx
-2 DATE 1898
 0 @349S@ SOUR
 1 TITL Recensement de la commune de Roeulx (1906)
 1 ABBR Famille THIERY
@@ -1534,11 +1406,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Nicolas François -  Baptême - 1697.jpg
-2 NOTE Acte de baptême de Nicolas François AMAND
-2 DATE 1697
 0 @397S@ SOUR
 1 TITL Avis de décès (2017)
 1 ABBR AMAND Albert
@@ -1546,9 +1413,6 @@
 2 CALN 
 3 MEDI Internet
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Albert - décès - 2017.jpg
 0 @410S@ SOUR
 1 TITL Acte de mariage (1823)
 1 ABBR AMAND x CALOTTE
@@ -1556,9 +1420,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND x CALOTTE - 1823 - mariage.jpg
 0 @419S@ SOUR
 1 TITL Acte de naissance (1899)
 1 ABBR AMAND Marceau
@@ -1566,9 +1427,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Actes\Amand\AMAND Marceau - naissance - 1899.jpg
 0 @429S@ SOUR
 1 TITL Répertoire des bateliers de nord de la France et de la Belgique (Tome 5)
 1 ABBR AMAND Alexandre Joseph Fidel - naissance (1767)
@@ -1576,9 +1434,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 0
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Répertoire des Bateliers\Amand\AMAND Alexandre Joseph Fidel - baptême - 1767.jpg
 0 @441S@ SOUR
 1 TITL Répertoire des bateliers de nord de la France et de la Belgique (Tome 5)
 1 ABBR AMAND x DAPSENCE - mariage (1776)
@@ -1586,9 +1441,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Répertoire des Bateliers\Amand\AMAND x DAPSENCE - mariage - 1776.jpg
 0 @447S@ SOUR
 1 TITL Répertoire des bateliers de nord de la France et de la Belgique (Tome 5)
 1 ABBR AMAND Anne Catherine - Baptême (1777)
@@ -1596,9 +1448,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Répertoire des Bateliers\Amand\AMAND Anne Catherine - baptême - 1777.jpg
 0 @458S@ SOUR
 1 TITL Répertoire des bateliers de nord de la France et de la Belgique (Tome 5)
 1 ABBR DARTOIS x AMAND - mariage (1806)
@@ -1606,9 +1455,6 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Répertoire des Bateliers\Dartois\DARTOIS x AMAND - mariage - 1806.jpg
 0 @477S@ SOUR
 1 TITL Répertoire des bateliers de nord de la France et de la Belgique (Tome 5)
 1 ABBR DARTOIS Lucie - décès (1825)
@@ -1616,7 +1462,4 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 OBJE 
-2 FORM jpg
-2 FILE C:\Users\Alex\Google Drive\Généalogie\Généalogies\Alain AMAND\sources\Répertoire des Bateliers\Dartois\DARTOIS Lucie - décès - 1825.jpg
 0 TRLR

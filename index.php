@@ -6,7 +6,7 @@ include ('class/class.php');
 
 // $GLOBALS['InfoPage'] = PageTop($pdo);
 
-$InfoPage = new pages($pdo);
+$InfoPage = new Pages($pdo);
 
 require_once 'vendor/autoload.php';
 

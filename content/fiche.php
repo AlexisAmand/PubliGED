@@ -4,7 +4,7 @@
 /* FICHE INDIVIDUELLE D'UN INDIVIDU */
 /* -------------------------------- */
 
-$individu = new individus ();
+$individu = new Individus();
 
 $individu->ref = $_GET ['ref'];
 

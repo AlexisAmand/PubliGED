@@ -131,7 +131,7 @@ while ( ! feof ( $gedcom ) ) {
 	/* ---------------------------------- */
 
 	if (preg_match ( "/0 @S0@/", $ligne )) {
-		$uploader = new uploaders ();
+		$uploader = new Uploaders();
 	}
 
 	if (preg_match ( "/1 NAME/", $ligne ) and ($nb_individu == 0)) {
@@ -170,7 +170,7 @@ while ( ! feof ( $gedcom ) ) {
 	/* ----------------------------- */
 
 	if (preg_match ( "/@ INDI/", $ligne )) {
-		$individu = new individus ();
+		$individu = new Individus();
 		$nb_individu = $nb_individu + 1;
 		$exploderef = explode ( "@", $ligne );
 		$individu->ref = $exploderef [1];
@@ -683,7 +683,7 @@ while ( ! feof ( $gedcom ) ) {
 	/* -------------------- */
 
 	if (preg_match ( "/@ FAM/", $ligne )) {
-		$famille = new famille ();
+		$famille = new Famille();
 		$nb_famille = $nb_famille + 1;
 		$fam_ref = explode ( "@", $ligne );
 		$famille->ref = $fam_ref [1];

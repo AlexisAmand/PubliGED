@@ -131,7 +131,7 @@ class BasesDeDonnees
 
 	}
 
-class pages 
+class Pages 
 	{
 	public $nom;
 	public $titre;
@@ -384,7 +384,7 @@ class pages
 
 /* classes de partie généalogie */
 
-class evenements 
+class Evenements 
 	{
 	public $ref;
 	public $nom;
@@ -398,7 +398,7 @@ class evenements
 
 /* classes de la partie blog */
 
-class commentaires 
+class Commentaires 
 	{
 	public $article;
 	public $nom_auteur;
@@ -480,7 +480,7 @@ class commentaires
 		}
 	}
 	
-class articles 
+class Articles 
 	{
 	public $ref;
 	public $auteur;
@@ -551,13 +551,13 @@ class articles
 
 /* classes pour la lecture du gedcom */
 	
-class logiciels 
+class Logiciels 
 	{
 	public $nom;
 	public $nomcomplet;
 	}
 
-class uploaders 
+class Uploaders 
 	{
 	public $name;
 	public $mail;
@@ -565,7 +565,7 @@ class uploaders
 	public $www;
 	}
 	
-class famille 
+class Famille 
 	{
 	public $ref;
 	public $husb;
@@ -573,7 +573,7 @@ class famille
 	public $chil;
 	}
 	
-class individus 
+class Individus 
 	{
 	public $ref;
 	public $nom;
@@ -583,7 +583,7 @@ class individus
 	public $note;
 	}
 	
-class evenement 
+class Evenement 
 	{
 	public $indiv;
 	public $nom;
@@ -594,7 +594,7 @@ class evenement
 	public $note;
 	}
 	
-class lieu 
+class Lieu 
 	{
 	public $ville;
 	public $cp;
@@ -604,7 +604,7 @@ class lieu
 	public $continent;
 	}
 	
-class source 
+class Source 
 	{
 	public $ref;
 	public $titre;
@@ -612,6 +612,8 @@ class source
 	public $origine;
 	public $media;
 	}
+
+/* TODO : Peut-être que cette classe est inutile */
 	
 class gedfichiers 
 	{
@@ -620,7 +622,7 @@ class gedfichiers
 	public $lieu;
 	}
 	
-class medias 
+class Medias 
 	{
 	public $ref;
 	public $format;
