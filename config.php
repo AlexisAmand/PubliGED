@@ -1,5 +1,7 @@
 <?php
 
+require('sql.php');
+
 /* TODO : Je me demande si ce fichier ne devrait pas plutôt être un DB.php qui serait includé partout. */
 /* Ce fichier sera créé de façon dynamique au moment de l'installation */
 
@@ -15,8 +17,9 @@ $GLOBALS['NomduSite'] = "Site de démo de PubliGED (constante)";
 
 try {	
 	
-	$pdo = new PDO ('mysql:host=localhost;dbname=publiged', 'root', '');
-	
+	// $pdo = new PDO ('mysql:host=localhost;dbname=publiged', 'root', '');
+	$pdo = new PDO ('mysql:host='.PUBLIGED_SRV.';dbname='.PUBLIGED_DB, PUBLIGED_LOG, PUBLIGED_PWD);
+
 	// $pdo = new PDO('mysql:charset=utf8mb4');
 	$pdo->exec ( 'SET NAMES utf8' );
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

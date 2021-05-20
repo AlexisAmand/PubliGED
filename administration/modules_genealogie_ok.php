@@ -7,6 +7,38 @@ require ('fonctions.php');
 include ('../config.php');
 include('../langues/admin/fr.php');
 
+$traitement  = 0;
+
+if (! empty ( $_POST ['g-aside-1'] )) 
+	{
+	
+	$sql = "SELECT * FROM modules WHERE type='genealogie'";
+	$req = $pdo->query ( $sql );
+
+	/* mise à jour des positions */
+
+	while ( $row = $req->fetch(PDO::FETCH_ASSOC) ) 
+		{
+		$temp = $row ['nomdumodule'];
+
+		$mod = "UPDATE modules SET position ='" . $_POST [$temp] . "' WHERE nomdumodule = '" . $temp . "' AND type='genealogie'";
+		$res = $pdo->prepare ( $mod );
+		$res->execute ();
+		}
+
+	/* mise à jour de visible */
+
+	foreach ( $_POST ['visible'] as $valeur ) 
+		{
+		$mod = "UPDATE modules SET visible ='" . $valeur . "' WHERE nomdumodule = '" . $temp . "' AND type='genealogie'";
+		// echo $mod."<br />";
+		$res = $pdo->prepare ( $mod );
+		$res->execute ();
+		}
+	
+	$traitement = 1;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +52,7 @@ include('../langues/admin/fr.php');
   <meta name="description" content="">
   
 
-  <title><?php echo ASIDE_ADMIN_0." - ".TITRE_RUB_ADMIN_5; ?></title>
+  <title><?php echo ASIDE_ADMIN_0." - ".TITRE_RUB_ADMIN_6; ?></title>
 
   <!-- Font Awesome -->
   <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
@@ -33,9 +65,6 @@ include('../langues/admin/fr.php');
   
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
-  <!-- Drop -->
-  <link href="css/drop.css" rel="stylesheet">
  
 </head>
 
@@ -113,71 +142,84 @@ include('../langues/admin/fr.php');
         <div class="container-fluid">
 
 		<!-- Page Heading -->
-		<h1 class="h3 mb-2 text-gray-800">Les modules</h1>
+		<h1 class="h3 mb-2 text-gray-800"><?php echo TITRE_RUB_ADMIN_6; ?></h1>
 
-		<p class="mb-4"><?php INTRO_MODUL_BLOG; ?></p>
+		<p class="mb-4"><?php INTRO_MODUL_GEN; ?></p>
 
-		<form method="POST" action="modules_blog.php">
+		<?php 
+		if($traitement == 1)
+			{
+      echo '<div class="alert alert-success" role="alert">'.ALERT_MODUL_BLOG.'</div>';
+			}
+		?>
+
+		<form method="POST" action="modules_genealogie.php">
 
 		<!-- DataTales Example -->         
         <div class="card shadow mb-4">
         	<div class="card-header py-3">
-            	<h6 class="m-0 font-weight-bold text-primary">Choix des modules de vos menus</h6>
+            	<h6 class="m-0 font-weight-bold text-primary"><?php echo MODUL_GES; ?></h6>
             </div>
           	<div class="card-body">
-   
-                <div class="row">
+            	<div class="table-responsive">
 
-                  <div class="col">
-                    <div class="card m-3" ondragover="onDragOver(event);" ondrop="onDrop(event);">
-                      <div class="card-header">
-                      Les modules dispos
-                      </div>
-                      <div class="card-body">
-                        <div id="truc-1" class="truc-draggable border border-secondary text-white bg-secondary" draggable="true" ondragstart="onDragStart(event);"> 
-                        Module 1
-                        </div>
-                        <div id="truc-2" class="truc-draggable border border-secondary text-white bg-secondary" draggable="true" ondragstart="onDragStart(event);" >
-                        Module 2
-                        </div>
-                        <div id="truc-3" class="truc-draggable border border-secondary text-white bg-secondary" draggable="true" ondragstart="onDragStart(event);" >
-                        Module 3
-                        </div>
-                        <div id="truc-4" class="truc-draggable border border-secondary text-white bg-secondary" draggable="true" ondragstart="onDragStart(event);" >
-                        Module 4
-                        </div>
+				<?php
+				
+				$stat = "SELECT * FROM modules WHERE nomdumodule LIKE 'g-aside%'";
+				$res_stat = $pdo->query ( $stat );
+				
+				?>
 
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="col">
-                    <div class="m-3 card">
-                      <div class="card-header">
-                      Le blog
-                      </div>
-                      <div class="card-body dropzone" ondragover="onDragOver(event);" ondrop="onDrop(event);" id="truc-aside-1" ondragstart="onDragStart(event);">
+				<table class="table table-bordered" id="dataTable">
+				<thead>
+					<tr>
+						<th><?php echo MODUL_NAME; ?></th>
+						<th><?php echo MODUL_DES; ?></th>
+						<th><?php echo MODUL_POS; ?></th>
+						<th><?php echo MODUL_VIS; ?></th>
+					</tr>
+				</thead>
+				
+				<tfoot>
+          <tr>
+						<th><?php echo MODUL_NAME; ?></th>
+						<th><?php echo MODUL_DES; ?></th>
+						<th><?php echo MODUL_POS; ?></th>
+						<th><?php echo MODUL_VIS; ?></th>
+					</tr>
+				</tfoot>
+				
+				<tbody> 
 
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="col">
-                    <div class="m-3 card">
-                      <div class="card-header">
-                      La généalogie
-                      </div>
-                      <div class="card-body dropzone" ondragover="onDragOver(event);" ondrop="onDrop(event);" id="truc-aside-2" ondragstart="onDragStart(event);">
+				<?php
+				
+				while ( $data = $res_stat->fetch (PDO::FETCH_ASSOC) ) {
+					echo "<tr>";
+					echo "<td>" . $data ['nomdumodule'] . "</td>";
+					echo "<td>" . $data ['description'] . "</td>";
+				
+					echo '<td><input type="text" value="' . $data ['position'] . '" name="' . $data ['nomdumodule'] . '"></td>';
+				
+					if ($data ['visible'] == 0) {
+						/* si non visible - le name de l'input est $data['nomdumodule']."_chk" */
+						echo '<td><INPUT type="checkbox" name="visible[]" value="0"></td>';
+					} else {
+						/* si visible - le name de l'input est $data['nomdumodule']."_chk" */
+						echo '<td><INPUT type="checkbox" name="visible[]" value="1" checked></td>';
+					}
+				
+					echo "</tr>";
+				}
+				
+				?> 
 
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
+				</tbody>
+				</table>
+				
+ 			 	</div>
          	</div>
          </div>
-
+                       
          <!-- input type="submit" class="btn btn-primary" value="Enregistrer" -->
          <button type="submit" class="btn btn-primary"><?php echo MODUL_SAVE; ?></button>
 
@@ -244,11 +286,8 @@ include('../langues/admin/fr.php');
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-  <!-- Ce script contient l'initialisation du plugin datatables de jquery -->
+    <!-- Ce script contient l'initialisation du plugin datatables de jquery -->
   <script src="js/demo/datatables-demo.js"></script>
-
-  <!-- Drag&Drop des éléments du menu -->
-  <script src="js/dragdrop.js"></script>
  
 </body>
 
