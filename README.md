@@ -32,11 +32,11 @@ Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet p
 
 #### Librairies PHP
 
-Obtenues via https://packagist.org et Composer 2
+Obtenues via https://packagist.org et Composer 2.0.14
 
 * PHPMailer/PHPMailer 6.4.1
 * egulias/EmailValidator 2.1.25
-* mpdf/mpdf 7.1.9
+* mpdf/mpdf composer 8.0.11
 
 #### Javascript (dont tinyMCE et JavaScript)
 

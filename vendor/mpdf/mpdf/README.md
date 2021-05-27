@@ -4,19 +4,33 @@ It is based on [FPDF](http://www.fpdf.org/) and [HTML2FPDF](http://html2fpdf.sou
 (see [CREDITS](CREDITS.txt)), with a number of enhancements. mPDF was written by Ian Back and is released
 under the [GNU GPL v2 licence](LICENSE.txt).
 
-[![Build Status](https://travis-ci.org/mpdf/mpdf.svg?branch=development)](https://travis-ci.org/mpdf/mpdf)
+[![Latest Stable Version](https://poser.pugx.org/mpdf/mpdf/v/stable)](https://packagist.org/packages/mpdf/mpdf)
+[![Total Downloads](https://poser.pugx.org/mpdf/mpdf/downloads)](https://packagist.org/packages/mpdf/mpdf)
+[![License](https://poser.pugx.org/mpdf/mpdf/license)](https://packagist.org/packages/mpdf/mpdf)
 
-> Note: If you are viewing this file on mPDF Github repository homepage or on Packagist, please note that
+
+> ⚠ If you are viewing this file on mPDF GitHub repository homepage or on Packagist, please note that
 > the default repository branch is `development` which can differ from the last stable release.
 
 Requirements
 ============
 
-**mPDF 7** requires PHP `^5.6 || ~7.0.0 || ~7.1.0 || ~7.2.0 || ~7.3.0`. PHP `mbstring` and `gd` extensions have to be loaded.
+PHP versions and extensions
+---------------------------
+
+- `mPDF >=7.0` is supported on `PHP ^5.6 || ~7.0.0 || ~7.1.0 || ~7.2.0`
+- `PHP 7.3` is supported since `mPDF v7.1.7`
+- `PHP 7.4` is supported since `mPDF v8.0.4`
+- `PHP 8.0` is supported since `mPDF v8.0.10`
+
+PHP `mbstring` and `gd` extensions have to be loaded.
 
 Additional extensions may be required for some advanced features such as `zlib` for compression of output and
 embedded resources such as fonts, `bcmath` for generating barcodes or `xml` for character set conversion
 and SVG handling.
+
+Known server caveats
+--------------------
 
 mPDF has some problems with fetching external HTTP resources with single threaded servers such as `php -S`. A proper
 server such as nginx (php-fpm) or Apache is recommended.
@@ -74,7 +88,7 @@ $mpdf = new \Mpdf\Mpdf(['tempDir' => __DIR__ . '/tmp']);
 
 ```
 
-By default, the temporary directory will be inside vendor directory and will have correct permissions from
+By default, the temporary directory will be inside vendor directory and will have write permissions from
 `post_install` composer script.
 
 For more information about custom temporary directory see the note on
@@ -94,7 +108,7 @@ For general questions or troubleshooting please use the [mpdf tag](https://stack
 Contributing
 ============
 
-Please read before submitting issues and pull requests the [CONTRIBUTING.md](https://github.com/mpdf/mpdf/blob/development/.github/CONTRIBUTING.md) file.
+Before submitting issues and pull requests please read the [CONTRIBUTING.md](https://github.com/mpdf/mpdf/blob/development/.github/CONTRIBUTING.md) file.
 
 Unit Testing
 ============
@@ -104,7 +118,7 @@ Unit testing for mPDF is done using [PHPUnit](https://phpunit.de/).
 To get started, run `composer install` from the command line while in the mPDF root directory
 (you'll need [composer installed first](https://getcomposer.org/download/)).
 
-To execute tests, run `vendor/bin/phpunit` from the command line while in the mPDF root directory.
+To execute tests, run `composer test` from the command line while in the mPDF root directory.
 
 Any assistance writing unit tests for mPDF is greatly appreciated. If you'd like to help, please
 note that any PHP file located in the `/tests/` directory will be autoloaded when unit testing.

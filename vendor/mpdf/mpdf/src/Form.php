@@ -3,9 +3,7 @@
 namespace Mpdf;
 
 use Mpdf\Strict;
-
 use Mpdf\Color\ColorConverter;
-
 use Mpdf\Writer\BaseWriter;
 use Mpdf\Writer\FormWriter;
 
@@ -250,7 +248,7 @@ class Form
 			if (!empty($objattr['disabled'])) {
 				$this->mpdf->SetFColor($this->colorConverter->convert(225, $this->mpdf->PDFAXwarnings));
 				$this->mpdf->SetTColor($this->colorConverter->convert(127, $this->mpdf->PDFAXwarnings));
-			} else if (!empty($objattr['readonly'])) {
+			} elseif (!empty($objattr['readonly'])) {
 				$this->mpdf->SetFColor($this->colorConverter->convert(225, $this->mpdf->PDFAXwarnings));
 				$this->mpdf->SetTColor($this->colorConverter->convert(0, $this->mpdf->PDFAXwarnings));
 			} else {
@@ -322,7 +320,7 @@ class Form
 			if (!empty($objattr['disabled'])) {
 				$this->mpdf->SetFColor($this->colorConverter->convert(225, $this->mpdf->PDFAXwarnings));
 				$this->mpdf->SetTColor($this->colorConverter->convert(127, $this->mpdf->PDFAXwarnings));
-			} else if (!empty($objattr['readonly'])) {
+			} elseif (!empty($objattr['readonly'])) {
 				$this->mpdf->SetFColor($this->colorConverter->convert(225, $this->mpdf->PDFAXwarnings));
 				$this->mpdf->SetTColor($this->colorConverter->convert(0, $this->mpdf->PDFAXwarnings));
 			} else {
@@ -491,13 +489,13 @@ class Form
 				if ($objattr['subtype'] === 'RESET') {
 					$this->SetFormButtonText($objattr['value']);
 					$this->SetFormReset($w, $h, $objattr['fieldname'], $objattr['value'], $objattr['title'], $flags, (isset($objattr['background-col']) ? $objattr['background-col'] : false), (isset($objattr['border-col']) ? $objattr['border-col'] : false), (isset($objattr['noprint']) ? $objattr['noprint'] : false));
-				} else if ($objattr['subtype'] === 'SUBMIT') {
+				} elseif ($objattr['subtype'] === 'SUBMIT') {
 					$url = $this->formAction;
 					$type = $this->formExportType;
 					$method = $this->formMethod;
 					$this->SetFormButtonText($objattr['value']);
 					$this->SetFormSubmit($w, $h, $objattr['fieldname'], $objattr['value'], $url, $objattr['title'], $type, $method, $flags, (isset($objattr['background-col']) ? $objattr['background-col'] : false), (isset($objattr['border-col']) ? $objattr['border-col'] : false), (isset($objattr['noprint']) ? $objattr['noprint'] : false));
-				} else if ($objattr['subtype'] === 'BUTTON') {
+				} elseif ($objattr['subtype'] === 'BUTTON') {
 					$this->SetFormButtonText($objattr['value']);
 					if (isset($objattr['onClick']) && $objattr['onClick']) {
 						$js = $objattr['onClick'];
@@ -670,7 +668,7 @@ class Form
 			}
 			if ($form['subtype'] === 'radio') {
 				$total+=2;
-			} else if ($form['subtype'] === 'checkbox') {
+			} elseif ($form['subtype'] === 'checkbox') {
 				$total++;
 				if (!$this->formUseZapD) {
 					$total++;
@@ -841,7 +839,7 @@ class Form
 		$this->formCount++;
 		if ($align === 'C') {
 			$align = '1';
-		} else if ($align === 'R') {
+		} elseif ($align === 'R') {
 			$align = '2';
 		} else {
 			$align = '0';
@@ -913,7 +911,7 @@ class Form
 		} // mPDF 5.3.25
 		if ($this->mpdf->keep_block_together) {
 			$this->mpdf->ktForms[] = $f;
-		} else if ($this->mpdf->writingHTMLheader || $this->mpdf->writingHTMLfooter) {
+		} elseif ($this->mpdf->writingHTMLheader || $this->mpdf->writingHTMLfooter) {
 			$this->mpdf->HTMLheaderPageForms[] = $f;
 		} else {
 			if ($this->mpdf->ColActive) {
@@ -924,7 +922,7 @@ class Form
 					'y' => $this->mpdf->y,
 					'h' => $h
 				];
-				$this->mpdf->columnForms[$this->mpdf->CurrCol][(int)$this->mpdf->x][(int)$this->mpdf->y] = $this->formCount;
+				$this->mpdf->columnForms[$this->mpdf->CurrCol][(int) $this->mpdf->x][(int) $this->mpdf->y] = $this->formCount;
 			}
 			$this->forms[$this->formCount] = $f;
 		}
@@ -993,13 +991,13 @@ class Form
 		}
 		if ($this->mpdf->keep_block_together) {
 			$this->mpdf->ktForms[] = $f;
-		} else if ($this->mpdf->writingHTMLheader || $this->mpdf->writingHTMLfooter) {
+		} elseif ($this->mpdf->writingHTMLheader || $this->mpdf->writingHTMLfooter) {
 			$this->mpdf->HTMLheaderPageForms[] = $f;
 		} else {
 			if ($this->mpdf->ColActive) {
 				$this->mpdf->columnbuffer[] = ['s' => 'ACROFORM', 'col' => $this->mpdf->CurrCol, 'x' => $this->mpdf->x, 'y' => $this->mpdf->y,
 					'h' => $h];
-				$this->mpdf->columnForms[$this->mpdf->CurrCol][(int)$this->mpdf->x][(int)$this->mpdf->y] = $this->formCount;
+				$this->mpdf->columnForms[$this->mpdf->CurrCol][(int) $this->mpdf->x][(int) $this->mpdf->y] = $this->formCount;
 			}
 			$this->forms[$this->formCount] = $f;
 		}
@@ -1110,7 +1108,7 @@ class Form
 			$title = $this->writer->utf8ToUtf16BigEndian($title);
 			if ($type === 'checkbox') {
 				$uvalue = $this->writer->utf8ToUtf16BigEndian($value);
-			} else if ($type === 'radio') {
+			} elseif ($type === 'radio') {
 				$uvalue = $this->writer->utf8ToUtf16BigEndian($value);
 				$value = mb_convert_encoding($value, 'Windows-1252', 'UTF-8');
 			} else {
@@ -1195,13 +1193,13 @@ class Form
 		];
 		if ($this->mpdf->keep_block_together) {
 			$this->mpdf->ktForms[] = $f;
-		} else if ($this->mpdf->writingHTMLheader || $this->mpdf->writingHTMLfooter) {
+		} elseif ($this->mpdf->writingHTMLheader || $this->mpdf->writingHTMLfooter) {
 			$this->mpdf->HTMLheaderPageForms[] = $f;
 		} else {
 			if ($this->mpdf->ColActive) {
 				$this->mpdf->columnbuffer[] = ['s' => 'ACROFORM', 'col' => $this->mpdf->CurrCol, 'x' => $this->mpdf->x, 'y' => $this->mpdf->y,
 					'h' => $hh];
-				$this->mpdf->columnForms[$this->mpdf->CurrCol][(int)$this->mpdf->x][(int)$this->mpdf->y] = $this->formCount;
+				$this->mpdf->columnForms[$this->mpdf->CurrCol][(int) $this->mpdf->x][(int) $this->mpdf->y] = $this->formCount;
 			}
 			$this->forms[$this->formCount] = $f;
 		}

@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'b42dc84bf80fff25b81201a38286051a7b854f65',
+    'reference' => '96ef7e796f84ea10de9d62bad833deb2de3dae74',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'b42dc84bf80fff25b81201a38286051a7b854f65',
+      'reference' => '96ef7e796f84ea10de9d62bad833deb2de3dae74',
     ),
     'doctrine/lexer' => 
     array (
@@ -40,12 +40,12 @@
     ),
     'mpdf/mpdf' => 
     array (
-      'pretty_version' => 'v7.1.9',
-      'version' => '7.1.9.0',
+      'pretty_version' => 'v8.0.11',
+      'version' => '8.0.11.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'a0fc1215d2306aa3b4ba6e97bd6ebe4bab6a88fb',
+      'reference' => 'af17afbbfa0b6ce76defc8da5d02a73d54f94c64',
     ),
     'myclabs/deep-copy' => 
     array (
@@ -62,12 +62,12 @@
     ),
     'paragonie/random_compat' => 
     array (
-      'pretty_version' => 'v9.99.99',
-      'version' => '9.99.99.0',
+      'pretty_version' => 'v9.99.100',
+      'version' => '9.99.100.0',
       'aliases' => 
       array (
       ),
-      'reference' => '84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95',
+      'reference' => '996434e5492cb4c3edcb9168db6fbb1359ef965a',
     ),
     'phpmailer/phpmailer' => 
     array (
@@ -89,12 +89,12 @@
     ),
     'setasign/fpdi' => 
     array (
-      'pretty_version' => '1.6.2',
-      'version' => '1.6.2.0',
+      'pretty_version' => 'v2.3.6',
+      'version' => '2.3.6.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'a6ad58897a6d97cc2d2cd2adaeda343b25a368ea',
+      'reference' => '6231e315f73e4f62d72b73f3d6d78ff0eed93c31',
     ),
     'symfony/polyfill-intl-idn' => 
     array (
