@@ -1,0 +1,32 @@
+{
+  "name": "PubliGED",
+  "version": "1.0.0",
+  "description": "PubliGED est ce que j’appelle un GMS (Genealogy Management System) par analogie avec les CMS, comme Joomla, WordPress ou Spip. Développé essentiellement en PHP et SQL, avec quelques gouttes de CSS et de HTML, PubliGED a pour but de permettre aux généalogistes de publier facilement et rapidement leurs généalogies en utilisant le gedcom, un format de fichier commun à la plupart des logiciels de généalogie.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexisAmand/PubliGED.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexisAmand/PubliGED/issues"
+  },
+  "homepage": "https://github.com/AlexisAmand/PubliGED#readme",
+  "dependencies": {
+    "bootstrap": "^5.0.1",
+    "datatables": "^1.10.18",
+    "dropzone": "^5.9.2",
+    "jquery": "^3.6.0",
+    "leaflet": "^1.7.1",
+    "tinymce": "^5.8.1"
+  }
+}

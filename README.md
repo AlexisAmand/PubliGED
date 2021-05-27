@@ -28,7 +28,10 @@ Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet p
 
 ### Framework
 
+Obtenus via https://www.npmjs.com/ et npm 7.14.0
+
 * Bootstrap 4.4.1
+* Passage à Bootstrap 5 en cours
 
 #### Librairies PHP
 
@@ -38,15 +41,15 @@ Obtenues via https://packagist.org et Composer 2.0.14
 * egulias/EmailValidator 2.1.25
 * mpdf/mpdf composer 8.0.11
 
-#### Javascript (dont tinyMCE et JavaScript)
+#### Librairies Javascript
 
-* Datatables 1.10.23
+Obtenues via https://www.npmjs.com/ et npm 7.14.0
+
+* Datatables 1.10.18
 * Leaflet 1.7.1
-https://leafletjs.com/download.html
-* tinyMCE 5.1.5
-https://www.tiny.cloud/get-tiny/self-hosted/
-* Dropzone 5.7.0
-https://gitlab.com/meno/dropzone
+* tinyMCE 5.8.1
+* Dropzone 5.9.2
+* jQuery 3.6.0
 
 #### Plus d'infos : 
 
