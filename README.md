@@ -50,6 +50,7 @@ Obtenues via https://www.npmjs.com/ et npm 7.14.0
 * tinyMCE 5.8.1
 * Dropzone 5.9.2
 * jQuery 3.6.0
+* fontawesome 5.6.3
 
 #### Plus d'infos : 
 

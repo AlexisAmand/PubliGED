@@ -41,6 +41,8 @@ require_once 'vendor/autoload.php';
 	<link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
 	<script src="node_modules/leaflet/dist/leaflet.js"></script>
 
+	<script src="node_modules/fontawesome/index.js"></script>
+
 </head>
 
 <body>
@@ -103,9 +105,9 @@ require_once 'vendor/autoload.php';
 
 	<?php /* TODO: regrouper tous les trucs si dessous dans une méthode de la classe page ? */ ?>
 
-	<!-- Jquery 3.4.1 -->
+	<!-- Jquery -->
 
-	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
 
 	<!-- Bootstrap 4.4.1 -->
 	
