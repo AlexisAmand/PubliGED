@@ -16,7 +16,7 @@ include ('../langues/fr.php');
 	<title><?php echo SITE_TITLE." - ".TITRE_RUB_ADMIN_1; ?></title>
 <meta name="description" content=" ">
 
-<script src="../js/tinymce/tinymce.min.js"></script>
+<script src="../node_modules/tinymce/tinymce.min.js"></script>
 
 <script>
     tinymce.init({

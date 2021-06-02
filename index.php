@@ -36,12 +36,12 @@ require_once 'vendor/autoload.php';
 
 	<?php $InfoPage->AfficherCSS($pdo); ?>
 		
-	<!-- OpenStreetMap et Leaflet 1.7 -->
-
-	<link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
+	<!-- OpenStreetMap et Leaflet via npm -->
+	<link href="node_modules/leaflet/dist/leaflet.css" rel="stylesheet">
 	<script src="node_modules/leaflet/dist/leaflet.js"></script>
 
-	<script src="node_modules/fontawesome/index.js"></script>
+	<!-- Voir si Fontawesome fonctionne aussi quand il est dans le footer -->
+	<link href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 
 </head>
 
@@ -105,29 +105,23 @@ require_once 'vendor/autoload.php';
 
 	<?php /* TODO: regrouper tous les trucs si dessous dans une méthode de la classe page ? */ ?>
 
-	<!-- Jquery -->
-
+	<!-- Jquery via npm -->
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
 
 	<!-- Bootstrap 4.4.1 -->
-	
 	<script src="templates/system/bootstrap/js/bootstrap.min.js"></script>
 	
 	<!-- librairie datatables pour tableaux bootstrap 4 -->
-	
   	<script src="js/datatables/datatables/js/jquery.datatables.min.js"></script>
   	<script src="js/datatables/datatables/js/dataTables.bootstrap4.min.js "></script>
 
   	<!-- Ce script contient l'initialisation du plugin datatables de jquery-->
+ 	<script src="administration/js/demo/datatables-demo.js"></script>
   	
-  	<script src="administration/js/demo/datatables-demo.js"></script>
-  	
-	<!-- TinyMCE -->
-	
-	<script src="js/tinymce/tinymce.min.js"></script>
+	<!-- TinyMCE via npm -->
+	<script src="node_modules/tinymce/tinymce.min.js"></script>
 	
 	<!-- Divers Javascript -->
-	
 	<script src="js/scripts.js"></script>
 
 </body>

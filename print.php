@@ -17,29 +17,22 @@ include ('class/class.php');
 	<meta name="description" content=" ">
 
 	<!-- Bootstrap 4.4.1 -->
-
 	<link href="style/bootstrap/css/bootstrap.perso.css" rel="stylesheet">
 	<script src="style/bootstrap/js/bootstrap.min.js"></script>
 	
-	<!-- Font Awesome Free 5.10.0 -->
-	
-	<link href="style/fontawesome/css/all.css" rel="stylesheet">
+	<!-- Fontawesome via npm -->
+	<link href="node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 	
 	<!--  style perso -->
-	
 	<link href="style/style.css" rel="stylesheet">
 	<link rel="icon" type="image/gif" href="img/icon.jpg" />
 	
-	<!-- Jquery 3.4.1 -->
-	<!-- Peut-être pas utile ici -->
-
-	<script src="js/jquery-3.4.1.min.js"></script>
+	<!-- Jquery via npm -->
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
 	
-	<!-- OpenStreetMap et Leaflet 1.6 -->
-	<!-- Peut-être pas utile ici -->
-	
-	<link rel="stylesheet" href="js/leaflet/leaflet.css">
-	<script src="js/leaflet/leaflet.js"></script>
+	<!-- OpenStreetMap et Leaflet via npm -->
+	<link href="node_modules/leaflet/dist/leaflet.css" rel="stylesheet">
+	<script src="node_modules/leaflet/dist/leaflet.js"></script>
 
 </head>
 

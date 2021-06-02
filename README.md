@@ -31,7 +31,7 @@ Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet p
 Obtenus via https://www.npmjs.com/ et npm 7.14.0
 
 * Bootstrap 4.4.1
-* Passage à Bootstrap 5 en cours
+* Passage à Bootstrap 5.0.1 en cours
 
 #### Librairies PHP
 
@@ -45,12 +45,15 @@ Obtenues via https://packagist.org et Composer 2.0.14
 
 Obtenues via https://www.npmjs.com/ et npm 7.14.0
 
-* Datatables 1.10.18
-* Leaflet 1.7.1
-* tinyMCE 5.8.1
-* Dropzone 5.9.2
-* jQuery 3.6.0
+* datatables 1.10.24 pour Bootstrap 4 
+* char.js 3.3.2
+* dropzone 5.9.2
 * fontawesome 5.6.3
+* fontawesome-free 5.15.3
+* jQuery 3.6.0
+* Jquery easing 1.4.1 ?
+* leaflet 1.7.1
+* tinyMCE 5.8.1
 
 #### Plus d'infos : 
 

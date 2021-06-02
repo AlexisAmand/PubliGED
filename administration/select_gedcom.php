@@ -19,22 +19,13 @@ include ('../class/class.php');
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   
-
   <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_6; ?></title>
 
-  <!-- Font Awesome -->
-  <link href="css/fontawesome/css/all.min.css" rel="stylesheet" type="text/css"> 
+  <?php include("include/header.inc.php"); ?>
+
+  <!-- CSS de datatables via npm -->
+  <link href="../nodes_modules/datatables.net-bs4/dataTables.bootstrap4.min.css" rel="stylesheet">
   
-  <!-- Custom fonts for this template -->	
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-    <!-- Css de Dropzone -->
-    <link href="js/dropzone/dropzone.min.css" rel="stylesheet">
-  
-
 </head>
 
 <body id="page-top">
@@ -191,24 +182,24 @@ include ('../class/class.php');
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- jQuery Easing Plugin via npm -->
+  <script src="../node_modules/jquery.easing.min.js/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for all pages-->
+  <!-- JS de sb-admin -->
   <script src="js/sb-admin-2.min.js"></script>
 
-  <!-- Page level plugins -->
-  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <!-- JS de datatables avec npm -->
+  <script src="../node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="../node_modules/datatables.net/js/dataTables.bootstrap4.min.js"></script>
 
-  <!-- Ce script contient l'initialisation du plugin datatables de jquery -->
+  <!-- JS de datatables perso -->
   <script src="js/demo/datatables-demo.js"></script>
 
-  <!--  Dropzone -->
-  <script src="js/dropzone/dropzone.fr.js"></script>
+  <!-- JS de dropzone via npm -->
+  <script src="../node_modules/dropzone/dist/min/dropzone.min.js"></script>
 
   <script>
   //Disabling autoDiscover
