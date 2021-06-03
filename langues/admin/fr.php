@@ -57,6 +57,10 @@ define("ADM_RUB_TITRE_3","Modifier une catégorie");
 define("ADM_RUB_TITRE_4","Modérer");
 define("ADM_RUB_TITRE_5","Effacer un gedcom");
 define("ADM_RUB_TITRE_6","Envoyer un gedcom");
+
+define("ADM_DB_SUPPR","Supprimer les tables");
+define("ADM_DB_CREATE","Réinitialiser les tables");
+
 define("ADM_RUB_TITRE_10","Paramètres");
 define("ADM_RUB_TITRE_9","Personnalisation");
 define("ADM_RUB_TITRE_7","Liste des utilisateurs");
@@ -219,10 +223,6 @@ define("ADM_DB_SEND_B","Réinitialiser");
 define("ADM_DB_SUBTITLE_S","Tables du système");
 define("ADM_DB_SUBTEXT_S","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
 define("ADM_DB_SEND_S","Réinitialiser");
-
-/* supprimer les tables */
-
-define( "ADM_DB_SUPPR","Supprimer les tables");
 
 /* stats sur les tables */
 
