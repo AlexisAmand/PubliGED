@@ -135,6 +135,20 @@ include('../langues/admin/fr.php');
 				    <?php echo "Activation de la page contact"; ?>
 				  </label>
 				</div>
+
+				<div class="form-check">
+				  <input class="form-check-input" type="radio" id="defaultCheck2" name="PositionMenu" value="droite" >
+				  <label class="form-check-label" for="defaultCheck2">
+				    <?php echo "Menu à droite" ?>
+				  </label>
+				</div>
+				
+				<div class="form-check">
+				  <input class="form-check-input" type="radio" id="defaultCheck3" name="PositionMenu" value="gauche" >
+				  <label class="form-check-label" for="defaultCheck3">
+				    <?php echo "Menu à gauche"; ?>
+				  </label>
+				</div>
 	
 			   </div>
                </div>

@@ -217,9 +217,7 @@ class Pages
 					 *  $page->rubrique = PILLMENU_2;
 					 */
 				} 
-			
-			
-							
+				
 			}
 		else 
 			{
@@ -307,19 +305,18 @@ class Pages
 			<p>'.$DescriptionSite.'</p>
 		</div>';
 		}
-
-	/* Cette méthode affiche le aside et le contenu du site*/
-
-	public function AfficherContenu($pdo2) 
-		{		
-		$balise = ($GLOBALS['aside']==1)?'<article class="col-md-9">':'<article class="col-md-12">';
-		echo $balise;			
-		include ('content/' . $this->nom . '.php');
-		echo '</article>';
-		}
 	
+	/* Cette méthode affiche le aside du site*/
+
 	public function AfficherAside($pdo2) 
 		{
+
+		/* on recup la position du aside dans la BD */
+
+		$sql = "SELECT valeur FROM configuration WHERE nom = 'positionmenu'";
+		$req = $pdo2->prepare($sql);
+		$req->execute();
+		$PositionAside = $req->fetch(PDO::FETCH_ASSOC);
 
 		/* Par défaut, on supppose que le aside est affiché */	
 		
@@ -329,9 +326,16 @@ class Pages
 		$reqPages = $pdo2->prepare($sqlPages);
 		$reqPages->execute();
 		
-		/* TODO: ici un test si l'user veut le menu à droite ou à gauche, selon le cas il me semble qu'il existe un class bootstrap qui permet de choisir d'autre des colonnes (aside et article, ou article puis aside. */
+		switch($PositionAside['valeur'])
+			{
+			case 'droite':
+				$balise = ($GLOBALS['aside']==1)?'<aside class="col-md-3 order-2">':'<aside class="col-md-12">';	
+				break;
+			case 'gauche':
+				$balise = ($GLOBALS['aside']==1)?'<aside class="col-md-3 order-1">':'<aside class="col-md-12">';	
+				break;
+			}
 				
-		$balise = ($GLOBALS['aside']==1)?'<aside class="col-md-3">':'<aside class="col-md-12">';		
 		echo $balise;
 					
 		while($row = $reqPages->fetch())
@@ -365,6 +369,33 @@ class Pages
 		
 		echo '</aside>';
 						
+		}
+
+	/* Cette méthode affiche le contenu du site*/
+
+	public function AfficherContenu($pdo2) 
+		{		
+
+		/* on recup la position du aside dans la BD */
+
+		$sql = "SELECT valeur FROM configuration WHERE nom = 'positionmenu'";
+		$req = $pdo2->prepare($sql);
+		$req->execute();
+		$PositionAside = $req->fetch(PDO::FETCH_ASSOC);
+		
+		switch($PositionAside['valeur'])
+			{
+			case 'droite':
+				$balise = ($GLOBALS['aside']==1)?'<article class="col-md-9 order-1">':'<article class="col-md-12">';	
+				break;
+			case 'gauche':
+				$balise = ($GLOBALS['aside']==1)?'<article class="col-md-9 order-2">':'<article class="col-md-12">';
+				break;
+			}
+
+		echo $balise;			
+		include ('content/' . $this->nom . '.php');
+		echo '</article>';
 		}
 
 	/* Cette méthode affiche le pied de page du site */
