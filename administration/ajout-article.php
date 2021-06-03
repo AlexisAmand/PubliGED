@@ -19,7 +19,6 @@ include('../langues/admin/fr.php');
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   
-
   <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_0; ?></title>
 
   <?php include("include/header.inc.php"); ?>

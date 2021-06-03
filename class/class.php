@@ -424,7 +424,7 @@ class Commentaires
 		
 	/* affiche les commentaires */
 	
-	public function AfficheCommentaire($id,$pdo3)
+	public function AfficheCommentaire($id,$pdo3, $commSent)
 		{
 			$sqlCommentaires = "select * from commentaires where id_article='{$id}' ORDER BY date_com DESC";
 			$reqCommentaires = $pdo3->prepare($sqlCommentaires);
@@ -455,23 +455,28 @@ class Commentaires
 			echo '<form action="index.php?page=article&id='.$id.'" method="POST" class="form-vertical">';
 			
 			echo '<div class="form-group">';
-			echo '<label for="pseudo">Pseudo</label> <input id="pseudo" type="text" name="pseudo" class="form-control" />';
+			if (!empty($commSent->nom_auteur)) {$value = $commSent->nom_auteur;} else {$value ="";}
+			echo '<label for="pseudo">Pseudo</label> <input id="pseudo" type="text" name="pseudo" value="'.$value.'" class="form-control" />';
 			echo '</div>';
 			
 			echo '<div class="form-group">';
-			echo '<label for="site">Site (ou blog)</label> <input id="site" type="text" name="site" class="form-control" />';
+			if (!empty($commSent->url_auteur)) {$value = $commSent->url_auteur;} else {$value ="";}
+			echo '<label for="site">Site (ou blog)</label> <input id="site" type="text" name="site" value="'.$value.'" class="form-control" />';
 			echo '</div>';
 			
 			echo '<div class="form-group">';
-			echo '<label for="email">Email</label> <input id="email" type="text" name="email" class="form-control" />';
+			if (!empty($commSent->email_auteur)) {$value = $commSent->email_auteur;} else {$value ="";}
+			echo '<label for="email">Email</label> <input id="email" type="text" name="email" value="'.$value.'" class="form-control" />';
 			echo '</div>';
 			
 			echo '<div class="form-group">';
 			echo '<label for="email">Commentaire</label>';
-			echo '<textarea id="commentaire" name="message" class="form-control"></textarea>';
+			if (!empty($commSent->contenu)) {$value = $commSent->contenu;} else {$value ="";}
+			echo '<textarea id="commentaire" name="message" class="form-control" value="'.$value.'" ></textarea>';
 			echo '</div>';
 			
 			echo '<input type="submit" class="btn btn-default">';
+			echo '<button type="submit" class="btn btn-primary">Primary</button>';
 			
 			echo '</form>';
 			

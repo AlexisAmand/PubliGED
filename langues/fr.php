@@ -79,6 +79,16 @@ define("DATE"," le ");
 define("SEECOMS","voir les commentaires");
 define("COMMENTS"," a commenté ");
 
+/* ------------------------------------- */
+/* commentaires sur les articles du blog */
+/* -------------------------------------- */
+
+define("COM_NO_PSEUDO","Le champ \"pseudo\" est obligatoire !");
+define("COM_NO_EMAIL","Le champ \"email\" est obligatoire !");
+define("COM_NO_MSG","Le champ \"commentaire\" est obligatoire !");
+
+define("COM_SUCCESS","Le commentaire a été envoyé !");
+
 /* -------- */
 /* FLUX RSS */
 /* -------- */

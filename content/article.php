@@ -1,5 +1,70 @@
 <?php
 
+/* traitement si la personne a envoyé un commentaire */
+/* tous les champs sont obligatoires, sauf le site */
+/* on vérifie que la personne a tout complété et on met tout dans la BD */
+
+$commSent = new Commentaires();
+
+if(!empty($_POST))
+	{
+	if(empty( $_POST ['pseudo'] ))
+		{
+		echo '<div class="alert alert-warning" role="alert">';
+		echo '<i class="fas fa-exclamation-triangle"></i>'.COM_NO_PSEUDO.'</div>';
+		}
+	else
+		{
+		$commSent->nom_auteur = $_POST ['pseudo'];
+		}
+
+	if(empty ( $_POST ['email'] ))
+		{
+		echo '<div class="alert alert-warning" role="alert">';
+		echo '<i class="fas fa-exclamation-triangle"></i>'.COM_NO_EMAIL.'</div>';
+		}
+	else
+		{
+		$commSent->email_auteur = $_POST ['email'];
+		}
+
+	if(empty ( $_POST ['message'] ))
+		{
+		echo '<div class="alert alert-warning" role="alert">';
+		echo '<i class="fas fa-exclamation-triangle"></i>'.COM_NO_MSG.'</div>';
+		}
+	else
+		{
+		$commSent->contenu = $_POST ['message'];
+		}
+	}
+
+if (!empty ( $_POST ['message'] ) and !empty ( $_POST ['email'] ) and !empty ( $_POST ['pseudo'] ))
+	{
+	/* on met le commentaire dans la BD + message qui dit que c'est bien envoyé */
+
+	$sqlAjoutComm = "INSERT INTO commentaires(id_article, nom_auteur, email_auteur, contenu, url_auteur, date_com) values (:p1, :p2, :p3, :p4, :p5, :p6)";
+			
+	$AjoutComm = $pdo2->prepare ( $sqlAjoutComm);
+	$commSent->today = date("Y-m-d H:i:s"); 
+
+	$AjoutComm->bindparam ( ':p1', $_GET['id']);
+	$AjoutComm->bindparam ( ':p2', $commSent->nom_auteur);
+	$AjoutComm->bindparam ( ':p3', $commSent->email_auteur);
+	$AjoutComm->bindparam ( ':p4', $commSent->contenu);
+	$AjoutComm->bindparam ( ':p5', $commSent->url_auteur);
+	$AjoutComm->bindparam ( ':p6', $commSent->today);
+
+	if ($AjoutComm->execute ())
+		{
+		/* Message de confirmation : Le comm' a été envoyé */
+		echo '<div class="alert alert-success" role="alert">';
+		echo "<i class='fas fa-exclamation-triangle'></i>".COM_SUCCESS."</div>";
+		}
+	}
+
+/* récupération de l'article */ 
+
 $article = new articles();
 
 $article->ref = $_GET['id'];
@@ -35,6 +100,6 @@ $article->Afficher($pdo2);
 
 $commentaire = new Commentaires();
  
-$commentaire->AfficheCommentaire($article->ref, $pdo2);
+$commentaire->AfficheCommentaire($article->ref, $pdo2, $commSent);
 
 ?>
