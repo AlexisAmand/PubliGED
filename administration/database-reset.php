@@ -7,6 +7,35 @@ require ('fonctions.php');
 include ('../config.php');
 include('../langues/admin/fr.php');
 
+/* Truncate sur la table de la partie Généalogie */
+
+if(isset($_POST['envoyerG']))
+  {
+  $req_vide_db = "TRUNCATE TABLE evenements; TRUNCATE TABLE media; TRUNCATE TABLE familles; TRUNCATE TABLE individus; TRUNCATE TABLE lieux; TRUNCATE TABLE sources;";
+	$resultat_vide_db = $pdo->prepare($req_vide_db);
+	$resultat_vide_db->execute();
+
+  $msg = "Les tables de la partie généalogie ont bien été vidées !";
+  }
+
+/* Truncate sur la table de la partie Blog */
+
+if(isset($_POST['envoyerB']))
+  {
+  $req_vide_db = "TRUNCATE TABLE categories; TRUNCATE TABLE commentaires; TRUNCATE TABLE articles;";
+  $resultat_vide_db = $pdo->prepare($req_vide_db);
+  $resultat_vide_db->execute();
+
+  $msg = "Les tables de la partie blog ont bien été vidées !";
+  }
+
+/* Truncate sur la table de la partie Système */
+
+if(isset($_POST['envoyerS']))
+  {
+  $msg = "Plop S !";
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -66,8 +95,8 @@ include('../langues/admin/fr.php');
           
           	<!-- Affichage du lien "voir le site" -->
           	<li class="nav-item">
-			  <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
-			</li>
+              <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
+            </li>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
@@ -104,37 +133,50 @@ include('../langues/admin/fr.php');
 		<!-- Page Heading -->
 		<h1 class="h3 mb-2 text-gray-800"><?php echo ADM_DB_TITLE; ?></h1>
 
-		<p class="mb-4"><?php echo ADM_DB_TEXT; ?></p>  
+		<p class="mb-4">
+
+    <?php
+    if (isset($msg))
+      {
+      echo '<div class="alert alert-success" role="alert"><i class="fas fa-exclamation-triangle"></i>&nbsp;'.$msg.'</div>';
+      }
+    ?>
+ 
+    <?php echo ADM_DB_TEXT; ?></p>
 
          <!-- Tables généalogie -->
 
-         <div class="card shadow mb-4">
+          <div class="card shadow my-5">
          	  <div class="card-header py-3">
             	<h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_DB_SUBTITLE_G; ?></h6>
             </div>
             <div class="card-body"><p class="mb-4"><?php echo ADM_DB_SUBTEXT_G; ?></p>
-            <input type="submit" class="btn btn-primary" value="<?php echo ADM_DB_SEND_G; ?>"></div>
-         </div> 
+            <button data-toggle="modal" data-target="#GenealogieModal" class="btn btn-primary"><?php echo ADM_DB_SEND_G; ?></button>
+            </div> 
+          </div>
+
             
          <!-- Tables blog -->
 
-         <div class="card shadow mb-4">
+         <div class="card shadow my-5">
          	  <div class="card-header py-3">
             	<h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_DB_SUBTITLE_B; ?></h6>
             </div>
             <div class="card-body"><p class="mb-4"><?php echo ADM_DB_SUBTEXT_B; ?></p>
-            <input type="submit" class="btn btn-primary" value="<?php echo ADM_DB_SEND_B; ?>"></div>
-         </div> 
+            <button data-toggle="modal" data-target="#BlogModal" class="btn btn-primary"><?php echo ADM_DB_SEND_B; ?></button>
+            </div> 
+          </div>
 
          <!-- Tables système -->
 
-         <div class="card shadow mb-4">
+         <div class="card shadow my-5">
          	  <div class="card-header py-3">
             	<h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_DB_SUBTITLE_S; ?></h6>
             </div>
             <div class="card-body"><p class="mb-4"><?php echo ADM_DB_SUBTEXT_S; ?></p>
-            <input type="submit" class="btn btn-primary" value="<?php echo ADM_DB_SEND_S; ?>"></div>
-         </div> 
+            <button data-toggle="modal" data-target="#SysModal" class="btn btn-primary"><?php echo ADM_DB_SEND_S; ?></button>
+            </div> 
+          </div>
 
          </div>
          <!-- /.container-fluid -->
@@ -163,7 +205,7 @@ include('../langues/admin/fr.php');
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Logout Modal-->
+  <!-- Logout Modal -->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -177,6 +219,78 @@ include('../langues/admin/fr.php');
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo LOGOUT_CANCEL; ?></button>
           <a class="btn btn-primary" href="login.html"><?php echo LOGOUT_OK; ?></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Modale pour confirmer le reset des tables de la partie généalogie -->
+
+    <div class="modal fade" id="GenealogieModal" tabindex="-1" role="dialog" aria-labelledby="LabelModalGenealogie" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="LabelModalGenealogie"><?php echo MDL_GEN_TITLE; ?></h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body"><?php echo MDL_GEN_TEXT; ?></div>
+        <div class="modal-footer">
+
+          <form action="database-reset.php" method="POST">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo MDL_GEN_NO; ?></button>
+            <button class="btn btn-primary" type="submit" id="envoyerG" name="envoyerG" value="envoyerG"><?php echo MDL_GEN_OK; ?></button>
+          <form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modale pour confirmer le reset des tables de la partie blog -->
+
+      <div class="modal fade" id="BlogModal" tabindex="-1" role="dialog" aria-labelledby="LabelModalBlog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="LabelModalBlog"><?php echo MDL_BLG_TITLE; ?></h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body"><?php echo MDL_BLG_TEXT; ?></div>
+        <div class="modal-footer">
+
+          <form action="database-reset.php" method="POST">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo MDL_GEN_NO; ?></button>
+            <button class="btn btn-primary" type="submit" id="envoyerB" name="envoyerB" value="envoyerB"><?php echo MDL_GEN_OK; ?></button>
+          <form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modale pour confirmer le reset des tables de la partie système -->
+
+  <div class="modal fade" id="SysModal" tabindex="-1" role="dialog" aria-labelledby="LabelModalSys" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="LabelModalSys"><?php echo MDL_SYS_TITLE; ?></h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body"><?php echo MDL_SYS_TEXT; ?></div>
+        <div class="modal-footer">
+          
+          <form action="database-reset.php" method="POST">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo MDL_GEN_NO; ?></button>
+            <button class="btn btn-primary" type="submit" id="envoyerS" name="envoyerS" value="envoyerS"><?php echo MDL_GEN_OK; ?></button>
+          <form>
+
         </div>
       </div>
     </div>

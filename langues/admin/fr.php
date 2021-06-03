@@ -210,14 +210,14 @@ define( "INTRO_MODUL_GEN","Lorem ipsum dolor sit amet, consectetur adipiscing el
 /* reinitialisation les tables */
 
 define( "ADM_DB_TITLE","Réinitialisation des tables");
-define( "ADM_DB_TEXT","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
+define( "ADM_DB_TEXT","Cette partie vous permet de remettre les tables de la base de données à zéro. Si vous avez des données, elles seront perdues.");
 
 define("ADM_DB_SUBTITLE_G","Tables de la partie généalogie");
-define("ADM_DB_SUBTEXT_G","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+define("ADM_DB_SUBTEXT_G","En cliquant sur le bouton 'Réinitialiser', la partie généalogie de votre site va être remise à zéro. Si vous avez mis votre généalogie en ligne en im, elle sera effacée.");
 define("ADM_DB_SEND_G","Réinitialiser");
 
 define("ADM_DB_SUBTITLE_B","Tables de la partie blog");
-define("ADM_DB_SUBTEXT_B","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+define("ADM_DB_SUBTEXT_B","En cliquant sur le bouton 'Réinitialiser', la partie blog de votre site va être remise à zéro. Si vous avez écrit des articles ou reçu des commentaires, ils seront effacés.");
 define("ADM_DB_SEND_B","Réinitialiser");
 
 define("ADM_DB_SUBTITLE_S","Tables du système");
@@ -231,6 +231,26 @@ define( "ADM_DB_STATS_TEXT","Lorem ipsum dolor sit amet, consectetur adipiscing 
 define("ADM_DB_TABLE_NAME","Table");
 define("ADM_DB_TABLE_SIZE","Taille (en bytes)");
 define("ADM_DB_TOTAL","Total");
+
+/* Textes communs aux 3 modales de confirmation */
+
+define("MDL_GEN_NO","Annuler");
+define("MDL_GEN_OK","Oui");
+
+/* Modale de confirmation de réinitialisation de la partie généalogie */
+
+define("MDL_GEN_TITLE", "Confirmation");
+define("MDL_GEN_TEXT", "Êtes-vous sûr de vouloir réinitialiser les tables de la partie généalogie ? Si vous avez un arbre en ligne, cette opération va l'effacer.");
+
+/* Modale de confirmation de réinitialisation de la partie blog */
+
+define("MDL_BLG_TITLE", "Confirmation");
+define("MDL_BLG_TEXT", "Êtes-vous sûr de vouloir réinitialiser les tables de la partie blog ? Si vous avez un  blog en ligne, cette opération va l'effacer. Les commentaires, articles et catégories seront perdues.");
+
+/* Modale de confirmation de réinitialisation de la partie système */
+
+define("MDL_SYS_TITLE", "Confirmation");
+define("MDL_SYS_TEXT", " ");
 
 /* ----------- */
 /* Gestion SEO */

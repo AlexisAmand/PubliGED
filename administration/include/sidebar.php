@@ -109,7 +109,7 @@
         <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
 			      <a class="collapse-item" href="database-del.php"><?php echo ADM_DB_SUPPR; ?></a>
-		        <a class="collapse-item" href="database-create.php"><?php echo ADM_DB_CREATE; ?></a>
+		        <a class="collapse-item" href="database-reset.php"><?php echo ADM_DB_CREATE; ?></a>
 		        <a class="collapse-item" href="database-size.php"><?php echo ADM_DB_SIZE; ?></a>          
           </div>
         </div>
