@@ -387,7 +387,7 @@ $BaseDeDonnees = new BasesDeDonnees;
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="../node_modules/jquery.easing.min.js/jquery.easing.min.js"></script>
+  <script src="../node_modules/jquery.easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.js"></script>

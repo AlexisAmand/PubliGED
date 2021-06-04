@@ -37,7 +37,7 @@ function onDrop(event) {
 
     dragX = event.pageX, dragY = event.pageY;
     console.log("x=" + dragX + " et y="+ dragY + " element=" + draggableElement.id + " zone d'arrivée=" + dropzone.id );
-    document.write('<?php echo "Test"; ?>');
+    //document.write('<?php echo "Test"; ?>');
 
     event
       .dataTransfer
