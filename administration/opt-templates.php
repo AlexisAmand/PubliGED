@@ -2,11 +2,62 @@
 
 /* basé sur le template SB Admin 2 for Bootstrap 4 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
+/* Adapté par Alexis AMAND pour le projet PubliGED */
 
 require ('fonctions.php');
 include ('../config.php');
-include ('../langues/admin/fr.php');
-include ('../langues/admin/help.php');
+include('../langues/admin/fr.php');
+
+/* Récup du thème utilisé ou mise à jour de la BD avec le nouveau */
+
+if (!empty($_POST['template']))
+  {
+  $mod = "UPDATE configuration SET valeur ='" . $_POST['template'] . "' WHERE nom = 'template'";
+	$res = $pdo->prepare ( $mod );
+	$res->execute ();
+  $NomDuTemplate = $_POST['template'];
+  }
+else
+  {
+  $req = $pdo->prepare("SELECT * FROM configuration WHERE nom='template'");
+  $req->execute();
+  $rowTemplate = $req->fetch();  
+  $NomDuTemplate = $rowTemplate['valeur'];
+  }
+
+/* Récup du favicon utilisé ou mise à jour de la BD avec le nouveau */
+
+if(!empty($_FILES['favicon']))
+  {
+
+  echo "Le fichier a été envoyé";
+
+  $NomDuFavicon = $_FILES['favicon']['name'];
+
+  var_dump($NomDuFavicon);
+
+  $mod = "UPDATE configuration SET valeur ='" . $NomDuFavicon . "' WHERE nom = 'favicon'";
+	$res = $pdo->prepare ( $mod );
+	$res->execute (); 
+
+  /* On déplace le nouveau favicon vers le dossier du template */
+
+  // $up_dir = '/templates/'.$NomDuTemplate.'/images';
+  // $tmp_name = $_FILES["favicon"]["tmp_name"];
+  /*$name = basename($_FILES["favicon"]["name"]);*/
+  // $NomDuFavicon = $_FILES["favicon"]["name"];
+  // move_uploaded_file($tmp_name, $up_dir."/".$NomDuFavicon);
+  }
+else
+  {
+
+  echo "Le fichier n'a pas été envoyé";
+
+  $req = $pdo->prepare("SELECT * FROM configuration WHERE nom='favicon'");
+  $req->execute();
+  $rowFavicon = $req->fetch();
+  $NomDuFavicon = $rowFavicon['valeur'];
+  }
 
 ?>
 
@@ -20,13 +71,24 @@ include ('../langues/admin/help.php');
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   
-  <title><?php echo BCK_TITLE." - Edition d'une catégorie"; ?></title>
+  <title><?php echo BCK_TITLE." - ".ADM_RUB_PERSO; ?></title>
 
   <?php include("include/header.inc.php"); ?>
   
   <!-- CSS de datatables via npm -->
   <link href="../node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet">
- 
+
+  <style>
+
+  /* Personnalisation du bouton parcourir */
+
+  .custom-file-input ~ .custom-file-label::after 
+    {
+    content: "Parcourir";
+    }
+
+  </style>
+
 </head>
 
 <body id="page-top">
@@ -64,12 +126,12 @@ include ('../langues/admin/help.php');
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-          
+          	
           	<!-- Affichage du lien "voir le site" -->
           	<li class="nav-item">
 			  <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
 			</li>
-
+          
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -101,74 +163,113 @@ include ('../langues/admin/help.php');
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
+        
+        <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_PERSO; ?></h1>
+          <p class="mb-4"> </p>
 
-		<!-- Page Heading -->
-		<h1 class="h3 mb-2 text-gray-800"><?php echo ADM_CAT_EDIT; ?></h1>
+          <form action="opt-templates.php" method="POST" enctype="multipart/form-data">
+          
+          <!-- Choix du theme -->
+          <div class="card shadow mb-4">
+               <div class="card-header py-3">
+                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_TH_TITLE; ?></h6>
+               </div>
+               <div class="card-body">
 
-         <div class="card shadow mb-4">
-            
-            <div class="card-body">
-            
-            <?php
+               <p class="text-justify"><?php echo ADM_TH_TEXT_PART_1; ?><a href="https://bootswatch.com">Bootswatch</a><?php echo ADM_TH_TEXT_PART_2; ?><a href="https://mit-license.org">MIT</a>.</p>
 
-            if (!empty($_POST['Nom']) and !empty($_POST['NouveauNom']))
-                {
-                    /* $sql = $pdo->prepare("update categories set nom = :nouveaunom , description = :descriptionnom where nom = :nom"); */
-                    $sql = $pdo->prepare("update categories set nom = :nouveaunom where nom = :nom");
-                    $sql->bindparam(':nom', $_POST['Nom'] , PDO::PARAM_STR);
-                    $sql->bindparam(':nouveaunom', $_POST['NouveauNom'] , PDO::PARAM_STR);
-                    // $sql->bindparam(':descriptionnom', $_POST['DescriptionNom'] , PDO::PARAM_STR);
+               <div class="row">
 
-                    echo var_dump($_POST);
-                    
-                    try
+                  <?php
+
+                  $d = dir("../templates/");
+                  while($entry = $d->read()) 
+                    {
+                    $pasglop = array(".", "..", "system");
+                    if (!in_array($entry, $pasglop)) 
+                      {
+                      echo '<div class="col-md-4 col-12 col-sm-6 mb-3 col-lg-3">';
+                                            
+                      /* La miniature existe ? On affiche sinon... bah une miniature par défaut récupérée sur Placeholder */
+
+                      $thumbTheme = '../templates/'.$entry.'/'.$entry.'.png';
+
+                      echo '<figure class="figure">';
+
+                      if(file_exists($thumbTheme))
                         {
-                        $sql->execute();
-                        echo '<div class="alert alert-success" role="alert">';
-                        echo '<i class="fas fa-check"></i>La catégorie a bien été modifiée';
-                        echo '</div>';
+                        echo '<img src="'.$thumbTheme.'" class="img-fluid rounded img-thumbnail">';
                         }
-                    catch(exception $e)
+                      else
                         {
-                        echo '<div class="alert alert-warning" role="alert">';
-                        echo '<i class="fas fa-exclamation-triangle"></i>'.$e;
-                        echo '</div>';
+                        echo '<img src="https://via.placeholder.com/2560x1560.png" class="img-fluid rounded img-thumbnail">';
                         }
-                }
-                
-            ?>
+                      
+                      /* vérification du theme actuel, pour cocher la case... */
+      
+                      if($entry == $NomDuTemplate)
+                        {
+                        echo '<figcaption class="figure-caption text-center pt-2">';
+                        echo '<input type="radio" name="template" value="'.$entry.'" checked>&nbsp;'
+                        ."<span class='text-capitalize'>".$entry.'</span></div>';
+                        echo '</figcaption>';
+                        }
+                      else
+                        {
+                        echo '<figcaption class="figure-caption text-center pt-2">';
+                        echo '<input type="radio" name="template" value="'.$entry.'">&nbsp;'
+                        ."<span class='text-capitalize'>".$entry.'</span></div>';
+                        echo '</figcaption>';
+                        }
+                      
+                      echo '</figure>';
 
-            <form action="edit-categorie.php?cat=<?php echo $_GET['cat']; ?>" method="POST">
-                <div class="form-group">
-                    <label for="NomCategorie"><?php echo ADM_CAT_NAME; ?>
-                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo HELP_1; ?>">
-                    <i class="far fa-question-circle"></i></a></label>
-                    <input readonly type="text" class="form-control" id="NomCategorie" name="Nom" value="<?php echo get_category_name($pdo, $_GET['cat']); ?>">
+                      }
+
+                    }
+
+                  /* Fermeture du dossier template */ 
+                  $d->close();
+                  ?>
+
                 </div>
-                <div class="form-group">
-                    <label for="NouveauNomCategorie"><?php echo ADM_CAT_NEW; ?>
-                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo HELP_2; ?>">
-                    <i class="far fa-question-circle"></i></a></label>
-                    <input type="text" class="form-control" id="NouveauNomCategorie" name="NouveauNom">
+	
+			    </div>
+
+          </div>
+
+          <!-- Choix du favicon -->
+
+          <div class="card shadow mb-4">
+               <div class="card-header py-3">
+                 <h6 class="m-0 font-weight-bold text-primary"><?php echo FAV_TITLE; ?></h6>
+               </div>
+               <div class="card-body">
+
+                <div class="row">
+
+                <p><?php echo FAV_TEXT; ?><img src="<?php echo '/templates/'.$NomDuTemplate.'/images/'.$NomDuFavicon ?>"></p>
+  
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="validatedInputGroupCustomFile" name="favicon" value="plop">
+                      <label class="custom-file-label" for="validatedInputGroupCustomFile"><?php echo FAV_SELECT; ?></label>
+                    </div>
+
+                    <!-- Favicon actuel -->
+
                 </div>
-                <div class="form-group">
-                    <label for="DescriptionCategorie"><?php echo ADM_CAT_DES; ?>
-                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo HELP_3; ?>">
-                    <i class="far fa-question-circle"></i></a></label>
-                    <textarea class="form-control" id="DescriptionCategorie" rows="3" name="DescriptionNom"></textarea>
-                </div>
+	
+			    </div>
 
-                <input type="submit" class="btn btn-primary" value="Enregistrer">
+          </div>
+          
+			<input type="submit" class="btn btn-primary" value="<?php echo FAV_SEND; ?>">
 
-            </form>
+		</form>
 
-            </div>
-         </div> 
-             
-         
-
-         </div>
-         <!-- /.container-fluid -->
+        </div>
+        <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
@@ -230,12 +331,5 @@ include ('../langues/admin/help.php');
   <!-- JS de datatables perso -->
   <script src="js/demo/datatables-demo.js"></script>
 
-  <script>
-  $(function () {
-	  $('[data-toggle="tooltip"]').tooltip()
-	})
-  </script>
- 
 </body>
-
 </html>

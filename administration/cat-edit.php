@@ -2,14 +2,16 @@
 
 /* basé sur le template SB Admin 2 for Bootstrap 4 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
+/* Adapté par Alexis AMAND pour le projet PubliGED */
 
-require ('../content/fonctions.php');
+require ('fonctions.php');
 include ('../config.php');
 include ('../langues/admin/fr.php');
-include ('../class/class.php');
+include ('../langues/admin/help.php');
+
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -19,13 +21,13 @@ include ('../class/class.php');
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   
-  <title><?php echo BCK_TITLE." - ".ADM_RUB_SEND_G; ?></title>
+  <title><?php echo BCK_TITLE." - Edition d'une catégorie"; ?></title>
 
   <?php include("include/header.inc.php"); ?>
-
+  
   <!-- CSS de datatables via npm -->
   <link href="../node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-  
+ 
 </head>
 
 <body id="page-top">
@@ -100,43 +102,74 @@ include ('../class/class.php');
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-		          
-          <div class="card shadow mb-4">
 
-               <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_GED_READ; ?></h6>
-               </div>
-               	<div class="card-body">
-               	
-               	  <!-- Formulaire html classique -->	
+		<!-- Page Heading -->
+		<h1 class="h3 mb-2 text-gray-800"><?php echo ADM_CAT_EDIT; ?></h1>
 
-                  <p style='text-align: justify;'><?php echo ADM_GED_TEXT; ?></p>
+         <div class="card shadow mb-4">
+            
+            <div class="card-body">
+            
+            <?php
 
-                  <form method="POST" action="lecture.php" enctype="multipart/form-data">
-                    <div class="form-group">
-                      <label for="exampleFormControlFile1"><?php echo ADM_GED_SELECT; ?></label>
-                      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="avatar">
-                    </div>
-                    <button type="submit" class="btn btn-primary"><?php echo ADM_GED_SEND; ?></button>
-                  </form>
+            if (!empty($_POST['Nom']) and !empty($_POST['NouveauNom']))
+                {
+                    /* $sql = $pdo->prepare("update categories set nom = :nouveaunom , description = :descriptionnom where nom = :nom"); */
+                    $sql = $pdo->prepare("update categories set nom = :nouveaunom where nom = :nom");
+                    $sql->bindparam(':nom', $_POST['Nom'] , PDO::PARAM_STR);
+                    $sql->bindparam(':nouveaunom', $_POST['NouveauNom'] , PDO::PARAM_STR);
+                    // $sql->bindparam(':descriptionnom', $_POST['DescriptionNom'] , PDO::PARAM_STR);
 
-                  <!-- TODO : Formulaire avec une dropzone -->
+                    echo var_dump($_POST);
+                    
+                    try
+                        {
+                        $sql->execute();
+                        echo '<div class="alert alert-success" role="alert">';
+                        echo '<i class="fas fa-check"></i>La catégorie a bien été modifiée';
+                        echo '</div>';
+                        }
+                    catch(exception $e)
+                        {
+                        echo '<div class="alert alert-warning" role="alert">';
+                        echo '<i class="fas fa-exclamation-triangle"></i>'.$e;
+                        echo '</div>';
+                        }
+                }
+                
+            ?>
 
-                  <br /><br /><br /><br /><br />
-
-                  <form action="lecture.php" method="GET">
-                                  
-                    <div class="dropzone"></div>
-                    <button id="startUpload" type="submit" class="btn btn-primary"><?php echo ADM_GED_SEND; ?></button>
-                        
-                  </form>
-
+            <form action="cat-edit.php?cat=<?php echo $_GET['cat']; ?>" method="POST">
+                <div class="form-group">
+                    <label for="NomCategorie"><?php echo ADM_CAT_NAME; ?>
+                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo HELP_1; ?>">
+                    <i class="far fa-question-circle"></i></a></label>
+                    <input readonly type="text" class="form-control" id="NomCategorie" name="Nom" value="<?php echo get_category_name($pdo, $_GET['cat']); ?>">
                 </div>
-                        
-          </div>
-              
-        </div>
-        <!-- /.container-fluid -->
+                <div class="form-group">
+                    <label for="NouveauNomCategorie"><?php echo ADM_CAT_NEW; ?>
+                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo HELP_2; ?>">
+                    <i class="far fa-question-circle"></i></a></label>
+                    <input type="text" class="form-control" id="NouveauNomCategorie" name="NouveauNom">
+                </div>
+                <div class="form-group">
+                    <label for="DescriptionCategorie"><?php echo ADM_CAT_DES; ?>
+                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo HELP_3; ?>">
+                    <i class="far fa-question-circle"></i></a></label>
+                    <textarea class="form-control" id="DescriptionCategorie" rows="3" name="DescriptionNom"></textarea>
+                </div>
+
+                <input type="submit" class="btn btn-primary" value="Enregistrer">
+
+            </form>
+
+            </div>
+         </div> 
+             
+         
+
+         </div>
+         <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
@@ -150,7 +183,7 @@ include ('../class/class.php');
         </div>
       </footer>
       <!-- End of Footer -->
-      
+
     </div>
     <!-- End of Content Wrapper -->
 
@@ -198,29 +231,11 @@ include ('../class/class.php');
   <!-- JS de datatables perso -->
   <script src="js/demo/datatables-demo.js"></script>
 
-  <!-- JS de dropzone via npm -->
-  <script src="../node_modules/dropzone/dist/min/dropzone.min.js"></script>
-
   <script>
-  //Disabling autoDiscover
-  Dropzone.autoDiscover = false;
-
-  $(function() {
-      //Dropzone class
-      var myDropzone = new Dropzone(".dropzone", {
-          url: "lecture.php",
-          paramName: "avatar",
-          // maxFilesize: 2,
-          maxFiles: 1,
-          acceptedFiles: ".ged, .GED",
-          autoProcessQueue: false
-      });
-      
-      $('#startUpload').click(function(){           
-          myDropzone.processQueue();
-      });
-  });
-  </script>  
-  
+  $(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})
+  </script>
+ 
 </body>
 </html>

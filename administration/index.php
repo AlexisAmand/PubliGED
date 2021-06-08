@@ -2,6 +2,7 @@
 
 /* basé sur le template SB Admin 2 for Bootstrap 4 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
+/* Adapté par Alexis AMAND pour le projet PubliGED */
 
 require ('fonctions.php');
 require ('../class/class.php');
@@ -228,15 +229,15 @@ $BaseDeDonnees = new BasesDeDonnees;
                 
                 foreach ($output as $value) {
                 	echo "<li class='list-group-item d-flex justify-content-between align-items-center'>".$value['titre'];
-                	echo "<span class='badge badge-pill badge-light'><a href='editer-article.php'><i class='far fa-edit text-success'></i></a></span>";
-					echo "</li>";
+                	echo "<span class='badge badge-pill badge-light'><a href='article-edit.php?id=".$value['ref']."'><i class='far fa-edit text-success'></i></a></span>";
+					        echo "</li>";
                 }
                         
                 ?>
                 </ul>   
                 
                 <p class="text-right">
-                	<a href="modif-articles.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><?php echo ALL_ARTICLE; ?></a>
+                	<a href="articles-list.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><?php echo ALL_ARTICLE; ?></a>
                 </p>             
                 
                 </div>
@@ -261,7 +262,7 @@ $BaseDeDonnees = new BasesDeDonnees;
                   </ul>    
                   
                   <p class="text-right">
-                	<a href="modif-articles.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><?php echo "Envoyer mon gedcom"; ?></a>
+                	<a href="articles-list.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><?php echo "Envoyer mon gedcom"; ?></a>
                   </p>  
                                     
                 </div>

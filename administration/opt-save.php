@@ -2,8 +2,10 @@
 
 /* basé sur le template SB Admin 2 for Bootstrap 4 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
+/* Adapté par Alexis AMAND pour le projet PubliGED */
 
-require ('fonctions.php');
+require ('../content/fonctions.php');
+require ('../class/class.php');
 include ('../config.php');
 include('../langues/admin/fr.php');
 ?>
@@ -18,13 +20,107 @@ include('../langues/admin/fr.php');
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   
-  <title><?php echo BCK_TITLE." - ".ADM_RUB_DEL_G; ?></title>
+  <title><?php echo BCK_TITLE." - ".ADM_RUB_TITRE_0; ?></title>
 
   <?php include("include/header.inc.php"); ?>
-  
+
   <!-- CSS de datatables via npm -->
   <link href="../node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet">
   
+  <!-- TinyMCE via npm -->
+  <script src="../node_modules/tinymce/tinymce.min.js"></script>
+  
+<script>
+
+var dialogConfig =  {
+		  title: 'Lier un individu',
+		  body: {
+		    type: 'panel',
+		    items: [
+		      {
+		        type: 'input',
+		        name: 'nomData',
+		        label: 'Entrez le nom de la personne'
+		      }
+		    ]
+		  },
+		  buttons: [
+		    {
+		      type: 'cancel',
+		      name: 'closeButton',
+		      text: 'Annuler'
+		    },
+		    {
+		      type: 'submit',
+		      name: 'submitButton',
+		      text: 'Ok',
+		      primary: true
+		    }
+		  ],
+		  initialData: {
+		    // catdata: '',
+		    isdog: false
+		  },
+		  onSubmit: function (api) {
+		    var data = api.getData();    
+		    var truc = data.nomData;
+
+		    tinymce.activeEditor.execCommand('mceInsertContent', false, '<a href="#">' + truc +'</a>');	
+		    
+		    // tinymce.activeEditor.execCommand('mceInsertContent', false, '<p>My ' + pet +'\'s name is: <strong>' + data.catdata + '</strong></p>');
+		    api.close();
+		  }
+		};
+
+tinymce.init({
+	  selector: "textarea.individu",	  
+	  /* ajouter un tableau dans tinymce */
+	  /* plugins: "table", */
+	  tools: "inserttable",
+	  /* ajouter une image
+	  plugins: "image", */
+	  /* par défaut */
+	  toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons | dialog-example-btn",
+	  plugins: [
+	  	"advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+	     "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+	        "save table contextmenu directionality emoticons template paste textcolor"
+	        ],
+	        selector: 'textarea',
+	        language: "fr_FR",
+	        style_formats: [
+	        { title: 'Bold text', inline: 'b' },
+	        { title: 'Red text', inline: 'span', styles: { color: '#ff0000' } },
+	        { title: 'Red header', block: 'h1', styles: { color: '#ff0000' } },
+	        { title: 'Example 1', inline: 'span', classes: 'example1' },
+	        { title: 'Example 2', inline: 'span', classes: 'example2' },
+	        { title: 'Table styles' },
+	        { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' }
+	        ],	        
+	  height: 500,
+	  // toolbar: true,
+	  menubar: 'file edit insert view format table tools help custom',
+	  menu: {
+	    custom: { title: "généalogie", items: "basicitem nesteditem toggleitem" }
+	  },
+	  content_css: [
+	    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+	    '//www.tiny.cloud/css/codepen.min.css'
+	  ],
+	  setup: function (editor) {
+	    //var toggleState = false;
+
+	   editor.ui.registry.addButton('dialog-example-btn', {
+		 text: 'Lier un individu',
+     	 // icon: 'code-sample',
+      		onAction: function () {
+        	editor.windowManager.open(dialogConfig)
+	      }
+	    });
+	  }
+	});
+</script>
+
 </head>
 
 <body id="page-top">
@@ -63,7 +159,7 @@ include('../langues/admin/fr.php');
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
           
-          	<!-- Affichage du lien "voir le site" -->
+          	<!-- Affichage du lien "voir le site" -->         
           	<li class="nav-item">
 			  <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
 			</li>
@@ -97,28 +193,81 @@ include('../langues/admin/fr.php');
         </nav>
         <!-- End of Topbar -->
 
-        <!-- Begin Page Content -->
+                <!-- Begin Page Content -->
         <div class="container-fluid">
-        
-        <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_DEL_G; ?></h1>
-          <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          
-          <!-- DataTales Example -->         
+		          
+		 <!-- Page Heading -->
+		  <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_ST_TITLE; ?></h1>
+		                    
           <div class="card shadow mb-4">
+
                <div class="card-body">
-               <div class="form-group">
-               <form action="#" method="post">
-				
-			   <?php /* TODO: une modale pour la déco, qui demande si pa personne est sûre de vouloir supprimer son gedcom */ ?>
-			   
-			   <input type="submit" name="validerdel" class="btn btn-primary" value="Confirmer la suppression des tables">
+               
+<?php
+
+
+/* les champs "à remplir" ne doivent pas être vides */
+
+if(!empty($_POST))
+	{
+	/* Valeur du top pour les stats de la partie généalogie */	
+	if (isset ( $_POST ['top'] ))
+		{
+		$valeur = "top";
+		$stmt = $pdo->prepare ( "UPDATE configuration SET valeur=:valeur WHERE nom=:nom" );
+			
+		$stmt->bindParam ( ':nom', $valeur, PDO::PARAM_STR );
+		$stmt->bindParam ( ':valeur', $_POST ['top'], PDO::PARAM_STR );
+		$stmt->execute ();
 	
-			   </form>  
-			   </div>
-               </div>
+		/* TODO: dans la table configuration, le champ nrpp pourra surement être supprimé */
+	
+		if (!empty($_POST['tabOptions']))
+			{
+			foreach($_POST['tabOptions'] as $cle => $valeur) 
+				{
+				echo $cle.' : '.$valeur.'<br>';
+				}
+			}
+		}
+
+	/* Menu à droite ou à gauche ? */
+
+	if (isset($_POST['PositionMenu']))
+		{
+
+		$valeur = $_POST['PositionMenu'];
+		$stmt = $pdo->prepare ( "UPDATE configuration SET valeur=:valeur WHERE nom='positionmenu'" );
+				
+		$stmt->bindParam ( ':valeur', $valeur, PDO::PARAM_STR );
+		$stmt->execute ();
+
+		}
+
+	?>
+
+	<div class="alert alert-success" role="alert">
+	<?php echo "<i class='fas fa-exclamation-triangle'></i>Les options ont bien été enregistrées"; ?>
+	</div>
+
+	<?php
+	} 
+	else
+	{
+	?>
+
+	<div class="alert alert-danger" role="alert">
+	<?php echo "Attention ! Certains champs n'ont pas été remplis.<br />Les options n'ont pas pu être enregistrées."; ?>
+	</div>
+
+	<?php 
+	}
+	?>
+
+</div>
           </div>
               
+
         </div>
         <!-- /.container-fluid -->
 
@@ -165,7 +314,7 @@ include('../langues/admin/fr.php');
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript-->
+  <!-- Bootstrap core JavaScript -->
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -183,5 +332,4 @@ include('../langues/admin/fr.php');
   <script src="js/demo/datatables-demo.js"></script>
  
 </body>
-
 </html>

@@ -2,10 +2,12 @@
 
 /* basé sur le template SB Admin 2 for Bootstrap 4 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
+/* Adapté par Alexis AMAND pour le projet PubliGED */
 
 require ('fonctions.php');
 include ('../config.php');
-include('../langues/admin/fr.php');
+include ('../langues/admin/fr.php');
+include ('../class/class.php');
 
 ?>
 
@@ -18,22 +20,22 @@ include('../langues/admin/fr.php');
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  
-  <title><?php echo BCK_TITLE." - ".BCK_RUB_TITLE_3; ?></title>
+
+  <title><?php echo BCK_TITLE." - ".SUPPR_ARTICLE_TITLE; ?></title>
 
   <?php include("include/header.inc.php"); ?>
-  
+
   <!-- CSS de datatables via npm -->
   <link href="../node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-  
+
 </head>
 
 <body id="page-top">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
-
-    <?php include('include/sidebar.php'); ?>
+  
+  	<?php include('include/sidebar.php'); ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -63,12 +65,32 @@ include('../langues/admin/fr.php');
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-          	
-          	<!-- Affichage du lien "voir le site" -->
-          	<li class="nav-item">
-			  <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
-			</li>
           
+         	<!-- Affichage du lien "voir le site" -->
+         	<li class="nav-item">
+			    <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
+			</li>
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -100,97 +122,28 @@ include('../langues/admin/fr.php');
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-        
-        <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo BCK_RUB_TITLE_3; ?></h1>
-          
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-               <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_ST_RUBRIC_1; ?></h6>
-               </div>
-               <div class="card-body">
-                                        
-               <div class="form-group">
-               <form method="POST" action="save-options.php">
-			
-				<div class="form-check">
-				  <input class="form-check-input" type="checkbox" value="ActivBlog" id="defaultCheck1" name="tabOptions[]">
-				  <label class="form-check-label" for="defaultCheck1">
-				    <?php echo ADM_ST_ACT1; ?>
-				  </label>
-				</div>	
-					
-				<div class="form-check">
-				  <input class="form-check-input" type="checkbox" value="ActivGene" id="defaultCheck2" name="tabOptions[]">
-				  <label class="form-check-label" for="defaultCheck2">
-				    <?php echo ADM_ST_ACT2; ?>
-				  </label>
-				</div>
-				
-				<div class="form-check">
-				  <input class="form-check-input" type="checkbox" value="ActivContact" id="defaultCheck3" name="tabOptions[]">
-				  <label class="form-check-label" for="defaultCheck3">
-				    <?php echo "Activation de la page contact"; ?>
-				  </label>
-				</div>
 
-				<div class="form-check">
-				  <input class="form-check-input" type="radio" id="defaultCheck2" name="PositionMenu" value="droite" >
-				  <label class="form-check-label" for="defaultCheck2">
-				    <?php echo "Menu à droite" ?>
-				  </label>
-				</div>
-				
-				<div class="form-check">
-				  <input class="form-check-input" type="radio" id="defaultCheck3" name="PositionMenu" value="gauche" >
-				  <label class="form-check-label" for="defaultCheck3">
-				    <?php echo "Menu à gauche"; ?>
-				  </label>
-				</div>
-	
-			   </div>
-               </div>
-          </div>
-          
-          <div class="card shadow mb-4">
-               <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_ST_RUBRIC_2; ?></h6>
-               </div>
-               <div class="card-body">
-               <div class="form-group">        
-               	 <?php /* TODO : 
-               	 		- Récupérer la valeur de "value" dans les options dans les tables
-               	 		- faire une vérification pour que les valeurs soit bien des nombres
-               	 		- peut-être qu'il faut un min et un max ? 
-               	 	   */
-               	 ?>    	   
-	          	 <label><?php echo ADM_ST_TOP; ?></label>
-	          	 <input type="text" value="10" name="top">	
-			   </div>
-               </div>
-          </div>
-          
-          <div class="card shadow mb-4">
-          	   <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_ST_RUBRIC_3; ?></h6>
-               </div>
-               <div class="card-body">
-               <div class="form-group">
-       
-			   <div class="form-check">
-			      <input class="form-check-input" type="checkbox" value="ActivComm" id="defaultCheck1" name="tabOptions[]">
-				  <label class="form-check-label" for="defaultCheck1">
-				    <?php echo ADM_ST_ACT3; ?>
-				  </label>
-			   </div>	
-			   </div>
-		  </div>
- 		</div>
-			<input type="submit" class="btn btn-primary" value="<?php echo ADM_ST_SEND; ?>">
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800"><?php echo SUPPR_ARTICLE_TITLE; ?></h1>
 
-		</form>
-		   
+          <p class="mb-4">
+          <?php
+          if (isset($_GET['id']))
+				    {
+				    $sql = $pdo->prepare('DELETE FROM articles WHERE ref=:ref');	
+				    $sql->bindparam ( ':ref', $_GET['id'] );
+				    $req = $sql->execute ();
+			  		echo '<div class="alert alert-success" role="alert">';
+				    echo "<i class='fas fa-check'></i> L'article n° ".$_GET['id']." a bien été effacé !";
+				    echo '</div>';
+				    }
+			    else
+				    {
+				    /* redirection sur l'index */
+				    }
+			    ?>
+          </p>
+
         </div>
         <!-- /.container-fluid -->
 
@@ -217,8 +170,9 @@ include('../langues/admin/fr.php');
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
+    
   <!-- Logout Modal-->
+  
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -253,7 +207,6 @@ include('../langues/admin/fr.php');
 
   <!-- JS de datatables perso -->
   <script src="js/demo/datatables-demo.js"></script>
- 
+     
 </body>
-
 </html>

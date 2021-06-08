@@ -2,6 +2,7 @@
 
 /* basé sur le template SB Admin 2 for Bootstrap 4 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
+/* Adapté par Alexis AMAND pour le projet PubliGED */
 
 require ('../content/fonctions.php');
 require ('../class/class.php');
@@ -303,7 +304,7 @@ tinymce.init({
 
 					<p><?php echo ADM_ONLINE_TOOLS; ?></p>
 					
-					<form method="POST" action="ajout-article.php">
+					<form method="POST" action="article-add.php">
 					
 						<div class="form-group">
 							<label for="TitreArticle"><?php echo ADM_ARTICLE_EDIT_TITLE; ?></label>
@@ -422,5 +423,4 @@ tinymce.init({
   <script src="js/demo/datatables-demo.js"></script>
  
 </body>
-
 </html>

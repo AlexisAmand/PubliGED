@@ -35,10 +35,10 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="ajout-article.php"><?php echo ADM_RUB_ADD_A; ?></a>
-            <a class="collapse-item" href="modif-articles.php"><?php echo ADM_RUB_MODIF_A; ?></a>
-            <a class="collapse-item" href="ajout-cat.php"><?php echo ADM_RUB_ADD_C; ?></a>
-            <a class="collapse-item" href="liste-categories.php"><?php echo ADM_RUB_MODIF_C; ?></a>
+            <a class="collapse-item" href="article-add.php"><?php echo ADM_RUB_ADD_A; ?></a>
+            <a class="collapse-item" href="articles-list.php"><?php echo ADM_RUB_MODIF_A; ?></a>
+            <a class="collapse-item" href="cat-add.php"><?php echo ADM_RUB_ADD_C; ?></a>
+            <a class="collapse-item" href="cat-list.php"><?php echo ADM_RUB_MODIF_C; ?></a>
           </div>
         </div>
       </li>
@@ -79,8 +79,8 @@
         </a>
         <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="select_gedcom.php"><?php echo ADM_RUB_SEND_G;  ?></a>
-            <a class="collapse-item" href="effacer_gedcom.php"><?php echo ADM_RUB_DEL_G;  ?></a>
+            <a class="collapse-item" href="gedcom-select.php"><?php echo ADM_RUB_SEND_G;  ?></a>
+            <a class="collapse-item" href="gedcom-del.php"><?php echo ADM_RUB_DEL_G;  ?></a>
           </div>
         </div>
       </li>
@@ -124,8 +124,8 @@
         </a>
         <div id="collapse6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="options.php"><?php echo ADM_RUB_PARAM;  ?></a>
-            <a class="collapse-item" href="templates.php"><?php echo ADM_RUB_PERSO;  ?></a>
+            <a class="collapse-item" href="opt-settings.php"><?php echo ADM_RUB_PARAM;  ?></a>
+            <a class="collapse-item" href="opt-templates.php"><?php echo ADM_RUB_PERSO;  ?></a>
           </div>
         </div>
       </li>
@@ -158,7 +158,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="seo.php">
-        <i class="fas fa-fw fa-chart-area"></i>
+        <i class="far fa-file-alt"></i>
         <span><?php echo ASIDE_ADMIN_10; ?></span></a>
       </li>
 

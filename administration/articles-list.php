@@ -2,6 +2,7 @@
 
 /* basé sur le template SB Admin 2 for Bootstrap 4 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
+/* Adapté par Alexis AMAND pour le projet PubliGED */
 
 require ('fonctions.php');
 include ('../config.php');
@@ -9,6 +10,7 @@ include ('../langues/admin/fr.php');
 include ('../class/class.php');
 
 $article = new articles();
+$BaseDeDonnees = new BasesDeDonnees;
 
 ?>
 
@@ -22,7 +24,7 @@ $article = new articles();
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   
-  <title><?php echo BCK_TITLE." - ".ADM_RUB_MODIF_C; ?></title>
+  <title><?php echo BCK_TITLE." - ".ASIDE_ADMIN_1; ?></title>
 
   <?php include("include/header.inc.php"); ?>
 
@@ -67,9 +69,9 @@ $article = new articles();
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
           
-         	<!-- Affichage du lien "voir le site" -->
+          	<!-- Affichage du lien "voir le site" -->
          	<li class="nav-item">
-				<a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
+			    <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
 			</li>
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
@@ -125,21 +127,22 @@ $article = new articles();
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_MODIF_C; ?></h1>
-          <p class="mb-4"><?php echo ADM_CAT_MODIF_INTRO; ?></p>
+          <h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_1; ?></h1>
+          <p class="mb-4"><?php echo ADM_ARTICLE_MODIF_INTRO; ?></p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_CAT_LIST; ?></h6>
+              <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_ARTICLE_LIST; ?></h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
               
               <?php
               
-              $req = $pdo->prepare ("SELECT * FROM categories");
-              $req->execute ();
+              $nb_a = "SELECT * FROM articles";
+              $res_nb_a = $pdo->prepare ( $nb_a );
+              $res_nb_a->execute ();
               
               ?>
               
@@ -147,7 +150,9 @@ $article = new articles();
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th><?php echo "Nom de la catégorie"; ?></th>
+                      <th><?php echo ADM_ARTICLE_TITLE; ?></th>
+                      <th><?php echo ADM_ARTICLE_AUTHOR; ?></th>
+                      <th><?php echo ADM_ARTICLE_CAT; ?></th>
                       <th style="width: 3.5em;"><?php echo ADM_ART_EDIT; ?></th>
                       <th style="width: 3.5em;"><?php echo ADM_ART_SUPPR; ?></th>
                       <th style="width: 3.5em;"><?php echo ADM_ART_PUBLISH; ?></th>
@@ -157,7 +162,9 @@ $article = new articles();
                   <tfoot>
                   <tr>
                       <th>#</th>
-                      <th><?php echo "Nom de la catégorie"; ?></th>
+                      <th><?php echo ADM_ARTICLE_TITLE; ?></th>
+                      <th><?php echo ADM_ARTICLE_AUTHOR; ?></th>
+                      <th><?php echo ADM_ARTICLE_CAT; ?></th>
                       <th style="width: 3.5em;"><?php echo ADM_ART_EDIT; ?></th>
                       <th style="width: 3.5em;"><?php echo ADM_ART_SUPPR; ?></th>
                       <th style="width: 3.5em;"><?php echo ADM_ART_PUBLISH; ?></th>
@@ -166,19 +173,25 @@ $article = new articles();
                   <tbody>
                    
                   	<?php
-                 
-                  	while ($data = $req->fetch(PDO::FETCH_ASSOC))
-                    	{
-                      	echo "<tr>";
-                      	echo "<td>" . $data ['ref'] . "</td>";
-                      	echo "<td>" . $data ['nom'] . "</td>";
-                      	echo '<td class="text-center"><a href="edit-categorie.php?cat='.$data['ref'].'" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
-                      	echo '<td class="text-center"><a href="#" data-toggle="modal"><i class="far fa-trash-alt text-danger"></i></a></td>';                                
-                      	echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Publier"><i class="far fa-star text-warning"></i></a></td>';
-                        echo "</tr>";
-                    
-                      }
-                      
+                  	
+                  	foreach ($BaseDeDonnees->ListeTitreArticle($pdo) as $value) {
+                  		echo "<tr>";
+                  		echo "<td>".$value['ref']."</td>";
+                  		echo "<td>".$value['titre']."</td>";
+                  		echo "<td>".RecupAuteurArticle($pdo, $value['auteur'])."</td>";
+                  		echo "<td>".get_category_name($pdo, $value['id_cat'])."</td>";
+                  		echo '<td class="text-center"><a href="article-edit.php?id='.$value['ref'].'" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
+                  		                  		                  		
+                  		echo '<td class="text-center"><a href="article-del.php?id='.$value['ref'].'" class="truc" data-toggle="modal" data-target="#SupprArticle" data-whatever="'.$value['ref'].'"><i class="far fa-trash-alt text-danger"></i></a></td>';
+                  		                		             		
+                  		/* TODO : ajouter une colonne qui permet de publier ou dépublier un article
+                  		 * via un booleen dans la table des articles. L'icone change en fonction du ppublié ou non */
+                  		
+                  		echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Publier"><i class="far fa-star text-warning"></i></a></td>';
+                  		echo "</tr>";
+                  		
+                  	}
+                  	                 
                     ?> 
                                   
                   </tbody>
@@ -213,8 +226,29 @@ $article = new articles();
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
+  
+  <!-- Modal qui confirme la volonté de supprimer un article -->
+  
+  <div class="modal fade" id="SupprArticle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><?php echo SUPPR_ARTICLE_MODAL_TITLE; ?></h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body"><p class="ConfirmText">&nbsp;</p></div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo SUPPR_ARTICLE_MODAL_NO; ?></button>
+          <a class="btn btn-primary truc" href="#"><?php echo SUPPR_ARTICLE_MODAL_YES; ?></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <!-- Logout Modal-->
+  
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -232,7 +266,7 @@ $article = new articles();
       </div>
     </div>
   </div>
-  
+
   <!-- Bootstrap core JavaScript -->
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -255,17 +289,16 @@ $article = new articles();
 	  $('[data-toggle="tooltip"]').tooltip()
 	})
   </script>
-
-  <!-- JS pour la modale qui confirme la suppression d'un article -->
-
+  
   <script>
-  $('#DelArticle').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget)
-  var recipient = button.data('whatever')
+  $('#SupprArticle').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var titre = button.data('whatever') // Extract info from data-* attributes
   var modal = $(this)
-  modal.find('.ConfirmText').text("Etes-vous sûr de vouloir effacer l'article n° " + recipient)
+  modal.find('.ConfirmText').text("<?php echo SUPPR_ARTICLE_MODAL_TEXT; ?>" + titre) 
+  modal.find(".truc").attr("href", "article-del.php?id=" + titre);		
   })
   </script>
-
+ 
 </body>
 </html>

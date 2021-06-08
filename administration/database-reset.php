@@ -2,6 +2,7 @@
 
 /* basé sur le template SB Admin 2 for Bootstrap 3 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
+/* Adapté par Alexis AMAND pour le projet PubliGED */
 
 require ('fonctions.php');
 include ('../config.php');
@@ -314,5 +315,4 @@ if(isset($_POST['envoyerS']))
   <script src="js/demo/datatables-demo.js"></script>
  
 </body>
-
 </html>

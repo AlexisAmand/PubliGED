@@ -2,10 +2,13 @@
 
 /* basé sur le template SB Admin 2 for Bootstrap 4 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
+/* Adapté par Alexis AMAND pour le projet PubliGED */
 
 require ('fonctions.php');
 include ('../config.php');
 include ('../langues/admin/fr.php');
+
+/* Si des options ont été envoyées, on les récupére */
 
 if (isset($_POST['TitreSite']) and isset($_POST['DescriptionSite']))
   {
@@ -13,18 +16,13 @@ if (isset($_POST['TitreSite']) and isset($_POST['DescriptionSite']))
   $req = $pdo->prepare($sql);
   $req->execute();
 
-  $sql = "update configuration set valeur ='".$_POST['DescriptionSite']."' where nom='titre'";
+  $sql = "update configuration set valeur ='".$_POST['DescriptionSite']."' where nom='description'";
   $req = $pdo->prepare($sql);
   $req->execute();
   }
 
-/*
-UPDATE table_name
-SET column1=value, column2=value2,...
-WHERE some_column=some_value 
-*/
+/* Sinon, on récup les infos présentes dans la base de données */
 
-/* récup du titre du site pour le header */
 $sql = "select * from configuration where nom='titre'";
 $req = $pdo->prepare($sql);
 $req->execute();
@@ -32,7 +30,6 @@ $req->execute();
 $row = $req->fetch();
 $TitreSite = $row['valeur'];
 
-/* récup du slogan du site pour le header */
 $sql = "select * from configuration where nom='description'";
 $req = $pdo->prepare($sql);
 $req->execute();
@@ -99,8 +96,8 @@ $DescriptionSite = $row['valeur'];
           
           	<!-- Affichage du lien "voir le site" -->
           	<li class="nav-item">
-			  <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
-			</li>
+              <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
+            </li>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
@@ -246,5 +243,4 @@ $DescriptionSite = $row['valeur'];
   <script src="js/demo/datatables-demo.js"></script>
  
 </body>
-
 </html>

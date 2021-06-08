@@ -1,9 +1,10 @@
 <?php
 
-echo $_GET['avatar'];
-
 /* basé sur le template SB Admin 2 for Bootstrap 4 */
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
+/* Adapté par Alexis AMAND pour le projet PubliGED */
+
+echo $_GET['avatar'];
 
 require ('../content/fonctions.php');
 include ('../config.php');
@@ -137,9 +138,9 @@ include ('../class/class.php');
 				// Début des vérifications de sécurité...
 
 				/* 
-				TODO : si j'utilise dropzonejs, la vérification de l'extension se fait dans select_gedcom.php 
+				TODO : si j'utilise dropzonejs, la vérification de l'extension se fait dans gedcom-select.php 
 				sinon.. peut-être que je peux faire la vérification au moment où la personne choisi son fichier
-				pour éviter de lancer le script lecture.php si l'extension n'est pas bonne.
+				pour éviter de lancer le script gedcom-read.php si l'extension n'est pas bonne.
 				*/
 				
 				/*

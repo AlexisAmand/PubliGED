@@ -96,7 +96,7 @@ define("ADM_ARTICLE_NOTITLE","Vous n'avez pas indiqué de titre pour votre artic
 define("ADM_ARTICLE_NOCONTENT","Vous n'avez pas indiqué de contenu pour votre article");
 define("ADM_ARTICLE_NOCAT","Vous n'avez pas indiqué de catégorie pour votre article");
 
-define("ADM_ARTICLE_MODIF_INTRO","Cette page vous permet de modifier ou supprimer un article. Pour créer un nouvel article, rendez-vous plutôt sur <a href='ajout-article.php'>cette page</a>.");
+define("ADM_ARTICLE_MODIF_INTRO","Cette page vous permet de modifier ou supprimer un article. Pour créer un nouvel article, rendez-vous plutôt sur <a href='article-add.php'>cette page</a>.");
 define("ADM_ARTICLE_ADD_INTRO","Cette page vous permet de créer un article. Pour modifier ou supprimer un article, rendez-vous plutôt sur <a href='modif-article.php'>cette page</a>.");
 
 define("ADM_ARTICLE_SAVE","Enregistrer");
@@ -148,7 +148,7 @@ define("SEND","Sauvegarder");
 
 /* Modification d'une catégorie */
 
-define("ADM_CAT_MODIF_INTRO","Cette page vous permet de modifier ou supprimer une catégorie. Pour créer une nouvelle catégorie, rendez-vous plutôt sur <a href='ajout-cat.php'>cette page</a>.");
+define("ADM_CAT_MODIF_INTRO","Cette page vous permet de modifier ou supprimer une catégorie. Pour créer une nouvelle catégorie, rendez-vous plutôt sur <a href='cat-add.php'>cette page</a>.");
 
 define("ADM_CAT_EDIT","Edition d'une catégorie");
 
