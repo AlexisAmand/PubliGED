@@ -19,7 +19,7 @@ include('../langues/admin/fr.php');
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
 
-  <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_2; ?></title>
+  <title><?php echo BCK_TITLE." - ".ADM_RUB_ADD_C; ?></title>
 
   <?php include("include/header.inc.php"); ?>
   
@@ -100,7 +100,7 @@ include('../langues/admin/fr.php');
 		          
           <div class="card shadow mb-4">
                <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_RUB_TITRE_2; ?></h6>
+                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_RUB_ADD_C; ?></h6>
                </div>
                <div class="card-body">
                 <?php
@@ -149,7 +149,7 @@ include('../langues/admin/fr.php');
 				<form method="POST" action="ajout-cat.php">
 				
 					<div class="form-group">
-						<label for="categorie"><?php echo ADM_RUB_TITRE_2; ?></label>
+						<label for="categorie"><?php echo ADM_RUB_ADD_C; ?></label>
 					    <input class="form-control" id="categorie" name='categorie'>
 					</div>
 					

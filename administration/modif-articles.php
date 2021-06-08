@@ -23,7 +23,7 @@ $BaseDeDonnees = new BasesDeDonnees;
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   
-  <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_1; ?></title>
+  <title><?php echo BCK_TITLE." - ".ASIDE_ADMIN_1; ?></title>
 
   <?php include("include/header.inc.php"); ?>
 
@@ -126,7 +126,7 @@ $BaseDeDonnees = new BasesDeDonnees;
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_1; ?></h1>
+          <h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_1; ?></h1>
           <p class="mb-4"><?php echo ADM_ARTICLE_MODIF_INTRO; ?></p>
 
           <!-- DataTales Example -->

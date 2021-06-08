@@ -19,7 +19,7 @@ include('../langues/admin/fr.php');
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   
-  <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_4; ?></title>
+  <title><?php echo BCK_TITLE." - ".BCK_RUB_TITLE_3; ?></title>
 
   <?php include("include/header.inc.php"); ?>
   
@@ -102,7 +102,7 @@ include('../langues/admin/fr.php');
         <div class="container-fluid">
         
         <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_ST_TITLE; ?></h1>
+          <h1 class="h3 mb-2 text-gray-800"><?php echo BCK_RUB_TITLE_3; ?></h1>
           
           <!-- DataTales Example -->
           <div class="card shadow mb-4">

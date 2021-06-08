@@ -19,7 +19,7 @@ include('../langues/admin/fr.php');
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   
-  <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_0; ?></title>
+  <title><?php echo BCK_TITLE." - ".ASIDE_ADMIN_1; ?></title>
 
   <?php include("include/header.inc.php"); ?>
 
@@ -196,12 +196,12 @@ tinymce.init({
         <div class="container-fluid">
 		          
 		 <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_0; ?></h1>
+          <h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_1; ?></h1>
           <p class="mb-4"><?php echo ADM_ARTICLE_ADD_INTRO; ?></p>
 		                    
           <div class="card shadow mb-4">
                <div class="card-header py-3">
-                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_RUB_TITRE_0; ?></h6>
+                 <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_RUB_ADD_A; ?></h6>
                </div>
                <div class="card-body">
                

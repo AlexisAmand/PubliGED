@@ -22,7 +22,7 @@ $article = new articles();
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   
-  <title><?php echo ASIDE_ADMIN_0." - Liste des catégories"; ?></title>
+  <title><?php echo BCK_TITLE." - ".ADM_RUB_MODIF_C; ?></title>
 
   <?php include("include/header.inc.php"); ?>
 
@@ -125,13 +125,13 @@ $article = new articles();
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_CAT_LIST; ?></h1>
+          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_MODIF_C; ?></h1>
           <p class="mb-4"><?php echo ADM_CAT_MODIF_INTRO; ?></p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_ARTICLE_LIST; ?></h6>
+              <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_CAT_LIST; ?></h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">

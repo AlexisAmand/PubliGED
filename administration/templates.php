@@ -70,7 +70,7 @@ else
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   
-  <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_4; ?></title>
+  <title><?php echo BCK_TITLE." - ".ADM_RUB_PERSO; ?></title>
 
   <?php include("include/header.inc.php"); ?>
   
@@ -164,7 +164,7 @@ else
         <div class="container-fluid">
         
         <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_TITRE_9; ?></h1>
+          <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_PERSO; ?></h1>
           <p class="mb-4"> </p>
 
           <form action="templates.php" method="POST" enctype="multipart/form-data">

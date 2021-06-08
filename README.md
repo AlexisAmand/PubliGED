@@ -35,7 +35,7 @@ Obtenus via https://www.npmjs.com/ et npm 7.14.0
 
 #### Librairies PHP
 
-Obtenues via https://packagist.org et Composer 2.0.14
+Obtenues via https://packagist.org et Composer 2.1.2
 
 * PHPMailer/PHPMailer 6.4.1
 * egulias/EmailValidator 2.1.25

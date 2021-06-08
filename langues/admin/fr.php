@@ -36,35 +36,39 @@ define("MY_GEDCOM_EVE"," événements dans la base de données");
 /* Titres des pages + ELEMENTS DU MENU */
 /* ----------------------------------- */
 
-define("ASIDE_ADMIN_0","PubliGED Administration");
+define("BCK_TITLE","PubliGED Administration");
 
-define("ASIDE_ADMIN_1","Blog");
-define("ASIDE_ADMIN_2","Articles");
-define("ASIDE_ADMIN_3","Commentaires");
-define("ASIDE_ADMIN_4","Modules");
-define("ASIDE_ADMIN_5","Généalogie");
-define("ASIDE_ADMIN_6","Gedcom");
-define("ASIDE_ADMIN_7","Paramètres");
-define("ASIDE_ADMIN_8","Base de données");
-define("ASIDE_ADMIN_9","Options");
-define("ASIDE_ADMIN_10","Métas et SEO");
-define("ASIDE_ADMIN_11","Utilisateurs");
+define("BCK_RUB_TITLE_1","Blog");
+    define("ASIDE_ADMIN_1","Articles");
+        define("ADM_RUB_ADD_A","Ajouter un article");
+        define("ADM_RUB_MODIF_A","Modifier les articles");
+        define("ADM_RUB_ADD_C","Ajouter une catégorie");
+        define("ADM_RUB_MODIF_C","Modifier une catégorie");
+    define("ASIDE_ADMIN_2","Commentaires");
+        define("ADM_RUB_COMM","Modérer");
+    define("ASIDE_ADMIN_3","Modules");
 
-define("ADM_RUB_TITRE_0","Ajouter un article");
-define("ADM_RUB_TITRE_1","Modifier les articles");
-define("ADM_RUB_TITRE_2","Ajouter une catégorie");
-define("ADM_RUB_TITRE_3","Modifier une catégorie");
-define("ADM_RUB_TITRE_4","Modérer");
-define("ADM_RUB_TITRE_5","Effacer un gedcom");
-define("ADM_RUB_TITRE_6","Envoyer un gedcom");
+define("BCK_RUB_TITLE_2","Généalogie");
+    define("ASIDE_ADMIN_5","Gedcom");
+        define("ADM_RUB_SEND_G","Envoyer un gedcom");
+        define("ADM_RUB_DEL_G","Effacer un gedcom");
+    define("ASIDE_ADMIN_6","Modules");
 
-define("ADM_DB_SUPPR","Supprimer les tables");
-define("ADM_DB_CREATE","Réinitialiser les tables");
+define("BCK_RUB_TITLE_3","Paramètres");
+    define("ASIDE_ADMIN_7","Base de données");
+        define("ADM_DB_SUPPR","Supprimer les tables");
+        define("ADM_DB_CREATE","Réinitialiser les tables");
+        define( "ADM_DB_SIZE","Taille de la base de données");
+    define("ASIDE_ADMIN_8","Options");
+        define("ADM_RUB_PARAM","Paramètres");
+        define("ADM_RUB_PERSO","Personnalisation");
+    define("ASIDE_ADMIN_9","Utilisateurs");
+        define("ADM_RUB_USERS","Liste des utilisateurs");
+        define("ADM_RUB_ADD_USER","Ajout d'un utilisateur");
 
-define("ADM_RUB_TITRE_10","Paramètres");
-define("ADM_RUB_TITRE_9","Personnalisation");
-define("ADM_RUB_TITRE_7","Liste des utilisateurs");
-define("ADM_RUB_TITRE_8","Ajout d'un utilisateur");
+define("BCK_RUB_TITLE_4", "Référencement");
+    define("ASIDE_ADMIN_10","Métas et SEO");
+    define("ASIDE_ADMIN_11","Statistiques");
 
 /* -------------------- */
 /* Gestion des articles */
@@ -138,7 +142,7 @@ define( "WFT","estimé par World Family Tree");
 /* Ajout d'une catégorie */
 
 define("ADM_CAT_SEND","La nouvelle catégorie a bien été enregistrée !");
-define("ADM_CAT_LIST","Liste des catégories existantes");
+define("ADM_CAT_LIST","Liste des catégories");
 define("ADM_CAT_ROOL","Déroulez pour voir la liste des catégories existantes");
 define("SEND","Sauvegarder");
 
@@ -226,7 +230,6 @@ define("ADM_DB_SEND_S","Réinitialiser");
 
 /* stats sur les tables */
 
-define( "ADM_DB_SIZE","Taille de la base de données");
 define( "ADM_DB_STATS_TEXT","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
 define("ADM_DB_TABLE_NAME","Table");
 define("ADM_DB_TABLE_SIZE","Taille (en bytes)");
@@ -272,7 +275,6 @@ define( "ADM_ST_SEND","Enregistrer");
 
 /* Paramètres */
 
-define( "ADM_ST_TITLE","Paramètres");
 define( "ADM_ST_RUBRIC_1","Généralités");
 define( "ADM_ST_ACT1","Activer le blog");
 define( "ADM_ST_ACT2","Activer la partie généalogie");

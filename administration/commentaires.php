@@ -19,7 +19,7 @@ include('../langues/admin/fr.php');
   <meta name="description" content="">
   
 
-  <title><?php echo ASIDE_ADMIN_0." - ".ADM_RUB_TITRE_4; ?></title>
+  <title><?php echo BCK_TITLE." - ".ASIDE_ADMIN_2; ?></title>
 
   <?php include("include/header.inc.php"); ?>
   
@@ -133,7 +133,7 @@ include('../langues/admin/fr.php');
         <div class="container-fluid">
         
         <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_3; ?></h1>
+          <h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_2; ?></h1>
           <p class="mb-4"><?php echo ADM_COMM_INTRO; ?></p>
           
           <!-- DataTales Example -->         

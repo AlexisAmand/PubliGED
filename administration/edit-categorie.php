@@ -20,7 +20,7 @@ include ('../langues/admin/help.php');
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   
-  <title><?php echo ASIDE_ADMIN_0." - Edition d'une catégorie"; ?></title>
+  <title><?php echo BCK_TITLE." - Edition d'une catégorie"; ?></title>
 
   <?php include("include/header.inc.php"); ?>
   
