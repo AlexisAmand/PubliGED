@@ -37,7 +37,7 @@ if(isset($_GET['id']) and isset($_GET['action']))
         $sql->bindparam ( ':ref', $_GET['id'] );
 				$req = $sql->execute ();
         $msg = "<div class='alert alert-success' role='alert'>"
-				      ."<i class='fas fa-check'></i> L'article n° ".$_GET['id']." a bien été supprimer !"
+				      ."<i class='fas fa-check'></i> L'article n° ".$_GET['id']." a bien été supprimé !"
 				      ."</div>";
         break;
       default:

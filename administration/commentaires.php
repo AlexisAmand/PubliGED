@@ -7,6 +7,25 @@
 require ('fonctions.php');
 include ('../config.php');
 include('../langues/admin/fr.php');
+
+if(isset($_GET['id']) and isset($_GET['action']))
+  {
+  switch ($_GET['action']) 
+    {
+      case 'delete':
+        $sql = $pdo->prepare('DELETE FROM commentaires WHERE ref=:ref');	
+        $sql->bindparam ( ':ref', $_GET['id'] );
+				$req = $sql->execute ();
+        $msg = "<div class='alert alert-success' role='alert'>"
+				      ."<i class='fas fa-check'></i> Le commentaire n° ".$_GET['id']." a bien été supprimé !"
+				      ."</div>";
+        break;
+      default:
+        # code...
+        break;
+    }
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -136,8 +155,14 @@ include('../langues/admin/fr.php');
         <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_2; ?></h1>
           <p class="mb-4"><?php echo ADM_COMM_INTRO; ?></p>
-          
-                   
+
+          <?php 
+          if(isset($msg))
+            {
+            echo $msg;
+            }
+          ?>
+
           <div class="card shadow mb-4">
                <div class="card-header py-3">
                  <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_COMM_GEST; ?></h6>
@@ -191,7 +216,8 @@ include('../langues/admin/fr.php');
 						echo "</td>";
 						echo "<td>".substr($rowCommentaires ['contenu'], 0, 150)."...</td>";						
 						echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
-						echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Supprimer"><i class="far fa-trash-alt text-danger"></i></a></td>';
+
+						echo '<td class="text-center"><a href="commentaires.php?id='.$rowCommentaires['ref'].'" class="truc" data-toggle="modal" data-target="#SupprComm" data-whatever="'.$rowCommentaires['ref'].'"><i class="far fa-trash-alt text-danger"></i></a></td>';
 						
 						/* TODO : ajouter une colonne qui permet de publier ou dépublier un commentaire
 						 * via un booleen dans la table des commentaires. L'icone change en fonction du "publié" ou non
@@ -235,6 +261,26 @@ include('../langues/admin/fr.php');
     <i class="fas fa-angle-up"></i>
   </a>
 
+   <!-- Modal qui confirme la volonté de supprimer un commentaire -->
+  
+   <div class="modal fade" id="SupprComm" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="logoutModalLabel"><?php echo SUPPR_ARTICLE_MODAL_TITLE; ?></h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body"><p class="ConfirmText">&nbsp;</p></div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo SUPPR_ARTICLE_MODAL_NO; ?></button>
+          <a class="btn btn-primary truc" href="#"><?php echo SUPPR_ARTICLE_MODAL_YES; ?></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -270,6 +316,18 @@ include('../langues/admin/fr.php');
 
   <!-- JS de datatables perso -->
   <script src="js/demo/datatables-demo.js"></script>
+
+    <!-- JS pour la modale qui confirme la suppression d'un article -->
+  
+    <script>
+    $('#SupprComm').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var titre = button.data('whatever') // Extract info from data-* attributes
+    var modal = $(this)
+    modal.find('.ConfirmText').text("<?php echo "Suppression comm'"; ?>" + titre) 
+    modal.find(".truc").attr("href", "commentaires.php?action=delete&id=" + titre);		
+    })
+    </script>
  
 </body>
 </html>

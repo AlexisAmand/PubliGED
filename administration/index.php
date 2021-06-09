@@ -289,23 +289,23 @@ $BaseDeDonnees = new BasesDeDonnees;
 	                  		
 	                ?>
 	                  
-	            	<table class="table table-striped">
-	             		<thead>
-		                	<tr>
-			                	<th scope="col">Date</th>
-			                  	<th scope="col">Article</th>
-			                  	<th scope="col">Auteur</th>
-			                  	<th scope="col">Commentaire</th>
-		                  	</tr>
-	                  	</thead>
-	                  	<tbody>
+	            	  <table class="table table-striped">
+	             		  <thead>
+		                  <tr>
+			                  <th scope="col">Date</th>
+			                  <th scope="col">Article</th>
+			                  <th scope="col">Auteur</th>
+			                  <th scope="col">Commentaire</th>
+		                  </tr>
+	                  </thead>
+	                  <tbody>
 	                  
-	                    <?php                  
+	                  <?php
 	                
-	                  	// var_dump($sql->execute()); -> donne true
+	                  // var_dump($sql->execute()); -> donne true
 	                                        		                                  
 		                while($row = $sql->fetch(PDO::FETCH_ASSOC)) 
-		                	{
+		                  {
 		                  	echo '<tr>';
 		                  	echo "<td>".$row['date_com']."</td>";
 		                  	echo "<td>".RecupTitreArticle($pdo, $row['id_article'])."</td>";
