@@ -69,7 +69,7 @@ $article = new articles();
 
 $article->ref = $_GET['id'];
 
-$sqlArticle = $pdo2->query("SELECT * FROM articles WHERE ref='$article->ref'");
+$sqlArticle = $pdo2->query("SELECT * FROM articles WHERE ref='$article->ref' and publication='1'");
 $row = $sqlArticle->fetch(PDO::FETCH_ASSOC);
 	
 $article->auteur = $row['auteur'];

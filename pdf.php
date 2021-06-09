@@ -6,7 +6,7 @@ require_once 'vendor/autoload.php';
 
 /* récupération de l'article */
 
-$sqlArticle = "select * from articles where ref='{$_GET['id']}'";
+$sqlArticle = "SELECT * FROM articles where publication = '1' AND ref='{$_GET['id']}'";
 $reqArticle = $pdo->prepare($sqlArticle);
 $reqArticle->execute();
 

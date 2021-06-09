@@ -112,7 +112,7 @@ include('../langues/admin/fr.php');
 
 		<form method="POST" action="modules_blog.php">
 
-		<!-- DataTales Example -->         
+		         
         <div class="card shadow mb-4">
         	<div class="card-header py-3">
             	<h6 class="m-0 font-weight-bold text-primary">Choix des modules de vos menus</h6>

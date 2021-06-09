@@ -27,7 +27,7 @@ if (isset ( $_GET['recherche']))
 		/* recherche dans les articles du blog */
 		case '1':
 		
-			$sqlArticles = $pdo2->prepare ( "SELECT * FROM articles WHERE article LIKE '%" . $_GET['recherche'] . "%' OR titre LIKE '%" . $_GET['recherche'] . "%'" );
+			$sqlArticles = $pdo2->prepare ( "SELECT * FROM articles WHERE publication='1' AND article LIKE '%" . $_GET['recherche'] . "%' OR titre LIKE '%" . $_GET['recherche'] . "%'" );
 			$sqlArticles->execute ();
 			$nbSearchArticles = $sqlArticles->rowCount ();
 		

@@ -148,7 +148,7 @@ if (! empty ( $_POST ['g-aside-1'] ))
 
 		<form method="POST" action="modules_genealogie.php">
 
-		<!-- DataTales Example -->         
+		         
         <div class="card shadow mb-4">
         	<div class="card-header py-3">
             	<h6 class="m-0 font-weight-bold text-primary"><?php echo MODUL_GES; ?></h6>

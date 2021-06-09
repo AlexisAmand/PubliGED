@@ -1,6 +1,6 @@
 <?php
 
-$sqlArticles = $pdo2->prepare ( "SELECT * FROM articles WHERE article LIKE '%" . $_GET['recherche'] . "%' OR titre LIKE '%" . $_GET['recherche'] . "%'" );
+$sqlArticles = $pdo2->prepare ( "SELECT * FROM articles publication = '1' AND WHERE article LIKE '%" . $_GET['recherche'] . "%' OR titre LIKE '%" . $_GET['recherche'] . "%'" );
 $sqlArticles->execute ();
 $nbSearchArticles = $sqlArticles->rowCount ();
 

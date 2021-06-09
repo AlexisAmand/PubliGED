@@ -6,7 +6,7 @@
 
 	<?php
 	
-	$sqlDerniersArticles = "SELECT * FROM articles ORDER BY date DESC limit 0,5";
+	$sqlDerniersArticles = "SELECT * FROM  articles WHERE publication='1' ORDER BY date DESC limit 0,5";
 	$reqDerniersArticles = $pdo2->prepare($sqlDerniersArticles);
 	$reqDerniersArticles->execute();
 	

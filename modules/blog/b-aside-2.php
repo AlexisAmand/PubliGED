@@ -18,20 +18,21 @@ $reqCategorie->execute();
 	
 	while ( $row = $reqCategorie->fetch(PDO::FETCH_ASSOC)) 
 		{
-		echo "<li class='list-group-item d-flex justify-content-between align-items-center'>";	
-		echo "<a href='index.php?page=categories&id=".$row['id_cat']."'>".get_category_name($pdo2,$row['id_cat'])."</a>";
-	
-		$sqlNombreCategories = "SELECT id_cat, count(*) AS nbcat FROM articles WHERE id_cat=:id_cat GROUP BY id_cat";
+		$sqlNombreCategories = "SELECT id_cat, count(*) AS nbcat FROM articles WHERE id_cat=:id_cat and publication='1' GROUP BY id_cat";
 		$reqNombreCategories = $pdo2->prepare($sqlNombreCategories);
 		$reqNombreCategories->bindparam(':id_cat',$row['id_cat']);
 		$reqNombreCategories->execute();
-	
-		while ($row = $reqNombreCategories->fetch(PDO::FETCH_ASSOC)) 
+
+		while ($rowC = $reqNombreCategories->fetch(PDO::FETCH_ASSOC)) 
 			{
-			echo "<span class='badge badge-primary badge-pill'>".$row['nbcat']."</span>";
+			if($rowC['nbcat'] != '0')
+				{
+				echo "<li class='list-group-item d-flex justify-content-between align-items-center'>";	
+				echo "<a href='index.php?page=categories&id=".$row['id_cat']."'>".get_category_name($pdo2,$row['id_cat'])."</a>";
+				echo "<span class='badge badge-primary badge-pill'>".$rowC['nbcat']."</span>";
+				echo "</li>";
+				}
 			}
-			
-		echo "</li>";
 		}
 	
 	echo "</ul>";

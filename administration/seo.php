@@ -147,13 +147,13 @@ $DescriptionSite = $row['valeur'];
             
               <div class="card-body">     	   
                 <div class="form-group">
-                <label for="exampleFormControlInput1"><?php echo ADM_HD_SITE_NAME; ?></label>
-                  <input type="text" class="form-control" id="exampleFormControlInput1" value="<?php echo $TitreSite; ?>" name="TitreSite">
+                <label for="TitreInput"><?php echo ADM_HD_SITE_NAME; ?></label>
+                  <input type="text" class="form-control" id="TitreInput" value="<?php echo $TitreSite; ?>" name="TitreSite">
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleFormControlInput2"><?php echo ADM_HD_SITE_DESC; ?></label>
-                  <input type="text" class="form-control" id="exampleFormControlInput2" value="<?php echo $DescriptionSite; ?>" name="DescriptionSite">
+                  <label for="DescriptionInput"><?php echo ADM_HD_SITE_DESC; ?></label>
+                  <input type="text" class="form-control" id="DescriptionInput" value="<?php echo $DescriptionSite; ?>" name="DescriptionSite">
                 </div>
      	   
               </div>

@@ -26,6 +26,9 @@ include ('../class/class.php');
 
   <!-- CSS de datatables via npm -->
   <link href="../node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+  <!-- CSS de dropzone via npm -->
+  <link href="../node_modules/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
   
 </head>
 
@@ -115,8 +118,8 @@ include ('../class/class.php');
 
                   <form method="POST" action="gedcom-read.php" enctype="multipart/form-data">
                     <div class="form-group">
-                      <label for="exampleFormControlFile1"><?php echo ADM_GED_SELECT; ?></label>
-                      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="avatar">
+                      <label for="GedcomFile"><?php echo ADM_GED_SELECT; ?></label>
+                      <input type="file" class="form-control-file" id="GedcomFile" name="avatar">
                     </div>
                     <button type="submit" class="btn btn-primary"><?php echo ADM_GED_SEND; ?></button>
                   </form>
@@ -125,12 +128,10 @@ include ('../class/class.php');
 
                   <br /><br /><br /><br /><br />
 
-                  <form action="gedcom-read.php" method="GET">
-                                  
-                    <div class="dropzone"></div>
-                    <button id="startUpload" type="submit" class="btn btn-primary"><?php echo ADM_GED_SEND; ?></button>
-                        
+                  <form action="test.php" enctype="multipart/form-data" class="dropzone" id="image-upload">
+
                   </form>
+                  <button id="uploadFile">Upload Files</button>
 
                 </div>
                         
@@ -202,26 +203,29 @@ include ('../class/class.php');
   <!-- JS de dropzone via npm -->
   <script src="../node_modules/dropzone/dist/min/dropzone.min.js"></script>
 
-  <script>
-  //Disabling autoDiscover
-  Dropzone.autoDiscover = false;
+  <!-- JS perso pour dropzone -->
 
-  $(function() {
-      //Dropzone class
-      var myDropzone = new Dropzone(".dropzone", {
-          url: "gedcom-read.php",
-          paramName: "avatar",
-          // maxFilesize: 2,
-          maxFiles: 1,
-          acceptedFiles: ".ged, .GED",
-          autoProcessQueue: false
-      });
-      
-      $('#startUpload').click(function(){           
-          myDropzone.processQueue();
-      });
-  });
-  </script>  
+  <script type="text/javascript">
+
+   Dropzone.autoDiscover = false;
   
+   var myDropzone = new Dropzone(".dropzone", { 
+      autoProcessQueue: false,
+      maxFilesize: 1,
+      acceptedFiles: ".ged, .GED",
+      init: function () {
+        // Set up any event handlers
+        this.on('completemultiple', function () {
+            location.reload();
+        });
+    }
+   });
+
+   $('#uploadFile').click(function(){
+      myDropzone.processQueue();
+   });
+
+</script>
+
 </body>
 </html>

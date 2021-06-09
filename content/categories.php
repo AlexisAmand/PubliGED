@@ -12,7 +12,7 @@ $messagesParPage = NombreArticlePage($pdo2);
 
 /* ici on compte le nombre d'articles total */
 
-$sql = "SELECT * FROM articles WHERE id_cat = '" . $_GET ['id'] . "' ORDER BY date DESC";
+$sql = "SELECT * FROM articles WHERE publication='1' and id_cat = '" . $_GET ['id'] . "' ORDER BY date DESC";
 $req = $pdo2->prepare ($sql);
 $req->execute ();
 $total = $req->rowCount ();
@@ -43,7 +43,7 @@ $premiereEntree=($pa-1)*$messagesParPage;
 /* LISTE DES ARTICLES D'UNE CATEGORIE */
 /* ---------------------------------- */
 
-$sqlCategories = "SELECT * FROM articles WHERE id_cat = '" . $_GET ['id'] . "' ORDER BY date DESC";
+$sqlCategories = "SELECT * FROM articles WHERE publication='1' and id_cat = '" . $_GET ['id'] . "' ORDER BY date DESC";
 $reqCategories = $pdo2->prepare( $sqlCategories);
 $reqCategories ->execute();
 

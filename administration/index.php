@@ -168,7 +168,7 @@ $BaseDeDonnees = new BasesDeDonnees;
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><?php echo NB_ARTICLES; ?></div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                         <?php
-                        $sql_nb_article = "select * from articles";
+                        $sql_nb_article = "SELECT * FROM articles WHERE publication = '1'";
                         $req = $pdo->prepare($sql_nb_article);
                         $req->execute ();
                         echo $req->rowCount ();
@@ -234,7 +234,7 @@ $BaseDeDonnees = new BasesDeDonnees;
                 }
                         
                 ?>
-                </ul>   
+                </ul>
                 
                 <p class="text-right">
                 	<a href="articles-list.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><?php echo ALL_ARTICLE; ?></a>

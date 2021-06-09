@@ -33,7 +33,7 @@ define("MY_GEDCOM_SRC"," sources dans la base de données");
 define("MY_GEDCOM_EVE"," événements dans la base de données");
 
 /* ----------------------------------- */
-/* Titres des pages + ELEMENTS DU MENU */
+/* Titres des pages / éléments du menu */
 /* ----------------------------------- */
 
 define("BCK_TITLE","PubliGED Administration");
@@ -110,7 +110,12 @@ define("SUPPR_ARTICLE_MODAL_TITLE","Confirmation");
 define("SUPPR_ARTICLE_MODAL_TEXT","Etes-vous sûr de vouloir effacer l'article n°");
 define("SUPPR_ARTICLE_MODAL_YES","Oui");
 define("SUPPR_ARTICLE_MODAL_NO","Non");
-define("SUPPR_ARTICLE_VALID","");
+//define("SUPPR_ARTICLE_VALID","");
+
+/* Publication ou dépublication d'un article */
+
+define("PUB_ARTICLE_MODAL_TEXT","Etes-vous sûr de vouloir publier l'article n°");
+define("UNPUB_ARTICLE_MODAL_TEXT","Etes-vous sûr de vouloir dépublier l'article n°");
 
 /* ---- */
 /* MOIS */

@@ -137,7 +137,7 @@ include('../langues/admin/fr.php');
           <h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_2; ?></h1>
           <p class="mb-4"><?php echo ADM_COMM_INTRO; ?></p>
           
-          <!-- DataTales Example -->         
+                   
           <div class="card shadow mb-4">
                <div class="card-header py-3">
                  <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_COMM_GEST; ?></h6>

@@ -129,7 +129,7 @@ $article = new articles();
           <h1 class="h3 mb-2 text-gray-800"><?php echo ADM_RUB_MODIF_C; ?></h1>
           <p class="mb-4"><?php echo ADM_CAT_MODIF_INTRO; ?></p>
 
-          <!-- DataTales Example -->
+          
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_CAT_LIST; ?></h6>

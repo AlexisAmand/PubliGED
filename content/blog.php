@@ -25,7 +25,7 @@ $rss = '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE xml><rss version="2.0">
 <link>' . URL_SITE . '</link>
 ';
 
-$req = $pdo2->query ( "SELECT * FROM articles" );
+$req = $pdo2->query ( "SELECT * FROM articles where publication='1'" );
 
 while ( $row = $req->fetch (PDO::FETCH_ASSOC) )
 {
@@ -57,7 +57,7 @@ $messagesParPage = NombreArticlePage($pdo2);
 
 /* ici on compte le nombre d'articles total */
 
-$sql = "select * from articles";
+$sql = "SELECT * FROM articles WHERE publication='1'";
 $req = $pdo2->prepare ($sql);
 $req->execute ();
 $total = $req->rowCount ();
@@ -88,7 +88,7 @@ $premiereEntree=($pa-1)*$messagesParPage;
 /* AFFICHAGE DES ARTICLES SOUS LA FORME D'UN BLOG */
 /* ---------------------------------------------- */
 
-$req = 'SELECT * FROM articles ORDER BY date DESC LIMIT '.$premiereEntree.', '.$messagesParPage.' ';
+$req = 'SELECT * FROM articles WHERE publication = "1" ORDER BY date DESC LIMIT '.$premiereEntree.', '.$messagesParPage.' ';
 $resultat = $pdo2->prepare( $req );
 $resultat->execute();
 

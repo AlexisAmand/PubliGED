@@ -12,6 +12,40 @@ include ('../class/class.php');
 $article = new articles();
 $BaseDeDonnees = new BasesDeDonnees;
 
+if(isset($_GET['id']) and isset($_GET['action']))
+  {
+  switch ($_GET['action']) 
+    {
+      case 'publish':
+        $sql = $pdo->prepare("UPDATE articles SET publication = '1' WHERE ref=:ref");	
+        $sql->bindparam ( ':ref', $_GET['id'] );
+				$req = $sql->execute ();
+        $msg = "<div class='alert alert-success' role='alert'>"
+				      ."<i class='fas fa-check'></i> L'article n° ".$_GET['id']." a bien été publié !"
+				      ."</div>";
+        break;
+      case 'unpublish':
+        $sql = $pdo->prepare("UPDATE articles SET publication = '0' WHERE ref=:ref");	
+        $sql->bindparam ( ':ref', $_GET['id'] );
+				$req = $sql->execute ();
+        $msg = "<div class='alert alert-success' role='alert'>"
+				      ."<i class='fas fa-check'></i> L'article n° ".$_GET['id']." a bien été dépublié !"
+				      ."</div>";
+        break;
+      case 'delete':
+        $sql = $pdo->prepare('DELETE FROM articles WHERE ref=:ref');	
+        $sql->bindparam ( ':ref', $_GET['id'] );
+				$req = $sql->execute ();
+        $msg = "<div class='alert alert-success' role='alert'>"
+				      ."<i class='fas fa-check'></i> L'article n° ".$_GET['id']." a bien été supprimer !"
+				      ."</div>";
+        break;
+      default:
+        # code...
+        break;
+    }
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +106,7 @@ $BaseDeDonnees = new BasesDeDonnees;
           	<!-- Affichage du lien "voir le site" -->
          	<li class="nav-item">
 			    <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
-			</li>
+			    </li>
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
             <li class="nav-item dropdown no-arrow d-sm-none">
@@ -130,7 +164,13 @@ $BaseDeDonnees = new BasesDeDonnees;
           <h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_1; ?></h1>
           <p class="mb-4"><?php echo ADM_ARTICLE_MODIF_INTRO; ?></p>
 
-          <!-- DataTales Example -->
+          <?php 
+          if(isset($msg))
+            {
+            echo $msg;
+            }
+          ?>
+          
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary"><?php echo ADM_ARTICLE_LIST; ?></h6>
@@ -140,7 +180,7 @@ $BaseDeDonnees = new BasesDeDonnees;
               
               <?php
               
-              $nb_a = "SELECT * FROM articles";
+              $nb_a = "SELECT * FROM articles ORDER BY date DESC";
               $res_nb_a = $pdo->prepare ( $nb_a );
               $res_nb_a->execute ();
               
@@ -153,6 +193,7 @@ $BaseDeDonnees = new BasesDeDonnees;
                       <th><?php echo ADM_ARTICLE_TITLE; ?></th>
                       <th><?php echo ADM_ARTICLE_AUTHOR; ?></th>
                       <th><?php echo ADM_ARTICLE_CAT; ?></th>
+                      <th><?php echo "date"; ?></th>
                       <th style="width: 3.5em;"><?php echo ADM_ART_EDIT; ?></th>
                       <th style="width: 3.5em;"><?php echo ADM_ART_SUPPR; ?></th>
                       <th style="width: 3.5em;"><?php echo ADM_ART_PUBLISH; ?></th>
@@ -165,6 +206,7 @@ $BaseDeDonnees = new BasesDeDonnees;
                       <th><?php echo ADM_ARTICLE_TITLE; ?></th>
                       <th><?php echo ADM_ARTICLE_AUTHOR; ?></th>
                       <th><?php echo ADM_ARTICLE_CAT; ?></th>
+                      <th><?php echo "date"; ?></th>
                       <th style="width: 3.5em;"><?php echo ADM_ART_EDIT; ?></th>
                       <th style="width: 3.5em;"><?php echo ADM_ART_SUPPR; ?></th>
                       <th style="width: 3.5em;"><?php echo ADM_ART_PUBLISH; ?></th>
@@ -180,16 +222,25 @@ $BaseDeDonnees = new BasesDeDonnees;
                   		echo "<td>".$value['titre']."</td>";
                   		echo "<td>".RecupAuteurArticle($pdo, $value['auteur'])."</td>";
                   		echo "<td>".get_category_name($pdo, $value['id_cat'])."</td>";
+                      echo "<td>".$value['date']."</td>";
                   		echo '<td class="text-center"><a href="article-edit.php?id='.$value['ref'].'" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
                   		                  		                  		
                   		echo '<td class="text-center"><a href="article-del.php?id='.$value['ref'].'" class="truc" data-toggle="modal" data-target="#SupprArticle" data-whatever="'.$value['ref'].'"><i class="far fa-trash-alt text-danger"></i></a></td>';
                   		                		             		
                   		/* TODO : ajouter une colonne qui permet de publier ou dépublier un article
                   		 * via un booleen dans la table des articles. L'icone change en fonction du ppublié ou non */
-                  		
-                  		echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Publier"><i class="far fa-star text-warning"></i></a></td>';
+                      
+                      if ($value['publication'] == '0')
+                        {
+                        echo '<td class="text-center"><a href="#" data-toggle="modal" data-target="#PublishArticle" title="Publier" class="truc" data-whatever="'.$value['ref'].'"><i class="far fa-star text-warning"></i></i></a></td>';
+                        }
+                  		else
+                        {
+                  		  echo '<td class="text-center"><a href="#" data-toggle="modal" data-target="#UnPublishArticle" title="Publier" class="truc" data-whatever="'.$value['ref'].'"><i class="fas fa-star text-warning"></i></a></td>';
+                        }
+
                   		echo "</tr>";
-                  		
+
                   	}
                   	                 
                     ?> 
@@ -246,6 +297,46 @@ $BaseDeDonnees = new BasesDeDonnees;
       </div>
     </div>
   </div>
+
+    <!-- Modal qui confirme la volonté de publier un article -->
+  
+    <div class="modal fade" id="PublishArticle" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="logoutModalLabel"><?php echo SUPPR_ARTICLE_MODAL_TITLE; ?></h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body"><p class="ConfirmText">&nbsp;</p></div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo SUPPR_ARTICLE_MODAL_NO; ?></button>
+            <a class="btn btn-primary truc" href="#"><?php echo SUPPR_ARTICLE_MODAL_YES; ?></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal qui confirme la volonté de dépublier un article -->
+  
+    <div class="modal fade" id="UnPublishArticle" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="logoutModalLabel"><?php echo SUPPR_ARTICLE_MODAL_TITLE; ?></h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body"><p class="ConfirmText">&nbsp;</p></div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo SUPPR_ARTICLE_MODAL_NO; ?></button>
+            <a class="btn btn-primary truc" href="#"><?php echo SUPPR_ARTICLE_MODAL_YES; ?></a>
+          </div>
+        </div>
+      </div>
+    </div>
   
   <!-- Logout Modal-->
   
@@ -289,6 +380,8 @@ $BaseDeDonnees = new BasesDeDonnees;
 	  $('[data-toggle="tooltip"]').tooltip()
 	})
   </script>
+
+  <!-- JS pour la modale qui confirme la suppression d'un article -->
   
   <script>
   $('#SupprArticle').on('show.bs.modal', function (event) {
@@ -296,9 +389,33 @@ $BaseDeDonnees = new BasesDeDonnees;
   var titre = button.data('whatever') // Extract info from data-* attributes
   var modal = $(this)
   modal.find('.ConfirmText').text("<?php echo SUPPR_ARTICLE_MODAL_TEXT; ?>" + titre) 
-  modal.find(".truc").attr("href", "article-del.php?id=" + titre);		
+  modal.find(".truc").attr("href", "articles-list.php?action=delete&id=" + titre);		
+  })
+  </script>
+
+  <!-- JS pour la modale qui confirme la publication d'un article -->
+  
+  <script>
+  $('#PublishArticle').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var titre = button.data('whatever') // Extract info from data-* attributes
+  var modal = $(this)
+  modal.find('.ConfirmText').text("<?php echo PUB_ARTICLE_MODAL_TEXT; ?>" + titre) 
+  modal.find(".truc").attr("href", "articles-list.php?action=publish&id=" + titre);		
   })
   </script>
  
+  <!-- JS pour la modale qui confirme la dépublication d'un article -->
+  
+  <script>
+  $('#UnPublishArticle').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var titre = button.data('whatever') // Extract info from data-* attributes
+  var modal = $(this)
+  modal.find('.ConfirmText').text("<?php echo UNPUB_ARTICLE_MODAL_TEXT; ?>" + titre) 
+  modal.find(".truc").attr("href", "articles-list.php?action=unpublish&id=" + titre);		
+  })
+  </script>
+
 </body>
 </html>
