@@ -102,6 +102,11 @@ define("ADM_ARTICLE_NOCAT","Vous n'avez pas indiqué de catégorie pour votre ar
 define("ADM_ARTICLE_MODIF_INTRO","Cette page vous permet de modifier ou supprimer un article. Pour créer un nouvel article, rendez-vous plutôt sur <a href='article-add.php'>cette page</a>.");
 define("ADM_ARTICLE_ADD_INTRO","Cette page vous permet de créer un article. Pour modifier ou supprimer un article, rendez-vous plutôt sur <a href='modif-article.php'>cette page</a>.");
 
+define("ARTICLE_NB","L'article n°");
+define("ARTICLE_PUBLISHED", " a bien été publié !");
+define("ARTICLE_UNPUBLISHED", " a bien été dépublié !");
+define("ARTICLE_DELETED", " a bien été supprimé !");
+
 define("ADM_ARTICLE_SAVE","Enregistrer");
 define("ADM_ARTICLE_PUBLISH","Publier");
 

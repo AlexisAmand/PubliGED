@@ -21,7 +21,7 @@ if(isset($_GET['id']) and isset($_GET['action']))
         $sql->bindparam ( ':ref', $_GET['id'] );
 				$req = $sql->execute ();
         $msg = "<div class='alert alert-success' role='alert'>"
-				      ."<i class='fas fa-check'></i> L'article n° ".$_GET['id']." a bien été publié !"
+				      ."<i class='fas fa-check'></i>".ARTICLE_NB.$_GET['id'].ARTICLE_PUBLISHED
 				      ."</div>";
         break;
       case 'unpublish':
@@ -29,7 +29,7 @@ if(isset($_GET['id']) and isset($_GET['action']))
         $sql->bindparam ( ':ref', $_GET['id'] );
 				$req = $sql->execute ();
         $msg = "<div class='alert alert-success' role='alert'>"
-				      ."<i class='fas fa-check'></i> L'article n° ".$_GET['id']." a bien été dépublié !"
+				      ."<i class='fas fa-check'></i>".ARTICLE_NB.$_GET['id'].ARTICLE_UNPUBLISHED
 				      ."</div>";
         break;
       case 'delete':
@@ -37,7 +37,7 @@ if(isset($_GET['id']) and isset($_GET['action']))
         $sql->bindparam ( ':ref', $_GET['id'] );
 				$req = $sql->execute ();
         $msg = "<div class='alert alert-success' role='alert'>"
-				      ."<i class='fas fa-check'></i> L'article n° ".$_GET['id']." a bien été supprimé !"
+				      ."<i class='fas fa-check'></i>".ARTICLE_NB.$_GET['id'].ARTICLE_DELETED
 				      ."</div>";
         break;
       default:
