@@ -217,7 +217,7 @@ if(isset($_GET['id']) and isset($_GET['action']))
 						echo "<td>".substr($rowCommentaires ['contenu'], 0, 150)."...</td>";						
 						echo '<td class="text-center"><a href="#" data-toggle="tooltip" data-placement="left" title="Editer"><i class="far fa-edit text-success"></i></a></td>';
 
-						echo '<td class="text-center"><a href="commentaires.php?id='.$rowCommentaires['ref'].'" class="truc" data-toggle="modal" data-target="#SupprComm" data-whatever="'.$rowCommentaires['ref'].'"><i class="far fa-trash-alt text-danger"></i></a></td>';
+						echo '<td class="text-center"><a href="comm-list.php?id='.$rowCommentaires['ref'].'" class="truc" data-toggle="modal" data-target="#SupprComm" data-whatever="'.$rowCommentaires['ref'].'"><i class="far fa-trash-alt text-danger"></i></a></td>';
 						
 						/* TODO : ajouter une colonne qui permet de publier ou dépublier un commentaire
 						 * via un booleen dans la table des commentaires. L'icone change en fonction du "publié" ou non
@@ -325,7 +325,7 @@ if(isset($_GET['id']) and isset($_GET['action']))
     var titre = button.data('whatever') // Extract info from data-* attributes
     var modal = $(this)
     modal.find('.ConfirmText').text("<?php echo "Suppression comm'"; ?>" + titre) 
-    modal.find(".truc").attr("href", "commentaires.php?action=delete&id=" + titre);		
+    modal.find(".truc").attr("href", "comm-list.php?action=delete&id=" + titre);		
     })
     </script>
  

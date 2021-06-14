@@ -12,8 +12,8 @@ Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet p
 #### Environement de développement
 
 * Laragon 4.0.16
-* Apache 2.4.35
-* phpMyAdmin 5.1
+* Apache 2.4.48
+* phpMyAdmin 5.1.1
 * Windows 10
 * Eclipse IDE for PHP Developers 2020-06 (4.16.0)
 * Visual Studio Code 1.56.2

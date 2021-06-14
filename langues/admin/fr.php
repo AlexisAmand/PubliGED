@@ -6,7 +6,7 @@
 /* ------------------- */
 
 define("DASHBOARD","Tableau de bord");
-define("ADM_ONLINE_TOOLS","Ce formulaire utilise des ressources en ligne");
+define("ADM_ONLINE_TOOLS","Ce formulaire utilise des ressources en ligne.");
 
 define("SEE_SITE","Voir le site");
 
@@ -91,6 +91,9 @@ define( "ADM_ARTICLE_EDIT_CONTENT","Contenu de l'article");
 
 define("ADM_ARTICLE_SEND","L'article a bien été enregistré !");
 define("ADM_ARTICLE_NOSEND","L'article n'a pas pu être envoyé !");
+
+define("ADM_BR_SEND","L'article a bien été enregistré comme brouillon !");
+define("ADM_BR_NOSEND","L'article n'a pas pu être enregistré comme brouillon !");
 
 define("ADM_ARTICLE_NOTITLE","Vous n'avez pas indiqué de titre pour votre article");
 define("ADM_ARTICLE_NOCONTENT","Vous n'avez pas indiqué de contenu pour votre article");

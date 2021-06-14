@@ -210,10 +210,72 @@ tinymce.init({
 
 				$article = new articles();
 
+				/* Cas où on enregistre l'article sans le publier */
+
+				if(isset($_POST["enregistrer"]))
+					{
+
+					// Message si le champ titre est vide
+
+					if(empty ( $_POST ['titre'] ))
+						{
+						echo '<div class="alert alert-warning" role="alert">';
+						echo '<i class="fas fa-exclamation-triangle"></i>'.ADM_ARTICLE_NOTITLE;
+						echo "Test d'enregistrement d'un article sans le publier";
+						echo '</div>';
+						echo '<div class="alert alert-warning" role="alert">';
+						echo '<i class="fas fa-exclamation-triangle"></i>'.ADM_BR_NOSEND;
+						echo '</div>';
+						}
+					else
+						{
+						$article->titre = $_POST ['titre'];
+						}
+
+					// Message si le champ message est vide
+					
+					if(empty ( $_POST ['texte'] ))
+						{
+						echo '<div class="alert alert-warning" role="alert">';
+						echo '<i class="fas fa-exclamation-triangle"></i>'.ADM_ARTICLE_NOCONTENT;
+						echo "Test d'enregistrement d'un article sans le publier";
+						echo '</div>';
+						echo '<div class="alert alert-warning" role="alert">';
+						echo '<i class="fas fa-exclamation-triangle"></i>'.ADM_BR_NOSEND;
+						echo '</div>';
+						}
+					else
+						{
+						$article->contenu = $_POST ['texte'];
+						}
+
+					// Message si le champ catégorie est vide
+					
+					if(empty ( $_POST ['categorie'] ))
+						{
+						echo '<div class="alert alert-warning" role="alert">';
+						echo '<i class="fas fa-exclamation-triangle"></i>'.ADM_ARTICLE_NOCAT;
+						echo "Test d'enregistrement d'un article sans le publier";
+						echo '</div>';
+						echo '<div class="alert alert-warning" role="alert">';
+						echo '<i class="fas fa-exclamation-triangle"></i>'.ADM_BR_NOSEND;
+						echo '</div>';
+						}
+					else
+						{
+						$article->categorie = $_POST ['categorie'];
+						}
+
+					/* On est dans l'enregistrement d'un article sans le publier */
+
+					$article->publication = '0';
+
+					}
+
 				if(isset($_POST["envoyer"])) 
 					{ 
 
-					// Pas de titre
+					// Message si le champ titre est vide
 
 					if(empty ( $_POST ['titre'] ))
 						{
@@ -229,7 +291,7 @@ tinymce.init({
 						$article->titre = $_POST ['titre'];
 						}
 
-					// Pas de contenu
+					// Message si le champ message est vide
 					
 					if(empty ( $_POST ['texte'] ))
 						{
@@ -245,7 +307,7 @@ tinymce.init({
 						$article->contenu = $_POST ['texte'];
 						}
 
-					// Pas de catégorie
+					// Message si le champ catégorie est vide
 					
 					if(empty ( $_POST ['categorie'] ))
 						{
@@ -261,12 +323,14 @@ tinymce.init({
 						$article->categorie = $_POST ['categorie'];
 						}
 					
+					/* L'article est publié */
+
+					$article->publication = '1';
+
 					}
 						
 				// Tout est bien rempli !
-                               	
-				// if (!empty ( $_POST ['texte'] ) and !empty ( $_POST ['titre'] ) and !empty ( $_POST ['categorie'] )) 
-				
+                               					
 				if (isset($article->titre) and isset($article->categorie) and isset($article->contenu))
                 	{
 					$datearticle = date ( "Y-m-d", time () );
@@ -279,8 +343,7 @@ tinymce.init({
 
 					$auteur = "1";
 			
-					$sqlAjoutArticle = "INSERT INTO articles(titre, article, auteur, date, id_cat) values (:p1, :p2, :p3, :p4, :p5)";
-			
+					$sqlAjoutArticle = "INSERT INTO articles (titre, article, auteur, date, id_cat, publication) values (:p1, :p2, :p3, :p4, :p5, :p6)";
 					$AjoutArticle = $pdo->prepare ( $sqlAjoutArticle );
 			
 					$AjoutArticle->bindparam ( ':p1', $article->titre );
@@ -288,15 +351,24 @@ tinymce.init({
 					$AjoutArticle->bindparam ( ':p3', $auteur );
 					$AjoutArticle->bindparam ( ':p4', $datearticle );
 					$AjoutArticle->bindparam ( ':p5', $article->categorie);
+					$AjoutArticle->bindparam ( ':p6', $article->publication);
 			
 					$AjoutArticle->execute ();
-					?>
-		
-					<div class="alert alert-success" role="alert">
-					<?php echo '<i class="fas fa-check"></i> '.ADM_ARTICLE_SEND; ?>
-					</div>
-		
-					<?php
+
+					/* Préparation du message de confirmation en fonction de publier/enregistrer */
+	
+					if ($article->publication == '1')
+						{
+						echo '<div class="alert alert-success" role="alert">';
+						echo '<i class="fas fa-check"></i> '.ADM_ARTICLE_SEND;
+						echo '</div>';
+						}
+					else
+						{
+						echo "<div class='alert alert-success' role='alert'>";
+						echo "<i class='fas fa-check'></i> ".ADM_BR_SEND;
+						echo "</div>";
+						}
 					} 
 					else 
 					{
@@ -316,8 +388,7 @@ tinymce.init({
 								<select name='categorie' class="custom-select">										
 								<?php 
 								if(isset($article->categorie))
-									{
-																												
+									{																										
 									$cat = $pdo->query("SELECT * FROM categories WHERE ref = '{$article->categorie}'");
 									$rowcat = $cat->fetch(PDO::FETCH_ASSOC);
 									echo "<option value='".$rowcat['ref']."'>".$rowcat['nom']."</option>";
@@ -326,12 +397,10 @@ tinymce.init({
 									while ($rowcat = $cat->fetch(PDO::FETCH_ASSOC))
 										{
 										echo "<option value='".$rowcat['ref']."'>".$rowcat['nom']."</option>";
-										}
-									
+										}									
 									}
 								else 
-									{
-										
+									{										
 									echo "<option selected>".ADM_ARTICLE_CAT_LIST."</option>";
 									
 									$cat = $pdo->query("SELECT * FROM categories");
@@ -349,7 +418,7 @@ tinymce.init({
 						    <textarea name="texte" id="custom-menu-item" class="individu"><?php if(isset($article->contenu)) { echo $article->contenu; }?></textarea>
 						 </div>
 						
-						<input type="submit" class="btn btn-primary" value="<?php echo ADM_ARTICLE_SAVE; ?>">
+						<input type="submit" name="enregistrer" class="btn btn-primary" value="<?php echo ADM_ARTICLE_SAVE; ?>">
 						<input type="submit" name="envoyer" class="btn btn-primary" value="<?php echo ADM_ARTICLE_PUBLISH; ?>">
 					</form>
 					

@@ -328,7 +328,7 @@ $BaseDeDonnees = new BasesDeDonnees;
 		            ?>
 		                  			                                                                                          
                   <p class="text-right">
-                	<a href="commentaires.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><?php echo ALL_COM; ?></a>
+                	<a href="comm-list.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><?php echo ALL_COM; ?></a>
                   </p>   
                   
                 </div>

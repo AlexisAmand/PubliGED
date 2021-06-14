@@ -51,7 +51,7 @@
         </a>
         <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="commentaires.php"><?php echo ADM_RUB_COMM; ?></a>
+            <a class="collapse-item" href="comm-list.php"><?php echo ADM_RUB_COMM; ?></a>
           </div>
         </div>
       </li>
@@ -119,7 +119,6 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
           <i class="fas fa-fw fa-cog"></i>
-                    
           <span><?php echo ASIDE_ADMIN_8;  ?></span>
         </a>
         <div id="collapse6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -140,8 +139,8 @@
         </a>
         <div id="collapseUsers" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#"><?php echo ADM_RUB_USERS; ?></a>
-            <a class="collapse-item" href="#"><?php echo ADM_RUB_ADD_USER; ?></a>
+            <a class="collapse-item" href="users-list.php"><?php echo ADM_RUB_USERS; ?></a>
+            <a class="collapse-item" href="users-add.php"><?php echo ADM_RUB_ADD_USER; ?></a>
           </div>
         </div>
       </li>
@@ -157,7 +156,7 @@
       <!-- Metas et SEO -->
 
       <li class="nav-item">
-        <a class="nav-link" href="seo.php">
+        <a class="nav-link" href="web-seo.php">
         <i class="far fa-file-alt"></i>
         <span><?php echo ASIDE_ADMIN_10; ?></span></a>
       </li>
@@ -165,7 +164,7 @@
       <!-- Statistiques -->
 
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="web-stats.php">
         <i class="fas fa-fw fa-chart-area"></i>
         <span><?php echo ASIDE_ADMIN_11; ?></span></a>
       </li>

@@ -524,6 +524,7 @@ class Articles
 	public $date;
 	public $categorie;
 	public $contenu;
+	public $publication;
 		
 	/* Cette méthode récupére la liste de tous les articles */
 

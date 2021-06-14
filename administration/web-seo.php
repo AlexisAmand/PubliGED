@@ -132,7 +132,7 @@ $DescriptionSite = $row['valeur'];
         
         <div class="container-fluid">
 
-        <form action="seo.php" method="POST"> 
+        <form action="web-seo.php" method="POST"> 
 		    <!-- Page Heading -->
 		    
           <h1 class="h3 mb-2 text-gray-800"><?php echo ASIDE_ADMIN_10; ?></h1>
