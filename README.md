@@ -53,6 +53,7 @@ Obtenues via https://www.npmjs.com/ et npm 7.14.0
 * jQuery 3.6.0
 * Jquery easing 1.4.1 ?
 * leaflet 1.7.1
+* leaflet-basemaps 0.3.4
 * tinyMCE 5.8.1
 
 #### Plus d'infos : 

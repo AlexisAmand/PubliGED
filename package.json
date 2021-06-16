@@ -31,6 +31,7 @@
     "jquery": "^3.6.0",
     "jquery.easing": "^1.4.1",
     "leaflet": "^1.7.1",
+    "leaflet-basemaps": "^0.3.4",
     "tinymce": "^5.8.1"
   }
 }

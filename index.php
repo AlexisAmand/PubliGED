@@ -40,6 +40,11 @@ require_once 'vendor/autoload.php';
 	<link href="node_modules/leaflet/dist/leaflet.css" rel="stylesheet">
 	<script src="node_modules/leaflet/dist/leaflet.js"></script>
 
+	<!-- Leaflet basemap -->
+
+	<link href="node_modules/leaflet-basemaps/L.Control.Basemaps.css" rel="stylesheet">
+	<script src="node_modules/leaflet-basemaps/L.Control.Basemaps.js"></script>
+
 	<!-- Voir si Fontawesome fonctionne aussi quand il est dans le footer -->
 	<link href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 

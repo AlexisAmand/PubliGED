@@ -5,20 +5,63 @@
 		{
 	    ?>	
 	    	
-		<div id="mapid" style="width: 100%;height: 600px;"></div>
-		
-		<script>
-		
-		var mymap = L.map('mapid').setView([50.3001, 3.3542], 5);
-	
-		L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoidGFib3VldCIsImEiOiJja20xcWRlOWsxb2c5MnNseWQxNjVrNzhlIn0.wwodTvf_ULotS9ObOj6JGg', {
-			attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-			maxZoom: 18,
-			id: 'mapbox/streets-v11',
-			tileSize: 512,
-			zoomOffset: -1,
-			accessToken: 'pk.eyJ1IjoidGFib3VldCIsImEiOiJja20xcWRlOWsxb2c5MnNseWQxNjVrNzhlIn0.wwodTvf_ULotS9ObOj6JGg'
-		}).addTo(mymap);
+			<div id="map" style="width: 100%;height: 600px;"></div>
+
+	<script>
+
+	/* TODO : mettre le setview sur un des sosa */
+
+	var map = L.map("map").setView([50.3001, 3.3542], 5);
+
+	var basemaps = [
+		L.tileLayer("//stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png", {
+			attribution:
+				'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+			subdomains: "abcd",
+			maxZoom: 20,
+			minZoom: 0,
+			label: "Toner Lite"
+		}),
+		L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+			attribution: '&copy; OpenStreetMap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+			maxZoom: 20,
+			minZoom: 0,
+			label: "Test fr"
+		}),
+		L.tileLayer("//stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png", {
+			attribution:
+				'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+			subdomains: "abcd",
+			maxZoom: 20,
+			minZoom: 0,
+			label: "Terrain"
+		}),
+		L.tileLayer("//stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png", {
+			attribution:
+				'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+			subdomains: "abcd",
+			maxZoom: 20,
+			minZoom: 0,
+			label: "Toner"
+		}),
+		L.tileLayer("//stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png", {
+			attribution:
+				'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+			subdomains: "abcd",
+			maxZoom: 16,
+			minZoom: 1,
+			label: "Watercolor"
+		})
+	];
+
+	map.addControl(
+		L.control.basemaps({
+			basemaps: basemaps,
+			tileX: 0,
+			tileY: 0,
+			tileZ: 1
+		})
+	);
 				
 		/* Géolocalisation pour la France */
 	
@@ -63,7 +106,7 @@
 	for (i = 0; i < points.length; i++) 
 		{
 		marker[i] = new L.Marker([points[i][0], points[i][1]], {url: points[i][2]});
-	    marker[i].addTo(mymap);
+	    marker[i].addTo(map);
 	    marker[i].on('click', onMapClick);
 	    };
 	
