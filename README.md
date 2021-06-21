@@ -4,6 +4,11 @@ PubliGED est ce que j’appelle un GMS (Genealogy Management System) par analogi
 
 Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet pour le moment, j'ai un peu peur que ça parte dans tous les sens. Cependant, n'hésitez pas à me soumettre vos idées et vos suggestions, voire même à consulter les sources à titre pédagogique.
 
+#### Plus d'infos : 
+
+* https://ww.tipeee.com/genealexis
+* http://publiged.genealexis.fr
+
 #### Fonctionnalités :
 
 - Une partie concerne la transformation du gedcom en pages web qui permettent de consulter facilement la base d’ancêtres.
@@ -16,7 +21,7 @@ Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet p
 * phpMyAdmin 5.1.1
 * Windows 10
 * Eclipse IDE for PHP Developers 2020-06 (4.16.0)
-* Visual Studio Code 1.56.2
+* Visual Studio Code 1.57.1
 
 #### Langages utilisés
 
@@ -28,7 +33,7 @@ Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet p
 
 ### Framework
 
-Obtenus via https://www.npmjs.com/ et npm 7.14.0
+Obtenus via https://www.npmjs.com et npm 7.18.1
 
 * Bootstrap 4.4.1
 * Passage à Bootstrap 5.0.1 en cours
@@ -43,7 +48,7 @@ Obtenues via https://packagist.org et Composer 2.1.3
 
 #### Librairies Javascript
 
-Obtenues via https://www.npmjs.com/ et npm 7.14.0
+Obtenues via https://www.npmjs.com et npm 7.18.1
 
 * datatables 1.10.24 pour Bootstrap 4 
 * char.js 3.3.2
@@ -55,8 +60,3 @@ Obtenues via https://www.npmjs.com/ et npm 7.14.0
 * leaflet 1.7.1
 * leaflet-basemaps 0.3.4
 * tinyMCE 5.8.1
-
-#### Plus d'infos : 
-
-* https://ww.tipeee.com/genealexis
-* http://publiged.genealexis.fr
