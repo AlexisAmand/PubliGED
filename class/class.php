@@ -588,12 +588,6 @@ class Articles
 
 /* classes pour la lecture du gedcom */
 	
-class Logiciels 
-	{
-	public $nom;
-	public $nomcomplet;
-	}
-
 class Uploaders 
 	{
 	public $name;
@@ -649,15 +643,6 @@ class Source
 	public $origine;
 	public $media;
 	}
-
-/* TODO : Peut-être que cette classe est inutile */
-	
-class gedfichiers 
-	{
-	public $source;
-	public $nom;
-	public $lieu;
-	}
 	
 class Medias 
 	{
@@ -666,5 +651,23 @@ class Medias
 	public $fichier;
 	public $source; /* numéro de la source dont le média dépend */
 	}
+
+/* Gedcom envoyé */
+	
+class gedfichiers
+	{
+	public $version;
+	public $char;
+	}
+
+/* Logiciel qui a envoyé de Gedcom */	
+
+class Logiciels 
+	{
+	public $version;
+	public $nom;
+	public $nomcomplet;
+	}
+
 
 ?>

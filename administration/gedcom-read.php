@@ -4,8 +4,6 @@
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
 /* Adapté par Alexis AMAND pour le projet PubliGED */
 
-echo $_GET['avatar'];
-
 require ('../content/fonctions.php');
 include ('../config.php');
 include ('../langues/admin/fr.php');
@@ -109,7 +107,7 @@ include ('../class/class.php');
     
 				<?php
 				
-				/* Truncates sur les tables pour permettre l'import des données du gedcom */
+				/* On commence par vider les tables */
 				
 				try {
 					$req_sup_db = "TRUNCATE TABLE evenements; TRUNCATE TABLE media; TRUNCATE TABLE familles; TRUNCATE TABLE individus; TRUNCATE TABLE lieux; TRUNCATE TABLE sources;";
@@ -134,28 +132,6 @@ include ('../class/class.php');
 				$taille = filesize ( $_FILES ['avatar'] ['tmp_name'] );
 				$extensions = array ('.ged','.GED');
 				$extension = strrchr ( $_FILES ['avatar'] ['name'], '.' );
-				
-				// Début des vérifications de sécurité...
-
-				/* 
-				TODO : si j'utilise dropzonejs, la vérification de l'extension se fait dans gedcom-select.php 
-				sinon.. peut-être que je peux faire la vérification au moment où la personne choisi son fichier
-				pour éviter de lancer le script gedcom-read.php si l'extension n'est pas bonne.
-				*/
-				
-				/*
-				
-				if (! in_array ( $extension, $extensions )) // Si l'extension n'est pas dans le tableau
-					{
-					$erreur = 'Vous devez uploader un fichier de type ged (gedcom)';
-					}
-				
-				if ($taille > $taille_maxi) 
-					{
-					$erreur = 'Le fichier est trop gros...';
-					}
-				
-				*/
 				
 				if (!isset ( $erreur )) // S'il n'y a pas d'erreur, on upload
 					{
@@ -182,7 +158,6 @@ include ('../class/class.php');
 				/* ----------------------------------------------- */
 					
 				$fichier_to_open = $fichier;
-
 				$gedcom = fopen ( $dossier . $fichier_to_open, 'r' );
 				
 				/* TODO : trop de variables, voir pour mettre ça dans les classes */
@@ -196,10 +171,12 @@ include ('../class/class.php');
 				$nb_media = 0;
 				// $public = 1;
 				$nb_famille = 0;
+				$gedcom_vers = 0;
+				$logiciel_vers = 0;
 				
 				while ( ! feof ( $gedcom ) ) 
 					{
-						
+					/* On lit une ligne du gedcom */	
 					$ligne = fgets ( $gedcom, 1024 );
 					
 					/* cette ligne résoud un problème d'encodage de caractère lors de l'import du gedcom heredis */
@@ -208,84 +185,92 @@ include ('../class/class.php');
 					/* -------------- */
 					/* Head du gedcom */					
 					/* -------------- */
+
+					/* nom complet du logiciel qui a servi à créer le gedcom */
 					
 					if (preg_match ( "/1 SOUR/", $ligne ) and ($nb_individu == 0))
-					{
-						/* nom complet du logiciel qui a servi à créer */
-						
+						{
 					 	$logiciel = new logiciels();
-					 	$logiciel->nomcomplet = $ligne;
-					 	
-						/* TODO : mettre ce truc dans la classe qui correspond et mettre dans la BD */
-						echo "nom complet du logiciel: " . $ligne . "<br />";
-					}
+					 	$logiciel->nomcomplet = implode(" ",array_slice(explode(" ",$ligne), 2));
+						$logiciel_vers = 1;
+						}
 					
+					/* nom du logiciel qui a servi à créer le gedcom */
+
 					if (preg_match ( "/2 NAME/", $ligne ) and ($nb_individu == 0))
 						{
-						/* nom du logiciel qui a servi à créer */
-							
-						$logiciel->nom = $ligne;
-							
-						/* TODO : mettre ce truc dans la classe qui correspond et mettre dans la BD */
-							
-							
-						echo "nom du logiciel: " . $ligne . "<br />";
+						$logiciel->nom = implode(" ",array_slice(explode(" ",$ligne), 2));
 						}
-											
+
 					/* Information sur l'auteur du gedcom */
 					 
 					if (preg_match ( "/0 @S0@/", $ligne ))
 						{
+						/* On arrive dans la partie qui contient les infos sur l'autre du gedcom */
+						/* On crée donc un objet gedcom */
 						$uploader = new uploaders ();
 						}
 					
+					/* nom de l'auteur du gedcom */
+					
 					if (preg_match ( "/1 NAME/", $ligne ) and ($nb_individu == 0)) 
 						{
-							
-						/* TODO : mettre ce truc dans la classe qui correspond et mettre dans la BD */
-							
 						$uploader->name  = implode(" ",array_slice(explode(" ",$ligne), 2));
-						
-						/*
-						 * $req = $pdo->prepare("INSERT INTO membres (login) VALUES (:login)");
-						 * $req->bindparam(':login', $uploader->name, PDO::PARAM_STR);
-						 * $req->execute ();
-						 */
 						}
-					
+
+					/* adresse de l'auteur du gedcom */
+										
 					if (preg_match ( "/1 ADDR/", $ligne ) and ($nb_individu == 0)) 
 						{
-							
-						/* TODO : mettre ce truc dans la classe qui correspond et mettre dans la BD */
-						
 						$uploader->adresse = implode(" ",array_slice(explode(" ",$ligne), 2));
-
-						/*
-						 * $req = $pdo->prepare("UPDATE membres SET adresse = :adresse WHERE id=:id");
-						 * $req->bindparam(':adresse', $uploader->adresse->nom, PDO::PARAM_STR);
-						 * $req->bindparam(':id', ??? , PDO::PARAM_STR);
-						 * $req->execute ();
-						 */
 						}
+					
+					/* adresse de l'auteur du gedcom */
 					
 					if (preg_match ( "/1 EMAIL/", $ligne ) and ($nb_individu == 0)) 
 						{
-						
-						/* TODO : mettre ce truc dans la classe qui correspond et mettre dans la BD */
-						
 						$uploader->mail = implode(" ",array_slice(explode(" ",$ligne), 2));
-
 						}
+
+					/* site de l'auteur du gedcom */
 					
 					if (preg_match ( "/1 WWW/", $ligne ) and ($nb_individu == 0)) 
 						{
-							
-						/* TODO : mettre ce truc dans la classe qui correspond et mettre dans la BD */
-							
 						$uploader->www = implode(" ",array_slice(explode(" ",$ligne), 2));
-
 						}
-							
+
+					/* ------------------------------------------------------ */
+					/* Version du gedcom et du liogciel utilisé pour le créer */
+					/* ------------------------------------------------------ */
+
+					if (preg_match ( "/1 GEDC/", $ligne )) 
+						{
+						$gedfichier = new gedfichiers();
+						$gedcom_vers = 1;
+						}
+
+					if (preg_match ( "/2 VERS/", $ligne )) 
+						{
+						if ($gedcom_vers == 1)
+							{
+							$gedcom_vers = 0;
+							$gedfichier->version = implode(" ",array_slice(explode(" ",$ligne), 2));	
+
+							/* Contrôle que la version du gedcom est compatible */
+
+							if ((int)($gedfichier->version) != 5) 
+								{
+								echo "Attention ! Vous devez utiliser la version 5 de la norme gedcom pour profiter un maximum de PubliGED.";
+								}
+
+							}
+						if ($logiciel_vers == 1)
+							{
+							$logiciel_vers = 0;
+							$logiciel->version = implode(" ",array_slice(explode(" ",$ligne), 2));	
+							}
+						}
+
 					/* ---------------------- */
 					/* Création d'un individu */
 					/* ---------------------- */
@@ -296,7 +281,6 @@ include ('../class/class.php');
 						$nb_individu = $nb_individu + 1;
 						$exploderef = explode ( "@", $ligne );
 						$individu->ref = $exploderef [1];
-										
 						$req = $pdo->prepare ( "INSERT INTO individus (ref) VALUES (:ref)" );
 						$req->bindparam ( ':ref', $individu->ref );
 						$req->execute ();
@@ -350,8 +334,11 @@ include ('../class/class.php');
 					/* -------------------- */
 					/* Gestion des familles */
 					/* -------------------- */
+
+					/* Une nouvelle famille est trouvée dans le gedcom */
 					
-					if (preg_match ( "/@ FAM/", $ligne )) {
+					if (preg_match ( "/@ FAM/", $ligne )) 
+						{
 						$famille = new famille ();
 						$nb_famille = $nb_famille + 1;
 						$fam_ref = explode ( "@", $ligne );
@@ -359,38 +346,51 @@ include ('../class/class.php');
 						$req = "INSERT INTO familles (ref) VALUES ('$famille->ref')";
 						$resultat = $pdo->exec ( $req );
 						$nb_chil = 0;
-					}
+						}
+
+					/* Le père */
 					
-					if (preg_match ( "/1 HUSB/", $ligne )) {
+					if (preg_match ( "/1 HUSB/", $ligne )) 
+						{
 						$fam_husb = explode ( "@", $ligne );
 						$famille->husb = $fam_husb [1];
 						$req = "UPDATE familles SET pere = '$famille->husb' WHERE ref='$famille->ref'";
 						$resultat = $pdo->exec ( $req );
-					}
+						}
+
+					/* La mère */
 					
-					if (preg_match ( "/1 WIFE/", $ligne )) {
+					if (preg_match ( "/1 WIFE/", $ligne )) 
+						{
 						$fam_wife = explode ( "@", $ligne );
 						$famille->wife = $fam_wife [1];
 						$req = "UPDATE familles SET mere = '$famille->wife' WHERE ref='$famille->ref'";
 						$resultat = $pdo->exec ( $req );
-					}
+						}
+
+					/* Un enfant */
 					
-					if (preg_match ( "/1 CHIL/", $ligne )) {
+					if (preg_match ( "/1 CHIL/", $ligne )) 
+						{
 						$fam_chil = explode ( "@", $ligne );
 						$famille->chil = $fam_chil [1];
 						
 						/* si le couple n'a pas encore d'enfant, on complete */
-						if ($nb_chil == 0) {
+						if ($nb_chil == 0) 
+							{
 							$req = "UPDATE familles SET enfant = '$famille->chil' WHERE ref='$famille->ref'";
 							$nb_chil = $nb_chil + 1;
-						} else /* si le couple a déjà un enfant alors la ligne est dupliquée et j'ajoute le nouvel enfant */
-						{
+							}
+						else /* si le couple a déjà un enfant alors la ligne est dupliquée et j'ajoute le nouvel enfant */
+							{
 							$req = "INSERT INTO familles (ref, pere, mere, enfant) VALUES ('$famille->ref','$famille->husb','$famille->wife','$famille->chil')";
-						}
+							}
+
 						$resultat = $pdo->exec ( $req );
-					}
+						}
 					
-					if (preg_match ( "/1 MARR/", $ligne )) {
+					if (preg_match ( "/1 MARR/", $ligne ))
+						{
 						$evenement = new evenement ();
 						$nb_eve = $nb_eve + 1;
 						$evenement->nom = "MARR";
@@ -404,7 +404,7 @@ include ('../class/class.php');
 						$stmt->bindParam ( ':pere', $famille->husb );
 						$stmt->bindParam ( ':nom', $evenement->nom );
 						$stmt->execute ();
-					}
+						}
 								
 					/* ---------------------- */
 					/* Gestion des événements */
@@ -476,7 +476,6 @@ include ('../class/class.php');
 							$nb_eve = $nb_eve + 1;
 							$evenement->indiv = $individu->ref;
 							$evenement->nom = $tabeve [$l] [1];
-							
 							$req = $pdo->prepare ( "INSERT INTO evenements (n_eve, n_indi, nom) VALUES (:n_eve, :indiv,:nom)" );			
 							$req->bindValue ( ':n_eve', $nb_eve, PDO::PARAM_INT );			
 							$req->bindValue ( ':indiv', $evenement->indiv, PDO::PARAM_STR );
@@ -500,7 +499,7 @@ include ('../class/class.php');
 							{
 							$evenement->type = $evenement->type . " " . $occupation [$c];
 							}
-							
+						
 						$req = $pdo->prepare ( "INSERT INTO evenements (n_indi, nom, evenement) VALUES (:indiv,:nom,:type)" );
 						$req->bindValue ( ':indiv', $evenement->indiv, PDO::PARAM_STR );
 						$req->bindValue ( ':nom', $evenement->nom, PDO::PARAM_STR );
@@ -656,13 +655,13 @@ include ('../class/class.php');
 							}
 						else 
 							{
-							while ( $data = $req->fetch (  ) ) 
+							while ($data = $req->fetch())
 								{
 								$reql = $pdo->prepare ( "UPDATE evenements SET lieu = :lieu WHERE n_eve=:eve" );
 								$reql->bindValue ( ':lieu', $data ['ref'], PDO::PARAM_INT );
 								$reql->bindValue ( ':eve', $nb_eve, PDO::PARAM_INT );
 								$reql->execute ();
-								}				
+								}
 							}
 						}
 						
@@ -714,9 +713,7 @@ include ('../class/class.php');
 						$temp = array_shift ( $individu->note );
 						$temp = array_shift ( $individu->note );
 						$temp = implode ( " ", $individu->note );
-						
 						$backup = $backup . $temp;
-						
 						$stmt = $pdo->prepare ( "UPDATE individus SET note = :note WHERE ref = :id" );
 						$stmt->bindValue ( ':id', $individu->ref, PDO::PARAM_INT );
 						$stmt->bindValue ( ':note', $backup, PDO::PARAM_STR );
@@ -745,7 +742,6 @@ include ('../class/class.php');
 						$nb_source = $nb_source + 1;
 						$sourcetab = explode ( "@", $ligne );
 						$source->ref = $sourcetab [1];
-									
 						$stmt = $pdo->prepare ( "INSERT INTO sources (ref) VALUES (:ref)" );
 						$stmt->bindParam ( ':ref', $source->ref, PDO::PARAM_STR );
 						$stmt->execute ();
@@ -758,7 +754,6 @@ include ('../class/class.php');
 						$TabTitreSource = explode ( " ", $ligne );
 						$TabTitreSourceLong = count ( $TabTitreSource );
 						$source->titre = implode ( " ", array_splice ( $TabTitreSource, $TabTitreSourceLong - ($TabTitreSourceLong - 2), $TabTitreSourceLong ) );
-						
 						$stmt = $pdo->prepare ( "UPDATE sources SET titre = :titre WHERE ref = :nb_source " );
 						$stmt->bindParam ( ':titre', $source->titre, PDO::PARAM_STR );
 						$stmt->bindParam ( ':nb_source', $source->ref, PDO::PARAM_INT );
@@ -772,7 +767,6 @@ include ('../class/class.php');
 						$TabNomSource = explode ( " ", $ligne );
 						$TabNomSourceLong = count ( $TabNomSource );
 						$source->nom = implode ( " ", array_splice ( $TabNomSource, $TabNomSourceLong - ($TabNomSourceLong - 2), $TabNomSourceLong ) );
-						
 						$stmt = $pdo->prepare ( "UPDATE sources SET nom = :nom WHERE ref = :nb_source " );
 						$stmt->bindParam ( ':nom', $source->nom, PDO::PARAM_STR );
 						$stmt->bindParam ( ':nb_source', $source->ref, PDO::PARAM_INT );
@@ -786,7 +780,6 @@ include ('../class/class.php');
 						$TabSourceSource = explode ( " ", $ligne );
 						$TabSourceSourceLong = count ( $TabSourceSource );
 						$source->origine = implode ( " ", array_splice ( $TabSourceSource, $TabSourceSourceLong - ($TabSourceSourceLong - 2), $TabSourceSourceLong ) );
-						
 						$stmt = $pdo->prepare ( "UPDATE sources SET source = :source WHERE ref = :nb_source " );
 						$stmt->bindParam ( ':source', $source->origine, PDO::PARAM_STR );
 						$stmt->bindParam ( ':nb_source', $source->ref, PDO::PARAM_STR );
@@ -802,12 +795,10 @@ include ('../class/class.php');
 						$nb_media ++;
 						$media->ref = $nb_media;
 						$source->media = $media->ref;
-						
 						$stmt = $pdo->prepare ( "UPDATE sources SET media = :media WHERE ref = :nb_source " );
 						$stmt->bindParam ( ':media', $source->media, PDO::PARAM_STR );
 						$stmt->bindParam ( ':nb_source', $source->ref, PDO::PARAM_STR );
 						$stmt->execute ();
-						
 						$stmt = $pdo->prepare ( "INSERT INTO media (ref) VALUES (:ref)" );
 						$stmt->bindParam ( ':ref', $media->ref, PDO::PARAM_STR );
 						$stmt->execute ();
@@ -817,7 +808,6 @@ include ('../class/class.php');
 						{
 						$formatlu = explode ( " ", $ligne );
 						$media->format = $formatlu [2];
-						
 						$stmt = $pdo->prepare ( "UPDATE media SET type = :format WHERE ref = :media " );
 						$stmt->bindParam ( ':media', $media->ref, PDO::PARAM_STR );
 						$stmt->bindParam ( ':format', $media->format, PDO::PARAM_STR );
@@ -829,12 +819,9 @@ include ('../class/class.php');
 						$fichierlu = explode ( " ", $ligne );
 						unset ( $fichierlu [0] );
 						unset ( $fichierlu [1] );
-						
 						$cheminfichier = rtrim ( implode ( " ", $fichierlu ) );
 						$fichierdest = "media" . $media->ref . ".jpg";
-						
 						$media->fichier = $cheminfichier;
-						
 						$stmt = $pdo->prepare ( "UPDATE media SET fichier = :fichier WHERE ref = :media " );
 						$stmt->bindParam ( ':media', $media->ref, PDO::PARAM_STR );
 						$stmt->bindParam ( ':fichier', $media->fichier, PDO::PARAM_STR );
@@ -887,7 +874,15 @@ include ('../class/class.php');
 								<td><?php echo isset($logiciel->nom) ? $logiciel->nom : "inconnu"; ?></td>
 							</tr>
 							<tr>
-								<th scope="row">Nom</th>
+								<th scope="row">Version du logiciel</th>
+								<td><?php echo isset($logiciel->version) ? $logiciel->version : "inconnu"; ?></td>
+							</tr>
+							<tr>
+								<th scope="row">Version de la norme gedcom</th>
+								<td><?php echo isset($gedfichier->version) ? $gedfichier->version : "inconnu"; ?></td>
+							</tr>
+							<tr>
+								<th scope="row">Auteur du gedcom</th>
 								<td><?php echo isset($uploader->name ) ? $uploader->name : "inconnu"; ?></td>
 							</tr>
 							<tr>
@@ -904,6 +899,8 @@ include ('../class/class.php');
 							</tr>
 						</table>
 			
+						<?php /* mettre les infos des objets uploader et logiciel dans la BD */ ?>
+
 						</div>
 		          </div>
 	              
