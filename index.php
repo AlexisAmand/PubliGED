@@ -52,7 +52,7 @@ require_once 'vendor/autoload.php';
 
 <body>
 
-<div class="container fixed-top">
+<div class="container-lg container-fluid fixed-top">
 
 	<div class="row">
 
@@ -66,7 +66,7 @@ require_once 'vendor/autoload.php';
 
 </div>
 
-<div class="container">
+<div class="container-lg container-fluid">
 
 	<header class="row" style="background-image: url('https://via.placeholder.com/2560x1560.png');">
 

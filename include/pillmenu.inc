@@ -15,59 +15,71 @@ switch ($_GET ['page']) {
 }
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-light navbar-dark bg-primary pillmenu navbar-fixed-top" style="position: absolute;top: 0;right: 0;left: 0;z-index: 1030;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
-	<div class="collapse navbar-collapse">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-		<ul class="navbar-nav mr-auto">
-	        <?php
-			
-			if ($PageActive == '1') 
-				{
-				echo '<li class="nav-item active">';
-				} 
-			else 
-				{
-				echo '<li class="nav-item">';
-				}
-                                  
-        	echo '<a class="nav-link" href="index.php?page=blog">'.PILLMENU_1.'</a>';
-			echo '</li>';
-	       
-	       if ($PageActive == '2') 
-	       		{
-				echo '<li class="nav-item active">';
-				}
-			else
-				{
-				echo '<li class="nav-item">';
-				}
-			
-            echo '<a class="nav-link" href="index.php?page=patro">'.PILLMENU_2.'</a>';
-			echo '</li>';
-			
-			if ($PageActive == '3')
-				{
-				echo '<li class="nav-item active">';
-				}
-			else
-				{
-				echo '<li class="nav-item">';
-				}
-			 
-        	echo '<a class="nav-link" href="index.php?page=contact">'.PILLMENU_3.'</a>';
-			echo '</li>';
-			?>
-		</ul>
+  <div class="collapse navbar-collapse" id="navbarNav">
 
-		<form class="form-inline my-2 my-lg-0" method="GET" action="index.php">
-			<input class="form-control mr-sm-2" type="text"	placeholder="Recherche" name="recherche" value="recherche" onclick="this.value = '';">
-			<input type="hidden" name="page" value="search">
-			<input type="hidden" name="type" value="1">
-			<button class="btn btn-secondary my-2 my-sm-0" type="submit" value="ok">
-				<i class="fa fa-search"></i>
-			</button>
-		</form>
+    <ul class="navbar-nav mr-auto">
 
-	</div>
+       	<?php
+		if ($PageActive == '1') 
+			{
+			echo '<li class="nav-item active">';
+			} 
+		else 
+			{
+			echo '<li class="nav-item">';
+			}
+		?>
+
+        <a class="nav-link" href="index.php?page=blog"><?php echo PILLMENU_1; ?></a>
+
+      	</li>
+
+      	<?php
+		if ($PageActive == '2') 
+			{
+			echo '<li class="nav-item active">';
+			} 
+		else 
+			{
+			echo '<li class="nav-item">';
+			}
+		?>
+      	  
+	    <a class="nav-link" href="index.php?page=patro"><?php echo PILLMENU_2; ?></a>
+      	
+		</li>
+      
+		<?php
+		if ($PageActive == '3') 
+			{
+			echo '<li class="nav-item active">';
+			} 
+		else 
+			{
+			echo '<li class="nav-item">';
+			}
+		?>
+
+        <a class="nav-link" href="index.php?page=contact"><?php echo PILLMENU_3; ?></a>
+
+      	</li>
+
+    </ul>
+
+	<form class="form-inline my-2 my-lg-0" method="GET" action="index.php">
+		<input class="form-control mr-sm-2" type="text"	placeholder="Recherche" name="recherche" value="recherche" onclick="this.value = '';">
+		<input type="hidden" name="page" value="search">
+		<input type="hidden" name="type" value="1">
+		<button class="btn btn-secondary my-2 my-sm-0" type="submit" value="ok">
+			<i class="fa fa-search"></i>
+		</button>
+	</form>
+
+  </div>
 </nav>
