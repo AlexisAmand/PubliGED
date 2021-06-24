@@ -2,10 +2,10 @@
 1 SOUR HEREDIS 11 PC
 2 VERS 11
 2 NAME HEREDIS PC
-2 CORP BSD Concept ï¿½
+2 CORP BSD Concept ©
 3 ADDR www.heredis.com
-1 DATE 25 MAR 2021
-2 TIME 11:54:40
+1 DATE 22 JUN 2021
+2 TIME 16:50:49
 1 GEDC
 2 VERS 5.5
 2 FORM LINEAGE-LINKED
@@ -28,8 +28,8 @@
 1 FAMC @10U@
 1 _FIL LEGITIMATE_CHILD
 0 @7I@ INDI
-1 NAME Albert Abï¿½lard/AMAND/
-2 GIVN Albert Abï¿½lard
+1 NAME Albert Abélard/AMAND/
+2 GIVN Albert Abélard
 2 SURN AMAND
 1 SEX M
 1 EVEN
@@ -45,10 +45,10 @@
 2 DATE 23 NOV 2017
 2 PLAC Neuville-sur-Escaut,59293,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @397S@
-1 OCCU retraitï¿½
+1 OCCU retraité
 1 FAMS @10U@
 1 FAMC @29U@
-1 NOTE Il est citï¿½ comme retraitï¿½ en 1960.
+1 NOTE Il est cité comme retraité en 1960.
 1 _FIL LEGITIMATE_CHILD
 0 @9I@ INDI
 1 NAME Bronislawa/MIZERA/
@@ -66,9 +66,9 @@
 2 DATE 10 FEB 1895
 2 PLAC Lourches,59156,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @30S@
-2 NOTE Il est nï¿½ dans le bateau de ses parents, en stationnement sur l'Escaut.
+2 NOTE Il est né dans le bateau de ses parents, en stationnement sur l'Escaut.
 3 CONT 
-3 CONT Fiche matricule nï¿½1328 volume 4 du bureau de Valenciennes.
+3 CONT Fiche matricule n°1328 volume 4 du bureau de Valenciennes.
 1 EVEN
 2 TYPE Residence
 2 DATE 7 AUG 1929
@@ -92,31 +92,31 @@
 1 FAMC @346U@
 1 _FIL LEGITIMATE_CHILD
 0 @34I@ INDI
-1 NAME Blomy Abï¿½lard/AMAND/
-2 GIVN Blomy Abï¿½lard
+1 NAME Blomy Abélard/AMAND/
+2 GIVN Blomy Abélard
 2 SURN AMAND
 1 SEX M
 1 BIRT
 2 DATE 21 MAY 1865
 2 PLAC Banteux,59266,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @65S@
-2 NOTE Il est nï¿½ dans le bateau de ses parents en amont de l'ecluse de Banteux.
-2 ASSO @45I@
-3 TYPE INDI
-3 RELA Informant
-3 TITL Dï¿½clarant
-2 ASSO @333I@
-3 TYPE INDI
-3 RELA Registry officer
-3 TITL Officier d'ï¿½tat civil
+2 NOTE Il est né dans le bateau de ses parents en amont de l'ecluse de Banteux.
 2 ASSO @329I@
 3 TYPE INDI
 3 RELA Attending
-3 TITL Prï¿½sent
+3 TITL Présent
+2 ASSO @333I@
+3 TYPE INDI
+3 RELA Registry officer
+3 TITL Officier d'état civil
 2 ASSO @325I@
 3 TYPE INDI
 3 RELA Attending
-3 TITL Prï¿½sent
+3 TITL Présent
+2 ASSO @45I@
+3 TYPE INDI
+3 RELA Informant
+3 TITL Déclarant
 1 DEAT
 2 DATE 26 APR 1906
 2 PLAC Bouchain,59111,Nord,Nord-Pas-de-Calais,FRANCE,
@@ -136,36 +136,36 @@
 2 TYPE Residence
 2 DATE 24 MAY 1919
 2 PLAC Neuville-sur-Escaut,59293,Nord,Nord-Pas-de-Calais,FRANCE,
-1 OCCU bateliï¿½re
+1 OCCU batelière
 1 FAMS @40U@
 1 _FIL LEGITIMATE_CHILD
 0 @45I@ INDI
-1 NAME Blomï¿½ Adolphe/AMAND/
-2 GIVN Blomï¿½ Adolphe
+1 NAME Blomé Adolphe/AMAND/
+2 GIVN Blomé Adolphe
 2 SURN AMAND
 1 SEX M
 1 BIRT
 2 DATE 17 MAR 1832
 2 PLAC Chauny,02300,Aisne,Picardie,FRANCE,
 2 SOUR @286S@
-2 NOTE Il est nï¿½ dans le bateau de ses parents, stationnï¿½ dans le port de Chauny.
+2 NOTE Il est né dans le bateau de ses parents, stationné dans le port de Chauny.
 2 ASSO @301I@
 3 TYPE INDI
 3 RELA Witness
-3 TITL Tï¿½moin
+3 TITL Témoin
 2 ASSO @297I@
 3 TYPE INDI
 3 RELA Witness
-3 TITL Tï¿½moin
+3 TITL Témoin
 2 ASSO @293I@
 3 TYPE INDI
 3 RELA Informant
-3 TITL Dï¿½clarant
+3 TITL Déclarant
 1 DEAT
 2 DATE 18 SEP 1888
 2 PLAC Lourches,59156,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @83S@
-2 NOTE Il est dï¿½cï¿½dï¿½ dans son bateau, en stationnement sur l'escaut mais est domiciliï¿½ ï¿½ Clairoix dans l'Oise.
+2 NOTE Il est décédé dans son bateau, en stationnement sur l'escaut mais est domicilié à Clairoix dans l'Oise.
 1 FAMS @49U@
 1 FAMC @77U@
 1 _FIL LEGITIMATE_CHILD
@@ -189,18 +189,18 @@
 1 SEX M
 1 BIRT
 2 DATE 27 MAR 1791
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
 1 EVEN
 2 TYPE Maladie
 2 DATE 17 MAR 1832
 2 PLAC Chauny,02300,Aisne,Picardie,FRANCE,
-2 NOTE A la naissance de son fils, il est dï¿½clarï¿½ qu'il est alitï¿½ pour cause de maladie.
+2 NOTE A la naissance de son fils, il est déclaré qu'il est alité pour cause de maladie.
 1 DEAT
 2 DATE 18 APR 1832
 2 PLAC Fargniers,02700,Aisne,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @96S@
-2 NOTE Il est dï¿½cï¿½dï¿½ dans son bateau, en aval de l'ï¿½cluse intermï¿½diaire de Fargniers.
-1 OCCU Batelier de Condï¿½
+2 NOTE Il est décédé dans son bateau, en aval de l'écluse intermédiaire de Fargniers.
+1 OCCU Batelier de Condé
 1 FAMS @77U@
 1 FAMC @95U@
 1 _FIL LEGITIMATE_CHILD
@@ -211,18 +211,18 @@
 1 SEX F
 1 DEAT
 2 DATE BEF 1888
-2 PLAC Thun-L'ï¿½vï¿½que,59141,Nord,Nord-Pas-de-Calais,FRANCE,
-1 OCCU Bateliï¿½re
+2 PLAC Thun-L'Évêque,59141,Nord,Nord-Pas-de-Calais,FRANCE,
+1 OCCU Batelière
 1 FAMS @77U@
 1 _FIL LEGITIMATE_CHILD
 0 @92I@ INDI
-1 NAME Franï¿½ois Joseph/AMAND/
-2 GIVN Franï¿½ois Joseph
+1 NAME François Joseph/AMAND/
+2 GIVN François Joseph
 2 SURN AMAND
 1 SEX M
 1 BIRT
 2 DATE 4 NOV 1749
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @315S@
 2 ASSO @142I@
 3 TYPE INDI
@@ -236,15 +236,15 @@
 2 DATE 8 MAY 1819
 2 PLAC Valenciennes,59300,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @104S@
-2 NOTE Il est dï¿½cï¿½dï¿½ dans sa maison au Faubourg de Paris.
+2 NOTE Il est décédé dans sa maison au Faubourg de Paris.
 2 ASSO @120I@
 3 TYPE INDI
 3 RELA Informant
-3 TITL Dï¿½clarant
+3 TITL Déclarant
 2 ASSO @117I@
 3 TYPE INDI
 3 RELA Informant
-3 TITL Dï¿½clarant
+3 TITL Déclarant
 1 OCCU conducteur de bateaux
 1 FAMS @95U@
 1 FAMC @115U@
@@ -266,13 +266,13 @@
 1 SEX M
 1 BIRT
 2 DATE 5 APR 1723
-2 PLAC Condï¿½-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @147S@
 1 DEAT
 2 DATE 31 JUL 1801
 2 PLAC Jemappes,7012,Hainaut,Wallonie,BELGIQUE,
 2 SOUR @306S@
-1 OCCU Batelier de Condï¿½
+1 OCCU Batelier de Condé
 1 FAMS @115U@
 1 FAMC @143U@
 1 SIGN YES
@@ -285,7 +285,7 @@
 1 CHR
 2 DATE 22 JAN 1726
 2 SOUR @145S@
-2 NOTE peut-ï¿½tre Condï¿½.
+2 NOTE peut-être Condé.
 1 DEAT
 2 DATE BEF 1819
 1 FAMS @115U@
@@ -298,7 +298,7 @@
 1 SEX M
 1 BIRT
 2 DATE ABT 1795
-1 OCCU batelier de Condï¿½
+1 OCCU batelier de Condé
 1 FAMC @95U@
 1 _FIL LEGITIMATE_CHILD
 0 @120I@ INDI
@@ -306,16 +306,16 @@
 2 GIVN Jean
 2 SURN GUEROT
 1 SEX M
-1 OCCU instituteur ï¿½ Valenciennes
+1 OCCU instituteur à Valenciennes
 1 _FIL LEGITIMATE_CHILD
 0 @123I@ INDI
-1 NAME Augustine Fidï¿½le/AMAND/
-2 GIVN Augustine Fidï¿½le
+1 NAME Augustine Fidèle/AMAND/
+2 GIVN Augustine Fidèle
 2 SURN AMAND
 1 SEX F
 1 CHR
 2 DATE 21 JUN 1782
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @145S@
 1 FAMC @95U@
 1 _FIL LEGITIMATE_CHILD
@@ -324,7 +324,7 @@
 2 GIVN Fidel Joseph
 2 SURN AMAND
 1 SEX M
-1 OCCU batelier de Condï¿½
+1 OCCU batelier de Condé
 1 FAMC @115U@
 1 _FIL LEGITIMATE_CHILD
 0 @128I@ INDI
@@ -334,7 +334,7 @@
 1 SEX M
 1 CHR
 2 DATE 20 JUL 1762
-2 PLAC Vieux-Condï¿½,59690,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Vieux-Condé,59690,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @145S@
 1 EVEN
 2 TYPE Occupation
@@ -345,14 +345,14 @@
 2 DATE 18 OCT 1830
 2 PLAC Quaregnon,7390,Hainaut,Wallonie,BELGIQUE,
 2 SOUR @147S@
-2 NOTE Il serait domiciliï¿½ ï¿½ Tournai
-1 OCCU batelier de Condï¿½
+2 NOTE Il serait domicilié à Tournai
+1 OCCU batelier de Condé
 1 FAMS @135U@
 1 FAMC @115U@
 1 _FIL LEGITIMATE_CHILD
 0 @133I@ INDI
-1 NAME Apoline Franï¿½oise Joseph/TRUFFIN/
-2 GIVN Apoline Franï¿½oise Joseph
+1 NAME Apoline Françoise Joseph/TRUFFIN/
+2 GIVN Apoline Françoise Joseph
 2 SURN TRUFFIN
 1 SEX F
 1 CHR
@@ -362,21 +362,21 @@
 1 FAMC @172U@
 1 _FIL LEGITIMATE_CHILD
 0 @140I@ INDI
-1 NAME Nicolas Franï¿½ois/AMAND/
-2 GIVN Nicolas Franï¿½ois
+1 NAME Nicolas François/AMAND/
+2 GIVN Nicolas François
 2 SURN AMAND
 1 SEX M
 1 CHR
 2 DATE 8 SEP 1697
-2 PLAC Condï¿½-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @386S@
 1 BURI
 2 DATE BEF 1786
-2 NOTE Quand son ï¿½pouse dï¿½cï¿½de, elle est veuve.
-1 OCCU batelier de Condï¿½
+2 NOTE Quand son épouse décéde, elle est veuve.
+1 OCCU batelier de Condé
 1 FAMS @143U@
 1 FAMC @194U@
-1 NOTE il serait originaire de Condï¿½ sur Escaut
+1 NOTE il serait originaire de Condé sur Escaut
 1 _FIL LEGITIMATE_CHILD
 0 @142I@ INDI
 1 NAME Anne Catherine/CHOQUET/
@@ -385,13 +385,13 @@
 1 SEX F
 1 BIRT
 2 DATE ABT 1703
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
 2 NOTE Elle a 19 ans lors de son mariage.
 3 CONT Elle y est dite originaire de la paroisse de Flines Les Mortagnes.
 1 BURI
 2 DATE 6 JAN 1786
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
-2 NOTE source: relevï¿½s en ligne sur Geneanet.
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 NOTE source: relevés en ligne sur Geneanet.
 3 CONT 1786 n'est pas en ligne sur le site des AD.
 1 FAMS @143U@
 1 FAMC @199U@
@@ -419,7 +419,7 @@
 1 BIRT
 2 DATE ABT 1736
 2 PLAC Jemappes,7012,Hainaut,Wallonie,BELGIQUE,
-1 OCCU batelier de Condï¿½
+1 OCCU batelier de Condé
 1 FAMS @172U@
 1 _FIL LEGITIMATE_CHILD
 0 @170I@ INDI
@@ -465,12 +465,12 @@
 1 SEX M
 1 BIRT
 2 DATE ABT 1762
-2 PLAC Condï¿½-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
 1 OCCU ferronier
 1 _FIL LEGITIMATE_CHILD
 0 @191I@ INDI
-1 NAME Andrï¿½/AMAND/
-2 GIVN Andrï¿½
+1 NAME André/AMAND/
+2 GIVN André
 2 SURN AMAND
 1 SEX M
 1 FAMS @194U@
@@ -505,14 +505,14 @@
 2 DATE ABT 1727
 1 DEAT
 2 DATE 7 JAN 1783
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @145S@
 1 FAMS @210U@
 1 FAMC @143U@
 1 _FIL LEGITIMATE_CHILD
 0 @209I@ INDI
-1 NAME Jean Franï¿½ois Joseph/TELLIER/
-2 GIVN Jean Franï¿½ois Joseph
+1 NAME Jean François Joseph/TELLIER/
+2 GIVN Jean François Joseph
 2 SURN TELLIER
 1 SEX M
 1 FAMS @210U@
@@ -524,8 +524,8 @@
 1 SEX M
 1 BIRT
 2 DATE 25 FEB 1742
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
-2 NOTE Lors de son mariage, il est dit originaire de Condï¿½.
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 NOTE Lors de son mariage, il est dit originaire de Condé.
 1 FAMS @219U@
 1 FAMC @143U@
 1 _FIL LEGITIMATE_CHILD
@@ -543,7 +543,7 @@
 1 SEX M
 1 BIRT
 2 DATE 25 MAR 1731
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
 1 FAMC @143U@
 1 _FIL LEGITIMATE_CHILD
 0 @224I@ INDI
@@ -553,17 +553,17 @@
 1 SEX F
 1 CHR
 2 DATE 7 AUG 1732
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
 1 FAMC @143U@
 1 _FIL LEGITIMATE_CHILD
 0 @226I@ INDI
-1 NAME Marie Eugï¿½nie Joseph/AMAND/
-2 GIVN Marie Eugï¿½nie Joseph
+1 NAME Marie Eugénie Joseph/AMAND/
+2 GIVN Marie Eugénie Joseph
 2 SURN AMAND
 1 SEX F
 1 CHR
 2 DATE 26 MAR 1735
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
 1 FAMC @143U@
 1 _FIL LEGITIMATE_CHILD
 0 @228I@ INDI
@@ -573,7 +573,7 @@
 1 SEX F
 1 CHR
 2 DATE 22 DEC 1738
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @281S@
 1 FAMC @143U@
 1 _FIL LEGITIMATE_CHILD
@@ -584,29 +584,29 @@
 1 SEX M
 1 CHR
 2 DATE 15 APR 1775
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @145S@
 1 FAMC @219U@
 1 _FIL LEGITIMATE_CHILD
 0 @232I@ INDI
-1 NAME Franï¿½ois Thï¿½odore/AMAND/
-2 GIVN Franï¿½ois Thï¿½odore
+1 NAME François Théodore/AMAND/
+2 GIVN François Théodore
 2 SURN AMAND
 1 SEX M
 1 CHR
 2 DATE 1 APR 1779
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @145S@
 1 FAMC @219U@
 1 _FIL LEGITIMATE_CHILD
 0 @234I@ INDI
-1 NAME Julie Eugï¿½nie/AMAND/
-2 GIVN Julie Eugï¿½nie
+1 NAME Julie Eugénie/AMAND/
+2 GIVN Julie Eugénie
 2 SURN AMAND
 1 SEX F
 1 CHR
 2 DATE 20 MAY 1781
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @145S@
 1 FAMC @219U@
 1 _FIL LEGITIMATE_CHILD
@@ -619,20 +619,20 @@
 2 DATE 18 JAN 1897
 2 PLAC Lourches,59156,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @242S@
-2 NOTE Elle est nï¿½e dans le bateau de ses parents.
-3 CONT Elle est dï¿½clarï¿½e le lendemain ï¿½ la mairie de Lourches.
+2 NOTE Elle est née dans le bateau de ses parents.
+3 CONT Elle est déclarée le lendemain à la mairie de Lourches.
 2 ASSO @262I@
 3 TYPE INDI
 3 RELA Registry officer
-3 TITL Officier d'ï¿½tat civil
+3 TITL Officier d'état civil
 2 ASSO @247I@
 3 TYPE INDI
 3 RELA Informant
-3 TITL Dï¿½clarant
+3 TITL Déclarant
 2 ASSO @250I@
 3 TYPE INDI
 3 RELA Informant
-3 TITL Dï¿½clarant
+3 TITL Déclarant
 1 FAMS @259U@
 1 FAMC @40U@
 1 _FIL LEGITIMATE_CHILD
@@ -662,8 +662,8 @@
 1 FAMS @259U@
 1 _FIL LEGITIMATE_CHILD
 0 @262I@ INDI
-1 NAME Lï¿½on/DREYFUS/
-2 GIVN Lï¿½on
+1 NAME Léon/DREYFUS/
+2 GIVN Léon
 2 SURN DREYFUS
 1 SEX M
 1 OCCU Maire de Lourches (1897)
@@ -675,9 +675,9 @@
 1 SEX M
 1 BIRT
 2 DATE 17 APR 1899
-2 PLAC Aubervilliers,93300,Seine-Saint-Denis,ï¿½le-de-France,FRANCE,
+2 PLAC Aubervilliers,93300,Seine-Saint-Denis,Île-de-France,FRANCE,
 2 SOUR @419S@
-2 NOTE Fiche matricule nï¿½1601 volume 4 du bureau de Valenciennes.
+2 NOTE Fiche matricule n°1601 volume 4 du bureau de Valenciennes.
 1 DEAT
 2 DATE 5 APR 1969
 2 PLAC Beaucaire,30300,Gard,Languedoc-Roussillon,FRANCE,
@@ -694,7 +694,7 @@
 1 BIRT
 2 DATE 14 DEC 1905
 2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
-1 OCCU mï¿½nagï¿½re
+1 OCCU ménagère
 1 FAMS @268U@
 1 _FIL LEGITIMATE_CHILD
 0 @293I@ INDI
@@ -704,7 +704,7 @@
 1 SEX F
 1 BIRT
 2 DATE ABT 1776
-1 OCCU Sage-femme ï¿½ Chauny (02)
+1 OCCU Sage-femme à Chauny (02)
 1 _FIL LEGITIMATE_CHILD
 0 @297I@ INDI
 1 NAME Xavier/DISANT/
@@ -725,8 +725,8 @@
 1 OCCU Batelier
 1 _FIL LEGITIMATE_CHILD
 0 @312I@ INDI
-1 NAME Franï¿½ois/DE BUCHY/
-2 GIVN Franï¿½ois
+1 NAME François/DE BUCHY/
+2 GIVN François
 2 SURN DE BUCHY
 1 SEX M
 1 SIGN YES
@@ -742,11 +742,11 @@
 2 TYPE Residence
 2 DATE 1865
 2 PLAC Banteux,59266,Nord,Nord-Pas-de-Calais,FRANCE,
-1 OCCU Eclusier ï¿½ Banteux
+1 OCCU Eclusier à Banteux
 1 _FIL LEGITIMATE_CHILD
 0 @329I@ INDI
-1 NAME Franï¿½ois/PAGNIEZ/
-2 GIVN Franï¿½ois
+1 NAME François/PAGNIEZ/
+2 GIVN François
 2 SURN PAGNIEZ
 1 SEX M
 1 BIRT
@@ -782,8 +782,8 @@
 2 DATE 1906
 2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @349S@
-2 NOTE Il habite Coron Mocq ï¿½ Roeulx
-1 OCCU Mineur ï¿½ la Compagnie des Mines de Douchy
+2 NOTE Il habite Coron Mocq à Roeulx
+1 OCCU Mineur à la Compagnie des Mines de Douchy
 1 FAMS @346U@
 1 _FIL LEGITIMATE_CHILD
 0 @344I@ INDI
@@ -804,8 +804,8 @@
 2 DATE 1906
 2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @349S@
-2 NOTE Elle habite Coron Mocq ï¿½ Roeulx
-1 OCCU Mï¿½nagï¿½re (1898)
+2 NOTE Elle habite Coron Mocq à Roeulx
+1 OCCU Ménagère (1898)
 1 FAMS @346U@
 1 _FIL LEGITIMATE_CHILD
 0 @356I@ INDI
@@ -822,8 +822,8 @@
 2 DATE 1906
 2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @349S@
-2 NOTE Il habite Coron Mocq ï¿½ Roeulx
-1 OCCU Mineur ï¿½ la Compagnie des Mines de Douchy (1906)
+2 NOTE Il habite Coron Mocq à Roeulx
+1 OCCU Mineur à la Compagnie des Mines de Douchy (1906)
 1 FAMC @346U@
 1 _FIL LEGITIMATE_CHILD
 0 @360I@ INDI
@@ -839,7 +839,7 @@
 2 TYPE Residence
 2 DATE 1906
 2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
-2 NOTE Il habite Coron Mocq ï¿½ Roeulx
+2 NOTE Il habite Coron Mocq à Roeulx
 1 FAMC @346U@
 1 _FIL LEGITIMATE_CHILD
 0 @364I@ INDI
@@ -856,7 +856,7 @@
 2 DATE 1906
 2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @349S@
-2 NOTE Il habite Coron Mocq ï¿½ Roeulx
+2 NOTE Il habite Coron Mocq à Roeulx
 1 FAMC @346U@
 1 _FIL LEGITIMATE_CHILD
 0 @367I@ INDI
@@ -873,7 +873,7 @@
 2 DATE 1906
 2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @349S@
-2 NOTE Il habite Coron Mocq ï¿½ Roeulx
+2 NOTE Il habite Coron Mocq à Roeulx
 1 FAMC @346U@
 1 _FIL LEGITIMATE_CHILD
 0 @370I@ INDI
@@ -890,7 +890,7 @@
 2 DATE 1906
 2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @349S@
-2 NOTE Elle habite Coron Mocq ï¿½ Roeulx
+2 NOTE Elle habite Coron Mocq à Roeulx
 1 FAMC @346U@
 1 _FIL LEGITIMATE_CHILD
 0 @373I@ INDI
@@ -907,17 +907,17 @@
 2 DATE 1906
 2 PLAC Roeulx,59172,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @349S@
-2 NOTE Il habite Coron Mocq ï¿½ Roeulx
+2 NOTE Il habite Coron Mocq à Roeulx
 1 FAMC @346U@
 1 _FIL LEGITIMATE_CHILD
 0 @402I@ INDI
-1 NAME Marie Aimï¿½e Josï¿½phine/AMAND/
-2 GIVN Marie Aimï¿½e Josï¿½phine
+1 NAME Marie Aimée Joséphine/AMAND/
+2 GIVN Marie Aimée Joséphine
 2 SURN AMAND
 1 SEX F
 1 BIRT
 2 DATE 18 JAN 1802
-2 PLAC Condï¿½-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
 1 FAMS @408U@
 1 FAMC @135U@
 1 _FIL LEGITIMATE_CHILD
@@ -957,8 +957,8 @@
 1 SEX M
 1 _FIL LEGITIMATE_CHILD
 0 @435I@ INDI
-1 NAME Fidï¿½le Vï¿½ronique/TELLIER/
-2 GIVN Fidï¿½le Vï¿½ronique
+1 NAME Fidèle Véronique/TELLIER/
+2 GIVN Fidèle Véronique
 2 SURN TELLIER
 1 SEX F
 1 _FIL LEGITIMATE_CHILD
@@ -1008,8 +1008,8 @@
 1 SEX F
 1 _FIL LEGITIMATE_CHILD
 0 @456I@ INDI
-1 NAME Josï¿½phine Adï¿½laï¿½de Joseph/AMAND/
-2 GIVN Josï¿½phine Adï¿½laï¿½de Joseph
+1 NAME Joséphine Adélaïde Joseph/AMAND/
+2 GIVN Joséphine Adélaïde Joseph
 2 SURN AMAND
 1 SEX F
 1 BIRT
@@ -1040,8 +1040,8 @@
 1 FAMS @469U@
 1 _FIL LEGITIMATE_CHILD
 0 @468I@ INDI
-1 NAME Anne Marie Franï¿½oise/SENECAUX/
-2 GIVN Anne Marie Franï¿½oise
+1 NAME Anne Marie Françoise/SENECAUX/
+2 GIVN Anne Marie Françoise
 2 SURN SENECAUX
 1 SEX F
 1 FAMS @469U@
@@ -1095,7 +1095,7 @@
 1 CHIL @45I@
 1 MARR
 2 DATE 3 JUN 1818
-2 PLAC Thun-L'ï¿½vï¿½que,59141,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Thun-L'Évêque,59141,Nord,Nord-Pas-de-Calais,FRANCE,
 1 _UST MARRIED
 0 @95U@ FAM
 1 HUSB @92I@
@@ -1107,7 +1107,7 @@
 1 CHIL @456I@
 1 MARR
 2 DATE 6 AUG 1776
-2 PLAC Condï¿½-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @441S@
 1 _UST MARRIED
 0 @115U@ FAM
@@ -1120,12 +1120,12 @@
 1 MARR
 2 DATE 8 JAN 1749
 2 PLAC Saint-Ghislain,7330,Hainaut,Wallonie,BELGIQUE,
-2 NOTE Georges a obtenu une permission pour mariage ï¿½ Saint-Guislain (B).
-3 CONT 4e degrï¿½s de consanguinuitï¿½ avec Marie Gabrielle Feneulle.
-3 CONT (source: mention en marge du registre de Condï¿½).
+2 NOTE Georges a obtenu une permission pour mariage à Saint-Guislain (B).
+3 CONT 4e degrès de consanguinuité avec Marie Gabrielle Feneulle.
+3 CONT (source: mention en marge du registre de Condé).
 3 CONT 
-3 CONT L'ancï¿½tre commun est au niveau des arriï¿½re arriï¿½re grands-parents.
-3 CONT L'arriï¿½re grand-pï¿½re de l'un est donc le frï¿½re de l'arriï¿½re grand-mï¿½re de l'autre (ou l'inverse, ou deux frï¿½res, ou deux soeurs, bref...)
+3 CONT L'ancêtre commun est au niveau des arrière arrière grands-parents.
+3 CONT L'arrière grand-père de l'un est donc le frère de l'arrière grand-mère de l'autre (ou l'inverse, ou deux frères, ou deux soeurs, bref...)
 1 _UST MARRIED
 0 @135U@ FAM
 1 HUSB @128I@
@@ -1133,24 +1133,24 @@
 1 CHIL @402I@
 1 MARR
 2 DATE 8 NOV 1800
-2 PLAC Condï¿½-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @145S@
-2 ASSO @179I@
-3 TYPE INDI
-3 RELA Witness
-3 TITL Tï¿½moin
-2 ASSO @186I@
-3 TYPE INDI
-3 RELA Witness
-3 TITL Tï¿½moin
-2 ASSO @183I@
-3 TYPE INDI
-3 RELA Witness
-3 TITL Tï¿½moin
 2 ASSO @175I@
 3 TYPE INDI
 3 RELA Witness
-3 TITL Tï¿½moin
+3 TITL Témoin
+2 ASSO @186I@
+3 TYPE INDI
+3 RELA Witness
+3 TITL Témoin
+2 ASSO @183I@
+3 TYPE INDI
+3 RELA Witness
+3 TITL Témoin
+2 ASSO @179I@
+3 TYPE INDI
+3 RELA Witness
+3 TITL Témoin
 1 _UST MARRIED
 0 @143U@ FAM
 1 HUSB @140I@
@@ -1164,7 +1164,7 @@
 1 CHIL @228I@
 1 MARR
 2 DATE 28 APR 1722
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @200S@
 1 _UST MARRIED
 0 @154U@ FAM
@@ -1201,7 +1201,7 @@
 1 MARR
 2 TYPE Religious marriage
 2 DATE 11 NOV 1749
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @145S@
 1 _UST MARRIED
 0 @219U@ FAM
@@ -1213,7 +1213,7 @@
 1 MARR
 2 TYPE Religious marriage
 2 DATE 9 APR 1771
-2 PLAC Flines-lï¿½s-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Flines-lès-Mortagne,59158,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @145S@
 1 _UST MARRIED
 0 @259U@ FAM
@@ -1261,7 +1261,7 @@
 1 CHIL @474I@
 1 MARR
 2 DATE 5 OCT 1806
-2 PLAC Condï¿½-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
+2 PLAC Condé-sur-L'Escaut,59163,Nord,Nord-Pas-de-Calais,FRANCE,
 2 SOUR @458S@
 1 _UST MARRIED
 0 @469U@ FAM
@@ -1277,8 +1277,8 @@
 3 MEDI Numerisation
 1 QUAY 2
 0 @50S@ SOUR
-1 TITL Acte de dï¿½cï¿½s (1906)
-1 ABBR AMAND Blomy Abï¿½lard
+1 TITL Acte de décès (1906)
+1 ABBR AMAND Blomy Abélard
 1 REPO Archives du Nord
 2 CALN 
 3 MEDI Numerisation
@@ -1297,40 +1297,40 @@
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
-1 TEXT L'an mil huit cent soixante-cinq, le vingt-un du mois de mai, ï¿½ sept heures du matin, par devant nous Quentin SORLIN, Maire, officier de l'ï¿½tat-civil de la commune de Banteux, canton de Marcoing, arrondissement de Cambrai, dï¿½partement du Nord
-2 CONC , a comparu Blomy Adolphe AMAND, ï¿½gï¿½ de trente-trois ans, batelier, domiciliï¿½ ï¿½ Clairvoix (Oise): Lequel nous a prï¿½sentï¿½ un enfant du sexe masculin nï¿½ aujourd'hui ï¿½ quatre heures du matin, de lui dï¿½clarant en son bateau stationnant en amont d
-2 CONC e l'ï¿½cluse de cette commune et de Hortense Caroline FERNEZ ï¿½gï¿½e de vingt-neuf ans, bateliï¿½re, domiciliï¿½e au mï¿½me lieu, son ï¿½pouse lï¿½gitime, et auquel il a dï¿½clarï¿½ vouloir donner des prï¿½noms de Blomy Abailard. Les dites dï¿½claration et prï¿½senta
-2 CONC tion faites en presence d'Augustin DERVAL, ï¿½gï¿½ de quarante huit ans, ï¿½clusier, et de Franï¿½ois PAGNIEZ, ï¿½gï¿½ de vingt deux ans, cabaretier, tous deux domiciliï¿½s ï¿½ Banteux et amis du comparant. Les deux tï¿½moins et le ï¿½re ont signï¿½ avec nous le p
-2 CONC rï¿½sent acte aprï¿½s lecture faite.
+1 TEXT L'an mil huit cent soixante-cinq, le vingt-un du mois de mai, à sept heures du matin, par devant nous Quentin SORLIN, Maire, officier de l'état-civil de la commune de Banteux, canton de Marcoing, arrondissement de Cambrai, département du Nord
+2 CONC , a comparu Blomy Adolphe AMAND, âgé de trente-trois ans, batelier, domicilié à Clairvoix (Oise): Lequel nous a présenté un enfant du sexe masculin né aujourd'hui à quatre heures du matin, de lui déclarant en son bateau stationnant en amont d
+2 CONC e l'écluse de cette commune et de Hortense Caroline FERNEZ âgée de vingt-neuf ans, batelière, domiciliée au même lieu, son épouse légitime, et auquel il a déclaré vouloir donner des prénoms de Blomy Abailard. Les dites déclaration et présenta
+2 CONC tion faites en presence d'Augustin DERVAL, âgé de quarante huit ans, éclusier, et de François PAGNIEZ, âgé de vingt deux ans, cabaretier, tous deux domiciliés à Banteux et amis du comparant. Les deux témoins et le ère ont signé avec nous le p
+2 CONC résent acte après lecture faite.
 0 @83S@ SOUR
-1 TITL Acte de dï¿½cï¿½s (1888)
+1 TITL Acte de décès (1888)
 1 ABBR AMAND Blomy Adolphe
 1 REPO Archives du Nord
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
 0 @96S@ SOUR
-1 TITL Acte de dï¿½cï¿½s (1832)
+1 TITL Acte de décès (1832)
 1 ABBR AMAND Florentin
 1 REPO Archives de l'Aisne
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
 0 @104S@ SOUR
-1 TITL Acte de dï¿½cï¿½s (1819)
-1 ABBR AMAND Franï¿½ois
+1 TITL Acte de décès (1819)
+1 ABBR AMAND François
 1 REPO Archives du Nord
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
 0 @145S@ SOUR
-1 TITL Relevï¿½s des BMS et NMD
+1 TITL Relevés des BMS et NMD
 1 REPO A.G.F.H
 2 CALN 
 3 MEDI Transcription
 1 QUAY 0
 0 @147S@ SOUR
-1 TITL Relevï¿½s des BMS et NMD de Quaregnon
+1 TITL Relevés des BMS et NMD de Quaregnon
 1 REPO ddupprez
 2 CALN 
 3 MEDI Internet
@@ -1357,7 +1357,7 @@
 3 MEDI Numerisation
 1 QUAY 2
 0 @281S@ SOUR
-1 TITL Acte de baptï¿½me (1738)
+1 TITL Acte de baptême (1738)
 1 ABBR AMAND Catherine
 1 REPO Archives du Nord
 2 CALN 
@@ -1365,22 +1365,22 @@
 1 QUAY 2
 0 @286S@ SOUR
 1 TITL Acte de naissance (1832)
-1 ABBR AMAND Blomï¿½
+1 ABBR AMAND Blomé
 1 REPO Archives de l'Aisne
 2 CALN AB1832
 3 MEDI Numerisation
 1 QUAY 2
 1 _ARCH archi-AB1832
 0 @306S@ SOUR
-1 TITL Acte de dï¿½cï¿½s (1801)
+1 TITL Acte de décès (1801)
 1 ABBR AMAND Georges
-1 REPO Archives de l'ï¿½tat en Belgique
+1 REPO Archives de l'État en Belgique
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
 0 @315S@ SOUR
-1 TITL Acte de baptï¿½me (1749)
-1 ABBR AMAND Franï¿½ois Joseph
+1 TITL Acte de baptême (1749)
+1 ABBR AMAND François Joseph
 1 REPO Archives du Nord
 2 CALN 
 3 MEDI Numerisation
@@ -1400,14 +1400,14 @@
 3 MEDI Internet
 1 QUAY 2
 0 @386S@ SOUR
-1 TITL Acte de baptï¿½me (1697)
-1 ABBR AMAND Nicolas Franï¿½ois
+1 TITL Acte de baptême (1697)
+1 ABBR AMAND Nicolas François
 1 REPO Archives du Nord
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
 0 @397S@ SOUR
-1 TITL Avis de dï¿½cï¿½s (2017)
+1 TITL Avis de décès (2017)
 1 ABBR AMAND Albert
 1 REPO Voix du Nord
 2 CALN 
@@ -1428,36 +1428,36 @@
 3 MEDI Numerisation
 1 QUAY 2
 0 @429S@ SOUR
-1 TITL Rï¿½pertoire des bateliers de nord de la France et de la Belgique (Tome 5)
+1 TITL Répertoire des bateliers de nord de la France et de la Belgique (Tome 5)
 1 ABBR AMAND Alexandre Joseph Fidel - naissance (1767)
 1 REPO FamilySearch
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 0
 0 @441S@ SOUR
-1 TITL Rï¿½pertoire des bateliers de nord de la France et de la Belgique (Tome 5)
+1 TITL Répertoire des bateliers de nord de la France et de la Belgique (Tome 5)
 1 ABBR AMAND x DAPSENCE - mariage (1776)
 1 REPO FamilySearch
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
 0 @447S@ SOUR
-1 TITL Rï¿½pertoire des bateliers de nord de la France et de la Belgique (Tome 5)
-1 ABBR AMAND Anne Catherine - Baptï¿½me (1777)
+1 TITL Répertoire des bateliers de nord de la France et de la Belgique (Tome 5)
+1 ABBR AMAND Anne Catherine - Baptême (1777)
 1 REPO FamilySearch
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
 0 @458S@ SOUR
-1 TITL Rï¿½pertoire des bateliers de nord de la France et de la Belgique (Tome 5)
+1 TITL Répertoire des bateliers de nord de la France et de la Belgique (Tome 5)
 1 ABBR DARTOIS x AMAND - mariage (1806)
 1 REPO FamilySearch
 2 CALN 
 3 MEDI Numerisation
 1 QUAY 2
 0 @477S@ SOUR
-1 TITL Rï¿½pertoire des bateliers de nord de la France et de la Belgique (Tome 5)
-1 ABBR DARTOIS Lucie - dï¿½cï¿½s (1825)
+1 TITL Répertoire des bateliers de nord de la France et de la Belgique (Tome 5)
+1 ABBR DARTOIS Lucie - décès (1825)
 1 REPO FamilySearch
 2 CALN 
 3 MEDI Numerisation

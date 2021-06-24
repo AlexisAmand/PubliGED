@@ -191,6 +191,7 @@ include ('../class/class.php');
 					if (preg_match ( "/1 SOUR/", $ligne ) and ($nb_individu == 0))
 						{
 					 	$logiciel = new logiciels();
+						/* On retire le /1 SOUR/ qui est au début de la chaine */
 					 	$logiciel->nomcomplet = implode(" ",array_slice(explode(" ",$ligne), 2));
 						$logiciel_vers = 1;
 						}
@@ -199,6 +200,7 @@ include ('../class/class.php');
 
 					if (preg_match ( "/2 NAME/", $ligne ) and ($nb_individu == 0))
 						{
+						/* On retire le /2 NAME/ qui est au début de la chaine */
 						$logiciel->nom = implode(" ",array_slice(explode(" ",$ligne), 2));
 						}
 
@@ -222,6 +224,7 @@ include ('../class/class.php');
 										
 					if (preg_match ( "/1 ADDR/", $ligne ) and ($nb_individu == 0)) 
 						{
+						/* On retire le /1 ADDR/ qui est au début de la chaine */
 						$uploader->adresse = implode(" ",array_slice(explode(" ",$ligne), 2));
 						}
 					
@@ -229,6 +232,7 @@ include ('../class/class.php');
 					
 					if (preg_match ( "/1 EMAIL/", $ligne ) and ($nb_individu == 0)) 
 						{
+						/* On retire le /1 EMAIL/ qui est au début de la chaine */
 						$uploader->mail = implode(" ",array_slice(explode(" ",$ligne), 2));
 						}
 
@@ -236,6 +240,7 @@ include ('../class/class.php');
 					
 					if (preg_match ( "/1 WWW/", $ligne ) and ($nb_individu == 0)) 
 						{
+						/* On retire le /1 WWW/ qui est au début de la chaine */
 						$uploader->www = implode(" ",array_slice(explode(" ",$ligne), 2));
 						}
 
@@ -254,6 +259,7 @@ include ('../class/class.php');
 						if ($gedcom_vers == 1)
 							{
 							$gedcom_vers = 0;
+							/* On retire le /2 VERS/ qui est au début de la chaine */
 							$gedfichier->version = implode(" ",array_slice(explode(" ",$ligne), 2));	
 
 							/* Contrôle que la version du gedcom est compatible */
@@ -267,6 +273,7 @@ include ('../class/class.php');
 						if ($logiciel_vers == 1)
 							{
 							$logiciel_vers = 0;
+							/* On retire le /2 VERS/ qui est au début de la chaine */
 							$logiciel->version = implode(" ",array_slice(explode(" ",$ligne), 2));	
 							}
 						}
@@ -290,6 +297,7 @@ include ('../class/class.php');
 						
 					if (preg_match ( "/1 NAME/", $ligne ) and ($nb_individu != 0))
 						{
+						/* On retire le /1 NAME/ qui est au début de la chaine */
 						$individu->nom = implode(" ",array_slice(explode(" ",$ligne), 2));						
 						$res = $pdo->prepare ( "UPDATE individus SET nom = :nom WHERE ref=:ref" );
 						$res->bindparam ( ':nom', $individu->nom, PDO::PARAM_STR );
@@ -301,6 +309,7 @@ include ('../class/class.php');
 						
 					if (preg_match ( "/2 SURN/", $ligne )) 
 						{
+						/* On retire le /2 SURN/ qui est au début de la chaine */
 						$individu->surname = implode(" ",array_slice(explode(" ",$ligne), 2));
 						$res = $pdo->prepare ( "UPDATE individus SET surname = :surname WHERE ref=:ref" );
 						$res->bindparam ( ':surname', $individu->surname, PDO::PARAM_STR );
@@ -312,6 +321,7 @@ include ('../class/class.php');
 						
 					if (preg_match ( "/2 GIVN/", $ligne )) 
 						{
+						/* On retire le /2 GIVN/ qui est au début de la chaine */
 						$individu->prenom = implode(" ",array_slice(explode(" ",$ligne), 2));
 						$res = $pdo->prepare ( "UPDATE individus SET prenom = :prenom WHERE ref=:ref" );
 						$res->bindparam ( ':prenom', $individu->prenom );
@@ -323,8 +333,14 @@ include ('../class/class.php');
 						
 					if (preg_match ( "/1 SEX/", $ligne )) 
 						{
+						
+						/*	
 						$partie = explode ( " ", $ligne );
 						$individu->sexe = $partie [2];
+						*/
+
+						/* On retire le /1 SEX/ qui est au début de la chaine */
+						$individu->sexe = implode(" ",array_slice(explode(" ",$ligne), 2));
 						$res = $pdo->prepare ( "UPDATE individus SET sex = :sex WHERE ref=:ref" );
 						$res->bindparam ( ':sex', $individu->sexe );
 						$res->bindparam ( ':ref', $individu->ref );
@@ -492,14 +508,10 @@ include ('../class/class.php');
 						$nb_eve = $nb_eve + 1;
 						$evenement->indiv = $individu->ref;
 						$evenement->nom = "OCCU"; /* TODO : Je pense que ce OCCU peut devenir une constante profession */
-						
-						$occupation = explode ( " ", $ligne );
-						$l = count ( $occupation );
-						for($c = 2; $c < $l; $c ++) 
-							{
-							$evenement->type = $evenement->type . " " . $occupation [$c];
-							}
-						
+
+						/* On retire le /1 OCCU/ qui est au début de la chaine */
+						$evenement->type = implode(" ",array_slice(explode(" ",$ligne), 2));
+
 						$req = $pdo->prepare ( "INSERT INTO evenements (n_indi, nom, evenement) VALUES (:indiv,:nom,:type)" );
 						$req->bindValue ( ':indiv', $evenement->indiv, PDO::PARAM_STR );
 						$req->bindValue ( ':nom', $evenement->nom, PDO::PARAM_STR );
@@ -511,15 +523,10 @@ include ('../class/class.php');
 					
 					if (preg_match ( "/2 DATE/", $ligne ) and ($nb_source == 0)) 
 						{
-						$date = explode ( " ", $ligne );
-						$l = count ( $date );
-						for($c = 2; $c < $l; $c ++) 
-							{
-							$evenement->date = $evenement->date . " " . $date [$c];
-							}
-						
-						/* traduction des mois de la date */
-						
+						/* On retire le /2 DATE/ qui est au début de la chaine */
+						$evenement->date = implode(" ",array_slice(explode(" ",$ligne), 2));
+
+						/* traduction des mois de la date en fonction du contenu des fichiers de langue */
 						$evenement->date = str_replace ( "JAN", MOIS_1, $evenement->date );
 						$evenement->date = str_replace ( "FEB", MOIS_2, $evenement->date );
 						$evenement->date = str_replace ( "MAR", MOIS_3, $evenement->date );
@@ -534,7 +541,6 @@ include ('../class/class.php');
 						$evenement->date = str_replace ( "DEC", MOIS_12, $evenement->date );
 						
 						/* traduction de l'approximation de la date */
-						
 						$evenement->date = str_replace ( "BEF", BEF, $evenement->date );
 						$evenement->date = str_replace ( "ABT", ABT, $evenement->date );
 						$evenement->date = str_replace ( "AFT", AFT, $evenement->date );
@@ -542,7 +548,6 @@ include ('../class/class.php');
 						$evenement->date = str_replace ( "WFT", WFT, $evenement->date );
 						
 						/* hop ! On met la date dans la table */
-						
 						$req = $pdo->prepare ( "UPDATE evenements SET date = :date WHERE n_indi=:indiv and nom=:nom" );
 						$req->bindValue ( ':date', $evenement->date, PDO::PARAM_STR );
 						$req->bindValue ( ':indiv', $individu->ref, PDO::PARAM_INT );
@@ -555,16 +560,8 @@ include ('../class/class.php');
 					
 					if (preg_match ( "/2 TYPE/", $ligne )) 
 						{
-						$type = explode ( " ", $ligne );
-						$l = count ( $type );
-						for($c = 2; $c < $l; $c ++) 
-							{
-							$evenement->type = $evenement->type . " " . $type [$c];
-							}
-						
-						/* TODO : il faut retirer 2 TYPE dans la chaine de caractéres comme pour le nom de l'individu */	
-							
-						$evenement->type = $ligne;
+						/* On retire le /2 TYPE/ qui est au début de la chaine */
+						$evenement->type = implode(" ",array_slice(explode(" ",$ligne), 2));
 						
 						$req = $pdo->prepare ( "UPDATE evenements SET type = :type WHERE n_indi = :indiv AND n_eve = :eve " );
 						$req->bindValue ( ':type', $evenement->type, PDO::PARAM_STR );
@@ -674,11 +671,9 @@ include ('../class/class.php');
 					if (preg_match ( "/2 NOTE/", $ligne ) and ($nb_eve > 0)) 
 						{
 						
-						/* TODO : il faut retirer 2 NOTE dans la chaine de caractéres comme pour le nom de l'individu */
+						/* On retire le /1 SEX/ qui est au début de la chaine */
 						$evenement->note = implode(" ",array_slice(explode(" ",$ligne), 2));	
-							
-						// $evenement->note = $ligne;
-						
+
 						$req = $pdo->prepare ( "UPDATE evenements SET note = :note WHERE n_indi=:ref and n_eve=:nb_eve" );
 						$req->bindValue ( ':note', $evenement->note, PDO::PARAM_STR );
 						$req->bindValue ( ':ref', $individu->ref, PDO::PARAM_STR );
@@ -829,8 +824,7 @@ include ('../class/class.php');
 						}
 					
 					if (preg_match ( "/2 DATE/", $ligne ) and ($nb_source != 0)) 
-						{
-						
+						{						
 						/* TODO : Je sais pas quoi ? */
 						
 						/*
