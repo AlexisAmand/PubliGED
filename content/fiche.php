@@ -195,12 +195,14 @@ while ($row_prof = $sqlProfession->fetch(PDO::FETCH_ASSOC)) {
 
 echo "<h4>" . PARENTS . "</h4>";
 
+echo '<p>';
 if (isset ( $individu->pere ) or isset ( $individu->mere )) {
-	echo FATHER . " " . individu ( $pdo2, $individu->pere ) . "<br />";
-	echo MOTHER . " " . individu ( $pdo2, $individu->mere ) . "<br />";
+	echo FATHER . " : " . individu ( $pdo2, $individu->pere ) . "<br />";
+	echo MOTHER . " : " . individu ( $pdo2, $individu->mere );
 } else {
 	echo NOPARENTS;
 }
+echo '</p>';
 
 /* --------------------- */
 /* Affichage des enfants */
@@ -271,15 +273,39 @@ while ( $a < $i ) {
 
 echo "</table>";
 
-/* ------------------ */
-/* arbre généalogique */
-/* ------------------ */
+/* --------------------- */
+/* arbre généalogique V1 */
+/* --------------------- */
 
-echo "<h4>" . FAMILYTREE . " (version HTML+CSS)</h4>";
+echo "<h4>" . FAMILYTREE . " (version 1)</h4>";
 
 echo "<div class='row'>";
 
-include("arbre-ancien.php");
+include("arbre-v1.php");
+
+echo "</div>";
+
+/* --------------------- */
+/* arbre généalogique V2 */
+/* --------------------- */
+
+echo "<h4>" . FAMILYTREE . " (version 2)</h4>";
+
+echo "<div class='row'>";
+
+include("arbre-v2.php");
+
+echo "</div>";
+
+/* --------------------- */
+/* arbre généalogique V3 */
+/* --------------------- */
+
+echo "<h4>" . FAMILYTREE . " (version 3)</h4>";
+
+echo "<div class='row'>";
+
+include("arbre-v3.php");
 
 echo "</div>";
 

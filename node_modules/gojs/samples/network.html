@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+<meta name="description" content="A simple network configuration editor."/> 
+<link rel="stylesheet" href="../assets/css/style.css"/> 
+<!-- Copyright 1998-2021 by Northwoods Software Corporation. -->
+<title>Network Configuration</title>
+</head>
+
+<body>
+  <!-- This top nav is not part of the sample code -->
+  <nav id="navTop" class="w-full z-30 top-0 text-white bg-nwoods-primary">
+    <div class="w-full container max-w-screen-lg mx-auto flex flex-wrap sm:flex-nowrap items-center justify-between mt-0 py-2">
+      <div class="md:pl-4">
+        <a class="text-white hover:text-white no-underline hover:no-underline
+        font-bold text-2xl lg:text-4xl rounded-lg hover:bg-nwoods-secondary " href="../">
+          <h1 class="mb-0 p-1 ">GoJS</h1>
+        </a>
+      </div>
+      <button id="topnavButton" class="rounded-lg sm:hidden focus:outline-none focus:ring" aria-label="Navigation">
+        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+          <path id="topnavOpen" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+          <path id="topnavClosed" class="hidden" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+      <div id="topnavList" class="hidden sm:block items-center w-auto mt-0 text-white p-0 z-20">
+        <ul class="list-reset list-none font-semibold flex justify-end flex-wrap sm:flex-nowrap items-center px-0 pb-0">
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="../learn/">Learn</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="../samples/">Samples</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="../intro/">Intro</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="../api/">API</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="https://www.nwoods.com/products/register.html">Register</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="../download.html">Download</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="https://forum.nwoods.com/c/gojs/11">Forum</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="https://www.nwoods.com/contact.html"
+           target="_blank" rel="noopener" onclick="getOutboundLink('https://www.nwoods.com/contact.html', 'contact');">Contact</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="https://www.nwoods.com/sales/index.html"
+           target="_blank" rel="noopener" onclick="getOutboundLink('https://www.nwoods.com/sales/index.html', 'buy');">Buy</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="border-b border-gray-600 opacity-50 my-0 py-0" />
+  </nav>
+  <div class="md:flex flex-col md:flex-row md:min-h-screen w-full max-w-screen-xl mx-auto">
+    <div id="navSide" class="flex flex-col w-full md:w-48 text-gray-700 bg-white flex-shrink-0"></div>
+    <!-- * * * * * * * * * * * * * -->
+    <!-- Start of GoJS sample code -->
+    
+    <script src="../release/go.js"></script>
+    <div class="p-4 w-full">
+  <script src="../extensions/Figures.js"></script>
+    <script id="code">
+    function init() {
+      var $ = go.GraphObject.make;
+
+      myDiagram =
+        $(go.Diagram, "myDiagramDiv",
+          {
+            "linkingTool.direction": go.LinkingTool.ForwardsOnly,
+            "undoManager.isEnabled": true
+          });
+
+      // when the document is modified, add a "*" to the title and enable the "Save" button
+      myDiagram.addDiagramListener("Modified", function(e) {
+        var button = document.getElementById("saveModel");
+        if (button) button.disabled = !myDiagram.isModified;
+        var idx = document.title.indexOf("*");
+        if (myDiagram.isModified) {
+          if (idx < 0) document.title += "*";
+        } else {
+          if (idx >= 0) document.title = document.title.substr(0, idx);
+        }
+      });
+
+      myDiagram.nodeTemplateMap.add("Generator",
+        $(go.Node, "Spot",
+          { locationSpot: go.Spot.Center, selectionObjectName: "BODY" },
+          new go.Binding("location", "location", go.Point.parse).makeTwoWay(go.Point.stringify),
+          $(go.Shape, "ACVoltageSource",
+            {
+              name: "BODY", stroke: "white", strokeWidth: 3, fill: "transparent", background: "darkblue",
+              width: 40, height: 40, margin: 5,
+              portId: "", fromLinkable: true, cursor: "pointer", fromSpot: go.Spot.TopBottomSides, toSpot: go.Spot.TopBottomSides
+            }),
+          $(go.TextBlock,
+            { alignment: go.Spot.Right, alignmentFocus: go.Spot.Left, editable: true },
+            new go.Binding("text").makeTwoWay())
+        ));
+
+      myDiagram.nodeTemplateMap.add("Connector",
+        $(go.Node, "Spot",
+          { locationSpot: go.Spot.Center, selectionObjectName: "BODY" },
+          new go.Binding("location", "location", go.Point.parse).makeTwoWay(go.Point.stringify),
+          $(go.Shape, "Circle",
+            {
+              name: "BODY", stroke: null, fill: $(go.Brush, "Linear", { 0: "lightgray", 1: "gray" }), background: "gray",
+              width: 20, height: 20, margin: 2,
+              portId: "", fromLinkable: true, cursor: "pointer", fromSpot: go.Spot.TopBottomSides, toSpot: go.Spot.TopBottomSides
+            }),
+          $(go.TextBlock,
+            { alignment: go.Spot.Right, alignmentFocus: go.Spot.Left, editable: true },
+            new go.Binding("text").makeTwoWay())
+        ));
+
+      myDiagram.nodeTemplateMap.add("Consumer",
+        $(go.Node, "Spot",
+          {
+            locationSpot: go.Spot.Center, locationObjectName: "BODY",
+            selectionObjectName: "BODY"
+          },
+          new go.Binding("location", "location", go.Point.parse).makeTwoWay(go.Point.stringify),
+          $(go.Picture, "images/pc.jpg",
+            {
+              name: "BODY", width: 50, height: 40, margin: 2,
+              portId: "", fromLinkable: true, cursor: "pointer", fromSpot: go.Spot.TopBottomSides, toSpot: go.Spot.TopBottomSides
+            }),
+          $(go.TextBlock,
+            { alignment: go.Spot.Right, alignmentFocus: go.Spot.Left, editable: true },
+            new go.Binding("text").makeTwoWay())
+        ));
+
+      myDiagram.nodeTemplateMap.add("HBar",
+        $(go.Node, "Spot",
+          new go.Binding("location", "location", go.Point.parse).makeTwoWay(go.Point.stringify),
+          {
+            layerName: "Background",
+            // special resizing: just at the ends
+            resizable: true, resizeObjectName: "SHAPE",
+            resizeAdornmentTemplate:
+              $(go.Adornment, "Spot",
+                $(go.Placeholder),
+                $(go.Shape,  // left resize handle
+                  {
+                    alignment: go.Spot.Left, cursor: "col-resize",
+                    desiredSize: new go.Size(6, 6), fill: "lightblue", stroke: "dodgerblue"
+                  }),
+                $(go.Shape,  // right resize handle
+                  {
+                    alignment: go.Spot.Right, cursor: "col-resize",
+                    desiredSize: new go.Size(6, 6), fill: "lightblue", stroke: "dodgerblue"
+                  }))
+          },
+          $(go.Shape, "Rectangle",
+            {
+              name: "SHAPE",
+              fill: "black", stroke: null, strokeWidth: 0,
+              width: 1000, height: 4,
+              minSize: new go.Size(100, 4),
+              maxSize: new go.Size(Infinity, 4)
+            },
+            new go.Binding("desiredSize", "size", go.Size.parse).makeTwoWay(go.Size.stringify),
+            new go.Binding("fill"),
+            { portId: "", toLinkable: true }),
+          $(go.TextBlock,
+            { alignment: go.Spot.Right, alignmentFocus: go.Spot.Left, editable: true },
+            new go.Binding("text").makeTwoWay())
+        ));
+
+      myDiagram.linkTemplate =
+        $(BarLink,  // subclass defined below
+          {
+            routing: go.Link.Orthogonal,
+            relinkableFrom: true, relinkableTo: true,
+            toPortChanged: function(link, oldport, newport) {
+              if (newport instanceof go.Shape) link.path.stroke = newport.fill;
+            }
+          },
+          $(go.Shape,
+            { strokeWidth: 2 })
+        );
+
+      // start off with a simple diagram
+      load();
+
+      // initialize Palette
+      myPalette =
+        $(go.Palette, "myPaletteDiv",
+          {
+            nodeTemplateMap: myDiagram.nodeTemplateMap,
+            layout:
+              $(go.GridLayout,
+                {
+                  cellSize: new go.Size(2, 2),
+                  isViewportSized: true
+                })
+          }
+        );
+
+      myPalette.model.nodeDataArray = [
+        { "text": "Generator", "category": "Generator" },
+        { "text": "Consumer", "category": "Consumer" },
+        { "text": "Connector", "category": "Connector" },
+        { "text": "Bar", "category": "HBar", "size": "100 4" },
+      ];
+
+      // remove cursors on all ports in the Palette
+      // make TextBlocks invisible, to reduce size of Nodes
+      myPalette.nodes.each(function(node) {
+        node.ports.each(function(port) {
+          port.cursor = "";
+        });
+        node.elements.each(function(tb) {
+          if (tb instanceof go.TextBlock) tb.visible = false;
+        });
+      });
+
+      // initialize Overview
+      myOverview =
+        $(go.Overview, "myOverviewDiv",
+          {
+            observed: myDiagram,
+            contentAlignment: go.Spot.Center
+          });
+    }
+
+
+    // A custom Link class that routes directly to the closest horizontal point of an "HBar" node.
+    // If the regular node is too far to the left or right of the "HBar" node, the link connects
+    // with the closest end of the "HBar" node.
+    function BarLink() {
+      go.Link.call(this);
+    }
+    go.Diagram.inherit(BarLink, go.Link);
+
+    BarLink.prototype.computeSpot = function(from, port) {
+      if (from && this.toNode && this.toNode.category === "HBar") return go.Spot.TopBottomSides;
+      if (!from && this.fromNode && this.fromNode.category === "HBar") return go.Spot.TopBottomSides;
+      return go.Link.prototype.computeSpot.call(this, from, port);
+    }
+
+    BarLink.prototype.getLinkPoint = function(node, port, spot, from, ortho, othernode, otherport) {
+      if (!from && node.category === "HBar") {
+        var op = go.Link.prototype.getLinkPoint.call(this, othernode, otherport, this.computeSpot(!from), !from, ortho, node, port);
+        var r = port.getDocumentBounds();
+        var y = (op.y > r.centerY) ? r.bottom : r.top;
+        if (op.x < r.left) return new go.Point(r.left, y);
+        if (op.x > r.right) return new go.Point(r.right, y);
+        return new go.Point(op.x, y);
+      } else {
+        return go.Link.prototype.getLinkPoint.call(this, node, port, spot, from, ortho, othernode, otherport);
+      }
+    };
+
+    BarLink.prototype.getLinkDirection = function(node, port, linkpoint, spot, from, ortho, othernode, otherport) {
+      if (node.category === "HBar" || othernode.category === "HBar") {
+        var p = port.getDocumentPoint(go.Spot.Center);
+        var op = otherport.getDocumentPoint(go.Spot.Center);
+        var below = op.y > p.y;
+        return below ? 90 : 270;
+      } else {
+        return go.Link.prototype.getLinkDirection.call(this, node, port, linkpoint, spot, from, ortho, othernode, otherport);
+      }
+    };
+    // end BarLink class
+
+
+    // save a model to and load a model from JSON text, displayed below the Diagram
+    function save() {
+      document.getElementById("mySavedModel").value = myDiagram.model.toJson();
+      myDiagram.isModified = false;
+    }
+    function load() {
+      myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
+    }
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+
+<div id="sample">
+  <div style="width: 100%; display: flex; justify-content: space-between">
+    <div style="display: flex; flex-direction: column; margin-right: 2px">
+      <div id="myPaletteDiv" style="flex-grow: 1; width: 100px; background-color: whitesmoke; border: solid 1px black"></div>
+      <div id="myOverviewDiv" style="margin-top: 2px; width: 100px; height: 100px; background-color: lightgray; border: solid 1px black"></div>
+    </div>
+    <div id="myDiagramDiv" style="flex-grow: 1; height: 400px; border: solid 1px black"></div>
+  </div>
+  <div id="buttons">
+    <button id="loadModel" onclick="load()">Load</button>
+    <button id="saveModel" onclick="save()">Save</button>
+  </div>
+  <textarea id="mySavedModel" style="width:100%;height:300px">
+{ "class": "go.GraphLinksModel",
+  "nodeDataArray": [
+{"key":0, "text":"Gen1", "category":"Generator", "location":"300 0"},
+{"key":1, "text":"Bar1", "category":"HBar", "location":"100 100", "size":"500 4", "fill":"green"},
+{"key":3, "text":"Cons1", "category":"Consumer", "location":"53 234"},
+{"key":2, "text":"Bar2", "category":"HBar", "location":"0 300", "size":"600 4", "fill":"orange"},
+{"key":4, "text":"Conn1", "category":"Connector", "location":"232.5 207.75"},
+{"key":5, "text":"Cons3", "category":"Consumer", "location":"357.5 230.75"},
+{"key":6, "text":"Cons2", "category":"Consumer", "location":"484.5 164.75"}
+ ],
+  "linkDataArray": [
+{"from":0, "to":1},
+{"from":0, "to":2},
+{"from":3, "to":2},
+{"from":4, "to":1},
+{"from":4, "to":2},
+{"from":5, "to":2},
+{"from":6, "to":1}
+ ]}
+  </textarea>
+</div>
+    </div>
+    <!-- * * * * * * * * * * * * * -->
+    <!--  End of GoJS sample code  -->
+  </div>
+</body>
+<!--  This script is part of the gojs.net website, and is not needed to run the sample -->
+<script src="../assets/js/goSamples.js"></script>
+</html>

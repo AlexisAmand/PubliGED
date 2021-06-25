@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+<meta name="description" content="An example of virtualization where node bounds information is present in the node data, so no layout is required."/> 
+<link rel="stylesheet" href="../assets/css/style.css"/> 
+<!-- Copyright 1998-2021 by Northwoods Software Corporation. -->
+<title>Virtualized Sample with no Layout</title>
+</head>
+
+<body>
+  <!-- This top nav is not part of the sample code -->
+  <nav id="navTop" class="w-full z-30 top-0 text-white bg-nwoods-primary">
+    <div class="w-full container max-w-screen-lg mx-auto flex flex-wrap sm:flex-nowrap items-center justify-between mt-0 py-2">
+      <div class="md:pl-4">
+        <a class="text-white hover:text-white no-underline hover:no-underline
+        font-bold text-2xl lg:text-4xl rounded-lg hover:bg-nwoods-secondary " href="../">
+          <h1 class="mb-0 p-1 ">GoJS</h1>
+        </a>
+      </div>
+      <button id="topnavButton" class="rounded-lg sm:hidden focus:outline-none focus:ring" aria-label="Navigation">
+        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+          <path id="topnavOpen" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+          <path id="topnavClosed" class="hidden" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+      <div id="topnavList" class="hidden sm:block items-center w-auto mt-0 text-white p-0 z-20">
+        <ul class="list-reset list-none font-semibold flex justify-end flex-wrap sm:flex-nowrap items-center px-0 pb-0">
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="../learn/">Learn</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="../samples/">Samples</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="../intro/">Intro</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="../api/">API</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="https://www.nwoods.com/products/register.html">Register</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="../download.html">Download</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="https://forum.nwoods.com/c/gojs/11">Forum</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="https://www.nwoods.com/contact.html"
+           target="_blank" rel="noopener" onclick="getOutboundLink('https://www.nwoods.com/contact.html', 'contact');">Contact</a></li>
+          <li class="p-1 sm:p-0"><a class="topnav-link" href="https://www.nwoods.com/sales/index.html"
+           target="_blank" rel="noopener" onclick="getOutboundLink('https://www.nwoods.com/sales/index.html', 'buy');">Buy</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="border-b border-gray-600 opacity-50 my-0 py-0" />
+  </nav>
+  <div class="md:flex flex-col md:flex-row md:min-h-screen w-full max-w-screen-xl mx-auto">
+    <div id="navSide" class="flex flex-col w-full md:w-48 text-gray-700 bg-white flex-shrink-0"></div>
+    <!-- * * * * * * * * * * * * * -->
+    <!-- Start of GoJS sample code -->
+    
+
+    <div class="p-4 w-full">
+<style>
+  #mySpinner { display: none; position: absolute; z-index: 100; animation: spin 1s linear infinite; }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+</style>
+
+<div id="sample">
+  <div id="myDiagramDiv" style="background-color: white; border: solid 1px black; width: 100%; height: 600px"></div>
+  <img id="mySpinner" src="images/spinner.png">
+  <div id="description">
+  <p>
+    This uses a <a>GraphLinksModel</a> but not any <a>Layout</a>.
+    It demonstrates the virtualization of Links as well as simple Nodes.
+  </p>
+  Node data in Model: <span id="myMessage1"></span>.
+  Actual Nodes in Diagram: <span id="myMessage2"></span>.<br />
+  Link data in model: <span id="myMessage3"></span>.
+  Actual Links in Diagram: <span id="myMessage4"></span>.
+  </div>
+
+  <script id="code" type="module">
+    import * as go from "../release/go-module.js";
+    import { Quadtree } from '../extensionsJSM/Quadtree.js';
+
+    const $ = go.GraphObject.make;  // for conciseness in defining templates
+
+    // The Diagram just shows what should be visible in the viewport.
+    // Its model does NOT include node data for the whole graph, but only that
+    // which might be visible in the viewport.
+    const myDiagram =
+      $(go.Diagram, "myDiagramDiv",
+        {
+          initialDocumentSpot: go.Spot.Center,
+          initialViewportSpot: go.Spot.Center,
+
+          // Assume there's no Layout -- all data.bounds are provided
+          layout: $(go.Layout, { isInitial: false, isOngoing: false }),  // never invalidates
+
+          // Define the template for Nodes, used by virtualization.
+          nodeTemplate:
+            $(go.Node, "Auto",
+              { isLayoutPositioned: false },  // optimization
+              new go.Binding("position", "bounds", b => b.position)
+                .makeTwoWay((p, d) => new go.Rect(p.x, p.y, d.bounds.width, d.bounds.height)),
+              { width: 70, height: 70 },  // in cooperation with the load function, below
+              $(go.Shape, "Rectangle",
+                new go.Binding("fill", "color")),
+              $(go.TextBlock,
+                { margin: 2 },
+                new go.Binding("text", "color")),
+              {
+                toolTip:
+                  $("ToolTip",
+                    $(go.TextBlock, { margin: 3 },
+                      new go.Binding("text", "",
+                        d => `key: ${d.key}\nbounds: ${d.bounds}\ntext: ${d.text}\nprop1: ${d.prop1}\nprop2: ${d.prop2}`))
+                  )
+              }
+            ),
+
+          // Define the template for Links
+          linkTemplate:
+            $(go.Link,
+              { isLayoutPositioned: false },  // optimization
+              $(go.Shape, { strokeWidth: 2 },
+                new go.Binding("stroke", "state", s => LinkColors[s])),
+              $(go.Shape, { toArrow: "OpenTriangle", strokeWidth: 2 },
+                new go.Binding("stroke", "state", s => LinkColors[s]))
+            ),
+
+          "animationManager.isEnabled": false
+        });
+
+    const LinkColors = ["black", "green", "blue", "red"];
+
+    // This model includes all of the data
+    const myWholeModel =
+      $(go.GraphLinksModel);  // must match the model used by the Diagram, below
+    const myWholeQuadtree = new Quadtree();
+
+    // Do not set myDiagram.model = myWholeModel -- that would create a zillion Nodes and Links!
+    // In the future Diagram may have built-in support for virtualization.
+    // For now, we have to implement virtualization ourselves by having the Diagram's model
+    // be different than the "real" model.
+    myDiagram.model =   // this only holds nodes that should be in the viewport
+      $(go.GraphLinksModel);  // must match the model, above
+
+    // for now, we have to implement virtualization ourselves
+    myDiagram.isVirtualized = true;
+    myDiagram.addDiagramListener("ViewportBoundsChanged", onViewportChanged);
+
+    myDiagram.addModelChangedListener(onModelChanged);
+    myDiagram.model.makeUniqueKeyFunction = virtualUniqueKey;  // ensure uniqueness in myWholeModel
+    myDiagram.commandHandler.selectAll = () => {};  // make Select All command a no-op
+
+    myDiagram.delayInitialization(() => { spinDuring("mySpinner", load); });
+
+    // implement a wait spinner in HTML with CSS animation
+    function spinDuring(spinner, compute) {  // where compute is a function of zero args
+      // show the animated spinner
+      if (typeof spinner === "string") spinner = document.getElementById(spinner);
+      if (spinner) {
+        // position it in the middle of the viewport DIV
+        const x = Math.floor(myDiagram.div.offsetWidth/2 - spinner.naturalWidth/2);
+        const y = Math.floor(myDiagram.div.offsetHeight/2 - spinner.naturalHeight/2);
+        spinner.style.left = x + "px";
+        spinner.style.top = y + "px";
+        spinner.style.display = "inline";
+      }
+      setTimeout(() => {
+        try {
+          compute();  // do the computation
+        } finally {
+          if (spinner) spinner.style.display = "none";
+        }
+      }, 20);
+    }
+
+    function load() {
+      // create a lot of node data for the myWholeModel, and almost that many link data
+      const total = 123456;
+      const sqrt = Math.floor(Math.sqrt(total));
+      const data = [];
+      const ldata = [];
+      myWholeQuadtree.clear();
+      const temp = new go.Rect();
+      for (let i = 0; i < total; i++) {
+        const nd = {
+          key: i,  // this node data's key
+          color: go.Brush.randomColor(),  // the node's color
+          //!!!???@@@ this needs to be customized to account for your chosen Node template
+          bounds: new go.Rect((i % sqrt) * 140, Math.floor(i / sqrt) * 140, 70, 70),
+          text: "Node " + i.toString(),
+          prop1: Math.random() * 100,
+          prop2: Math.random() * 100
+        }
+        data.push(nd);
+        myWholeQuadtree.add(nd, nd.bounds);
+
+        if (i > 0 && i%sqrt > 0) {  // link sequential nodes
+          const ld = {
+            from: i - 1,
+            to: i,
+            state: Math.floor(Math.random() * 4)
+          };
+          ldata.push(ld);
+        }
+        if (i > sqrt) {  // link nodes vertically
+          const ld = {
+            from: i-sqrt,
+            to: i,
+            state: Math.floor(Math.random() * 4)
+          };
+          ldata.push(ld);
+        }
+      }
+      myWholeModel.nodeDataArray = data;
+      myWholeModel.linkDataArray = ldata;
+
+      // there is no virtualized layout to perform, but we still
+      // can't depend on regular bounds computation that depends on all Nodes existing
+      myDiagram.fixedBounds = computeDocumentBounds();
+    }
+
+    // The following functions implement virtualization of the Diagram
+    // Assume data.bounds is a Rect of the area occupied by the Node in document coordinates.
+
+    // It's not good enough to ensure keys are unique in the limited model that is myDiagram.model --
+    // need to ensure uniqueness in myWholeModel.
+    function virtualUniqueKey(model, data) {
+      myWholeModel.makeNodeDataKeyUnique(data);
+      return myWholeModel.getKeyForNodeData(data);
+    }
+
+    // The normal mechanism for determining the size of the document depends on all of the
+    // Nodes and Links existing, so we need to use a function that depends only on the model data.
+    function computeDocumentBounds() {
+      const b = new go.Rect();
+      const ndata = myWholeModel.nodeDataArray;
+      for (let i = 0; i < ndata.length; i++) {
+        const d = ndata[i];
+        if (!d.bounds) continue;
+        if (b.isEmpty()) b.set(d.bounds); else b.unionRect(d.bounds);
+      }
+      return b;
+    }
+
+    // As the user scrolls or zooms, make sure the Parts (Nodes and Links) exist in the viewport.
+    function onViewportChanged(e) {
+      const diagram = e.diagram;
+      // make sure there are Nodes for each node data that is in the viewport
+      // and each Link that is connected to such a Node
+      const viewb = diagram.viewportBounds;  // the new viewportBounds
+      const model = diagram.model;
+
+      const oldskips = diagram.skipsUndoManager;
+      diagram.skipsUndoManager = true;
+
+      //?? this does NOT remove Nodes or Links that are outside of the viewport
+
+      const b = new go.Rect();
+      const ndata = myWholeQuadtree.intersecting(viewb); // myWholeModel.nodeDataArray;
+      for (let i = 0; i < ndata.length; i++) {
+        const n = ndata[i];
+        if (model.containsNodeData(n)) continue;
+        if (!n.bounds) continue;
+        if (n.bounds.intersectsRect(viewb)) {
+          addNode(diagram, myWholeModel, n);
+        }
+      }
+
+      //?? not considering TreeModel
+      if (model instanceof go.GraphLinksModel) {
+        // this could be much more efficient if we kept track of links in a Quadtree;
+        // but then we would need to be able to update the Quadtree efficiently as nodes moved
+        const ldata = myWholeModel.linkDataArray;
+        for (let i = 0; i < ldata.length; i++) {
+          const l = ldata[i];
+          if (model.containsLinkData(l)) continue;
+
+          const fromkey = myWholeModel.getFromKeyForLinkData(l);
+          if (fromkey === undefined) continue;
+          const from = myWholeModel.findNodeDataForKey(fromkey);
+          if (from === null || !from.bounds) continue;
+
+          const tokey = myWholeModel.getToKeyForLinkData(l);
+          if (tokey === undefined) continue;
+          const to = myWholeModel.findNodeDataForKey(tokey);
+          if (to === null || !to.bounds) continue;
+
+          b.set(from.bounds);
+          b.unionRect(to.bounds);
+          if (b.intersectsRect(viewb)) {
+            // also make sure both connected nodes are present,
+            // so that link routing is authentic
+            addNode(diagram, myWholeModel, from);
+            addNode(diagram, myWholeModel, to);
+            model.addLinkData(l);
+            const link = diagram.findLinkForData(l);
+            if (link !== null) {
+              // do this now to avoid delayed routing outside of transaction
+              link.updateRoute();
+            }
+          }
+        }
+      }
+
+      diagram.skipsUndoManager = oldskips;
+
+      updateCounts();  // only for this sample
+    }
+
+    function addNode(diagram, wholeModel, data) {
+      const model = diagram.model;
+      if (model.containsNodeData(data)) return;
+      model.addNodeData(data);
+      const n = diagram.findNodeForData(data);
+      if (n !== null) n.ensureBounds();
+    }
+
+    function onModelChanged(e) {  // handle moves and insertions and removals
+      if (e.model.skipsUndoManager) return;
+      if (e.change === go.ChangedEvent.Property) {
+        if (e.propertyName === "bounds") {
+          myWholeQuadtree.move(e.object, e.newValue.bounds.x, e.newValue.bounds.y);
+        }
+      } else if (e.change === go.ChangedEvent.Insert) {
+        if (e.propertyName === "nodeDataArray") {
+          myWholeModel.addNodeData(e.newValue);
+          myWholeQuadtree.add(e.newValue, e.newValue.bounds);
+        } else if (e.propertyName === "linkDataArray") {
+          myWholeModel.addLinkData(e.newValue);
+        }
+      } else if (e.change === go.ChangedEvent.Remove) {
+        if (e.propertyName === "nodeDataArray") {
+          myWholeModel.removeNodeData(e.oldValue);
+          myWholeQuadtree.remove(e.oldValue);
+        } else if (e.propertyName === "linkDataArray") {
+          myWholeModel.removeLinkData(e.oldValue);
+        }
+      }
+    }
+    // end of virtualized Diagram
+
+    // This function is only used in this sample to demonstrate the effects of the virtualization.
+    // In a real application you would delete this function and all calls to it.
+    function updateCounts() {
+      document.getElementById("myMessage1").textContent = myWholeModel.nodeDataArray.length;
+      document.getElementById("myMessage2").textContent = myDiagram.nodes.count;
+      document.getElementById("myMessage3").textContent = myWholeModel.linkDataArray.length;
+      document.getElementById("myMessage4").textContent = myDiagram.links.count;
+    }
+  </script>
+</div>
+    </div>
+    <!-- * * * * * * * * * * * * * -->
+    <!--  End of GoJS sample code  -->
+  </div>
+</body>
+<!--  This script is part of the gojs.net website, and is not needed to run the sample -->
+<script src="../assets/js/goSamples.js"></script>
+</html>

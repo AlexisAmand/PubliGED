@@ -28,6 +28,7 @@
     "datatables.net-bs4": "^1.10.24",
     "dropzone": "^5.9.2",
     "fontawesome": "^5.6.3",
+    "gojs": "^2.1.43",
     "jquery": "^3.6.0",
     "jquery.easing": "^1.4.1",
     "leaflet": "^1.7.1",
