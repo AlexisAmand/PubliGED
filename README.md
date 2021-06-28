@@ -6,13 +6,17 @@ Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet p
 
 #### Plus d'infos : 
 
-* https://ww.tipeee.com/genealexis
 * http://publiged.genealexis.fr
+* https://www.facebook.com/Publiged/
+
+#### Soutenir le projet :
+
+* https://ww.tipeee.com/genealexis
 
 #### Fonctionnalités :
 
 - Une partie concerne la transformation du gedcom en pages web qui permettent de consulter facilement la base d’ancêtres.
-- La seconde partie est un mini-blog qui permet de publier des articles pour parler de ses recherches ou pour raconter la vie de ses ancêtres.
+- La seconde partie est un blog qui permet de publier des articles pour parler de ses recherches ou pour raconter la vie de ses ancêtres.
 
 #### Environement de développement
 
@@ -20,7 +24,7 @@ Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet p
 * Apache 2.4.48
 * phpMyAdmin 5.1.1
 * Windows 10
-* Eclipse IDE for PHP Developers 2020-06 (4.16.0)
+* Eclipse IDE for PHP Developers 2021-03 (4.19.0)
 * Visual Studio Code 1.57.1
 
 #### Langages utilisés
@@ -60,3 +64,4 @@ Obtenues via https://www.npmjs.com et npm 7.18.1
 * leaflet 1.7.1
 * leaflet-basemaps 0.3.4
 * tinyMCE 5.8.1
+* gojs 2.1.43 (pour quelques tests)
