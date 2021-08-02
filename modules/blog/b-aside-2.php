@@ -14,7 +14,7 @@ $reqCategorie->execute();
 
 	<?php
 	
-	echo "<ul class='list-group'>";
+	echo "<ul class='list-group list-group-flush'>";
 	
 	while ( $row = $reqCategorie->fetch(PDO::FETCH_ASSOC)) 
 		{
@@ -27,9 +27,9 @@ $reqCategorie->execute();
 			{
 			if($rowC['nbcat'] != '0')
 				{
-				echo "<li class='list-group-item d-flex justify-content-between align-items-center'>";	
+				echo "<li class='list-group-item d-flex justify-content-between'>";	
 				echo "<a href='index.php?page=categories&id=".$row['id_cat']."'>".get_category_name($pdo2,$row['id_cat'])."</a>";
-				echo "<span class='badge badge-primary badge-pill'>".$rowC['nbcat']."</span>";
+				echo "<span class='badge bg-primary rounded-pill'>".$rowC['nbcat']."</span>";
 				echo "</li>";
 				}
 			}

@@ -4,6 +4,8 @@
 /* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
 /* Adapté par Alexis AMAND pour le projet PubliGED */
 
+/* Cette version fonctionne à 90%, mais elle est beaucoup trop longue */
+
 require ('../content/fonctions.php');
 include ('../config.php');
 include ('../langues/admin/fr.php');
@@ -208,7 +210,7 @@ include ('../class/class.php');
 					 
 					if (preg_match ( "/0 @S0@/", $ligne ))
 						{
-						/* On arrive dans la partie qui contient les infos sur l'autre du gedcom */
+						/* On arrive dans la partie qui contient les infos sur l'auteur du gedcom */
 						/* On crée donc un objet gedcom */
 						$uploader = new uploaders ();
 						}
@@ -952,7 +954,7 @@ include ('../class/class.php');
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span><?php include('include/footer.inc'); ?></span>
+            <span><?php include('include/footer.inc.php'); ?></span>
           </div>
         </div>
       </footer>

@@ -6,7 +6,7 @@
 
 ?>
 
-<h3><?php echo $GLOBALS['InfoPage']->titre; ?></h3>
+<h3><?php echo $GLOBALS['Page']->titre; ?></h3>
 
 <?php
 

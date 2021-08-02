@@ -10,7 +10,7 @@
 	$reqDerniersArticles = $pdo2->prepare($sqlDerniersArticles);
 	$reqDerniersArticles->execute();
 	
-	echo "<ul class='list-group'>";
+	echo "<ul class='list-group list-group-flush'>";
 	
 	while ($row = $reqDerniersArticles->fetch(PDO::FETCH_ASSOC)) 
 		{

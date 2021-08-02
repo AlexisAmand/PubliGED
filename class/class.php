@@ -251,14 +251,14 @@ class Pages
 		$sqlHeader->execute();
 		$data = $sqlHeader->fetch();
 
-		/* affichage du template perso */
+		/* affichage du template perso via npm */
 
-		echo '<link href="templates/'.$data['valeur'].'/bootstrap.min.css" rel="stylesheet">';
+		echo '<link href="node_modules/bootswatch/dist/'.$data['valeur'].'/bootstrap.min.css" rel="stylesheet">';
 
 		/* récupération des feuilles de styles obligatoires */
 
 		echo '<link href="templates/system/css/commons.css" rel="stylesheet">';
-		echo '<link href="js/datatables/datatables/css/dataTables.bootstrap4.min.css" rel="stylesheet">';
+		echo '<link href="node_modules/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet">';
 
 		/* TODO : récupération et affichage de favicon perso */
 
@@ -266,17 +266,30 @@ class Pages
 		$req->execute();
 		$rowFavicon = $req->fetch();
 		$NomDuFavicon = $rowFavicon['valeur'];
-		// echo '/templates/'.$data['valeur'].'/images/'.$NomDuFavicon; 
 		echo '<link rel="icon" href="/templates/'.$data['valeur'].'/images/'.$NomDuFavicon.'">'; 
-		// echo '<link rel="icon" href="img/icon.jpg">';
-		// echo '<link rel="icon" type="image/gif" href="img/icon.jpg" />';
+
+		/* Si la page est la carto, on a besoin de Leaflet */
+
+		if ($_GET['page'] == "cartographie")
+			{
+			/* OpenStreetMap et Leaflet via npm */
+			echo '<link href="node_modules/leaflet/dist/leaflet.css" rel="stylesheet">';
+			echo '<script src="node_modules/leaflet/dist/leaflet.js"></script>';
+			/* Leaflet basemap */
+			echo '<link href="node_modules/leaflet-basemaps/L.Control.Basemaps.css" rel="stylesheet">';
+			echo '<script src="node_modules/leaflet-basemaps/L.Control.Basemaps.js"></script>';
+			}
+
+		/* Ajout de Font Awesome via npm */
+
+		echo '<link href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">';
 		}
 
 	/* Cette méthode affiche le pied de page du site */
 
 	public function AfficherPillmenu() 
 		{
-		include ('include/pillmenu.inc');
+		include ('include/pillmenu.inc.php');
 		}
 
 	public function AfficherHeader($pdo2) 
@@ -349,15 +362,15 @@ class Pages
 					/* $aside est une sorte de booléen. Si = 1, il y a un menu à mettre dans l'aside, si = 0, il n'y a pas de menu à afficher, comme dans contact par exemple */	
 						
 					case 'blog':
-						include ('include/sidebar-blog.inc');
+						include ('include/sidebar-blog.inc.php');
 						$GLOBALS['aside'] = 1;
 						break;
 					case 'genealogie':
-						include ('include/sidebar-genealogie.inc');
+						include ('include/sidebar-genealogie.inc.php');
 						$GLOBALS['aside'] = 1;
 						break;
 					case 'search':
-						include ('include/sidebar-search.inc');
+						include ('include/sidebar-search.inc.php');
 						$GLOBALS['aside'] = 1;
 						break;
 					default:
@@ -402,7 +415,31 @@ class Pages
 
 	public function AfficherFooter() 
 		{
-		include ('include/footer.inc');
+		include ('include/footer.inc.php');
+		}
+		
+	/* Cette méthode appelle toutes les libs dont PubliGED a besoin */		
+		
+	public function AfficherLib()
+		{		
+		// Jquery via npm 
+		echo '<script src="node_modules/jquery/dist/jquery.min.js"></script>';
+						
+		// Bootstrap 5 via npm
+		echo '<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>';
+
+		// librairie datatables pour tableaux bootstrap 5 via npm
+		echo '<script src="node_modules/datatables.net/js/jquery.dataTables.min.js "></script>';
+		echo '<script src="node_modules/datatables.net-bs5/js/dataTables.bootstrap5.min.js "></script>';
+
+		// Ce script contient l'initialisation du plugin datatables de jquery
+		echo '<script src="administration/js/demo/datatables-demo.js"></script>';
+							
+		// TinyMCE via npm
+		echo '<script src="node_modules/tinymce/tinymce.min.js"></script>';
+							
+		// Divers Javascript
+		echo '<script src="js/scripts.js"></script>';
 		}
 
 	/* Todo : Je ne suis pas sûr que cette méthode serve encore */
@@ -606,11 +643,11 @@ class Famille
 	
 class Individus 
 	{
-	public $ref;
-	public $nom;
-	public $prenom;
-	public $surname;
-	public $sexe;
+	public $ref; /* */
+	public $nom; /* */
+	public $prenom; /* */
+	public $surname; /* */
+	public $sexe; /* */
 	public $note;
 	}
 	

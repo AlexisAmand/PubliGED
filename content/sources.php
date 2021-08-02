@@ -54,7 +54,7 @@
 		
 		/* Affichage de la liste des sources */
 
-		echo "<h3>".$GLOBALS['InfoPage']->titre."</h3>";
+		echo "<h3>".$GLOBALS['Page']->titre."</h3>";
 	    
 	    $stmt = $pdo2->prepare("SELECT * FROM sources");
 	    $stmt->execute();

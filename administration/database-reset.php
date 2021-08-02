@@ -189,7 +189,7 @@ if(isset($_POST['envoyerS']))
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span><?php include('include/footer.inc'); ?></span>
+            <span><?php include('include/footer.inc.php'); ?></span>
           </div>
         </div>
       </footer>

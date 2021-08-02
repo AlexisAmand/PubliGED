@@ -7,6 +7,6 @@
 // TODO : cette page sera surement appelée via un fichier htaccess
 ?>
 
-<h3><?php echo $GLOBALS['InfoPage']->titre; ?></h3>
+<h3><?php echo $GLOBALS['Page']->titre; ?></h3>
 
 <p>Oups...</p>

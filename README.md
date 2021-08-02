@@ -6,7 +6,7 @@ Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet p
 
 #### Plus d'infos : 
 
-* http://publiged.genealexis.fr
+* https://publiged.boitasite.com
 * https://www.facebook.com/Publiged/
 
 #### Soutenir le projet :
@@ -24,8 +24,8 @@ Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet p
 * Apache 2.4.48
 * phpMyAdmin 5.1.1
 * Windows 10
-* Eclipse IDE for PHP Developers 2021-03 (4.19.0)
-* Visual Studio Code 1.57.1
+* Eclipse IDE for PHP Developers 2021-06
+* Visual Studio Code 1.58.2
 
 #### Langages utilisés
 
@@ -37,10 +37,9 @@ Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet p
 
 ### Framework
 
-Obtenus via https://www.npmjs.com et npm 7.18.1
+Obtenus via https://www.npmjs.com et npm 7.20.3
 
-* Bootstrap 4.4.1
-* Passage à Bootstrap 5.0.1 en cours
+* Bootstrap 5.0.1
 
 #### Librairies PHP
 
@@ -52,9 +51,9 @@ Obtenues via https://packagist.org et Composer 2.1.3
 
 #### Librairies Javascript
 
-Obtenues via https://www.npmjs.com et npm 7.18.1
+Obtenues via https://www.npmjs.com et npm 7.20.3
 
-* datatables 1.10.24 pour Bootstrap 4 
+* datatables 1.10.25 pour Bootstrap 5
 * char.js 3.3.2
 * dropzone 5.9.2
 * fontawesome 5.6.3

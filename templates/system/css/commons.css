@@ -41,14 +41,9 @@
 	color: #000000;
 }
 
-/* ------ */
-/* Header */
-/* ------ */
-
-
-/* ------ */
-/* Titres */
-/* ------ */
+/* ---------------- */
+/* Titres des pages */
+/* ---------------- */
 
 h3 {
     margin-bottom: 30px;
@@ -73,4 +68,12 @@ h4, .h4 {
 
 .left {
 	float:left;
+}
+
+/* ----- */
+/* Liens */
+/* ----- */
+
+a {
+    text-decoration: none;
 }

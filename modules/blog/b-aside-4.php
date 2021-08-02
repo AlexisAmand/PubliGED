@@ -5,7 +5,7 @@
 
 	<div class="card-header"><?php echo ASIDE_BLOG_4 ?></div>
 
-	<ul class='list-group'>
+	<ul class='list-group list-group-flush'>
 		<li class='list-group-item'><a href="index.php?page=credits"><?php echo TITRE_RUB_14; ?></a></li>
 	</ul>
 

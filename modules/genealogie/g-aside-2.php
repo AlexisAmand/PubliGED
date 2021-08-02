@@ -2,14 +2,8 @@
 
 <div class="card mb-3">
 
-	<?php 
-	
-	/* TODO : ici, faire une boucle qui répupére toutes les pages de table page ayant g-aside-2 dans le champ module */
-	
-	?>
-
 	<div class="card-header"><?php echo ASIDE_2 ?></div>
-	<ul class="list-group">
+	<ul class="list-group list-group-flush">
 	
 	<?php
 	

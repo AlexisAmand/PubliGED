@@ -4,7 +4,7 @@
 
 	<div class="card-header"><?php echo ASIDE_BLOG_5 ?></div>
 	
-	<div class="text-center">
+	<div>
 	
 	<?php
 	
