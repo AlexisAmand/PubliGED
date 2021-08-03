@@ -1,5 +1,7 @@
 <?php
 
+//require 'content/fonctions.php';
+
 /* ---------------------------------------- */
 /* Cette class permet des stats sur la base */
 /* ---------------------------------------- */
@@ -237,7 +239,7 @@ class Pages
 		$data = $sqlMeta->fetch();
 		
 		/* affichage du title */
-		echo "<title>".$data['titre']." | ".$GLOBALS['NomduSite']."</title>\n";
+		echo "<title>".$data['titre']." | ".recupNomSite($pdo2)."</title>\n";
 		
 		/* affichage de la meta description */
 		echo "<meta name='description' content='".$data['description']."'>\n";
@@ -294,15 +296,6 @@ class Pages
 
 	public function AfficherHeader($pdo2) 
 		{
-
-		/* récup du titre du site pour le header */
-		$sql = "select * from configuration where nom='titre'";
-		$req = $pdo2->prepare($sql);
-		$req->execute();
-
-		$row = $req->fetch();
-		$TitreSite = $row['valeur'];
-
 		/* récup du slogan du site pour le header */
 		$sql = "select * from configuration where nom='description'";
 		$req = $pdo2->prepare($sql);
@@ -313,7 +306,7 @@ class Pages
 			
 		echo'<div class="hgroup text-center" style="padding: 100px 0;">
 			<h1>
-				<a href="index.php?page=blog">'.$TitreSite.'</a>
+				<a href="index.php?page=blog">'.recupNomSite($pdo2).'</a>
 			</h1>
 			<p>'.$DescriptionSite.'</p>
 		</div>';

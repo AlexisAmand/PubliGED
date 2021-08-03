@@ -24,7 +24,7 @@ Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet p
 * Apache 2.4.48
 * phpMyAdmin 5.1.1
 * Windows 10
-* Eclipse IDE for PHP Developers 2021-06
+* Eclipse IDE for PHP Developers 2021-06 (4.20.0)
 * Visual Studio Code 1.58.2
 
 #### Langages utilisés

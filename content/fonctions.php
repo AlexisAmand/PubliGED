@@ -452,6 +452,8 @@ function traduction($mot)
 		} 	
 	return $mottraduit;
 	}
+	
+/* TODO : A quoi sert cette fonction ? */	
 		
 function evenements($d, $l, $t1, $t2) 
 	{ 	
@@ -470,5 +472,17 @@ function evenements($d, $l, $t1, $t2)
 			break; 	
 		} 
 	} 
+	
+/* récup du nom du site */
+	
+function recupNomSite($pdo2)
+	{		
+	$sql = "select * from configuration where nom='titre'";
+	$req = $pdo2->prepare($sql);
+	$req->execute();
+	
+	$row = $req->fetch();
+	return $row['valeur'];
+	}
 
 ?>

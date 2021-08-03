@@ -9,26 +9,26 @@ require('sql.php');
 /* Nom du site */
 /* ----------- */
 
-$GLOBALS['NomduSite'] = "Site de démo de PubliGED (constante)";
+// $GLOBALS['NomduSite'] = "Site de démo de PubliGED (constante)";
 
 /* --------------- */
 /* connexion à SQL */
 /* --------------- */
 
-try {	
-	
+try 
+	{	
 	// $pdo = new PDO ('mysql:host=localhost;dbname=publiged', 'root', '');
 	$pdo = new PDO ('mysql:host='.PUBLIGED_SRV.';dbname='.PUBLIGED_DB, PUBLIGED_LOG, PUBLIGED_PWD);
-
 	// $pdo = new PDO('mysql:charset=utf8mb4');
 	$pdo->exec ( 'SET NAMES utf8' );
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$pdo->exec ( "SET sql_mode = ''" );
 	$pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);	
-} 
-catch ( Exception $e ) {
+	} 
+catch ( Exception $e ) 
+	{
 	die ( 'Erreur: '.$e->getMessage () );
-}
+	}
 
 /* ---------------------- */
 /* activation des erreurs */
