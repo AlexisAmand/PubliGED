@@ -9,7 +9,7 @@ require('sql.php');
 /* Nom du site */
 /* ----------- */
 
-// $GLOBALS['NomduSite'] = "Site de démo de PubliGED (constante)";
+$GLOBALS['UrlduSite'] = "http://publiged-dev.test/";
 
 /* --------------- */
 /* connexion à SQL */

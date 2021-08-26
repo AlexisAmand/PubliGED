@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Test de drag and Drop</title>
+  </head>
+  <body>
+    <h1>Test de drag and Drop</h1>
+
+    <div class="row">
+
+        <div class="card m-3">
+            <div class="card-header">
+            Les modules dispos
+            </div>
+            <div class="card-body">
+              
+                <div class="row">
+
+                    <div class="col">
+                      <div class="card m-3">
+                        <div class="card-header">
+                        Les modules dispos
+                        </div>
+                        <div class="card-body">
+                          <div class="dropzone" id="colo1">
+                            <div id="draggable1" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+                            Module 1
+                            </div>
+                            <div id="draggable2" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+                            Module 2
+                            </div>
+                            <div id="draggable3" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+                            Module 3
+                            </div>
+                            <div id="draggable4" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+                            Module 4
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="col">
+                      <div class="m-3 card">
+                        <div class="card-header">
+                        Le blog
+                        </div>
+                        <div class="card-body">
+                            <div class="dropzone" id="colo2"></div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="col">
+                      <div class="m-3 card">
+                        <div class="card-header">
+                        La généalogie
+                        </div>
+                        <div class="card-body">
+                            <div class="dropzone" id="colo3"></div> 
+                        </div>
+                      </div>
+                    </div>
+  
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+<style>
+  #draggable1, #draggable2, #draggable3, #draggable4 {
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    background: white;
+    margin-top: 7px;
+    margin-bottom:7px;
+    border: 2px solid rgb(87, 85, 85);
+  }
+
+  .dropzone {
+    width: 100%;
+    height: 250px;
+    /* background: blueviolet; */
+  }
+</style>
+
+<script>
+  var dragged;
+
+  /* Les événements sont déclenchés sur les objets glissables */
+  document.addEventListener("drag", function( event ) {
+
+  }, false);
+
+  document.addEventListener("dragstart", function( event ) {
+      // Stocke une référence sur l'objet glissable
+      dragged = event.target;
+      // transparence 50%
+      event.target.style.opacity = .5;
+  }, false);
+
+  document.addEventListener("dragend", function( event ) {
+      // réinitialisation de la transparence
+      event.target.style.opacity = "";
+  }, false);
+
+  /* Les événements sont déclenchés sur les cibles du drop */
+  document.addEventListener("dragover", function( event ) {
+      // Empêche le comportement par défaut afin d'autoriser le drop
+      event.preventDefault();
+  }, false);
+
+  document.addEventListener("dragenter", function( event ) {
+      // Met en surbrillance la cible de drop potentielle lorsque l'élément glissable y entre
+      if ( event.target.className == "dropzone" ) {
+          event.target.style.background = "purple";
+      }
+
+  }, false);
+
+  document.addEventListener("dragleave", function( event ) {
+      // réinitialisation de l'arrière-plan des potentielles cible du drop lorsque les éléments glissables les quittent 
+      if ( event.target.className == "dropzone" ) {
+          event.target.style.background = "";
+      }
+
+  }, false);
+
+  document.addEventListener("drop", function( event ) {
+      // Empêche l'action par défaut (ouvrir comme lien pour certains éléments)
+      event.preventDefault();
+      // Déplace l'élément traîné vers la cible du drop sélectionnée
+      if ( event.target.className == "dropzone" ) {
+          event.target.style.background = "";
+          dragged.parentNode.removeChild( dragged );
+          event.target.appendChild( dragged );
+      }
+
+      /* récup des coordonées du div au moment du dépôt */
+      dropzone = event.target;
+      dragX = event.pageX, dragY = event.pageY;
+      console.log("x=" + dragX + " et y="+ dragY + " element=" + dragged.id + " zone d'arrivée=" + dropzone.id );
+
+  }, false);
+
+
+
+</script>
+
+ <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

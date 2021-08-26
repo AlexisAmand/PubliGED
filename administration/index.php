@@ -1,8 +1,20 @@
 <?php
 
-/* basé sur le template SB Admin 2 for Bootstrap 4 */
-/* Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license. */
-/* Adapté par Alexis AMAND pour le projet PubliGED */
+// si l'utilisateur est connecté, on affiche la page 
+// sinon, on lui affiche l'écran de login
+
+session_start();
+if (!isset($_SESSION['login'])) {
+	header ('Location: login.php');
+	exit();
+}
+
+/* 
+Start Bootstrap - SB Admin v7.0.2 (https://startbootstrap.com/template/sb-admin) 
+Copyright 2013-2021 Start Bootstrap 
+Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
+Adapté par Alexis AMAND pour le projet PubliGED
+*/ 
 
 require ('fonctions.php');
 require ('../class/class.php');
@@ -11,394 +23,282 @@ include ('../langues/admin/fr.php');
 
 $BaseDeDonnees = new BasesDeDonnees;
 
+/* TEST : Récupération du tableau JS qui contient les infos sur les positions des modules */
+
+if (isset($_POST['tablo'])) 
+    {
+	$myTable = $_POST['tablo'];
+	print_r($myTable);
+    }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
+    <head>
+        
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title><?php echo BCK_TITLE; ?></title>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  
-  <title><?php echo BCK_TITLE; ?></title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet"/>
 
-  <?php include("include/header.inc.php"); ?>
+        <!-- TODO : cette ligne sera donc à supprimer quand Bootstrap icons sera prêt -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 
-</head>
+        <!-- si c'est un page qui a besoin de tinymce -->
+        <script src="js/tinymce/tinymce.min.js"></script>
+        <!-- Pour initialiser tinymce et le mettre en français -->
+        <script>
+        tinymce.init({
+            selector: '#editor',
+            language : 'fr_FR'
+            /* le code de l'ancien backoffice est récupérable */
+        });
+        </script>
 
-<body id="page-top">
+		<!-- icons de Bootstrap visants à remplacer Fontawesome -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
+        <!-- Drop -->
+        <link href="css/drop.css" rel="stylesheet">
 
-    <?php include('include/sidebar.php'); ?>
+    </head>
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-      <!-- Main Content -->
-      <div id="content">
-
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
-
-          <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
-          
-          	<!-- Affichage du lien "voir le site" -->
-          	<li class="nav-item">
-			    <a class="nav-link" href="../index.php" target="_blank"><?php echo SEE_SITE; ?></a>
-			</li>
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Alexis A.</span>
-                <img class="img-profile rounded-circle" src="img/avatar.jpg">
-              </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  <?php echo PROFIL; ?>
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  <?php echo SETTINGS; ?>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  <?php echo LOGOUT; ?>
-                </a>
-              </div>
-            </li>
-
-          </ul>
-
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.php"><?php echo BCK_TITLE; ?></a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="bi bi-list"></i></button>
+            <a href="<?php echo $UrlduSite; ?>" class="text-light">Voir le site</a>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Recherche..." aria-label="Recherche..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-secondary" id="btnNavbarSearch" type="button"><i class="bi bi-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill fs-3"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="index.php?page=user-profil"><?php echo SETTINGS; ?></a></li>
+                        <li><a class="dropdown-item" href="index.php?page=user-log">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="logout.php"><?php echo LOGOUT; ?></a></li>
+                    </ul>
+                </li>
+            </ul>
         </nav>
-        <!-- End of Topbar -->
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
 
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+                            <a class="nav-link" href="index.php">
+                                <div class="sb-nav-link-icon"><i class="bi bi-tools"></i></div>
+                                <?php echo DASHBOARD ?>
+                            </a>
+                            
+                            <!-- PARTIE BLOG -->
+                         
+                            <div class="sb-sidenav-menu-heading"><?php echo BCK_RUB_TITLE_1; ?></div>
+                            
+                            <!-- Gestion des articles -->
+                            
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseArticles" aria-expanded="false" aria-controls="collapseArticles">
+                                <div class="sb-nav-link-icon"><i class="bi bi-newspaper"></i></div>
+                                <?php echo ASIDE_ADMIN_1; ?>
+                                <div class="sb-sidenav-collapse-arrow"><i class="bi bi-caret-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseArticles" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="index.php?page=article-add"><?php echo ADM_RUB_ADD_A; ?></a>
+                                    <a class="nav-link" href="index.php?page=articles-list"><?php echo ADM_RUB_MODIF_A; ?></a>
+                                    <a class="nav-link" href="index.php?page=cat-add"><?php echo ADM_RUB_ADD_C; ?></a>
+                                    <a class="nav-link" href="index.php?page=cat-list"><?php echo ADM_RUB_MODIF_C; ?></a>
+                                </nav>
+                            </div>
+                            
+                            <!-- Gestion des commentaires -->
+                            
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseComms" aria-expanded="false" aria-controls="collapseComms">
+                                <div class="sb-nav-link-icon"><i class="bi bi-chat-text"></i></div>
+                                <?php echo ASIDE_ADMIN_2; ?>
+                                <div class="sb-sidenav-collapse-arrow"><i class="bi bi-caret-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseComms" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="index.php?page=comm-list"><?php echo ADM_RUB_COMM; ?></a>
+                                </nav>
+                            </div>
+                            
+                            <!-- Gestion des modules du blog  -->
+                            
+                            <a class="nav-link" href="index.php?page=modules_blog">
+                                <div class="sb-nav-link-icon"><i class="bi bi-back"></i></div>
+                                <?php echo ASIDE_ADMIN_3; ?>
+                            </a>
+                            
+                            <!-- PARTIE GENEALOGIE -->
+                            
+                            <div class="sb-sidenav-menu-heading"><?php echo BCK_RUB_TITLE_2; ?></div>
+                            
+                            <!--  Gestion du gedcom -->
+                            
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseGedcom" aria-expanded="false" aria-controls="collapseGedcom">
+                                <div class="sb-nav-link-icon"><i class="bi bi-diagram-3"></i></div>
+                                <?php echo ASIDE_ADMIN_5; ?>
+                                <div class="sb-sidenav-collapse-arrow"><i class="bi bi-caret-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseGedcom" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="index.php?page=gedcom-select"><?php echo ADM_RUB_SEND_G; ?></a>
+                                    <a class="nav-link" href="index.php?page=gedcom-del"><?php echo ADM_RUB_DEL_G; ?></a>
+                                </nav>
+                            </div>
+                            
+                            <!-- Gestion des modules de généalogie -->
+                            
+                            <a class="nav-link" href="index.php?page=modules_genealogie">
+                                <div class="sb-nav-link-icon"><i class="bi bi-back"></i></div>
+                                <?php echo ASIDE_ADMIN_6; ?>
+                            </a>
+                            
+                            <!-- PARTIE PARAMETRES ET GESTION DU SITE -->
+                            
+                            <div class="sb-sidenav-menu-heading"><?php echo BCK_RUB_TITLE_3; ?></div>
+                                             
+                            <!-- Base de données -->
+                                                       
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseDatabase" aria-expanded="false" aria-controls="collapseDatabase">
+                                <div class="sb-nav-link-icon"><i class="bi bi-server"></i></div>
+                                <?php echo ASIDE_ADMIN_7; ?>
+                                <div class="sb-sidenav-collapse-arrow"><i class="bi bi-caret-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseDatabase" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="index.php?page=database-del"><?php echo ADM_DB_SUPPR; ?></a>
+                                    <a class="nav-link" href="index.php?page=database-reset"><?php echo ADM_DB_CREATE; ?></a>
+                                    <a class="nav-link" href="index.php?page=database-size"><?php echo ADM_DB_SIZE; ?></a>
+                                </nav>
+                            </div>
+                            
+                            <!-- Options -->
+                            
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOptions" aria-expanded="false" aria-controls="collapseOptions">
+                                <div class="sb-nav-link-icon"><i class="bi bi-gear"></i></div>
+                                <?php echo ASIDE_ADMIN_8; ?>
+                                <div class="sb-sidenav-collapse-arrow"><i class="bi bi-caret-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseOptions" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="index.php?page=opt-settings"><?php echo ADM_RUB_PARAM; ?></a>
+                                    <a class="nav-link" href="index.php?page=opt-templates"><?php echo ADM_RUB_PERSO; ?></a>
+                                </nav>
+                            </div>
+                            
+                            <!-- Gestion des utilisateurs -->
+                            
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUsers" aria-expanded="false" aria-controls="collapseUsers">
+                                <div class="sb-nav-link-icon"><i class="bi bi-people"></i></div>
+                                <?php echo ASIDE_ADMIN_9; ?>
+                                <div class="sb-sidenav-collapse-arrow"><i class="bi bi-caret-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseUsers" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="index.php?page=users-list"><?php echo ADM_RUB_USERS; ?></a>
+                                    <a class="nav-link" href="index.php?page=users-add"><?php echo ADM_RUB_ADD_USER; ?></a>
+                                </nav>
+                            </div>
+                            
+                            <!-- REFERENCEMENT -->
+                            
+                            <div class="sb-sidenav-menu-heading"><?php echo BCK_RUB_TITLE_4; ?></div>
+                                                        
+                            <!-- Metas et SEO -->
+                            
+                            <a class="nav-link" href="index.php?page=web-seo">
+                                <div class="sb-nav-link-icon"><i class="bi bi-file-text"></i></div>
+                                <?php echo ASIDE_ADMIN_10; ?>
+                            </a>
+                                                        
+                            <!-- Statistiques -->
+                            
+                            <a class="nav-link" href="index.php?page=web-stats">
+                                <div class="sb-nav-link-icon"><i class="bi bi-graph-up"></i></div>
+                                <?php echo ASIDE_ADMIN_11; ?>
+                            </a>
 
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Bonjour Alexis A.</h1> <?php /* TODO : récupérer ici le nom de l'utilisateur */ ?>
-          </div>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- Affichage du nombre total de catégories -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?php echo NB_CATEGORIES; ?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        <?php
-                        $sql_nb_cat = "select * from categories";
-                        $req = $pdo->prepare($sql_nb_cat);
-                        $req->execute ();
-                        echo $req->rowCount ();
-                        ?>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-list-ul fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Affichage du nombre total de membres -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><?php echo NB_USERS; ?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        <?php
-                        $sql_nb_user = "select * from membres";
-                        $req = $pdo->prepare($sql_nb_user);
-                        $req->execute ();
-                        echo $req->rowCount ();
-                        ?>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-users fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Affichage du nombre total d'articles -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><?php echo NB_ARTICLES; ?></div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        <?php
-                        $sql_nb_article = "SELECT * FROM articles WHERE publication = '1'";
-                        $req = $pdo->prepare($sql_nb_article);
-                        $req->execute ();
-                        echo $req->rowCount ();
-                        ?>
                         </div>
                     </div>
-                    <div class="col-auto">
-                      <i class="far fa-newspaper fa-2x text-gray-300"></i>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        <?php echo $_SESSION['login']; ?>
                     </div>
-                  </div>
-                </div>
-              </div>
+                </nav>
             </div>
+            <div id="layoutSidenav_content">
+            	<main>
 
-            <!-- Affichage du nombre total de commentaires -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><?php echo NB_COMMENTAIRES; ?></div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        <?php
-                        $sql_nb_com = "select * from commentaires";
-                        $req = $pdo->prepare($sql_nb_com);
-                        $req->execute ();
-                        echo $req->rowCount ();
-                        ?>
+              	<?php 
+                /* page à afficher récupérée en paramètre dans l'URL */
+            	if (isset($_GET['page']))
+            		{
+            		include 'include/'.$_GET['page'].'.inc.php'; 
+            		}
+            	else
+            		{
+            		include 'include/main.inc.php';
+            		}
+            	?>
+
+				</main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted"><?php echo CREATED_BY.'<a href="https://publiged.boitasite.com" title="site officiel du PubliGED">PubliGED</a><br />'; ?></div>
+                            <div>
+                                <a href="https://startbootstrap.com/">Thème par Start Bootstrap</a>
+                                &middot;
+                                <a href="#">Licence</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                </footer>
             </div>
-          </div>
-
-          <!-- Content Row -->
-
-          <div class="row">
-          
-            <!-- Zone pour les derniers articles -->
-            <div class="col-6">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary"><?php echo LAST_ALL_ARTICLES; ?></h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                
-                <ul clas="list-group list-group-flush">
-                <?php 
-                
-                $output = array_slice($BaseDeDonnees->ListeTitreArticle($pdo), 0, 5); 
-                
-                foreach ($output as $value) {
-                	echo "<li class='list-group-item d-flex justify-content-between align-items-center'>".$value['titre'];
-                	echo "<span class='badge badge-pill badge-light'><a href='article-edit.php?id=".$value['ref']."'><i class='far fa-edit text-success'></i></a></span>";
-					        echo "</li>";
-                }
-                        
-                ?>
-                </ul>
-                
-                <p class="text-right">
-                	<a href="articles-list.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><?php echo ALL_ARTICLE; ?></a>
-                </p>             
-                
-                </div>
-              </div>
-            </div>
-                      
-            <!-- Zone avec les stats de la base de données  -->
-            <div class="col-6">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary"><?php echo MY_GEDCOM; ?></h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <ul clas="list-group list-group-flush">
-                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreIndividu($pdo).MY_GEDCOM_INDIVIDUALS; ?></li>
-                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreLieux($pdo).MY_GEDCOM_PLACE; ?></li>
-                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreFamilles($pdo).MY_GEDCOM_FAMILIES; ?></li>
-                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreSources($pdo).MY_GEDCOM_SRC; ?></li>
-                    <li class="list-group-item"><?php echo $BaseDeDonnees->NombreEvenements($pdo).MY_GEDCOM_EVE; ?></li>
-                  </ul>    
-                  
-                  <p class="text-right">
-                	<a href="articles-list.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><?php echo "Envoyer mon gedcom"; ?></a>
-                  </p>  
-                                    
-                </div>
-              </div>
-            </div>
-                                
-            <!-- Zone pour les derniers commentaires  -->
-            <div class="col-6">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary"><?php echo LAST_ALL_COM; ?></h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                                 		     
-                	<?php 
-             			                                 
-	                $sql = $pdo->prepare ("SELECT * FROM commentaires");
-	                $sql->execute();
-	                  
-	                if ($sql->rowCount() > 0)
-	                  	{
-	                  		
-	                ?>
-	                  
-	            	  <table class="table table-striped">
-	             		  <thead>
-		                  <tr>
-			                  <th scope="col">Date</th>
-			                  <th scope="col">Article</th>
-			                  <th scope="col">Auteur</th>
-			                  <th scope="col">Commentaire</th>
-		                  </tr>
-	                  </thead>
-	                  <tbody>
-	                  
-	                  <?php
-	                
-	                  // var_dump($sql->execute()); -> donne true
-	                                        		                                  
-		                while($row = $sql->fetch(PDO::FETCH_ASSOC)) 
-		                  {
-		                  	echo '<tr>';
-		                  	echo "<td>".$row['date_com']."</td>";
-		                  	echo "<td>".RecupTitreArticle($pdo, $row['id_article'])."</td>";
-		                    echo "<td>".$row['nom_auteur']."</td>";
-		                    echo "<td>".$row['contenu']."</td>";
-		                    echo "</tr>";
-			                }
-			          
-			           ?>
-			
-					   </tbody>
-                  	</table>
-                  
-                  	<?php			               
-			          	}
-	                  else 
-	                  	{
-	                  	echo "Pas de commentaire pour le moment !";
-	                  	}
-		            ?>
-		                  			                                                                                          
-                  <p class="text-right">
-                	<a href="comm-list.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><?php echo ALL_COM; ?></a>
-                  </p>   
-                  
-                </div>
-              </div>
-            </div>
-                                    
-          </div>
-
         </div>
-        <!-- /.container-fluid -->
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <!-- datatables simple datatable n'a pas besoin de jquery -->
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+                    
+		<!-- A quoi ils servent ? -->
+        
+        <!-- Bootstrap core JavaScript - article-add, articles-list -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		
+		<!-- jQuery Easing Plugin via npm - article-add, articles-list>
+		<script src="../node_modules/jquery.easing/jquery.easing.min.js"></script> 
+		<script src="../node_modules/datatables.net/js/jquery.dataTables.min.js"></script--> 
+		
+		<!-- initialisation perso de datatables simple -->
+ 		<script src="js/datatables-simple.js"></script>
 
-      </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span><?php include('include/footer.inc.php'); ?></span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="logoutModalLabel"><?php echo LOGOUT_TITLE; ?></h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body"><?php echo LOGOUT_TEXT; ?></div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo LOGOUT_CANCEL; ?></button>
-          <a class="btn btn-primary" href="login.html"><?php echo LOGOUT_OK?></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bootstrap core JavaScript-->
-  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="../node_modules/jquery.easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.js"></script>
-
-  <!-- JS de chart.js via npm -->
-  <script src="../node_modules/chart.js/dist/chart.min.js"></script>
-
-  <!-- JS de chart.js perso -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
-
-</body>
+        <!-- Drag&Drop des éléments du menu -->
+        <script src="js/dragdrop.js"></script>
+ 		
+    </body>
 </html>

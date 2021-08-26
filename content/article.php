@@ -11,7 +11,7 @@ if(!empty($_POST))
 	if(empty( $_POST ['pseudo'] ))
 		{
 		echo '<div class="alert alert-warning" role="alert">';
-		echo '<i class="fas fa-exclamation-triangle"></i>'.COM_NO_PSEUDO.'</div>';
+		echo '<i class="bi bi-exclamation-triangle-fill me-2"></i>'.COM_NO_PSEUDO.'</div>';
 		}
 	else
 		{
@@ -21,7 +21,7 @@ if(!empty($_POST))
 	if(empty ( $_POST ['email'] ))
 		{
 		echo '<div class="alert alert-warning" role="alert">';
-		echo '<i class="fas fa-exclamation-triangle"></i>'.COM_NO_EMAIL.'</div>';
+		echo '<i class="bi bi-exclamation-triangle-fill me-2"></i>'.COM_NO_EMAIL.'</div>';
 		}
 	else
 		{
@@ -31,7 +31,7 @@ if(!empty($_POST))
 	if(empty ( $_POST ['message'] ))
 		{
 		echo '<div class="alert alert-warning" role="alert">';
-		echo '<i class="fas fa-exclamation-triangle"></i>'.COM_NO_MSG.'</div>';
+		echo '<i class="bi bi-exclamation-triangle-fill me-2"></i>'.COM_NO_MSG.'</div>';
 		}
 	else
 		{
@@ -59,7 +59,7 @@ if (!empty ( $_POST ['message'] ) and !empty ( $_POST ['email'] ) and !empty ( $
 		{
 		/* Message de confirmation : Le comm' a été envoyé */
 		echo '<div class="alert alert-success" role="alert">';
-		echo "<i class='fas fa-exclamation-triangle'></i>".COM_SUCCESS."</div>";
+		echo "<i class='bi bi-exclamation-triangle-fill me-2'></i>".COM_SUCCESS."</div>";
 		}
 	}
 

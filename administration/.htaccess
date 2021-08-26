@@ -1,1 +1,5 @@
-ErrorDocument 404 /404.php
+# CUSTOM ERROR PAGES 
+
+ErrorDocument 401 /administration/index.php?page=401
+ErrorDocument 404 /administration/index.php?page=404
+ErrorDocument 500 /administration/index.php?page=500

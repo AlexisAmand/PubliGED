@@ -1,0 +1,15 @@
+#draggable1, #draggable2, #draggable3, #draggable4 {
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    background: white;
+    margin-top: 7px;
+    margin-bottom:7px;
+    border: 2px solid rgb(87, 85, 85);
+  }
+
+  .dropzone {
+    width: 100%;
+    height: 250px;
+    /* background: blueviolet; */
+  }

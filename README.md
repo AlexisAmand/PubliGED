@@ -4,6 +4,13 @@ PubliGED est ce que j’appelle un GMS (Genealogy Management System) par analogi
 
 Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet pour le moment, j'ai un peu peur que ça parte dans tous les sens. Cependant, n'hésitez pas à me soumettre vos idées et vos suggestions, voire même à consulter les sources à titre pédagogique.
 
+#### Remarques :
+
+Etant encore en phase de développement, certaines fonctionnalités ne sont pas sécurisés !
+
+* mot de passe de l'administration stocké comme une simple chaine de caractères.
+* dossier node_module à la racine du projet.
+
 #### Plus d'infos : 
 
 * https://publiged.boitasite.com
@@ -25,7 +32,7 @@ Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet p
 * phpMyAdmin 5.1.1
 * Windows 10
 * Eclipse IDE for PHP Developers 2021-06 (4.20.0)
-* Visual Studio Code 1.58.2
+* Visual Studio Code 1.59
 
 #### Langages utilisés
 

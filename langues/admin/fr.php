@@ -14,18 +14,25 @@ define("SEE_SITE","Voir le site");
 /* Accueil de l'admin */
 /* ------------------ */
 
+/*
 define("NB_ARTICLES","Nombre d'articles");
 define("NB_CATEGORIES","Nombre de catégories");
 define("NB_USERS","Nombre d'utilisateurs");
 define("NB_COMMENTAIRES","Nombre de commentaires");
+*/
 
-define( "LAST_ALL_ARTICLES","Mes derniers articles");
+define("NB_ARTICLES","Les articles");
+define("NB_CATEGORIES","Les catégories");
+define("NB_USERS","Les utilisateurs");
+define("NB_COMMENTAIRES","Les commentaires");
+
+define( "LAST_ALL_ARTICLES","Les derniers articles");
 define( "ALL_ARTICLE","Voir tous les articles");
 
-define( "LAST_ALL_COM","Mes derniers commentaires");
+define( "LAST_ALL_COM","Les derniers commentaires");
 define( "ALL_COM","Voir tous les commentaires");
 
-define("MY_GEDCOM","Ma généalogie");
+define("MY_GEDCOM","La généalogie");
 define("MY_GEDCOM_INDIVIDUALS"," individus dans la base de données");
 define("MY_GEDCOM_PLACE"," lieux dans la base de données");
 define("MY_GEDCOM_FAMILIES"," familles dans la base de données");
@@ -36,9 +43,9 @@ define("MY_GEDCOM_EVE"," événements dans la base de données");
 /* Titres des pages / éléments du menu */
 /* ----------------------------------- */
 
-define("BCK_TITLE","PubliGED Administration");
+define("BCK_TITLE","PubliGED");
 
-define("BCK_RUB_TITLE_1","Blog");
+define("BCK_RUB_TITLE_1","Le blog");
     define("ASIDE_ADMIN_1","Articles");
         define("ADM_RUB_ADD_A","Ajouter un article");
         define("ADM_RUB_MODIF_A","Modifier les articles");
@@ -48,13 +55,13 @@ define("BCK_RUB_TITLE_1","Blog");
         define("ADM_RUB_COMM","Modérer");
     define("ASIDE_ADMIN_3","Modules");
 
-define("BCK_RUB_TITLE_2","Généalogie");
+define("BCK_RUB_TITLE_2","La généalogie");
     define("ASIDE_ADMIN_5","Gedcom");
         define("ADM_RUB_SEND_G","Envoyer un gedcom");
         define("ADM_RUB_DEL_G","Effacer un gedcom");
     define("ASIDE_ADMIN_6","Modules");
 
-define("BCK_RUB_TITLE_3","Paramètres");
+define("BCK_RUB_TITLE_3","Les paramètres");
     define("ASIDE_ADMIN_7","Base de données");
         define("ADM_DB_SUPPR","Supprimer les tables");
         define("ADM_DB_CREATE","Réinitialiser les tables");
@@ -66,7 +73,7 @@ define("BCK_RUB_TITLE_3","Paramètres");
         define("ADM_RUB_USERS","Liste des utilisateurs");
         define("ADM_RUB_ADD_USER","Ajout d'un utilisateur");
 
-define("BCK_RUB_TITLE_4", "Référencement");
+define("BCK_RUB_TITLE_4", "Le référencement");
     define("ASIDE_ADMIN_10","Métas et SEO");
     define("ASIDE_ADMIN_11","Statistiques");
 
@@ -99,8 +106,8 @@ define("ADM_ARTICLE_NOTITLE","Vous n'avez pas indiqué de titre pour votre artic
 define("ADM_ARTICLE_NOCONTENT","Vous n'avez pas indiqué de contenu pour votre article");
 define("ADM_ARTICLE_NOCAT","Vous n'avez pas indiqué de catégorie pour votre article");
 
-define("ADM_ARTICLE_MODIF_INTRO","Cette page vous permet de modifier ou supprimer un article. Pour créer un nouvel article, rendez-vous plutôt sur <a href='article-add.php'>cette page</a>.");
-define("ADM_ARTICLE_ADD_INTRO","Cette page vous permet de créer un article. Pour modifier ou supprimer un article, rendez-vous plutôt sur <a href='modif-article.php'>cette page</a>.");
+define("ADM_ARTICLE_MODIF_INTRO","Cette page vous permet de modifier ou supprimer un article. Pour créer un nouvel article, rendez-vous plutôt sur <a href='index.php?page=article-add'>cette page</a>.");
+define("ADM_ARTICLE_ADD_INTRO","Cette page vous permet de créer un article. Pour modifier ou supprimer un article, rendez-vous plutôt sur <a href='index.php?page=modif-article'>cette page</a>.");
 
 define("ARTICLE_NB","L'article n°");
 define("ARTICLE_PUBLISHED", " a bien été publié !");
@@ -186,7 +193,7 @@ define( "ADM_GED_TEXT","Vous pouvez utiliser ce formulaire pour envoyer votre ge
 
 define("ADM_COMM_INTRO","Ici, vous retrouvez l'ensemble des commentaires qui ont été publiés à la suite des articles de votre blog. Vous pouvez ainsi les publier, les dépublier ou même les supprimer.");
 
-define("ADM_COMM_GEST","Modérer mes commentaires");
+define("ADM_COMM_GEST","Modérer les commentaires");
 
 define( "ADM_COMM_TITLE","Titre");
 define( "ADM_COMM_AUTHOR","Auteur");
@@ -196,6 +203,14 @@ define( "ADM_COMM_TEXT","Commentaire");
 define( "ADM_COMM_EDIT","Editer");
 define( "ADM_COMM_SUPPR","Supprimer");
 define( "ADM_COMM_PUBLISH","Publier");
+
+define("COMM_NB","Le commentaire n°");
+define("COMM_PUBLISHED", " a bien été publié !");
+define("COMM_UNPUBLISHED", " a bien été dépublié !");
+define("COMM_DELETED", " a bien été supprimé !");
+
+define("SUPPR_COMM_MODAL_YES","Oui");
+define("SUPPR_COMM_MODAL_NO","Non");
 
 /* --------------------------------- */
 /* Position et affichage des modules */
