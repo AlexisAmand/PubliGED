@@ -22,9 +22,8 @@
   },
   "homepage": "https://github.com/AlexisAmand/PubliGED#readme",
   "dependencies": {
-    "bootswatch": "^5.0.2",
+    "bootswatch": "^5.0.0",
     "chart.js": "^3.3.2",
-    "dropzone": "^5.9.2",
     "jquery.easing": "^1.4.1",
     "leaflet-basemaps": "^0.3.4"
   }

@@ -42,33 +42,32 @@ Etant encore en phase de développement, certaines fonctionnalités ne sont pas 
 * SQL (via MySQL 5.7.24)
 * Javascript
 
-### Framework
+### Framework (via CDN)
 
-Obtenus via https://www.npmjs.com et npm 7.20.3
-
-* Bootstrap 5.0.1
+* Bootstrap 5.1.0
 * Bootstrap icons 1.5.0
+(dont templates Bootswatch 5.1.0)
 
 #### Librairies PHP
 
 Obtenues via https://packagist.org et Composer 2.1.3
 
-* PHPMailer/PHPMailer 6.4.1
+* PHPMailer/PHPMailer 6.5.1
 * egulias/EmailValidator 2.1.25
-* mpdf/mpdf composer 8.0.11
+* mpdf/mpdf composer 8.0.12
 
-#### Librairies Javascript
+#### Librairies Javascript (via CDN)
+
+* datatables 1.11 pour Bootstrap 5
+* jQuery 3.6.0
+* leaflet 1.7.1
 
 Obtenues via https://www.npmjs.com et npm 7.20.3
 
-* datatables 1.10.25 pour Bootstrap 5
 * char.js 3.3.2
-* dropzone 5.9.2
-* fontawesome 5.6.3
-* fontawesome-free 5.15.3
-* jQuery 3.6.0
-* Jquery easing 1.4.1 ?
-* leaflet 1.7.1
+* Jquery easing 1.4.1
 * leaflet-basemaps 0.3.4
-* tinyMCE 5.8.1
-* gojs 2.1.43 (pour quelques tests)
+
+Auto-hébergées
+
+* * tinyMCE 5.9
