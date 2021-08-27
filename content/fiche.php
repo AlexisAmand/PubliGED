@@ -311,3 +311,4 @@ if (empty ( $individu->note )) {
 	echo "</ul><br /><br />";
 }
 ?>
+

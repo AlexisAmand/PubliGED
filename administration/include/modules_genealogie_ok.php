@@ -6,7 +6,7 @@
 
 require ('fonctions.php');
 include ('../config.php');
-include('../langues/admin/fr.php');
+include('../langs/admin/fr.php');
 
 $traitement  = 0;
 

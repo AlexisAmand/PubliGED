@@ -22,7 +22,7 @@ Adapté par Alexis AMAND pour le projet PubliGED
 require ('fonctions.php');
 require ('../class/class.php');
 include ('../config.php');
-include ('../langues/admin/fr.php');
+include ('../langs/admin/fr.php');
 
 $BaseDeDonnees = new BasesDeDonnees;
 

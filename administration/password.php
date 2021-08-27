@@ -1,6 +1,6 @@
 <?php
 
-include ('../langues/admin/fr.php');
+include ('../langs/admin/fr.php');
 
 /* 
 Start Bootstrap - SB Admin v7.0.2 (https://startbootstrap.com/template/sb-admin) 

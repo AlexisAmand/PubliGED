@@ -1,7 +1,7 @@
 <?php
 
 include ('../config.php');
-include ('../langues/admin/fr.php');
+include ('../langs/admin/fr.php');
 
 if ((isset($_POST['login']) && !empty($_POST['login'])) && (isset($_POST['pass']) && !empty($_POST['pass']))) 
     {

@@ -4,7 +4,7 @@ include ('config.php');
 
 // include ('include/langue.php');
 /*
- * include ('langues/fr.php');
+ * include ('langs/fr.php');
  * include ('class/class.php');
  */
 /* librairie mpdf version 7 */

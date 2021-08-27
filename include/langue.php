@@ -12,13 +12,13 @@ $language = explode(',' , $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 switch($language[0])
 	{
 	case 'fr-FR':
-		include('langues/fr.php');
+		include('langs/fr.php');
 		break;
 	case 'en-GB':
-		include('langues/en.php');
+		include('langs/en.php');
 		break;
 	default:
-		include('langues/fr.php');
+		include('langs/fr.php');
 		break;
 	}
 
