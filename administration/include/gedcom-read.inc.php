@@ -4,8 +4,8 @@
 	
 		<ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>
-		    <li class="breadcrumb-item"><a href="index.php?page=articles-list">Gedcom</a></li>
-		    <li class="breadcrumb-item active" aria-current="page"><?php echo "Envoyer un gedcom"; ?></li>
+		    <li class="breadcrumb-item"><a href="index.php?page=articles-list"><?php echo ASIDE_ADMIN_5; ?></a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><?php echo ADM_RUB_SEND_G; ?></li>
 		</ol>
         
 		<div class="row">
@@ -27,7 +27,7 @@
 							$resultat_sup_db = $pdo->prepare ( $req_sup_db );
 							$resultat_sup_db->execute ();
 							$resultat_sup_db->closeCursor();
-							echo '<div class="alert alert-success" role="alert"><i class="fas fa-check"></i>&nbsp;&nbsp;Les tables ont bien été préparées.</div>';
+							echo '<div class="alert alert-success" role="alert"><i class="bi bi-check"></i>&nbsp;&nbsp;Les tables ont bien été préparées.</div>';
 							}
 						catch ( Exception $e )
 							{
@@ -53,7 +53,7 @@
 							$fichier = preg_replace ( '/([^.a-z0-9]+)/i', '-', $fichier );
 							if (move_uploaded_file ( $_FILES ['avatar'] ['tmp_name'], $dossier . $fichier )) // Si la fonction renvoie TRUE, c'est que ça a fonctionné...
 								{
-								echo '<div class="alert alert-success" role="alert"><i class="fas fa-check"></i>&nbsp;&nbsp;Le fichier a bien été envoyé !' . "</div>";
+								echo '<div class="alert alert-success" role="alert"><i class="bi bi-check"></i>&nbsp;&nbsp;Le fichier a bien été envoyé !' . "</div>";
 								}
 							else // Sinon (la fonction renvoie FALSE) et ça n'a pas fonctionné.
 								{

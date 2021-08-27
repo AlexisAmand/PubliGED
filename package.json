@@ -22,20 +22,10 @@
   },
   "homepage": "https://github.com/AlexisAmand/PubliGED#readme",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
-    "bootstrap": "^5.0.1",
     "bootswatch": "^5.0.2",
     "chart.js": "^3.3.2",
-    "datatables.net-bs5": "^1.10.25",
     "dropzone": "^5.9.2",
-    "fontawesome": "^5.6.3",
-    "gojs": "^2.1.43",
-    "jquery": "^3.6.0",
     "jquery.easing": "^1.4.1",
-    "leaflet": "^1.7.1",
-    "leaflet-basemaps": "^0.3.4",
-    "simple-datatables": "^3.0.2",
-    "tinymce": "^5.8.1",
-    "upper-case": "^2.0.2"
+    "leaflet-basemaps": "^0.3.4"
   }
 }

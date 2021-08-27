@@ -253,14 +253,15 @@ class Pages
 		$sqlHeader->execute();
 		$data = $sqlHeader->fetch();
 
-		/* affichage du template perso via npm */
-
-		echo '<link href="node_modules/bootswatch/dist/'.$data['valeur'].'/bootstrap.min.css" rel="stylesheet">';
+		/* Affichage du template perso */
+		/* Les fichiers sont récupérés via npm dans node_modules et copiés/collés dans templates */
+		echo '<link href="templates/'.$data['valeur'].'/bootstrap.min.css" rel="stylesheet">';
 
 		/* récupération des feuilles de styles obligatoires */
-
 		echo '<link href="templates/system/css/commons.css" rel="stylesheet">';
-		echo '<link href="node_modules/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet">';
+
+		/* datatables.net */
+		echo '<link href="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css" rel="stylesheet">';
 
 		/* TODO : récupération et affichage de favicon perso */
 
@@ -275,8 +276,8 @@ class Pages
 		if ($_GET['page'] == "cartographie")
 			{
 			/* OpenStreetMap et Leaflet via npm */
-			echo '<link href="node_modules/leaflet/dist/leaflet.css" rel="stylesheet">';
-			echo '<script src="node_modules/leaflet/dist/leaflet.js"></script>';
+			echo '<link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet">';
+			echo '<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>';
 			/* Leaflet basemap */
 			echo '<link href="node_modules/leaflet-basemaps/L.Control.Basemaps.css" rel="stylesheet">';
 			echo '<script src="node_modules/leaflet-basemaps/L.Control.Basemaps.js"></script>';
@@ -284,7 +285,12 @@ class Pages
 
 		/* Ajout de Font Awesome via npm */
 
-		echo '<link href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">';
+		// echo '<link href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">';
+
+		/* Bootstrap icons */
+
+		echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">';
+
 		}
 
 	/* Cette méthode affiche le pied de page du site */
@@ -415,21 +421,20 @@ class Pages
 		
 	public function AfficherLib()
 		{		
-		// Jquery via npm 
-		echo '<script src="node_modules/jquery/dist/jquery.min.js"></script>';
-						
-		// Bootstrap 5 via npm
-		echo '<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>';
+		// Jquery 
+		echo '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>';
 
-		// librairie datatables pour tableaux bootstrap 5 via npm
-		echo '<script src="node_modules/datatables.net/js/jquery.dataTables.min.js "></script>';
-		echo '<script src="node_modules/datatables.net-bs5/js/dataTables.bootstrap5.min.js "></script>';
+		// Bootstrap 5
+		echo '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>';
 
+		// librairie datatables pour tableaux bootstrap 5
+		echo '<script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>';
+		
 		// Ce script contient l'initialisation du plugin datatables de jquery
-		echo '<script src="administration/js/demo/datatables-demo.js"></script>';
+		echo '<script src="js/datatables.js"></script>';
 							
-		// TinyMCE via npm
-		echo '<script src="node_modules/tinymce/tinymce.min.js"></script>';
+		// TinyMCE 
+		echo '<script src="/js/tinymce/tinymce.min.js"></script>';
 							
 		// Divers Javascript
 		echo '<script src="js/scripts.js"></script>';
@@ -597,9 +602,9 @@ class Articles
 		
 		echo "<div class='col-md-2'>";
 			echo "<p>";
-			echo "<a href='pdf.php?page=categories&id=".$this->ref."'><i class='far fa-file-pdf fa-1x'></i></a>&nbsp;&nbsp;";
-			echo "<a href='print.php?id=".$this->ref."'><i class='fas fa-print fa-1x'></i></a>&nbsp;&nbsp;";
-			echo "<a href='#'><i class='fas fa-envelope-square fa-1x'></i></a>&nbsp;&nbsp;";
+			echo "<a href='pdf.php?page=categories&id=".$this->ref."'><i class='bi bi-file-earmark-pdf'></i></a>&nbsp;&nbsp;";
+			echo "<a href='print.php?id=".$this->ref."'><i class='bi bi-printer'></i></a>&nbsp;&nbsp;";
+			echo "<a href='#'><i class='bi bi-envelope'></i></a>&nbsp;&nbsp;";
 			echo "</p>";
 		echo "</div>";
 		

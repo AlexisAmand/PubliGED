@@ -297,18 +297,6 @@ include("arbre-v2.php");
 
 echo "</div>";
 
-/* --------------------- */
-/* arbre généalogique V3 */
-/* --------------------- */
-
-echo "<h4>" . FAMILYTREE . " (version 3)</h4>";
-
-echo "<div class='row'>";
-
-include("arbre-v3.php");
-
-echo "</div>";
-
 /* ----- */
 /* notes */
 /* ----- */

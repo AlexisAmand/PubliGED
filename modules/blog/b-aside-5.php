@@ -14,7 +14,7 @@
 		
 	while ($row = $reqSocial->fetch(PDO::FETCH_ASSOC))
 		{
-		echo '<a href="'.$row['url'].'"><i class="'.$row['icone'].' fa-2x"></i></a>';
+		echo '<a href="'.$row['url'].'"><i class="'.$row['icone'].' fs-3"></i></a>';
 		}
 	
 	?>

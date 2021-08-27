@@ -24,7 +24,7 @@
                     </span></div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
                     	<a class="small stretched-link" href="index.php?page=cat-list">Voir les détails</a>
-                        <div class="small"><i class="fas fa-angle-right"></i></div>
+                        <div class="small"><i class="bi bi-caret-right"></i></div>
                     </div>
                	</div>
             </div>
@@ -45,7 +45,7 @@
                     </span></div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
                     	<a class="small stretched-link" href="#">Voir les détails</a>
-                        <div class="small"><i class="fas fa-angle-right"></i></div>
+                        <div class="small"><i class="bi bi-caret-right"></i></div>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                     </span></div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
                     	<a class="small stretched-link" href="#">Voir les détails</a>
-                        <div class="small"><i class="fas fa-angle-right"></i></div>
+                        <div class="small"><i class="bi bi-caret-right"></i></div>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                     </span></div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
                     	<a class="small stretched-link" href="#">Voir les détails</a>
-                        <div class="small"><i class="fas fa-angle-right"></i></div>
+                        <div class="small"><i class="bi bi-caret-right"></i></div>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@
 			<div class="col-xl-6">
 				<div class="card mb-4">
 					<div class="card-header">
-						<i class="far fa-newspaper me-1"></i><?php echo LAST_ALL_ARTICLES; ?>
+					<i class="bi bi-newspaper me-1"></i><?php echo LAST_ALL_ARTICLES; ?>
 					</div>
 					<div class="card-body">
 												
@@ -140,7 +140,7 @@
             <div class="col-xl-6">
             	<div class="card mb-4">
                 	<div class="card-header">
-                  		<i class="fas fa-chart-bar me-1"></i><?php echo MY_GEDCOM; ?>
+						<i class="bi bi-diagram-3 me-1"></i><?php echo MY_GEDCOM; ?>
                 	</div>
                     <div class="card-body">
                   		<ul clas="list-group">
@@ -162,7 +162,7 @@
             <div class="col-xl-6">
             	<div class="card mb-4">
                 	<div class="card-header">
-                  		<i class="fas fa-chart-bar me-1"></i><?php echo LAST_ALL_COM; ?>
+					<i class="bi bi-chat-text me-1"></i><?php echo LAST_ALL_COM; ?>
                 	</div>
                     <div class="card-body">
                     	<?php 

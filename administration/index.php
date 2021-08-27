@@ -1,9 +1,12 @@
 <?php
 
+session_set_cookie_params(0);
+
 // si l'utilisateur est connecté, on affiche la page 
 // sinon, on lui affiche l'écran de login
 
 session_start();
+
 if (!isset($_SESSION['login'])) {
 	header ('Location: login.php');
 	exit();
@@ -289,11 +292,7 @@ if (isset($_POST['tablo']))
         
         <!-- Bootstrap core JavaScript - article-add, articles-list -->
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-		
-		<!-- jQuery Easing Plugin via npm - article-add, articles-list>
-		<script src="../node_modules/jquery.easing/jquery.easing.min.js"></script> 
-		<script src="../node_modules/datatables.net/js/jquery.dataTables.min.js"></script--> 
-		
+				
 		<!-- initialisation perso de datatables simple -->
  		<script src="js/datatables-simple.js"></script>
 

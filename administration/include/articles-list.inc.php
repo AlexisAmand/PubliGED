@@ -35,7 +35,7 @@ if(isset($_GET['id']) and isset($_GET['action']))
 			$req = $sql->execute ();
 			$msg = '<div class="alert alert-success d-flex align-items-center" role="alert">
 			<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-	  		<div>'.ARTICLE_NB.$_GET['id'].ARTICLE_NB.$_GET['id'].ARTICLE_DELETED.'</div></div>'; 
+	  		<div>'.ARTICLE_NB.$_GET['id'].ARTICLE_DELETED.'</div></div>'; 
 			break;
 		default:
 			/* TODO: surement rien à mettre ici */
@@ -51,8 +51,8 @@ if(isset($_GET['id']) and isset($_GET['action']))
 	
         <ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>
-		    <li class="breadcrumb-item"><a href="index.php?page=articles-list">Catégories</a></li>
-		    <li class="breadcrumb-item active" aria-current="page"><?php echo "Modifier les articles"; ?></li>
+		    <li class="breadcrumb-item"><a href="index.php?page=articles-list"><?php echo ASIDE_ADMIN_1; ?></a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><?php echo ADM_RUB_MODIF_A; ?></li>
 		</ol>
 
         <div class="row">
@@ -60,7 +60,7 @@ if(isset($_GET['id']) and isset($_GET['action']))
         	<div class="col-xl-12">
 				<div class="card mb-4">
 					<div class="card-header">
-						<i class="bi bi-newspaper me-2"></i><?php echo ASIDE_ADMIN_1; ?>
+						<i class="bi bi-newspaper me-2"></i><?php echo "Liste des articles" ?>
 					</div>
 					<div class="card-body">
 						<p><?php echo ADM_ARTICLE_MODIF_INTRO; ?></p>

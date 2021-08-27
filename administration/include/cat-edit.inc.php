@@ -33,7 +33,7 @@
 		                        {
 		                        $sql->execute();
 		                        echo '<div class="alert alert-success" role="alert">';
-		                        echo '<i class="fas fa-check"></i>La catégorie a bien été modifiée';
+		                        echo '<i class="bi bi-check"></i>La catégorie a bien été modifiée';
 		                        echo '</div>';
 		                        }
 		                    catch(exception $e)

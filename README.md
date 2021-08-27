@@ -6,7 +6,7 @@ Pour l'instant, j'aimerai éviter que d'autres personnes contribuent au projet p
 
 #### Remarques :
 
-Etant encore en phase de développement, certaines fonctionnalités ne sont pas sécurisés !
+Etant encore en phase de développement, certaines fonctionnalités ne sont pas sécurisées !
 
 * mot de passe de l'administration stocké comme une simple chaine de caractères.
 * dossier node_module à la racine du projet.
@@ -47,6 +47,7 @@ Etant encore en phase de développement, certaines fonctionnalités ne sont pas 
 Obtenus via https://www.npmjs.com et npm 7.20.3
 
 * Bootstrap 5.0.1
+* Bootstrap icons 1.5.0
 
 #### Librairies PHP
 

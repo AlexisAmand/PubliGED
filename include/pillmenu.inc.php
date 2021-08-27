@@ -77,7 +77,7 @@ switch ($_GET ['page']) {
 		<input type="hidden" name="page" value="search">
 		<input type="hidden" name="type" value="1">
 		<button class="btn btn-primary" type="submit" value="ok">
-			<i class="fa fa-search"></i>
+			<i class="bi bi-search"></i>
 		</button>
 	</form>
     </div>

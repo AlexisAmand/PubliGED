@@ -28,11 +28,11 @@ include ('class/class.php');
 	<link rel="icon" type="image/gif" href="img/icon.jpg" />
 	
 	<!-- Jquery via npm -->
-	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	
 	<!-- OpenStreetMap et Leaflet via npm -->
-	<link href="node_modules/leaflet/dist/leaflet.css" rel="stylesheet">
-	<script src="node_modules/leaflet/dist/leaflet.js"></script>
+	<link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet">
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
 </head>
 
