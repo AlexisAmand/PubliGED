@@ -17,9 +17,16 @@
 					</div>
 
 					<div class="card-body">
-			
-						<?php
-						
+
+					<?php
+
+					if (empty($_FILES ['avatar']['name'] ))
+						{
+						echo "<div class='alert alert-danger'>";
+						echo "<i class='bi bi-exclamation-triangle-fill me-2'></i>Vous n'avez pas choisi de fichier !</div>";
+						}
+					else
+						{
 						/* On commence par vider les tables */
 						
 						try {
@@ -27,11 +34,11 @@
 							$resultat_sup_db = $pdo->prepare ( $req_sup_db );
 							$resultat_sup_db->execute ();
 							$resultat_sup_db->closeCursor();
-							echo '<div class="alert alert-success" role="alert"><i class="bi bi-check"></i>&nbsp;&nbsp;Les tables ont bien été préparées.</div>';
+							echo '<div class="alert alert-success" role="alert"><i class="bi bi-check me-2"></i>&nbsp;&nbsp;Les tables ont bien été préparées.</div>';
 							}
 						catch ( Exception $e )
 							{
-							echo '<div class="alert alert-danger"><i class="bi bi-exclamation-triangle-fill"></i>Erreur : '. $e->getMessage (). "</div>";
+							echo '<div class="alert alert-danger"><i class="bi bi-exclamation-triangle-fill me-2"></i>Erreur : '. $e->getMessage (). "</div>";
 							}
 						
 						/* Envoyer le gedcom dans le dossier upload */
@@ -54,15 +61,21 @@
 							if (move_uploaded_file ( $_FILES ['avatar'] ['tmp_name'], $dossier . $fichier )) // Si la fonction renvoie TRUE, c'est que ça a fonctionné...
 								{
 								echo '<div class="alert alert-success" role="alert"><i class="bi bi-check"></i>&nbsp;&nbsp;Le fichier a bien été envoyé !' . "</div>";
+
+								/* Dans la table config, on met gedcom à 1 pour indiquer que le gedcom a bien été envoyé */
+
+								$res = $pdo->prepare ( "UPDATE configuration SET valeur = '1' WHERE nom= 'gedcom'" );
+								$res->execute ();
+
 								}
 							else // Sinon (la fonction renvoie FALSE) et ça n'a pas fonctionné.
 								{
-								echo '<div class="alert alert-danger" role="alert"><i class="bi bi-exclamation-triangle-fill"></i>&nbsp;&nbsp;Erreur pendant l\'envoi du fichier !' . "</div>";
+								echo '<div class="alert alert-danger" role="alert"><i class="bi bi-exclamation-triangle-fill me-2"></i>&nbsp;&nbsp;Erreur pendant l\'envoi du fichier !' . "</div>";
 								}
 							} 
 						else 
 							{
-							echo '<div class="alert alert-danger" role="alert"><i class="bi bi-exclamation-triangle-fill"></i>&nbsp;&nbsp;Erreur: ' . $erreur . '</div>';
+							echo '<div class="alert alert-danger" role="alert"><i class="bi bi-exclamation-triangle-fill me-2"></i>&nbsp;&nbsp;Erreur: ' . $erreur . '</div>';
 							exit ();
 							}
 						
@@ -755,6 +768,8 @@
 							
 						/* fermeture du fichier gedcom */
 						fclose ( $gedcom );
+
+						
 								
 						?>
 			
@@ -849,8 +864,14 @@
 								</table>
 					
 								</div>
-					</div>					
+					</div>	
+
 				</div>
+
+				<?php
+				}
+				?>
+
 			</div>
 		</div>
 </div>

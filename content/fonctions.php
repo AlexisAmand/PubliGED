@@ -114,27 +114,16 @@ function GenerationPDF($pdo3, $art)
 	} 
 
 /* fonction qui vérifie si un gedcom a été envoyé */ 
-/* Si aucun gedcom n'a été envoyé, elle affiche un message */ 
-/* TODO : peut-être que le while n'est pas obligatoire ?
- * Il suffirait alors de remplacer le while par :
- 
-$data_verif = $res_verif->fetch(PDO::FETCH_ASSOC);
-return $data_verif['valeur']; 	
-
- */	
 
 function VerifGedcom($pdo3) 
 	{ 	
-	$req_verif = "SELECT * FROM configuration WHERE nom='export'"; 	
+	$req_verif = "SELECT * FROM configuration WHERE nom='gedcom'"; 	
 	$res_verif = $pdo3->prepare($req_verif); 	
-	$res_verif->execute(); 	
+	$res_verif->execute();
 	
-	while ($data_verif = $res_verif->fetch(PDO::FETCH_ASSOC)) 
-		{ 		
-		return $data_verif['valeur']; 	
-		} 
+	$data = $res_verif->fetch(PDO::FETCH_ASSOC);
+	return $data['valeur'];
 	}
-			
 
 /* fonction qui récupére le nombre d'article à afficher par page */
 	
@@ -143,7 +132,8 @@ function NombreArticlePage($pdo2)
 		$req_napp = "SELECT * FROM configuration WHERE nom = 'napp'";
 		$req_napp = $pdo2->prepare($req_napp);
 		$req_napp->execute();
-		
+
+		/* TODO : A changer car une seule valeur est récupérée */
 		while (($row = $req_napp->fetch( PDO::FETCH_ASSOC )))
 		{
 			$napp = $row['valeur'];
@@ -160,6 +150,7 @@ function recup_page($pdo2)
 	$req_nrpp = $pdo2->prepare($req_nrpp);
 	$req_nrpp->execute(); 	
 	
+	/* TODO : A changer car une seule valeur est récupérée */
 	while (($row = $req_nrpp->fetch( PDO::FETCH_ASSOC )))
 		{ 		
 		$nrpp = $row['valeur'];

@@ -1,8 +1,13 @@
-	<?php 
+<?php 
 	
-	/* ----------- */
-	/* LES SOURCES */
-	/* ----------- */
+/* ----------- */
+/* LES SOURCES */
+/* ----------- */
+
+/* On vérifie si un gedcom a été envoyé */
+
+if(VerifGedcom($pdo2) == "1")
+	{
 
 	/* Affichage du détail d'une source */
 
@@ -114,12 +119,18 @@
 		    echo "</tr>";
 		    }
 		
-		?>
+?>
 				
 		</tbody>
     	</table>
         </div>
 
-    <?php
-}
-    ?>
+<?php
+	}
+	}
+else
+	{
+	echo "<h3>".$GLOBALS['Page']->titre."</h3>";
+	echo NO_GEDCOM;
+	}
+?>

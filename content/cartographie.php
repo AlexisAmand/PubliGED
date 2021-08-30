@@ -1,11 +1,11 @@
-	<h3><?php echo $GLOBALS['Page']->titre; ?></h3>
+<h3><?php echo $GLOBALS['Page']->titre; ?></h3>
     	
-    <?php 	
-    if(VerifGedcom($pdo2) == "1")
-		{
-	    ?>	
+<?php 	
+if(VerifGedcom($pdo2) == "1")
+	{
+?>	
 	    	
-			<div id="map" style="width: 100%;height: 600px;"></div>
+	<div id="map" style="width: 100%;height: 600px;"></div>
 
 	<script>
 
@@ -88,34 +88,37 @@
 			{	    
 			    echo "[".$coord_B['latitude'].",".$coord_B['longitude'].",".$coord_B['ref']."],";
 			}   	
-	
-		}
-	else
-		{
-		echo NO_GEDCOM;
-		}
-		
 	?>
-	
-	];       
 
-	/* ajout des points sur la carte */
+];       
+
+/* ajout des points sur la carte */
+
+var marker = [];
+var i;
+for (i = 0; i < points.length; i++) 
+	{
+	marker[i] = new L.Marker([points[i][0], points[i][1]], {url: points[i][2]});
+	marker[i].addTo(map);
+	marker[i].on('click', onMapClick);
+	};
+
+/* Cliquer  sur un marker ouvre une page */
+
+function onMapClick(e) 
+	{
+	alert("la ville " + this.options.url);
+	window.open("index.php?page=lieuxpatro&id=" + this.options.url);
+	 }
 	
-	var marker = [];
-	var i;
-	for (i = 0; i < points.length; i++) 
-		{
-		marker[i] = new L.Marker([points[i][0], points[i][1]], {url: points[i][2]});
-	    marker[i].addTo(map);
-	    marker[i].on('click', onMapClick);
-	    };
-	
-	/* Cliquer  sur un marker ouvre une page */
-	
-	function onMapClick(e) 
-		{
-	    alert("la ville " + this.options.url);
-	    window.open("index.php?page=lieuxpatro&id=" + this.options.url);
-	 	}
-	    
-	</script>
+</script>
+
+<?php
+
+	}
+else
+	{
+	echo NO_GEDCOM;
+	}
+
+?>
