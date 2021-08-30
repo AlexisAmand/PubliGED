@@ -129,17 +129,12 @@ function VerifGedcom($pdo3)
 	
 function NombreArticlePage($pdo2)
 	{
-		$req_napp = "SELECT * FROM configuration WHERE nom = 'napp'";
-		$req_napp = $pdo2->prepare($req_napp);
-		$req_napp->execute();
+	$req_napp = "SELECT * FROM configuration WHERE nom = 'napp'";
+	$req_napp = $pdo2->prepare($req_napp);
+	$req_napp->execute();
 
-		/* TODO : A changer car une seule valeur est récupérée */
-		while (($row = $req_napp->fetch( PDO::FETCH_ASSOC )))
-		{
-			$napp = $row['valeur'];
-		}
-		
-		return $napp;
+	$data = $req_napp->fetch(PDO::FETCH_ASSOC);
+	return $data['valeur'];
 	} 
 			
 /* fonction qui récupére le nombre de resultat à afficher par page */ 
@@ -149,18 +144,12 @@ function recup_page($pdo2)
 	$req_nrpp = "SELECT * FROM configuration WHERE nom = 'nrpp'"; 	
 	$req_nrpp = $pdo2->prepare($req_nrpp);
 	$req_nrpp->execute(); 	
-	
-	/* TODO : A changer car une seule valeur est récupérée */
-	while (($row = $req_nrpp->fetch( PDO::FETCH_ASSOC )))
-		{ 		
-		$nrpp = $row['valeur'];
-		} 	
-		
-	return $nrpp;
+
+	$data = $req_nrpp->fetch(PDO::FETCH_ASSOC);
+	return $data['valeur'];
 	} 
 	
 /* fonction qui affiche le nom du fichier de la page en cours */ 
-
 
 	/*  * function page_courante()
 	 * * {
@@ -173,32 +162,26 @@ function recup_page($pdo2)
 /* fonction qui fait un lien vers la fiche d'un individu en partant de son n° */ 
 
 function individu($pdo2, $i)
-	{ 	
-	// global $nomcase, $prenomcase; 	
+	{ 		
 	$req = $pdo2->query( "select * from individus where ref='{$i}'");
 	
 	while ($row = $req->fetch (PDO::FETCH_ASSOC)) 
 		{ 	
 		$lien = "<a href='index.php?page=fiche&ref=" . $i . "'>" . $row ['prenom'] . " " . $row ['surname'] . "</a>"; 	
 		return $lien; 	
-		// $nomcase = $row['surname']; 	
-		// $prenomcase = $row['prenom']; 	
 		}
 	}
 	
 /* nom d'un individu dans une case de l'arbre */ 
 
 function casearbre($pdo2, $i) 
-	{ 	
-	// global $nomcase, $prenomcase; 	
+	{ 		
 	$req = $pdo2->query ( "select * from individus where ref='{$i}'" ); 	
 	
 	while ($row = $req->fetch (PDO::FETCH_ASSOC))
 		{ 		
-		echo "<a href='index.php?page=fiche&ref=" . $i . "'>" . $row ['surname'] . "<br />" . $row ['prenom'] . "</a>"; 	
-		
-		// $nomcase = $row['surname']; 		
-		// $prenomcase = $row['prenom']; 	
+		echo "<a href='index.php?page=fiche&ref=" . $i . "'>";
+		echo $row ['surname'] . "<br />" . $row ['prenom'] . "</a>";
 		} 
 	} 
 
@@ -256,12 +239,10 @@ function get_category_name($pdo2, $cn)
 	{ 	
 	$req = $pdo2->query("select * from categories where ref ='" . $cn . "'"); 	
 	
-	while ($row = $req->fetch(PDO::FETCH_ASSOC)) 
-		{ 		
-		return $row ['nom']; 	
-		} 
+	$data = $req->fetch(PDO::FETCH_ASSOC);
+	return $data['nom'];
 	} 
-		
+
 /* fonction qui fait le tri des colonnes de la liste éclair */ 
 
 /*	
