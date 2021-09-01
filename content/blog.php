@@ -7,9 +7,9 @@
 /* Efface le FLUX RSS s'il existe */
 
 if (file_exists ( "content/rss.xml" ))
-{
+	{
 	unlink ( "content/rss.xml" );
-}
+	}
 
 /* ouverture du fichier */
 
@@ -28,7 +28,7 @@ $rss = '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE xml><rss version="2.0">
 $req = $pdo2->query ( "SELECT * FROM articles where publication='1'" );
 
 while ( $row = $req->fetch (PDO::FETCH_ASSOC) )
-{
+	{
 	$rss = $rss . '<item>';
 	$rss = $rss . '<title>' . $row ['titre'] . '</title>';
 	$rss = $rss . '<description>' . substr ( $row ['article'], 0, 125 ) . '...</description>';
@@ -39,7 +39,7 @@ while ( $row = $req->fetch (PDO::FETCH_ASSOC) )
 	$url = URL_SITE . "index.php?page=article&id=" . $row ['ref'];
 	$rss = $rss . '<link>' . $url . '</link>';
 	$rss = $rss . '</item>';
-}
+	}
 
 $rss = $rss . "</channel></rss>";
 
@@ -93,7 +93,7 @@ $resultat = $pdo2->prepare( $req );
 $resultat->execute();
 
 while ( $data = $resultat->fetch(PDO::FETCH_ASSOC) )
-{
+	{
 	
 	$article = new articles();
 	$commentaire = new Commentaires();
@@ -108,9 +108,10 @@ while ( $data = $resultat->fetch(PDO::FETCH_ASSOC) )
 	$res_membres->bindValue ( "id", $data['auteur'], PDO::PARAM_INT );
 	$res_membres->execute();
 	
-	while ( $data_membres = $res_membres->fetch(PDO::FETCH_ASSOC) ) {
+	while ( $data_membres = $res_membres->fetch(PDO::FETCH_ASSOC) )
+		{
 		$article->auteur = $data_membres['login'];
-	}
+		}
 	
 	/* titre de l'article */
 	
@@ -118,9 +119,10 @@ while ( $data = $resultat->fetch(PDO::FETCH_ASSOC) )
 	
 	/* date de l'article */
 	
-	if (preg_match ( "/^[0-9]{4}(\/|-|.)(0[1-9]|1[0-2])(\/|-|.)(0[1-9]|[1-2][0-9]|3[0-1])$/", $data ['date'] )) {
+	if (preg_match ( "/^[0-9]{4}(\/|-|.)(0[1-9]|1[0-2])(\/|-|.)(0[1-9]|[1-2][0-9]|3[0-1])$/", $data ['date'] )) 
+		{
 		$article->date = substr ( $data ['date'], 8, 2 ) . " " . MoisEnLettres(substr ( $data ['date'], 5, 2 )) . " " . substr ( $data ['date'], 0, 4 );
-	}
+		}
 	
 	/* catégorie de l'article */
 	
@@ -128,14 +130,11 @@ while ( $data = $resultat->fetch(PDO::FETCH_ASSOC) )
 	
 	/* contenu de l'article */
 	
-	$article->contenu = $data['article'];
-	
-	/* contenu de l'article */
-	
+	$article->contenu = $data['article'];	
 	$article->Afficher($pdo2);
 	$commentaire->AfficheLien($article->ref, $pdo2);
 		
-}
+	}
 
 /* -------------------------- */
 /* AFFICHAGE DE LA PAGINATION */

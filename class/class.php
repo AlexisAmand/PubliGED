@@ -560,6 +560,8 @@ class Articles
 	public $categorie;
 	public $contenu;
 	public $publication;
+	public $description;
+	public $keywords;
 		
 	/* Cette méthode récupére la liste de tous les articles */
 
