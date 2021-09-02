@@ -18,27 +18,43 @@
 					<div class="card-body">
 					    
 		            <?php
-					if (! empty ( $_POST ['categorie'] )) 
+
+					if (! empty ( $_POST ['nom_categorie'] )) 
 						{
 						$sqlAjoutArticle = "INSERT INTO categories(nom) values (:p5)";
 						$AjoutArticle = $pdo->prepare ( $sqlAjoutArticle );
-						$AjoutArticle->bindparam ( ':p5', $_POST ['categorie'] );
+						$AjoutArticle->bindparam ( ':p5', $_POST ['nom_categorie'] );
 						$AjoutArticle->execute ();
-					?>
-					
-					<div class="alert alert-success" role="alert">
-					<?php echo ADM_CAT_SEND; ?>
-					</div>
-					
-					<?php
+						
+						$msg = ADM_CAT_SEND; 
+
 						} 
-					else 
+
+					if ((! empty ( $_POST ['nom_categorie'] )) and (!empty($_POST['des_categorie']))) 
 						{
+						$sqlAjoutArticle = 'INSERT INTO categories(nom, description) values (:p1, :p2)';
+						$AjoutArticle = $pdo->prepare ( $sqlAjoutArticle );
+						$AjoutArticle->bindparam ( ':p1', $_POST ['nom_categorie'] );
+						$AjoutArticle->bindparam ( ':p2', $_POST ['des_categorie'] );
+						$AjoutArticle->execute ();
+						
+						$msg = "la catégorie et sa description ont bien été ajoutés";
+
+						} 
+						
 					?>
 
+
+					
 					<p><?php echo ADM_ONLINE_TOOLS; ?></p>
 
 					<?php
+
+					if(isset($msg))
+						{
+						echo '<div class="alert alert-success" role="alert">'.$msg.'</div>';
+						}
+
 					$cat = $pdo->query ( "select * from categories" );
 					?>
 	
@@ -61,7 +77,12 @@
 				
 					<div class="input-group input-group-sm mb-3">
 						<span class="input-group-text"><?php echo ADM_RUB_ADD_C; ?></span>
-					    <input class="form-control" id="categorie" name='categorie'>
+					    <input class="form-control" id="categorie" name='nom_categorie'>
+					</div>
+
+					<div class="input-group input-group-sm mb-3">
+						<span class="input-group-text"><?php echo "Description de la catégorie"; ?></span>
+					    <input class="form-control" id="categorie" name='des_categorie'>
 					</div>
 					
 					<div class="d-grid d-md-flex justify-content-md-end mt-3">
@@ -70,9 +91,6 @@
 					
 				</form>
 				
-				<?php } ?>
-	
-           								 
 					</div>
                                     
 				</div>

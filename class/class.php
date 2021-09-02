@@ -232,17 +232,59 @@ class Pages
 	/* cette méthode récupére le title et la meta description pour le HEAD */
 	
 	public function AfficherMeta($pdo2)
-		{	
-		$sqlMeta = $pdo2->prepare("select * from pages where nom = :page");
-		$sqlMeta->bindParam ( ':page', $_GET['page'] ); 	
-		$sqlMeta->execute();
-		$data = $sqlMeta->fetch();
+		{
+		switch($_GET['page'])
+			{
+
+			case 'article':
+				
+				/* récupération des métas */
+				$sqlMeta = $pdo2->prepare("select * from articles where ref = :ref");
+				$sqlMeta->bindParam(':ref',$_GET['id']);
+				$sqlMeta->execute();
+				$data = $sqlMeta->fetch();
+
+				/* affichage de la balise <title> */
+				echo "<title>".$data['titre']." | ".recupNomSite($pdo2)."</title>\n";
+
+				/* affichage de la <meta> description */
+				echo "<meta name='description' content='".$data['meta_des']."'>\n";
+			
+			break;
+
+			case 'categories':
+			
+				/* récupération des métas */
+				$sqlMeta = $pdo2->prepare("select * from categories where ref = :ref");
+				$sqlMeta->bindParam(':ref',$_GET['id']);
+				$sqlMeta->execute();
+				$data = $sqlMeta->fetch();
+
+				/* affichage de la balise <title> */
+				echo "<title>".$data['nom']." | ".recupNomSite($pdo2)."</title>\n";
+
+				/* affichage de la <meta> description */
+				echo "<meta name='description' content='".$data['description']."'>\n";
 		
-		/* affichage du title */
-		echo "<title>".$data['titre']." | ".recupNomSite($pdo2)."</title>\n";
-		
-		/* affichage de la meta description */
-		echo "<meta name='description' content='".$data['description']."'>\n";
+			break;
+
+			/* sinon, on affiche la méta par défaut qui est prédéfini par le CMS */
+
+			default:
+
+				$sqlMeta = $pdo2->prepare("select * from pages where nom = :page");
+				$sqlMeta->bindParam ( ':page', $_GET['page'] ); 	
+				$sqlMeta->execute();
+				$data = $sqlMeta->fetch();
+				
+				/* affichage de la balise <title> */
+				echo "<title>".$data['titre']." | ".recupNomSite($pdo2)."</title>\n";
+				
+				/* affichage de la meta description */
+				echo "<meta name='description' content='".$data['description']."'>\n";
+
+			}
+
 		}
 
 	/* cette méthode récupére le template perso */
