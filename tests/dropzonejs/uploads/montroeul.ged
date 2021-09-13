@@ -1,0 +1,1436 @@
+0 HEAD
+1 SOUR HEREDIS 11 PC
+2 VERS 11
+2 NAME HEREDIS PC
+2 CORP BSD Concept ©
+3 ADDR www.heredis.com
+1 DATE 25 MAR 2021
+2 TIME 11:55:02
+1 GEDC
+2 VERS 5.5
+2 FORM LINEAGE-LINKED
+1 CHAR ANSI
+1 PLAC
+2 FORM Town , Area code , County , Region , Country, Subdivision
+1 SUBM @S0@
+0 @S0@ SUBM
+1 NAME Amand Alexis
+1 ADDR 
+1 PHON 0662637921
+1 EMAIL alexis.amand@gmail.com
+1 WWW http://www.genealexis.fr
+0 @2I@ INDI
+1 NAME Pierre/AMAND/
+2 GIVN Pierre
+2 SURN AMAND
+1 SEX M
+1 OCCU Chevalier et homme d'armes du comte de Hainaut (1310)
+1 FAMS @7U@
+1 _FIL LEGITIMATE_CHILD
+0 @6I@ INDI
+1 NAME Marie/d'OTRICQ/
+2 GIVN Marie
+2 SURN d'OTRICQ
+1 SEX F
+1 FAMS @7U@
+1 FAMC @11U@
+1 _FIL LEGITIMATE_CHILD
+0 @8I@ INDI
+1 NAME Antoine/d'OTRICQ/
+2 GIVN Antoine
+2 SURN d'OTRICQ
+1 SEX M
+1 FAMS @11U@
+1 _FIL LEGITIMATE_CHILD
+0 @10I@ INDI
+1 NAME Marie/de EDRI/
+2 GIVN Marie
+2 SURN de EDRI
+1 SEX F
+1 FAMS @11U@
+1 _FIL LEGITIMATE_CHILD
+0 @13I@ INDI
+1 NAME Jean/AMAND/
+2 GIVN Jean
+2 SURN AMAND
+1 SEX M
+1 FAMS @16U@
+1 FAMC @7U@
+1 _FIL LEGITIMATE_CHILD
+0 @15I@ INDI
+1 NAME Jeanne/de SOLBREUX/
+2 GIVN Jeanne
+2 SURN de SOLBREUX
+1 SEX F
+1 FAMS @16U@
+1 _FIL LEGITIMATE_CHILD
+0 @18I@ INDI
+1 NAME Pierre/AMAND/
+2 GIVN Pierre
+2 SURN AMAND
+1 SEX M
+1 FAMS @21U@
+1 FAMC @16U@
+1 _FIL LEGITIMATE_CHILD
+0 @20I@ INDI
+1 NAME Jeanne/de COURIÈRES/
+2 GIVN Jeanne
+2 SURN de COURIÈRES
+1 SEX F
+1 FAMS @21U@
+1 _FIL LEGITIMATE_CHILD
+0 @22I@ INDI
+1 NAME N..../AMAND/
+2 GIVN N....
+2 SURN AMAND
+2 NPFX Grand bailli du Hainaut (1365)
+1 TITL Grand bailli du Hainaut (1365)
+1 SEX M
+1 EVEN
+2 TYPE Title
+2 DATE 1365
+2 SOUR @359S@
+2 NOTE Il est Grand Bailli du Hainaut
+1 FAMC @21U@
+1 _FIL LEGITIMATE_CHILD
+0 @23I@ INDI
+1 NAME Jean/AMAND/
+2 GIVN Jean
+2 SURN AMAND
+1 SEX M
+1 FAMS @26U@
+1 FAMC @21U@
+1 _FIL LEGITIMATE_CHILD
+0 @25I@ INDI
+1 NAME Maigne/JOYE/
+2 GIVN Maigne
+2 SURN JOYE
+1 SEX F
+1 FAMS @26U@
+1 _FIL LEGITIMATE_CHILD
+0 @27I@ INDI
+1 NAME Nicolas/AMAND/
+2 GIVN Nicolas
+2 SURN AMAND
+1 SEX M
+1 FAMC @26U@
+1 _FIL LEGITIMATE_CHILD
+1 _CLS YES
+0 @28I@ INDI
+1 NAME Jean/AMAND/
+2 GIVN Jean
+2 SURN AMAND
+1 SEX M
+1 DEAT
+2 DATE 1467
+2 SOUR @359S@
+1 FAMS @31U@
+1 FAMC @26U@
+1 _FIL LEGITIMATE_CHILD
+0 @30I@ INDI
+1 NAME Marguerite/GRIGOIRE/
+2 GIVN Marguerite
+2 SURN GRIGOIRE
+1 SEX F
+1 FAMS @31U@
+1 _FIL LEGITIMATE_CHILD
+0 @33I@ INDI
+1 NAME Jacquemart/AMAND/
+2 GIVN Jacquemart
+2 SURN AMAND
+1 SEX M
+1 EVEN
+2 TYPE Alive
+2 DATE 1497
+2 SOUR @359S@
+1 FAMS @36U@
+1 FAMC @31U@
+1 _FIL LEGITIMATE_CHILD
+0 @35I@ INDI
+1 NAME Catherine/de GHOSSELAIRE/
+2 GIVN Catherine
+2 SURN de GHOSSELAIRE
+1 SEX F
+1 FAMS @36U@
+1 _FIL LEGITIMATE_CHILD
+0 @38I@ INDI
+1 NAME Jean/AMAND/
+2 GIVN Jean
+2 SURN AMAND
+1 SEX M
+1 EVEN
+2 TYPE Residence
+2 DATE 1525
+1 FAMS @42U@
+1 FAMC @36U@
+1 _FIL LEGITIMATE_CHILD
+1 _CLS YES
+0 @41I@ INDI
+1 NAME Françoise/CORBAULT/
+2 GIVN Françoise
+2 SURN CORBAULT
+1 SEX F
+1 FAMS @42U@
+1 _FIL LEGITIMATE_CHILD
+1 _CLS YES
+0 @43I@ INDI
+1 NAME Simon/AMAND/
+2 GIVN Simon
+2 SURN AMAND
+1 SEX M
+1 FAMS @46U@
+1 FAMC @36U@
+1 _FIL LEGITIMATE_CHILD
+0 @45I@ INDI
+1 NAME Antoinette/de BRISTELLE/
+2 GIVN Antoinette
+2 SURN de BRISTELLE
+1 SEX F
+1 FAMS @46U@
+1 FAMC @47U@
+1 _FIL LEGITIMATE_CHILD
+0 @47I@ INDI
+1 NAME Jacques/de BRISTELLE/
+2 GIVN Jacques
+2 SURN de BRISTELLE
+1 SEX M
+1 FAMS @47U@
+1 _FIL LEGITIMATE_CHILD
+0 @48I@ INDI
+1 NAME Jacques/AMAND/
+2 GIVN Jacques
+2 SURN AMAND
+2 NPFX Chevalier et Echevin de Mons
+1 TITL Chevalier et Echevin de Mons
+1 SEX M
+1 EVEN
+2 TYPE Title
+2 DATE 1556
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @278S@
+2 NOTE Echevin de Mons
+1 EVEN
+2 TYPE Title
+2 DATE 1559
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,M
+2 SOUR @278S@
+2 NOTE Massard
+1 EVEN
+2 TYPE Title
+2 DATE 1562
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @278S@
+2 NOTE Echevin de Mons de 1562 à 1564
+1 DEAT
+2 DATE 1564
+2 SOUR @278S@
+2 NOTE Peut-être à Mons
+1 FAMS @55U@
+1 FAMC @46U@
+1 _FIL LEGITIMATE_CHILD
+0 @54I@ INDI
+1 NAME Jenne/LE BRUN/
+2 GIVN Jenne
+2 SURN LE BRUN
+2 NPFX Dame de Montroeul
+1 TITL Dame de Montroeul
+1 SEX F
+1 DEAT
+2 DATE 1584
+2 SOUR @278S@
+1 FAMS @55U@
+1 FAMC @58U@
+1 _FIL LEGITIMATE_CHILD
+0 @56I@ INDI
+1 NAME Jaspart/LE BRUN/
+2 GIVN Jaspart
+2 SURN LE BRUN
+2 NPFX Seigneur de Montroeul, Clercq du Baillage du Hainaut
+1 TITL Seigneur de Montroeul, Clercq du Baillage du Hainaut
+1 SEX M
+1 EVEN
+2 TYPE Title
+2 DATE 1514
+2 NOTE Echevin de Mons
+1 EVEN
+2 TYPE Title
+2 DATE 21 MAR 1528
+2 NOTE Greffier des états
+1 EVEN
+2 TYPE Title
+2 DATE 1534
+2 NOTE conseiller au conseil ordinaire
+1 FAMS @58U@
+1 _FIL LEGITIMATE_CHILD
+0 @57I@ INDI
+1 NAME Waudru/CORBAULT/
+2 GIVN Waudru
+2 SURN CORBAULT
+1 SEX F
+1 FAMS @58U@
+1 _FIL LEGITIMATE_CHILD
+0 @59I@ INDI
+1 NAME Lancelot/AMAND/
+2 GIVN Lancelot
+2 SURN AMAND
+2 NPFX seigneur de Montroeul
+1 TITL seigneur de Montroeul
+1 SEX M
+1 EVEN
+2 TYPE 
+2 DATE 1586
+2 PLAC Ciply,7024,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @229S@
+2 NOTE En 1598, Lancelot AMAND, seigneur de Montroeul, fit construit à Ciply une chapelle cadastrale dont il se reserva le droit de patronat et qui fut dédiée à la Sainte Vierge, à Saint Lancelot et à Sainte Waudru. Cette chapelle figure sur la cart
+3 CONC e de Ferraris.  En 1907, la chapelle existait encore, mais comme on le voit sur le dessin ci-contre, elle ne présente (selon Alph. GOSSERIES) aucun caractère architectural. Elle est alors située à l'extrémité de la ferme de Montroeul, dont el
+3 CONC le était séparée par le By, et à laquelle on avait accès par un pony. Une petite pierre portant le millésime 1586 et placée en haut de la façade, rappellait l'époque de la construction. 
+1 DEAT
+2 DATE 16 JUL 1598
+1 FAMS @64U@
+1 FAMC @55U@
+1 NOTE Ecuyer, Seigneur de Montroeul, receveur général du chapitre de Sainte-Waudru, fut échevin de Mons en 1573.
+1 _FIL LEGITIMATE_CHILD
+0 @60I@ INDI
+1 NAME Jean/AMAND/
+2 GIVN Jean
+2 SURN AMAND
+2 NPFX Seigneur de Nouvelles, de Marcq et d'Aucy
+1 TITL Seigneur de Nouvelles, de Marcq et d'Aucy
+1 SEX M
+1 EVEN
+2 TYPE Title
+2 DATE 1574
+2 NOTE Echevin de Mons
+1 EVEN
+2 TYPE Title
+2 DATE 1575
+2 NOTE Echevin de Mons
+1 EVEN
+2 TYPE Title
+2 DATE 1588
+2 NOTE Echevin de Mons
+1 EVEN
+2 TYPE Title
+2 DATE 1590
+2 NOTE Chef échevin de Mons
+1 FAMS @138U@
+1 FAMC @55U@
+1 _FIL LEGITIMATE_CHILD
+0 @61I@ INDI
+1 NAME Philippe/AMAND/
+2 GIVN Philippe
+2 SURN AMAND
+2 NPFX Ecuyer, seigneur de Petignies
+1 TITL Ecuyer, seigneur de Petignies
+1 SEX M
+1 EVEN
+2 TYPE Title
+2 DATE 1585
+2 NOTE Echevin de Mons
+1 EVEN
+2 TYPE Title
+2 DATE 1586
+2 NOTE il est massard
+1 EVEN
+2 TYPE Title
+2 DATE 1593
+2 NOTE Echevin de Mons
+1 EVEN
+2 TYPE Title
+2 DATE 1594
+2 NOTE Echevin de Mons
+1 EVEN
+2 TYPE Title
+2 DATE 1595
+2 NOTE Echevin de Mons
+1 EVEN
+2 TYPE Travel
+2 DATE 1598
+2 NOTE En sa qualité de membre du conseil de Ville, il fit partie de la députation des trois ordres des états, chargée, en 1598, de se rendre à Bruxelles pour recevoir le serment à prêter par l'archiduc Albert, au nom de l'Infante Isabelle et pour l
+3 CONC e faire réciproquement au nom des états.
+1 DEAT
+2 DATE 6 AUG 1622
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 NOTE Il est inhumé dans l'église Sainte-Waldru
+1 FAMS @255U@
+1 FAMS @181U@
+1 FAMC @55U@
+1 _FIL LEGITIMATE_CHILD
+0 @63I@ INDI
+1 NAME Jeanne/de HAULCHIN/
+2 GIVN Jeanne
+2 SURN de HAULCHIN
+1 SEX F
+1 FAMS @64U@
+1 _FIL LEGITIMATE_CHILD
+0 @66I@ INDI
+1 NAME David/AMAND/
+2 GIVN David
+2 SURN AMAND
+2 NPFX seigneur de Montroeul
+1 TITL seigneur de Montroeul
+1 SEX M
+1 BIRT
+2 DATE 20 MAY 1569
+2 SOUR @278S@
+1 EVEN
+2 TYPE Title
+2 DATE 1596
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @278S@
+2 NOTE Il est echevin de Mons
+1 EVEN
+2 TYPE Title
+2 DATE 1618
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @278S@
+2 NOTE Il est echevin de Mons
+1 EVEN
+2 TYPE Title
+2 DATE 1624
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @278S@
+2 NOTE Il est echevin de Mons
+1 EVEN
+2 TYPE Title
+2 DATE 1625
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @278S@
+2 NOTE Il est echevin de Mons
+1 DEAT
+2 DATE 9 DEC 1626
+2 SOUR @306S@
+1 FAMS @82U@
+1 FAMC @64U@
+1 NOTE Echevin de Mons en 1596, 1618, 1624 et 1625.
+2 CONT Receveur général du chapitre de Sainte-Waldru
+1 _FIL LEGITIMATE_CHILD
+0 @67I@ INDI
+1 NAME Philippe/AMAND/
+2 GIVN Philippe
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 12 MAR 1574
+2 SOUR @278S@
+1 FAMC @64U@
+1 _FIL LEGITIMATE_CHILD
+0 @69I@ INDI
+1 NAME Jeanne/AMAND/
+2 GIVN Jeanne
+2 SURN AMAND
+1 SEX F
+1 CHR
+1 FAMC @64U@
+1 _FIL LEGITIMATE_CHILD
+0 @70I@ INDI
+1 NAME Marguerite/AMAND/
+2 GIVN Marguerite
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 23 MAR 1577
+2 SOUR @278S@
+1 FAMC @64U@
+1 _FIL LEGITIMATE_CHILD
+0 @72I@ INDI
+1 NAME Marie/AMAND/
+2 GIVN Marie
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 23 MAR 1577
+2 SOUR @278S@
+1 FAMC @64U@
+1 _FIL LEGITIMATE_CHILD
+0 @76I@ INDI
+1 NAME Yolente/AMAND/
+2 GIVN Yolente
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 28 FEB 1580
+2 SOUR @278S@
+1 FAMC @64U@
+1 _FIL LEGITIMATE_CHILD
+0 @81I@ INDI
+1 NAME Jeanne/RESTEAU/
+2 GIVN Jeanne
+2 SURN RESTEAU
+1 SEX F
+1 FAMS @82U@
+1 _FIL LEGITIMATE_CHILD
+0 @83I@ INDI
+1 NAME Lancelot/AMAND/
+2 GIVN Lancelot
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 27 NOV 1596
+2 SOUR @306S@
+1 FAMC @82U@
+1 _FIL LEGITIMATE_CHILD
+0 @85I@ INDI
+1 NAME Jean/AMAND/
+2 GIVN Jean
+2 SURN AMAND
+2 NPFX seigneur de Montroeul et de la Couture
+1 TITL seigneur de Montroeul et de la Couture
+1 SEX M
+1 BIRT
+2 DATE 29 DEC 1597
+2 SOUR @306S@
+1 WILL
+2 DATE 1 FEB 1656
+2 NOTE Il se déshérite de la seignerie de Montroeul, en faveur de son fils ainé Jean-François AMAND.
+1 FAMS @97U@
+1 FAMC @82U@
+1 _FIL LEGITIMATE_CHILD
+0 @87I@ INDI
+1 NAME Catherine/AMAND/
+2 GIVN Catherine
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 3 OCT 1599
+2 SOUR @306S@
+1 FAMC @82U@
+1 _FIL LEGITIMATE_CHILD
+0 @89I@ INDI
+1 NAME Philippe/AMAND/
+2 GIVN Philippe
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 7 APR 1602
+2 SOUR @306S@
+1 FAMC @82U@
+1 _FIL LEGITIMATE_CHILD
+0 @91I@ INDI
+1 NAME Marie/AMAND/
+2 GIVN Marie
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 2 FEB 1606
+2 SOUR @306S@
+1 FAMC @82U@
+1 _FIL LEGITIMATE_CHILD
+0 @93I@ INDI
+1 NAME Charlotte/AMAND/
+2 GIVN Charlotte
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 11 OCT 1609
+2 SOUR @306S@
+1 FAMC @82U@
+1 _FIL LEGITIMATE_CHILD
+0 @96I@ INDI
+1 NAME Jeanne/de JONCHIÈRES/
+2 GIVN Jeanne
+2 SURN de JONCHIÈRES
+1 SEX F
+1 FAMS @97U@
+1 _FIL LEGITIMATE_CHILD
+0 @98I@ INDI
+1 NAME Jean-François/AMAND/
+2 GIVN Jean-François
+2 SURN AMAND
+1 SEX M
+1 EVEN
+2 TYPE Title
+2 DATE 1 FEB 1656
+2 SOUR @306S@
+2 NOTE Il devient seigneur de Montroeul, par donation de son père
+1 DEAT
+2 DATE 4 APR 1660
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 NOTE Il est tué en duel à la porte de Havré, à Mons.
+1 FAMC @97U@
+1 _FIL LEGITIMATE_CHILD
+0 @99I@ INDI
+1 NAME Jean-Marie/AMAND/
+2 GIVN Jean-Marie
+2 SURN AMAND
+2 NPFX seigneur de Montroeul et de la Couture
+1 TITL seigneur de Montroeul et de la Couture
+1 SEX M
+1 EVEN
+2 TYPE Title
+2 DATE 1660
+2 NOTE Il devient seigneur de la Couture et de de Montroeul à la mort de son frère Jean-François.
+1 WILL
+2 DATE 27 SEP 1660
+2 SOUR @326S@
+2 NOTE Il se desherite de sa seigneurie de Montroeul
+1 EVEN
+2 TYPE Title
+2 DATE 1662
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @326S@
+2 NOTE Il est échevin de Mons en 1662  et 1663.
+1 EVEN
+2 TYPE Title
+2 DATE 1663
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @326S@
+2 NOTE Il est échevin de Mons
+1 DEAT
+2 DATE 5 SEP 1669
+2 SOUR @326S@
+1 FAMS @122U@
+1 FAMC @97U@
+1 _FIL LEGITIMATE_CHILD
+0 @100I@ INDI
+1 NAME Marie-Anne/AMAND/
+2 GIVN Marie-Anne
+2 SURN AMAND
+2 NPFX Seigneur de Raduelz
+1 TITL Seigneur de Raduelz
+1 SEX F
+1 BIRT
+2 DATE 10 APR 1635
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @306S@
+1 FAMS @104U@
+1 FAMC @97U@
+1 _FIL LEGITIMATE_CHILD
+0 @103I@ INDI
+1 NAME Jean-Charles/de BOUDRY/
+2 GIVN Jean-Charles
+2 SURN de BOUDRY
+2 NPFX Ecuyer, Seigneur de Bermelz
+1 TITL Ecuyer, Seigneur de Bermelz
+1 SEX M
+1 FAMS @104U@
+1 FAMC @290U@
+1 _FIL LEGITIMATE_CHILD
+0 @105I@ INDI
+1 NAME Jeanne-Madeleine/AMAND/
+2 GIVN Jeanne-Madeleine
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 20 DEC 1636
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+1 DEAT
+2 DATE 6 FEB 1717
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 NOTE une épitaphe en son nom est située dans la Chapelle Sainte Aldegonde de l'Eglise Saint-Waudru de Mons: « Ici gît noble homme messire Charles Philippe de Masnuy chevalier sire de Raduelz en son vivant bailly du très noble et illustre chapitre 
+3 CONC de Sainte Waudru, l’espace de 34 ans et plus décédé le 23 de juillet 1716 et auprès de lui dame Jenne Magdeleine Amand son épouse décédée le 6 février 1717 »
+3 CONT 
+3 CONT 
+3 CONT Blason "D’azur à la bande d’or accompagnée de deux quintefeuilles d’argent" (Rietstap)
+1 FAMS @109U@
+1 FAMC @97U@
+1 _FIL LEGITIMATE_CHILD
+0 @108I@ INDI
+1 NAME Charles-Philippe/de MASNUY/
+2 GIVN Charles-Philippe
+2 SURN de MASNUY
+1 SEX M
+1 DEAT
+2 DATE 23 JUL 1716
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 NOTE une épitaphe en son nom est située dans la Chapelle Sainte Aldegonde de l'Eglise Saint-Waudru de Mons: « Ici gît noble homme messire Charles Philippe de Masnuy chevalier sire de Raduelz en son vivant bailly du très noble et illustre chapitre 
+3 CONC de Sainte Waudru, l’espace de 34 ans et plus décédé le 23 de juillet 1716 et auprès de lui dame Jenne Magdeleine Amand son épouse décédée le 6 février 1717 »
+3 CONT 
+3 CONT blason: "Parti. De gueules et de sable à deux barbeaux ou bars adossés d’argent"
+1 FAMS @109U@
+1 _FIL LEGITIMATE_CHILD
+0 @110I@ INDI
+1 NAME Jeanne-Catherine/AMAND/
+2 GIVN Jeanne-Catherine
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 16 FEB 1638
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @306S@
+1 FAMC @97U@
+1 _FIL LEGITIMATE_CHILD
+0 @112I@ INDI
+1 NAME Charles François/AMAND/
+2 GIVN Charles François
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 25 SEP 1641
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @306S@
+1 FAMC @97U@
+1 _FIL LEGITIMATE_CHILD
+0 @114I@ INDI
+1 NAME Philippe-Antoine/AMAND/
+2 GIVN Philippe-Antoine
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 30 OCT 1643
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @278S@
+1 FAMC @97U@
+1 _FIL LEGITIMATE_CHILD
+0 @121I@ INDI
+1 NAME Marie-Anne-Thérèse/VINCHANT/
+2 GIVN Marie-Anne-Thérèse
+2 SURN VINCHANT
+1 SEX F
+1 DEAT
+2 DATE 28 NOV 1714
+2 SOUR @336S@
+1 FAMS @346U@
+1 FAMS @354U@
+1 FAMS @122U@
+1 _FIL LEGITIMATE_CHILD
+0 @125I@ INDI
+1 NAME Gilles-François/AMAND/
+2 GIVN Gilles-François
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 1 MAY 1662
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @336S@
+1 FAMC @122U@
+1 _FIL LEGITIMATE_CHILD
+0 @127I@ INDI
+1 NAME Jean-Marie/AMAND/
+2 GIVN Jean-Marie
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 28 SEP 1664
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @336S@
+1 FAMC @122U@
+1 _FIL LEGITIMATE_CHILD
+0 @129I@ INDI
+1 NAME Marie-Anne/AMAND/
+2 GIVN Marie-Anne
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 15 OCT 1667
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+2 SOUR @336S@
+1 DEAT
+2 DATE 23 JUN 1673
+2 SOUR @336S@
+1 FAMC @122U@
+1 _FIL LEGITIMATE_CHILD
+0 @137I@ INDI
+1 NAME Jeanne/DESSUS-LE-MOUSTIER/
+2 GIVN Jeanne
+2 SURN DESSUS-LE-MOUSTIER
+1 SEX F
+1 FAMS @138U@
+1 FAMC @251U@
+1 _FIL LEGITIMATE_CHILD
+0 @139I@ INDI
+1 NAME Philippe/AMAND/
+2 GIVN Philippe
+2 SURN AMAND
+2 NPFX receveur du chapitre de Sainte-Waldru
+1 TITL receveur du chapitre de Sainte-Waldru
+1 SEX M
+1 BIRT
+2 DATE 23 SEP 1570
+1 FAMC @138U@
+1 _FIL LEGITIMATE_CHILD
+0 @141I@ INDI
+1 NAME Jacques/AMAND/
+2 GIVN Jacques
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 18 AUG 1574
+1 FAMC @138U@
+1 _FIL LEGITIMATE_CHILD
+0 @143I@ INDI
+1 NAME Anne/AMAND/
+2 GIVN Anne
+2 SURN AMAND
+1 SEX F
+1 FAMS @146U@
+1 FAMC @138U@
+1 _FIL LEGITIMATE_CHILD
+0 @145I@ INDI
+1 NAME François/MALAPERT/
+2 GIVN François
+2 SURN MALAPERT
+1 SEX M
+1 FAMS @146U@
+1 _FIL LEGITIMATE_CHILD
+0 @147I@ INDI
+1 NAME Simon/AMAND/
+2 GIVN Simon
+2 SURN AMAND
+2 NPFX Seigneur de Nouvelles
+1 TITL Seigneur de Nouvelles
+1 SEX M
+1 FAMS @150U@
+1 FAMC @138U@
+1 _FIL LEGITIMATE_CHILD
+0 @149I@ INDI
+1 NAME Isabelle/LAURENT/
+2 GIVN Isabelle
+2 SURN LAURENT
+1 SEX F
+1 FAMS @150U@
+1 FAMC @155U@
+1 _FIL LEGITIMATE_CHILD
+0 @152I@ INDI
+1 NAME Arnould/LAURENT/
+2 GIVN Arnould
+2 SURN LAURENT
+1 SEX M
+1 FAMS @155U@
+1 _FIL LEGITIMATE_CHILD
+0 @154I@ INDI
+1 NAME Philiberte/DURANT/
+2 GIVN Philiberte
+2 SURN DURANT
+1 SEX F
+1 FAMS @155U@
+1 _FIL LEGITIMATE_CHILD
+0 @156I@ INDI
+1 NAME Isabeau/AMAND/
+2 GIVN Isabeau
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 17 FEB 1598
+1 FAMS @160U@
+1 FAMC @150U@
+1 _FIL LEGITIMATE_CHILD
+0 @159I@ INDI
+1 NAME Charles/van DER STEYN/
+2 GIVN Charles
+2 SURN van DER STEYN
+1 SEX M
+1 DEAT
+2 DATE 26 MAR 1667
+2 SOUR @260S@
+1 OCCU Echevin de Mons (1630), Bailli de Soignies (1637)
+1 FAMS @160U@
+1 FAMC @271U@
+1 _FIL LEGITIMATE_CHILD
+0 @162I@ INDI
+1 NAME Arnould/AMAND/
+2 GIVN Arnould
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 27 SEP 1602
+1 FAMC @150U@
+1 _FIL LEGITIMATE_CHILD
+0 @164I@ INDI
+1 NAME Marguerite/AMAND/
+2 GIVN Marguerite
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 8 MAR 1605
+1 FAMC @150U@
+1 _FIL LEGITIMATE_CHILD
+0 @166I@ INDI
+1 NAME Anne/AMAND/
+2 GIVN Anne
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 1 NOV 1610
+1 FAMS @173U@
+1 FAMS @170U@
+1 FAMC @150U@
+1 _FIL LEGITIMATE_CHILD
+0 @169I@ INDI
+1 NAME N.../JONART/
+2 GIVN N...
+2 SURN JONART
+1 SEX M
+1 FAMS @170U@
+1 _FIL LEGITIMATE_CHILD
+0 @172I@ INDI
+1 NAME Louis/LEBOUCQ/
+2 GIVN Louis
+2 SURN LEBOUCQ
+1 SEX M
+1 FAMS @173U@
+1 _FIL LEGITIMATE_CHILD
+0 @180I@ INDI
+1 NAME /DE VILLERS/
+2 SURN DE VILLERS
+1 SEX F
+1 FAMS @181U@
+1 FAMC @258U@
+1 NOTE Selon Casimir de Sars de Solmon, elle s'appelle De Villers
+1 _FIL LEGITIMATE_CHILD
+0 @185I@ INDI
+1 NAME Jean/AMAND/
+2 GIVN Jean
+2 SURN AMAND
+1 SEX M
+1 OCCU Jésuite
+1 FAMC @181U@
+1 _FIL LEGITIMATE_CHILD
+0 @186I@ INDI
+1 NAME Bertrand/AMAND/
+2 GIVN Bertrand
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 19 MAY 1579
+2 SOUR @368S@
+1 FAMC @181U@
+1 _FIL LEGITIMATE_CHILD
+0 @188I@ INDI
+1 NAME Michel/AMAND/
+2 GIVN Michel
+2 SURN AMAND
+2 NPFX seigneur de Petignies
+1 TITL seigneur de Petignies
+1 SEX M
+1 BIRT
+2 DATE 29 SEP 1582
+2 SOUR @368S@
+1 EVEN
+2 TYPE Title
+2 DATE 1612
+2 SOUR @368S@
+2 NOTE Echevin de Mons
+1 EVEN
+2 TYPE Title
+2 DATE 1615
+2 SOUR @368S@
+2 NOTE Echevin de Mons
+1 FAMS @203U@
+1 FAMC @181U@
+1 _FIL LEGITIMATE_CHILD
+0 @189I@ INDI
+1 NAME Anne/AMAND/
+2 GIVN Anne
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 19 MAR 1580
+2 SOUR @368S@
+1 FAMS @194U@
+1 FAMC @181U@
+1 _FIL LEGITIMATE_CHILD
+0 @192I@ INDI
+1 NAME Séverin/FRANEAU/
+2 GIVN Séverin
+2 SURN FRANEAU
+2 NPFX seigneur de Bouchault
+1 TITL seigneur de Bouchault
+1 SEX M
+1 BIRT
+2 DATE 19 MAY 1569
+2 SOUR @368S@
+1 FAMS @194U@
+1 _FIL LEGITIMATE_CHILD
+0 @196I@ INDI
+1 NAME Philippote/AMAND/
+2 GIVN Philippote
+2 SURN AMAND
+1 SEX F
+1 BIRT
+2 DATE 7 APR 1593
+1 FAMC @181U@
+1 _FIL LEGITIMATE_CHILD
+0 @202I@ INDI
+1 NAME Catherine/GOUBILLE/
+2 GIVN Catherine
+2 SURN GOUBILLE
+2 NPFX Dame de Hérimez et de Merbes-Sainte-Marie
+1 TITL Dame de Hérimez et de Merbes-Sainte-Marie
+1 SEX F
+1 FAMS @203U@
+1 _FIL LEGITIMATE_CHILD
+0 @204I@ INDI
+1 NAME Philippe/AMAND/
+2 GIVN Philippe
+2 SURN AMAND
+1 SEX M
+1 DEAT
+2 DATE 2 MAR 1653
+2 SOUR @368S@
+1 FAMC @203U@
+1 NOTE il est écuyer, seigneur de Petignies, capitaine-lieutenant d'une compagnie d'hommes d'armes au service du roi.
+1 _FIL LEGITIMATE_CHILD
+0 @206I@ INDI
+1 NAME Nicolas/AMAND/
+2 GIVN Nicolas
+2 SURN AMAND
+1 SEX M
+1 BIRT
+2 DATE 24 NOV 1620
+2 SOUR @368S@
+1 OCCU Jésuite
+1 FAMC @203U@
+1 _FIL LEGITIMATE_CHILD
+0 @208I@ INDI
+1 NAME Marie-Philippe/AMAND/
+2 GIVN Marie-Philippe
+2 SURN AMAND
+1 SEX F
+1 FAMS @210U@
+1 FAMC @203U@
+1 _FIL LEGITIMATE_CHILD
+0 @209I@ INDI
+1 NAME Bauduin/GOUBILLE/
+2 GIVN Bauduin
+2 SURN GOUBILLE
+2 NPFX seigneur de Hacquegnies
+1 TITL seigneur de Hacquegnies
+1 SEX M
+1 FAMS @210U@
+1 _FIL LEGITIMATE_CHILD
+0 @211I@ INDI
+1 NAME François/GOUBILLE/
+2 GIVN François
+2 SURN GOUBILLE
+1 SEX M
+1 DEAT
+2 DATE 10 MAY 1650
+2 SOUR @368S@
+1 FAMC @210U@
+1 _FIL LEGITIMATE_CHILD
+1 _CLS YES
+0 @213I@ INDI
+1 NAME Philippote Madeleine/AMAND/
+2 GIVN Philippote Madeleine
+2 SURN AMAND
+1 SEX F
+1 FAMS @216U@
+1 FAMC @203U@
+1 _FIL LEGITIMATE_CHILD
+0 @215I@ INDI
+1 NAME Charles-Guillaume/de KERCKEM/
+2 GIVN Charles-Guillaume
+2 SURN de KERCKEM
+1 SEX M
+1 FAMS @216U@
+1 _FIL LEGITIMATE_CHILD
+0 @231I@ INDI
+1 NAME Henri Dominique/de BOUDRY/
+2 GIVN Henri Dominique
+2 SURN de BOUDRY
+1 SEX M
+1 EVEN
+2 TYPE 
+2 DATE 1707
+2 NOTE En 1707, selon le relief fait le 2 décembre, par Henri-Dominique de BOUDRY, par suite de la mort de sa mère, Marie-Anne AMAND, la seigneurie de Montroeul valait 1000 florins annuellement et était chargée de quatre muids de froment, dus, chaqu
+3 CONC e année, à la chapelle Saint-Jacques de Liedekerke, en l'église Saint-Waudru.
+1 FAMC @104U@
+1 _FIL LEGITIMATE_CHILD
+0 @247I@ INDI
+1 NAME Michel/DESSUS-LE-MOUSTIER/
+2 GIVN Michel
+2 SURN DESSUS-LE-MOUSTIER
+2 NPFX Seigneur de Norchain
+1 TITL Seigneur de Norchain
+1 SEX M
+1 FAMS @251U@
+1 _FIL LEGITIMATE_CHILD
+0 @250I@ INDI
+1 NAME Anne/FOURNEAU/
+2 GIVN Anne
+2 SURN FOURNEAU
+1 SEX F
+1 FAMS @251U@
+1 _FIL LEGITIMATE_CHILD
+0 @253I@ INDI
+1 NAME Charles/DE VILLERS/
+2 GIVN Charles
+2 SURN DE VILLERS
+2 NPFX Seigneur de la Golette
+1 TITL Seigneur de la Golette
+1 SEX M
+1 OCCU Mayeur de la ville de Mons
+1 FAMS @258U@
+1 _FIL LEGITIMATE_CHILD
+0 @254I@ INDI
+1 NAME Marie/de LA VIELLEUSE/
+2 GIVN Marie
+2 SURN de LA VIELLEUSE
+1 SEX F
+1 FAMS @255U@
+1 _FIL LEGITIMATE_CHILD
+0 @257I@ INDI
+1 NAME Jeanne/DE LUSY/
+2 GIVN Jeanne
+2 SURN DE LUSY
+1 SEX F
+1 FAMS @258U@
+1 _FIL LEGITIMATE_CHILD
+0 @264I@ INDI
+1 NAME Cornil/van DER STEYN/
+2 GIVN Cornil
+2 SURN van DER STEYN
+1 SEX M
+1 DEAT
+2 DATE 12 FEB 1617
+1 FAMS @271U@
+1 _FIL LEGITIMATE_CHILD
+0 @267I@ INDI
+1 NAME Marie/van DER STEYN/
+2 GIVN Marie
+2 SURN van DER STEYN
+1 SEX F
+1 BIRT
+2 DATE 16 DEC 1634
+2 PLAC Soignies,7060,Hainaut,Wallonie,BELGIQUE,
+1 DEAT
+2 DATE 10 OCT 1655
+2 PLAC Nouvelles,7022,Hainaut,Wallonie,BELGIQUE,
+1 FAMC @160U@
+1 _FIL LEGITIMATE_CHILD
+0 @270I@ INDI
+1 NAME Maximilienne/DOUGON/
+2 GIVN Maximilienne
+2 SURN DOUGON
+1 SEX F
+1 FAMS @271U@
+1 _FIL LEGITIMATE_CHILD
+0 @287I@ INDI
+1 NAME Jean-Dominique/de BOUDRY/
+2 GIVN Jean-Dominique
+2 SURN de BOUDRY
+2 NPFX Seigneur de Bermelz
+1 TITL Seigneur de Bermelz
+1 SEX M
+1 FAMS @290U@
+1 _FIL LEGITIMATE_CHILD
+0 @289I@ INDI
+1 NAME Barbe/VAN DEN EECHOUDT/
+2 GIVN Barbe
+2 SURN VAN DEN EECHOUDT
+1 SEX F
+1 FAMS @290U@
+1 _FIL LEGITIMATE_CHILD
+0 @345I@ INDI
+1 NAME Philippe François/DUMONT/
+2 GIVN Philippe François
+2 SURN DUMONT
+2 NPFX Seigneur du Longpont
+1 TITL Seigneur du Longpont
+1 SEX M
+1 DEAT
+2 DATE 23 JAN 1677
+2 SOUR @336S@
+1 FAMS @346U@
+1 _FIL LEGITIMATE_CHILD
+0 @353I@ INDI
+1 NAME Jean-Charles/de VELTHOVEN/
+2 GIVN Jean-Charles
+2 SURN de VELTHOVEN
+1 SEX M
+1 FAMS @354U@
+1 _FIL LEGITIMATE_CHILD
+0 @7U@ FAM
+1 HUSB @2I@
+1 WIFE @6I@
+1 CHIL @13I@
+1 _UST MARRIED
+0 @11U@ FAM
+1 HUSB @8I@
+1 WIFE @10I@
+1 CHIL @6I@
+1 _UST MARRIED
+0 @16U@ FAM
+1 HUSB @13I@
+1 WIFE @15I@
+1 CHIL @18I@
+1 MARC
+2 DATE 1330
+2 SOUR @359S@
+1 _UST MARRIED
+0 @21U@ FAM
+1 HUSB @18I@
+1 WIFE @20I@
+1 CHIL @22I@
+1 CHIL @23I@
+1 _UST MARRIED
+0 @26U@ FAM
+1 HUSB @23I@
+1 WIFE @25I@
+1 CHIL @27I@
+1 CHIL @28I@
+1 _UST MARRIED
+0 @31U@ FAM
+1 HUSB @28I@
+1 WIFE @30I@
+1 CHIL @33I@
+1 _UST MARRIED
+0 @36U@ FAM
+1 HUSB @33I@
+1 WIFE @35I@
+1 CHIL @38I@
+1 CHIL @43I@
+1 _UST MARRIED
+0 @42U@ FAM
+1 HUSB @38I@
+1 WIFE @41I@
+1 _UST MARRIED
+0 @46U@ FAM
+1 HUSB @43I@
+1 WIFE @45I@
+1 CHIL @48I@
+1 _UST MARRIED
+0 @55U@ FAM
+1 HUSB @48I@
+1 WIFE @54I@
+1 CHIL @59I@
+1 CHIL @60I@
+1 CHIL @61I@
+1 _UST MARRIED
+0 @58U@ FAM
+1 HUSB @56I@
+1 WIFE @57I@
+1 CHIL @54I@
+1 _UST MARRIED
+0 @64U@ FAM
+1 HUSB @59I@
+1 WIFE @63I@
+1 CHIL @66I@
+1 CHIL @67I@
+1 CHIL @69I@
+1 CHIL @70I@
+1 CHIL @72I@
+1 CHIL @76I@
+1 _UST MARRIED
+0 @82U@ FAM
+1 HUSB @66I@
+1 WIFE @81I@
+1 CHIL @83I@
+1 CHIL @85I@
+1 CHIL @87I@
+1 CHIL @89I@
+1 CHIL @91I@
+1 CHIL @93I@
+1 _UST MARRIED
+0 @97U@ FAM
+1 HUSB @85I@
+1 WIFE @96I@
+1 CHIL @98I@
+1 CHIL @99I@
+1 CHIL @100I@
+1 CHIL @105I@
+1 CHIL @110I@
+1 CHIL @112I@
+1 CHIL @114I@
+1 _UST MARRIED
+0 @104U@ FAM
+1 HUSB @103I@
+1 WIFE @100I@
+1 CHIL @231I@
+1 MARR
+2 TYPE Religious marriage
+2 DATE 22 JUN 1666
+2 SOUR @306S@
+1 _UST MARRIED
+0 @109U@ FAM
+1 HUSB @108I@
+1 WIFE @105I@
+1 _UST MARRIED
+0 @122U@ FAM
+1 HUSB @99I@
+1 WIFE @121I@
+1 CHIL @125I@
+1 CHIL @127I@
+1 CHIL @129I@
+1 MARR
+2 TYPE Religious marriage
+2 DATE 27 SEP 1660
+2 SOUR @326S@
+1 _UST MARRIED
+0 @138U@ FAM
+1 HUSB @60I@
+1 WIFE @137I@
+1 CHIL @139I@
+1 CHIL @141I@
+1 CHIL @143I@
+1 CHIL @147I@
+1 MARR
+2 DATE 1580
+2 PLAC Mons,7000,Hainaut,Wallonie,BELGIQUE,
+1 _UST MARRIED
+0 @146U@ FAM
+1 HUSB @145I@
+1 WIFE @143I@
+1 _UST MARRIED
+0 @150U@ FAM
+1 HUSB @147I@
+1 WIFE @149I@
+1 CHIL @156I@
+1 CHIL @162I@
+1 CHIL @164I@
+1 CHIL @166I@
+1 MARR
+2 TYPE Religious marriage
+2 DATE 18 JUL 1596
+1 _UST MARRIED
+0 @155U@ FAM
+1 HUSB @152I@
+1 WIFE @154I@
+1 CHIL @149I@
+1 _UST MARRIED
+0 @160U@ FAM
+1 HUSB @159I@
+1 WIFE @156I@
+1 CHIL @267I@
+1 MARR
+2 TYPE Religious marriage
+2 DATE 5 AUG 1621
+2 SOUR @260S@
+1 _UST MARRIED
+0 @170U@ FAM
+1 HUSB @169I@
+1 WIFE @166I@
+1 _UST MARRIED
+0 @173U@ FAM
+1 HUSB @172I@
+1 WIFE @166I@
+1 _UST MARRIED
+0 @181U@ FAM
+1 HUSB @61I@
+1 WIFE @180I@
+1 CHIL @185I@
+1 CHIL @186I@
+1 CHIL @188I@
+1 CHIL @189I@
+1 CHIL @196I@
+1 _UST MARRIED
+0 @194U@ FAM
+1 HUSB @192I@
+1 WIFE @189I@
+1 MARR
+2 TYPE Religious marriage
+2 DATE 10 OCT 1607
+2 SOUR @368S@
+1 _UST MARRIED
+0 @203U@ FAM
+1 HUSB @188I@
+1 WIFE @202I@
+1 CHIL @204I@
+1 CHIL @206I@
+1 CHIL @208I@
+1 CHIL @213I@
+1 _UST MARRIED
+0 @210U@ FAM
+1 HUSB @209I@
+1 WIFE @208I@
+1 CHIL @211I@
+1 _UST MARRIED
+0 @216U@ FAM
+1 HUSB @215I@
+1 WIFE @213I@
+1 MARR
+2 TYPE Religious marriage
+2 DATE 23 AUG 1655
+2 SOUR @368S@
+1 _UST MARRIED
+0 @251U@ FAM
+1 HUSB @247I@
+1 WIFE @250I@
+1 CHIL @137I@
+1 _UST MARRIED
+0 @255U@ FAM
+1 HUSB @61I@
+1 WIFE @254I@
+1 _UST MARRIED
+0 @258U@ FAM
+1 HUSB @253I@
+1 WIFE @257I@
+1 CHIL @180I@
+1 _UST MARRIED
+0 @271U@ FAM
+1 HUSB @264I@
+1 WIFE @270I@
+1 CHIL @159I@
+1 _UST MARRIED
+0 @290U@ FAM
+1 HUSB @287I@
+1 WIFE @289I@
+1 CHIL @103I@
+1 _UST MARRIED
+0 @346U@ FAM
+1 HUSB @345I@
+1 WIFE @121I@
+1 MARR
+2 TYPE Religious marriage
+2 DATE 1674
+2 SOUR @336S@
+1 _UST MARRIED
+0 @354U@ FAM
+1 HUSB @353I@
+1 WIFE @121I@
+1 MARR
+2 TYPE Religious marriage
+2 DATE 1679
+2 SOUR @336S@
+1 _UST MARRIED
+0 @47U@ FAM
+1 HUSB @47I@
+1 CHIL @45I@
+0 @229S@ SOUR
+1 TITL Monographie du village de Ciply par Alph. GOSSERIES
+1 ABBR Famille AMAND
+1 REPO Annales du Cercle archeologique de Mons
+2 CALN 
+3 MEDI Book
+1 QUAY 2
+0 @260S@ SOUR
+1 TITL Monographie du village de Nouvelles (pages 148 et 149)
+1 ABBR Famille AMAND
+1 REPO Annales du Cercle archeologique de Mons
+2 CALN 
+3 MEDI Book
+1 QUAY 2
+0 @278S@ SOUR
+1 TITL Monographie du village de Ciply par Alph. GOSSERIES (page 95)
+1 ABBR Famille AMAND
+1 REPO Annales du Cercle archeologique de Mons
+2 CALN 
+3 MEDI Book
+1 QUAY 1
+0 @306S@ SOUR
+1 TITL Monographie du village de Ciply par Alph. GOSSERIES (page 96)
+1 ABBR Famille AMAND
+1 REPO Annales du Cercle archeologique de Mons
+2 CALN 
+3 MEDI Book
+1 QUAY 2
+0 @326S@ SOUR
+1 TITL Monographie du village de Ciply par Alph. GOSSERIES (page 101)
+1 ABBR Famille AMAND
+1 REPO Annales du Cercle archeologique de Mons
+2 CALN 
+3 MEDI Book
+1 QUAY 0
+0 @336S@ SOUR
+1 TITL Monographie du village de Ciply par Alph. GOSSERIES (page 102)
+1 ABBR Famille AMAND
+1 REPO Annales du Cercle archeologique de Mons
+2 CALN 
+3 MEDI Book
+1 QUAY 2
+0 @359S@ SOUR
+1 TITL Monographie du village de Nouvelles (pages 138 et 139)
+1 ABBR Famille AMAND
+1 REPO Annales du Cercle archeologique de Mons
+2 CALN 
+3 MEDI Book
+1 QUAY 2
+0 @368S@ SOUR
+1 TITL Monographie du village de Nouvelles (pages 142 et 143)
+1 ABBR Famille AMAND
+1 REPO Annales du Cercle archeologique de Mons
+2 CALN 
+3 MEDI Book
+1 QUAY 2
+0 TRLR

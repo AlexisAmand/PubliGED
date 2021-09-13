@@ -32,7 +32,7 @@ Etant encore en phase de développement, certaines fonctionnalités ne sont pas 
 * phpMyAdmin 5.1.1
 * Windows 10
 * Eclipse IDE for PHP Developers 2021-06 (4.20.0)
-* Visual Studio Code 1.59
+* Visual Studio Code 1.60
 
 #### Langages utilisés
 

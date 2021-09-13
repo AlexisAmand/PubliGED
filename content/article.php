@@ -80,12 +80,7 @@ $article->contenu = $row['article'];
 			
 /* Auteur de l'article */
 
-$sqlAuteur = $pdo2->prepare("select * from membres where id=:id");
-$sqlAuteur->bindValue("id", $article->auteur, PDO::PARAM_INT);
-$sqlAuteur->execute();
-$row = $sqlAuteur->fetch(PDO::FETCH_ASSOC);
-
-$article->auteur = $row['login'];
+$article->auteur = RecupAuteurArticle($pdo2, $article->auteur);
 
 /* Date de l'article */
 

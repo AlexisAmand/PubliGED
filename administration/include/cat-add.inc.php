@@ -1,6 +1,6 @@
 <div class="container-fluid px-4">
 	
-    <h1 class="h3 mt-4">Bonjour <?php echo $_SESSION['login']; ?>.</h1> <?php /* TODO : récupérer ici le nom de l'utilisateur */ ?>
+    <h1 class="h3 mt-4">Bonjour <?php echo $_SESSION['login']; ?>.</h1> 
 	
 		<ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>
@@ -44,8 +44,6 @@
 						
 					?>
 
-
-					
 					<p><?php echo ADM_ONLINE_TOOLS; ?></p>
 
 					<?php
@@ -73,26 +71,26 @@
 							</select>
 						</div>
 	
-				<form method="POST" action="index.php?page=cat-add">
+					<form method="POST" action="index.php?page=cat-add">
+					
+						<div class="input-group input-group-sm mb-3">
+							<span class="input-group-text"><?php echo ADM_RUB_ADD_C; ?></span>
+							<input class="form-control" id="categorie" name='nom_categorie'>
+						</div>
+
+						<div class="input-group input-group-sm mb-3">
+							<span class="input-group-text"><?php echo "Description de la catégorie"; ?></span>
+							<input class="form-control" id="categorie" name='des_categorie'>
+						</div>
+						
+						<div class="d-grid d-md-flex justify-content-md-end mt-3">
+							<button type="submit" name="envoyer" class="btn btn-sm btn-secondary"><?php echo SEND; ?></button>
+						</div>
+						
+					</form>
 				
-					<div class="input-group input-group-sm mb-3">
-						<span class="input-group-text"><?php echo ADM_RUB_ADD_C; ?></span>
-					    <input class="form-control" id="categorie" name='nom_categorie'>
 					</div>
 
-					<div class="input-group input-group-sm mb-3">
-						<span class="input-group-text"><?php echo "Description de la catégorie"; ?></span>
-					    <input class="form-control" id="categorie" name='des_categorie'>
-					</div>
-					
-					<div class="d-grid d-md-flex justify-content-md-end mt-3">
-						<button type="submit" name="envoyer" class="btn btn-sm btn-secondary"><?php echo SEND; ?></button>
-					</div>
-					
-				</form>
-				
-					</div>
-                                    
 				</div>
 
 			</div> 

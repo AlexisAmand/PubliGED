@@ -64,19 +64,12 @@ while ($row = $reqCategories ->fetch(PDO::FETCH_ASSOC))
 	$res_comms = $pdo2->prepare($req_comms);
 	$res_comms->execute();
 	
-	 */
+	*/
 	
 	/* auteur de l'article */
-		
-	$sqlAuteur = $pdo2->prepare("select * from membres where id=:id");
-	$sqlAuteur->bindValue("id", $row['auteur'], PDO::PARAM_INT );
-	$sqlAuteur->execute();
 	
-	while ($data_membres = $sqlAuteur->fetch(PDO::FETCH_ASSOC)) 
-		{
-		$article->auteur = $data_membres['login'];
-		}
-		
+	$article->auteur = RecupAuteurArticle($pdo2, $row['auteur']);
+	
 	/* titre de l'article */
 	
 	$article->titre = $row['titre'];

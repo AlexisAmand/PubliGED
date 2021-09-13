@@ -143,13 +143,30 @@
 						<i class="bi bi-diagram-3 me-1"></i><?php echo MY_GEDCOM; ?>
                 	</div>
                     <div class="card-body">
+
+						<?php
+						/* On regarde d'abord si un gedcom a été envoyé */
+						/* Si aucun gedcom a été envoyé, on propose de le faire */
+						if(VerifGedcom($pdo) == "1")
+							{
+						?>
                   		<ul clas="list-group">
                     		<li class="list-group-item"><?php echo $BaseDeDonnees->NombreIndividu($pdo).MY_GEDCOM_INDIVIDUALS; ?></li>
                     		<li class="list-group-item"><?php echo $BaseDeDonnees->NombreLieux($pdo).MY_GEDCOM_PLACE; ?></li>
                     		<li class="list-group-item"><?php echo $BaseDeDonnees->NombreFamilles($pdo).MY_GEDCOM_FAMILIES; ?></li>
                     		<li class="list-group-item"><?php echo $BaseDeDonnees->NombreSources($pdo).MY_GEDCOM_SRC; ?></li>
                     		<li class="list-group-item"><?php echo $BaseDeDonnees->NombreEvenements($pdo).MY_GEDCOM_EVE; ?></li>
-                  		</ul>                		
+                  		</ul>
+						<?php
+							}
+						else
+							{
+						?>
+						<p>Aucun gedcom n'a encore été envoyé</p>
+						<button href="#">Envoyer mon gedcom</button>
+						<?php
+							}
+						?>
                   		<div class="d-grid d-md-flex justify-content-md-end mt-3">
 							<a href="index.php?page=articles-list" class="btn btn-sm btn-secondary"><?php echo "Envoyer mon gedcom"; ?></a>
 						</div>                           

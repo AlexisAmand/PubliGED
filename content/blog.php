@@ -103,15 +103,8 @@ while ( $data = $resultat->fetch(PDO::FETCH_ASSOC) )
 	$article->ref = $data['ref'];
 		
 	/* Auteur de l'article */
-	
-	$res_membres = $pdo2->prepare( "select * from membres where id=:id" );
-	$res_membres->bindValue ( "id", $data['auteur'], PDO::PARAM_INT );
-	$res_membres->execute();
-	
-	while ( $data_membres = $res_membres->fetch(PDO::FETCH_ASSOC) )
-		{
-		$article->auteur = $data_membres['login'];
-		}
+
+	$article->auteur = RecupAuteurArticle($pdo2, $data['auteur']);
 	
 	/* titre de l'article */
 	

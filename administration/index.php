@@ -19,7 +19,7 @@ Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/bl
 Adapté par Alexis AMAND pour le projet PubliGED
 */ 
 
-require ('fonctions.php');
+require ('../content/fonctions.php');
 require ('../class/class.php');
 include ('../config.php');
 include ('../langs/admin/fr.php');
