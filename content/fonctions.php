@@ -149,16 +149,6 @@ function recup_page($pdo2)
 	return $data['valeur'];
 	} 
 	
-/* fonction qui affiche le nom du fichier de la page en cours */ 
-
-	/*  * function page_courante()
-	 * * {
-	 * * $fichierCourant = $_SERVER["PHP_SELF"];
-	 * * $parties = explode('/', $fichierCourant );
-	 * * return trim($parties[count($parties) - 1]);
-	 * * }
-	 * */ 
-	
 /* fonction qui fait un lien vers la fiche d'un individu en partant de son n° */ 
 
 function individu($pdo2, $i)
@@ -185,54 +175,6 @@ function casearbre($pdo2, $i)
 		} 
 	} 
 
-/* fonction qui affiche le lieu d'un événement */ 
-
-/*	
-	
-function lieu($pdo2, $lieueve)
-	{ 	
-	$result_birt_lieu = "SELECT * FROM lieux WHERE ref = '{$lieueve}'"; 	
-	$req_lieu = $pdo2->prepare ( $result_birt_lieu ); 	
-	$req_lieu->execute (); 	
-	
-	while ($row_birt_lieu = $req_lieu->fetch ( PDO::FETCH_ASSOC )) 
-		{ 		
-			$row_birt_lieu['pays'] = ucwords (strtolower($row_birt_lieu ['pays']));
-			$lieu = $row_birt_lieu['ville'] . " (" . $row_birt_lieu ['dep'] . ", " . $row_birt_lieu ['pays'] . ")"; 
-			return $lieu; 	
-			
-			if (empty ( $row_birt ['note'] )) 
-				{ 	
-					
-				} 
-			else 
-				{ 	
-				echo "<sup>" . $i_note . "</sup>"; 	
-				$note [$i_note] = $row_birt ['note']; 
-				$i_note = $i_note + 1; 	
-				} 	
-		} 
-	} 
-	
-*/		
-
-/*
-function hautdutableau() 
-	{ 	
-	echo "<table class='table table-bordered'>"; 	
-	echo "<thead>"; 	
-	echo "<tr>"; 	
-	echo "<th>Nom</th>"; 	
-	echo "<th>Date</th>"; 	
-	echo "<th>Lieu</th>"; 	
-	echo "<th>Source</th>"; 	
-	echo "<th>Type</th>"; 	
-	echo "<th>Note</th>"; 	
-	echo "</tr>"; 	
-	echo "</thead>"; 
-	}
-*/	 
-	
 /* fonction qui récupére le nom d'une catégorie en partant de son numéro */ 
 	
 function get_category_name($pdo2, $cn)
@@ -243,23 +185,23 @@ function get_category_name($pdo2, $cn)
 	return $data['nom'];
 	} 
 
-/* fonction qui fait le tri des colonnes de la liste éclair */ 
-
-/*	
-function TriListeEclair($couleur, $valeur) 
-	{ 	
-	echo '<form action="index.php" method="GET" class="right">'; 	
-	echo '<input type="submit" value="' . $couleur . '" class="btn btn-default">'; 	
-	echo '<input type="hidden" name="tri" value="' . $valeur . '">'; 	
-	echo '<input type="hidden" name="page" value="eclair">'; 	
-	echo '</form>'; 
-	}
-*/ 
-
 /* fonction qui traduit les événements du GEDCOM en "mots" */ 
 	
 function traduction($mot)
-	{ 	
+	{
+	
+	if(defined($mot))
+		{
+		$mottraduit = constant($mot);
+		}
+	else	
+		{
+		$mottraduit = "Evenement nom reconnu";
+		}
+		
+	return $mottraduit;
+	
+	/*
 	switch($mot)
 		{ 		
 		case "ADOP" : 
@@ -423,6 +365,7 @@ function traduction($mot)
 			break; 	
 		} 	
 	return $mottraduit;
+	*/
 	}
 	
 /* TODO : A quoi sert cette fonction ? */	
