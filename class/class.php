@@ -604,25 +604,12 @@ class Articles
 	public $publication;
 	public $description;
 	public $keywords;
-		
-	/* Cette méthode récupére la liste de tous les articles */
-
-	/*
-	
-	public function RecupererLesArticles($pdo3)
-		{
-			$res = $pdo3->prepare ("SELECT * FROM articles");
-			$res->execute ();
-			return  $res->fetchAll(PDO::FETCH_ASSOC);
-		}
-	
-	*/
 	
 	/* Cette méthode affiche un article */	
 
 	public function Afficher($pdo3)
 		{
-		
+
 		/* Titre de l'article */
 			
 		echo "<div class='row mt-5'>";			

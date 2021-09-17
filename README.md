@@ -27,19 +27,19 @@ Etant encore en phase de développement, certaines fonctionnalités ne sont pas 
 
 #### Environement de développement
 
-* Laragon 4.0.16
-* Apache 2.4.48
+* Laragon 5.0.0
+* Apache 2.4.47
 * phpMyAdmin 5.1.1
 * Windows 10
 * Eclipse IDE for PHP Developers 2021-06 (4.20.0)
-* Visual Studio Code 1.60
+* Visual Studio Code 1.60.1
 
 #### Langages utilisés
 
 * HTML
 * CSS
-* PHP 7.2.19
-* SQL (via MySQL 5.7.24)
+* PHP 7.4.19
+* SQL (via MySQL 5.7.33)
 * Javascript
 
 ### Framework (via CDN)

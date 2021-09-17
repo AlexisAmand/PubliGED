@@ -1,6 +1,6 @@
 <div class="container-fluid px-4">
 	
-    <h1 class="h3 mt-4">Bonjour <?php echo $_SESSION['login']; ?>.</h1> <?php /* TODO : récupérer ici le nom de l'utilisateur */ ?>
+    <h1 class="h3 mt-4"><?php echo HELLO." ".$_SESSION['login']; ?>.</h1>
        
     	<ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>
@@ -129,6 +129,11 @@
 									echo '<div class="alert alert-warning" role="alert">';
 									echo '<i class="bi bi-exclamation-triangle-fill me-2"></i> '.ADM_ARTICLE_NOTITLE;
 									echo '</div>';
+
+									/* Enregistrement de l'action dans le journal */
+									$moment = date("F j, Y, g:i ");
+									file_put_contents("logs/blog.log", $moment.ADM_ARTICLE_NOTITLE."\n" , FILE_APPEND);
+
 									$erreur = 1;
 									}
 								else
@@ -136,13 +141,18 @@
 									$article->titre = $_POST ['titre'];
 									}
 
-								// Message si le champ message est vide
+								// Message si le champ contenu est vide
 								
 								if(empty($_POST['texte']))
 									{
 									echo '<div class="alert alert-warning mt-2" role="alert">';
 									echo '<i class="bi bi-exclamation-triangle-fill me-2"></i> '.ADM_ARTICLE_NOCONTENT;
 									echo '</div>';
+
+									/* Enregistrement de l'action dans le journal */
+									$moment = date("F j, Y, g:i ");
+									file_put_contents("logs/blog.log", $moment.ADM_ARTICLE_NOCONTENT."\n" , FILE_APPEND);
+
 									$erreur = 1;
 									}
 								else
@@ -157,6 +167,11 @@
 									echo '<div class="alert alert-warning mt-2" role="alert">';
 									echo '<i class="bi bi-exclamation-triangle-fill me-2"></i> '.ADM_ARTICLE_NOCAT;
 									echo '</div>';
+
+									/* Enregistrement de l'action dans le journal */
+									$moment = date("F j, Y, g:i ");
+									file_put_contents("logs/blog.log", $moment.ADM_ARTICLE_NOCAT."\n" , FILE_APPEND);
+
 									$erreur = 1;
 									}
 								else
@@ -181,6 +196,11 @@
 									echo '<div class="alert alert-warning mt-2" role="alert">';
 									echo '<i class="bi bi-exclamation-triangle-fill me-2"></i> '.ADM_ARTICLE_NOSEND;
 									echo '</div>';
+
+									/* Enregistrement de l'action dans le journal */
+									$moment = date("F j, Y, g:i ");
+									file_put_contents("logs/blog.log", $moment.ADM_ARTICLE_NOSEND."\n" , FILE_APPEND);
+
 									}
 															
 								/* Message si l'article est publié */
@@ -203,11 +223,6 @@
 								*/
 
 								$auteur = "1";
-
-								/* */
-
-
-
 
 								/* Hop ! L'article est mis dans la base */
 
@@ -232,12 +247,20 @@
 									echo '<div class="alert alert-success d-flex align-items-center" role="alert">';
 									echo '<i class="bi bi-check-circle-fill me-2"></i>'.ADM_ARTICLE_SEND;
 									echo '</div>';
+
+									/* Enregistrement de l'action dans le journal */
+									$moment = date("F j, Y, g:i ");
+									file_put_contents("logs/blog.log", $moment.ADM_ARTICLE_SEND."\n" , FILE_APPEND);
 									}
 								else
 									{
 									echo '<div class="alert alert-success d-flex align-items-center" role="alert">';
 									echo '<i class="bi bi-check-circle-fill me-2"></i>'.ADM_BR_SEND;
 									echo '</div>';
+
+									/* Enregistrement de l'action dans le journal */
+									$moment = date("F j, Y, g:i ");
+									file_put_contents("logs/blog.log", $moment.ADM_BR_SEND."\n" , FILE_APPEND);
 									}
 								} 
 								else 

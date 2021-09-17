@@ -6,6 +6,11 @@
 session_start();
 session_unset();
 session_destroy();
+
+/* Enregistrement de l'action dans le journal */
+$moment = date("F j, Y, g:i ");
+file_put_contents("logs/blog.log", $moment."Fermeture d'une session pour l'utilisateur ".$_SESSION['login']."\n" , FILE_APPEND);
+
 header('Location: login.php');
 exit();
 ?>

@@ -239,10 +239,10 @@ echo "</ul>";
 /* Affichage de la chronologie */
 /* --------------------------- */
 
-echo "<h4>" . CHRONO . "</h4>";
+echo "<h4>".CHRONO."</h4>";
 
 $a = 1;
-
+ 
 if ($nb_eve != 0) {
 	echo "<table class='table table-bordered'>";
 	echo "<thead>";
@@ -261,12 +261,12 @@ if ($nb_eve != 0) {
 
 while ( $a < $i ) {
 	echo "<tr>";
-	echo "<td>" . traduction ( $event [$a]->nom ) . "</td>";
-	echo "<td>" . utf8_decode ( $event [$a]->date ) . "</td>";
+	echo "<td>".traduction($event [$a]->nom)."</td>";
+	echo "<td>".utf8_decode ( $event [$a]->date)."</td>";
 	echo "<td>".lieu($pdo2, $event [$a]->lieu)."</td>";
-	echo "<td><a href='index.php?page=sources&ids=" . $event [$a]->source . "'>" . $event [$a]->source . "</a></td>";
-	echo "<td>" . $event [$a]->evenement . "</td>";
-	echo "<td>" . $event [$a]->note . "</td>";
+	echo "<td><a href='index.php?page=sources&ids=".$event [$a]->source."'>".$event [$a]->source."</a></td>";
+	echo "<td>".$event [$a]->evenement."</td>";
+	echo "<td>".$event [$a]->note."</td>";
 	echo "</tr>";
 	$a ++;
 }
@@ -277,23 +277,11 @@ echo "</table>";
 /* arbre généalogique V1 */
 /* --------------------- */
 
-echo "<h4>" . FAMILYTREE . " (version 1)</h4>";
+echo "<h4>".FAMILYTREE."</h4>";
 
 echo "<div class='row'>";
 
-include("arbre-v1.php");
-
-echo "</div>";
-
-/* --------------------- */
-/* arbre généalogique V2 */
-/* --------------------- */
-
-echo "<h4>" . FAMILYTREE . " (version 2)</h4>";
-
-echo "<div class='row'>";
-
-include("arbre-v2.php");
+include("arbre.php");
 
 echo "</div>";
 

@@ -14,20 +14,35 @@ if(isset($_GET['id']) and isset($_GET['action']))
 	switch ($_GET['action'])
 	{
 		case 'publish':
+			/* Publication d'un article */
+			/* NB : Si on republie un article qui dont la catégorie n'est plus publiée, il est tout de même publié dans cette catégorie */
 			$sql = $pdo->prepare("UPDATE articles SET publication = '1' WHERE ref=:ref");
 			$sql->bindparam ( ':ref', $_GET['id'] );
 			$req = $sql->execute ();
+
 			$msg = '<div class="alert alert-success d-flex align-items-center" role="alert">
 			<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
 	  		<div>'.ARTICLE_NB.$_GET['id'].ARTICLE_PUBLISHED.'</div></div>'; 
+
+			/* Enregistrement de l'action dans le journal */
+			$moment = date("F j, Y, g:i ");
+			file_put_contents("logs/blog.log", $moment.ARTICLE_NB.$_GET['id'].ARTICLE_PUBLISHED."\n" , FILE_APPEND);  
+
 			break;
 		case 'unpublish':
+			/* Dépublication d'un article */
 			$sql = $pdo->prepare("UPDATE articles SET publication = '0' WHERE ref=:ref");
 			$sql->bindparam ( ':ref', $_GET['id'] );
 			$req = $sql->execute ();
+
 			$msg = '<div class="alert alert-success d-flex align-items-center" role="alert">
 			<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
 	  		<div>'.ARTICLE_NB.$_GET['id'].ARTICLE_UNPUBLISHED.'</div></div>'; 
+			
+			/* Enregistrement de l'action dans le journal */
+			$moment = date("F j, Y, g:i ");
+			file_put_contents("logs/blog.log", $moment.ARTICLE_NB.$_GET['id'].ARTICLE_UNPUBLISHED."\n" , FILE_APPEND); 
+
 			break;
 		case 'delete':
 			$sql = $pdo->prepare('DELETE FROM articles WHERE ref=:ref');
@@ -36,6 +51,11 @@ if(isset($_GET['id']) and isset($_GET['action']))
 			$msg = '<div class="alert alert-success d-flex align-items-center" role="alert">
 			<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
 	  		<div>'.ARTICLE_NB.$_GET['id'].ARTICLE_DELETED.'</div></div>'; 
+
+			/* Enregistrement de l'action dans le journal */
+			$moment = date("F j, Y, g:i ");
+			file_put_contents("logs/blog.log", $moment.ARTICLE_NB.$_GET['id'].ARTICLE_DELETED."\n" , FILE_APPEND); 
+
 			break;
 		default:
 			/* TODO: surement rien à mettre ici */
@@ -47,7 +67,7 @@ if(isset($_GET['id']) and isset($_GET['action']))
 
 <div class="container-fluid px-4">
 	
-    <h1 class="h3 mt-4">Bonjour <?php echo $_SESSION['login']; ?>.</h1> <?php /* TODO : récupérer ici le nom de l'utilisateur */ ?>
+    <h1 class="h3 mt-4"><?php echo HELLO." ".$_SESSION['login']; ?>.</h1>
 	
         <ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>

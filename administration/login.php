@@ -23,6 +23,11 @@ if ((isset($_POST['login']) && !empty($_POST['login'])) && (isset($_POST['pass']
         {
         session_start();
 		$_SESSION['login'] = $_POST['login'];
+
+        /* Enregistrement de l'action dans le journal */
+        $moment = date("F j, Y, g:i ");
+        file_put_contents("logs/blog.log", $moment."Ouverture d'une session pour l'utilisateur ".$_SESSION['login']."\n" , FILE_APPEND);
+
 		header('Location: index.php');
 		exit();
 	    }
@@ -40,7 +45,7 @@ if ((isset($_POST['login']) && !empty($_POST['login'])) && (isset($_POST['pass']
 	}
     else 
         {
-        $erreur = 'Les 2 champs sont obligatoires.';
+        $erreur = 'Les 2 champs sont obligatoires. té';
         }
 
 /* 
@@ -98,6 +103,10 @@ Adapté par Alexis AMAND pour le projet PubliGED
                                             echo '<div class="alert alert-danger d-flex align-items-center mt-2" role="alert">';
                                             echo '<i class="bi bi-exclamation-triangle-fill me-2"></i>'.$erreur;
                                             echo '</div>';
+
+                                            /* Enregistrement de l'action dans le journal */
+								            $moment = date("F j, Y, g:i ");
+								            file_put_contents("logs/blog.log", $moment.$erreur."\n" , FILE_APPEND);
                                             }
                                         ?>
 

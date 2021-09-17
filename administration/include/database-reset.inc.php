@@ -1,31 +1,36 @@
 <?php
 
-/* Truncate sur la table de la partie Généalogie */
-
 if(isset($_POST['envoyerG']))
   {
+  /* Truncate la partie Généalogie pour vider les tables */  
   $req_vide_db = "TRUNCATE TABLE evenements; TRUNCATE TABLE media; TRUNCATE TABLE familles; TRUNCATE TABLE individus; TRUNCATE TABLE lieux; TRUNCATE TABLE sources;";
 	$resultat_vide_db = $pdo->prepare($req_vide_db);
 	$resultat_vide_db->execute();
 
   $msg = "Les tables de la partie généalogie ont bien été vidées !";
-  }
 
-/* Truncate sur la table de la partie Blog */
+  /* Enregistrement de l'action dans le journal */
+  $moment = date("F j, Y, g:i ");
+  file_put_contents("logs/genealogie.log", $moment." ".$msg."\n" , FILE_APPEND);  
+  }
 
 if(isset($_POST['envoyerB']))
   {
+  /* Truncate sur la partie Blog pour vider les tables */
   $req_vide_db = "TRUNCATE TABLE categories; TRUNCATE TABLE commentaires; TRUNCATE TABLE articles;";
   $resultat_vide_db = $pdo->prepare($req_vide_db);
   $resultat_vide_db->execute();
 
   $msg = "Les tables de la partie blog ont bien été vidées !";
-  }
 
-/* Truncate sur la table de la partie Système */
+  /* Enregistrement de l'action dans le journal */
+  $moment = date("F j, Y, g:i ");
+  file_put_contents("logs/blog.log", $moment." ".$msg."\n" , FILE_APPEND);  
+  }
 
 if(isset($_POST['envoyerS']))
   {
+  /* Truncate sur la table de la partie Système */  
   $msg = "Plop S !";
   }
 
@@ -33,7 +38,7 @@ if(isset($_POST['envoyerS']))
 
 <div class="container-fluid px-4">
 	
-    <h1 class="h3 mt-4">Bonjour <?php echo $_SESSION['login']; ?>.</h1> <?php /* TODO : récupérer ici le nom de l'utilisateur */ ?>
+    <h1 class="h3 mt-4"><?php echo HELLO." ".$_SESSION['login']; ?>.</h1>  
 	
 		<ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>

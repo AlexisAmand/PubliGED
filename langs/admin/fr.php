@@ -9,6 +9,7 @@ define("DASHBOARD","Tableau de bord");
 define("ADM_ONLINE_TOOLS","Ce formulaire utilise des ressources en ligne.");
 
 define("SEE_SITE","Voir le site");
+define("HELLO","Bonjour");
 
 /* ------------------ */
 /* Accueil de l'admin */
@@ -125,7 +126,6 @@ define("SUPPR_ARTICLE_MODAL_TITLE","Confirmation");
 define("SUPPR_ARTICLE_MODAL_TEXT","Etes-vous sûr de vouloir effacer l'article n°");
 define("SUPPR_ARTICLE_MODAL_YES","Oui");
 define("SUPPR_ARTICLE_MODAL_NO","Non");
-//define("SUPPR_ARTICLE_VALID","");
 
 /* Publication ou dépublication d'un article */
 
@@ -159,6 +159,9 @@ define( "WFT","estimé par World Family Tree");
 /* Gestion des catégories */
 /* ---------------------- */
 
+/* Pour le fil d'ariane */
+define("CAT_BREAD","Les catégories");
+
 /* Ajout d'une catégorie */
 
 define("ADM_CAT_SEND","La nouvelle catégorie a bien été enregistrée !");
@@ -175,6 +178,20 @@ define("ADM_CAT_EDIT","Edition d'une catégorie");
 define("ADM_CAT_NAME","Nom actuel de la catégorie");
 define("ADM_CAT_NEW","Nouveau nom");
 define("ADM_CAT_DES","Description de la catégorie (facultatif)");
+
+define("CAT_NB","La catégorie n°");
+define("CAT_PUBLISHED", " a bien été publiée !");
+define("CAT_UNPUBLISHED", " a bien été dépubliée !");
+define("CAT_DELETED", " a bien été supprimé !");
+
+/* Supression d'une catégorie */
+
+define("SUPPR_CAT_TITLE","Suppression d'une catégorie");
+
+define("SUPPR_CAT_MODAL_TITLE","Confirmation");
+define("SUPPR_CAT_MODAL_TEXT","Etes-vous sûr de vouloir effacer la catégrie n°");
+define("SUPPR_CAT_MODAL_YES","Oui");
+define("SUPPR_CAT_MODAL_NO","Non"); 
 
 /* ------------------- */
 /* Gestion des gedcoms */

@@ -1,5 +1,3 @@
-<div class="col-sm-10 col-sm-push-1">
-
 <?php
 
 /* ---------------------------------- */
@@ -39,213 +37,137 @@ if (! empty ( $ref_case_6 )) {
 	}
 }
 
-echo '<table border="0" id="Tree"><tr><td colspan="2" rowspan="2" class="TreeCase">';
-
-/* 1 */
-
-if (! empty ( $ref_case_1 )) {
-	casearbre ( $pdo2, $ref_case_1 );
-}
-
-echo '</td><td></td><td></td><td colspan="2" rowspan="2" class="TreeCase">';
-
-/* 2 */
-
-if (! empty ( $ref_case_2 )) {
-	casearbre ( $pdo2, $ref_case_2 );
-}
-
-echo '</td><td></td><td></td><td colspan="2" rowspan="2" class="TreeCase">';
-
-/* 3 */
-
-if (! empty ( $ref_case_3 )) {
-	casearbre ( $pdo2, $ref_case_3 );
-}
-
-echo '</td><td></td><td></td><td colspan="2" rowspan="2" class="TreeCase">';
-
-/* 4 */
-
-if (! empty ( $ref_case_4 )) {
-	casearbre ( $pdo2, $ref_case_4 );
-}
-
-echo '</td>
-	        </tr>
-	        <tr>
-    
-	            <td style="border-bottom:0px solid black;"></td>
-	            <td></td>
-    
-	            <td></td>
-	            <td></td>
-    
-	            <td></td>
-	            <td></td>
-    
-	        </tr>
-	        <tr>
-	            <td></td>
-	            <td style="border-left:2px solid #6B6B6B;border-bottom:2px solid #6B6B6B;"></td>
-	            <td style="border-bottom:2px solid #6B6B6B;"></td>
-	            <td style="border-bottom:2px solid #6B6B6B;"></td>
-	            <td style="border-bottom:2px solid #6B6B6B;border-right:2px solid #6B6B6B;"></td>
-	            <td></td>
-    
-	            <td></td>
-	            <td></td>
-    
-	            <td></td>
-	            <td style="border-left:2px solid #6B6B6B;border-bottom:2px solid #6B6B6B;"></td>
-	            <td style="border-bottom:2px solid #6B6B6B;"></td>
-	            <td style="border-bottom:2px solid #6B6B6B;"></td>
-	            <td style="border-bottom:2px solid #6B6B6B;border-right:2px solid #6B6B6B;"></td>
-	            <td></td>
-	        </tr>
-	        <tr>
-	            <td></td>
-	            <td></td>
-	            <td style="border-right:2px solid #6B6B6B;"></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-    
-	            <td></td>
-	            <td></td>
-    
-	            <td></td>
-	            <td></td>
-	            <td style="border-right:2px solid #6B6B6B;"></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	        </tr>
-	        <tr>
-	            <td></td>
-	            <td></td>
-	            <td colspan="2" rowspan="2"  class="TreeCase">';
-
-/* 5 */
-
-if (! empty ( $ref_case_5 )) {
-	casearbre ( $pdo2, $ref_case_5 );
-}
-
-echo '</td>
-	            <td></td>
-	            <td></td>
-    
-	            <td></td>
-	            <td></td>
-    
-	            <td></td>
-	            <td></td>
-	            <td colspan="2" rowspan="2" class="TreeCase">';
-
-/* 6 */
-
-if (! empty ( $ref_case_6 )) {
-	casearbre ( $pdo2, $ref_case_6 );
-}
-
-echo '</td>
-	            <td></td>
-	            <td></td>
-	        </tr>
-	        <tr>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	        </tr>
-    
-	        <tr>
-	            <td></td>
-	            <td></td>
-	            <td style="border-right:2px solid #6b6b6b;"></td>
-	            <td style="border-bottom:2px solid #6b6b6b;"></td>
-	            <td style="border-bottom:2px solid #6b6b6b;"></td>
-	            <td style="border-bottom:2px solid #6b6b6b;"></td>
-	            <td style="border-bottom:2px solid #6b6b6b;"></td>
-	            <td style="border-bottom:2px solid #6b6b6b;"></td>
-	            <td style="border-bottom:2px solid #6b6b6b;"></td>
-	            <td style="border-bottom:2px solid #6b6b6b;"></td>
-	            <td style="border-right:2px solid #6b6b6b;border-bottom:2px solid #6b6b6b;"></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	        </tr>
-    
-	        <tr>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td style="border-right:2px solid #6b6b6b;"></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	        </tr>
-    
-    
-	        <tr>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td colspan="2" rowspan="2"  class="TreeCase">';
-
-/* individu de la case n°7 */
-
-casearbre ( $pdo2, $_GET ['ref'] );
-
-echo '
-    
-    
-	            </td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	        </tr>
-    
-	        <tr>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-	            <td></td>
-    
-	        </tr>
-    
-    
-    
-	    </table>';
-
 ?>
+
+<div class="col-sm-10 col-sm-push-1">
+
+<style>
+#Tree tr td {
+	border:1px solid black;
+}
+</style>
+
+<table border="0" id="Tree">
+
+	<tr>
+		<td colspan="2" rowspan="2" style="text-align:center">
+		<?php 
+		/* 1 */
+		if (! empty ( $ref_case_1 )) {
+			casearbre ( $pdo2, $ref_case_1 );
+		}
+		?>
+		</td>
+		<td colspan="2">a</td>
+		<td colspan="2" rowspan="2" style="text-align:center">
+		<?php 
+		/* 2 */
+		if (! empty ( $ref_case_2 )) {
+			casearbre ( $pdo2, $ref_case_2 );
+		}
+		?>
+		</td>
+		<td colspan="2">z</td>
+		<td colspan="2" rowspan="2" style="text-align:center">
+		<?php 
+		/* 3 */
+		if (! empty ( $ref_case_3 )) {
+			casearbre ( $pdo2, $ref_case_3 );
+		}
+		?>
+		</td>
+		<td colspan="2">e</td>
+		
+		<td colspan="2" rowspan="2" style="text-align:center">
+		<?php
+		/* 4 */
+		if (! empty ( $ref_case_4 )) {
+			casearbre ( $pdo2, $ref_case_4 );
+		}
+		?>
+		</td>
+	</tr>
+	<tr>
+    	<td style="border-bottom:0px solid black;">r</td>
+	    <td colspan="5">t</td>
+    </tr>
+	<tr style="height: 16px;">
+	    <td>u</td>
+	    <td style="border-left:2px solid #6B6B6B;border-bottom:2px solid #6B6B6B;"></td>
+	    <td style="border-bottom:2px solid #6B6B6B;"></td>
+	    <td style="border-bottom:2px solid #6B6B6B;"></td>
+	    <td style="border-bottom:2px solid #6B6B6B;border-right:2px solid #6B6B6B;"></td>
+	    <td colspan="4"></td>
+	    <td style="border-left:2px solid #6B6B6B;border-bottom:2px solid #6B6B6B;"></td>
+	    <td style="border-bottom:2px solid #6B6B6B;"></td>
+	    <td style="border-bottom:2px solid #6B6B6B;"></td>
+	    <td style="border-bottom:2px solid #6B6B6B;border-right:2px solid #6B6B6B;"></td>
+	    <td></td>
+	</tr>
+	<tr style="height: 16px;">
+	    <td colspan="2"></td>
+	    <td style="border-right:2px solid #6B6B6B;"></td>
+	    <td colspan="7"></td>
+	    <td style="border-right:2px solid #6B6B6B;"></td>
+	    <td colspan="3"></td>
+	</tr>
+	<tr>
+	    <td colspan="2"></td>
+	    <td colspan="2" rowspan="2" style="text-align:center">
+		<?php 
+	  	/* 5 */
+		if (! empty ( $ref_case_5 )) 
+			{
+			casearbre ( $pdo2, $ref_case_5 );
+			}
+		?>	
+		</td>
+	    <td colspan="6"></td>
+	    <td colspan="2" rowspan="2" style="text-align:center">
+		<?php 
+		/* 6 */
+		if (! empty ( $ref_case_6 )) 
+	  		{
+			casearbre ( $pdo2, $ref_case_6 );
+			}
+		?>
+		</td>
+	    <td colspan="2"></td>
+	</tr>
+	<tr>
+	    <td colspan="10"></td>
+	</tr>
+    <tr style="height: 16px;">
+	    <td colspan="2"></td>
+	    <td style="border-right:2px solid #6b6b6b;"></td>
+	    <td style="border-bottom:2px solid #6b6b6b;"></td>
+	    <td style="border-bottom:2px solid #6b6b6b;"></td>
+	    <td style="border-bottom:2px solid #6b6b6b;"></td>
+	    <td style="border-bottom:2px solid #6b6b6b;"></td>
+	    <td style="border-bottom:2px solid #6b6b6b;"></td>
+	    <td style="border-bottom:2px solid #6b6b6b;"></td>
+	    <td style="border-bottom:2px solid #6b6b6b;"></td>
+	    <td style="border-right:2px solid #6b6b6b;border-bottom:2px solid #6b6b6b;"></td>
+	    <td colspan="3"></td>
+	</tr>
+    <tr style="height: 16px;">
+	    <td colspan="6"></td>
+	    <td style="border-right:2px solid #6b6b6b;"></td>
+	    <td colspan="7"></td>
+	</tr>
+    <tr>
+	    <td colspan="6"></td>
+	    <td colspan="2" rowspan="2" style="text-align:center">
+        <?php 
+        /* individu de la case n°7 */
+		casearbre ( $pdo2, $_GET ['ref'] );
+		?>
+		</td>	
+        <td colspan="6"></td>
+	</tr>
+    <tr>
+	    <td colspan="12"></td>
+    </tr>
+</table>
 
 </div>

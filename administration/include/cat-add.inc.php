@@ -1,11 +1,11 @@
 <div class="container-fluid px-4">
 	
-    <h1 class="h3 mt-4">Bonjour <?php echo $_SESSION['login']; ?>.</h1> 
+    <h1 class="h3 mt-4"><?php echo HELLO." ".$_SESSION['login']; ?>.</h1> 
 	
 		<ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>
-		    <li class="breadcrumb-item"><a href="index.php?page=cat-list">Catégories</a></li>
-		    <li class="breadcrumb-item active" aria-current="page"><?php echo "Ajouter une catégorie"; ?></li>
+		    <li class="breadcrumb-item"><a href="index.php?page=cat-list"><?php echo CAT_BREAD; ?></a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><?php echo ADM_RUB_ADD_C; ?></li>
 		</ol>
 
         <div class="row">
@@ -51,6 +51,10 @@
 					if(isset($msg))
 						{
 						echo '<div class="alert alert-success" role="alert">'.$msg.'</div>';
+						
+						/* Enregistrement de l'action dans le journal */
+						$moment = date("F j, Y, g:i ");
+						file_put_contents("logs/blog.log", $moment.$msg."\n" , FILE_APPEND);
 						}
 
 					$cat = $pdo->query ( "select * from categories" );

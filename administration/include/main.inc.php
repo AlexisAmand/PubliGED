@@ -1,6 +1,6 @@
 <div class="container-fluid px-4">
 	
-    <h1 class="h3 mt-4">Bonjour <?php echo $_SESSION['login']; ?>.</h1> <?php /* TODO : récupérer ici le nom de l'utilisateur */ ?>
+    <h1 class="h3 mt-4"><?php echo HELLO." ".$_SESSION['login']; ?>.</h1>  
 	
 		<ol class="breadcrumb mb-4">
         	<li class="breadcrumb-item active"><?php echo DASHBOARD; ?></li>
@@ -227,6 +227,28 @@
                   
                 	</div>
               	</div>
-            </div>                                    
+            </div>   
+			
+			<!-- Infos système : log ? -->
+                      
+            <div class="col-xl-6">
+            	<div class="card mb-4">
+                	<div class="card-header">
+						<i class="bi bi-diagram-3 me-1"></i><?php echo "Informations système"; ?>
+                	</div>
+                    <div class="card-body">
+
+					<a href="logs/blog.log">Voir le log du blog</a><br />
+					<a href="logs/genealogie.log">Voir le log de la généalogie</a>
+					
+               		</div>
+              </div>
+            </div>
+
+
+
+
+
+
 		</div>
 </div>

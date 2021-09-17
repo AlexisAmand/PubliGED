@@ -6,7 +6,7 @@ require('sql.php');
 /* Ce fichier sera créé de façon dynamique au moment de l'installation */
 
 /* ----------- */ 
-/* Nom du site */
+/* Url du site */
 /* ----------- */
 
 $GLOBALS['UrlduSite'] = "http://publiged-dev.test/";
