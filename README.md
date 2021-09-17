@@ -42,7 +42,7 @@ Etant encore en phase de développement, certaines fonctionnalités ne sont pas 
 * SQL (via MySQL 5.7.33)
 * Javascript
 
-### Framework (via CDN)
+#### Framework (via CDN)
 
 * Bootstrap 5.1.0
 * Bootstrap icons 1.5.0
@@ -56,7 +56,9 @@ Obtenues via https://packagist.org et Composer 2.1.3
 * egulias/EmailValidator 2.1.25
 * mpdf/mpdf composer 8.0.12
 
-#### Librairies Javascript (via CDN)
+#### Librairies Javascript 
+
+Via CDN
 
 * datatables 1.11 pour Bootstrap 5
 * jQuery 3.6.0
