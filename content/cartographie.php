@@ -14,24 +14,31 @@ if(VerifGedcom($pdo2) == "1")
 	var map = L.map("map").setView([50.3001, 3.3542], 5);
 
 	var basemaps = [
-		L.tileLayer("//stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png", {
-			attribution:
-				'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-			subdomains: "abcd",
-			maxZoom: 20,
-			minZoom: 0,
-			label: "Toner Lite"
-		}),
 		L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
 			attribution: '&copy; OpenStreetMap France | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 			maxZoom: 20,
 			minZoom: 0,
-			label: "Test fr"
+			label: "Version fr"
+		}),
+		L.tileLayer("//stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png", {
+			attribution:
+				'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+			//subdomains: "abcd",
+			maxZoom: 20,
+			minZoom: 0,
+			label: "Toner Lite"
+		}),		
+		L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+			attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+			//subdomains: "abcd",
+			maxZoom: 16,
+			minZoom: 0,
+			label: "National Geographic"
 		}),
 		L.tileLayer("//stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png", {
 			attribution:
 				'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-			subdomains: "abcd",
+			//subdomains: "abcd",
 			maxZoom: 20,
 			minZoom: 0,
 			label: "Terrain"
@@ -39,7 +46,7 @@ if(VerifGedcom($pdo2) == "1")
 		L.tileLayer("//stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png", {
 			attribution:
 				'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-			subdomains: "abcd",
+			//subdomains: "abcd",
 			maxZoom: 20,
 			minZoom: 0,
 			label: "Toner"
@@ -107,9 +114,12 @@ for (i = 0; i < points.length; i++)
 
 function onMapClick(e) 
 	{
+	
 	alert("la ville " + this.options.url);
 	window.open("index.php?page=lieuxpatro&id=" + this.options.url);
-	 }
+	
+
+	}
 	
 </script>
 

@@ -321,8 +321,8 @@ class Pages
 			echo '<link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet">';
 			echo '<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>';
 			/* Leaflet basemap */
-			echo '<link href="node_modules/leaflet-basemaps/L.Control.Basemaps.css" rel="stylesheet">';
-			echo '<script src="node_modules/leaflet-basemaps/L.Control.Basemaps.js"></script>';
+			echo '<link href="js/leaflet-basemaps/L.Control.Basemaps.css" rel="stylesheet">';
+			echo '<script src="js/leaflet-basemaps/L.Control.Basemaps.js"></script>';
 			}
 
 		/* Ajout de Font Awesome via npm */
