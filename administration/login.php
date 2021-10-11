@@ -2,6 +2,7 @@
 
 include ('../config.php');
 include ('../langs/admin/fr.php');
+require ('../content/fonctions.php');
 
 if ((isset($_POST['login']) && !empty($_POST['login'])) && (isset($_POST['pass']) && !empty($_POST['pass']))) 
     {

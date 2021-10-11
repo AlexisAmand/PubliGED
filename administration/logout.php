@@ -7,6 +7,8 @@ session_start();
 session_unset();
 session_destroy();
 
+require ('../content/fonctions.php');
+
 /* Enregistrement de l'action dans le journal */
 /*
 $moment = date("F j, Y, g:i ");

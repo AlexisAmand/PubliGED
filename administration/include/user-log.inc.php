@@ -76,6 +76,7 @@
 							
 						  	$fichierLogsGenealogie = "logs/genealogie.log"; //nom du fichier à compresser
 							$flg = fopen($fichierLogsGenealogie,'r');
+							echo '<h5 class="card-title">Logs de la partie généalogie</h5>';
 							echo '<p class="card-text mt-3">';
 							while(!feof($flg))
 								{
