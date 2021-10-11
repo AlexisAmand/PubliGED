@@ -24,10 +24,14 @@ if(isset($_GET['id']) and isset($_GET['action']))
 			<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
 	  		<div>'.ARTICLE_NB.$_GET['id'].ARTICLE_PUBLISHED.'</div></div>'; 
 
-			/* Enregistrement de l'action dans le journal */
-			$moment = date("F j, Y, g:i ");
+			/* Enregistrement de l'action dans le journal */			
+			/*
+			$moment = date("F j, Y, g:i ");			
 			file_put_contents("logs/blog.log", $moment.ARTICLE_NB.$_GET['id'].ARTICLE_PUBLISHED."\n" , FILE_APPEND);  
-
+			*/
+			
+			putOnLogB(ARTICLE_NB.$_GET['id'].ARTICLE_PUBLISHED);
+			
 			break;
 		case 'unpublish':
 			/* Dépublication d'un article */
@@ -40,9 +44,12 @@ if(isset($_GET['id']) and isset($_GET['action']))
 	  		<div>'.ARTICLE_NB.$_GET['id'].ARTICLE_UNPUBLISHED.'</div></div>'; 
 			
 			/* Enregistrement de l'action dans le journal */
+			/*
 			$moment = date("F j, Y, g:i ");
 			file_put_contents("logs/blog.log", $moment.ARTICLE_NB.$_GET['id'].ARTICLE_UNPUBLISHED."\n" , FILE_APPEND); 
-
+			*/
+			putOnLogB(ARTICLE_NB.$_GET['id'].ARTICLE_UNPUBLISHED);
+			
 			break;
 		case 'delete':
 			$sql = $pdo->prepare('DELETE FROM articles WHERE ref=:ref');
@@ -53,8 +60,11 @@ if(isset($_GET['id']) and isset($_GET['action']))
 	  		<div>'.ARTICLE_NB.$_GET['id'].ARTICLE_DELETED.'</div></div>'; 
 
 			/* Enregistrement de l'action dans le journal */
+			/*
 			$moment = date("F j, Y, g:i ");
-			file_put_contents("logs/blog.log", $moment.ARTICLE_NB.$_GET['id'].ARTICLE_DELETED."\n" , FILE_APPEND); 
+			file_put_contents("logs/blog.log", $moment.ARTICLE_NB.$_GET['id'].ARTICLE_DELETED."\n" , FILE_APPEND);
+			*/ 
+			putOnLogB(ARTICLE_NB.$_GET['id'].ARTICLE_DELETED);
 
 			break;
 		default:

@@ -180,8 +180,7 @@ function casearbre($pdo2, $i)
 function get_category_name($pdo2, $cn)
 	{ 	
 	$req = $pdo2->query("select * from categories where ref ='" . $cn . "'"); 	
-	
-	$data = $req->fetch(PDO::FETCH_ASSOC);
+	$data = $req->fetch(PDO::FETCH_ASSOC);	
 	return $data['nom'];
 	} 
 
@@ -426,4 +425,20 @@ function recupNomSite($pdo2)
 		}
 	}
 	
+	/* fonction qui enregistre une donnée dans le log du blog */
+	
+	function putOnLogB($log) 
+		{
+		$moment = date("F j, Y, g:i ");
+		file_put_contents("logs/blog.log", $moment.$log." (".$_SESSION['login'].")\n" , FILE_APPEND);
+		}
+		
+	/* fonction qui enregistre une donnée dans le log de la partie généalogie */
+		
+	function putOnLogG($log)
+		{
+			$moment = date("F j, Y, g:i ");
+			file_put_contents("logs/genealogie.log", $moment.$log." (".$_SESSION['login'].")\n" , FILE_APPEND);;
+		}
+		
 ?>

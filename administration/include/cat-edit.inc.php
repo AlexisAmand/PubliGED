@@ -37,8 +37,11 @@
 		                        echo '</div>';
 								
 								/* Enregistrement de l'action dans le journal */
+		                        /*
 								$moment = date("F j, Y, g:i ");
 								file_put_contents("logs/blog.log", $moment."La catégorie a bien été modifiée.\n" , FILE_APPEND);
+								*/
+		                        putOnLogB("La catégorie a bien été modifiée.");
 		                        }
 		                    catch(exception $e)
 		                        {
@@ -47,8 +50,11 @@
 		                        echo '</div>';
 
 								/* Enregistrement de l'action dans le journal */
+		                        /*
 								$moment = date("F j, Y, g:i ");
 								file_put_contents("logs/blog.log", $moment.$e."\n" , FILE_APPEND);
+								*/
+		                        putOnLogB($e);
 		                        }
 		                }
 		            else

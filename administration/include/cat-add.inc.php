@@ -53,8 +53,11 @@
 						echo '<div class="alert alert-success" role="alert">'.$msg.'</div>';
 						
 						/* Enregistrement de l'action dans le journal */
+						/*
 						$moment = date("F j, Y, g:i ");
 						file_put_contents("logs/blog.log", $moment.$msg."\n" , FILE_APPEND);
+						*/
+						putOnLogB($msg);
 						}
 
 					$cat = $pdo->query ( "select * from categories" );

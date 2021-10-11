@@ -118,10 +118,6 @@
 							if(isset($_POST["envoyer"])) 
 								{ 
 
-								var_dump($_POST);
-
-
-
 								// Message si le champ titre est vide
 
 								if(empty ( $_POST ['titre'] ))
@@ -131,8 +127,11 @@
 									echo '</div>';
 
 									/* Enregistrement de l'action dans le journal */
+									/*
 									$moment = date("F j, Y, g:i ");
 									file_put_contents("logs/blog.log", $moment.ADM_ARTICLE_NOTITLE."\n" , FILE_APPEND);
+									*/
+									putOnLogB(ADM_ARTICLE_NOTITLE);
 
 									$erreur = 1;
 									}
@@ -149,10 +148,9 @@
 									echo '<i class="bi bi-exclamation-triangle-fill me-2"></i> '.ADM_ARTICLE_NOCONTENT;
 									echo '</div>';
 
-									/* Enregistrement de l'action dans le journal */
-									$moment = date("F j, Y, g:i ");
-									file_put_contents("logs/blog.log", $moment.ADM_ARTICLE_NOCONTENT."\n" , FILE_APPEND);
-
+									/* Enregistrement de l'action dans le journal */								
+									putOnLogB(ADM_ARTICLE_NOCONTENT);
+										
 									$erreur = 1;
 									}
 								else
@@ -169,9 +167,12 @@
 									echo '</div>';
 
 									/* Enregistrement de l'action dans le journal */
+									/*
 									$moment = date("F j, Y, g:i ");
 									file_put_contents("logs/blog.log", $moment.ADM_ARTICLE_NOCAT."\n" , FILE_APPEND);
-
+									*/
+									putOnLogB(ADM_ARTICLE_NOCAT);
+									
 									$erreur = 1;
 									}
 								else
@@ -198,9 +199,11 @@
 									echo '</div>';
 
 									/* Enregistrement de l'action dans le journal */
+									/*
 									$moment = date("F j, Y, g:i ");
 									file_put_contents("logs/blog.log", $moment.ADM_ARTICLE_NOSEND."\n" , FILE_APPEND);
-
+									*/
+									putOnLogB(ADM_ARTICLE_NOSEND);
 									}
 															
 								/* Message si l'article est publié */
@@ -249,8 +252,11 @@
 									echo '</div>';
 
 									/* Enregistrement de l'action dans le journal */
+									/*
 									$moment = date("F j, Y, g:i ");
 									file_put_contents("logs/blog.log", $moment.ADM_ARTICLE_SEND."\n" , FILE_APPEND);
+									*/
+									putOnLogB(ADM_ARTICLE_SEND);
 									}
 								else
 									{
@@ -259,11 +265,14 @@
 									echo '</div>';
 
 									/* Enregistrement de l'action dans le journal */
+									/*
 									$moment = date("F j, Y, g:i ");
 									file_put_contents("logs/blog.log", $moment.ADM_BR_SEND."\n" , FILE_APPEND);
+									*/
+									putOnLogB(ADM_BR_SEND);
 									}
 								} 
-								else 
+								else
 								{
 							?>
 

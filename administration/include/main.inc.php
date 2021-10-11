@@ -238,8 +238,7 @@
                 	</div>
                     <div class="card-body">
 
-					<a href="logs/blog.log">Voir le log du blog</a><br />
-					<a href="logs/genealogie.log">Voir le log de la généalogie</a>
+						<a href="logs/blog.log">Voir le log du blog</a><br />
 					
                		</div>
               </div>

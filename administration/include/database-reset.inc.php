@@ -10,8 +10,11 @@ if(isset($_POST['envoyerG']))
   $msg = "Les tables de la partie généalogie ont bien été vidées !";
 
   /* Enregistrement de l'action dans le journal */
+  /*
   $moment = date("F j, Y, g:i ");
-  file_put_contents("logs/genealogie.log", $moment." ".$msg."\n" , FILE_APPEND);  
+  file_put_contents("logs/blog.log", $moment." ".$msg."\n" , FILE_APPEND);
+  */
+  putOnLogG($msg);
   }
 
 if(isset($_POST['envoyerB']))
@@ -24,14 +27,18 @@ if(isset($_POST['envoyerB']))
   $msg = "Les tables de la partie blog ont bien été vidées !";
 
   /* Enregistrement de l'action dans le journal */
+  /*
   $moment = date("F j, Y, g:i ");
-  file_put_contents("logs/blog.log", $moment." ".$msg."\n" , FILE_APPEND);  
+  file_put_contents("logs/blog.log", $moment." ".$msg."\n" , FILE_APPEND);
+  */
+  putOnLogB($msg);
   }
 
 if(isset($_POST['envoyerS']))
   {
   /* Truncate sur la table de la partie Système */  
   $msg = "Plop S !";
+  putOnLogB($msg);
   }
 
 ?>
