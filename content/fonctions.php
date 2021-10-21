@@ -187,8 +187,7 @@ function get_category_name($pdo2, $cn)
 /* fonction qui traduit les événements du GEDCOM en "mots" */ 
 	
 function traduction($mot)
-	{
-	
+	{	
 	if(defined($mot))
 		{
 		$mottraduit = constant($mot);
@@ -199,172 +198,6 @@ function traduction($mot)
 		}
 		
 	return $mottraduit;
-	
-	/*
-	switch($mot)
-		{ 		
-		case "ADOP" : 
-			$mottraduit = ADOP; 
-			break; 		
-		case "ANUL" : 
-			$mottraduit = ANUL; 
-			break; 		
-		case "BAPL" : 
-			$mottraduit = BAPL; 
-			break; 		
-		case "BAPM" : 
-			$mottraduit = BAPM; 
-			break; 		
-		case "BAPT" : 
-			$mottraduit = BAPT; 
-			break; 		
-		case "BARM" : 
-			$mottraduit = BARM; 
-			break; 		
-		case "BASM" : 
-			$mottraduit = BASM; 
-			break; 		
-		case "BIRT" : 
-			$mottraduit = BIRT; 
-			break; 		
-		case "BLES" : 
-			$mottraduit = BLES; 
-			break; 		
-		case "BURI" : 
-			$mottraduit = BURI; 
-			break; 		
-		case "CENS" : 
-			$mottraduit = CENS; 
-			break; 		
-		case "CHR" : 
-			$mottraduit = CHR;	
-			break; 		
-		case "CONF" : 
-			$mottraduit = CONF; 
-			break; 		
-		case "CRIM" : 
-			$mottraduit = CRIM; 
-			break; 		
-		case "CHRA" : 
-			$mottraduit = CHRA; 
-			break; 		
-		case "CRIM" : 
-			$mottraduit = CRIM; 
-			break; 		
-		case "DEAT" : 
-			$mottraduit = DEAT; 
-			break; 		
-		case "DIVF" : 
-			$mottraduit = DIVF; 
-			break; 		
-		case "DIV" : 
-			$mottraduit = DIV; 
-			break; 		
-		case "DONA" : 
-			$mottraduit = DONA; 
-			break; 		
-		case "EDUC" : 
-			$mottraduit = EDUC; 
-			break; 		
-		case "EMIG" : 
-			$mottraduit = EMIG; 
-			break; 		
-		case "EMPL" : 
-			$mottraduit = EMPL; 
-			break; 		
-		case "ENGA" : 
-			$mottraduit = ENGA; 
-			break; 		
-		case "EVEN" :
-			$mottraduit = EVEN; 
-			break; 		
-		case "ENDL" : 
-			$mottraduit = ENDL; 
-			break; 		
-		case "FCOM" : 
-			$mottraduit = FCOM; 
-			break; 		
-		case "FUNE" : 
-			$mottraduit = FUNE; 
-			break; 		
-		case "GRAD" : 
-			$mottraduit = GRAD;
-			break; 		
-		case "HIST" : 
-			$mottraduit = HIST; 
-			break; 	
-		case "IMMI" : 
-			$mottraduit = IMMI;
-			break; 		
-		case "LVG" :
-			$mottraduit = LVG;
-			break; 		
-		case "OCCU" : 
-			$mottraduit = OCCU;
-			break; 	
-		case "MARB" : 
-			$mottraduit = MARB;
-			break; 	
-		case "MARE" : 
-			$mottraduit = MARE;
-			break; 		
-		case "MARL" : 
-			$mottraduit = MARL; 
-			break; 		
-		case "MARC" : 
-			$mottraduit = MARC;
-			break; 		
-		case "MARR" : 
-			$mottraduit = MARR; 
-			break; 		
-		case "MARS" : 
-			$mottraduit = MARS; 
-			break; 		
-		case "NATU" : 
-			$mottraduit = NATU; 
-			break; 		
-		case "NOBL" : 
-			$mottraduit = NOBL; 
-			break; 		
-		case "ONDO" : 
-			$mottraduit = ONDO;
-			break; 		
-		case "ORDN" :
-			$mottraduit = ORDN; 
-			break; 		
-		case "PASL" : 
-			$mottraduit = PASL; 
-			break; 		
-		case "PROB" : 
-			$mottraduit = PROB; 
-			break; 		
-		case "RELI" : 
-			$mottraduit = RELI; 
-			break; 		
-		case "RESI" :
-			$mottraduit = RESI; 
-			break; 		
-		case "RETI" :
-			$mottraduit = RETI; 
-			break; 		
-		case "RMRK" : 
-			$mottraduit = RMRK; 
-			break; 		
-		case "SEP" : 
-			$mottraduit = SEP; 
-			break; 		
-		case "SEPA" : 
-			$mottraduit = SEPA; 
-			break; 		
-		case "TBS" : 
-			$mottraduit = TBS; 
-			break; 		
-		case "WILL" :
-			$mottraduit = WILL;
-			break; 	
-		} 	
-	return $mottraduit;
-	*/
 	}
 	
 /* TODO : A quoi sert cette fonction ? */	
@@ -429,8 +262,16 @@ function recupNomSite($pdo2)
 	
 	function putOnLogB($log) 
 		{
-		$moment = date("F j, Y, g:i ");
-		file_put_contents("logs/blog.log", $moment.$log." (".$_SESSION['login'].")\n" , FILE_APPEND);
+		if(isset($_SESSION['login']))
+			{
+			$moment = date("F j, Y, g:i ");
+			file_put_contents("logs/blog.log", $moment.$log." (".$_SESSION['login'].")\n" , FILE_APPEND);
+			}
+		else 
+			{
+			$moment = date("F j, Y, g:i ");
+			file_put_contents("logs/blog.log", $moment.$log."\n" , FILE_APPEND);
+			}
 		}
 		
 	/* fonction qui enregistre une donnée dans le log de la partie généalogie */

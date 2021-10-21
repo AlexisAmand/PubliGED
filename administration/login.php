@@ -48,7 +48,7 @@ if ((isset($_POST['login']) && !empty($_POST['login'])) && (isset($_POST['pass']
 	}
     else 
         {
-        $erreur = 'Les 2 champs sont obligatoires. té';
+        $erreur = 'Les 2 champs sont obligatoires.';
         }
 
 /* 
