@@ -25,10 +25,6 @@ if(isset($_GET['id']) and isset($_GET['action']))
 	  		<div>'.CAT_NB.$_GET['id'].CAT_PUBLISHED.'</div></div>'; 
 
 			/* Enregistrement de l'action dans le journal */
-			/*
-			$moment = date("F j, Y, g:i ");
-			file_put_contents("logs/blog.log", $moment.CAT_NB.$_GET['id'].CAT_PUBLISHED."\n" , FILE_APPEND);
-			*/  
 			putOnLogB(CAT_NB.$_GET['id'].CAT_PUBLISHED);
 			break;
 		case 'unpublish':
@@ -47,10 +43,6 @@ if(isset($_GET['id']) and isset($_GET['action']))
 	  		<div>'.CAT_NB.$_GET['id'].CAT_UNPUBLISHED.'</div></div>'; 
 			
 			/* Enregistrement de l'action dans le journal */
-			/*
-			$moment = date("F j, Y, g:i ");
-			file_put_contents("logs/blog.log", $moment.CAT_NB.$_GET['id'].CAT_UNPUBLISHED."\n" , FILE_APPEND);
-			*/
 			putOnLogB(CAT_NB.$_GET['id'].CAT_UNPUBLISHED);
 			break;
 		case 'delete':
@@ -65,10 +57,6 @@ if(isset($_GET['id']) and isset($_GET['action']))
 	  		<div>'.CAT_NB.$_GET['id'].CAT_DELETED.'</div></div>'; 
 
 			/* Enregistrement de l'action dans le journal */
-			/*
-			$moment = date("F j, Y, g:i ");
-			file_put_contents("logs/blog.log", $moment.CAT_NB.$_GET['id'].CAT_DELETED."\n" , FILE_APPEND);
-			*/
 			putOnLogB(CAT_NB.$_GET['id'].CAT_DELETED);
 			break;
 		default:

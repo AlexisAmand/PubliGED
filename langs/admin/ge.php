@@ -1,15 +1,15 @@
-<?php 
+<?php
 
 /* ------------------- */
 /* Textes pour l'admin */
-/*    (version  FR)    */
+/*    (version  GE)    */
 /* ------------------- */
 
 /* STRUCTURE DE LA PAGE */
 /* -------------------- */
 
 define("ADM_ONLINE_TOOLS","Ce formulaire utilise des ressources en ligne.");
-define("HELLO","Bonjour");
+define("HELLO","Guten tag");
 
 /* bandeau */
 
@@ -140,7 +140,7 @@ define("ADM_ARTICLE_META_KEYW","Méta keywords");
 
 define("ADM_ARTICLE_EDIT_TXT","Edition de l'article");
 
-/* Modification d'un article */ 
+/* Modification d'un article */
 
 define("ARTICLE_NB","L'article n°");
 define("ARTICLE_PUBLISHED"," a bien été publié !");

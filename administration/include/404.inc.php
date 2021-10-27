@@ -4,10 +4,10 @@
             <div class="col-lg-6">
                 <div class="text-center mt-4">
                     <img class="mb-4 img-error" src="assets/img/error-404-monochrome.svg" />
-                    <p class="lead">L'URL demandée n'a pas été trouvée sur ce serveur.</p>
+                    <p class="lead"><?php echo ERR404_LEAD; ?></p>
                     <a href="index.php?page=main">
                         <i class="bi bi-arrow-left"></i>
-                        Retour au tableau de bord
+                        <?php echo ERR_LINK_BACK; ?>
                     </a>
                 </div>
             </div>

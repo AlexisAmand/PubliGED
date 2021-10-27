@@ -14,10 +14,6 @@ if(isset($_GET['id']) and isset($_GET['action']))
         <div>'.COMM_NB.$_GET['id'].COMM_PUBLISHED.'</div></div>'; 
 
         /* Enregistrement de l'action dans le journal */
-        /*
-		$moment = date("F j, Y, g:i ");
-		file_put_contents("logs/blog.log", $moment.COMM_NB.$_GET['id'].COMM_PUBLISHED."\n" , FILE_APPEND);
-		*/ 
         putOnLogB(COMM_NB.$_GET['id'].COMM_PUBLISHED);
         break;
       case 'unpublish':
@@ -30,10 +26,6 @@ if(isset($_GET['id']) and isset($_GET['action']))
         <div>'.COMM_NB.$_GET['id'].COMM_UNPUBLISHED.'</div></div>'; 
 
         /* Enregistrement de l'action dans le journal */
-        /*
-		$moment = date("F j, Y, g:i ");
-		file_put_contents("logs/blog.log", $moment.COMM_NB.$_GET['id'].COMM_UNPUBLISHED."\n" , FILE_APPEND);
-		*/
 		putOnLogB(COMM_NB.$_GET['id'].COMM_UNPUBLISHED);		
         break;
       case 'delete':
@@ -45,10 +37,6 @@ if(isset($_GET['id']) and isset($_GET['action']))
 				."<i class='bi bi-check-circle-fill me-2'></i>".COMM_NB.$_GET['id'].COMM_DELETED."</div>";
 
         /* Enregistrement de l'action dans le journal */
-		/*
-		$moment = date("F j, Y, g:i ");
-		file_put_contents("logs/blog.log", $moment.COMM_NB.$_GET['id'].COMM_DELETED."\n" , FILE_APPEND);
-		*/
 		putOnLogB(COMM_NB.$_GET['id'].COMM_DELETED);	
         break;
       default:
@@ -65,8 +53,8 @@ if(isset($_GET['id']) and isset($_GET['action']))
 	
 		<ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>
-		    <li class="breadcrumb-item"><a href="index.php?page=articles-list">Commentaires</a></li>
-		    <li class="breadcrumb-item active" aria-current="page"><?php echo "Liste des commentaires"; ?></li>
+		    <li class="breadcrumb-item"><a href="index.php?page=articles-list"><?php echo ASIDE_ADMIN_2; ?></a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><?php echo ADM_COMM_LIST; ?></li>
 		</ol>
         
     <div class="row">

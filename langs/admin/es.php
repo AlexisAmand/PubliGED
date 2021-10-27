@@ -2,14 +2,14 @@
 
 /* ------------------- */
 /* Textes pour l'admin */
-/*    (version  FR)    */
+/*    (version  ES)    */
 /* ------------------- */
 
 /* STRUCTURE DE LA PAGE */
 /* -------------------- */
 
 define("ADM_ONLINE_TOOLS","Ce formulaire utilise des ressources en ligne.");
-define("HELLO","Bonjour");
+define("HELLO","Hola");
 
 /* bandeau */
 
@@ -261,8 +261,6 @@ define("FAV_SELECT","Selectionnez votre fichier si vous voulez le changer...");
 define("FAV_SEND","Enregistrer les modifications");
 
 /* Sauvegarde des options */
-
-
 
 /* GESTION DU GEDCOM */
 /* ----------------- */

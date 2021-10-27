@@ -22,7 +22,7 @@ Adapté par Alexis AMAND pour le projet PubliGED
 require ('../content/fonctions.php');
 require ('../class/class.php');
 include ('../config.php');
-include ('../langs/admin/fr.php');
+include ('include/langue.php');
 
 $BaseDeDonnees = new BasesDeDonnees;
 
@@ -37,7 +37,7 @@ if (isset($_POST['tablo']))
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="<?php echo chooseAdminLang($pdo) ?>">
 
     <head>
         
@@ -79,7 +79,7 @@ if (isset($_POST['tablo']))
             <a class="navbar-brand ps-3" href="index.php"><?php echo BCK_TITLE; ?></a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="bi bi-list"></i></button>
-            <a href="<?php echo $UrlduSite; ?>" class="text-light">Voir le site</a>
+            <a href="<?php echo $UrlduSite; ?>" class="text-light"><?php echo ADM_SEE_SITE; ?></a>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
@@ -92,8 +92,8 @@ if (isset($_POST['tablo']))
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill fs-3"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="index.php?page=user-profil"><?php echo SETTINGS; ?></a></li>
-                        <li><a class="dropdown-item" href="index.php?page=user-log">Activity Log</a></li>
+                        <li><a class="dropdown-item" href="index.php?page=user-profil"><?php echo USER_SETTINGS; ?></a></li>
+                        <li><a class="dropdown-item" href="index.php?page=user-log"><?php echo USER_LOG; ?></a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="logout.php"><?php echo LOGOUT; ?></a></li>
                     </ul>
@@ -244,13 +244,13 @@ if (isset($_POST['tablo']))
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
+                        <div class="small"><?php echo LOG_AS; ?>:</div>
                         <?php echo $_SESSION['login']; ?>
                     </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-            	<main>
+            	<main> 
 
               	<?php 
                 /* page à afficher récupérée en paramètre dans l'URL */
@@ -268,11 +268,12 @@ if (isset($_POST['tablo']))
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted"><?php echo CREATED_BY.'<a href="https://publiged.boitasite.com" title="site officiel du PubliGED">PubliGED</a><br />'; ?></div>
+                            <div class="text-muted"><?php echo CREATED_BY.'<a href="https://www.publiged.com" title="site officiel du PubliGED">PubliGED</a><br />'; ?></div>
                             <div>
-                                <a href="https://startbootstrap.com/">Thème par Start Bootstrap</a>
+                                <a href="https://startbootstrap.com/"><?php echo FOOTER_CREDITS; ?></a>
                                 &middot;
-                                <a href="#">Licence</a>
+                                <?php /* TODO : Ajouter un lien vers la licence */ ?>
+                                <a href="#"><?php echo FOOTER_LICENCE; ?></a>
                             </div>
                         </div>
                     </div>

@@ -1,8 +1,9 @@
 <?php
 
 include ('../config.php');
-include ('../langs/admin/fr.php');
 require ('../content/fonctions.php');
+include ('include/langue.php');
+
 
 if ((isset($_POST['login']) && !empty($_POST['login'])) && (isset($_POST['pass']) && !empty($_POST['pass']))) 
     {
@@ -26,11 +27,7 @@ if ((isset($_POST['login']) && !empty($_POST['login'])) && (isset($_POST['pass']
 		$_SESSION['login'] = $_POST['login'];
 
         /* Enregistrement de l'action dans le journal */
-		/*
-        $moment = date("F j, Y, g:i ");
-        file_put_contents("logs/blog.log", $moment."Ouverture d'une session pour l'utilisateur ".$_SESSION['login']."\n" , FILE_APPEND);
-		*/
-		putOnLogB("Ouverture d'une session pour l'utilisateur ".$_SESSION['login']);
+		putOnLogB(OPEN_SESSION." ".$_SESSION['login']);
 		header('Location: index.php');
 		exit();
 	    }
@@ -38,17 +35,17 @@ if ((isset($_POST['login']) && !empty($_POST['login'])) && (isset($_POST['pass']
 	// si on ne trouve aucune réponse, le visiteur s'est trompé soit dans son login, soit dans son mot de passe
 	elseif ($req->rowCount () == 0) 
         {
-		$erreur = "Le compte n'a pas reconnu.";
+        $erreur = LOG_NO_FND;
 	    }
 	// sinon, alors la, il y a un gros problème :)
 	else 
         {
-		$erreur = 'Erreur ! Plusieurs membres ont les mêmes identifiants de connexion.';
+        $erreur = SESSION_ERROR_01;
 	    }
 	}
     else 
         {
-        $erreur = 'Les 2 champs sont obligatoires.';
+        $erreur = SESSION_ERROR_02;
         }
 
 /* 
@@ -61,7 +58,7 @@ Adapté par Alexis AMAND pour le projet PubliGED
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo chooseAdminLang($pdo) ?>">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -83,20 +80,20 @@ Adapté par Alexis AMAND pour le projet PubliGED
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4"><?php echo SESSION_TTL; ?></h3></div>
                                     <div class="card-body">
 
                                         <form action="login.php" method="post">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" type="text" name="login"/>
-                                                <label for="inputEmail">Login</label>
+                                                <label for="inputEmail"><?php echo SESSION_LOGIN; ?></label>
                                             </div>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputPassword" type="password" name="pass"/>
-                                                <label for="inputPassword">Mot de passe</label>
+                                                <label for="inputPassword"><?php echo SESSION_PWD; ?></label>
                                             </div>
                                             <div class="d-grid d-md-flex justify-content-md-end mt-3">
-                                                <button class="btn btn-primary" type="submit">Login</button>
+                                                <button class="btn btn-primary" type="submit"><?php echo SESSION_BTN; ?></button>
                                             </div>
                                         </form>
 
@@ -108,10 +105,6 @@ Adapté par Alexis AMAND pour le projet PubliGED
                                             echo '</div>';
 
                                             /* Enregistrement de l'action dans le journal */
-                                            /*
-								            $moment = date("F j, Y, g:i ");
-								            file_put_contents("logs/blog.log", $moment.$erreur."\n" , FILE_APPEND);
-								            */
                                             putOnLogB($erreur);
                                             }
                                         ?>
@@ -119,7 +112,7 @@ Adapté par Alexis AMAND pour le projet PubliGED
                                     </div>
                                     
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a class="small" href="password.php">Mot de passe oublié ?</a></div>
+                                        <div class="small"><a class="small" href="password.php"><?php echo SESSION_FGT_PWD; ?></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -131,11 +124,11 @@ Adapté par Alexis AMAND pour le projet PubliGED
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted"><?php echo CREATED_BY.'<a href="https://publiged.boitasite.com" title="site officiel du PubliGED">PubliGED</a><br />'; ?></div>
+                            <div class="text-muted"><?php echo CREATED_BY.'<a href="https://www.publiged.com" title="site officiel du PubliGED">PubliGED</a><br />'; ?></div>
                             <div>
-                                <a href="https://startbootstrap.com/">Thème par Start Bootstrap</a>
+                                <a href="https://startbootstrap.com/"><a href="https://startbootstrap.com/"><?php echo FOOTER_CREDITS; ?></a></a>
                                 &middot;
-                                <a href="#">Licence</a>
+                                <a href="#"><?php echo FOOTER_LICENCE; ?></a>
                             </div>
                         </div>
                     </div>

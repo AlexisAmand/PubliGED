@@ -24,12 +24,7 @@ if(isset($_GET['id']) and isset($_GET['action']))
 			<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
 	  		<div>'.ARTICLE_NB.$_GET['id'].ARTICLE_PUBLISHED.'</div></div>'; 
 
-			/* Enregistrement de l'action dans le journal */			
-			/*
-			$moment = date("F j, Y, g:i ");			
-			file_put_contents("logs/blog.log", $moment.ARTICLE_NB.$_GET['id'].ARTICLE_PUBLISHED."\n" , FILE_APPEND);  
-			*/
-			
+			/* Enregistrement de l'action dans le journal */	
 			putOnLogB(ARTICLE_NB.$_GET['id'].ARTICLE_PUBLISHED);
 			
 			break;
@@ -44,10 +39,6 @@ if(isset($_GET['id']) and isset($_GET['action']))
 	  		<div>'.ARTICLE_NB.$_GET['id'].ARTICLE_UNPUBLISHED.'</div></div>'; 
 			
 			/* Enregistrement de l'action dans le journal */
-			/*
-			$moment = date("F j, Y, g:i ");
-			file_put_contents("logs/blog.log", $moment.ARTICLE_NB.$_GET['id'].ARTICLE_UNPUBLISHED."\n" , FILE_APPEND); 
-			*/
 			putOnLogB(ARTICLE_NB.$_GET['id'].ARTICLE_UNPUBLISHED);
 			
 			break;
@@ -60,10 +51,6 @@ if(isset($_GET['id']) and isset($_GET['action']))
 	  		<div>'.ARTICLE_NB.$_GET['id'].ARTICLE_DELETED.'</div></div>'; 
 
 			/* Enregistrement de l'action dans le journal */
-			/*
-			$moment = date("F j, Y, g:i ");
-			file_put_contents("logs/blog.log", $moment.ARTICLE_NB.$_GET['id'].ARTICLE_DELETED."\n" , FILE_APPEND);
-			*/ 
 			putOnLogB(ARTICLE_NB.$_GET['id'].ARTICLE_DELETED);
 
 			break;
@@ -90,7 +77,7 @@ if(isset($_GET['id']) and isset($_GET['action']))
         	<div class="col-xl-12">
 				<div class="card mb-4">
 					<div class="card-header">
-						<i class="bi bi-newspaper me-2"></i><?php echo "Liste des articles" ?>
+						<i class="bi bi-newspaper me-2"></i><?php echo ADM_ARTICLE_LIST; ?>
 					</div>
 					<div class="card-body">
 						<p><?php echo ADM_ARTICLE_MODIF_INTRO; ?></p>

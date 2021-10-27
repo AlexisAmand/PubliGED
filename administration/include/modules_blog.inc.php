@@ -75,10 +75,7 @@
 						  	  <a href="#" class="btn btn-sm btn-secondary" id="lienModule"><?php echo "Sauvegarder"; ?></a>
 						    </div>
 
-                <form method="POST" action="test-modules.php">
-                  <input type='hidden' id="lienModule2" name='tablo'>
-                  <button type="submit" class="btn btn-primary">Test</button>
-                </form>
+
 
          	  </div>
           </div>

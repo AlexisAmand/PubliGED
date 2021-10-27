@@ -234,29 +234,32 @@ function recupNomSite($pdo2)
 
 	/* fonction qui récupére le nom d'un auteur en partant de son numéro */
 	
-	function RecupAuteurArticle($pdo2, $idAuteur) {
+	function RecupAuteurArticle($pdo2, $idAuteur) 
+		{
 		$res_membres = $pdo2->prepare ( "select * from membres where id=:id" );
 		$res_membres->bindValue ( "id", $idAuteur, PDO::PARAM_INT );
 		$res_membres->execute ();
 		
 		while ( $data_membres = $res_membres->fetch(PDO::FETCH_ASSOC))
-		{
+			{
 			$idAuteur = $data_membres ['login'];
-		}
+			}
 		return $idAuteur;
-	}
+		}
 	
 	/* fonction qui récupére le titre d'un article à partir de son numéro */
 	
-	function RecupTitreArticle($pdo2, $a) {
+	function RecupTitreArticle($pdo2, $a) 
+		{
 		$res = $pdo2->prepare ( "SELECT * FROM articles WHERE ref = :ref" );
 		$res->bindparam ( ':ref', $a );
 		$res->execute ();
 	
-		while ( ($row = $res->fetch(PDO::FETCH_ASSOC)) ) {
+		while ( ($row = $res->fetch(PDO::FETCH_ASSOC)) ) 
+			{
 			return $row ['titre'];
+			}
 		}
-	}
 	
 	/* fonction qui enregistre une donnée dans le log du blog */
 	
@@ -278,8 +281,30 @@ function recupNomSite($pdo2)
 		
 	function putOnLogG($log)
 		{
-			$moment = date("F j, Y, g:i ");
-			file_put_contents("logs/genealogie.log", $moment.$log." (".$_SESSION['login'].")\n" , FILE_APPEND);;
+		$moment = date("F j, Y, g:i ");
+		file_put_contents("logs/genealogie.log", $moment.$log." (".$_SESSION['login'].")\n" , FILE_APPEND);;
 		}
 		
+	/* fonction qui récupére la langue du backoffice */
+		
+	function chooseAdminLang($pdo2)
+		{
+		$req = $pdo2->prepare ( "select * from configuration where nom='langueAdmin'" );
+		$req->execute();
+		
+		$row = $req->fetch();
+		return $row['valeur'];	
+		}
+		
+	/* fonction qui récupére la langue du frontoffice */
+		
+	function chooseLang($pdo2)
+		{
+		$req = $pdo2->prepare ( "select * from configuration where nom='langueFront'" );
+		$req->execute();
+		
+		$row = $req->fetch();
+		return $row['valeur'];
+		}
+	
 ?>

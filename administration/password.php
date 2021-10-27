@@ -1,6 +1,8 @@
 <?php
 
-include ('../langs/admin/fr.php');
+include ('../config.php');
+require ('../content/fonctions.php');
+include ('include/langue.php');
 
 /* 
 Start Bootstrap - SB Admin v7.0.2 (https://startbootstrap.com/template/sb-admin) 
@@ -12,7 +14,7 @@ Adapté par Alexis AMAND pour le projet PubliGED
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo chooseAdminLang($pdo) ?>">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -31,21 +33,21 @@ Adapté par Alexis AMAND pour le projet PubliGED
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Récupération du mot de passe</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4"><?php echo PWD_FGT_TLT; ?></h3></div>
                                     <div class="card-body">
-                                        <div class="small mb-3 text-muted">Saisissez votre e-mail, un lien pour réinitialiser votre mot de passe va vous être envoyé.</div>
+                                        <div class="small mb-3 text-muted"><?php echo PWD_FGT_TEXT;?></div>
                                         <form>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                                <label for="inputEmail">Votre Email</label>
+                                                <label for="inputEmail"><?php echo PWD_FGT_EMAIL;?></label>
                                             </div>
                                             <div class="d-grid d-md-flex justify-content-md-end mt-3">
-                                                <button class="btn btn-primary" type="submit">réinitialiser le mot de passe</button>
+                                                <button class="btn btn-primary" type="submit"><?php echo PWD_FGT_RESET;?></button>
                                             </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a class="small" href="login.php">Se connecter</a></div>
+                                        <div class="small"><a class="small" href="login.php"><?php echo PWD_FGT_LOGIN; ?></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -57,11 +59,11 @@ Adapté par Alexis AMAND pour le projet PubliGED
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted"><?php echo CREATED_BY.'<a href="https://publiged.boitasite.com" title="site officiel du PubliGED">PubliGED</a><br />'; ?></div>
+                            <div class="text-muted"><?php echo CREATED_BY.'<a href="https://www.publiged.com" title="site officiel du PubliGED">PubliGED</a><br />'; ?></div>
                             <div>
-                                <a href="https://startbootstrap.com/">Thème par Start Bootstrap</a>
+                                <a href="https://startbootstrap.com/"><?php echo FOOTER_CREDITS; ?></a>
                                 &middot;
-                                <a href="#">Licence</a>
+                                <a href="#"><?php echo FOOTER_LICENCE; ?></a>
                             </div>
                         </div>
                     </div>

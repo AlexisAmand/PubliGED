@@ -20,13 +20,20 @@
 					    <div class="card-body">
 
                 <div class="form-group">
-                  
-         			      <div class="form-check">
-				              <input class="form-check-input" type="checkbox" value="ActivBlog" id="defaultCheck1" name="tabOptions[]">
-				              <label class="form-check-label" for="defaultCheck1">
-				              <?php echo ADM_ST_ACT1; ?>
-				              </label>
-				            </div>	
+                
+                <div class="input-group mb-3">
+				  
+				  <input type="text" class="form-control" aria-describedby="basic-addon1">
+				  <span class="input-group-text" id="basic-addon1"><?php echo ADM_ST_ACT1; ?></span>
+				  
+				</div>
+                             
+        			<div class="form-check">
+				      <input class="form-check-input" type="checkbox" value="ActivBlog" id="defaultCheck1" name="tabOptions[]">
+				      <label class="form-check-label" for="defaultCheck1">
+				      <?php echo ADM_ST_ACT1; ?>
+		              </label>
+		            </div>	
 					
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="ActivGene" id="defaultCheck2" name="tabOptions[]">
@@ -55,8 +62,22 @@
                         <?php echo "Menu à gauche"; ?>
                       </label>
                     </div>
-	
-			        </div>
+                    
+                    <div class="form-check">
+							  
+					  	<div class="input-group input-group-sm mb-3">
+							<span class="input-group-text">Langue</span>
+							<select class="form-select" name="Optlangue">
+								<option value="fr" selected>France</option>
+								<option value="en">English</option>
+								<option value="ge">Deutsch</option>
+								<option value="es">Espagnol</option>
+							</select>
+						</div>
+					 									  								   
+				    </div>
+					                         	
+			    </div>
             </div>
           </div>
 

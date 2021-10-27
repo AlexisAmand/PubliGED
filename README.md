@@ -13,8 +13,9 @@ Etant encore en phase de développement, certaines fonctionnalités ne sont pas 
 
 #### Plus d'infos : 
 
-* https://publiged.boitasite.com
+* https://www.publiged.com
 * https://www.facebook.com/Publiged/
+* https://twitter.com/PubliGED
 
 #### Soutenir le projet :
 
@@ -31,8 +32,8 @@ Etant encore en phase de développement, certaines fonctionnalités ne sont pas 
 * Apache 2.4.47
 * phpMyAdmin 5.1.1
 * Windows 10
-* Eclipse IDE for PHP Developers 2021-06 (4.20.0)
-* Visual Studio Code 1.61
+* Eclipse IDE for PHP Developers 2021-09 (4.21.0)
+* Visual Studio Code 1.61.2
 
 #### Langages utilisés
 

@@ -52,8 +52,8 @@ else
 	
 		<ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>
-		    <li class="breadcrumb-item"><a href="index.php?page=articles-list">Catégories</a></li>
-		    <li class="breadcrumb-item active" aria-current="page"><?php echo "Editer d'un article"; ?></li>
+		    <li class="breadcrumb-item"><a href="#"><?php echo ASIDE_ADMIN_8; ?></a></li>
+		    <li class="breadcrumb-item active" aria-current="page"><?php echo ADM_RUB_PERSO; ?></li>
 		</ol>
         
         <div class="row">
@@ -61,7 +61,7 @@ else
         	<div class="col-xl-12">
             <div class="card mb-4">
               <div class="card-header">
-                <i class="bi bi-gear me-2"></i><?php echo "Editer un article" ?>
+                <i class="bi bi-gear me-2"></i><?php echo ADM_RUB_PERSO; ?>
               </div>
               <div class="card-body">
 

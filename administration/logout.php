@@ -10,11 +10,8 @@ session_destroy();
 require ('../content/fonctions.php');
 
 /* Enregistrement de l'action dans le journal */
-/*
-$moment = date("F j, Y, g:i ");
-file_put_contents("logs/blog.log", $moment."Fermeture d'une session pour l'utilisateur ".$_SESSION['login']."\n" , FILE_APPEND);
-*/
-putOnLogB("Fermeture d'une session pour l'utilisateur ".$_SESSION['login']);
+
+putOnLogB(CLOSE_SESSION." ".$_SESSION['login']);
 
 header('Location: login.php');
 exit();

@@ -43,7 +43,7 @@ if (! empty ( $_POST ['g-aside-1'] ))
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="<?php echo chooseAdminLang($pdo) ?>">
 
 <head>
 

@@ -52,6 +52,16 @@
 									$stmt->bindParam ( ':valeur', $valeur, PDO::PARAM_STR );
 									$stmt->execute ();
 									}
+									
+								/* Choix de la langue */
+									
+								if (isset($_POST['Optlangue']))	
+									{
+									$valeur = $_POST['Optlangue'];
+									$stmt = $pdo->prepare ( "UPDATE configuration SET valeur=:valeur WHERE nom='langueAdmin'" );
+									$stmt->bindParam ( ':valeur', $valeur, PDO::PARAM_STR );
+									$stmt->execute ();
+									}
 
 							?>
 

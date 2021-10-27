@@ -28,10 +28,12 @@
 
 						<ul class="nav nav-tabs" id="myTab" role="tablist">
 							<li class="nav-item" role="presentation">
-								<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#article" type="button" role="tab" aria-controls="home" aria-selected="true">Mon article</button>
+								<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#article" type="button" role="tab" aria-controls="home" aria-selected="true">
+								<?php echo MY_ARTICLE; ?></button>
 							</li>
 							<li class="nav-item" role="presentation">
-								<button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#options" type="button" role="tab" aria-controls="options" aria-selected="false">Options</button>
+								<button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#options" type="button" role="tab" aria-controls="options" aria-selected="false">
+								<?php echo MY_OPTIONS; ?></button>
 							</li>
 						</ul>
 
@@ -127,12 +129,7 @@
 									echo '</div>';
 
 									/* Enregistrement de l'action dans le journal */
-									/*
-									$moment = date("F j, Y, g:i ");
-									file_put_contents("logs/blog.log", $moment.ADM_ARTICLE_NOTITLE."\n" , FILE_APPEND);
-									*/
 									putOnLogB(ADM_ARTICLE_NOTITLE);
-
 									$erreur = 1;
 									}
 								else
@@ -167,12 +164,7 @@
 									echo '</div>';
 
 									/* Enregistrement de l'action dans le journal */
-									/*
-									$moment = date("F j, Y, g:i ");
-									file_put_contents("logs/blog.log", $moment.ADM_ARTICLE_NOCAT."\n" , FILE_APPEND);
-									*/
-									putOnLogB(ADM_ARTICLE_NOCAT);
-									
+									putOnLogB(ADM_ARTICLE_NOCAT);									
 									$erreur = 1;
 									}
 								else
@@ -199,10 +191,6 @@
 									echo '</div>';
 
 									/* Enregistrement de l'action dans le journal */
-									/*
-									$moment = date("F j, Y, g:i ");
-									file_put_contents("logs/blog.log", $moment.ADM_ARTICLE_NOSEND."\n" , FILE_APPEND);
-									*/
 									putOnLogB(ADM_ARTICLE_NOSEND);
 									}
 															
@@ -252,10 +240,6 @@
 									echo '</div>';
 
 									/* Enregistrement de l'action dans le journal */
-									/*
-									$moment = date("F j, Y, g:i ");
-									file_put_contents("logs/blog.log", $moment.ADM_ARTICLE_SEND."\n" , FILE_APPEND);
-									*/
 									putOnLogB(ADM_ARTICLE_SEND);
 									}
 								else
@@ -265,10 +249,6 @@
 									echo '</div>';
 
 									/* Enregistrement de l'action dans le journal */
-									/*
-									$moment = date("F j, Y, g:i ");
-									file_put_contents("logs/blog.log", $moment.ADM_BR_SEND."\n" , FILE_APPEND);
-									*/
 									putOnLogB(ADM_BR_SEND);
 									}
 								} 
@@ -325,15 +305,15 @@
 
 							<div class="tab-pane fade" id="options" role="tabpanel" aria-labelledby="options-tab">
 
-								<p class="mt-3">qqs options seo ?</p>
+								<p class="mt-3"><?php echo ADM_ARTICLE_SEO; ?></p>
 
 								<div class="input-group input-group-sm my-3">
-									<span class="input-group-text">Méta description</span>
+									<span class="input-group-text"><?php echo ADM_ARTICLE_META_DESC; ?></span>
 									<input type="text" class="form-control" name="metaD" value=" ">
 								</div>
 
 								<div class="input-group input-group-sm my-3">
-									<span class="input-group-text">Méta keywords</span>
+									<span class="input-group-text"><?php echo ADM_ARTICLE_META_KEY; ?></span>
 									<input type="text" class="form-control" name="metaK" value=" ">
 								</div>
 							

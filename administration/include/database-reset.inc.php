@@ -7,13 +7,9 @@ if(isset($_POST['envoyerG']))
 	$resultat_vide_db = $pdo->prepare($req_vide_db);
 	$resultat_vide_db->execute();
 
-  $msg = "Les tables de la partie généalogie ont bien été vidées !";
+	$msg = CLEAN_TABLES_G;
 
   /* Enregistrement de l'action dans le journal */
-  /*
-  $moment = date("F j, Y, g:i ");
-  file_put_contents("logs/blog.log", $moment." ".$msg."\n" , FILE_APPEND);
-  */
   putOnLogG($msg);
   }
 
@@ -24,20 +20,16 @@ if(isset($_POST['envoyerB']))
   $resultat_vide_db = $pdo->prepare($req_vide_db);
   $resultat_vide_db->execute();
 
-  $msg = "Les tables de la partie blog ont bien été vidées !";
+  $msg = CLEAN_TABLES_B;
 
   /* Enregistrement de l'action dans le journal */
-  /*
-  $moment = date("F j, Y, g:i ");
-  file_put_contents("logs/blog.log", $moment." ".$msg."\n" , FILE_APPEND);
-  */
   putOnLogB($msg);
   }
 
 if(isset($_POST['envoyerS']))
   {
   /* Truncate sur la table de la partie Système */  
-  $msg = "Plop S !";
+  	$msg = CLEAN_TABLES_S;
   putOnLogB($msg);
   }
 
@@ -50,7 +42,7 @@ if(isset($_POST['envoyerS']))
 		<ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>
 		    <li class="breadcrumb-item"><a href="index.php?page=articles-list"><?php echo ASIDE_ADMIN_7; ?></a></li>
-		    <li class="breadcrumb-item active" aria-current="page"><?php echo "Réinitialiser les tables"; ?></li>
+		    <li class="breadcrumb-item active" aria-current="page"><?php echo ADM_DB_CREATE; ?></li>
 		</ol>
 
     <?php
@@ -67,8 +59,8 @@ if(isset($_POST['envoyerS']))
 
         <!-- Tables généalogie -->
 
-				<div class="card mb-4">
-         	<div class="card-header">
+		<div class="card mb-4">
+          <div class="card-header">
             <i class="bi bi-server me-2"></i><?php echo ADM_DB_SUBTITLE_G; ?>
           </div>
           <div class="card-body"><p class="mb-4"><?php echo ADM_DB_SUBTEXT_G; ?></p>

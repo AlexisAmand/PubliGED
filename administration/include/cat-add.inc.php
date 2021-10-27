@@ -26,7 +26,7 @@
 						$AjoutArticle->bindparam ( ':p5', $_POST ['nom_categorie'] );
 						$AjoutArticle->execute ();
 						
-						$msg = ADM_CAT_SEND; 
+						$msg = ADM_CAT_SEND_01; 
 
 						} 
 
@@ -38,7 +38,7 @@
 						$AjoutArticle->bindparam ( ':p2', $_POST ['des_categorie'] );
 						$AjoutArticle->execute ();
 						
-						$msg = "la catégorie et sa description ont bien été ajoutés";
+						$msg = ADM_CAT_SEND_02;
 
 						} 
 						
@@ -53,10 +53,6 @@
 						echo '<div class="alert alert-success" role="alert">'.$msg.'</div>';
 						
 						/* Enregistrement de l'action dans le journal */
-						/*
-						$moment = date("F j, Y, g:i ");
-						file_put_contents("logs/blog.log", $moment.$msg."\n" , FILE_APPEND);
-						*/
 						putOnLogB($msg);
 						}
 

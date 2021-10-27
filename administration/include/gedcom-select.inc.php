@@ -11,10 +11,10 @@
     <div class="row">
         
       	<div class="col-xl-12">
-				    <div class="card mb-4">
-					      <div class="card-header">
+			<div class="card mb-4">
+				<div class="card-header">
                   <i class="bi bi-diagram-3 me-2"></i><?php echo ADM_GED_READ; ?>
-					      </div>
+				</div>
                 <div class="card-body">
 
                 <!-- Formulaire html classique BT 5 -->	

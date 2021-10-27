@@ -1,6 +1,3 @@
-var i = 0;
-var tablo = new Array();
-
 var dragged;
 
 /* Les événements sont déclenchés sur les objets glissables */
@@ -57,42 +54,8 @@ document.addEventListener("drop", function( event ) {
     /* dragged.id est le nom du module */
     /* dropzone.id est le nom de la zone d'arrivée */
 
-    i++;
     dropzone = event.target;
     dragX = event.pageX, dragY = event.pageY;
     console.log("x=" + dragX + " et y="+ dragY + " element=" + dragged.id + " zone d'arrivée=" + dropzone.id );
 
-    test = document.getElementById('test');
-    test.innerHTML = dragged.id + " dans " + dropzone.id;
-
-    // var tablo = [dragX, dragY, dragged.id, dropzone.id];
- 
-    tablo[i] = [dragX, dragY, dragged.id, dropzone.id];
-
-    console.log(tablo[i]);
-    console.log(i);
-    console.log(tablo);
-
-    /*
-    $.ajax({ 
-        type: "POST", 
-        url: "#", 
-        data: { tablo : tablo}, 
-        success: function(data) { 
-        document.write(data);
-        } 
-    }); 
-    */  
-
-    console.log(tablo.join());
-
-
-
-    var lienModule = document.getElementById('lienModule');
-    lienModule.href = tablo;	 
-
-    var lienModule2 = document.getElementById('lienModule2');
-    lienModule2.value = tablo.join();	 
-
 }, false);
-
