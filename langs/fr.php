@@ -320,14 +320,11 @@ define("RESULT","Résultats de la recherche");
 define("THEREIS","Il y a ");
 define("NB_RESULT"," resultat pour ");
 define("NB_RESULTS"," resultats pour ");
-
 define("MENU_RESULT","Recherche");
 define("MENU_RESULT_ARTICLE","Article(s)");
 define("MENU_RESULT_INDIVIDU","Individu(s)");
 define("MENU_RESULT_PLACE","Lieu(x)");
-
 define("SEARCH_4","type de recheche n°4");
-
 define("SEARCH_ERROR","Il y a eu une erreur pendant la recherche !");
 
 /* ------- */

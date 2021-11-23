@@ -279,11 +279,13 @@ echo "</table>";
 
 echo "<h4>".FAMILYTREE."</h4>";
 
-echo "<div class='row'>";
+echo "<div class='row'><div class='col-12 mt-5'>";
 
 include("arbre.php");
 
-echo "</div>";
+// echo "<img src='content/arbre.svg'>";
+
+echo "</div></div>";
 
 /* ----- */
 /* notes */

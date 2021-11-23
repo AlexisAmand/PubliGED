@@ -13,126 +13,127 @@ class BasesDeDonnees
 		
 	public function ListeTitreArticle($pdo2)
 		{
-		  	$sql = "SELECT * FROM articles ORDER BY date DESC";
-		  	$req = $pdo2->prepare($sql);
-		  	$req->execute();
-		  	$row = $req->fetchAll();
-		  	return $row;	    
+		$sql = "SELECT * FROM articles ORDER BY date DESC";
+		$req = $pdo2->prepare($sql);
+		$req->execute();
+		$row = $req->fetchAll();
+		return $row;	    
 		}
 				
 	/* Cette méthode retourne le "top" pour la page de stats */
 
 	public function Top($pdo2)
 		{
-			$req_top = "SELECT * FROM configuration WHERE nom = 'top'";
-			$res_top = $pdo2->prepare($req_top);
-			$res_top->execute();	
-			$row = $res_top->fetch(PDO::FETCH_ASSOC);
-			return $row['valeur'];
+		$req_top = "SELECT * FROM configuration WHERE nom = 'top'";
+		$res_top = $pdo2->prepare($req_top);
+		$res_top->execute();	
+		$row = $res_top->fetch(PDO::FETCH_ASSOC);
+		return $row['valeur'];
 		}
 
 	/* Cette méthode retourne le nombre d'individus présents dans la base de données */
 
 	public function NombreIndividu($pdo2)
 		{
-			$requete = "SELECT * FROM individus";
-			$req = $pdo2->prepare ( $requete );
-			$req->execute ();
-			return $req->rowCount ();	
+		$requete = "SELECT * FROM individus";
+		$req = $pdo2->prepare ( $requete );
+		$req->execute ();
+		return $req->rowCount ();	
 		}	
 
 	/* Cette méthode retourne le nombre de patronymes présents dans la base de données */
 
 	public function NombrePatro($pdo2)
 		{
-			$req_nb_patro = "SELECT distinct surname FROM individus";
-			$req = $pdo2->prepare ( $req_nb_patro );
-			$req->execute ();
-			return $req->rowCount ();
+		$req_nb_patro = "SELECT distinct surname FROM individus";
+		$req = $pdo2->prepare ( $req_nb_patro );
+		$req->execute ();
+		return $req->rowCount ();
 		}	
 
 	/* Cette méthode retourne le nombre total d'hommes dans la base de données */
 
 	public function NombreHommes($pdo2)
 		{
-			$req_nb_patro = "SELECT * FROM individus WHERE sex LIKE '%M%'";
-			$req = $pdo2->prepare ( $req_nb_patro );
-			$req->execute ();
-			return $req->rowCount ();
+		$req_nb_patro = "SELECT * FROM individus WHERE sex LIKE '%M%'";
+		$req = $pdo2->prepare ( $req_nb_patro );
+		$req->execute ();
+		return $req->rowCount ();
 		}
 
 	/* Cette méthode retourne le nombre total de femmmes dans la base de données */
 
 	public function NombreFemmes($pdo2)
 		{
-			$req_nb_patro = "SELECT * FROM individus WHERE sex LIKE '%F%'";
-			$req = $pdo2->prepare ( $req_nb_patro );
-			$req->execute ();
-			return $req->rowCount ();
+		$req_nb_patro = "SELECT * FROM individus WHERE sex LIKE '%F%'";
+		$req = $pdo2->prepare ( $req_nb_patro );
+		$req->execute ();
+		return $req->rowCount ();
 		}
 
 	/* Cette méthode retourne le nombre total d'évenements dans la base de données */
 
 	public function NombreEvenements($pdo2)
 		{
-			$req_nb_eve = "SELECT * FROM evenements";
-			$req = $pdo2->prepare ( $req_nb_eve );
-			$req->execute ();
-			return $req->rowCount ();
+		$req_nb_eve = "SELECT * FROM evenements";
+		$req = $pdo2->prepare ( $req_nb_eve );
+		$req->execute ();
+		return $req->rowCount ();
 		}
 
 	/* Cette méthode retourne le nombre total d'évenements dans la base de données */
 
 	public function NombreSources($pdo2)
 		{
-			$req_nb_src = "SELECT * FROM sources";
-			$req = $pdo2->prepare ( $req_nb_src );
-			$req->execute ();
-			return $req->rowCount ();
+		$req_nb_src = "SELECT * FROM sources";
+		$req = $pdo2->prepare ( $req_nb_src );
+		$req->execute ();
+		return $req->rowCount ();
 		}	
 
 	/* Cette méthode retourne le nombre total d'enfants dans la base de données */
 
 	public function NombreEnfants($pdo2)
 		{
-			$req_nb_enfant = "SELECT distinct enfant FROM familles";
-			$req = $pdo2->prepare ( $req_nb_enfant );
-			$req->execute ();
-			return $req->rowCount ();
+		$req_nb_enfant = "SELECT distinct enfant FROM familles";
+		$req = $pdo2->prepare ( $req_nb_enfant );
+		$req->execute ();
+		return $req->rowCount ();
 		}
 		
 	/* Cette méthode retourne le nombre total de couples dans la base de données */
 
 	public function NombreCouples($pdo2)
 		{
-			$req_nb_couple = "SELECT distinct pere, mere FROM familles";
-			$req = $pdo2->prepare ( $req_nb_couple );
-			$req->execute ();
-			return $req->rowCount ();	
+		$req_nb_couple = "SELECT distinct pere, mere FROM familles";
+		$req = $pdo2->prepare ( $req_nb_couple );
+		$req->execute ();
+		return $req->rowCount ();	
 		}
 
 	/* Cette méthode retourne le nombre total de lieux dans la base de données */
 
 	public function NombreLieux($pdo2)
 		{
-			$req_nb_lieu = "SELECT * FROM lieux GROUP BY ville";
-			$req = $pdo2->prepare ( $req_nb_lieu );
-			$req->execute ();
-			return $req->rowCount ();
+		$req_nb_lieu = "SELECT * FROM lieux GROUP BY ville";
+		$req = $pdo2->prepare ( $req_nb_lieu );
+		$req->execute ();
+		return $req->rowCount ();
 		}
 
 	/* Cette méthode retourne le nombre de Famille dans la base de données */
 
 	public function NombreFamilles($pdo2)
 		{
-			$req_famille = "SELECT * FROM familles group by pere,mere";
-			$req = $pdo2->prepare ( $req_famille );
-			$req->execute ();
-			return $req->rowCount ();
+		$req_famille = "SELECT * FROM familles group by pere,mere";
+		$req = $pdo2->prepare ( $req_famille );
+		$req->execute ();
+		return $req->rowCount ();
 		}
-
 	}
 
+/* Cette page permet l'affichage des éléments sur la page */	
+	
 class Pages 
 	{
 	public $nom;
@@ -144,6 +145,7 @@ class Pages
 		{
 		
 		/* Si le param page est pas là redirection sur index */
+			
 		if (!isset($_GET ['page']))
 			{
 			header('Location: index.php?page=blog');
@@ -198,6 +200,7 @@ class Pages
 					break;
 				case "categories" :
 					$this->rubrique = ASIDE_BLOG_2;
+					$this->titre = get_category_name($pdo2, $_GET['id']);
 					break;
 				case "search" :
 					$this->rubrique = MENU_RESULT;
@@ -243,9 +246,11 @@ class Pages
 				$sqlMeta->bindParam(':ref',$_GET['id']);
 				$sqlMeta->execute();
 				$data = $sqlMeta->fetch();
+				
+				$this->titre = $data['titre'];
 
 				/* affichage de la balise <title> */
-				echo "<title>".$data['titre']." | ".recupNomSite($pdo2)."</title>\n";
+				echo "<title>".$this->titre." | ".recupNomSite($pdo2)."</title>\n";
 
 				/* affichage de la <meta> description */
 				echo "<meta name='description' content='".$data['meta_des']."'>\n";
@@ -305,7 +310,7 @@ class Pages
 		/* datatables.net */
 		echo '<link href="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css" rel="stylesheet">';
 
-		/* TODO : récupération et affichage de favicon perso */
+		/* TODO : récupération et affichage du favicon perso */
 
 		$req = $pdo2->prepare("SELECT * FROM configuration WHERE nom='favicon'");
 		$req->execute();
@@ -325,21 +330,57 @@ class Pages
 			echo '<script src="js/leaflet-basemaps/L.Control.Basemaps.js"></script>';
 			}
 
-		/* Ajout de Font Awesome via npm */
-
-		// echo '<link href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">';
-
 		/* Bootstrap icons */
-
 		echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">';
 
 		}
 
 	/* Cette méthode affiche le pied de page du site */
 
-	public function AfficherPillmenu() 
+	public function AfficherPillmenu($pdo2) 
 		{
-		include ('include/pillmenu.inc.php');
+		echo '<nav class="navbar navbar-expand-lg navbar-dark bg-primary">'
+			.'<div class="container-fluid">'
+			.'<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">'
+			.'<span class="navbar-toggler-icon"></span>'
+			.'</button>'
+     		.'<div class="collapse navbar-collapse" id="navbarNav">';
+			 
+		$sql_pillmenu = "SELECT * FROM pillmenu WHERE afficher = '1'";
+		$req_pillmenu = $pdo2->prepare ($sql_pillmenu);
+		$req_pillmenu->execute();
+	
+		$count = $req_pillmenu->rowCount();
+	
+		if ($count != 0)
+			{
+			echo '<ul class="navbar-nav me-auto mb-2 mb-lg-0">';
+	
+			while ( $row_pillmenu = $req_pillmenu->fetch(PDO::FETCH_ASSOC)) 
+				{
+				echo '<li class="nav-item">';
+				echo '<a class="nav-link" href="index.php?page='.$row_pillmenu['lien'].'">'.$row_pillmenu['nom'].'</a>';
+				echo '</li>';
+				}
+	
+			echo "</ul>";
+			}
+		else
+			{
+			echo 'plop';
+			}
+
+		echo '<form class="d-flex" method="GET" action="index.php">'
+			.'<input class="form-control me-2" type="search" placeholder="Recherche" name="recherche" value="recherche">'
+			.'<input type="hidden" name="page" value="search">'
+			.'<input type="hidden" name="type" value="1">'
+			.'<button class="btn btn-primary" type="submit" value="ok">'
+			.'<i class="bi bi-search"></i>'
+			.'</button>'
+			.'</form>'
+			.'</div>'
+			.'</div>'
+			.'</nav>';
 		}
 
 	public function AfficherHeader($pdo2) 
@@ -348,16 +389,17 @@ class Pages
 		$sql = "select * from configuration where nom='description'";
 		$req = $pdo2->prepare($sql);
 		$req->execute();
-
 		$row = $req->fetch();
 		$DescriptionSite = $row['valeur'];
+		
+		/* Affichage de l'en-tête */
 			
-		echo'<div class="hgroup text-center" style="padding: 100px 0;">
-			<h1>
-				<a href="index.php?page=blog">'.recupNomSite($pdo2).'</a>
-			</h1>
-			<p>'.$DescriptionSite.'</p>
-		</div>';
+		echo '<div class="hgroup text-center" style="padding: 100px 0;">';
+		echo '<h1>';
+		echo '<a href="index.php?page=blog">'.recupNomSite($pdo2).'</a>';
+		echo '</h1>';
+		echo '<p>'.$DescriptionSite.'</p>';
+		echo '</div>';
 		}
 	
 	/* Cette méthode affiche le aside du site*/
@@ -734,6 +776,5 @@ class Logiciels
 	public $nom;
 	public $nomcomplet;
 	}
-
 
 ?>

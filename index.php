@@ -1,6 +1,6 @@
 <?php
 
-require ('content/fonctions.php');
+include ('content/fonctions.php');
 include ('config.php');
 include ('include/langue.php');
 include ('class/class.php');
@@ -33,8 +33,8 @@ require_once 'vendor/autoload.php';
 
 		<div class="col-md-12">
 		
-			<?php $Page->AfficherPillmenu(); ?>
-		
+			<?php $Page->AfficherPillmenu($pdo); ?>
+
 		</div>
 
 	</div>
@@ -43,7 +43,7 @@ require_once 'vendor/autoload.php';
 
 <div class="container-lg container-fluid">
 
-	<header class="row" style="background-image: url('https://via.placeholder.com/2560x1560.png');">
+	<header class="row">
 
 		<div class="col-12">
 

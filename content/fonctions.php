@@ -164,16 +164,22 @@ function individu($pdo2, $i)
 	
 /* nom d'un individu dans une case de l'arbre */ 
 
-function casearbre($pdo2, $i) 
+function casearbre($pdo2, $rang ,$i) 
 	{ 		
 	$req = $pdo2->query ( "select * from individus where ref='{$i}'" ); 	
 	
 	while ($row = $req->fetch (PDO::FETCH_ASSOC))
-		{ 		
+		{ 
+
+		echo '<tspan x="'.$rang.'" dy=".6em"><a href="index.php?page=fiche&ref=' . $i . '">'.$row ['surname'].'</a></tspan>';
+        echo '<tspan x="'.$rang.'" dy="1.2em">'.$row ['prenom'].'</tspan>';
+
+		/*			
 		echo "<a href='index.php?page=fiche&ref=" . $i . "'>";
 		echo $row ['surname'] . "<br />" . $row ['prenom'] . "</a>";
+		*/
 		} 
-	} 
+	}
 
 /* fonction qui récupére le nom d'une catégorie en partant de son numéro */ 
 	
@@ -195,8 +201,7 @@ function traduction($mot)
 	else	
 		{
 		$mottraduit = "Evenement nom reconnu";
-		}
-		
+		}		
 	return $mottraduit;
 	}
 	
@@ -232,79 +237,87 @@ function recupNomSite($pdo2)
 	return $row['valeur'];
 	}
 
-	/* fonction qui récupére le nom d'un auteur en partant de son numéro */
+/* fonction qui récupére le nom d'un auteur en partant de son numéro */
+
+function RecupAuteurArticle($pdo2, $idAuteur) 
+	{
+	$res_membres = $pdo2->prepare ( "select * from membres where id=:id" );
+	$res_membres->bindValue ( "id", $idAuteur, PDO::PARAM_INT );
+	$res_membres->execute ();
 	
-	function RecupAuteurArticle($pdo2, $idAuteur) 
+	while ( $data_membres = $res_membres->fetch(PDO::FETCH_ASSOC))
 		{
-		$res_membres = $pdo2->prepare ( "select * from membres where id=:id" );
-		$res_membres->bindValue ( "id", $idAuteur, PDO::PARAM_INT );
-		$res_membres->execute ();
-		
-		while ( $data_membres = $res_membres->fetch(PDO::FETCH_ASSOC))
-			{
-			$idAuteur = $data_membres ['login'];
-			}
-		return $idAuteur;
+		$idAuteur = $data_membres ['login'];
 		}
+	return $idAuteur;
+	}
 	
-	/* fonction qui récupére le titre d'un article à partir de son numéro */
-	
-	function RecupTitreArticle($pdo2, $a) 
+/* fonction qui récupére le titre d'un article à partir de son numéro */
+
+function RecupTitreArticle($pdo2, $a) 
+	{
+	$res = $pdo2->prepare ( "SELECT * FROM articles WHERE ref = :ref" );
+	$res->bindparam ( ':ref', $a );
+	$res->execute ();
+
+	while ( ($row = $res->fetch(PDO::FETCH_ASSOC)) ) 
 		{
-		$res = $pdo2->prepare ( "SELECT * FROM articles WHERE ref = :ref" );
-		$res->bindparam ( ':ref', $a );
-		$res->execute ();
-	
-		while ( ($row = $res->fetch(PDO::FETCH_ASSOC)) ) 
-			{
-			return $row ['titre'];
-			}
+		return $row ['titre'];
 		}
+	}
 	
-	/* fonction qui enregistre une donnée dans le log du blog */
-	
-	function putOnLogB($log) 
-		{
-		if(isset($_SESSION['login']))
-			{
-			$moment = date("F j, Y, g:i ");
-			file_put_contents("logs/blog.log", $moment.$log." (".$_SESSION['login'].")\n" , FILE_APPEND);
-			}
-		else 
-			{
-			$moment = date("F j, Y, g:i ");
-			file_put_contents("logs/blog.log", $moment.$log."\n" , FILE_APPEND);
-			}
-		}
-		
-	/* fonction qui enregistre une donnée dans le log de la partie généalogie */
-		
-	function putOnLogG($log)
+/* fonction qui enregistre une donnée dans le log du blog */
+
+function putOnLogB($log) 
+	{
+	if(isset($_SESSION['login']))
 		{
 		$moment = date("F j, Y, g:i ");
-		file_put_contents("logs/genealogie.log", $moment.$log." (".$_SESSION['login'].")\n" , FILE_APPEND);;
+		file_put_contents("logs/blog.log", $moment.$log." (".$_SESSION['login'].")\n" , FILE_APPEND);
 		}
-		
-	/* fonction qui récupére la langue du backoffice */
-		
-	function chooseAdminLang($pdo2)
+	else 
 		{
-		$req = $pdo2->prepare ( "select * from configuration where nom='langueAdmin'" );
-		$req->execute();
-		
-		$row = $req->fetch();
-		return $row['valeur'];	
+		$moment = date("F j, Y, g:i ");
+		file_put_contents("logs/blog.log", $moment.$log."\n" , FILE_APPEND);
 		}
+	}
 		
-	/* fonction qui récupére la langue du frontoffice */
+/* fonction qui enregistre une donnée dans le log de la partie généalogie */
+	
+function putOnLogG($log)
+	{
+	$moment = date("F j, Y, g:i ");
+	file_put_contents("logs/genealogie.log", $moment.$log." (".$_SESSION['login'].")\n" , FILE_APPEND);;
+	}
 		
-	function chooseLang($pdo2)
-		{
-		$req = $pdo2->prepare ( "select * from configuration where nom='langueFront'" );
-		$req->execute();
+/* fonction qui enregistre une donnée dans le log de la partie généalogie */
+	
+function putOnLogA($log)
+	{
+	$moment = date("F j, Y, g:i ");
+	file_put_contents("logs/admin.log", $moment.$log." (".$_SESSION['login'].")\n" , FILE_APPEND);;
+	}
 		
-		$row = $req->fetch();
-		return $row['valeur'];
-		}
+/* fonction qui récupére la langue du backoffice */
+	
+function chooseAdminLang($pdo2)
+	{
+	$req = $pdo2->prepare ( "select * from configuration where nom='langueAdmin'" );
+	$req->execute();
+	
+	$row = $req->fetch();
+	return $row['valeur'];	
+	}
+	
+/* fonction qui récupére la langue du frontoffice */
+	
+function chooseLang($pdo2)
+	{
+	$req = $pdo2->prepare ( "select * from configuration where nom='langueFront'" );
+	$req->execute();
+	
+	$row = $req->fetch();
+	return $row['valeur'];
+	}
 	
 ?>

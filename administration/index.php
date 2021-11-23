@@ -28,11 +28,13 @@ $BaseDeDonnees = new BasesDeDonnees;
 
 /* TEST : Récupération du tableau JS qui contient les infos sur les positions des modules */
 
+/*
 if (isset($_POST['tablo'])) 
     {
 	$myTable = $_POST['tablo'];
 	print_r($myTable);
     }
+*/
 
 ?>
 
@@ -256,11 +258,11 @@ if (isset($_POST['tablo']))
                 /* page à afficher récupérée en paramètre dans l'URL */
             	if (isset($_GET['page']))
             		{
-            		include 'include/'.$_GET['page'].'.inc.php'; 
+            		include 'content/'.$_GET['page'].'.inc.php'; 
             		}
             	else
             		{
-            		include 'include/main.inc.php';
+            		include 'content/main.inc.php';
             		}
             	?>
 
