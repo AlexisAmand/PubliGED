@@ -281,9 +281,7 @@ echo "<h4>".FAMILYTREE."</h4>";
 
 echo "<div class='row'><div class='col-12 mt-5'>";
 
-include("arbre.php");
-
-// echo "<img src='content/arbre.svg'>";
+include "arbre.php";
 
 echo "</div></div>";
 
