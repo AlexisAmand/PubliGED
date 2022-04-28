@@ -712,7 +712,7 @@ class Famille
 	public $chil;
 	}
 	
-class Individus 
+class Individus
 	{
 	public $ref; /* */
 	public $nom; /* */
@@ -720,6 +720,15 @@ class Individus
 	public $surname; /* */
 	public $sexe; /* */
 	public $note;
+
+	/*
+	function __construct($ref, $pdo2)
+		{
+		$req = $pdo2->prepare ( "INSERT INTO individus (ref) VALUES (:ref)" );
+		$req->bindparam ( ':ref', $ref );
+		$req->execute ();	
+		}
+	*/
 	}
 	
 class Evenement 

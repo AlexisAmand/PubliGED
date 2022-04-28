@@ -308,6 +308,24 @@ define("ADM_GED_SEND","Envoyer le fichier");
 
 define("BILAN_GEDCOM","Résumé de l'importation du gedcom");
 
+define( "MOIS_1","janvier");
+define( "MOIS_2","février");
+define( "MOIS_3","mars");
+define( "MOIS_4","avril");
+define( "MOIS_5","mai");
+define( "MOIS_6","juin");
+define( "MOIS_7","juillet");
+define( "MOIS_8","aout");
+define( "MOIS_9","septembre");
+define( "MOIS_10","octobre");
+define( "MOIS_11","novembre");
+define( "MOIS_12","décembre");
+define( "BEF","avant");
+define( "ABT","vers");
+define( "AFT","après");
+define( "EST","estimé");
+define( "WFT","estimé par World Family Tree");
+
 /* GESTION DES UTILISATEURS */
 /* ------------------------ */ 
 
