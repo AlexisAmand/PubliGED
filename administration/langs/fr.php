@@ -345,8 +345,15 @@ define("USER_LOG_BTN","Télécharger le fichier");
 /* OPTIONS SEO */
 /* ----------- */
 
-/* define("",""); */
-define("SEO_TXT","Texte qui apparait dans l'entête de votre site.");
+define("SEO_TXT_1","Texte qui apparait dans l'entête de votre site.");
+define("ADM_HD_SITE_NAME","Nom du site");
+define("ADM_HD_SITE_DESC","Slogan du site");
+
+define("ADM_SEO","SEO (Référencement)");
+define("SEO_TXT_2","<p>Ces deux champs n\'apparaissent pas vraiment sur votre site, ils ont juste pour but d\'optimiser votre référencement. Pour les connaisseurs en SEO, il s\'agit de la balise \"title\" et le la meta \"description\" par défaut.</p>");
+define("ADM_SEO_TITLE","Titre du site (SEO)");
+define("ADM_SEO_DESC","Description (SEO)");
+
 define("SEO_SAVE","Enregistrer");
 
 /* PAGES D'ERREUR */

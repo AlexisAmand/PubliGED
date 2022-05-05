@@ -1,3 +1,8 @@
+<?php
+/* TODO : pour le test, je compte le nombre de requête SQL */
+$nb_requetes_sql = 0;
+?>
+
 <div class="container-fluid px-4">
 	
     <h1 class="h3 mt-4"><?php echo HELLO." ".$_SESSION['login']; ?>.</h1>  
@@ -66,6 +71,8 @@
 
 								$res = $pdo->prepare ( "UPDATE configuration SET valeur = '1' WHERE nom= 'gedcom'" );
 								$res->execute ();
+
+								$nb_requetes_sql++;
 
 								}
 							else // Sinon (la fonction renvoie FALSE) et ça n'a pas fonctionné.
@@ -217,6 +224,8 @@
 								$req = $pdo->prepare ( "INSERT INTO individus (ref) VALUES (:ref)" );
 								$req->bindparam ( ':ref', $individu->ref );
 								$req->execute ();
+
+								$nb_requetes_sql++;
 								}
 								
 							/* Nom complet de l'individu */
@@ -229,6 +238,8 @@
 								$res->bindparam ( ':nom', $individu->nom, PDO::PARAM_STR );
 								$res->bindparam ( ':ref', $individu->ref, PDO::PARAM_STR );
 								$res->execute ();
+
+								$nb_requetes_sql++;
 								}
 								
 							/* nom de l'individu */
@@ -241,6 +252,8 @@
 								$res->bindparam ( ':surname', $individu->surname, PDO::PARAM_STR );
 								$res->bindparam ( ':ref', $individu->ref, PDO::PARAM_STR );
 								$res->execute ();
+
+								$nb_requetes_sql++;
 								}
 								
 							/* Prénom de l'individu */
@@ -253,6 +266,8 @@
 								$res->bindparam ( ':prenom', $individu->prenom );
 								$res->bindparam ( ':ref', $individu->ref );
 								$res->execute ();
+
+								$nb_requetes_sql++;
 								}
 								
 							/* Sexe de l'individu */
@@ -271,6 +286,8 @@
 								$res->bindparam ( ':sex', $individu->sexe );
 								$res->bindparam ( ':ref', $individu->ref );
 								$res->execute ();
+
+								$nb_requetes_sql++;
 								}
 								
 							/* -------------------- */
@@ -288,6 +305,8 @@
 								$req = "INSERT INTO familles (ref) VALUES ('$famille->ref')";
 								$resultat = $pdo->exec ( $req );
 								$nb_chil = 0;
+
+								$nb_requetes_sql++;
 								}
 
 							/* Le père */
@@ -298,6 +317,8 @@
 								$famille->husb = $fam_husb [1];
 								$req = "UPDATE familles SET pere = '$famille->husb' WHERE ref='$famille->ref'";
 								$resultat = $pdo->exec ( $req );
+
+								$nb_requetes_sql++;
 								}
 
 							/* La mère */
@@ -308,6 +329,8 @@
 								$famille->wife = $fam_wife [1];
 								$req = "UPDATE familles SET mere = '$famille->wife' WHERE ref='$famille->ref'";
 								$resultat = $pdo->exec ( $req );
+
+								$nb_requetes_sql++;
 								}
 
 							/* Un enfant */
@@ -322,10 +345,14 @@
 									{
 									$req = "UPDATE familles SET enfant = '$famille->chil' WHERE ref='$famille->ref'";
 									$nb_chil = $nb_chil + 1;
+
+									$nb_requetes_sql++;
 									}
 								else /* si le couple a déjà un enfant alors la ligne est dupliquée et j'ajoute le nouvel enfant */
 									{
 									$req = "INSERT INTO familles (ref, pere, mere, enfant) VALUES ('$famille->ref','$famille->husb','$famille->wife','$famille->chil')";
+
+									$nb_requetes_sql++;
 									}
 
 								$resultat = $pdo->exec ( $req );
@@ -338,6 +365,8 @@
 								$evenement->nom = "MARR";
 								$pere = substr ( $famille->husb, 0, - 1 );
 								$individu->ref = $pere;
+
+								$nb_requetes_sql++;
 								
 								/* mariage des deux parents d'une famille */
 								
@@ -346,6 +375,8 @@
 								$stmt->bindParam ( ':pere', $famille->husb );
 								$stmt->bindParam ( ':nom', $evenement->nom );
 								$stmt->execute ();
+
+								$nb_requetes_sql++;
 								}
 										
 							/* ---------------------- */
@@ -423,6 +454,8 @@
 									$req->bindValue ( ':indiv', $evenement->indiv, PDO::PARAM_STR );
 									$req->bindValue ( ':nom', $evenement->nom, PDO::PARAM_STR );
 									$req->execute ();
+
+									$nb_requetes_sql++;
 									}
 								}
 							
@@ -443,6 +476,8 @@
 								$req->bindValue ( ':nom', $evenement->nom, PDO::PARAM_STR );
 								$req->bindValue ( ':type', $evenement->type, PDO::PARAM_STR );
 								$req->execute ();
+
+								$nb_requetes_sql++;
 								}
 								
 							/* Date de l'événement */
@@ -480,6 +515,8 @@
 								$req->bindValue ( ':nom', $evenement->nom, PDO::PARAM_STR );
 								
 								$req->execute ();
+
+								$nb_requetes_sql++;
 								}
 								
 							/* type d'événement - (sorte de détails et complément d'info) */
@@ -494,6 +531,8 @@
 								$req->bindValue ( ':indiv', $individu->ref, PDO::PARAM_INT );
 								$req->bindValue ( ':eve', $nb_eve, PDO::PARAM_INT );
 								$req->execute ();
+
+								$nb_requetes_sql++;
 								}
 					
 							/* lieu de l'événement */
@@ -545,6 +584,9 @@
 								$req->bindvalue(':ville', $lieu->ville, PDO::PARAM_STR );
 								$req->execute ();
 								
+								$nb_requetes_sql++;
+
+
 								/*
 								$req = $pdo->prepare ( "UPDATE evenements SET type = :type WHERE n_indi = :indiv AND n_eve = :eve " );
 								$req->bindValue ( ':type', $evenement->type, PDO::PARAM_STR );
@@ -566,6 +608,8 @@
 									$req->bindValue ( ':ref', $individu->ref, PDO::PARAM_STR );
 									$req->bindValue ( ':eve', $nb_eve, PDO::PARAM_INT );
 									$req->execute ();
+
+									$nb_requetes_sql++;
 									
 									$req2 = $pdo->prepare ( "INSERT INTO lieux (ville, cp, dep, region, pays, continent) VALUES (:ville,:cp,:dep,:region,:pays,:continent)" );
 									$req2->bindValue ( ':ville', $lieu->ville, PDO::PARAM_STR );
@@ -575,6 +619,8 @@
 									$req2->bindValue ( ':pays', $lieu->pays, PDO::PARAM_STR );
 									$req2->bindValue ( ':continent', $lieu->continent, PDO::PARAM_STR );
 									$req2->execute ();
+
+									$nb_requetes_sql++;
 									}
 								else 
 									{
@@ -584,6 +630,8 @@
 										$reql->bindValue ( ':lieu', $data ['ref'], PDO::PARAM_INT );
 										$reql->bindValue ( ':eve', $nb_eve, PDO::PARAM_INT );
 										$reql->execute ();
+
+										$nb_requetes_sql++;
 										}
 									}
 								}
@@ -605,6 +653,8 @@
 								$req->bindValue ( ':ref', $individu->ref, PDO::PARAM_STR );
 								$req->bindValue ( ':nb_eve', $nb_eve, PDO::PARAM_STR );
 								$req->execute ();
+
+								$nb_requetes_sql++;
 								}
 								
 							/* Note de l'individu */
@@ -623,6 +673,8 @@
 									$stmt->bindValue ( ':id', $individu->ref, PDO::PARAM_INT );
 									$stmt->bindValue ( ':note', $backup, PDO::PARAM_STR );
 									$stmt->execute ();
+
+									$nb_requetes_sql++;
 									}
 								}
 							
@@ -639,6 +691,8 @@
 								$stmt->bindValue ( ':id', $individu->ref, PDO::PARAM_INT );
 								$stmt->bindValue ( ':note', $backup, PDO::PARAM_STR );
 								$stmt->execute ();
+
+								$nb_requetes_sql++;
 								}
 							
 							/* ------- */
@@ -653,6 +707,8 @@
 								$evenement->source = $source [1];
 								$req = "UPDATE evenements SET source = '$evenement->source' WHERE n_indi='$individu->ref' and n_eve='$nb_eve'";
 								$resultat = $pdo->exec ( $req );
+
+								$nb_requetes_sql++;
 								}
 								
 							/* SOUR : nouvelle source */
@@ -666,6 +722,8 @@
 								$stmt = $pdo->prepare ( "INSERT INTO sources (ref) VALUES (:ref)" );
 								$stmt->bindParam ( ':ref', $source->ref, PDO::PARAM_STR );
 								$stmt->execute ();
+
+								$nb_requetes_sql++;
 								}
 							
 							/* TITL : Titre de la source */
@@ -679,6 +737,8 @@
 								$stmt->bindParam ( ':titre', $source->titre, PDO::PARAM_STR );
 								$stmt->bindParam ( ':nb_source', $source->ref, PDO::PARAM_INT );
 								$stmt->execute ();
+
+								$nb_requetes_sql++;
 								}
 							
 							/* ABBR : Nom de la source */
@@ -692,6 +752,8 @@
 								$stmt->bindParam ( ':nom', $source->nom, PDO::PARAM_STR );
 								$stmt->bindParam ( ':nb_source', $source->ref, PDO::PARAM_INT );
 								$stmt->execute ();
+
+								$nb_requetes_sql++;
 								}
 							
 							/* REPO : Origine de la source */
@@ -705,6 +767,8 @@
 								$stmt->bindParam ( ':source', $source->origine, PDO::PARAM_STR );
 								$stmt->bindParam ( ':nb_source', $source->ref, PDO::PARAM_STR );
 								$stmt->execute ();
+
+								$nb_requetes_sql++;
 								}
 							
 							/* OBJE : media de la source */
@@ -723,6 +787,8 @@
 								$stmt = $pdo->prepare ( "INSERT INTO media (ref) VALUES (:ref)" );
 								$stmt->bindParam ( ':ref', $media->ref, PDO::PARAM_STR );
 								$stmt->execute ();
+
+								$nb_requetes_sql++;
 								}
 							
 							if (preg_match ( "/2 FORM/", $ligne ) and ($nb_media != 0)) 
@@ -733,6 +799,8 @@
 								$stmt->bindParam ( ':media', $media->ref, PDO::PARAM_STR );
 								$stmt->bindParam ( ':format', $media->format, PDO::PARAM_STR );
 								$stmt->execute ();
+
+								$nb_requetes_sql++;
 								}
 							
 							if (preg_match ( "/2 FILE/", $ligne )) 
@@ -747,6 +815,8 @@
 								$stmt->bindParam ( ':media', $media->ref, PDO::PARAM_STR );
 								$stmt->bindParam ( ':fichier', $media->fichier, PDO::PARAM_STR );
 								$stmt->execute ();
+
+								$nb_requetes_sql++;
 								}
 							
 							if (preg_match ( "/2 DATE/", $ligne ) and ($nb_source != 0)) 
@@ -875,3 +945,5 @@
 			</div>
 		</div>
 </div>
+
+<?php echo "nb requêtes SQL : ".$nb_requetes_sql; ?>

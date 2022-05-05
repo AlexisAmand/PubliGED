@@ -126,7 +126,7 @@ Adapté par Alexis AMAND pour le projet PubliGED
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted"><?php echo CREATED_BY.'<a href="https://www.publiged.com" title="site officiel du PubliGED">PubliGED</a><br />'; ?></div>
                             <div>
-                                <a href="https://startbootstrap.com/"><a href="https://startbootstrap.com/"><?php echo FOOTER_CREDITS; ?></a></a>
+                                <a href="https://startbootstrap.com/"><?php echo FOOTER_CREDITS; ?></a>
                                 &middot;
                                 <a href="#"><?php echo FOOTER_LICENCE; ?></a>
                             </div>

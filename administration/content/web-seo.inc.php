@@ -65,7 +65,7 @@ $DescriptionSite = $row['valeur'];
               </div>
               <div class="card-body">
 
-              <p><?php echo SEO_TXT; ?></p>
+              <p><?php echo SEO_TXT_1; ?></p>
 
               <div class="input-group input-group-sm mb-3">
                   <span class="input-group-text"><?php echo ADM_HD_SITE_NAME; ?></span>
@@ -82,20 +82,20 @@ $DescriptionSite = $row['valeur'];
 
             <div class="card mb-4">
               <div class="card-header py-3">
-            	  <i class="bi bi-file-text me-2"></i>SEO (Référencement)
+            	  <i class="bi bi-file-text me-2"></i><?php echo ADM_SEO; ?>
               </div>
 
               <div class="card-body">
 
-                <p>Ces deux champs n'apparaissent pas vraiment sur votre site, ils ont juste pour but d'optimiser votre référencement. Pour les connaisseurs en SEO, il s'agit de la balise "title" et le la meta "description" par défaut.</p>
+              <p><?php echo SEO_TXT_2; ?></p>
 
                 <div class="input-group input-group-sm mb-3">
-                  <span class="input-group-text">Titre du site (SEO)</span>
+                  <span class="input-group-text"><?php echo ADM_SEO_TITLE; ?></span>
                   <input type="text" class="form-control" id=" " value=" " name=" ">
                 </div>
 
                 <div class="input-group input-group-sm mb-3">
-                  <span class="input-group-text">Description (SEO)</span>
+                  <span class="input-group-text"><?php echo ADM_SEO_DESC; ?></span>
                   <input type="text" class="form-control" id=" " value=" " name=" ">
                 </div>
 

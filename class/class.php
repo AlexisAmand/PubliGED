@@ -694,6 +694,17 @@ class Articles
 		}
 	}
 
+/* classe pour l'utilisateur */	
+
+class Utilisateurs
+	{
+	public $id;	
+	public $login;
+	public $motdepasse;
+	public $email;
+	public $rang;
+	}
+
 /* classes pour la lecture du gedcom */
 	
 class Uploaders 
@@ -721,14 +732,7 @@ class Individus
 	public $sexe; /* */
 	public $note;
 
-	/*
-	function __construct($ref, $pdo2)
-		{
-		$req = $pdo2->prepare ( "INSERT INTO individus (ref) VALUES (:ref)" );
-		$req->bindparam ( ':ref', $ref );
-		$req->execute ();	
-		}
-	*/
+	public function __construct() { }
 	}
 	
 class Evenement 

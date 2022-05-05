@@ -2,14 +2,14 @@
 
 /* ------------------- */
 /* Textes pour l'admin */
-/*    (version  FR)    */
+/*    (version  GE)    */
 /* ------------------- */
 
 /* STRUCTURE DE LA PAGE */
 /* -------------------- */
 
 define("ADM_ONLINE_TOOLS","Ce formulaire utilise des ressources en ligne.");
-define("HELLO","Bonjour");
+define("HELLO","Hola");
 
 /* bandeau */
 
@@ -308,6 +308,24 @@ define("ADM_GED_SEND","Envoyer le fichier");
 
 define("BILAN_GEDCOM","Résumé de l'importation du gedcom");
 
+define( "MOIS_1","janvier");
+define( "MOIS_2","février");
+define( "MOIS_3","mars");
+define( "MOIS_4","avril");
+define( "MOIS_5","mai");
+define( "MOIS_6","juin");
+define( "MOIS_7","juillet");
+define( "MOIS_8","aout");
+define( "MOIS_9","septembre");
+define( "MOIS_10","octobre");
+define( "MOIS_11","novembre");
+define( "MOIS_12","décembre");
+define( "BEF","avant");
+define( "ABT","vers");
+define( "AFT","après");
+define( "EST","estimé");
+define( "WFT","estimé par World Family Tree");
+
 /* GESTION DES UTILISATEURS */
 /* ------------------------ */ 
 
@@ -327,8 +345,15 @@ define("USER_LOG_BTN","Télécharger le fichier");
 /* OPTIONS SEO */
 /* ----------- */
 
-/* define("",""); */
-define("SEO_TXT","Texte qui apparait dans l'entête de votre site.");
+define("SEO_TXT_1","Texte qui apparait dans l'entête de votre site.");
+define("ADM_HD_SITE_NAME","Nom du site");
+define("ADM_HD_SITE_DESC","Slogan du site");
+
+define("ADM_SEO","SEO (Référencement)");
+define("SEO_TXT_2","<p>Ces deux champs n\'apparaissent pas vraiment sur votre site, ils ont juste pour but d\'optimiser votre référencement. Pour les connaisseurs en SEO, il s\'agit de la balise \"title\" et le la meta \"description\" par défaut.</p>");
+define("ADM_SEO_TITLE","Titre du site (SEO)");
+define("ADM_SEO_DESC","Description (SEO)");
+
 define("SEO_SAVE","Enregistrer");
 
 /* PAGES D'ERREUR */
