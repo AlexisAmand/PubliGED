@@ -1,5 +1,5 @@
 <?php
-
+$showMessage = 0;
 if(isset($_GET['id']) and isset($_GET['action']))
   {
   switch ($_GET['action']) 
@@ -9,10 +9,9 @@ if(isset($_GET['id']) and isset($_GET['action']))
         $sql = $pdo->prepare("UPDATE commentaires SET publication = '1' WHERE ref=:ref");
         $sql->bindparam ( ':ref', $_GET['id'] );
         $req = $sql->execute ();
-        $msg = '<div class="alert alert-success d-flex align-items-center" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-        <div>'.COMM_NB.$_GET['id'].COMM_PUBLISHED.'</div></div>'; 
-
+        $msg = '<div class="alert alert-success d-flex align-items-center" role="alert">';
+        $msg = $msg.'<i class="bi bi-check-circle"></i><div>'.COMM_NB.$_GET['id'].COMM_PUBLISHED.'</div></div>'; 
+        $showMessage = 1;
         /* Enregistrement de l'action dans le journal */
         putOnLogB(COMM_NB.$_GET['id'].COMM_PUBLISHED);
         break;
@@ -21,23 +20,22 @@ if(isset($_GET['id']) and isset($_GET['action']))
         $sql = $pdo->prepare("UPDATE commentaires SET publication = '0' WHERE ref=:ref");
         $sql->bindparam ( ':ref', $_GET['id'] );
         $req = $sql->execute ();
-        $msg = '<div class="alert alert-success d-flex align-items-center" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-        <div>'.COMM_NB.$_GET['id'].COMM_UNPUBLISHED.'</div></div>'; 
-
+        $msg = '<div class="alert alert-success d-flex align-items-center" role="alert">';
+        $msg = $msg.'<i class="bi bi-check-circle"></i><div>'.COMM_NB.$_GET['id'].COMM_UNPUBLISHED.'</div></div>'; 
+        $showMessage = 1;
         /* Enregistrement de l'action dans le journal */
-		putOnLogB(COMM_NB.$_GET['id'].COMM_UNPUBLISHED);		
+		    putOnLogB(COMM_NB.$_GET['id'].COMM_UNPUBLISHED);		
         break;
       case 'delete':
         /* Suppression d'un commentaire */
         $sql = $pdo->prepare('DELETE FROM commentaires WHERE ref=:ref');	
         $sql->bindparam ( ':ref', $_GET['id'] );
 				$req = $sql->execute ();
-        $msg = "<div class='alert alert-success d-flex align-items-center' role='alert'>"
-				."<i class='bi bi-check-circle-fill me-2'></i>".COMM_NB.$_GET['id'].COMM_DELETED."</div>";
-
+        $msg = "<div class='alert alert-success d-flex align-items-center' role='alert'>";
+				$msg = $msg."<i class='bi bi-check-circle-fill me-2'></i>".COMM_NB.$_GET['id'].COMM_DELETED."</div>";
+        $showMessage = 1;
         /* Enregistrement de l'action dans le journal */
-		putOnLogB(COMM_NB.$_GET['id'].COMM_DELETED);	
+		    putOnLogB(COMM_NB.$_GET['id'].COMM_DELETED);	
         break;
       default:
         # code...
@@ -70,8 +68,13 @@ if(isset($_GET['id']) and isset($_GET['action']))
               $sqlCommentaires = "SELECT * FROM commentaires";				
               $reqCommentaires = $pdo->prepare($sqlCommentaires);
               $reqCommentaires->execute();
+              
+              if ($showMessage == 1)
+                {
+                echo $msg;
+                }
               ?>
-                  	                 	          
+
               <table class="table table-bordered" id="dataTable">
                 <thead>
                   <tr>

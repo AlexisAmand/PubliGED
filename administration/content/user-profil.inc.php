@@ -73,23 +73,23 @@ if(isset($_POST['envoi']))
 					<form method="POST" action="index.php?page=user-profil"> 
 
 						<div class="mb-3">
-							<label for="InputLogin" class="form-label">Login</label>
+							<label for="InputLogin" class="form-label"><?php echo USER_PROFIL_LOGIN; ?></label>
 							<input type="text" class="form-control" name="login" id="InputLogin" value="<?php echo $utilisateur->login; ?>">
 						</div>
 
 						<div class="mb-3">
-							<label for="InputEmail" class="form-label">Email</label>
+							<label for="InputEmail" class="form-label"><?php echo USER_PROFIL_MAIL; ?></label>
 							<input type="email" class="form-control" name="email" id="InputEmail" value="<?php echo $utilisateur->email; ?>">
 						</div>
 
 						<div class="mb-3">
-							<label for="InputPassword" class="form-label">Mot de passe</label>
+							<label for="InputPassword" class="form-label"><?php echo USER_PROFIL_PSW; ?></label>
 							<input type="text" class="form-control" name="motdepasse" id="Inputmotdepasse" value="<?php echo $utilisateur->motdepasse; ?>">
 						</div>
 
-						<p>Rang : <?php echo $utilisateur->rang; ?> </p>
+						<p><?php echo USER_PROFIL_ROLE." : ".$utilisateur->rang; ?> </p>
 
-						<button type="submit" class="btn btn-primary" name="envoi">Submit</button>
+						<button type="submit" class="btn btn-primary" name="envoi"><?php echo USER_PROFIL_SEND; ?></button>
 
 					</form>
 					

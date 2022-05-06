@@ -141,7 +141,7 @@ define("ADM_ARTICLE_PUBLISH","Publier");
 
 define("ADM_ARTICLE_SEO","Qqs options seo ?");
 define("ADM_ARTICLE_META_DESC","Méta description");
-define("ADM_ARTICLE_META_KEYW","Méta keywords");
+define("ADM_ARTICLE_META_KEY","Méta keywords");
 
 /* Edition d'un article */
 
@@ -225,6 +225,13 @@ define("ADM_COMM_CONFIRM_03","Etes-vous sûr de vouloir dépublier le commentair
 /* Editer un commentaire */
 
 define("COMM_EDIT","Editer un commentaire");
+
+/* Publication d'un commentaire */
+
+define("COMM_NB", "Le commentaire n°");
+define("COMM_PUBLISHED"," a été publié.");
+define("COMM_UNPUBLISHED"," a été dépublié.");
+define("COMM_DELETED"," a été supprimé.");
 
 /* GESTION DE LA BASE DE DONNEES */
 /* ----------------------------- */
@@ -333,6 +340,15 @@ define("USERS_PSEUDO","Pseudo");
 define("USERS_EDIT","Editer");
 define("USERS_DEL","Supprimer");
 
+/* PROFIL DE L'UTILISATEUR */
+/* ----------------------- */
+
+define("USER_PROFIL_LOGIN","Login");
+define("USER_PROFIL_MAIL","Email");
+define("USER_PROFIL_PSW","Mot de passe");
+define("USER_PROFIL_ROLE","Rôle");
+define("USER_PROFIL_SEND","Enregistrer");
+
 /* PROFIL D'UN UTILISATEUR */
 /* ----------------------- */
 
@@ -352,7 +368,7 @@ define("ADM_HD_SITE_DESC","Slogan du site");
 define("ADM_SEO","SEO (Référencement)");
 define("SEO_TXT_2","<p>Ces deux champs n\'apparaissent pas vraiment sur votre site, ils ont juste pour but d\'optimiser votre référencement. Pour les connaisseurs en SEO, il s\'agit de la balise \"title\" et le la meta \"description\" par défaut.</p>");
 define("ADM_SEO_TITLE","Titre du site (SEO)");
-define("ADM_SEO_DESC","Description (SEO)");
+define("ADM_SEO_DESC","Description (SEO)"); 
 
 define("SEO_SAVE","Enregistrer");
 
