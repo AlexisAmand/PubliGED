@@ -1,6 +1,8 @@
 <div class="container-fluid px-4">
 
-<?php 
+<?php
+$utilisateur = new Utilisateurs();
+$utilisateur->information($pdo, $_SESSION['login']);
 
 $article = new articles();
 $BaseDeDonnees = new BasesDeDonnees;
@@ -67,7 +69,7 @@ if(isset($_GET['id']) and isset($_GET['action']))
 
 ?>
 	
-    <h1 class="h3 mt-4"><?php echo HELLO." ".$_SESSION['login']; ?>.</h1>  
+    <h1 class="h3 mt-4"><?php echo HELLO." ".$utilisateur->login; ?>.</h1>  
 	
 		<ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>

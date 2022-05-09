@@ -1,6 +1,11 @@
+<?php
+$utilisateur = new Utilisateurs();
+$utilisateur->information($pdo, $_SESSION['login']);
+?>
+
 <div class="container-fluid px-4">
 	
-    <h1 class="h3 mt-4"><?php echo HELLO." ".$_SESSION['login']; ?>.</h1>  
+	<h1 class="h3 mt-4"><?php echo HELLO." ".$utilisateur->login; ?>.</h1> 
 	
 		<ol class="breadcrumb mb-4">
         	<li class="breadcrumb-item active"><?php echo DASHBOARD; ?></li>
@@ -44,7 +49,7 @@
                     ?>
                     </span></div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                    	<a class="small stretched-link" href="#">Voir les détails</a>
+                    	<a class="small stretched-link" href="index.php?page=users-list">Voir les détails</a>
                         <div class="small"><i class="bi bi-caret-right"></i></div>
                     </div>
                 </div>
@@ -65,7 +70,7 @@
 			        ?>
                     </span></div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                    	<a class="small stretched-link" href="#">Voir les détails</a>
+                    	<a class="small stretched-link" href="index.php?page=articles-list">Voir les détails</a>
                         <div class="small"><i class="bi bi-caret-right"></i></div>
                     </div>
                 </div>
@@ -86,7 +91,7 @@
 			        ?>
                     </span></div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                    	<a class="small stretched-link" href="#">Voir les détails</a>
+                    	<a class="small stretched-link" href="index.php?page=comm-list">Voir les détails</a>
                         <div class="small"><i class="bi bi-caret-right"></i></div>
                     </div>
                 </div>
@@ -163,12 +168,12 @@
 							{
 						?>
 						<p>Aucun gedcom n'a encore été envoyé</p>
-						<button href="#">Envoyer mon gedcom</button>
+						<button href="index.php?page=gedcom-select">Envoyer mon gedcom</button>
 						<?php
 							}
 						?>
                   		<div class="d-grid d-md-flex justify-content-md-end mt-3">
-							<a href="index.php?page=articles-list" class="btn btn-sm btn-secondary"><?php echo MY_GEDCOM_SEND; ?></a>
+							<a href="index.php?page=gedcom-select" class="btn btn-sm btn-secondary"><?php echo MY_GEDCOM_SEND; ?></a>
 						</div>                           
                 </div>
               </div>
@@ -206,7 +211,7 @@
 	                  			echo "<td>".$day."-".$month."-".$year."</td>";		                  					                  		
 	                  			echo "<td>".RecupTitreArticle($pdo, $row['id_article'])."</td>";
 	                    		echo "<td>".$row['nom_auteur']."</td>";
-	                    		echo "<td><a href='#'><i class='bi bi-pencil-square text-success'></i></a>";
+	                    		echo "<td><a href='index.php?page=comm-edit&id=".$row['ref']."'><i class='bi bi-pencil-square text-success'></i></a>";
 	                    		echo "</td></tr>";
 		                		}
 		                   ?>

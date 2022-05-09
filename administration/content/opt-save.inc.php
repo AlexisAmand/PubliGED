@@ -1,6 +1,11 @@
+<?php
+$utilisateur = new Utilisateurs();
+$utilisateur->information($pdo, $_SESSION['login']);
+?>
+
 <div class="container-fluid px-4">
 	
-    <h1 class="h3 mt-4"><?php echo HELLO." ".$_SESSION['login']; ?>.</h1>  
+    <h1 class="h3 mt-4"><?php echo HELLO." ".$utilisateur->login; ?>.</h1>  
 	
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>
@@ -16,9 +21,14 @@
 						    <i class="bi bi-caret-down me-2"></i><?php echo BCK_RUB_TITLE_3; ?>
 					    </div>
 					    <div class="card-body">
-               
+
 						<?php
 
+						/* Pas sûr que l'utilisateur ait vraiment besoin de vider sa base de données */
+						/* On dirait que ça fait doublon avec la page database-del */
+
+						if($utilisateur->rang == 'administrateur')
+							{
 							/* les champs "à remplir" ne doivent pas être vides */
 
 							if(!empty($_POST))
@@ -122,34 +132,41 @@
 									}
 
 
-							?>
+						?>
 
-							<div class="alert alert-success" role="alert">
-								<?php
-								$msg = OPT_SAVE_OK;
-								echo '<i class="bi bi-check me-2"></i>'.$msg;
-								putOnLogA($msg);
-								?>
-							</div>
-
+						<div class="alert alert-success" role="alert">
 							<?php
+							$msg = OPT_SAVE_OK;
+							echo '<i class="bi bi-check me-2"></i>'.$msg;
+							putOnLogA($msg);
+							?>
+						</div>
+
+						<?php
 								} 
 							else
 								{
-							?>
+						?>
 
-							<div class="alert alert-danger" role="alert">
+								<div class="alert alert-danger" role="alert">
+									<?php 
+									$msg = OPT_SAVE_NOOK;
+									echo '<i class="bi bi-exclamation-triangle-fill me-2"></i>'.$msg;
+									putOnLogA($msg);
+									?>
+								</div>
+
 								<?php 
-								$msg = OPT_SAVE_NOOK;
-								echo '<i class="bi bi-exclamation-triangle-fill me-2"></i>'.$msg;
-								putOnLogA($msg);
-								?>
-							</div>
-
-							<?php 
+								}
+							
 							}
-							?>
-
+						else
+							{
+							echo NO_ACCESS; /* message si l'utilisateur a le rôle "rédacteur" */
+							}
+												
+						?>
+               			
 						</div>
          			</div>
 			</div>

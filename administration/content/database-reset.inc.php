@@ -1,4 +1,6 @@
 <?php
+$utilisateur = new Utilisateurs();
+$utilisateur->information($pdo, $_SESSION['login']);
 
 if(isset($_POST['envoyerG']))
   {
@@ -37,68 +39,85 @@ if(isset($_POST['envoyerS']))
 
 <div class="container-fluid px-4">
 	
-    <h1 class="h3 mt-4"><?php echo HELLO." ".$_SESSION['login']; ?>.</h1>  
+    <h1 class="h3 mt-4"><?php echo HELLO." ".$utilisateur->login; ?>.</h1>  
 	
-		<ol class="breadcrumb">
-		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>
-		    <li class="breadcrumb-item"><a href="index.php?page=database-size"><?php echo ASIDE_ADMIN_7; ?></a></li>
-		    <li class="breadcrumb-item active" aria-current="page"><?php echo ADM_DB_CREATE; ?></li>
-		</ol>
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>
+          <li class="breadcrumb-item"><a href="index.php?page=database-size"><?php echo ASIDE_ADMIN_7; ?></a></li>
+          <li class="breadcrumb-item active" aria-current="page"><?php echo ADM_DB_CREATE; ?></li>
+      </ol>
 
-    <?php
-    if (isset($msg))
-      {
-      echo '<p class="alert alert-success" role="alert"><i class="bi bi-exclamation-triangle-fill me-2"></i>&nbsp;'.$msg.'</p>';
-      }
-    ?>
+      <?php
+      if (isset($msg))
+        {
+        echo '<p class="alert alert-success" role="alert"><i class="bi bi-exclamation-triangle-fill me-2"></i>&nbsp;'.$msg.'</p>';
+        }
+      ?>
+              
+      <?php echo ADM_DB_TEXT; ?></p>
+      
+      <div class="row">
+        <div class="col-xl-12">
+
+          <!-- Tables généalogie -->
+
+          <div class="card mb-4">
+            <div class="card-header">
+              <i class="bi bi-server me-2"></i><?php echo ADM_DB_SUBTITLE_G; ?>
+            </div>
+            <div class="card-body">
+
+            <?php
+            if($utilisateur->rang == 'administrateur')
+              {
+            ?>
+              
+              <p class="mb-4"><?php echo ADM_DB_SUBTEXT_G; ?></p>
+
+              <div class="d-grid d-md-flex justify-content-md-end mt-3">
+              <button data-bs-toggle="modal" data-bs-target="#GenealogieModal" class="btn btn-sm btn-secondary"><?php echo ADM_DB_SEND_G; ?></button>
+              </div>
+
+            </div> 
+          </div>
+
+          <!-- Tables blog -->
+
+          <div class="card mb-4">
+            <div class="card-header">
+              <i class="bi bi-server me-2"></i><?php echo ADM_DB_SUBTITLE_B; ?>
+            </div>
+            <div class="card-body"><p class="mb-4"><?php echo ADM_DB_SUBTEXT_B; ?></p>
+              <div class="d-grid d-md-flex justify-content-md-end mt-3">
+              <button data-bs-toggle="modal" data-bs-target="#BlogModal" class="btn btn-sm btn-secondary"><?php echo ADM_DB_SEND_B; ?></button>
+              </div>
+            </div> 
+          </div>
+
+          <!-- Tables système -->
+
+          <div class="card mb-4">
+            <div class="card-header">
+              <i class="bi bi-server me-2"></i><?php echo ADM_DB_SUBTITLE_S; ?>
+            </div>
+            <div class="card-body"><p class="mb-4"><?php echo ADM_DB_SUBTEXT_S; ?></p>
+              <div class="d-grid d-md-flex justify-content-md-end mt-3">
+              <button data-bs-toggle="modal" data-bs-target="#SysModal" class="btn btn-sm btn-secondary"><?php echo ADM_DB_SEND_S; ?></button>
+              </div>
             
-    <?php echo ADM_DB_TEXT; ?></p>
-    
-    <div class="row">
-     	<div class="col-xl-12">
+            <?php
+              }
+            else
+              {
+              echo NO_ACCESS; /* message si l'utilisateur a le rôle "rédacteur" */
+              }
+            ?>
 
-        <!-- Tables généalogie -->
-
-		<div class="card mb-4">
-          <div class="card-header">
-            <i class="bi bi-server me-2"></i><?php echo ADM_DB_SUBTITLE_G; ?>
+            </div> 
           </div>
-          <div class="card-body"><p class="mb-4"><?php echo ADM_DB_SUBTEXT_G; ?></p>
-            <div class="d-grid d-md-flex justify-content-md-end mt-3">
-            <button data-bs-toggle="modal" data-bs-target="#GenealogieModal" class="btn btn-sm btn-secondary"><?php echo ADM_DB_SEND_G; ?></button>
-            </div>
-          </div> 
-        </div>
-
-        <!-- Tables blog -->
-
-        <div class="card mb-4">
-          <div class="card-header">
-            <i class="bi bi-server me-2"></i><?php echo ADM_DB_SUBTITLE_B; ?>
-          </div>
-          <div class="card-body"><p class="mb-4"><?php echo ADM_DB_SUBTEXT_B; ?></p>
-            <div class="d-grid d-md-flex justify-content-md-end mt-3">
-            <button data-bs-toggle="modal" data-bs-target="#BlogModal" class="btn btn-sm btn-secondary"><?php echo ADM_DB_SEND_B; ?></button>
-            </div>
-          </div> 
-        </div>
-
-        <!-- Tables système -->
-
-        <div class="card mb-4">
-          <div class="card-header">
-            <i class="bi bi-server me-2"></i><?php echo ADM_DB_SUBTITLE_S; ?>
-          </div>
-          <div class="card-body"><p class="mb-4"><?php echo ADM_DB_SUBTEXT_S; ?></p>
-            <div class="d-grid d-md-flex justify-content-md-end mt-3">
-            <button data-bs-toggle="modal" data-bs-target="#SysModal" class="btn btn-sm btn-secondary"><?php echo ADM_DB_SEND_S; ?></button>
-            </div>
-          </div> 
-        </div>
-
-       
-      </div> 
-    </div>
+        
+        </div> 
+      </div>
 </div>
 
 <!-- Modale pour confirmer le reset des tables de la partie généalogie -->

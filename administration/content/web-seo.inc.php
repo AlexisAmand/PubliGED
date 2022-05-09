@@ -1,5 +1,8 @@
 <?php
 
+$utilisateur = new Utilisateurs();
+$utilisateur->information($pdo, $_SESSION['login']);
+
 /* Si des options ont été envoyées, on les récupére */
 
 if (isset($_POST['TitreSite']) and isset($_POST['DescriptionSite']))
@@ -35,7 +38,7 @@ $DescriptionSite = $row['valeur'];
 
 <div class="container-fluid px-4">
 	
-    <h1 class="h3 mt-4"><?php echo HELLO." ".$_SESSION['login']; ?>.</h1>  
+    <h1 class="h3 mt-4"><?php echo HELLO." ".$utilisateur->login; ?>.</h1>  
 	
 		<ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>
@@ -65,19 +68,24 @@ $DescriptionSite = $row['valeur'];
               </div>
               <div class="card-body">
 
-              <p><?php echo SEO_TXT_1; ?></p>
+                <?php
+                /* cette page est dispo uniquement pour le rôle administrateur */
+                if($utilisateur->rang == 'administrateur')
+                  {
+                ?>
+                  <p><?php echo SEO_TXT_1; ?></p>
+                
+                  <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text"><?php echo ADM_HD_SITE_NAME; ?></span>
+                    <input type="text" class="form-control" id="TitreInput" value="<?php echo $TitreSite; ?>" name="TitreSite">
+                  </div>
 
-              <div class="input-group input-group-sm mb-3">
-                  <span class="input-group-text"><?php echo ADM_HD_SITE_NAME; ?></span>
-                  <input type="text" class="form-control" id="TitreInput" value="<?php echo $TitreSite; ?>" name="TitreSite">
-                </div>
+                  <div class="input-group input-group-sm mb-3">
+                      <span class="input-group-text"><?php echo ADM_HD_SITE_DESC; ?></span>
+                      <input type="text" class="form-control" id="DescriptionInput" value="<?php echo $DescriptionSite; ?>" name="DescriptionSite">
+                  </div>
 
-                <div class="input-group input-group-sm mb-3">
-                  <span class="input-group-text"><?php echo ADM_HD_SITE_DESC; ?></span>
-                  <input type="text" class="form-control" id="DescriptionInput" value="<?php echo $DescriptionSite; ?>" name="DescriptionSite">
-                </div>
-     	   
-              </div>
+              </div>    
             </div>
 
             <div class="card mb-4">
@@ -103,12 +111,27 @@ $DescriptionSite = $row['valeur'];
             </div>
              
             <div class="d-grid d-md-flex justify-content-md-end mt-3">
-				<button type="submit" name="enregistrer" class="btn btn-sm btn-secondary"  value="Enregistrer"><?php echo SEO_SAVE; ?></button>
-			</div>
+              <button type="submit" name="enregistrer" class="btn btn-sm btn-secondary"  value="Enregistrer"><?php echo SEO_SAVE; ?></button>
+            </div>
 
-        </form>
+          </form>
+
+                <?php 
+                  }
+                else
+                  {
+                  echo NO_ACCESS; /* message si l'utilisateur a le rôle "rédacteur" */
+                  }
+                ?>
 
         </div>
 
       </div>
 </div>
+
+<?php 
+
+/* l'utilisateur est un rédacteur, il n'a pas la permission de voir la page */
+
+
+?>

@@ -703,6 +703,23 @@ class Utilisateurs
 	public $motdepasse;
 	public $email;
 	public $rang;
+
+	public function information($pdo3, $sessionLogin)
+		{
+		$this->login = $sessionLogin;
+		
+		$sqlUsers = "SELECT * FROM membres WHERE login='$this->login'";
+		$reqUsers = $pdo3->prepare($sqlUsers);
+		$reqUsers->execute();
+
+		while ($data = $reqUsers->fetch(PDO::FETCH_ASSOC))
+			{
+			$this->id = $data['id'];
+			$this->motdepasse = $data['password'];
+			$this->email = $data['mail'];
+			$this->rang = $data['rang'];
+			}
+		}
 	}
 
 /* classes pour la lecture du gedcom */

@@ -1,8 +1,11 @@
-
+<?php
+$utilisateur = new Utilisateurs();
+$utilisateur->information($pdo, $_SESSION['login']);
+?>
 
 <div class="container-fluid px-4">
 	
-    <h1 class="h3 mt-4"><?php echo HELLO." ".$_SESSION['login']; ?>.</h1>  
+  <h1 class="h3 mt-4"><?php echo HELLO." ".$utilisateur->login; ?>.</h1> 
 	
 		<ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>
@@ -19,6 +22,11 @@
 					  </div>
 					  <div class="card-body">
 
+              <?php
+              /* en récupére le rôle de l'utilisateur */
+              if($utilisateur->rang == 'administrateur')
+                {
+              ?>
                 <div id="test"></div>
 
                 <div class="row">
@@ -72,15 +80,20 @@
                 </div>
 
                 <div class="d-grid d-md-flex justify-content-md-end mt-3">
-						  	  <a href="#" class="btn btn-sm btn-secondary" id="lienModule"><?php echo "Sauvegarder"; ?></a>
-						    </div>
+                  <a href="#" class="btn btn-sm btn-secondary" id="lienModule"><?php echo "Sauvegarder"; ?></a>
+                </div>
 
-
+              <?php
+                }
+              else
+                {
+                echo NO_ACCESS; /* message si l'utilisateur a le rôle "rédacteur" */
+                }
+              ?>
 
          	  </div>
           </div>
         </div>
-
     </div>
 
 </div>

@@ -1,6 +1,11 @@
+<?php
+$utilisateur = new Utilisateurs();
+$utilisateur->information($pdo, $_SESSION['login']);
+?>
+
 <div class="container-fluid px-4">
 	
-    <h1 class="h3 mt-4"><?php echo HELLO." ".$_SESSION['login']; ?>.</h1>  
+	<h1 class="h3 mt-4"><?php echo HELLO." ".$utilisateur->login; ?>.</h1> 
 	
 		<ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>
@@ -17,7 +22,19 @@
 					</div>
 					<div class="card-body">
 					    
-					<?php /*TODO */ ?>
+					<?php
+
+					if($utilisateur->rang == 'administrateur')
+						{
+						/* si l'admin veut ajouter un utilisateur */
+						}
+					else
+						{
+						echo NO_ACCESS; /* message si l'utilisateur a le rôle "rédacteur" */
+						}
+					
+					?>
+
 					</div>
 
 				</div>

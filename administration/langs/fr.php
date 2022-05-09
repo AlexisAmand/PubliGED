@@ -339,6 +339,7 @@ define( "WFT","estimé par World Family Tree");
 define("USERS_PSEUDO","Pseudo");
 define("USERS_EDIT","Editer");
 define("USERS_DEL","Supprimer");
+define("NO_ACCESS","Votre rôle ne vous permet pas d'accéder à cette page.");
 
 /* PROFIL DE L'UTILISATEUR */
 /* ----------------------- */

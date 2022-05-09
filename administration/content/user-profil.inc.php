@@ -2,9 +2,12 @@
 
 /* récupération des infos de l'utilisateur connecté */
 
-$utilisateur = new Utilisateurs();
-$utilisateur->login = $_SESSION['login'];
 $profilChanged = 0;
+$utilisateur = new Utilisateurs();
+$utilisateur->information($pdo, $_SESSION['login']);
+
+/*
+$utilisateur->login = $_SESSION['login'];
 
 $sqlUsers = "SELECT * FROM membres WHERE login='$utilisateur->login'";
 $reqUsers = $pdo->prepare($sqlUsers);
@@ -17,6 +20,7 @@ while ($data = $reqUsers->fetch(PDO::FETCH_ASSOC))
 	$utilisateur->email = $data['mail'];
 	$utilisateur->rang = $data['rang'];
 	}
+*/
 
 if(isset($_POST['envoi']))
 	{ 
@@ -43,7 +47,7 @@ if(isset($_POST['envoi']))
 
 <div class="container-fluid px-4">
 	
-    <h1 class="h3 mt-4"><?php echo HELLO." ".$_SESSION['login']; ?>.</h1>  
+    <h1 class="h3 mt-4"><?php echo HELLO." ".$utilisateur->login; ?>.</h1>  
 	
 		<ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>

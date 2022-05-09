@@ -1,5 +1,8 @@
 <?php
 
+$utilisateur = new Utilisateurs();
+$utilisateur->information($pdo, $_SESSION['login']);
+
 /* Récup du thème utilisé ou mise à jour de la BD avec le nouveau */
 
 if (!empty($_POST['template']))
@@ -48,7 +51,7 @@ else
 
 <div class="container-fluid px-4">
 	
-    <h1 class="h3 mt-4"><?php echo HELLO." ".$_SESSION['login']; ?>.</h1>  
+  <h1 class="h3 mt-4"><?php echo HELLO." ".$utilisateur->login; ?>.</h1>  
 	
 		<ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>
@@ -65,96 +68,110 @@ else
               </div>
               <div class="card-body">
 
-                <form action="index.php?page=opt-templates" method="POST" enctype="multipart/form-data">
+                <?php
+                /* cette page est dispo uniquement pour le rôle administrateur */
+                if($utilisateur->rang == 'administrateur')
+                  {
+                ?>
 
-                <p class="text-justify"><?php echo ADM_TH_TEXT_PART_1; ?><a href="https://bootswatch.com">Bootswatch</a><?php echo ADM_TH_TEXT_PART_2; ?><a href="https://mit-license.org">MIT</a>.</p>
+                  <form action="index.php?page=opt-templates" method="POST" enctype="multipart/form-data">
 
-                <div class="row">
+                  <p class="text-justify"><?php echo ADM_TH_TEXT_PART_1; ?><a href="https://bootswatch.com">Bootswatch</a><?php echo ADM_TH_TEXT_PART_2; ?><a href="https://mit-license.org">MIT</a>.</p>
 
-                  <?php
+                  <div class="row">
 
-                  $d = dir("../templates/");
-                  while($entry = $d->read()) 
-                    {
-                    $pasglop = array(".", "..", "system");
-                    if (!in_array($entry, $pasglop)) 
+                    <?php
+
+                    $d = dir("../templates/");
+                    while($entry = $d->read()) 
                       {
-                      echo '<div class="col-md-4 col-12 col-sm-6 mb-3 col-lg-3">';
-                                                
-                      /* La miniature existe ? On affiche sinon... bah une miniature par défaut récupérée sur Placeholder */
-
-                      $thumbTheme = '../templates/'.$entry.'/'.$entry.'.png';
-
-                      echo '<figure class="figure">';
-
-                      if(file_exists($thumbTheme))
+                      $pasglop = array(".", "..", "system");
+                      if (!in_array($entry, $pasglop)) 
                         {
-                        echo '<img src="'.$thumbTheme.'" class="img-fluid rounded img-thumbnail">';
-                        }
-                      else
-                        {
-                        echo '<img src="https://via.placeholder.com/2560x1560.png" class="img-fluid rounded img-thumbnail">';
-                        }
+                        echo '<div class="col-md-4 col-12 col-sm-6 mb-3 col-lg-3">';
+                                                  
+                        /* La miniature existe ? On affiche sinon... bah une miniature par défaut récupérée sur Placeholder */
+
+                        $thumbTheme = '../templates/'.$entry.'/'.$entry.'.png';
+
+                        echo '<figure class="figure">';
+
+                        if(file_exists($thumbTheme))
+                          {
+                          echo '<img src="'.$thumbTheme.'" class="img-fluid rounded img-thumbnail">';
+                          }
+                        else
+                          {
+                          echo '<img src="https://via.placeholder.com/2560x1560.png" class="img-fluid rounded img-thumbnail">';
+                          }
+                            
+                        /* vérification du theme actuel, pour cocher la case... */
+            
+                        if($entry == $NomDuTemplate)
+                          {
+                          echo '<figcaption class="figure-caption text-center pt-2">';
+                          echo '<input type="radio" name="template" value="'.$entry.'" checked>&nbsp;'
+                              ."<span class='text-capitalize'>".$entry.'</span></div>';
+                          echo '</figcaption>';
+                          }
+                        else
+                          {
+                          echo '<figcaption class="figure-caption text-center pt-2">';
+                          echo '<input type="radio" name="template" value="'.$entry.'">&nbsp;'
+                              ."<span class='text-capitalize'>".$entry.'</span></div>';
+                          echo '</figcaption>';
+                          }
                           
-                      /* vérification du theme actuel, pour cocher la case... */
-          
-                      if($entry == $NomDuTemplate)
-                        {
-                        echo '<figcaption class="figure-caption text-center pt-2">';
-                        echo '<input type="radio" name="template" value="'.$entry.'" checked>&nbsp;'
-                            ."<span class='text-capitalize'>".$entry.'</span></div>';
-                        echo '</figcaption>';
+                        echo '</figure>';
+
                         }
-                      else
-                        {
-                        echo '<figcaption class="figure-caption text-center pt-2">';
-                        echo '<input type="radio" name="template" value="'.$entry.'">&nbsp;'
-                            ."<span class='text-capitalize'>".$entry.'</span></div>';
-                        echo '</figcaption>';
-                        }
-                        
-                      echo '</figure>';
 
                       }
 
-                    }
+                    /* Fermeture du dossier template */ 
+                    $d->close();
+                    ?>
 
-                  /* Fermeture du dossier template */ 
-                  $d->close();
-                  ?>
-
-            </div>
+                  </div>
 	
-			    </div>
+			        </div>
 
-          </div>
-
-          <!-- Choix du favicon -->
-
-          <div class="card mb-4">
-          	<div class="card-header">
-            	<i class="bi bi-gear me-2"></i><?php echo FAV_TITLE; ?>
             </div>
-            <div class="card-body">
 
-               	<div class="row">
+            <!-- Choix du favicon -->
 
-                <p><?php echo FAV_TEXT; ?><img src="<?php echo '/templates/'.$NomDuTemplate.'/images/'.$NomDuFavicon ?>"></p>
-  
-                    <div class="custom-file">
+            <div class="card mb-4">
+              <div class="card-header">
+                <i class="bi bi-gear me-2"></i><?php echo FAV_TITLE; ?>
+              </div>
+              <div class="card-body">
 
-                      <label for="formFile" class="form-label"><?php echo FAV_SELECT; ?></label>
-                      <input class="form-control" type="file" id="formFile" name="favicon">
+                  <div class="row">
 
-                    </div>
-                </div>
-			</div>
-          </div>
+                  <p><?php echo FAV_TEXT; ?><img src="<?php echo '/templates/'.$NomDuTemplate.'/images/'.$NomDuFavicon ?>"></p>
+    
+                      <div class="custom-file">
+
+                        <label for="formFile" class="form-label"><?php echo FAV_SELECT; ?></label>
+                        <input class="form-control" type="file" id="formFile" name="favicon">
+
+                      </div>
+                  </div>
+              </div>
+            </div>
           
-      	  <div class="d-grid d-md-flex justify-content-md-end mt-3">
-		    <button type="submit" name="envoyer" class="btn btn-sm btn-secondary"><?php echo FAV_SEND; ?></button>
-   	      </div>
+            <div class="d-grid d-md-flex justify-content-md-end mt-3">
+              <button type="submit" name="envoyer" class="btn btn-sm btn-secondary"><?php echo FAV_SEND; ?></button>
+            </div>
 
-		</form>
+		            </form>
+
+              <?php 
+                }
+              else
+                {
+                echo NO_ACCESS; /* message si l'utilisateur a le rôle "rédacteur" */
+                }
+              ?>
 
 </div>
