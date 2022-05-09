@@ -333,6 +333,11 @@ define( "AFT","après");
 define( "EST","estimé");
 define( "WFT","estimé par World Family Tree");
 
+/* effacer un gedcom */
+
+define("GEDCOM_DEL_TXT","En cliquant sur ce bouton, votre gedcom sera effacé et les tables réinitialisées.");
+define("GEDCOM_DEL_BTN","Réinitialiser le gedcom");
+
 /* GESTION DES UTILISATEURS */
 /* ------------------------ */ 
 

@@ -1,6 +1,20 @@
 <?php
 $utilisateur = new Utilisateurs();
 $utilisateur->information($pdo, $_SESSION['login']);
+
+$showMessage = 0;
+
+if (isset($_POST['effacerGedcom']))
+	{
+	/* on vide les tables */
+	$sql = "Truncate table evenements;Truncate table familles;Truncate table individus;Truncate table lieux;Truncate table sources;";
+	$pdo->query($sql);
+
+	/* on se prépare à afficher un message */
+	$message =" Le gedcom a bien été effacé !";
+	$showMessage = 1;
+	}
+
 ?>
 
 <div class="container-fluid px-4">
@@ -23,10 +37,28 @@ $utilisateur->information($pdo, $_SESSION['login']);
 					<div class="card-body">
 
 						<?php 
+
+						if($showMessage == 1)
+							{
+							echo '<div class="alert alert-success" role="alert">';
+							echo '<i class="bi bi-check-circle-fill me-2"></i>';
+							echo $message;
+							echo '</div>';
+							}
+
 						if($utilisateur->rang == 'administrateur')
 							{
 							/* si l'admin veut effacer le gedcom */
 							/* c'est ici qu'il faudra faire tous les truncate */
+						?>
+
+						<p><?php echo GEDCOM_DEL_TXT;?></p>
+
+						<form method="POST" action="index.php?page=gedcom-del">
+						<button type="send" name="effacerGedcom" class="btn btn-primary"><?php echo GEDCOM_DEL_BTN;?></button>
+						</form>
+
+						<?php
 							}
 						else
 							{
@@ -39,6 +71,4 @@ $utilisateur->information($pdo, $_SESSION['login']);
 				</div>
 			</div>
 		</div> 
-	</div>
-	
 </div>
