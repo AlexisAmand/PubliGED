@@ -9,7 +9,7 @@
 /* -------------------- */
 
 define("ADM_ONLINE_TOOLS","Ce formulaire utilise des ressources en ligne.");
-define("HELLO","Bonjour");
+define("HELLO","Bonjour FR");
 
 /* bandeau */
 
@@ -280,7 +280,7 @@ define("ADM_ST_RUBRIC_3","Partie blog");
 define("ADM_ST_SEND","Enregistrer");
 define("OPT_LEFT_MENU","Menu à gauche");
 define("OPT_RIGHT_MENU","Menu à droite");
-define("OPT_LANGUAGE","Langue");
+define("OPT_LANGUAGE","Langue admin");
 define("OPT_FRENCH","Français");
 define("OPT_ENGLISH","English");
 define("OPT_GERMAN","Deutsch");
@@ -372,7 +372,7 @@ define("ADM_HD_SITE_NAME","Nom du site");
 define("ADM_HD_SITE_DESC","Slogan du site");
 
 define("ADM_SEO","SEO (Référencement)");
-define("SEO_TXT_2","<p>Ces deux champs n\'apparaissent pas vraiment sur votre site, ils ont juste pour but d\'optimiser votre référencement. Pour les connaisseurs en SEO, il s\'agit de la balise \"title\" et le la meta \"description\" par défaut.</p>");
+define("SEO_TXT_2","Ces deux champs n'apparaissent pas vraiment sur votre site, ils ont juste pour but d'optimiser votre référencement. Pour les connaisseurs en SEO, il s'agit de la balise \"title\" et le la meta \"description\" par défaut.");
 define("ADM_SEO_TITLE","Titre du site (SEO)");
 define("ADM_SEO_DESC","Description (SEO)"); 
 

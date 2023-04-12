@@ -126,7 +126,7 @@ $utilisateur->information($pdo, $_SESSION['login']);
 							      		$value['titre'] = substr($value['titre'], 0, 35)."...";
 							      		}
 						      		echo "<td>".$value['titre']."</td>";
-									echo "<td><a href='article-edit.php?id=".$value['ref']."'><i class='bi bi-pencil-square text-success'></i></a>";
+									echo "<td><a href='index.php?page=article-edit&id=".$value['ref']."'><i class='bi bi-pencil-square text-success'></i></a>";
 									echo "</td></tr>";
 									}             
 								?>                 	                 		

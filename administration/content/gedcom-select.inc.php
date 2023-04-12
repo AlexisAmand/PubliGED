@@ -34,10 +34,7 @@ $utilisateur->information($pdo, $_SESSION['login']);
                     <div class="input-group mb-3">
                       <input type="file" class="form-control" name="avatar">
                     </div>
-                    <div class="d-grid d-md-flex justify-content-md-end mt-3">
-                      <button type="submit" name="envoyer" class="btn btn-sm btn-secondary ms-3"><?php echo ADM_GED_SEND; ?></button>
-                    </div>
-                  </form>
+
 
                   <?php 
                   }
@@ -49,6 +46,12 @@ $utilisateur->information($pdo, $_SESSION['login']);
 
             </div>
           </div>
+
+                    <div class="d-grid d-md-flex justify-content-md-end mt-3">
+                      <button type="submit" name="envoyer" class="btn btn-sm btn-secondary ms-3"><?php echo ADM_GED_SEND; ?></button>
+                    </div>
+                  </form>
+
         </div>
     </div>
 

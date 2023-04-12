@@ -24,8 +24,7 @@ $utilisateur->information($pdo, $_SESSION['login']);
 
 						<?php
 
-						/* Pas sûr que l'utilisateur ait vraiment besoin de vider sa base de données */
-						/* On dirait que ça fait doublon avec la page database-del */
+						/* On regarde si c'est un admin, les redacteurs ne peuvent pas faire cette modifs */
 
 						if($utilisateur->rang == 'administrateur')
 							{

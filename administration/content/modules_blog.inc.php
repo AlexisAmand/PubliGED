@@ -34,22 +34,26 @@ $utilisateur->information($pdo, $_SESSION['login']);
                   <div class="col">
                     <div class="card m-3">
                       <div class="card-header">
-                      Les modules dispos
+                      Modules
                       </div>
                       <div class="card-body">
                         <div class="dropzone" id="colo1">
-                          <div id="draggable1" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
-                          Module 1
-                          </div>
-                          <div id="draggable2" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
-                          Module 2
-                          </div>
-                          <div id="draggable3" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
-                          Module 3
-                          </div>
-                          <div id="draggable4" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
-                          Module 4
-                          </div>
+
+                        <?php
+
+                        $sqlModule = "SELECT * FROM modules";
+                        $resModule = $pdo->prepare ($sqlModule);
+                        $resModule->execute ();
+
+                        while ($dataModule = $resModule->fetch(PDO::FETCH_ASSOC))
+                          {
+                            echo "<div id='".$dataModule['ref']."' class='draggable' draggable='true' ondragstart='event.dataTransfer.setData('text/plain',null)'>";
+                            echo $dataModule['description'];
+                            echo "</div>";
+                          }
+
+                        ?>
+
                         </div>
                       </div>
                     </div>
@@ -58,7 +62,7 @@ $utilisateur->information($pdo, $_SESSION['login']);
                   <div class="col">
                     <div class="m-3 card">
                       <div class="card-header">
-                      Le blog
+                      Blog
                       </div>
                       <div class="card-body">
                           <div class="dropzone" id="colo2"></div>
@@ -69,7 +73,18 @@ $utilisateur->information($pdo, $_SESSION['login']);
                   <div class="col">
                     <div class="m-3 card">
                       <div class="card-header">
-                      La généalogie
+                      Généalogie
+                      </div>
+                      <div class="card-body">
+                          <div class="dropzone" id="colo3"></div> 
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col">
+                    <div class="m-3 card">
+                      <div class="card-header">
+                      Blog et Généalogie
                       </div>
                       <div class="card-body">
                           <div class="dropzone" id="colo3"></div> 

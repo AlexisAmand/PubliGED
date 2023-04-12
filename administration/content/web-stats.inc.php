@@ -5,7 +5,7 @@ $utilisateur->information($pdo, $_SESSION['login']);
 
 <div class="container-fluid px-4">
 	
-	<h1 class="h3 mt-4"><?php echo HELLO." ".$utilisateur->login; ?>.</h1> >  
+	<h1 class="h3 mt-4"><?php echo HELLO." ".$utilisateur->login; ?>.</h1>
 	
 		<ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="index.php?page=main"><?php echo DASHBOARD; ?></a></li>

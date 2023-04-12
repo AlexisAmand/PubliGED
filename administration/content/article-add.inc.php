@@ -327,16 +327,17 @@ $utilisateur->information($pdo, $_SESSION['login']);
 
 						</div>
 	
-						<div class="d-grid d-md-flex justify-content-md-end mt-3">
-							<button type="submit" name="enregistrer" class="btn btn-sm btn-secondary"><?php echo ADM_ARTICLE_SAVE; ?></button>
-							<button type="submit" name="envoyer" class="btn btn-sm btn-secondary ms-3"><?php echo ADM_ARTICLE_PUBLISH; ?></button>
-						</div>
-
 					</div>
 
 				</div>
 
 				</form>
+
+				
+				<div class="d-grid d-md-flex justify-content-md-end mt-3">
+					<button type="submit" name="enregistrer" class="btn btn-sm btn-secondary"><?php echo ADM_ARTICLE_SAVE; ?></button>
+					<button type="submit" name="envoyer" class="btn btn-sm btn-secondary ms-3"><?php echo ADM_ARTICLE_PUBLISH; ?></button>
+				</div>
 
 			</div> 
 

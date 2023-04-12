@@ -55,7 +55,9 @@ if (isset($_POST['effacerGedcom']))
 						<p><?php echo GEDCOM_DEL_TXT;?></p>
 
 						<form method="POST" action="index.php?page=gedcom-del">
-						<button type="send" name="effacerGedcom" class="btn btn-primary"><?php echo GEDCOM_DEL_BTN;?></button>
+							<div class="d-grid d-md-flex justify-content-md-end mt-3">
+							<button type="send"  class="btn btn-sm btn-secondary" name="effacerGedcom" class="btn btn-primary"><?php echo GEDCOM_DEL_BTN;?></button>
+							</div>
 						</form>
 
 						<?php

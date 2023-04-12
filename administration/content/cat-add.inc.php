@@ -91,15 +91,16 @@ $utilisateur->information($pdo, $_SESSION['login']);
 							<span class="input-group-text"><?php echo "Description de la catégorie"; ?></span>
 							<input class="form-control" id="categorie" name='des_categorie'>
 						</div>
-						
-						<div class="d-grid d-md-flex justify-content-md-end mt-3">
-							<button type="submit" name="envoyer" class="btn btn-sm btn-secondary"><?php echo SEND; ?></button>
-						</div>
-						
+												
 					</form>
 				
 					</div>
 
+
+				</div>
+
+				<div class="d-grid d-md-flex justify-content-md-end mt-3">
+					<button type="submit" name="envoyer" class="btn btn-sm btn-secondary"><?php echo SEND; ?></button>
 				</div>
 
 			</div> 

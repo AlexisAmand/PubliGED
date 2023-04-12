@@ -30,10 +30,10 @@ Etant encore en phase de développement, certaines fonctionnalités ne sont pas 
 
 * Laragon 5.0.0
 * Apache 2.4.47
-* phpMyAdmin 5.1.1
-* Windows 10
+* phpMyAdmin 5.2
+* Windows 11
 * Eclipse IDE for PHP Developers 2021-09 (4.21.0)
-* Visual Studio Code 1.61.2
+* Visual Studio Code 1.69.2
 
 #### Langages utilisés
 

@@ -1,4 +1,12 @@
 <?php
+/* Mesurer le temps d'execution du script (partie 1) */
+$mtime = microtime();
+$mtime = explode(" ",$mtime);
+$mtime = $mtime[1] + $mtime[0];
+$starttime = $mtime;
+?>
+
+<?php
 /* TODO : pour le test, je compte le nombre de requête SQL */
 $nb_requetes_sql = 0;
 ?>
@@ -947,3 +955,13 @@ $nb_requetes_sql = 0;
 </div>
 
 <?php echo "nb requêtes SQL : ".$nb_requetes_sql; ?>
+
+<?php
+/* Mesurer le temps d'execution du script (partie 2) */
+$mtime = microtime();
+$mtime = explode(" ",$mtime);
+$mtime = $mtime[1] + $mtime[0];
+$endtime = $mtime;
+$totaltime = ($endtime - $starttime);
+echo 'Page générée en '.number_format($totaltime,4,',','').' s';
+?>

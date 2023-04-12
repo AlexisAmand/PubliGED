@@ -74,7 +74,7 @@ $utilisateur->information($pdo, $_SESSION['login']);
 																															
 									<div class="input-group input-group-sm mb-3">
 										<span class="input-group-text"><?php echo OPT_LANGUAGE; ?></span>
-										<select class="form-select" name="Optlangue">
+										<select class="form-select" name="">
 											<option value="fr" selected><?php echo OPT_FRENCH; ?></option>
 											<option value="en"><?php echo OPT_ENGLISH; ?></option>
 											<option value="ge"><?php echo OPT_GERMAN; ?></option>

@@ -9,7 +9,7 @@
 /* -------------------- */
 
 define("ADM_ONLINE_TOOLS","Ce formulaire utilise des ressources en ligne.");
-define("HELLO","Hola");
+define("HELLO","Bonjour GE");
 
 /* bandeau */
 
@@ -141,7 +141,7 @@ define("ADM_ARTICLE_PUBLISH","Publier");
 
 define("ADM_ARTICLE_SEO","Qqs options seo ?");
 define("ADM_ARTICLE_META_DESC","Méta description");
-define("ADM_ARTICLE_META_KEYW","Méta keywords");
+define("ADM_ARTICLE_META_KEY","Méta keywords");
 
 /* Edition d'un article */
 
@@ -226,6 +226,13 @@ define("ADM_COMM_CONFIRM_03","Etes-vous sûr de vouloir dépublier le commentair
 
 define("COMM_EDIT","Editer un commentaire");
 
+/* Publication d'un commentaire */
+
+define("COMM_NB", "Le commentaire n°");
+define("COMM_PUBLISHED"," a été publié.");
+define("COMM_UNPUBLISHED"," a été dépublié.");
+define("COMM_DELETED"," a été supprimé.");
+
 /* GESTION DE LA BASE DE DONNEES */
 /* ----------------------------- */
 
@@ -273,7 +280,7 @@ define("ADM_ST_RUBRIC_3","Partie blog");
 define("ADM_ST_SEND","Enregistrer");
 define("OPT_LEFT_MENU","Menu à gauche");
 define("OPT_RIGHT_MENU","Menu à droite");
-define("OPT_LANGUAGE","Langue");
+define("OPT_LANGUAGE","Langue admin");
 define("OPT_FRENCH","Français");
 define("OPT_ENGLISH","English");
 define("OPT_GERMAN","Deutsch");
@@ -326,12 +333,27 @@ define( "AFT","après");
 define( "EST","estimé");
 define( "WFT","estimé par World Family Tree");
 
+/* effacer un gedcom */
+
+define("GEDCOM_DEL_TXT","En cliquant sur ce bouton, votre gedcom sera effacé et les tables réinitialisées.");
+define("GEDCOM_DEL_BTN","Réinitialiser le gedcom");
+
 /* GESTION DES UTILISATEURS */
 /* ------------------------ */ 
 
 define("USERS_PSEUDO","Pseudo");
 define("USERS_EDIT","Editer");
 define("USERS_DEL","Supprimer");
+define("NO_ACCESS","Votre rôle ne vous permet pas d'accéder à cette page.");
+
+/* PROFIL DE L'UTILISATEUR */
+/* ----------------------- */
+
+define("USER_PROFIL_LOGIN","Login");
+define("USER_PROFIL_MAIL","Email");
+define("USER_PROFIL_PSW","Mot de passe");
+define("USER_PROFIL_ROLE","Rôle");
+define("USER_PROFIL_SEND","Enregistrer");
 
 /* PROFIL D'UN UTILISATEUR */
 /* ----------------------- */
@@ -350,9 +372,9 @@ define("ADM_HD_SITE_NAME","Nom du site");
 define("ADM_HD_SITE_DESC","Slogan du site");
 
 define("ADM_SEO","SEO (Référencement)");
-define("SEO_TXT_2","<p>Ces deux champs n\'apparaissent pas vraiment sur votre site, ils ont juste pour but d\'optimiser votre référencement. Pour les connaisseurs en SEO, il s\'agit de la balise \"title\" et le la meta \"description\" par défaut.</p>");
+define("SEO_TXT_2","Ces deux champs n'apparaissent pas vraiment sur votre site, ils ont juste pour but d'optimiser votre référencement. Pour les connaisseurs en SEO, il s'agit de la balise \"title\" et le la meta \"description\" par défaut.");
 define("ADM_SEO_TITLE","Titre du site (SEO)");
-define("ADM_SEO_DESC","Description (SEO)");
+define("ADM_SEO_DESC","Description (SEO)"); 
 
 define("SEO_SAVE","Enregistrer");
 
