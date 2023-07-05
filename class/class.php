@@ -775,13 +775,15 @@ class Lieu
 	public $continent;
 	}
 	
-class Source 
+class Sources 
 	{
 	public $ref;
 	public $titre;
 	public $nom;
 	public $origine;
 	public $media;
+
+	public function __construct() { }
 	}
 	
 class Medias 

@@ -240,11 +240,11 @@ $nb_requetes_sql = 0;
 									$sql = "INSERT INTO individus (ref, nom, surname, prenom, sex) VALUES (:ref, :nom, :surname, :prenom, :sex)";
 									$req = $pdo->prepare($sql);
 								
-									$req->bindparam (':ref', $individu->ref);
-									$req->bindparam (':nom', $individu->nom, PDO::PARAM_STR);
-									$req->bindparam (':surname', $individu->surname, PDO::PARAM_STR);
-									$req->bindparam (':prenom', $individu->prenom, PDO::PARAM_STR);
-									$req->bindparam (':sex', $individu->sexe, PDO::PARAM_STR);
+									$req->bindparam(':ref', $individu->ref);
+									$req->bindparam(':nom', $individu->nom, PDO::PARAM_STR);
+									$req->bindparam(':surname', $individu->surname, PDO::PARAM_STR);
+									$req->bindparam(':prenom', $individu->prenom, PDO::PARAM_STR);
+									$req->bindparam(':sex', $individu->sexe, PDO::PARAM_STR);
 
 									if(!$req->execute ())
 										{
@@ -261,15 +261,6 @@ $nb_requetes_sql = 0;
 									$exploderef = explode ( "@", $ligne );
 									$individu->ref = $exploderef [1];
 									}	
-
-								//$nb_individu = $nb_individu + 1;
-								//$exploderef = explode ( "@", $ligne );
-								//$individu->ref = $exploderef [1];
-								//$req = $pdo->prepare ( "INSERT INTO individus (ref) VALUES (:ref)" );
-								//$req->bindparam ( ':ref', $individu->ref );
-								//$req->execute ();
-
-								//$nb_requetes_sql++;
 								}
 								
 							/* Nom complet de l'individu */
@@ -278,12 +269,6 @@ $nb_requetes_sql = 0;
 								{
 								/* On retire le /1 NAME/ qui est au début de la chaine */
 								$individu->nom = implode(" ",array_slice(explode(" ",$ligne), 2));						
-								//$res = $pdo->prepare ( "UPDATE individus SET nom = :nom WHERE ref=:ref" );
-								//$res->bindparam ( ':nom', $individu->nom, PDO::PARAM_STR );
-								//$res->bindparam ( ':ref', $individu->ref, PDO::PARAM_STR );
-								//$res->execute ();
-
-								//$nb_requetes_sql++;
 								}
 								
 							/* nom de l'individu */
@@ -292,12 +277,6 @@ $nb_requetes_sql = 0;
 								{
 								/* On retire le /2 SURN/ qui est au début de la chaine */
 								$individu->surname = implode(" ",array_slice(explode(" ",$ligne), 2));
-								//$res = $pdo->prepare ( "UPDATE individus SET surname = :surname WHERE ref=:ref" );
-								//$res->bindparam ( ':surname', $individu->surname, PDO::PARAM_STR );
-								//$res->bindparam ( ':ref', $individu->ref, PDO::PARAM_STR );
-								//$res->execute ();
-
-								//$nb_requetes_sql++;
 								}
 								
 							/* Prénom de l'individu */
@@ -306,32 +285,14 @@ $nb_requetes_sql = 0;
 								{
 								/* On retire le /2 GIVN/ qui est au début de la chaine */
 								$individu->prenom = implode(" ",array_slice(explode(" ",$ligne), 2));
-								//$res = $pdo->prepare ( "UPDATE individus SET prenom = :prenom WHERE ref=:ref" );
-								//$res->bindparam ( ':prenom', $individu->prenom );
-								//$res->bindparam ( ':ref', $individu->ref );
-								//$res->execute ();
-
-								//$nb_requetes_sql++;
 								}
 								
 							/* Sexe de l'individu */
 								
 							if (preg_match ( "/1 SEX/", $ligne )) 
 								{
-								
-								/*	
-								$partie = explode ( " ", $ligne );
-								$individu->sexe = $partie [2];
-								*/
-
 								/* On retire le /1 SEX/ qui est au début de la chaine */
 								$individu->sexe = implode(" ",array_slice(explode(" ",$ligne), 2));
-								//$res = $pdo->prepare ( "UPDATE individus SET sex = :sex WHERE ref=:ref" );
-								//$res->bindparam ( ':sex', $individu->sexe );
-								//$res->bindparam ( ':ref', $individu->ref );
-								//$res->execute ();
-
-								//$nb_requetes_sql++;
 								}
 								
 							/* -------------------- */
@@ -526,16 +487,15 @@ $nb_requetes_sql = 0;
 										// l'objet existe -> on le détruit, car on va en créer un nouveau
 										// SQL pour mettre l'évenement dans la base de données
 
-										$sql = "INSERT INTO evenements (n_eve, n_indi, evenement, date, lieu, nom, type) VALUES (:n_eve, :indiv, :eve, :date, :lieu, :nom, :type )";
+										$sql = "INSERT INTO evenements (n_eve, n_indi, evenement, date, lieu, source, nom, type) VALUES (:n_eve, :indiv, :eve, :date, :lieu, :source, :nom, :type )";
 										$req = $pdo->prepare($sql);		
-										
-										echo "lieu au moment du sql: ".$evenement->place."<br />";	
 
 										$req->bindValue ( ':n_eve', $nb_eve, PDO::PARAM_INT );		
 										$req->bindValue ( ':indiv', $individu->ref);
 										$req->bindValue ( ':nom', $evenement->nom, PDO::PARAM_STR );
 										$req->bindValue ( ':type', $evenement->type, PDO::PARAM_STR );
 										$req->bindValue ( ':lieu', $evenement->place);	
+										$req->bindValue ( ':source', $evenement->source);
 										$req->bindValue ( ':eve', $nb_eve, PDO::PARAM_INT );
 										$req->bindValue ( ':date', $evenement->date, PDO::PARAM_STR );
 										
@@ -604,21 +564,13 @@ $nb_requetes_sql = 0;
 								$evenement->date = str_replace ( "EST", EST, $evenement->date );
 								$evenement->date = str_replace ( "WFT", WFT, $evenement->date );
 								}
-
-
-
-
-
-								
+							
 							/* type d'événement - (sorte de détails et complément d'info) */
 							
 							if (preg_match ( "/2 TYPE/", $ligne )) 
 								{
 								/* On retire le /2 TYPE/ qui est au début de la chaine */
 								$evenement->type = implode(" ",array_slice(explode(" ",$ligne), 2));
-								
-								
-
 								}
 					
 							/* lieu de l'événement */
@@ -650,21 +602,16 @@ $nb_requetes_sql = 0;
 
 								if (!$count==0)
 									{
-									echo "Le lieu est dans la BD ! <br />";
-
 									// On récupére la ref du lieu qui est déjà là
 									// $evenement->place prend la valeur de cette ref
 
 									while($row=$req->fetch())
 										{
 										$evenement->place = $row['ref'];	
-										echo "pas nouveau: ".$evenement->place."<br />";	
 										}
 									}
 								else 
 									{
-									echo "Le lieu n'est pas dans la BD ! <br />";
-
 									// On crée le nouveau lieu dans la table "lieux"
 
 									$sql = "INSERT INTO lieux(ville, cp, dep, region, pays, continent) VALUES (:ville, :cp, :dep, :region, :pays, :continent)";
@@ -687,7 +634,6 @@ $nb_requetes_sql = 0;
 									// $evenement->place prend la valeur de cette ref
 
 									$evenement->place = $nb_lieu;	
-									echo "nouveau: ".$evenement->place."<br />";
 									}
 
 																				
@@ -759,28 +705,54 @@ $nb_requetes_sql = 0;
 							/* source de l'événement en cours */
 								
 							if (preg_match ( "/2 SOUR/", $ligne )) 
-								{
+								{	
 								$source = explode ( "@", $ligne );
 								$evenement->source = $source [1];
-								$req = "UPDATE evenements SET source = '$evenement->source' WHERE n_indi='$individu->ref' and n_eve='$nb_eve'";
-								$resultat = $pdo->exec ( $req );
-
-								$nb_requetes_sql++;
 								}
 								
 							/* SOUR : nouvelle source */
 							
 							if (preg_match ( "/@ SOUR/", $ligne )) 
 								{
-								$source = new source ();
-								$nb_source = $nb_source + 1;
-								$sourcetab = explode ( "@", $ligne );
-								$source->ref = $sourcetab [1];
-								$stmt = $pdo->prepare ( "INSERT INTO sources (ref) VALUES (:ref)" );
-								$stmt->bindParam ( ':ref', $source->ref, PDO::PARAM_STR );
-								$stmt->execute ();
 
-								$nb_requetes_sql++;
+								if(!isset($source))
+									{
+									// l'objet n'existe pas -> on crée une source
+									$source = new Sources();
+									$nb_source = $nb_source + 1;
+									$sourcetab = explode ( "@", $ligne );
+									$source->ref = $sourcetab[1];									
+									}
+								else
+									{
+									// l'objet existe -> on le détruit, car on va en créer un nouveau
+									// SQL pour mettre la source dans la base de données
+
+									$sql = "INSERT INTO sources (ref, titre, nom, source) VALUES (:ref, :titre, :nom, :source)";											
+									$req = $pdo->prepare($sql);
+
+									$req->bindparam(':ref', $source->ref);
+									$req->bindparam (':titre', $source->titre);
+									$req->bindparam (':nom', $source->nom);
+									$req->bindParam (':source', $source->origine, PDO::PARAM_STR );
+									
+									if(!$req->execute ())
+											{
+											echo "Erreur : ".$req->errorInfo();	
+											}
+									
+									$nb_requetes_sql++;
+
+									// on efface l'objet
+									$source = NULL;
+
+									// l'objet n'existe plus -> on crée une source
+									$source = new sources();
+									$nb_source = $nb_source + 1;
+									$sourcetab = explode ( "@", $ligne );
+									$source->ref = $sourcetab [1];
+									}
+
 								}
 							
 							/* TITL : Titre de la source */
@@ -790,12 +762,6 @@ $nb_requetes_sql = 0;
 								$TabTitreSource = explode ( " ", $ligne );
 								$TabTitreSourceLong = count ( $TabTitreSource );
 								$source->titre = implode ( " ", array_splice ( $TabTitreSource, $TabTitreSourceLong - ($TabTitreSourceLong - 2), $TabTitreSourceLong ) );
-								$stmt = $pdo->prepare ( "UPDATE sources SET titre = :titre WHERE ref = :nb_source " );
-								$stmt->bindParam ( ':titre', $source->titre, PDO::PARAM_STR );
-								$stmt->bindParam ( ':nb_source', $source->ref, PDO::PARAM_INT );
-								$stmt->execute ();
-
-								$nb_requetes_sql++;
 								}
 							
 							/* ABBR : Nom de la source */
@@ -805,12 +771,6 @@ $nb_requetes_sql = 0;
 								$TabNomSource = explode ( " ", $ligne );
 								$TabNomSourceLong = count ( $TabNomSource );
 								$source->nom = implode ( " ", array_splice ( $TabNomSource, $TabNomSourceLong - ($TabNomSourceLong - 2), $TabNomSourceLong ) );
-								$stmt = $pdo->prepare ( "UPDATE sources SET nom = :nom WHERE ref = :nb_source " );
-								$stmt->bindParam ( ':nom', $source->nom, PDO::PARAM_STR );
-								$stmt->bindParam ( ':nb_source', $source->ref, PDO::PARAM_INT );
-								$stmt->execute ();
-
-								$nb_requetes_sql++;
 								}
 							
 							/* REPO : Origine de la source */
@@ -820,12 +780,6 @@ $nb_requetes_sql = 0;
 								$TabSourceSource = explode ( " ", $ligne );
 								$TabSourceSourceLong = count ( $TabSourceSource );
 								$source->origine = implode ( " ", array_splice ( $TabSourceSource, $TabSourceSourceLong - ($TabSourceSourceLong - 2), $TabSourceSourceLong ) );
-								$stmt = $pdo->prepare ( "UPDATE sources SET source = :source WHERE ref = :nb_source " );
-								$stmt->bindParam ( ':source', $source->origine, PDO::PARAM_STR );
-								$stmt->bindParam ( ':nb_source', $source->ref, PDO::PARAM_STR );
-								$stmt->execute ();
-
-								$nb_requetes_sql++;
 								}
 							
 							/* OBJE : media de la source */
