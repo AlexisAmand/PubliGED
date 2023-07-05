@@ -761,6 +761,8 @@ class Evenement
 	public $place;
 	public $source;
 	public $note;
+
+	public function __construct() { }	
 	}
 	
 class Lieu 
